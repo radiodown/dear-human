@@ -50,6 +50,7 @@
 | [22. 총기별 재장전](docs/22-weapon-reloading.md) | 탄창·예비탄·장전 시간·일반/빈 장전·손 IK·분리 탄창·검수 |
 | [23. 주인공 외형 검토](docs/23-character-appearance-review.md) | 새 외형 채택·이전 자료 삭제·원화·프롬프트·참고 JSON |
 | [24. 파츠 모션 시험](docs/24-motion-rig-test.md) | 자체 WebGL 리그·모션·장전 초안·검사 수치·캡처·도구 판단 |
+| [25. 인체 모션 자료 조사](docs/25-human-motion-research.md) | 실제 모션캡처 데이터·이용 조건·발 접지·전환 연구·현재 2D 리그 도입안 |
 
 ## 읽는 방법
 

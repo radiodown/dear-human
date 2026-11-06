@@ -25,6 +25,7 @@
 - [Spine 에디션 비교](https://esotericsoftware.com/spine-purchase): 메시·물리 제약을 사용할 때의 에디션 선택.
 - [Live2D Cubism Web SDK](https://www.live2d.com/en/sdk/download/web/), [물리 설정](https://docs.live2d.com/en/cubism-editor-manual/physics-operation/): 일러스트 변형 대안.
 - [Aseprite 시트](https://www.aseprite.org/docs/sprite-sheet/), [Krita 레이어·마스크](https://docs.krita.org/en/reference_manual/layers_and_masks.html): 보정·분리 원본 작업.
+- [25. 인체 모션 데이터·연구 조사](25-human-motion-research.md): 100STYLE·CMU·Mixamo 등 공식 출처와 이용 조건, 발 접지·관성화·Motion Matching의 현재 2D 리그 도입안. 데이터 이식·품질 검증은 후속이다.
 
 ## 3. 전투 효과
 
