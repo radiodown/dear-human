@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "asset_id": "clone_01/motion/retarget_001",
+  "status": "draft_awaiting_user_review",
+  "created_on": "2026-11-06",
+  "inputs": {
+    "motion_source": "art/characters/clone_01/motion/mocap_100style_001 (100STYLE Neutral ID/FW/TR1, CC BY 4.0, unmodified)",
+    "rig": "art/characters/clone_01/motion/rig_002 (parts, rig-core, gait, proportions, webgl-character; files not modified)"
+  },
+  "method": {
+    "projection": "plane of the smoothed pelvis heading (circular mean, ±30 frames) viewed at an adjustable camera yaw: 0° = side view from the character's right, 90° = front; screen axis R = F·cosθ + L·sinθ; ground travel scaled by cosθ. Default 0°; the approved art is a 3/4 view, so the user is choosing the matching angle",
+    "scale": "rig leg length (thigh 66 + shin 90 px) / BVH leg length (hip→knee→ankle) = 1.794 px/cm",
+    "pelvis": "when a flat foot is planted, pelvis height is chosen so the FK leg (mocap angles, rig lengths) reaches that foot; otherwise BVH hip height × scale + rig ankle height; lowered only if an IK foot is out of reach",
+    "torso": "Hips→Neck sagittal lean minus rest-pose lean, clamped ±0.3 rad, plus existing recoil term",
+    "feet": "pitch from ankle→ball vector (3D horizontal length, toe-out compensated); heel pivot when dorsiflexed, toe pivot when plantarflexed; clearance = min(ankle, ball) height above ground; rig footPose geometry",
+    "foot_lock": "contact = clearance < 1.5 cm and |pitch| < 0.35 rad; pivot world X locked during contact, released with 0.7/frame decay, offset ≤ 6 cm",
+    "legs": "angle-based (2026-11-06 revision): sagittal thigh/shin angles from the mocap drive rig segments by FK (rig lengths 66/90 kept); during ground contact the angles blend toward the 2-bone IK solution to the locked foot; layer 0 (far) = Left, layer 1 (near) = Right",
+    "upper_body": "existing CharacterRig weapon mount, grips and arm IK rigidly re-based onto the mocap torso (IK is invariant under rigid transforms)",
+    "blend": "weight 1 on contact frames; ramps to 0 over 6 frames from frames with clearance < 1.5 cm; reduced by foot pitch 0.25→0.75 rad (toe roll follows FK because the rig boot is shorter than a human foot); FK that would sink the boot is re-solved by IK lifted to the floor"
+  },
+  "measurements_trimmed_ranges": {
+    "ik_error_max_px": {
+      "ID": 0,
+      "FW": 0,
+      "TR1": 0
+    },
+    "feet_below_floor": "none",
+    "pelvis_y_px": {
+      "ID": [
+        -175.5,
+        -175.4
+      ],
+      "FW": [
+        -177.2,
+        -161.0
+      ],
+      "TR1": [
+        -191.5,
+        -150.8
+      ]
+    },
+    "torso_lean_deg": {
+      "ID": [
+        -1.7,
+        1.2
+      ],
+      "FW": [
+        -3.7,
+        9.2
+      ],
+      "TR1": [
+        -2.2,
+        17.2
+      ]
+    },
+    "planted_slide_px_per_s_p50_p90_p99": {
+      "FW_without_lock": [
+        7.6,
+        46.2,
+        99.4
+      ],
+      "FW_with_lock": [
+        0.0,
+        8.0,
+        64.8
+      ],
+      "TR1_without_lock": [
+        10.4,
+        44.0,
+        126.7
+      ],
+      "TR1_with_lock": [
+        0.0,
+        0.0,
+        59.2
+      ]
+    },
+    "grip_error_px": "< 0.01 while retargeted and firing (test)"
+  },
+  "tools": {
+    "retarget": "game/animation/mocap-retarget.js",
+    "viewer": "game/mocap-lab.js",
+    "tests": "tools/tests/mocap-retarget.test.mjs"
+  },
+  "cost_usd": 0,
+  "manual_time_minutes": null,
+  "known_limits": [
+    "lateral (depth) motion is discarded; TR1 sidesteps/turns project with foreshortening",
+    "BVH foot (≈25 cm) is longer than the rig boot; contact uses heel/ball pivots, so toe placement is approximate",
+    "neutral walk arm swing is not used; arms stay on the rifle",
+    "pelvis rotation, head bob from mocap and knee depth ordering are not retargeted",
+    "not yet connected to a game scene or to rig-lab's own motion buttons"
+  ],
+  "revision_reason": "user reported the rig moving differently from the skeleton; diagnosis: thigh:shin ratio differs (human ≈1:1, rig 66:90 from the approved art) so ankle-position IK produced different knee angles (FW knee flex range 0–64° vs rig 9–49°, corr 0.65)",
+  "angle_match_after": {
+    "100STYLE_FW_1200_1400": {
+      "knee_flex_range_deg": {
+        "bvh": [
+          0,
+          64
+        ],
+        "rig_before": [
+          9,
+          49
+        ],
+        "rig_after": [
+          0,
+          64
+        ]
+      },
+      "knee_corr_before": [
+        0.65,
+        0.65
+      ],
+      "knee_corr_after": [
+        0.92,
+        0.9
+      ],
+      "knee_mean_abs_deg_before": [
+        13.9,
+        10.5
+      ],
+      "knee_mean_abs_deg_after": [
+        5.0,
+        4.8
+      ],
+      "shin_corr_after": [
+        0.99,
+        0.98
+      ]
+    },
+    "UAL_Walk_Loop": {
+      "knee_corr_after": [
+        0.97,
+        0.98
+      ],
+      "shin_mean_abs_deg_after": [
+        2.6,
+        2.0
+      ]
+    },
+    "remaining": "toe-roll frames still bend ~10° less than mocap; swing foot reaches ~9 px further back because the rig shin is longer"
+  }
+}

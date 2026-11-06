@@ -281,12 +281,215 @@
           ],
           "motion_iteration": "gait_003",
           "review_report": "art/characters/clone_01/motion/rig_002/reviews/gait_003/review.json"
+        },
+        {
+          "revision_id": "mocap_100style_001",
+          "display_name": "모캡 참고 · 100STYLE Neutral BVH",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "bvh_parse_fk_sha256_tests",
+          "art_direction_status": "reference_only",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/mocap_100style_001/records/source.json",
+              "sha256": "eb48028e86e9771c8bd764c45f4b78773ee1d62427e213ec7c2bf6377b3813e8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_100style_001/records/source.md",
+              "sha256": "446e9eb6b754e6faafce76e75e553640e74e984a7dc1e614cc2a4fbbb9caf9c5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_100style_001/source/Frame_Cuts.csv",
+              "sha256": "e3c1d2beab6486e083622cef6a5402fe9b20edc75a9963ea30675c67ec29ee82"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_100style_001/source/Neutral_FW.bvh",
+              "sha256": "2f28800baa299547c42c257d1c926172542a1e69b46a3d3e6aa0aded0e9b40f6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_100style_001/source/Neutral_ID.bvh",
+              "sha256": "71aead2e3246bdb47a5b839cb3e60e0574e9a1a046c071cc147e2922a35f259f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_100style_001/source/Neutral_TR1.bvh",
+              "sha256": "11e5f654daae97e3cc80432a7a89965749337b32571cad6ad71a1d1e6e8ff746"
+            },
+            {
+              "path": "game/animation/bvh.js",
+              "sha256": "a1beb24117ebd15d747e425a4e52cf4019135d92afc03f495ea729bb91b978f2"
+            },
+            {
+              "path": "tools/tests/bvh.test.mjs",
+              "sha256": "9a49864b7aa144e7cce1c2fd17981dfe08c082868f7a15da7c57fa853a26ad1a"
+            }
+          ],
+          "dependencies": [],
+          "description": "100STYLE Neutral 대기·전진 보행·전환 BVH 원본과 파서입니다. CC BY 4.0 · 원본 변경 없음. 2D 투영 뷰어와 리타겟은 retarget_001에서 사용합니다.",
+          "preview": {
+            "type": "mocap_reference",
+            "sample_url": "#/samples/characters/clone_01?view=mocap&clip=FW"
+          },
+          "source_record": "art/characters/clone_01/motion/mocap_100style_001/records/source.json",
+          "license": "CC BY 4.0",
+          "motions": [
+            "idle",
+            "forward_walk",
+            "transitions"
+          ]
+        },
+        {
+          "revision_id": "retarget_001",
+          "display_name": "모캡 리타겟 · 각도 기반 하체 + 무기 IK 상체",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "retarget_reach_floor_footlock_grip_tests_and_page_capture",
+          "art_direction_status": "awaiting_motion_review",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/retarget_001/records/retarget.json",
+              "sha256": "d2b37bb622dccbed87fb892cebf9bc5218e74e6ad97a3c96fb60254c2a6c7727"
+            },
+            {
+              "path": "game/animation/mocap-retarget.js",
+              "sha256": "d708198994cf98f45d5e3b46021c0e64b2c37d69aac845c4f84983227b4bcc47"
+            },
+            {
+              "path": "tools/tests/mocap-retarget.test.mjs",
+              "sha256": "14e3eec60c98f7caa5a8c415571b87a17f0c19a7d1661ab6d95cc737cc0f8f00"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "mocap_100style_001"
+            },
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "rig_002"
+            }
+          ],
+          "description": "모캡의 허벅지·정강이 각도를 리그 다리에 FK로 옮기고, 발이 닿는 동안만 바닥 IK·발 고정과 섞습니다. 몸통 기울기·발 각도 포함, 무기 장착·양팔 IK는 rig_002 유지. 사용자 검수 전 초안입니다.",
+          "preview": {
+            "type": "parts_rig_retarget",
+            "sample_url": "#/samples/characters/clone_01?view=mocap&clip=FW"
+          },
+          "review_report": "art/characters/clone_01/motion/retarget_001/records/retarget.json",
+          "motions": [
+            "idle",
+            "forward_walk",
+            "transitions"
+          ]
+        },
+        {
+          "revision_id": "import_001",
+          "display_name": "모션 가져오기 · BVH/glTF/GLB",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "gltf_bvh_cross_check_tests_quaternius_ual_glb_and_page_file_input_check",
+          "art_direction_status": "tooling",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/import_001/records/formats.json",
+              "sha256": "597abfb6833927bd80ab5df869e350dc59d76538c9b0679d692cc94f3356014f"
+            },
+            {
+              "path": "game/animation/gltf-motion.js",
+              "sha256": "c0f56acf065d137d021a2dc99a7045087b6d5d9d572a94f19ac00e57c4724b8b"
+            },
+            {
+              "path": "game/animation/skeleton.js",
+              "sha256": "ffa48b25b9794584764f9743f872ab95e514049c7ffdcbcb88329ddba33de922"
+            },
+            {
+              "path": "game/animation/motion-import.js",
+              "sha256": "d9c4988756244bad9bb0ac1ab6f43f2ffeb5a86ca855378d64c7433bf1999adb"
+            },
+            {
+              "path": "game/mocap-lab.js",
+              "sha256": "c2517e7f2dc5f846ed2ca0b5d6d7e6ddfdafd15f35596dcf855e60ffc9e0434f"
+            },
+            {
+              "path": "tools/tests/gltf-motion.test.mjs",
+              "sha256": "7a3d40bc41be7beb3feae29af833dfff690f837a699fcc0db139f01ca4ef24f5"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "mocap_100style_001"
+            },
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "retarget_001"
+            }
+          ],
+          "description": "BVH·glTF·GLB 모션을 같은 형식으로 읽어 모캡 비교·리타겟에 연결합니다. Mixamo 등 관절 이름 자동 대응, 단위 자동 판별. 사용자 파일은 브라우저에서만 읽습니다.",
+          "preview": {
+            "type": "motion_import",
+            "sample_url": "#/samples/characters/clone_01?view=mocap&clip=FW"
+          },
+          "review_report": "art/characters/clone_01/motion/import_001/records/formats.json"
+        },
+        {
+          "revision_id": "mocap_ual_001",
+          "display_name": "모캡 참고 · Quaternius UAL 루트 이동 GLB",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "sha256_gltf_import_and_walk_retarget_test",
+          "art_direction_status": "reference_only",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/mocap_ual_001/source/UAL1_Standard_RM.glb",
+              "sha256": "be684571ed655a1b892c2c07e6e2aeca053b606c442d34004adaf1d944090d01"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_ual_001/source/License.txt",
+              "sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_ual_001/source/README.txt",
+              "sha256": "ccd02718886b5a57f10f0a8911a38cfe10c36880e1d6dfa3445923fba32d2a72"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_ual_001/records/source.json",
+              "sha256": "cd6dabf16cff6dd577385f5b352f1ee98e67f64e1b96e7ba7645ea5db4f3c9be"
+            },
+            {
+              "path": "art/characters/clone_01/motion/mocap_ual_001/records/source.md",
+              "sha256": "012ca410254db7663a5d03d75b674592c0c9340f0b13b82e17b1c236c3294a81"
+            },
+            {
+              "path": "tools/tests/gltf-motion.test.mjs",
+              "sha256": "7a3d40bc41be7beb3feae29af833dfff690f837a699fcc0db139f01ca4ef24f5"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "import_001"
+            }
+          ],
+          "description": "Quaternius Universal Animation Library [Standard]의 루트 이동 GLB(애니메이션 43개)입니다. CC0 · 원본 변경 없음. 모캡 비교 화면의 파일 열기로 확인하며 아직 채택 전입니다.",
+          "preview": {
+            "type": "mocap_reference",
+            "sample_url": "#/samples/characters/clone_01?view=mocap"
+          },
+          "source_record": "art/characters/clone_01/motion/mocap_ual_001/records/source.json",
+          "license": "CC0 1.0"
         }
       ],
       "capabilities": [
         "concept_image",
         "parts_atlas",
-        "webgl_rig"
+        "webgl_rig",
+        "mocap_reference",
+        "mocap_retarget",
+        "motion_import_gltf"
       ],
       "motions": [
         "idle",

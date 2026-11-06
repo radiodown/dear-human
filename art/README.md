@@ -4,6 +4,10 @@
 
 - characters/clone_01/concepts/reference_003_3d: 채택 원화, 제출 영어 JSON/MD, 사용자 참고 JSON/MD, 생성·채택 기록.
 - characters/clone_01/motion/rig_002: 새 파츠 아틀라스, UV·재질 정의, 제출 프롬프트·생성 기록, 시뮬레이션 수치와 실제 웹 화면 캡처.
+- characters/clone_01/motion/mocap_100style_001: 100STYLE Neutral BVH(ID/FW/TR1) 원본과 출처·CC BY 4.0 기록. 리타겟 전 참고 모션이다.
+- characters/clone_01/motion/retarget_001: BVH 하체를 rig_002에 리타겟한 초안의 방법·측정 기록. 사용자 검수 전이다.
+- characters/clone_01/motion/import_001: BVH·glTF·GLB 가져오기 지원 범위와 검사 기록.
+- characters/clone_01/motion/mocap_ual_001: Quaternius Universal Animation Library 루트 이동 GLB(CC0, 애니메이션 43개) 원본과 출처 기록. 채택 전 참고 모션이다.
 - weapons/m16_basic/rig_002: 독립 M16 본체/탄창 아틀라스, 실제 사용 데이터의 JSON 스냅샷, 제출 프롬프트·생성 기록.
 
 [채택 원화](characters/clone_01/concepts/reference_003_3d/source/appearance.png) · [사용자 참고 JSON MD](characters/clone_01/concepts/reference_003_3d/records/user_reference.md) · [파츠 원본](characters/clone_01/motion/rig_002/source/parts_atlas.png) · [파츠 프롬프트 MD](characters/clone_01/motion/rig_002/records/prompt.md) · [M16 원본](weapons/m16_basic/rig_002/source/weapon_atlas.png) · [무기 프롬프트 MD](weapons/m16_basic/rig_002/records/prompt.md).

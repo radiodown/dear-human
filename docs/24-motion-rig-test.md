@@ -96,3 +96,48 @@ python tools/agent_pipeline.py --root . catalog-check
 현재 모션 검사는 14개다. 양 무릎 방향·발바닥의 지면 관통·보행 중 다리 도달 거리·접지 발의 월드 미끄러짐·정지 시 연속성·반동 첫 틱 방향/총구 상승/복원·원화 등신과 관절 기준·원본 종횡비·손바닥 접점 검사를 추가했다. 기존 파이프라인 검사 14개와 합해 28개가 통과했다. 수학적 통과와 최종 시각적 자연스러움은 구분하며, 같은 전경/후경 그림과 한 종류의 주먹을 재사용하는 원화 한계는 남아 있다.
 
 보행 설계는 [Animation Mentor의 사람 보행 키포즈](https://www.animationmentor.com/blog/tutorial-animating-human-walk-cycle/), 리그 분리는 [Spineboy의 골반·발 IK](https://esotericsoftware.com/spine-examples-spineboy)를 참고했다. 이번에도 Spine 편집기·런타임을 사용한 결과는 아니다. 웹의 대기·접지·통과·사격 시점은 로컬 Chrome으로 정지 캡처해 비교하며 새 GIF를 검수 수단으로 추가하지 않는다.
+
+## 8. 100STYLE BVH 모캡 비교 뷰어 (시험 브랜치 test/bvh-motion-import)
+
+현재 보행이 어색하다는 사용자 피드백에 따라 [25](25-human-motion-research.md)에서 추천한 100STYLE Neutral의 `ID`, `FW`, `TR1` 세 클립을 [mocap_100style_001](../art/characters/clone_01/motion/mocap_100style_001/records/source.md)에 원본 그대로 보관했다. 같은 캐릭터 페이지에 **모캡 비교** 탭을 추가했다.
+
+- 진입점: [모캡 비교 · 전진 보행](http://127.0.0.1:4173/#/samples/characters/clone_01?view=mocap&clip=FW). URL에는 `clip=ID|FW|TR1`, `frame=<번호>`, `paused=1`을 쓸 수 있다.
+- 공통 코드: [BVH 읽기·순운동학](../game/animation/bvh.js)과 [뷰어](../game/mocap-lab.js). rig_002 카탈로그가 `rig-lab.js`의 해시를 고정하고 있어서 그 파일은 수정하지 않았다.
+- 표시: 왼쪽 화면은 BVH 뼈대를 측면 또는 정면으로 투영한다. 진행 방향 정렬(골반 yaw의 ±0.5초 원형 평균), 제자리 카메라와 50cm 지면 눈금, Frame_Cuts 유효 구간, 높이·속도 기준의 접지 추정, 관절 이름을 켜고 끌 수 있다. 오른쪽 화면은 기존 rig_002의 절차 보행이며 BVH와 연결되지 않았다. 두 화면의 타이밍도 맞추지 않았다.
+- 검사: 합성 BVH의 순운동학·회전 순서·오류 입력 테스트와 실제 세 클립의 해시·프레임 수·관절 구성 테스트 5개를 추가했다. Node 19개와 Python 14개 테스트, catalog-check가 통과했다. 헤드리스 Chrome으로 FW 1200 프레임과 ID 900 프레임의 정지 화면을 캡처해 확인했다. 실제 클릭 조작 검수는 하지 않았다.
+- 남은 작업: rig_002 리타겟(측면 투영, 길이 보정, 발 고정 IK, 상체는 무기 IK 유지), Frame_Cuts가 0부터 세는지 1부터 세는지 확인, 접지 추정 검증, 사용자의 클립 품질 검수.
+
+## 9. BVH → rig_002 리타겟 초안 (retarget_001)
+
+모캡 비교 화면의 오른쪽 기본값을 **리타겟 리그**로 바꿨다. 이 리그는 왼쪽 BVH와 같은 프레임으로 움직인다. 기존 절차 보행은 선택 메뉴에서 다시 볼 수 있다. 진입점은 [모캡 비교](http://127.0.0.1:4173/#/samples/characters/clone_01?view=mocap&clip=FW)다.
+
+- 코드: [mocap-retarget.js](../game/animation/mocap-retarget.js). `CharacterRig`를 상속한 `MocapRig`가 rig_002 렌더러에 같은 형식의 pose를 넘긴다. rig_002의 해시 파일은 수정하지 않았다.
+- 하체: 배율은 다리 길이 기준 1.794px/cm다. 골반 높이는 BVH 값을 따르되, 발이 닿지 않으면 골반을 낮춘다. 몸통 기울기는 Hips→Neck 벡터로 정한다. 발 각도는 발목→볼 벡터의 pitch이고, 발등을 들면 뒤꿈치, 발끝을 내리면 볼을 피벗으로 쓴다. 다리는 기존 2본 IK로 푼다.
+- 상체: 기존 무기 장착점, 손잡이, 양팔 IK 결과를 새 몸통 좌표로 강체 이동한다. 손잡이 오차는 0을 유지하고, 연사와 반동도 그대로 동작한다.
+- 발 고정: 접지 구간에서 피벗의 월드 위치를 고정하고 최대 6cm까지만 보정한다. FW 디딤발 미끄러짐은 중앙값 7.6→0px/s, 상위 10% 46→8px/s로 줄었다.
+- 검사: 리타겟 테스트 6개(세 클립의 도달·바닥 관통·골반 범위, 발 고정, 손잡이·pose 형식, 임의 프레임 결정성)를 추가했다. Node 25개가 통과했다. 측정값과 방법은 [retarget.json](../art/characters/clone_01/motion/retarget_001/records/retarget.json)에 기록했다.
+- 한계: 측면 투영이라 옆걸음과 회전은 짧아 보인다. BVH 발이 리그 부츠보다 길다. 걷기 팔 흔들기, 골반 회전, 머리 흔들림은 쓰지 않는다. 게임 씬과 파츠 모션 테스트 탭에는 아직 연결하지 않았다. 사용자 검수 전이다.
+
+## 10. glTF/GLB 모션 가져오기 (import_001)
+
+모캡 비교 화면에 **BVH · GLB · glTF 열기**를 추가했다. 연 파일은 "사용자 파일" 클립으로 왼쪽 뼈대와 오른쪽 리타겟 리그에 함께 적용된다. 파일은 브라우저에서만 읽고, 프로젝트에 저장하거나 업로드하지 않는다.
+
+- 코드: [gltf-motion.js](../game/animation/gltf-motion.js)(GLB 청크, accessor, LINEAR/STEP/CUBICSPLINE 샘플링, 60fps로 다시 샘플링), [skeleton.js](../game/animation/skeleton.js)(Mixamo·Blender·VRM 관절 이름을 표준 이름으로 대응, 손가락 제거, 발끝 끝점 보충), [motion-import.js](../game/animation/motion-import.js)(확장자별 진입점). BVH도 같은 경로를 거친다.
+- 단위는 다리 길이로 m/cm/mm를 판별한다. Armature 같은 상위 노드의 scale과 rotation도 반영한다. 애니메이션이 여러 개면 선택 메뉴가 나온다. `.gltf`는 외부 `.bin`을 함께 선택해야 한다.
+- 검사: 100STYLE FW를 Mixamo 이름, Armature scale 0.01(m 단위), 프레임별 quaternion을 쓴 GLB로 바꿔 읽으면 BVH와 0.05cm 이내로 같은 위치가 나온다. 외부 .bin, 발끝 끝점이 없는 파일, 보간 방식, 오류 메시지 테스트를 포함해 5개를 추가했다. Node 테스트 30개가 통과했다. 데스크톱 브라우저 패널의 파일 입력으로 생성한 GLB를 열어 리타겟(IK 오차 0)까지 확인했다. 형식과 한계는 [formats.json](../art/characters/clone_01/motion/import_001/records/formats.json)에 기록했다.
+- 한계: 실제 Mixamo 내보내기 같은 외부 GLB는 아직 시험하지 않았다. FBX는 Blender에서 GLB로 바꿔야 한다. sparse accessor는 지원하지 않는다. 채택할 원본은 mocap_100style_001처럼 `art/` 아래에 기록과 함께 보관해야 한다.
+- 외부 GLB 시험(2026-11-06): 사용자가 받은 Quaternius **Universal Animation Library [Standard]**(CC0)의 `UAL1_Standard.glb`(제자리)와 `_RM.glb`(루트 이동)를 읽었다. 관절은 65개, 애니메이션은 43개다. Unreal 마네킹식 이름(`pelvis`, `thigh_l`, `calf_l`, `ball_leaf_l`, `neck_01`)을 대응표에 추가했고, Hips 위의 `root`는 제외한다. 제자리 클립은 디딤발이 뒤로 밀리는 속도로 진행량을 역산한다(Walk_Loop 92cm/s, 같은 동작의 루트 이동 97cm/s). Idle, Walk, Crouch, Jog, Sprint, Pistol_Idle에서 다리 IK 오차 0, 바닥 관통 없음, 디딤발 미끄러짐 중앙값 0이었다. 원본은 프로젝트에 복사하지 않았다. 측정값은 [formats.json](../art/characters/clone_01/motion/import_001/records/formats.json)에 기록했다. Node 테스트는 32개가 통과했다.
+- 보관(2026-11-06): 사용자 요청으로 루트 이동 버전 `UAL1_Standard_RM.glb`(7.6MB)와 License, README만 [mocap_ual_001](../art/characters/clone_01/motion/mocap_ual_001/records/source.md)에 원본 그대로 보관했다. 제자리 버전과 FBX는 보관하지 않았다. 해시, 애니메이션 43개 목록, Walk_Loop 리타겟(IK 오차 0, 바닥 관통 없음) 테스트를 추가해 Node 테스트 33개가 통과했다. 모캡 뷰어의 기본 클립 버튼에는 아직 넣지 않았고, 파일 열기로 확인한다.
+
+### 9.1 각도 기반 리타겟으로 수정 (2026-11-06)
+
+사용자가 "뼈대와 리그가 다르게 움직인다"고 알려 와 원인을 측정했다. 발목 위치(상관 0.99)와 몸통(1.00)은 맞았지만 **무릎이 달랐다**(FW 굽힘 범위 BVH 0–64°, 리그 9–49°, 상관 0.65). 사람 다리의 허벅지:정강이는 약 1:1인데, 채택 원화에서 잰 리그는 66:90이다. 발목 위치만 맞추는 IK로는 무릎 각도가 달라진다.
+
+- 수정: 모캡의 허벅지·정강이 측면 각도를 리그 마디에 FK로 그대로 적용한다. 바닥에 닿는 프레임 전후 6프레임만 바닥 IK와 각도를 섞는다. 발끝 차기 구간은 FK를 따른다. 평평하게 디딘 발이 있으면, FK 다리가 그 발에 닿도록 골반 높이를 맞춘다. 원화 비례는 바꾸지 않았다.
+- 결과: FW 무릎 굽힘 범위가 0–64°로 같아졌다. 상관은 0.65→0.91, 평균 차이는 14°→5°, 정강이 상관은 0.99다. UAL Walk_Loop 무릎 상관은 0.97–0.98이다. 발 고정(FW 미끄러짐 중앙값 0), IK 오차 0, 바닥 관통 없음은 유지했다. Node 테스트 33개가 통과했다.
+- 남은 차이: 발끝 차기 구간은 약 10° 덜 굽는다. 리그 정강이가 길어서 공중 발이 9px 정도 더 뒤로 간다. 팔은 계속 총을 쥔다.
+
+### 9.2 시점 각도 조절 (2026-11-06)
+
+채택 원화는 몸이 화면 쪽으로 돌아간 3/4 시점인데, 리타겟은 완전 측면(인물 오른쪽에서 본 모습)으로 투영하고 있었다. 모캡 비교 화면에 **시점 각도**(0° 측면 ~ 90° 정면, 프리셋 0/30/45/90°, URL `angle=`)를 추가했다. 왼쪽 뼈대와 오른쪽 리그가 같은 각도로 투영된다. 리타겟은 화면 가로축 R = 정면·cosθ + 왼쪽·sinθ으로 허벅지·정강이·발·몸통 각도를 다시 계산하고, 진행량은 cosθ만큼 줄인다. 0°는 이전 결과와 같다. 30·45·90°에서 IK 오차, 바닥 관통, 진행량 테스트가 통과했다(Node 34개). 원화에 맞는 기본 각도는 사용자가 정한다.
+- 보정: 처음 구현에서는 리그 다리 시작점이 측면용 ±3px에 고정돼, 각도를 돌려도 오른쪽 모델의 다리가 벌어지지 않았다(30°에서 BVH 엉덩이 ±9px, 리그는 좌우 반대 ∓3px). 엉덩이 관절도 같은 시점으로 투영해 시작점을 `±3·cosθ + 투영 위치`로 바꿨다. 이제 30°에서 ±6.4px, 60°에서 ±14.8px다(BVH ±9, ±16.3). 상체 파츠와 어깨는 원화 한 장이라 각도에 따라 벌어지지 않는다.

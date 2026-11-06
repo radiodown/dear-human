@@ -1,0 +1,55 @@
+{
+  "schema_version": 1,
+  "asset_id": "clone_01/motion/mocap_100style_001",
+  "purpose": "motion_capture_reference_for_viewer_and_future_retarget",
+  "status": "reference_only_not_retargeted",
+  "dataset": {
+    "name": "100STYLE",
+    "style": "Neutral",
+    "authors": ["Ian Mason", "Sebastian Starke", "Taku Komura"],
+    "publication": "Real-Time Style Modelling of Human Locomotion via Feature-Wise Transformations and Local Motion Phases (Proc. ACM Comput. Graph. Interact. Tech., 2022)",
+    "project_page": "https://www.ianxmason.com/100style/",
+    "distribution": "https://zenodo.org/records/8127870",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0/",
+    "license_source": "docs/25-human-motion-research.md (author page and Zenodo checked during research); the archive itself contains no license file"
+  },
+  "acquisition": {
+    "acquired_by": "user",
+    "acquired_on": "2026-11-06",
+    "archive_file": "100STYLE.zip",
+    "archive_bytes": 1468168639,
+    "archive_sha256": "dbd555efb8f0db620544b2b792db51c5afec7112cf8d4a8d439d660ea3b53e4e",
+    "archive_entries": 913,
+    "extracted_members": ["100STYLE/Neutral/Neutral_ID.bvh", "100STYLE/Neutral/Neutral_FW.bvh", "100STYLE/Neutral/Neutral_TR1.bvh", "100STYLE/Frame_Cuts.csv"],
+    "download_url_used": null,
+    "modifications": "none (files copied byte-for-byte)"
+  },
+  "format": {
+    "type": "BVH",
+    "units": "cm",
+    "up_axis": "+Y",
+    "forward_axis_in_rest_pose": "+Z",
+    "rotation_channel_order": "Yrotation Xrotation Zrotation (intrinsic, applied in listed order)",
+    "joints_with_channels": 23,
+    "end_sites": 5,
+    "channels": 72,
+    "fps": 60,
+    "fingers": false
+  },
+  "clips": [
+    { "key": "ID", "file": "Neutral_ID.bvh", "motion": "idle", "frames": 2103, "frame_cut": [655, 1555], "sha256": "71aead2e3246bdb47a5b839cb3e60e0574e9a1a046c071cc147e2922a35f259f" },
+    { "key": "FW", "file": "Neutral_FW.bvh", "motion": "forward_walk", "frames": 7896, "frame_cut": [327, 7445], "sha256": "2f28800baa299547c42c257d1c926172542a1e69b46a3d3e6aa0aded0e9b40f6" },
+    { "key": "TR1", "file": "Neutral_TR1.bvh", "motion": "transitions", "frames": 7119, "frame_cut": [304, 6775], "sha256": "11e5f654daae97e3cc80432a7a89965749337b32571cad6ad71a1d1e6e8ff746" }
+  ],
+  "frame_cuts_file": { "file": "Frame_Cuts.csv", "sha256": "e3c1d2beab6486e083622cef6a5402fe9b20edc75a9963ea30675c67ec29ee82", "index_base_assumed": 0, "index_base_verified": false },
+  "tools": { "parser": "game/animation/bvh.js", "viewer": "game/mocap-lab.js" },
+  "cost_usd": 0,
+  "manual_time_minutes": null,
+  "open_items": [
+    "retarget to rig_002 parts not implemented",
+    "foot contact is a height/speed heuristic, not validated",
+    "Frame_Cuts index base (0 or 1) not verified against the authors' code",
+    "per-clip visual quality not yet reviewed by the user"
+  ]
+}

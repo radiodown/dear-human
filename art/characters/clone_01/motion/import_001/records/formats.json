@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "asset_id": "clone_01/motion/import_001",
+  "status": "draft",
+  "created_on": "2026-11-06",
+  "purpose": "load BVH, glTF 2.0 (.gltf + external/data-URI buffers) and GLB motion into the shared MotionClip used by the mocap viewer and retarget_001",
+  "supported": {
+    "bvh": "ROOT/JOINT/End Site, any XYZ position/rotation channel order; unit auto-detected from leg length",
+    "gltf_glb": "glTF 2.0 only; skin joints (largest skin) or animated node subtrees; translation/rotation/scale channels; LINEAR (slerp), STEP, CUBICSPLINE; node matrix (static); ancestor transforms such as an Armature scale/rotation are applied; resampled to 60 fps",
+    "units": "leg length < 5 → meters (×100), < 500 → centimeters, otherwise millimeters (×0.1)",
+    "joint_names": "100STYLE canonical names are kept; otherwise Mixamo (mixamorig:*), Blender (thigh.L), UE-style (foot_l) and VRM (J_Bip_L_UpperLeg) names are mapped; finger joints dropped; missing Toe_End is synthesized from ankle→toe; Unreal mannequin names (pelvis, thigh_l, calf_l, foot_l, ball_l, ball_leaf_l, neck_01); bones above Hips (root, Armature) are dropped",
+    "required_joints": [
+      "Hips",
+      "Neck",
+      "Left/Right Hip(UpLeg)",
+      "Knee(Leg)",
+      "Ankle(Foot)",
+      "Toe(ToeBase)"
+    ],
+    "in_place_clips": "when the root does not travel (< 5 cm/s) but a foot sweeps ≥ 20 cm, travel is recovered from the planted foot sliding back relative to the pelvis"
+  },
+  "not_supported": [
+    "sparse accessors",
+    "morph-target weights",
+    "KHR_draco_mesh_compression is irrelevant (meshes are ignored)",
+    "FBX (convert to GLB in Blender first)",
+    "glTF 1.0"
+  ],
+  "privacy": "files chosen in the page are read in the browser only; nothing is uploaded or saved to the project",
+  "verification": {
+    "tests": "tools/tests/gltf-motion.test.mjs (5 tests)",
+    "cross_check": "100STYLE Neutral_FW converted to a GLB with Mixamo names, an Armature node at scale 0.01 (meters) and per-frame quaternions bakes to the same joint positions as the BVH (max difference < 0.05 cm over 90 frames)",
+    "ui_check": "a 240-frame generated GLB opened through the page file input in the desktop browser pane: 26 joints, unit m, names mapped, retarget IK error 0, no console errors; the temporary served copy was deleted afterwards",
+    "third_party_check": {
+      "file": "Quaternius Universal Animation Library [Standard] / Unreal-Godot / UAL1_Standard.glb and UAL1_Standard_RM.glb (CC0 1.0), from the user Downloads zip; not copied into the project",
+      "structure": "67 nodes, 1 skin with 65 joints, 43 animations, Armature root, meters",
+      "mapping": "24 joints after mapping (fingers and root dropped), toe ends from ball_leaf_*",
+      "results_trimmed_none": {
+        "Walk_Loop": {
+          "in_place_estimated_cm_s": 92,
+          "root_motion_RM_cm_s": 97,
+          "ik_error_px": 0,
+          "planted_slide_p50_p90_px_s": [
+            0,
+            0
+          ]
+        },
+        "Crouch_Fwd_Loop": {
+          "in_place_estimated_cm_s": 71,
+          "root_motion_RM_cm_s": 75,
+          "ik_error_px": 0
+        },
+        "Jog_Fwd_Loop": {
+          "in_place_estimated_cm_s": 592,
+          "root_motion_RM_cm_s": 536,
+          "ik_error_px": 0
+        },
+        "Sprint_Loop": {
+          "in_place_estimated_cm_s": 807,
+          "root_motion_RM_cm_s": 825,
+          "ik_error_px": 0
+        },
+        "Idle_Loop / Pistol_Idle_Loop": {
+          "ik_error_px": 0,
+          "planted_slide_px_s": 0
+        }
+      },
+      "ui": "opened through the page file input in the desktop browser pane, Walk_Loop selected from the 43-entry animation menu; temporary served copy deleted"
+    }
+  },
+  "tools": {
+    "gltf": "game/animation/gltf-motion.js",
+    "names": "game/animation/skeleton.js",
+    "dispatch": "game/animation/motion-import.js",
+    "viewer": "game/mocap-lab.js"
+  },
+  "cost_usd": 0,
+  "known_limits": [
+    "rest pose foot pitch assumes the bind/rest pose stands with flat feet",
+    "user files are not persisted or registered in the catalog; adopted sources must be copied under art/ with records like mocap_100style_001",
+    "visual quality of the UAL clips on the rig is not yet reviewed by the user",
+    "UAL character proportions are stylized (hip ≈ 77 cm); scale follows leg length (1.880 px/cm)"
+  ]
+}

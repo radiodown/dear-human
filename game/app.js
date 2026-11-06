@@ -1,23 +1,29 @@
 import { RigLab } from './rig-lab.js';
+import { MocapLab } from './mocap-lab.js';
 const $ = (id) => document.getElementById(id);
 const lab = new RigLab();
-let labInitialized = false;
+const mocap = new MocapLab();
+let labInitialized = false, mocapInitialized = false;
 function setPreviewMode(mode, updateUrl=true) {
-  const rigMode = mode === 'rig';
-  $('reference-view').hidden = rigMode; $('rig-view').hidden = !rigMode;
-  $('mode-reference').setAttribute('aria-pressed', String(!rigMode));
+  const rigMode = mode === 'rig', mocapMode = mode === 'mocap';
+  $('reference-view').hidden = rigMode || mocapMode; $('rig-view').hidden = !rigMode; $('mocap-view').hidden = !mocapMode;
+  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !mocapMode));
   $('mode-rig').setAttribute('aria-pressed', String(rigMode));
-  lab.show(rigMode);
+  $('mode-mocap').setAttribute('aria-pressed', String(mocapMode));
+  lab.show(rigMode); mocap.show(mocapMode);
   if (rigMode && !labInitialized) { labInitialized=true; lab.init(); }
+  if (mocapMode && !mocapInitialized) { mocapInitialized=true; mocap.init(); }
   if (updateUrl) {
     const [route,query] = location.hash.split('?');const params=new URLSearchParams(query||'');
     if(rigMode)params.set('motion',lab.mode);else params.delete('motion');
+    if(mocapMode){params.set('view','mocap');params.set('clip',mocap.clipKey);}else{params.delete('view');params.delete('clip');params.delete('frame');}
     history.replaceState(null,'',`${location.pathname}${location.search}${route}${params.size?'?'+params:''}`);
   }
-  if (!rigMode) fitArt();
+  if (!rigMode && !mocapMode) fitArt();
 }
 $('mode-reference').addEventListener('click',()=>setPreviewMode('reference'));
 $('mode-rig').addEventListener('click',()=>setPreviewMode('rig'));
+$('mode-mocap').addEventListener('click',()=>setPreviewMode('mocap'));
 const app = { entries: [], entry: null, revision: null, view: 'sheet', zoom: 1 };
 const labels = { character: '캐릭터', weapon: '무기', enemy: '적' };
 
@@ -92,7 +98,7 @@ function setRevision(id, updateUrl = true) {
 }
 
 function showRoute() {
-  lab.show(false);
+  lab.show(false); mocap.show(false);
   try {
     const [route, query] = location.hash.slice(1).split('?');
     const parts = (route || '/samples').split('/').filter(Boolean);
@@ -110,6 +116,7 @@ function showRoute() {
     $('eyebrow').textContent = `${kind.toUpperCase()} / ${entry.entity_id.toUpperCase().replaceAll('_', ' ')}`;
     $('subtitle').textContent = hasArt ? kind === 'weapon' ? '본체·탄창과 공통 캐릭터의 장착 모션을 확인하세요.' : '첨부 기준 캐릭터와 3D 렌더 질감의 외형을 확인하세요.' : '이 대상의 아트와 모션은 제작 예정입니다.';
     $('mode-reference').textContent = kind === 'weapon' ? '무기 파츠' : '채택 외형';
+    $('mode-mocap').hidden = kind !== 'character';
     $('direction-heading').textContent = kind === 'weapon' ? 'M16 · 분리형 무기.' : '차갑고, 도도하게.';
     $('review-state').textContent = hasArt ? '외형 검토 대기' : '제작 예정';
     document.querySelectorAll('[data-nav]').forEach((link) => link.classList.toggle('current', link.dataset.nav === kind));
@@ -135,7 +142,8 @@ function showRoute() {
       for (let remaining=sampleTime; remaining>1e-8; remaining-=1/60) lab.rig.advance(Math.min(remaining,1/60));
     }
     lab.paused=labParams.get('paused')==='1'; $('rig-pause').textContent=lab.paused?'재생':'일시정지';
-    setPreviewMode(motion ? 'rig' : 'reference',false);
+    if (labParams.get('view') === 'mocap' && kind === 'character') { mocap.applyParams(labParams); setPreviewMode('mocap',false); }
+    else setPreviewMode(motion ? 'rig' : 'reference',false);
   } catch (error) { $('error').textContent = error.message; $('error').hidden = false; $('workspace').hidden = true; $('empty-state').hidden = true; }
 }
 

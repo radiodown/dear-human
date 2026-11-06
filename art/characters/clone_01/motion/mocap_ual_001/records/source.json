@@ -1,0 +1,323 @@
+{
+  "schema_version": 1,
+  "asset_id": "clone_01/motion/mocap_ual_001",
+  "purpose": "motion_capture_reference_for_viewer_and_retarget (game-ready keyframed library with baked root motion)",
+  "status": "reference_only_not_adopted",
+  "dataset": {
+    "name": "Universal Animation Library [Standard]",
+    "author": "Quaternius (@Quaternius)",
+    "author_pages": [
+      "https://quaternius.com/animviewer.html",
+      "https://www.patreon.com/quaternius"
+    ],
+    "license": "CC0 1.0 Universal (Public Domain Dedication)",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "license_source": "source/License.txt shipped in the archive (copied unchanged)",
+    "variant": "Unreal-Godot/UAL1_Standard_RM.glb — root motion baked into every animation (README.txt)"
+  },
+  "acquisition": {
+    "acquired_by": "user",
+    "acquired_on": "2026-11-06",
+    "archive_file": "Universal Animation Library[Standard].zip",
+    "archive_bytes": 15904933,
+    "archive_sha256": "cc73fc4e495b82958207316596317a3f40b9fa38065bde1027937452da537724",
+    "extracted_members": [
+      "Universal Animation Library[Standard]/Unreal-Godot/UAL1_Standard_RM.glb",
+      "Universal Animation Library[Standard]/License.txt",
+      "Universal Animation Library[Standard]/README.txt"
+    ],
+    "not_stored": [
+      "Unreal-Godot/UAL1_Standard.glb (in-place variant; user chose RM only)",
+      "Unity/*.fbx",
+      "*_Setup.png"
+    ],
+    "download_url_used": null,
+    "modifications": "none (files copied byte-for-byte)"
+  },
+  "files": [
+    {
+      "file": "UAL1_Standard_RM.glb",
+      "bytes": 7620504,
+      "sha256": "be684571ed655a1b892c2c07e6e2aeca053b606c442d34004adaf1d944090d01"
+    },
+    {
+      "file": "License.txt",
+      "bytes": 332,
+      "sha256": "6d01f55c6e4c49a2c9963e147e561945ae2c83958c8ca667d90a6bffdbfac061"
+    },
+    {
+      "file": "README.txt",
+      "bytes": 702,
+      "sha256": "ccd02718886b5a57f10f0a8911a38cfe10c36880e1d6dfa3445923fba32d2a72"
+    }
+  ],
+  "format": {
+    "type": "glTF 2.0 binary (GLB)",
+    "generator": "Khronos glTF Blender I/O v4.5.48",
+    "units": "m (auto-detected, converted to cm on import)",
+    "up_axis": "+Y",
+    "nodes": 67,
+    "skin_joints": 65,
+    "meshes": 1,
+    "joint_naming": "Unreal mannequin style (root, pelvis, spine_01..03, neck_01, Head, clavicle/upperarm/lowerarm/hand_*, thigh/calf/foot/ball/ball_leaf_*, fingers)",
+    "after_import": "24 joints (fingers and root dropped), resampled to 60 fps",
+    "character_proportions": "stylized; pelvis ≈ 77 cm in idle; retarget scale 1.880 px/cm from leg length"
+  },
+  "animations": [
+    {
+      "index": 0,
+      "name": "A_TPose",
+      "seconds": 2.5
+    },
+    {
+      "index": 1,
+      "name": "Crouch_Fwd_Loop",
+      "seconds": 2
+    },
+    {
+      "index": 2,
+      "name": "Crouch_Idle_Loop",
+      "seconds": 2.933
+    },
+    {
+      "index": 3,
+      "name": "Dance_Loop",
+      "seconds": 1
+    },
+    {
+      "index": 4,
+      "name": "Death01",
+      "seconds": 2.4
+    },
+    {
+      "index": 5,
+      "name": "Driving_Loop",
+      "seconds": 1.667
+    },
+    {
+      "index": 6,
+      "name": "Fixing_Kneeling",
+      "seconds": 5.2
+    },
+    {
+      "index": 7,
+      "name": "Hit_Chest",
+      "seconds": 0.333
+    },
+    {
+      "index": 8,
+      "name": "Hit_Head",
+      "seconds": 0.433
+    },
+    {
+      "index": 9,
+      "name": "Idle_Loop",
+      "seconds": 2.5
+    },
+    {
+      "index": 10,
+      "name": "Idle_Talking_Loop",
+      "seconds": 2.933
+    },
+    {
+      "index": 11,
+      "name": "Idle_Torch_Loop",
+      "seconds": 1.267
+    },
+    {
+      "index": 12,
+      "name": "Interact",
+      "seconds": 2
+    },
+    {
+      "index": 13,
+      "name": "Jog_Fwd_Loop",
+      "seconds": 0.933
+    },
+    {
+      "index": 14,
+      "name": "Jump_Land",
+      "seconds": 1.267
+    },
+    {
+      "index": 15,
+      "name": "Jump_Loop",
+      "seconds": 2.5
+    },
+    {
+      "index": 16,
+      "name": "Jump_Start",
+      "seconds": 1.333
+    },
+    {
+      "index": 17,
+      "name": "PickUp_Table",
+      "seconds": 0.833
+    },
+    {
+      "index": 18,
+      "name": "Pistol_Aim_Down",
+      "seconds": 0.167
+    },
+    {
+      "index": 19,
+      "name": "Pistol_Aim_Neutral",
+      "seconds": 0.167
+    },
+    {
+      "index": 20,
+      "name": "Pistol_Aim_Up",
+      "seconds": 0.167
+    },
+    {
+      "index": 21,
+      "name": "Pistol_Idle_Loop",
+      "seconds": 1.667
+    },
+    {
+      "index": 22,
+      "name": "Pistol_Reload",
+      "seconds": 1.667
+    },
+    {
+      "index": 23,
+      "name": "Pistol_Shoot",
+      "seconds": 0.633
+    },
+    {
+      "index": 24,
+      "name": "Punch_Cross",
+      "seconds": 1
+    },
+    {
+      "index": 25,
+      "name": "Punch_Jab",
+      "seconds": 0.867
+    },
+    {
+      "index": 26,
+      "name": "Push_Loop",
+      "seconds": 2.667
+    },
+    {
+      "index": 27,
+      "name": "Roll",
+      "seconds": 1.467
+    },
+    {
+      "index": 28,
+      "name": "Sitting_Enter",
+      "seconds": 1.3
+    },
+    {
+      "index": 29,
+      "name": "Sitting_Exit",
+      "seconds": 1.033
+    },
+    {
+      "index": 30,
+      "name": "Sitting_Idle_Loop",
+      "seconds": 1.667
+    },
+    {
+      "index": 31,
+      "name": "Sitting_Talking_Loop",
+      "seconds": 2.933
+    },
+    {
+      "index": 32,
+      "name": "Spell_Simple_Enter",
+      "seconds": 0.533
+    },
+    {
+      "index": 33,
+      "name": "Spell_Simple_Exit",
+      "seconds": 0.433
+    },
+    {
+      "index": 34,
+      "name": "Spell_Simple_Idle_Loop",
+      "seconds": 2.1
+    },
+    {
+      "index": 35,
+      "name": "Spell_Simple_Shoot",
+      "seconds": 0.5
+    },
+    {
+      "index": 36,
+      "name": "Sprint_Loop",
+      "seconds": 0.667
+    },
+    {
+      "index": 37,
+      "name": "Swim_Fwd_Loop",
+      "seconds": 1.333
+    },
+    {
+      "index": 38,
+      "name": "Swim_Idle_Loop",
+      "seconds": 3.333
+    },
+    {
+      "index": 39,
+      "name": "Sword_Attack",
+      "seconds": 1.533
+    },
+    {
+      "index": 40,
+      "name": "Sword_Idle",
+      "seconds": 1.667
+    },
+    {
+      "index": 41,
+      "name": "Walk_Formal_Loop",
+      "seconds": 1.333
+    },
+    {
+      "index": 42,
+      "name": "Walk_Loop",
+      "seconds": 1.333
+    }
+  ],
+  "verification": {
+    "tests": "tools/tests/gltf-motion.test.mjs (stored file hash, 43 animations, Walk_Loop retarget)",
+    "measured_on_2026_11_06": {
+      "Walk_Loop": {
+        "root_motion_cm_s": 97,
+        "ik_error_px": 0,
+        "planted_slide_p50_p90_px_s": [
+          0,
+          0
+        ]
+      },
+      "Crouch_Fwd_Loop": {
+        "root_motion_cm_s": 75,
+        "ik_error_px": 0,
+        "planted_slide_p50_p90_px_s": [
+          0,
+          32
+        ]
+      },
+      "Jog_Fwd_Loop": {
+        "root_motion_cm_s": 536,
+        "ik_error_px": 0
+      },
+      "Sprint_Loop": {
+        "root_motion_cm_s": 825,
+        "ik_error_px": 0
+      },
+      "Idle_Loop / Pistol_Idle_Loop": {
+        "ik_error_px": 0,
+        "planted_slide_px_s": 0
+      }
+    }
+  },
+  "cost_usd": 0,
+  "manual_time_minutes": null,
+  "open_items": [
+    "not yet selectable as a built-in clip in the mocap viewer (open it with the file button)",
+    "per-clip visual review by the user",
+    "Jog/Sprint root speeds (5.4 / 8.3 m/s) are fast for the 2D stage scale; playback speed for gameplay is undecided"
+  ]
+}
