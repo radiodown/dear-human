@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built_in",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "started_at_utc": "2026-11-06T09:51:13.820Z",
+  "finished_at_utc": "2026-11-06T09:52:38.207Z",
+  "generation_elapsed_seconds": 84.387,
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/side_master.png",
+      "sha256": "c105bf8d7d5aa8f96a5dbde397975326b05f38b1b1e68472ac9a6eb463063966"
+    }
+  ],
+  "prompt_path": "art/characters/clone_01/motion/rig_004/records/limbs_prompt.json",
+  "prompt_document": "art/characters/clone_01/motion/rig_004/records/limbs_prompt.md",
+  "output": {
+    "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+    "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe",
+    "width": 1448,
+    "height": 1086,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  "status": "draft_for_motion_review",
+  "rigging_elapsed_seconds": null,
+  "notes": [
+    "Raw RGBA output copied without pixel edits. Camera agreement is a visual judgment, not an alpha/hash test.",
+    "Generated image inspected before use."
+  ]
+}

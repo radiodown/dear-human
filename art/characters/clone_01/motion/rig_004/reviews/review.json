@@ -1,0 +1,144 @@
+{
+  "schema_version": 1,
+  "revision_id": "rig_004",
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "Selected static browser frames and source-layer inspection; simulation results recorded separately.",
+  "appearance_source_unchanged": {
+    "path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+    "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "55a706ad9e5e8d2606764be181569c6410338913a22b8a3b499fb2258d861259"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "354b3ad827f81dd7bdbb24158298e73d73876eea7203fbe96d543dad5e598a11"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "12c83a7bdba7d6971fe5eef175b8147f8626fdb9f4dd832ac749286821e20c7d"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "3aee60ff1b5bf7b99e920958e8242d237ec6ceacca749b5efb9c97d0f047a3e7"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "a133f6ac1318b60d1cc637b71b533f278dce495779b4f246c1954c779d2af264"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "aa78cb52b2ec702c893b96c17b794edbd40356d4181b4e82c16073b022274587"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/records/ui_snapshot/index.html",
+      "sha256": "652c711451088cb6e7b23abad20adbb70438181e2b09e5c6cefd148dce1ca85e"
+    }
+  ],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_004/reviews/idle.png",
+      "sha256": "e9b04dd121e48aa75cf5f1fbd17cb41c0354c7464a07ec400ee9fe305609bf6b",
+      "width": 1440,
+      "height": 1120,
+      "route": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle&paused=1",
+      "captured_at_utc": "2026-11-06T10:18:21.797165+00:00",
+      "method": "Local Chrome headless screenshot CLI; actual shared web app; selected paused pose.",
+      "inspection": "Inspected visually after capture. Not an input automation or full animation playback test."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/reviews/walk_contact.png",
+      "sha256": "d3f09eb1ffc357bfeccd70da4c42a8fda0630b3e03834d3d1e40409cbfd59d95",
+      "width": 1440,
+      "height": 1120,
+      "route": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk&time=1.18&paused=1",
+      "captured_at_utc": "2026-11-06T10:12:07.583451+00:00",
+      "method": "Local Chrome headless screenshot CLI; actual shared web app; selected paused pose.",
+      "inspection": "Inspected visually after capture. Not an input automation or full animation playback test."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/reviews/walk_passing.png",
+      "sha256": "54b0e61e0a6291a577cf32f8192933058244b890ea3f7b65468ca4005e077cb4",
+      "width": 1440,
+      "height": 1120,
+      "route": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk&time=1.4&paused=1",
+      "captured_at_utc": "2026-11-06T10:12:07.648450+00:00",
+      "method": "Local Chrome headless screenshot CLI; actual shared web app; selected paused pose.",
+      "inspection": "Inspected visually after capture. Not an input automation or full animation playback test."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/reviews/fire.png",
+      "sha256": "0160ad8b1b1a800988ece7cc319d7827b3d0bcc0d91cd57f6968a26b65260444",
+      "width": 1440,
+      "height": 1120,
+      "route": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire&time=0.025&paused=1",
+      "captured_at_utc": "2026-11-06T10:18:24.118226+00:00",
+      "method": "Local Chrome headless screenshot CLI; actual shared web app; selected paused pose.",
+      "inspection": "Inspected visually after capture. Not an input automation or full animation playback test."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/reviews/reload_empty.png",
+      "sha256": "29994dfe858181b3234f11dd0e8246e57b10a973e1d58314fa59b2a7aff4acda",
+      "width": 1440,
+      "height": 1120,
+      "route": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=reload_empty&time=1.9&paused=1",
+      "captured_at_utc": "2026-11-06T10:18:22.988465+00:00",
+      "method": "Local Chrome headless screenshot CLI; actual shared web app; selected paused pose.",
+      "inspection": "Inspected visually after capture. Not an input automation or full animation playback test."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/reviews/left_debug.png",
+      "sha256": "5f59637a90bd218bbf2c27cca80368cf8ad5e220b6085c584a3cd92efbf46eb7",
+      "width": 1440,
+      "height": 1120,
+      "route": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk_fire&time=1.2&paused=1&face=left&debug=1",
+      "captured_at_utc": "2026-11-06T10:14:54.888796+00:00",
+      "method": "Local Chrome headless screenshot CLI; actual shared web app; selected paused pose.",
+      "inspection": "Inspected visually after capture. Not an input automation or full animation playback test."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/reviews/narrow.png",
+      "sha256": "611283591ac225704dc78535c49d3400cc1b39cffddf76bf604450be058df910",
+      "width": 500,
+      "height": 1100,
+      "route": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle&paused=1",
+      "captured_at_utc": "2026-11-06T10:14:05.292419+00:00",
+      "method": "Local Chrome headless screenshot CLI; actual shared web app; selected paused pose.",
+      "inspection": "Inspected visually after capture. Not an input automation or full animation playback test."
+    }
+  ],
+  "observations": [
+    "Head UV no longer includes the lower torso collar, and back-hair UV excludes the cape shoulder cap.",
+    "Body core is armless and drawn once; shoulder armor comes from upper-arm sprites, not duplicate shoulder overlays.",
+    "Separate near/far limbs and primary/support hands are assembled in the side camera.",
+    "Stock is positioned at the shoulder pocket with IK hands; head and weapon height were adjusted using the assembled view.",
+    "Selected walking phases show both knees facing the travel direction, with boots seated on or lifted from the floor.",
+    "Left view was inspected with visible bones and stock/hand sockets. It mirrors the same art.",
+    "At 500px viewport width, the actor, weapon and main controls fit; the remaining page scrolls."
+  ],
+  "simulation": {
+    "test_count": 15,
+    "status": "passed",
+    "metrics_path": "art/characters/clone_01/motion/rig_004/tests/simulation-metrics.json",
+    "other_pipeline_and_server_tests": 14
+  },
+  "limitations": [
+    "No assertion that full-cycle walking is natural or artistically accepted. User review pending.",
+    "Static frames do not verify pointer/keyboard interactions or animation timing visually.",
+    "Torso/waist/skirt form one outfit set; individual armor slot replacement pending.",
+    "Finger poses are painted and fixed; detailed reload finger/bolt motion is not finished.",
+    "Mirroring does not render the true opposite equipment side.",
+    "Cape and hair use small mesh deformations; torso armor remains rigid."
+  ],
+  "browser_tool_failure": "In-app browser bootstrap failed: missing sandboxPolicy. Local Chrome screenshot CLI used instead. Initial concurrent short-budget captures were unreliable; final affected captures were repeated serially and inspected.",
+  "gifs_generated": false,
+  "ui_history_note": "The exact UI used for the selected captures is archived. A separate concurrent Plan B change subsequently extended the live index.html/app.js; those edits are preserved. The recorded character animation sources are unchanged.",
+  "integration_recheck": {
+    "path": "art/characters/clone_01/motion/rig_004/reviews/integrated_idle.png",
+    "sha256": "9df8517c1994a172d6b39967473fb7ca3b4db6a497d87a9996b6ccf210476252",
+    "route": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle&paused=1",
+    "inspection": "Actual shared app loaded and rendered the rig after the concurrent Plan B UI extension. Screenshot visually inspected; no Plan B output acceptance claimed."
+  }
+}

@@ -1,7 +1,7 @@
 // Right-facing sagittal gait. World Y points down; the floor is Y=0.
 import { HUMAN } from './proportions.js';
-export const GAIT = Object.freeze({ period:1.08, speed:104, stance:.62, lift:16,
-  thigh:66, shin:90, bootWidth:26*196/186, bootHeight:26, ankleU:.36, ankleV:.25 });
+export const GAIT = Object.freeze({ period:1.24, speed:128, stance:.62, lift:9,
+  thigh:76, shin:76, bootWidth:32*247/228, bootHeight:32, ankleU:.35, ankleV:.28 });
 const TAU=Math.PI*2;
 const lerp=(a,b,t)=>a+(b-a)*t;
 const smooth=t=>t*t*(3-2*t);
@@ -32,18 +32,21 @@ export function gaitFoot(phase,layer,amount){
   if(p<GAIT.stance){
     const u=p/GAIT.stance;
     x=lerp(front,back,u); // Linear retreat exactly cancels the actor's world speed.
-    angle=curve([[0,-.16],[.16,0],[.72,0],[1,.30]],u);
+    angle=curve([[0,-.12],[.16,0],[.72,0],[1,.25]],u);
   }else{
     const u=(p-GAIT.stance)/(1-GAIT.stance),m=-stride*(1-GAIT.stance);
     x=hermite(back,front,m,m,u);
     lift=GAIT.lift*Math.sin(Math.PI*u)**1.4;
-    angle=curve([[0,.30],[.25,.17],[.55,-.09],[.84,-.18],[1,-.16]],u);
+    angle=curve([[0,.25],[.25,.13],[.55,-.07],[.84,-.14],[1,-.12]],u);
   }
-  const foot=footPose(lerp(layer===0?-9:12,x,amount),lift*amount,angle*amount);
+  const foot=footPose(lerp(layer===0?16:-8,x,amount),lift*amount,angle*amount);
   return {...foot,phase:p,stance:p<GAIT.stance||amount<.001};
 }
-export function gaitBody(phase,amount,time){
-  const p=cycle(phase/Math.PI),bob=curve([[0,0],[.18,3.1],[.5,-1.1],[.79,-2.4],[1,0]],p);
-  return {x:Math.sin(phase)*.55*amount,y:HUMAN.hipY+amount*bob+Math.sin(time*Math.PI*.5)*.12*(1-amount),
-    a:Math.sin(phase)*.006*amount,lean:(.018+Math.sin(phase*2)*.003)*amount};
+export function gaitBody(phase,amount,time,aim=0){
+  const p=cycle(phase/Math.PI),bob=curve([[0,0],[.18,1.5],[.5,-.35],[.79,-1.0],[1,0]],p);
+  // A low, longer combat step: absorb the landing instead of bobbing upwards.
+  // Pelvis shift is modest; the torso leans ahead of it while the gun stays level.
+  return {x:Math.sin(phase*2-.45)*2.2*amount,
+    y:HUMAN.hipY+amount*(7+bob)+aim*(1.8+.8*amount)+Math.sin(time*Math.PI*.5)*.12*(1-amount),
+    a:Math.sin(phase)*.012*amount,lean:aim*.024+amount*(.105+aim*.025+Math.sin(phase*2)*.008)};
 }

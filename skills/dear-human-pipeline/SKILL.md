@@ -39,4 +39,6 @@ RECIPE_KEY와 REVISION_ID는 실제 요청·등록 버전의 값으로 바꾼다
 
 ## 현재 모션 시험
 
-rig_002의 구현·한계·실제 결과는 docs/24-motion-rig-test.md를 따른다. 프로젝트 루트에서 npm --prefix game run check로 구문을, npm --prefix game test로 IK·고정 스텝·반동·장전·100회 무기 교체를 검사한다. test는 art/characters/clone_01/motion/rig_002/tests/simulation-metrics.json을 갱신하므로 읽기 전용 CLI와 구분한다. 모델 호출·이미지 생성은 하지 않는다. 기존 검사 결과가 현재 코드 해시와 다르면 다시 검사한 뒤 목록 해시도 갱신한다. 브라우저 정지 캡처와 실제 입력·전체 애니메이션 검수, 자체 리그 시험과 Spine 시험을 구분한다.
+현재 공통 재생은 rig_005이며 docs/28-combat-walk-and-cape.md를 따른다. npm --prefix game run check로 구문을, npm --prefix game test로 IK·고정 스텝·반동·장전·100회 무기 교체·견착 접점·전투 자세·망토 고정/복원을 검사한다. test는 art/characters/clone_01/motion/rig_005/tests/simulation-metrics.json에 17개 시뮬레이션 검사 결과를 기록하므로 읽기 전용 CLI와 구분한다. 모델 호출·이미지 생성은 하지 않는다.
+
+기존 검사 결과가 현재 코드 해시와 다르면 새 버전을 검사하고 목록 해시도 갱신한다. 사용자 반려 버전 rig_002의 코드 스냅샷·검사 기록을 보존하며 새 결과로 소급 갱신하지 않는다. 손 도달 검사만으로 견착이나 가림이 맞았다고 판단하지 않는다. 브라우저 정지 캡처와 실제 입력·전체 애니메이션 검수, 수치 통과와 사용자 채택, 자체 리그 시험과 Spine 시험을 구분한다.

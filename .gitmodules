@@ -1,0 +1,3 @@
+[submodule "tools/vendor/2dimg2motion"]
+	path = tools/vendor/2dimg2motion
+	url = https://github.com/WU-HAOTIAN34/2dimg2motion.git

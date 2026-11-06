@@ -1,0 +1,67 @@
+{
+  "plan": "Plan B",
+  "tool": "2dimg2motion",
+  "tool_source": "https://github.com/WU-HAOTIAN34/2dimg2motion",
+  "tool_commit": "d4d73e243b6ff64b7cbb3879e45e951f972a7e62",
+  "recorded_at": "2026-11-06T10:26:22.783533+00:00",
+  "request_local_date": "2026-11-06",
+  "image_generation_tool": "built-in image_gen.imagegen",
+  "model_id": null,
+  "seed": null,
+  "actual_cost": null,
+  "model_id_note": "The built-in tool did not expose a model ID, seed, token usage or monetary charge.",
+  "image_generation_calls": 6,
+  "observed_image_tool_wall_seconds": 233.1,
+  "observed_image_tool_durations_seconds": [
+    34.9,
+    38.8,
+    39.0,
+    43.5,
+    38.6,
+    38.3
+  ],
+  "input": "art/characters/clone_01/motion/rig_004/source/side_master.png",
+  "appearance_dependency": "reference_003_3d",
+  "side_master_dependency": "side_master_004",
+  "calls": [
+    {
+      "prompt": "keyposes_prompt.json",
+      "source": "keyposes.png",
+      "result": "rejected: repeated leg phase"
+    },
+    {
+      "prompt": "keyposes_retry_002.json",
+      "source": "keyposes_002.png",
+      "result": "rejected: 08 still repeated near-leg contact"
+    },
+    {
+      "prompt": "keyposes_retry_003.json",
+      "source": "keyposes_003.png",
+      "result": "used: opposite contact and passing corrected"
+    },
+    {
+      "prompt": "inbetweens_a_prompt.json",
+      "source": "inbetweens_a.png",
+      "result": "used: frames 01,03,04,06"
+    },
+    {
+      "prompt": "inbetweens_b_prompt.json",
+      "source": "inbetweens_b.png",
+      "result": "rejected: wrong leg phase in 07/09"
+    },
+    {
+      "prompt": "inbetweens_b_retry_002.json",
+      "source": "inbetweens_b_002.png",
+      "result": "used: frames 07,09,10,12"
+    }
+  ],
+  "post_processing": "Official standardize_baseline.py; tools/plan_b_motion.py pack. No pose synthesis or limb transformations.",
+  "verification": "Upstream PNG-only 14-frame structure checks; browser integration checks; contact sheet and selected browser frames visually inspected.",
+  "gif_generated": false,
+  "adoption": "awaiting_user_review",
+  "remaining_issues": [
+    "Small shifts in face, torso thickness, cape folds and rifle details across source sheets.",
+    "Loop endpoints preserve the original baseline, producing a brief settling beat.",
+    "Full-body M16 is baked into frames; independent weapon switching is not provided."
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "tool": "Python Playwright with local Chrome, fallback after known in-app browser bootstrap failure",
+  "page_errors": [],
+  "checks": {
+    "paused_canvas_stable": true,
+    "play_changes_canvas": true,
+    "live_fire_changes_ammo": true,
+    "stop_transition_and_turn_rendered": true
+  },
+  "scope": "Actual basic controls and rendering, not artistic acceptance or all-gameplay coverage."
+}

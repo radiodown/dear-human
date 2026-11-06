@@ -1,0 +1,12 @@
+{
+  "use_case": "precise-object-edit",
+  "asset_type": "single armless clothed torso-and-pelvis animation layer",
+  "input_roles": {
+    "image_1": "Side-view combat master: exact costume, ribcage/pelvis silhouette, camera and materials.",
+    "image_2": "Layer sheet: its lower-left body layer incorrectly retains an upper arm and shoulder plate. This is the defect to correct."
+  },
+  "primary_request": "Output ONLY the corrected contiguous BODY CORE as one isolated transparent image. It is a HEADLESS, ARMLESS clothed torso-and-pelvis layer, from armored collar down through waist, belts, pouches and armored skirt/safety shorts to the skirt hem. Remove the ENTIRE near upper arm, deltoid/shoulder armor and sleeve that appear on the left side of the layer-sheet body. Remove the far arm too. Paint the hidden underlying black side of the ribcage and armpit cloth naturally, so there is NO remaining arm-shaped bulge. No limbs of any kind. This must be a torso outfit on an armless mannequin, not a full woman with cropped hands.",
+  "preserve": "The exact master RIGHT-facing side-profile chest, narrow natural waist, coherent ribcage-to-pelvis anatomy, high armored collar, black/gunmetal side armor and pale-gray chest inset, muted gold details, utility belts/pouches and short structured armored skirt. One seamless piece with NO duplicated belts, free shoulder armor, detached plates or cloth strips. Do not turn the chest to face the viewer.",
+  "boundaries": "Top is the high collar with no head, hair or skin. Sides follow only the ribcage and hip/clothing contours, with complete hidden cloth behind removable arm attachments. Bottom ends at the skirt/safety-short hem, with no thighs, legs, garters hanging into empty space or cape. No gun, hands, shoulder plate or upper-arm sleeves anywhere.",
+  "rendering": "Match the master realistic stylized 3D render and neutral soft light. Genuine transparent background, clean antialiased edges without red/yellow outlines, glow, fringe, shadow, labels, text or watermark. Single centered layer on a portrait canvas, generous transparent margin."
+}

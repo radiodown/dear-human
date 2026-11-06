@@ -1,0 +1,328 @@
+{
+  "schema_version": 2,
+  "rig_id": "clone_01_rig_004",
+  "layout": "side_master_layers",
+  "master_image": "art/characters/clone_01/motion/rig_004/source/side_master.png",
+  "atlases": {
+    "base": {
+      "path": "art/characters/clone_01/motion/rig_004/source/base_atlas.png",
+      "width": 1254,
+      "height": 1254
+    },
+    "limbs": {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "width": 1448,
+      "height": 1086
+    },
+    "body": {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "width": 1024,
+      "height": 1536
+    },
+    "weapon": {
+      "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+      "width": 1536,
+      "height": 1024
+    }
+  },
+  "parts": {
+    "head": {
+      "atlas": "base",
+      "rect": [
+        138,
+        72,
+        360,
+        408
+      ]
+    },
+    "hair_back": {
+      "atlas": "base",
+      "rect": [
+        824,
+        19,
+        196,
+        511
+      ]
+    },
+    "cape": {
+      "atlas": "base",
+      "rect": [
+        773,
+        559,
+        217,
+        686
+      ]
+    },
+    "body_core": {
+      "atlas": "body",
+      "rect": [
+        194,
+        78,
+        637,
+        1315
+      ]
+    },
+    "near_upper_arm": {
+      "atlas": "limbs",
+      "rect": [
+        124,
+        13,
+        134,
+        339
+      ],
+      "joints": [
+        0.16,
+        0.92
+      ]
+    },
+    "near_forearm": {
+      "atlas": "limbs",
+      "rect": [
+        486,
+        14,
+        104,
+        335
+      ],
+      "joints": [
+        0.08,
+        0.94
+      ]
+    },
+    "primary_hand": {
+      "atlas": "limbs",
+      "rect": [
+        784,
+        100,
+        240,
+        143
+      ]
+    },
+    "far_upper_arm": {
+      "atlas": "limbs",
+      "rect": [
+        1203,
+        15,
+        129,
+        337
+      ],
+      "joints": [
+        0.16,
+        0.92
+      ]
+    },
+    "far_forearm": {
+      "atlas": "limbs",
+      "rect": [
+        126,
+        378,
+        131,
+        331
+      ],
+      "joints": [
+        0.08,
+        0.94
+      ]
+    },
+    "support_hand": {
+      "atlas": "limbs",
+      "rect": [
+        420,
+        459,
+        242,
+        152
+      ]
+    },
+    "near_thigh": {
+      "atlas": "limbs",
+      "rect": [
+        818,
+        370,
+        159,
+        343
+      ],
+      "joints": [
+        0.06,
+        0.95
+      ]
+    },
+    "far_thigh": {
+      "atlas": "limbs",
+      "rect": [
+        1194,
+        370,
+        140,
+        343
+      ],
+      "joints": [
+        0.06,
+        0.95
+      ]
+    },
+    "near_shin": {
+      "atlas": "limbs",
+      "rect": [
+        125,
+        736,
+        118,
+        340
+      ],
+      "joints": [
+        0.13,
+        0.96
+      ]
+    },
+    "far_shin": {
+      "atlas": "limbs",
+      "rect": [
+        481,
+        738,
+        119,
+        338
+      ],
+      "joints": [
+        0.13,
+        0.96
+      ]
+    },
+    "near_boot": {
+      "atlas": "limbs",
+      "rect": [
+        780,
+        796,
+        247,
+        228
+      ]
+    },
+    "far_boot": {
+      "atlas": "limbs",
+      "rect": [
+        1149,
+        796,
+        246,
+        225
+      ]
+    },
+    "rifle": {
+      "atlas": "weapon",
+      "rect": [
+        21,
+        171,
+        1503,
+        397
+      ],
+      "material": "rigid"
+    },
+    "magazine": {
+      "atlas": "weapon",
+      "rect": [
+        690,
+        659,
+        150,
+        322
+      ],
+      "material": "rigid"
+    }
+  },
+  "bindings": {
+    "head": {
+      "x": 0,
+      "y": -9,
+      "height": 45.5,
+      "pivot": [
+        0.45,
+        1
+      ],
+      "rotationMix": 0.4,
+      "angle": 0.055
+    },
+    "hair_back": {
+      "x": -5,
+      "y": -54,
+      "height": 88,
+      "pivot": [
+        0.85,
+        0.02
+      ],
+      "rotationMix": 0.25
+    },
+    "body_core": {
+      "x": 0,
+      "y": 71.5,
+      "height": 100,
+      "pivot": [
+        0.46,
+        0.88
+      ]
+    },
+    "cape": {
+      "x": -18,
+      "y": -4,
+      "height": 235,
+      "pivot": [
+        0.72,
+        0.02
+      ],
+      "rotationMix": 0.15
+    },
+    "primary_hand": {
+      "height": 12,
+      "pivot": [
+        0.15,
+        0.72
+      ],
+      "grip": [
+        0.63,
+        0.65
+      ]
+    },
+    "support_hand": {
+      "height": 12,
+      "pivot": [
+        0.1,
+        0.77
+      ],
+      "grip": [
+        0.72,
+        0.35
+      ]
+    },
+    "near_boot": {
+      "height": 32,
+      "pivot": [
+        0.35,
+        0.28
+      ]
+    },
+    "far_boot": {
+      "height": 31.707317073170728,
+      "pivot": [
+        0.35,
+        0.27335384615384606
+      ]
+    }
+  },
+  "occlusion_order": [
+    "cape",
+    "hair_back",
+    "far_leg",
+    "near_leg",
+    "far_arm",
+    "head",
+    "body_core",
+    "weapon",
+    "support_hand",
+    "near_arm",
+    "primary_hand"
+  ],
+  "excluded_cells": [
+    {
+      "atlas": "base",
+      "cell": 2,
+      "reason": "Generation retained an upper arm; corrected separate body_core is used instead."
+    }
+  ],
+  "limitations": [
+    "Base torso/waist/skirt are one coherent painted outfit set for this iteration; finer armor-slot replacement needs another prepared layer.",
+    "Bindings are visually calibrated to the combat master, not to the front portrait."
+  ]
+}

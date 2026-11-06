@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "rig_definition": "art/characters/clone_01/motion/rig_004/rig/parts.json",
+  "source_policy": "Unmodified generated RGBA originals; UV rectangles select image regions. No saved crop, repaint or raster composite.",
+  "base_uv_correction": {
+    "reason": "Generated items cross nominal grid boundaries. Automatic full-cell alpha bounds included a separate collar inside the head rectangle and a cape cap inside the hair rectangle.",
+    "head": [
+      138,
+      72,
+      360,
+      408
+    ],
+    "hair_back": [
+      824,
+      19,
+      196,
+      511
+    ],
+    "cape": [
+      773,
+      559,
+      217,
+      686
+    ]
+  },
+  "excluded_layer": "base atlas torso cell 2 contains an unwanted arm; never drawn.",
+  "anatomical_source": "art/characters/clone_01/motion/rig_004/source/side_master.png",
+  "outfit_granularity": "Torso through waist and skirt is one coherent outfit layer, rather than independently replaceable chest/waist/hip armor slots.",
+  "stock_contact": "Weapon stock socket is seated on body-space stockPocket; recoil moves body and stock together. Reload deliberately lowers the stock.",
+  "mirroring": "Left view is mirrored right-view artwork, not a newly generated opposite equipment side.",
+  "gifs_generated": false
+}

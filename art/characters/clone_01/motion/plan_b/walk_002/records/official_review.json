@@ -1,0 +1,20 @@
+{
+  "official_commit": "d4d73e243b6ff64b7cbb3879e45e951f972a7e62",
+  "reviewed_sources": [
+    "SKILL.md",
+    "references/keypose-redraw.md",
+    "references/motion-prompt-patterns.md",
+    "skills/img2mo-std/SKILL.md"
+  ],
+  "cause": "walk_001 fixed silhouette height while accepting redrawn head/torso/rifle proportions inconsistent with the baseline. Per-frame sole translation also hid generated ground differences.",
+  "rules": [
+    "Use standardized baseline for every image-generation stage.",
+    "Approve shared key poses only after baseline identity and rigid-part scale comparison.",
+    "Reject scale drift, proportion drift, center drift or unreadable motion even if file structure passes.",
+    "Use one shared uniform scale and fixed alignment for the source batch. No per-frame fitting.",
+    "If a key pose changes, regenerate its dependent in-betweens."
+  ],
+  "new_policy": "No 14-frame packaging until baseline-versus-key-pose size review passes. No claim that equal canvas dimensions prove equal character size.",
+  "reference_board": "Exact baseline copies for layout/scale reference only; no procedural motion artwork.",
+  "gif_policy": "No GIF generation, retaining existing user instruction."
+}

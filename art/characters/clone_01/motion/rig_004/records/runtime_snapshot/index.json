@@ -1,0 +1,37 @@
+[
+  {
+    "original_path": "game/animation/gait.js",
+    "snapshot_path": "art/characters/clone_01/motion/rig_004/records/runtime_snapshot/game/animation/gait.js",
+    "sha256": "55a706ad9e5e8d2606764be181569c6410338913a22b8a3b499fb2258d861259"
+  },
+  {
+    "original_path": "game/animation/proportions.js",
+    "snapshot_path": "art/characters/clone_01/motion/rig_004/records/runtime_snapshot/game/animation/proportions.js",
+    "sha256": "354b3ad827f81dd7bdbb24158298e73d73876eea7203fbe96d543dad5e598a11"
+  },
+  {
+    "original_path": "game/animation/rig-core.js",
+    "snapshot_path": "art/characters/clone_01/motion/rig_004/records/runtime_snapshot/game/animation/rig-core.js",
+    "sha256": "12c83a7bdba7d6971fe5eef175b8147f8626fdb9f4dd832ac749286821e20c7d"
+  },
+  {
+    "original_path": "game/animation/weapon-profiles.js",
+    "snapshot_path": "art/characters/clone_01/motion/rig_004/records/runtime_snapshot/game/animation/weapon-profiles.js",
+    "sha256": "a133f6ac1318b60d1cc637b71b533f278dce495779b4f246c1954c779d2af264"
+  },
+  {
+    "original_path": "game/animation/webgl-character.js",
+    "snapshot_path": "art/characters/clone_01/motion/rig_004/records/runtime_snapshot/game/animation/webgl-character.js",
+    "sha256": "3aee60ff1b5bf7b99e920958e8242d237ec6ceacca749b5efb9c97d0f047a3e7"
+  },
+  {
+    "original_path": "game/rig-lab.js",
+    "snapshot_path": "art/characters/clone_01/motion/rig_004/records/runtime_snapshot/game/rig-lab.js",
+    "sha256": "aa78cb52b2ec702c893b96c17b794edbd40356d4181b4e82c16073b022274587"
+  },
+  {
+    "original_path": "tools/tests/rig-core.test.mjs",
+    "snapshot_path": "art/characters/clone_01/motion/rig_004/records/runtime_snapshot/tools/tests/rig-core.test.mjs",
+    "sha256": "6925ba21b4592b1b306935c37b43554c768ffeda822f718539f994c01283fa4f"
+  }
+]

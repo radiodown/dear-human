@@ -1,0 +1,106 @@
+{
+  "scope": "Simulation tests, not visual or gameplay acceptance",
+  "render_rates": [
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 20,
+      "recoilEvents": 20,
+      "ammo": 10,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 0,
+      "facing": 1,
+      "springs": {
+        "head": -0.017792253964136823,
+        "hair": 0.1167733019247807,
+        "cloth": 0.008111245513609793,
+        "cape": 0.10421518146568651,
+        "recoil": -0.01596172324055404
+      }
+    },
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 20,
+      "recoilEvents": 20,
+      "ammo": 10,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 0,
+      "facing": 1,
+      "springs": {
+        "head": -0.017792253964136823,
+        "hair": 0.1167733019247807,
+        "cloth": 0.008111245513609793,
+        "cape": 0.10421518146568651,
+        "recoil": -0.01596172324055404
+      }
+    },
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 20,
+      "recoilEvents": 20,
+      "ammo": 10,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 0,
+      "facing": 1,
+      "springs": {
+        "head": -0.017792253964136823,
+        "hair": 0.1167733019247807,
+        "cloth": 0.008111245513609793,
+        "cape": 0.10421518146568651,
+        "recoil": -0.01596172324055404
+      }
+    }
+  ],
+  "settle_after_04_sec": {
+    "head": 4.0168741801564814e-7,
+    "hair": -0.0002476404306431318,
+    "cloth": 8.879003242827622e-8,
+    "cape": -0.00009928986938527427,
+    "recoil": -9.575649677956298e-12
+  },
+  "max_grip_error_logical_px": 4.0194366942304644e-14,
+  "recoil": {
+    "first_tick_offset": -0.6597355612184401,
+    "muzzle_angle": -0.020005803415916373,
+    "maximum_forward_overshoot": 0,
+    "peak_backward_offset": -1.4230477166801467
+  },
+  "gait_geometry": {
+    "max_leg_error": 5.3290705182007514e-14,
+    "max_sole_penetration": 3.552713678800501e-15,
+    "min_forward_knee_cross": 1040.482115096865
+  },
+  "max_planted_track_slide": 1.1368683772161603e-13,
+  "largest_stop_foot_step": 3.822165922566649,
+  "proportions": {
+    "head_count": 7.5,
+    "reference_head_count": 7.5025641025641026,
+    "hip": -171.5,
+    "knees": [
+      -97.3572264084303,
+      -96.83412035129042
+    ],
+    "ankles": [
+      -23.04,
+      -23.04
+    ]
+  },
+  "aspect_ratio_preserved": true,
+  "max_stock_contact_error": 5.687116766346677e-14,
+  "reuse_hashes": {
+    "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c",
+    "art/characters/clone_01/motion/rig_004/source/base_atlas.png": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1",
+    "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe",
+    "art/characters/clone_01/motion/rig_004/source/body_core.png": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8",
+    "art/characters/clone_01/motion/rig_004/rig/parts.json": "b932afbae7c5984478c96cd8185cbc8c4023ff47f27c2567be8fe66bf6f96050",
+    "game/animation/gait.js": "55a706ad9e5e8d2606764be181569c6410338913a22b8a3b499fb2258d861259",
+    "game/animation/proportions.js": "354b3ad827f81dd7bdbb24158298e73d73876eea7203fbe96d543dad5e598a11",
+    "game/animation/rig-core.js": "12c83a7bdba7d6971fe5eef175b8147f8626fdb9f4dd832ac749286821e20c7d",
+    "game/animation/webgl-character.js": "3aee60ff1b5bf7b99e920958e8242d237ec6ceacca749b5efb9c97d0f047a3e7"
+  }
+}

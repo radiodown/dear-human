@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "scope": "Upstream 14-frame PNG checks; GIF-only requirement explicitly excluded by existing user instruction.",
+  "upstream_errors": [
+    "missing file: C:\\Users\\axgatge\\Desktop\\miss\\art\\characters\\clone_01\\motion\\plan_b\\walk_001\\output\\preview.gif"
+  ],
+  "excluded_checks": [
+    "GIF existence, frame count and white GIF background"
+  ],
+  "errors": [],
+  "visual_review": "Contact sheet and browser playback reviewed separately; draft awaiting user art approval."
+}

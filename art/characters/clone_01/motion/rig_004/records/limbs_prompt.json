@@ -1,0 +1,21 @@
+{
+  "use_case": "identity-preserve",
+  "asset_type": "twelve side-view limb layers for the supplied combat master",
+  "reference_role": "Use the supplied side-view combat master as the exact character, anatomy, armor layout, viewing angle and 3D material reference. Near/far limbs are two real sides of this one woman, not mirrored copies of a front-view body.",
+  "layout": "Landscape transparent 2048 by 1536 atlas, EXACT FOUR columns and THREE rows, twelve equal cells. One complete isolated part per cell, generous transparent margins, no overlaps across cells, labels or grid. All parts use the master's RIGHT-FACING side projection. Long bone segments hang straight down in local bone orientation, never pre-bent. Paint complete rounded hidden joint pads for overlap; no hollow tubular cut ends, black cuff holes, detached duplicate armor or extra joints.",
+  "cells_row_major": [
+    "NEAR UPPER ARM: the master's near shoulder/deltoid plate and short armored sleeve CONTIGUOUS with upper arm down to elbow. The shoulder armor is part of this piece, not a second layer. Straight neutral upper arm, side view.",
+    "NEAR FOREARM: elbow to wrist, straight, matching forearm guards and dark sleeve. Rounded elbow overlap, wrist cuff ends before hand. No upper arm or fingers.",
+    "PRIMARY GRIP HAND: near gloved right hand for M16 pistol grip. Side view with wrist to LEFT and fingers to RIGHT, natural relaxed trigger-hand shape and separated index finger. No gun, forearm or sleeve. It must look like a human hand holding a pistol grip, not a boxing fist.",
+    "FAR UPPER ARM: the master's opposite shoulder to elbow, straight side view, modestly darker depth shading, anatomically same length as near upper arm, complete hidden joint pads. No hand or forearm.",
+    "FAR FOREARM: opposite elbow to wrist, straight matching dark sleeve and guard, slightly darker depth shading. No hand or upper arm.",
+    "SUPPORT HAND: opposite gloved hand cupping an invisible horizontal rifle fore-end from below. Wrist to LEFT, palm facing UP, curled fingers arching UP on the RIGHT to wrap the fore-end. Distinct from the trigger hand. No gun or forearm.",
+    "NEAR THIGH: hip joint to knee, side-view smooth pale upper thigh, garter connection strap from the upper end, dark stocking and master thigh straps/holster on the OUTER side. Full hidden hip overlap and rounded knee. No skirt, shin or boot.",
+    "FAR THIGH: opposite hip to knee, same anatomy/length and side view, INNER-facing stocking/strap surfaces with less visible holster, slightly darker. Full hidden hip and knee overlap. No skirt, shin or boot.",
+    "NEAR SHIN: knee joint to ankle, natural side-view knee/shin armor matching master, contiguous segment with rounded joint ends, knee flexes forward to RIGHT. No foot or thigh. Straight neutral orientation.",
+    "FAR SHIN: opposite knee to ankle, INNER-facing master armor/stocking surfaces, same anatomy, slightly darker, right-facing profile. No foot or thigh. Straight neutral orientation.",
+    "NEAR BOOT: master near armored black combat boot, from ankle cuff to sole, right-facing exact side profile, natural size and thick flat reinforced sole. No shin or knee.",
+    "FAR BOOT: opposite boot with inner-side detail and slightly darker depth shading, same size, toe faces RIGHT, flat sole. No shin or knee."
+  ],
+  "constraints": "Preserve the master natural adult proportions, the same realistic stylized 3D rendering, dark armor, restrained gold and pale cool skin. No head, torso, full body, cape, rifle, new gear, front-view limbs, perspective changes, bent bone segments, duplicate epaulettes, hollow sockets, glow, haze, floor, backdrop, text or watermark. Actual transparent background."
+}

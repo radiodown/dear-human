@@ -1,5 +1,7 @@
 # 05. 파츠 원화·공통 리그와 2dimg2motion 활용
 
+> 사용자 지시로 2dimg2motion을 **플랜 B**로 실행했다. 전신 보행 14프레임의 실제 생성·보관·재생·검수 결과는 [27](27-plan-b-2dimg2motion.md)을 따른다. 아래 파츠 리그의 첫 시험과 별도 경로다.
+
 [문서 목록](../README.md) · 파츠·무기 계약은 [16](16-modular-character-and-weapons.md), 보조 모션은 [13](13-secondary-motion.md)을 따른다.
 
 현재 사용자 채택 외형으로 분리 파츠·자체 JavaScript/WebGL 리그의 첫 모션 시험을 만들었다. 실제 산출물·검사 범위·미해결 보정은 [24](24-motion-rig-test.md)를 따른다. Spine·2dimg2motion·PixelFX는 이번 시험에서 사용하지 않았으며 도구의 최종 채택은 결과 평가 뒤 결정한다.

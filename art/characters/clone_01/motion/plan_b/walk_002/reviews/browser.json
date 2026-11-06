@@ -1,0 +1,7 @@
+{
+  "status": "passed",
+  "scope": "Failure status and comparison link display only; no corrected animation claimed.",
+  "browser": "Separate headless local Chrome; in-app browser tool failed before connection.",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&motion=walk",
+  "page_errors": []
+}

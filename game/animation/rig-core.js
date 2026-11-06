@@ -2,6 +2,7 @@
 import { WEAPONS } from './weapon-profiles.js';
 import { GAIT, gaitBody, gaitFoot } from './gait.js';
 import { HUMAN, handOffset } from './proportions.js';
+import { CapeMotion } from './cape.js';
 export { WEAPONS } from './weapon-profiles.js';
 export const STEP = 1 / 120;
 export const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
@@ -47,8 +48,9 @@ export class CharacterRig {
     this.recoil = new Spring(12,1,3);
     this.enabled = { recoil:true, head:true, hair:true, cloth:true, cape:true };
     this.weapon = WEAPONS.m16_basic; this.ammo=30; this.time=0; this.shots=0; this.recoilEvents=0;
-    this.cooldown=0; this.flash=0; this.phase=0; this.facing=1; this.walk=false; this.trigger=false;
+    this.cooldown=0; this.flash=0; this.phase=Math.PI*2*.36; this.facing=1; this.walk=false; this.trigger=false;
     this.reload=null; this.reloadCompletions=0; this.accumulator=0; this.rootX=0; this.distance=0;this.walkAmount=0;
+    this.aimAmount=0;this.aimHold=0;this.capeMotion=new CapeMotion();
   }
   equip(id) {
     if (!WEAPONS[id]) throw new Error(`Unknown weapon: ${id}`);
@@ -63,7 +65,7 @@ export class CharacterRig {
   fire() {
     if (this.reload || this.cooldown > 1e-7) return false;
     if (!this.ammo) { this.startReload(); return false; }
-    this.ammo--; this.shots++; this.cooldown=this.weapon.fireInterval; this.flash=.055;
+    this.ammo--; this.shots++; this.cooldown=this.weapon.fireInterval; this.flash=.055;this.aimHold=.24;
     if (this.enabled.recoil) { this.recoil.impulse(-300); this.recoilEvents++; }
     if (this.enabled.head) this.head.impulse(-6);
     if (this.enabled.hair) this.hair.impulse(11);
@@ -82,7 +84,7 @@ export class CharacterRig {
     while (this.accumulator+1e-9 >= STEP) { this.step(); this.accumulator-=STEP; }
   }
   step() {
-    this.time+=STEP; this.cooldown=Math.max(0,this.cooldown-STEP); this.flash=Math.max(0,this.flash-STEP);
+    this.time+=STEP; this.cooldown=Math.max(0,this.cooldown-STEP); this.flash=Math.max(0,this.flash-STEP);this.aimHold=Math.max(0,this.aimHold-STEP);
     if (this.reload) {
       this.reload.t+=STEP;
       if (this.reload.t+1e-8 >= this.reload.duration) { this.ammo=this.weapon.capacity; this.reload=null; this.reloadCompletions++; }
@@ -91,19 +93,28 @@ export class CharacterRig {
     const target=this.walk?1:0;
     this.walkAmount+=(target-this.walkAmount)*(1-Math.exp(-STEP/.12));
     if(Math.abs(this.walkAmount-target)<1e-4)this.walkAmount=target;
+    const aim=this.trigger||this.aimHold>0?1:0;
+    this.aimAmount+=(aim-this.aimAmount)*(1-Math.exp(-STEP/(aim?.18:.30)));
     const delta=STEP*GAIT.speed*this.walkAmount*(this.reload ? .75 : 1);
     this.distance+=delta;this.phase+=delta/(GAIT.speed*GAIT.period)*Math.PI*2;
     for (const k of ['head','hair','cloth','cape','recoil']) { if (this.enabled[k]) this[k].step(STEP); else this[k].reset(); }
+    this.capeMotion.step(STEP,{speed:delta/STEP,phase:this.phase,impulse:this.cape.x,enabled:this.enabled.cape});
   }
   pose() {
-    const pelvis=gaitBody(this.phase,this.walkAmount,this.time),bob=pelvis.y-HUMAN.hipY;
+    const pelvis=gaitBody(this.phase,this.walkAmount,this.time,this.aimAmount),bob=pelvis.y-HUMAN.hipY;
     const lean=pelvis.lean+this.recoil.x*.003;
-    const torso={...transform({x:-1,y:-HUMAN.torsoAboveHip},{x:pelvis.x+this.recoil.x*.22,y:pelvis.y,a:lean}),a:lean};
+    const torso={...transform({x:0,y:-HUMAN.torsoAboveHip},{x:pelvis.x+this.recoil.x*.22,y:pelvis.y,a:lean}),a:lean};
     const bodyPoint=(x,y)=>transform({x,y},torso);
     const r=this.reload, q=r?clamp(r.t/.25,0,1)*clamp((r.duration-r.t)/.25,0,1):0;
-    const mount=bodyPoint(HUMAN.mount.x,HUMAN.mount.y+q*7);
-    const weapon={x:mount.x+this.recoil.x,y:mount.y,a:clamp(this.recoil.x*.012,-.0349,0)+q*.13};
     const w=this.weapon;
+    const stockPocket=bodyPoint(HUMAN.stockPocket.x,HUMAN.stockPocket.y);
+    const stockTarget=bodyPoint(HUMAN.stockPocket.x,HUMAN.stockPocket.y+q*7);
+    // Shoulder placement follows the leaning body; aim follows the target.
+    const angle=torso.a*.08+clamp(this.recoil.x*.012,-.0349,0)+q*.13;
+    const stockOffset=transform({x:(w.stock.x-w.pivot.x)*w.width,y:(w.stock.y-w.pivot.y)*w.height},{x:0,y:0,a:angle});
+    // Rotate around the seated buttstock. Recoil moves the shoulder and torso
+    // together, rather than sliding an independently translated rifle through it.
+    const weapon={x:stockTarget.x-stockOffset.x,y:stockTarget.y-stockOffset.y,a:angle};
     const socket=(p)=>transform({x:(p.x-w.pivot.x)*w.width,y:(p.y-w.pivot.y)*w.height},weapon);
     const primary=socket(w.primary), support=socket(w.support), mag=socket(w.mag);
     let supportTarget=support, magOffset=0, magazineVisible=true;
@@ -116,19 +127,20 @@ export class CharacterRig {
     }
     const shoulderA=bodyPoint(HUMAN.primaryShoulder.x,HUMAN.primaryShoulder.y), shoulderB=bodyPoint(HUMAN.supportShoulder.x,HUMAN.supportShoulder.y);
     const handAngleA=weapon.a+HUMAN.primaryWristAngle,handAngleB=weapon.a+HUMAN.supportWristAngle;
-    const offsetA=transform(handOffset(),{x:0,y:0,a:handAngleA}),offsetB=transform(handOffset(),{x:0,y:0,a:handAngleB});
+    const offsetA=transform(handOffset(),{x:0,y:0,a:handAngleA}),offsetB=transform(handOffset(true),{x:0,y:0,a:handAngleB});
     const wrist=(grip,offset)=>({x:grip.x-offset.x,y:grip.y-offset.y});
     const armA=ik2(shoulderA,wrist(primary,offsetA),HUMAN.upperArm,HUMAN.forearm,1), armB=ik2(shoulderB,wrist(supportTarget,offsetB),HUMAN.upperArm,HUMAN.forearm,1);
     const palmA={x:armA.hand.x+offsetA.x,y:armA.hand.y+offsetA.y},palmB={x:armB.hand.x+offsetB.x,y:armB.hand.y+offsetB.y};
     const legs=[0,1].map(layer=>{
       const foot=gaitFoot(this.phase,layer,this.walkAmount);
-      const root={x:pelvis.x+(layer===0?-3:3),y:pelvis.y+(layer===0?1:0)};
+      const root={x:pelvis.x+(layer===0?8:-4),y:pelvis.y+(layer===0?2:0)};
       // Both human knees flex toward the direction of travel. Layer/depth is
       // represented by draw order, not by giving the rear knee a reverse hinge.
       return {...ik2(root,foot,GAIT.thigh,GAIT.shin,-1),foot};
     });
-    return { torso,pelvis,bob,walkAmount:this.walkAmount, weapon, sockets:{primary,support,mag,muzzle:socket(w.muzzle)}, armA,armB,palmA,palmB,handAngleA,handAngleB,supportTarget,legs,magOffset,magazineVisible,
-      head:this.head.x,hair:this.hair.x,cloth:this.cloth.x,cape:this.cape.x,gripError:Math.max(Math.hypot(palmA.x-primary.x,palmA.y-primary.y),Math.hypot(palmB.x-supportTarget.x,palmB.y-supportTarget.y)) };
+    return { torso,pelvis,bob,walkAmount:this.walkAmount, weapon, stockPocket,stockTarget, sockets:{stock:socket(w.stock),primary,support,mag,muzzle:socket(w.muzzle)}, armA,armB,palmA,palmB,handAngleA,handAngleB,supportTarget,legs,magOffset,magazineVisible,
+      head:this.head.x,hair:this.hair.x,cloth:this.cloth.x,cape:this.cape.x,capePoints:this.capeMotion.points(),aimAmount:this.aimAmount,
+      gripError:Math.max(Math.hypot(palmA.x-primary.x,palmA.y-primary.y),Math.hypot(palmB.x-supportTarget.x,palmB.y-supportTarget.y)) };
   }
   snapshot() {
     const p=this.pose();return {seconds:this.time,shots:this.shots,recoilEvents:this.recoilEvents,ammo:this.ammo,reload:this.reload,reloadCompletions:this.reloadCompletions,weapon:this.weapon.id,gripError:p.gripError,facing:this.facing,springs:Object.fromEntries(['head','hair','cloth','cape','recoil'].map(k=>[k,this[k].x]))};

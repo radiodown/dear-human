@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "iteration": "combat_005",
+  "art_direction_status": "awaiting_user_review",
+  "scope": "Parts gait, moving-fire posture and cape; Plan B excluded.",
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "d5ebad415d4ceb84e045b112f3996c28e6ece093b2244e20913e89fb6face156"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "94ae64714da3afdb53eb27c561438fefcb50b9affcffbb4f5171e3660742ea82"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "354b3ad827f81dd7bdbb24158298e73d73876eea7203fbe96d543dad5e598a11"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "a7a4370f7dd0f40ed3c6ec9ae0115681589fff5abb0b7c922bcbf6db755a2a44"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "85e444c9728536641cbd9521eb116291d1dc16cda24d4e78f6423dc9ec7a395b"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "4adf46cb5bda4ab9f36777777cd7a1c9363ac99e8afcee3d83e84558ece918e6"
+    }
+  ],
+  "ui_snapshot": {
+    "path": "art/characters/clone_01/motion/rig_005/records/ui_snapshot/index.html",
+    "sha256": "e36c8e70be8048e4e7019a55a6dffaf79170bb088a62b216e49c0c0ea4ea5f2d"
+  },
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/left_stopped.png",
+      "sha256": "77de47f520f23d78a93f1f3c157ee21c854af4b587a0639b9c345e2ee656e64f",
+      "captured_at_utc": "2026-11-06T10:59:19.248148+00:00",
+      "inspection": "Visually inspected after capture. Screenshot from actual shared web app."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/narrow_left.png",
+      "sha256": "ab944f06b8d15fa5a381d17323bc89881aad4708f79eda837fd8acc322ef4063",
+      "captured_at_utc": "2026-11-06T10:59:20.068659+00:00",
+      "inspection": "Visually inspected after capture. Screenshot from actual shared web app."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/reload.png",
+      "sha256": "16d8ff41a6a93747e8dbbf12871f2ea58b64909580af945cf8c4568a5f7e76de",
+      "captured_at_utc": "2026-11-06T10:57:26.802914+00:00",
+      "inspection": "Visually inspected after capture. Screenshot from actual shared web app."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/stopped.png",
+      "sha256": "ce410915aa79cf697adb50a70a707e5bbe449247663072ce47cda81004d86ed3",
+      "captured_at_utc": "2026-11-06T10:53:36.228706+00:00",
+      "inspection": "Visually inspected after capture. Screenshot from actual shared web app."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/walk.png",
+      "sha256": "d66fbfd9d98bda847fc47f19ea76c94f9a2162f8897d2c098e32e855afc32153",
+      "captured_at_utc": "2026-11-06T10:57:26.291703+00:00",
+      "inspection": "Visually inspected after capture. Screenshot from actual shared web app."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/walk_fire_a.png",
+      "sha256": "8e3e0f693a46219c71500e4dea0c055314bb3b0ec77b113d90fe490af03579fe",
+      "captured_at_utc": "2026-11-06T10:53:33.640649+00:00",
+      "inspection": "Visually inspected after capture. Screenshot from actual shared web app."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/walk_fire_b.png",
+      "sha256": "c15460de73960f0824b9276e0d5a9ae6c347b9b81d876a466283c9a26e5a1585",
+      "captured_at_utc": "2026-11-06T10:57:25.751241+00:00",
+      "inspection": "Visually inspected after capture. Screenshot from actual shared web app."
+    }
+  ],
+  "interaction_report": {
+    "path": "art/characters/clone_01/motion/rig_005/reviews/browser-interactions.json",
+    "sha256": "96e918be3203720aa06aa21c764e4692ff3e57388d5615a1e50cf47f0cfc99dc"
+  },
+  "checks": {
+    "simulation_tests": 17,
+    "pipeline_and_server_tests": 14,
+    "javascript_syntax": "passed",
+    "skill_validation": "passed",
+    "paused_canvas_stable": true,
+    "live_fire_and_playback": "passed"
+  },
+  "observations": [
+    "Compared to the prior short upright gait, stride is wider and the body is lower with a forward brace.",
+    "World aim stays near horizontal while the shoulder and body lean; stock and hand contacts remain constrained.",
+    "Walking cape trails behind with a pinned upper section and delayed lower strips; it settles after stopping.",
+    "Mirrored preview reserves space on the muzzle side, including a 500px viewport."
+  ],
+  "limitations": [
+    "Artistic naturalness remains subject to user review; numeric checks do not establish it.",
+    "This is procedural gait and angle-spring cape deformation, not full-body dynamics or cloth collision.",
+    "No new fold/topology cape images were generated.",
+    "Existing one-piece torso/waist/skirt and painted hand limitations remain."
+  ],
+  "gifs_generated": false
+}

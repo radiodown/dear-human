@@ -5,9 +5,11 @@ import path from 'node:path';
 import crypto from 'node:crypto';
 import { CharacterRig, Spring, ik2, STEP, WEAPONS } from '../../game/animation/rig-core.js';
 import { GAIT } from '../../game/animation/gait.js';
+import { CapeMotion } from '../../game/animation/cape.js';
 import { HUMAN, REFERENCE, partDimensions, handOffset } from '../../game/animation/proportions.js';
 const root=path.resolve(import.meta.dirname,'../..');
 const metrics={};
+const definition=JSON.parse(fs.readFileSync(path.join(root,'art/characters/clone_01/motion/rig_005/rig/parts.json'),'utf8'));
 test('IK reaches reachable targets without stretching unreachable goals',()=>{
  for(const goal of [{x:40,y:10},{x:-20,y:60},{x:0,y:0}]) { const r=ik2({x:0,y:0},goal,40,40);assert.ok(r.error<1e-4);assert.ok(Math.abs(Math.hypot(r.elbow.x,r.elbow.y)-40)<1e-7); }
  const r=ik2({x:0,y:0},{x:200,y:0},40,40);assert.ok(r.error>100);assert.equal(r.reachable,false);
@@ -88,22 +90,28 @@ test('stopping blends to planted idle feet without a single-frame foot teleport'
  for(const leg of previous.legs)assert.ok(leg.foot.stance&&Math.abs(leg.foot.heel.y)<1e-6&&Math.abs(leg.foot.toe.y)<1e-6);
  metrics.largest_stop_foot_step=largest;
 });
-test('calibrated head count and hip/knee/ankle landmarks match the approved portrait',()=>{
+test('calibrated head count and hip/knee/ankle landmarks match the side combat master',()=>{
  const r=new CharacterRig(),p=r.pose(),headCount=HUMAN.nominalHeight/HUMAN.headCrownToChin;
  const expectedHeads=(REFERENCE.sole-REFERENCE.crown)/(REFERENCE.chin-REFERENCE.crown);
  assert.ok(Math.abs(headCount-expectedHeads)<.12);
  const y=value=>(value-REFERENCE.sole)/(REFERENCE.sole-REFERENCE.crown)*HUMAN.nominalHeight;
  assert.ok(Math.abs(p.pelvis.y-y(REFERENCE.hip))<2);
  for(const leg of p.legs){assert.ok(Math.abs(leg.elbow.y-y(REFERENCE.knee))<4);assert.ok(Math.abs(leg.foot.y-y(REFERENCE.ankle))<2);}
- const crown=p.torso.y-6-HUMAN.headHeight;
- assert.ok(Math.abs(crown+HUMAN.nominalHeight)<1);
+ const crown=p.torso.y+definition.bindings.head.y-HUMAN.headHeight;
+ assert.ok(Math.abs(crown+HUMAN.nominalHeight)<4);
  metrics.proportions={head_count:headCount,reference_head_count:expectedHeads,hip:p.pelvis.y,knees:p.legs.map(x=>x.elbow.y),ankles:p.legs.map(x=>x.foot.y)};
 });
 test('all character parts retain source aspect ratios, and the hand/boot model agrees with their images',()=>{
- const d=JSON.parse(fs.readFileSync(path.join(root,'art/characters/clone_01/motion/rig_002/rig/parts.json'),'utf8'));
+ const d=definition;
  for(const [key,h]of Object.entries(HUMAN.heights)){const rect=d.parts[key].rect,size=partDimensions(rect,h);assert.ok(Math.abs(size.width/size.height-rect[2]/rect[3])<1e-10);}
- const hand=partDimensions(d.parts.hand.rect,HUMAN.handHeight),boot=partDimensions(d.parts.boot.rect,GAIT.bootHeight);
- assert.ok(Math.abs(hand.width-HUMAN.handHeight*HUMAN.handAspect)<1e-8);assert.ok(Math.abs(boot.width-GAIT.bootWidth)<1e-8);
+ for(const [key,h,aspect]of [['primary_hand',HUMAN.handHeight,HUMAN.handAspect],['support_hand',HUMAN.supportHandHeight,HUMAN.supportHandAspect]]){
+  const hand=partDimensions(d.parts[key].rect,h);assert.ok(Math.abs(hand.width-h*aspect)<1e-8);
+ }
+ for(const key of ['near_boot','far_boot']){
+  const binding=d.bindings[key],boot=partDimensions(d.parts[key].rect,binding.height);
+  assert.ok(Math.abs(boot.width-GAIT.bootWidth)<1e-8);
+  assert.ok(Math.abs(boot.height*(1-binding.pivot[1])-GAIT.bootHeight*(1-GAIT.ankleV))<1e-8);
+ }
  const rifle=d.parts.rifle.rect;assert.ok(Math.abs(WEAPONS.m16_basic.width/WEAPONS.m16_basic.height-rifle[2]/rifle[3])<1e-8);
  metrics.aspect_ratio_preserved=true;
 });
@@ -113,9 +121,54 @@ test('wrist-to-palm offset preserves both weapon grips during recoil and reload'
  assert.ok(reloadObserved);assert.equal(r.reloadCompletions,1);
  assert.ok(handOffset().x>5,'Palm anchor should be distinct from the wrist');
 });
+// A grip-only solver can pass while the rifle floats in front of the shoulder.
+test('buttstock remains seated during walking and recoil; reload releases it deliberately',()=>{
+ const r=new CharacterRig();r.setWalking(true);r.trigger=true;let max=0,released=false;
+ for(let i=0;i<120*8;i++){
+  r.step();const p=r.pose(),contact=Math.hypot(p.sockets.stock.x-p.stockTarget.x,p.sockets.stock.y-p.stockTarget.y);
+  assert.ok(contact<1e-8);max=Math.max(max,contact);
+  const gap=Math.hypot(p.sockets.stock.x-p.stockPocket.x,p.sockets.stock.y-p.stockPocket.y);
+  if(r.reload)released ||=gap>3;else assert.ok(gap<1e-8,'Seated stock drifted from shoulder');
+ }
+ assert.ok(released,'Reload should lower the stock intentionally');metrics.max_stock_contact_error=max;
+});
+
+test('combat movement lowers the pelvis, leans the torso and keeps a seated level rifle',()=>{
+ const r=new CharacterRig(),idle=r.pose();r.setWalking(true);r.trigger=true;
+ const range={hip_drop:[Infinity,-Infinity],lean_degrees:[Infinity,-Infinity],muzzle_degrees:[Infinity,-Infinity]};
+ for(let i=0;i<240;i++){
+  r.step();if(i<120)continue;const p=r.pose(),drop=p.pelvis.y-idle.pelvis.y,lean=p.torso.a*180/Math.PI,muzzle=p.weapon.a*180/Math.PI;
+  assert.ok(drop>5,'Combat gait must carry weight lower than upright idle');
+  assert.ok(lean>6&&lean<12,'Torso should visibly brace forward');
+  assert.ok(Math.abs(muzzle)<2,'Leaning torso must not aim the gun down');
+  assert.ok(p.legs.some(x=>x.foot.stance),'Walking must keep a support foot on the ground');
+  for(const [key,value]of [['hip_drop',drop],['lean_degrees',lean],['muzzle_degrees',muzzle]]){range[key][0]=Math.min(range[key][0],value);range[key][1]=Math.max(range[key][1],value);}
+ }
+ metrics.combat_gait={...range,steps_per_minute:120/GAIT.period,step_distance:GAIT.speed*GAIT.period/2,toe_lift:GAIT.lift};
+});
+
+test('cape pins the shoulder, preserves strip lengths, flutters in movement and settles after stop',()=>{
+ const cape=new CapeMotion();let min=Infinity,max=-Infinity;
+ for(let i=0;i<120*5;i++){
+  cape.step(STEP,{speed:128,phase:i*STEP/GAIT.period*Math.PI*2});const points=cape.points();
+  assert.deepEqual(points[0],{x:0,y:0});assert.equal(points[2].x,0);
+  for(let j=1;j<points.length;j++)assert.ok(Math.abs(Math.hypot(points[j].x-points[j-1].x,points[j].y-points[j-1].y)-23.5)<1e-8);
+  if(i>240){min=Math.min(min,points.at(-1).x);max=Math.max(max,points.at(-1).x);}
+ }
+ assert.ok(max<-20,'Hem should trail behind during movement');assert.ok(max-min>3,'Hem must move after the initial impulse settles');
+ const paused=cape.points();assert.deepEqual(cape.points(),paused);
+ for(let i=0;i<120*3;i++)cape.step(STEP,{speed:0,phase:0});
+ assert.ok(Math.abs(cape.points().at(-1).x)<.1,'Hem should settle after stopping');
+ cape.step(STEP,{speed:128,phase:1,enabled:false});assert.equal(cape.points().at(-1).x,0);
+ const runs=[30,60,120].map(fps=>{const r=new CharacterRig();r.setWalking(true);for(let i=0;i<fps*2;i++)r.advance(1/fps);return r.pose().capePoints;});
+ assert.deepEqual(runs[0],runs[1]);assert.deepEqual(runs[1],runs[2]);
+ metrics.cape={hem_x_range:[min,max],pinned_shoulder:true,preserved_strip_lengths:true,fixed_step_equivalent:true};
+});
+
 test('100 weapon swaps do not alter character images or shared animation files',()=>{
- const files=['art/characters/clone_01/concepts/reference_003_3d/source/appearance.png','art/characters/clone_01/motion/rig_002/source/parts_atlas.png','art/characters/clone_01/motion/rig_002/rig/parts.json','game/animation/gait.js','game/animation/proportions.js','game/animation/rig-core.js','game/animation/webgl-character.js'];
+ const files=['art/characters/clone_01/concepts/reference_003_3d/source/appearance.png','art/characters/clone_01/motion/rig_004/source/base_atlas.png','art/characters/clone_01/motion/rig_004/source/limbs_atlas.png','art/characters/clone_01/motion/rig_004/source/body_core.png','art/characters/clone_01/motion/rig_005/rig/parts.json','game/animation/gait.js','game/animation/proportions.js','game/animation/rig-core.js','game/animation/webgl-character.js','game/animation/cape.js'];
  const hashes=()=>Object.fromEntries(files.map(p=>[p,crypto.createHash('sha256').update(fs.readFileSync(path.join(root,p))).digest('hex')]));
  const before=hashes(),r=new CharacterRig();for(let i=0;i<100;i++)r.equip(i%2?'m16_basic':'diagnostic');assert.deepEqual(hashes(),before);metrics.reuse_hashes=before;
- fs.mkdirSync(path.join(root,'art/characters/clone_01/motion/rig_002/tests'),{recursive:true});fs.writeFileSync(path.join(root,'art/characters/clone_01/motion/rig_002/tests/simulation-metrics.json'),JSON.stringify({scope:'Simulation tests, not visual or gameplay acceptance',...metrics},null,2)+'\n');
+ fs.mkdirSync(path.join(root,'art/characters/clone_01/motion/rig_005/tests'),{recursive:true});fs.writeFileSync(path.join(root,'art/characters/clone_01/motion/rig_005/tests/simulation-metrics.json'),JSON.stringify({scope:'Simulation tests, not visual or gameplay acceptance',...metrics},null,2)+'\n');
 });
+

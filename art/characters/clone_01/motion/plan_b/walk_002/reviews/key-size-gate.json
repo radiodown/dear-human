@@ -1,0 +1,91 @@
+{
+  "status": "failed",
+  "review_type": "Baseline-versus-keys visual comparison; canvas measurements are descriptive only.",
+  "source_size": [
+    1134,
+    1387
+  ],
+  "reference_board_size": [
+    1060,
+    1296
+  ],
+  "shared_scale": 0.9347442680776014,
+  "per_frame_scale_fit": false,
+  "per_frame_center_fit": false,
+  "cells": [
+    {
+      "key": 2,
+      "source_cell": [
+        0,
+        0,
+        567,
+        694
+      ],
+      "shared_scale": 0.9347442680776014,
+      "core_bbox_at_common_scale": [
+        105,
+        150,
+        390,
+        505
+      ]
+    },
+    {
+      "key": 5,
+      "source_cell": [
+        567,
+        0,
+        1134,
+        694
+      ],
+      "shared_scale": 0.9347442680776014,
+      "core_bbox_at_common_scale": [
+        110,
+        150,
+        377,
+        507
+      ]
+    },
+    {
+      "key": 8,
+      "source_cell": [
+        0,
+        694,
+        567,
+        1387
+      ],
+      "shared_scale": 0.9347442680776014,
+      "core_bbox_at_common_scale": [
+        112,
+        161,
+        391,
+        511
+      ]
+    },
+    {
+      "key": 11,
+      "source_cell": [
+        567,
+        694,
+        1134,
+        1387
+      ],
+      "shared_scale": 0.9347442680776014,
+      "core_bbox_at_common_scale": [
+        119,
+        161,
+        377,
+        512
+      ]
+    }
+  ],
+  "findings": [
+    "A size-locked reference board improves layout but the redrawn head/face and rigid upper-body proportions still do not match the exact baseline sufficiently.",
+    "The full silhouettes alone do not establish body scale. Head, torso and rifle must agree with the baseline before keys can be approved."
+  ],
+  "decision": "Reject this shared key-pose sheet. Do not generate its dependent in-betweens, package 14 frames or label it size-corrected.",
+  "image_generation_calls": 1,
+  "observed_image_tool_wall_seconds": 38.5,
+  "model_id": null,
+  "seed": null,
+  "actual_cost": null
+}

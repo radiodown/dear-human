@@ -1,0 +1,21 @@
+# Exact submitted image prompt
+
+```json
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human Plan B / 2dimg2motion whole-character walk sprites",
+  "identity_source": "Use the provided baseline image as the exact visual identity source, not loose inspiration. Preserve the SAME adult woman, exact face and dark eye in right-facing profile, long straight black hair and small gold hairpins, very pale cool skin, slender natural adult proportions, black and gunmetal segmented tactical armor with restrained worn gold details, armored skirt, garters, dark stockings, tall armored combat boots, gold-bordered black shoulder cape and wing emblem. Preserve realistic 3D rendered material shading. Only change pose and animation timing. Do not redesign, simplify, beautify, add details, remove details, change proportions, or reinterpret the character.",
+  "topology_lock": "Strict right-facing orthographic side profile throughout. Exactly one head, two arms, two hands, two legs, two boots. The near arm remains attached to the near shoulder and its hand stays at the M16 pistol grip toward screen-left. The far arm remains attached to the far shoulder and its hand stays beneath the M16 fore-end toward screen-right. No hand switching or mirroring. Near leg remains near leg and far leg remains far leg as they cross; knees bend naturally forward. Cape and hair are passive accessories fixed to shoulders and scalp.",
+  "weapon_lock": "The same conventional M16 always points horizontally screen-right, stock at shoulder, near hand on pistol grip, far hand under fore-end. Constant barrel length, magazine, carry handle and front sight. No futuristic rifle, muzzle flash, smoke or separate effects.",
+  "layout": "Exactly FOUR complete separate full-body sprites in a precise TWO columns by TWO rows grid, reading order top-left, top-right, bottom-left, bottom-right. Equal rectangular cells. Canvas 1060 by 1296 pixels, each cell 530 by 648 pixels. Within each cell the character is 360 pixels tall, crown near y=144 and planted boot sole at y=504; body centered near x=250. Same apparent character size in every cell. Same foot/bottom baseline in every cell. Body center stays near the same cell center. Complete cape, boots, rifle and muzzle inside each cell with large empty gutters; no overlap or neighboring fragments. Do not fill the empty margins by enlarging the character. Plain genuinely TRANSPARENT background, no text, labels, numbers, borders, grid lines, floor, shadows, scenery, trails, dust or gradients.",
+  "motion": "One natural in-place rifle-ready walking cycle, moderate short military stride, not running or crouching. Alternate near and far planted feet, plausible heel strike / toe-off, modest pelvis bob, stable aiming upper body and restrained hair/cape lag. Preserve rigid chest armor; leg plates follow their segments.",
+  "reference_roles": "Image 1 is the exact baseline identity and loop endpoint. Image 2 is the approved key-pose sheet in order 02,05,08,11. Match its face, scale, proportions, materials and weapon. Draw ONLY the following four NEW intermediate poses; do not redraw or replace the anchor frames.",
+  "ordered_cells": {
+    "01": "Between baseline 00 and key 02: near foot begins extending screen-right, far heel begins lifting screen-left; half-way into first contact. Same silhouette identity and scale as references.",
+    "03": "One third between key 02 contact and key 05 passing: near leg accepts weight with slight knee flex, far heel lifts to toe-off behind. Small down phase.",
+    "04": "Two thirds between key 02 and key 05: near planted foot travels closer under pelvis, far knee begins swinging forward, far boot off ground behind.",
+    "06": "One third between key 05 passing and key 08 opposite contact: far knee and boot advance screen-right, near support leg extends backward. Slight up phase."
+  },
+  "leg_identity_lock": "The rectangular outer-thigh POUCH identifies the NEAR leg. In 02 it is FORWARD screen-right; 05 it is PLANTED beneath pelvis; 08 it is BACKWARD screen-left; 11 it is RAISED forward screen-right. Follow this same leg order in every intermediate. Do not repeat the same leg twice."
+}
+```

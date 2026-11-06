@@ -1,0 +1,17 @@
+# Submitted base layer prompt
+
+```json
+{
+  "use_case": "identity-preserve",
+  "asset_type": "four coherent base layers extracted from the supplied side-view combat master",
+  "reference_role": "The supplied right-facing standing combat master is the authoritative geometry, face, costume, camera and 3D rendering reference. Treat this as layered extraction with hidden-surface completion, not four independent designs.",
+  "layout": "Square transparent 2048 by 2048, EXACT TWO columns and TWO rows. One isolated layer per cell, completely separated by transparent margins. No assembled character, labels, grid or weapon. Keep exact master side-view contours and natural adult anatomy. All four layers have the SAME projection and soft neutral lighting. Do not rotate toward the viewer.",
+  "cells_row_major": [
+    "HEAD layer only: exact master adult profile face looking RIGHT, single visible dark eye, pale cool skin, black crown hair, bangs and short front/temple hair. Cut at a short natural neck below the jaw. NO armored collar, chest, shoulder, long back hair or weapon. Preserve likeness, head proportions and master 3D materials.",
+    "BACK HAIR layer only: the long straight black rear hair from behind the crown to the shoulder blades, thin side-profile silhouette matching the master. No face, ear, armored collar, body or cape. Hair root is a narrow attachment area; do not make a second full head.",
+    "CONTIGUOUS CLOTHED BODY CORE only: from the high armored collar through the fitted black/gunmetal chest and waist, belts, compact pouches and short armored skirt/safety shorts down to the skirt hem. EXACT same side-view master silhouette and ribcage-to-pelvis proportions. One seamless painted piece, no detached chest plate or duplicated belts. Complete normally hidden shoulder/hip areas in dark cloth. NO head, hair, cape, upper arms, forearms, hands, thighs, legs or weapon. No dangling garter straps below the hem; garters belong to thigh layers. No hollow tube sockets.",
+    "CAPE layer only: exact master heavy black shoulder-draped cape, muted gold border and low wing motif, same side view, shoulder attachment to ankle hem. Long narrow trailing profile behind the character, not a front-facing triangular curtain. Complete cloth with covered hidden areas, no person, sleeves, arms, torso, extra cape strip or weapon."
+  ],
+  "constraints": "Realistic stylized 3D render, matte dark fabric/leather/metal, muted gold, natural cool pale skin. Genuine transparency, no shadows, glow, haze, backdrop, drawn checkerboard, text or watermark. Preserve natural proportions within each layer. No front-facing armor combined with side-view limbs. These layers will be registered to the SAME master; do not invent new pose, anatomy, costume or ornaments."
+}
+```

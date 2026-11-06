@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&motion=walk",
+  "browser": "Separate headless local Chrome via Playwright; in-app browser failed before connecting.",
+  "checks": [
+    "PNG atlas decoded",
+    "animation advances",
+    "pause holds frame",
+    "single step",
+    "scrub 02/08/11",
+    "half speed",
+    "background",
+    "reference and rig view retained",
+    "hidden playback stops",
+    "Plan B URL retained",
+    "500px responsive layout"
+  ],
+  "page_errors": [],
+  "art_acceptance": "awaiting user review"
+}

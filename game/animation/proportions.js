@@ -1,21 +1,22 @@
-// Manual landmark calibration against the APPROVED 1024x1536 portrait.
-// These are visual measurements (not medical/anatomical measurements).
-// Character crown/sole ~22/1507, chin ~211, collar ~227, belt ~520,
-// hip ~660, knee ~970, ankle ~1410. Side-view depth is foreshortened.
-export const REFERENCE = Object.freeze({width:1024,height:1536,crown:22,sole:1507,chin:211,
-  collar:227,shoulder:310,belt:520,hip:660,knee:970,ankle:1410});
+// Landmarks are measured on the coherent RIGHT-FACING rig_004 side master.
+// Never transfer front-portrait perspective ratios onto unrelated side parts.
+export const REFERENCE = Object.freeze({width:1024,height:1536,crown:42,sole:1505,chin:237,
+  collar:235,shoulder:315,belt:550,hip:665,knee:1030,ankle:1390});
 export const HUMAN = Object.freeze({
-  nominalHeight:300, headHeight:47, headCrownToChin:38,
-  hipY:-170, torsoAboveHip:77, pelvisAboveHip:35,
-  primaryShoulder:{x:-12,y:5},supportShoulder:{x:8,y:6},
-  upperArm:43,forearm:38,mount:{x:8,y:9},
-  handHeight:11,handAspect:187/134,handPivot:[.18,.52],handGrip:[.62,.56],
-  primaryWristAngle:-.45,supportWristAngle:-.65,
-  heights:{head:47,hair_back:72,hair_side:62,inner_torso:64,chest:64,pelvis:58,
-    cape:239,cape_front:235,shoulder:22,hand:11,helmet:40},
+  nominalHeight:300, headHeight:45.5, headCrownToChin:40,
+  hipY:-171.5, torsoAboveHip:71.5, pelvisAboveHip:35,
+  primaryShoulder:{x:-19,y:0},supportShoulder:{x:8,y:7},
+  upperArm:36,forearm:40,stockPocket:{x:-13.5,y:-8.6},
+  handHeight:12,handAspect:240/143,handPivot:[.15,.72],handGrip:[.63,.65],
+  supportHandHeight:12,supportHandAspect:242/152,supportHandPivot:[.10,.77],supportHandGrip:[.72,.35],
+  primaryWristAngle:0,supportWristAngle:-.30,
+  heights:{head:45.5,hair_back:88,body_core:100,cape:235,primary_hand:12,support_hand:12},
   // Bone pivot locations inside each intact sprite, including joint overlap.
   joints:{upper_arm:[.12,.90],forearm:[.06,.93],thigh:[.05,.94],shin:[.13,.96]}
 });
 export function partDimensions(rect,height){return {width:height*rect[2]/rect[3],height};}
-export function handOffset(){return {x:(HUMAN.handGrip[0]-HUMAN.handPivot[0])*HUMAN.handHeight*HUMAN.handAspect,
-  y:(HUMAN.handGrip[1]-HUMAN.handPivot[1])*HUMAN.handHeight};}
+export function handOffset(support=false){
+  const height=support?HUMAN.supportHandHeight:HUMAN.handHeight,aspect=support?HUMAN.supportHandAspect:HUMAN.handAspect;
+  const pivot=support?HUMAN.supportHandPivot:HUMAN.handPivot,grip=support?HUMAN.supportHandGrip:HUMAN.handGrip;
+  return {x:(grip[0]-pivot[0])*height*aspect,y:(grip[1]-pivot[1])*height};
+}

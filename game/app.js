@@ -1,23 +1,32 @@
 import { RigLab } from './rig-lab.js';
+import { PlanBLab } from './plan-b-lab.js';
 const $ = (id) => document.getElementById(id);
 const lab = new RigLab();
+const planB = new PlanBLab();
 let labInitialized = false;
 function setPreviewMode(mode, updateUrl=true) {
   const rigMode = mode === 'rig';
-  $('reference-view').hidden = rigMode; $('rig-view').hidden = !rigMode;
-  $('mode-reference').setAttribute('aria-pressed', String(!rigMode));
+  const planBMode = mode === 'plan-b';
+  $('reference-view').hidden = rigMode || planBMode; $('rig-view').hidden = !rigMode;
+  $('plan-b-view').hidden = !planBMode;
+  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode));
   $('mode-rig').setAttribute('aria-pressed', String(rigMode));
+  $('mode-plan-b').setAttribute('aria-pressed', String(planBMode));
+  $('review-state').textContent = planBMode ? '플랜 B · 크기 검수 실패' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
   lab.show(rigMode);
+  planB.show(planBMode);
   if (rigMode && !labInitialized) { labInitialized=true; lab.init(); }
   if (updateUrl) {
     const [route,query] = location.hash.split('?');const params=new URLSearchParams(query||'');
-    if(rigMode)params.set('motion',lab.mode);else params.delete('motion');
+    if (planBMode) { params.set('plan','b'); params.set('motion','walk'); }
+    else { params.delete('plan'); if(rigMode)params.set('motion',lab.mode);else params.delete('motion'); }
     history.replaceState(null,'',`${location.pathname}${location.search}${route}${params.size?'?'+params:''}`);
   }
-  if (!rigMode) fitArt();
+  if (!rigMode && !planBMode) fitArt();
 }
 $('mode-reference').addEventListener('click',()=>setPreviewMode('reference'));
 $('mode-rig').addEventListener('click',()=>setPreviewMode('rig'));
+$('mode-plan-b').addEventListener('click',()=>setPreviewMode('plan-b'));
 const app = { entries: [], entry: null, revision: null, view: 'sheet', zoom: 1 };
 const labels = { character: '캐릭터', weapon: '무기', enemy: '적' };
 
@@ -93,6 +102,7 @@ function setRevision(id, updateUrl = true) {
 
 function showRoute() {
   lab.show(false);
+  planB.show(false);
   try {
     const [route, query] = location.hash.slice(1).split('?');
     const parts = (route || '/samples').split('/').filter(Boolean);
@@ -102,6 +112,7 @@ function showRoute() {
     if (!app.entry) throw new Error('등록되지 않은 샘플입니다. 왼쪽 목록에서 대상을 선택해 주세요.');
     $('error').hidden = true;
     const entry = app.entry;
+    $('mode-plan-b').hidden = kind !== 'character' || id !== 'clone_01';
     const hasArt = entry.revisions.some((revision) => revision.preview?.image_path);
     $('workspace').hidden = !hasArt;
     $('empty-state').hidden = hasArt;
@@ -135,7 +146,7 @@ function showRoute() {
       for (let remaining=sampleTime; remaining>1e-8; remaining-=1/60) lab.rig.advance(Math.min(remaining,1/60));
     }
     lab.paused=labParams.get('paused')==='1'; $('rig-pause').textContent=lab.paused?'재생':'일시정지';
-    setPreviewMode(motion ? 'rig' : 'reference',false);
+    setPreviewMode(labParams.get('plan') === 'b' && kind === 'character' && id === 'clone_01' ? 'plan-b' : motion ? 'rig' : 'reference',false);
   } catch (error) { $('error').textContent = error.message; $('error').hidden = false; $('workspace').hidden = true; $('empty-state').hidden = true; }
 }
 

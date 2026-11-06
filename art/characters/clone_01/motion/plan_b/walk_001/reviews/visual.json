@@ -1,0 +1,23 @@
+{
+  "status": "draft",
+  "art_direction_status": "awaiting_user_review",
+  "inspected": [
+    "baseline_standard.png",
+    "keyposes.png",
+    "keyposes_002.png",
+    "keyposes_003.png",
+    "inbetweens_a.png",
+    "inbetweens_b.png",
+    "inbetweens_b_002.png",
+    "output/contact-sheet.png",
+    "browser-frame-08.png",
+    "browser-mobile.png"
+  ],
+  "observations": [
+    "Final contact phases alternate near pouch leg and far leg.",
+    "No sliced sprites or neighboring fragments observed. Both hands stay on the same rifle grips.",
+    "Same uniform scale applied to all generated cells; source apparent heights 472-488px. Fixed output sole baseline y=503.",
+    "Face, cloth, body and rifle details drift slightly across redraws; source-baseline endpoints are thinner than some generated torso poses."
+  ],
+  "quality": "Playable review draft; no final visual-quality or production approval claimed."
+}

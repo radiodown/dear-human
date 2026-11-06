@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "reason": "User identified inconsistent apparent character size. Baseline and generated frames differ in head/torso/weapon proportions; official hard-failure gate was missed.",
+  "invalidates": "Previous structure-only passed result does not validate visual scale or identity.",
+  "official_source": "https://github.com/WU-HAOTIAN34/2dimg2motion/blob/main/SKILL.md",
+  "scope": "Keep prior generation, prompts and PNG frames intact as rejected history. Do not silently repack or per-frame scale them.",
+  "correction_attempt": "walk_002; pending key-pose scale approval before full generation."
+}

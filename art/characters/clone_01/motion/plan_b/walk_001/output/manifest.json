@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "plan": "Plan B",
+  "revision_id": "plan_b_walk_001",
+  "tool": "2dimg2motion",
+  "upstream_commit": "d4d73e243b6ff64b7cbb3879e45e951f972a7e62",
+  "action": "walk",
+  "facing": "right",
+  "frameCount": 14,
+  "keyframeIndices": [
+    2,
+    5,
+    8,
+    11
+  ],
+  "anchorIndices": [
+    0,
+    2,
+    5,
+    8,
+    11,
+    13
+  ],
+  "segmentInsertions": [
+    1,
+    2,
+    2,
+    2,
+    1
+  ],
+  "canvas": {
+    "width": 530,
+    "height": 648
+  },
+  "footBaseline": 503,
+  "durationMs": 85,
+  "coordinateSpace": "screen-space",
+  "activeLimb": "near leg with thigh pouch",
+  "activeShoulder": "near shoulder; grip hand remains on M16 pistol grip",
+  "anchorLimb": "far leg; far arm remains under M16 fore-end",
+  "weaponHand": "near hand at pistol grip, far hand at fore-end",
+  "weapon": "M16 baked into frame",
+  "frames": [
+    "fullframe/clone_01-plan-b-walk_00.png",
+    "fullframe/clone_01-plan-b-walk_01.png",
+    "fullframe/clone_01-plan-b-walk_02.png",
+    "fullframe/clone_01-plan-b-walk_03.png",
+    "fullframe/clone_01-plan-b-walk_04.png",
+    "fullframe/clone_01-plan-b-walk_05.png",
+    "fullframe/clone_01-plan-b-walk_06.png",
+    "fullframe/clone_01-plan-b-walk_07.png",
+    "fullframe/clone_01-plan-b-walk_08.png",
+    "fullframe/clone_01-plan-b-walk_09.png",
+    "fullframe/clone_01-plan-b-walk_10.png",
+    "fullframe/clone_01-plan-b-walk_11.png",
+    "fullframe/clone_01-plan-b-walk_12.png",
+    "fullframe/clone_01-plan-b-walk_13.png"
+  ],
+  "spritesheet": "spritesheet.png",
+  "contactSheet": "contact-sheet.png",
+  "previewType": "browser PNG sequence",
+  "gifGenerated": false,
+  "previewBackground": "#FFFFFF",
+  "gifOmissionReason": "Existing explicit user instruction: no automatic GIF generation.",
+  "baseline": "../source/baseline_standard.png",
+  "processing": "Model redraws all 12 new poses. Pillow only splits cells, applies one common uniform scale, aligns soles by translation, removes near-zero alpha, and packs PNG files.",
+  "status": "draft",
+  "art_direction_status": "awaiting_user_review",
+  "limitations": [
+    "M16 is baked into these full-body frames; independent weapon replacement is not supported by this draft.",
+    "Baseline endpoints use existing master; face/cloth detail and torso width vary slightly between generated sheets.",
+    "Foot trajectory, cape continuity and loop settling require user motion review."
+  ]
+}

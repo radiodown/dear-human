@@ -1,0 +1,26 @@
+{
+  "plan": "Plan B",
+  "revision_id": "plan_b_walk_002_keys",
+  "status": "failed_at_keypose_scale_gate",
+  "recorded_at": "2026-11-06T10:50:43.216473+00:00",
+  "request_local_date": "2026-11-06",
+  "tool": "2dimg2motion",
+  "commit": "d4d73e243b6ff64b7cbb3879e45e951f972a7e62",
+  "image_generation_tool": "built-in image_gen.imagegen",
+  "image_generation_calls": 1,
+  "observed_image_tool_wall_seconds": 38.5,
+  "model_id": null,
+  "seed": null,
+  "actual_cost": null,
+  "prompt": "keyposes_prompt.json",
+  "source": "keyposes.png",
+  "inputs": [
+    "source/baseline_standard.png",
+    "source/reference_board.png"
+  ],
+  "reference_board_role": "Exact duplicated baseline pixels for scale/layout reference only; not motion artwork.",
+  "fullframe_count": 0,
+  "inbetweens_generated": false,
+  "gif_generated": false,
+  "decision": "Shared key sheet rejected after common-scale comparison against exact baseline; full 14-frame motion was not generated."
+}

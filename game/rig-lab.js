@@ -2,7 +2,7 @@ import { CharacterRig, STEP } from './animation/rig-core.js';
 import { WebGLCharacter } from './animation/webgl-character.js';
 
 const $=id=>document.getElementById(id);
-const definitionUrl='/art/characters/clone_01/motion/rig_002/rig/parts.json';
+const definitionUrl='/art/characters/clone_01/motion/rig_005/rig/parts.json';
 const imageCache=new Map();
 function loadImage(path){if(!imageCache.has(path))imageCache.set(path,new Promise((resolve,reject)=>{const im=new Image();im.onload=()=>resolve(im);im.onerror=()=>reject(new Error(`이미지 로드 실패: ${path}`));im.src='/'+path;}));return imageCache.get(path);}
 export class RigLab {
@@ -14,9 +14,13 @@ export class RigLab {
   async init(){
     try{
       const response=await fetch(definitionUrl);if(!response.ok)throw new Error('리그 정의를 읽지 못했습니다.');
-      this.definition=await response.json();const images=await Promise.all(Object.values(this.definition.atlases).map(x=>loadImage(x.path)));
-      this.renderer=new WebGLCharacter($('rig-canvas'),images[0],images[1],this.definition);this.status='ready';$('rig-loading').hidden=true;
-      $('rig-atlas-link').href='/'+this.definition.atlases.character.path;
+      this.definition=await response.json();const loaded=await Promise.all(Object.entries(this.definition.atlases).map(async([key,x])=>[key,await loadImage(x.path)]));
+      this.renderer=new WebGLCharacter($('rig-canvas'),Object.fromEntries(loaded),this.definition);this.status='ready';$('rig-loading').hidden=true;
+      $('rig-atlas-link').href='/'+this.definition.atlases.base.path;
+      $('rig-master-link').href='/'+this.definition.master_image;
+      $('rig-limbs-link').href='/'+this.definition.atlases.limbs.path;
+      $('rig-body-link').href='/'+this.definition.atlases.body.path;
+      this.syncToggles();
       this.render();this.schedule();
     }catch(error){this.status='failed';$('rig-loading').hidden=false;$('rig-loading').textContent=error.message;}
   }
@@ -72,10 +76,11 @@ export class RigLab {
   render(){
     if(!this.renderer||!this.active)return;
     this.renderer.render(this.rig,{...this.options,zoom:this.zoom});
-    const s=this.rig.snapshot(),reload=s.reload;
+    const s=this.rig.snapshot(),reload=s.reload,p=this.rig.pose();
+    const stockError=Math.hypot(p.sockets.stock.x-p.stockTarget.x,p.sockets.stock.y-p.stockTarget.y);
     $('rig-ammo').textContent=`${String(s.ammo).padStart(2,'0')} / 30`;
     $('rig-state').textContent=reload?`장전 ${reload.empty?'빈 탄창':'일반'} · ${reload.t.toFixed(1)} / ${reload.duration.toFixed(1)}초`:this.paused?'일시정지':this.mode==='idle'?'대기':this.mode==='walk'?'이동':this.mode==='fire'?'사격':'이동 사격';
-    $('rig-metrics').textContent=`발사 ${s.shots} · 손잡이 오차 ${s.gripError.toFixed(3)}px · ${this.renderer.drawCalls} draws · ${this.renderer.triangles} triangles`;
+    $('rig-metrics').textContent=`발사 ${s.shots} · 손잡이 오차 ${s.gripError.toFixed(3)}px · 견착 오차 ${stockError.toFixed(3)}px · ${this.renderer.drawCalls} draws · ${this.renderer.triangles} triangles`;
     $('rig-springs').textContent=`고개 ${s.springs.head.toFixed(2)} · 머리카락 ${s.springs.hair.toFixed(2)} · 망토 ${s.springs.cape.toFixed(2)} · 흉갑 rigid`;
   }
   snapshot(){return {status:this.status,active:this.active,paused:this.paused,mode:this.mode,...this.rig.snapshot(),drawCalls:this.renderer?.drawCalls,triangles:this.renderer?.triangles};}
