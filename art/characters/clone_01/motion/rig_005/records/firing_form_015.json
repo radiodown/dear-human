@@ -1,0 +1,211 @@
+{
+  "schema_version": 1,
+  "iteration": "firing_form_015",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_request": "사격 폼 재연구를 적용해줘",
+  "validation_preference": "검증은 내가할게 개발만해봐",
+  "research": {
+    "path": "docs/35-firing-form-reference-research.md",
+    "sha256": "5653508f3ab1dee48fbc4e1199733c0ae4f4e48fccc8e50d515c5cdf35939bdf"
+  },
+  "scope": "Apply coordinated feet/pelvis/ribcage/shoulder pose, small head adjustment, authored elbow guides and independent running carry height to the current shared rig.",
+  "form": {
+    "standing_feet": [
+      26,
+      -24
+    ],
+    "standing_pelvis_x": -3,
+    "standing_pelvis_drop_total": 12,
+    "standing_pelvis_tilt_radians": -0.025,
+    "waist_lean_radians": 0.185,
+    "chest_above_waist": 20,
+    "chest_forward": 1.6,
+    "chest_pitch_radians": 0.025,
+    "shoulder_forward": 1.6,
+    "aimed_stock_seat": [
+      -11.5,
+      -5
+    ],
+    "head_shift": [
+      1.2,
+      1.8
+    ],
+    "head_local_pitch_radians": 0.002,
+    "head_rotation_mix": 0.28,
+    "rigid_upper_end_v": 0.405,
+    "lower_torso_start_v": 0.485,
+    "mesh_connection_rows": [
+      0.405,
+      0.445,
+      0.485
+    ]
+  },
+  "arms": {
+    "method": "Distinct authored elbow references select one of the two IK solutions; fixed authored projected lengths stay within canonical bones. Reload keeps its existing authored path.",
+    "primary": {
+      "upper": 36,
+      "forearm": 37.5,
+      "reference_elbow": [
+        4,
+        34
+      ]
+    },
+    "support": {
+      "upper": 34,
+      "forearm": 40,
+      "reference_elbow": [
+        30,
+        16
+      ]
+    },
+    "not_implemented": "Full FK/IK authoring editor or actual 3D elbow rotation"
+  },
+  "running_carry": {
+    "forward_gaze": "Preserved independently of lowering amount",
+    "drop_range": [
+      0,
+      18
+    ],
+    "drop_default": 6,
+    "query": "carryDrop",
+    "transition_time_constant": 0.1
+  },
+  "native_parts": {
+    "path": "art/characters/clone_01/motion/rig_015/rig/body_parts.json",
+    "sha256": "4cd43b8b1d3d623e33c364719f243921faf1ccb086ba2f6f43588e1e82f1e58d"
+  },
+  "authoring_recipe": {
+    "path": "art/characters/clone_01/motion/rig_015/recipe/build_body_parts.py",
+    "sha256": "c8d530608e15985e5ee63f9c381f64fd82728c2e12935d7959befae331ce33ef"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "5b1963b8e17c77c25e5c38783170aa4119ebb49812738f323f003c68f33b0b70"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "5373afd8ebdd9094a7ceff93bfc1e4546b0645a04f6a19678154ee5f1f14a404"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "3f344dc541b90ccf55da65096848b050c746900dccb8225d9f3de0929e0f4222"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "347c910331aaa2bd2c3349ae53591de1f0ad595a4151d563617b7077bc83fd1a"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "f5acf2794e5a3ace13fb59d6cc914ebad24a934bfb20e36761e556e1453160ef"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "ae8e7df8bbe677e654183215138167212f3fca0afc17e41af90a49b72f6b554d"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "2411d6800b92330e4842b4bfae17e631922f82f1fdf0b052004c202b891f8150"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "7db147a2ae2b3da772d91d71b7f90ae09dc8e9e4b80a180f8eeabb4da3a84155"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "718f9491133df376f9ca8fb623ec13afb8e6ff0b9dba68739a6430fb9b2eb7c5"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "570b48c3eb7479ab7b342bf4e5fc363b07c1a4c8d4136842ae77312fbf108f4d"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "ed7d61aaa74205d89e0d74d88bbb19488572ca74671e28e86bc20605c1e1ca6d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "ce9c7e960f9dc5de666766b81d10c211b25693fc92cd760d1a20f0ff299cda58"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "1a33412a7e4bd6d6df7d88d397ff2b87d9b8957b9853ca48717ca3b90f0bff6c"
+    },
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "f93e0a5c3bae02b3b2cd1fe3b47c2d0817a551cb0c41bbd475bd33ea970a0e53"
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_010"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_011"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_014"
+    },
+    {
+      "kind": "fx",
+      "entity_id": "muzzle_flash",
+      "revision_id": "lighting_001"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_014"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_015"
+    }
+  ],
+  "preserved_integrations": [
+    "closed_grip_hand_014 and m16_binding_014",
+    "Existing kneeling_reference_001 grounded knee arc",
+    "Existing running_mechanics_001 contact history and flight",
+    "Existing side-camera work and muzzle lighting"
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_firing_form_001/index.json",
+    "sha256": "c1c60a43623166b1fa8e26dea4e17e3e590d9223140e22fd7cc579f1dafc5f13"
+  },
+  "validation": {
+    "tests": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/firing_form_015",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/firing_form_015"
+  },
+  "remaining": [
+    "User visual review of whole-body silhouette, stock/cheek contact, elbow guides and grip overlap.",
+    "Transitions, torso cloth folds, camera-dependent projection and device performance await user review.",
+    "No 3D shoulder/arm depth model, collision-aware cloth or newly painted hidden surfaces.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing."
+  ],
+  "new_raster_images": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "development_time_seconds": null,
+  "development_cost": null
+}

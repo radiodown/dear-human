@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "iteration": "kneeling_image_017",
+  "created_at": "2026-11-07T07:28:02+09:00",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "standing_user_instruction": "검증은 내가할게 개발만해봐",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/kneeling_image_017/recipe.json",
+    "sha256": "4fa3feb51a2775f096352f7da2ff63f5e1599affa9a7405100a01a8474a68e20"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "d6369f7ba7eebb22c305fb62789f67d495fd77c539a9ef188806a0fe115dd406"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "929fd44e70371f8294c07036cbacc1bd3825377ee0138d25efd9a830a5352bac"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "ff49ae794e88cfa6aaaae3ca989eb3bbbe7973734329051041f102ebb3d81c25"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "532c60fce657b7f274cf4b45864a383e833cadab375511295161fc0c753cef1e"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "8d0d7fe988ff16be973d84078034b0b59b075aab9c726e85b12df94e33f83224"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "02d99ad53f1dbb9efaeff9c3412cab7ff6739b3403cad7e32e00cfeab6abeafa"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "195a38c2ac2526e5a9e5c3627e616b080eb83a006b045c30e9bddcbf06652896"
+    },
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "89c290c71c1cd3b4303e36ebd4a6b07d06ca1b348853fc49e2e86cc2399d221a"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "44745a2b97f66a1cd0959083873824be4f1b9d79f4391dc2a54bf64a50bac2d3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_image_017/index.json",
+    "sha256": "a77b7cda4d72f693477b9a79df5530c5e95206e0c5c22014f3592501134830b5"
+  },
+  "entry_points": {
+    "kneel": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel",
+    "kneel_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire",
+    "side_comparison": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire&viewPitch=0"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "tool_default_output_paths_changed": false,
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/kneeling_image_017",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/kneeling_image_017"
+  },
+  "preserved_scopes": [
+    "Original PNGs and submitted image prompts",
+    "014 closed hand and M16 binding",
+    "Current running mechanics and running weapon advance",
+    "016 breathing and recoil reactions",
+    "Camera pitch and muzzle flash",
+    "Plan B/C",
+    "Historical tests/reviews and GIF outputs"
+  ],
+  "remaining": [
+    "User review of the full kneeling silhouette, shoulder/cheek fit and both arms.",
+    "User review of knee-pad alpha edges, folded knee/ankle overlap and front/rear skirt panel boundaries.",
+    "User review of grounded cape projection, source emblem distortion and entry/exit transitions.",
+    "Source side textures remain in use; no new oblique face/shoulder surfaces or deeply compressed-fold raster artwork.",
+    "Existing temporary reload hand artwork remains unchanged.",
+    "No tests, syntax/document/catalog checks or browser review have run."
+  ]
+}

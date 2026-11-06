@@ -1,0 +1,236 @@
+{
+  "schema_version": 1,
+  "iteration": "body_mechanics_009",
+  "recorded_date": "2026-11-06",
+  "status": "draft_awaiting_user_visual_review",
+  "scope": "Common pelvis attachment for clothing/thighs, restrained below-shoulder hair, heavier gait, one rear support step per burst, shoulder registration, tilted magazine and reload-left-arm occlusion. Latest steering: smaller neck nod, whole torso leans quickly BEFORE the first shot.",
+  "implemented": [
+    "Shared pelvis transform for outfit and thigh roots",
+    "Hair pinned down to shoulder height; restrained trailing tips and corrected root rotation inheritance",
+    "Longer contact in slower low-lift walk",
+    "Small rear support step after first discharge and recovery after release",
+    "Shoulder roots brought toward the torso",
+    "Reload left upper arm, forearm, hand and carried magazine behind torso",
+    "Magazine local rotation and own-angle palm contact",
+    "Small neck adjustment follows torso; input prepares pose before emitting a shot"
+  ],
+  "parameters": {
+    "gait": {
+      "period": 1.4,
+      "speed": 108,
+      "stance": 0.68,
+      "lift": 6.5
+    },
+    "hair": {
+      "length": 88,
+      "segments": 8,
+      "pinned_segments": 5,
+      "maximum_trailing_angle": 0.18
+    },
+    "rear_support_step": {
+      "distance": 4,
+      "max_clearance": 1.8,
+      "duration": 0.34,
+      "repeat": "once_per_standing_burst"
+    },
+    "shoulders": {
+      "primary": {
+        "x": -10,
+        "y": 3
+      },
+      "support": {
+        "x": 5,
+        "y": 6
+      }
+    },
+    "head": {
+      "maximum_local_shift": {
+        "x": 2.5,
+        "y": 6.4
+      },
+      "extra_neck_angle": 0.015,
+      "torso_rotation_mix": 0.65
+    },
+    "pre_fire": {
+      "requested_delay": 0.12,
+      "fixed_step_first_shot": 0.12499999999999999,
+      "body_entry_time_constant": 0.035,
+      "head_follow_time_constant": 0.025,
+      "input_api": "requestFire or trigger; fire commits a prepared event"
+    },
+    "magazine_angle": -0.2
+  },
+  "measured": {
+    "standing_fire": {
+      "hip_drop": [
+        6.884852813742384,
+        6.919999999997344
+      ],
+      "lean_degrees": [
+        14.651387854037631,
+        14.89415905527508
+      ],
+      "largest_hip_step_at_120hz": 1.4423028828004192,
+      "front_foot_planted": true,
+      "rear_foot_support_step": 4,
+      "seated_stock": true,
+      "single_shot_braces": true,
+      "recovers_after_release": true
+    },
+    "pre_fire": {
+      "first_shot_seconds": 0.12499999999999999,
+      "body_degrees_before_shot": 14.365470666535815,
+      "neck_radians_before_shot": 0.013629330809523665,
+      "queued_shot_cancelled_by_reload": true
+    },
+    "secondary": {
+      "hair_tip_x_range": [
+        -2.579229988619812,
+        -1.684960763403991
+      ],
+      "hem_radians": [
+        -0.033803384384011675,
+        0.033803384384011675
+      ],
+      "fixed_root_and_lengths": true,
+      "settles": true,
+      "fixed_step_equivalent": true
+    },
+    "shared_hip_anchor_error": 5.701662731533487e-14,
+    "reload_contacts": {
+      "max_wrist_step_at_120hz": 2.822984284795653,
+      "max_magazine_palm_error": 3.1776437161565096e-14,
+      "new_hand_art": "missing"
+    },
+    "combat_gait": {
+      "hip_drop": [
+        8.80010742711363,
+        12.59788037142971
+      ],
+      "lean_degrees": [
+        14.193252486122885,
+        15.344054904492644
+      ],
+      "muzzle_degrees": [
+        0.15340092415626566,
+        1.2159237920931392
+      ],
+      "steps_per_minute": 85.71428571428572,
+      "step_distance": 75.6,
+      "toe_lift": 6.5
+    }
+  },
+  "pending_art": [
+    "Side-view shoulder/upper-arm art with suitable armor perspective",
+    "Foreshortened and body-side reload forearm poses",
+    "Release, magazine-grip and bolt-operation hand attachments"
+  ],
+  "limitations": [
+    "Single-view painted shoulder/arm depth is not solved by translation or draw order.",
+    "No new artwork, no FK/IK free-reach blend implemented, no full body or hair/cloth collision simulation.",
+    "Visual acceptance remains with the user."
+  ],
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004",
+      "usage": "Existing artwork and UVs only"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_009"
+    }
+  ],
+  "reused_images": [
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/base_atlas.png",
+      "sha256": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+      "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "62e9a536d172a3c24078da1a2da018de63b5abc1fdd54c0518c38facfacde9ee"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "b38c999e12d490168d486b28697eefb4220d59ab4c820b20b4743825d57ec147"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "6c21b2f4d79f5c493abb412164d9c68dbcf0bf9a70b39142adbff1a7ce6c6a8d"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "7ec8181fc08454184331b2e82a8b1f3a19e5c3a894a14e5683cc8c9706c3ab7d"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "2ced0c785111d3198eaebf13f4a28577aae15752928027251c3a684ba29614bb"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "89d235199cabf32b4d9ad22f843beff306d1c5d78a4d015e215c7516f88a62d6"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "6688d3197e745cf201c17c4c69c4e71cd5df7abfd4b9dc1bf3172d404476c797"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "5ff9b5a7ced6f1380cbbf5213cff1b13c35a1d8736b63e930ca0c0156e113dc1"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "dbb97f1c78fa503bd2a0b4c9dd23bd7d3092d5e16cac6f50a7a72c065cd00c08"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "2fbbc785eba1333341e93f49f977bb87dd765c14f611c5c01d43d481f8a9f126"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "9a9d0315802d3dfff7ae33a0d30a7b9a7b345dbc17c8c6cadb3fc5d672d2c1b2"
+    }
+  ],
+  "prior_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_008/index.json",
+    "sha256": "2b8f42a401def2581839d204c8bbae6085c64969be8539fbdb1590b2b0ae69b5"
+  },
+  "official_sources": [
+    "https://esotericsoftware.com/blog/Rigging-new-poses-tutorial",
+    "https://esotericsoftware.com/forum/d/30326-how-to-make-an-arm-swap-with-foreshortening",
+    "https://esotericsoftware.com/blog/Holding-a-two-handed-weapon",
+    "https://esotericsoftware.com/spine-keys#Slot-attachment",
+    "https://esotericsoftware.com/blog/Mesh-weight-workflows",
+    "https://esotericsoftware.com/blog/Weight-and-Mass-Animating-with-Spine-1"
+  ],
+  "tools": [
+    "Shared JavaScript/WebGL rig",
+    "Node tests",
+    "Python Playwright and local Chrome"
+  ],
+  "image_generation_calls": 0,
+  "gifs_generated": false,
+  "generation_model": null,
+  "generation_cost": null,
+  "total_elapsed_seconds": null
+}

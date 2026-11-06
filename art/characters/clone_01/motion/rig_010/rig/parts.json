@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "status": "development_connected_user_review_pending",
+  "parts": {
+    "support_hand_foregrip": {
+      "atlas": "foregrip_010",
+      "rect": [
+        151,
+        314,
+        941,
+        713
+      ]
+    },
+    "near_upper_arm": {
+      "atlas": "near_arm_010",
+      "rect": [
+        430,
+        68,
+        357,
+        1080
+      ],
+      "joint_points": [
+        [
+          0.48,
+          0.15
+        ],
+        [
+          0.56,
+          0.93
+        ]
+      ]
+    },
+    "far_forearm_reload": {
+      "atlas": "reload_forearm_010",
+      "rect": [
+        283,
+        120,
+        580,
+        1013
+      ],
+      "joint_points": [
+        [
+          0.297,
+          0.099
+        ],
+        [
+          0.788,
+          0.923
+        ]
+      ],
+      "view": "oblique reload view; body-side pose"
+    }
+  },
+  "atlases": {
+    "foregrip_010": {
+      "path": "art/characters/clone_01/motion/rig_010/source/support_hand_foregrip_v2.png",
+      "width": 1254,
+      "height": 1254
+    },
+    "near_arm_010": {
+      "path": "art/characters/clone_01/motion/rig_010/source/near_upper_arm_profile.png",
+      "width": 1254,
+      "height": 1254
+    },
+    "reload_forearm_010": {
+      "path": "art/characters/clone_01/motion/rig_010/source/far_forearm_reload.png",
+      "width": 1254,
+      "height": 1254
+    }
+  },
+  "hand_binding": {
+    "height": 14,
+    "pivot": [
+      0.2,
+      0.78
+    ],
+    "grip": [
+      0.69,
+      0.366
+    ]
+  },
+  "generation": {
+    "path": "art/characters/clone_01/motion/rig_010/records/generation.json",
+    "sha256": "4c396f22b56a1c854ff23ae5a599d5547bd5343d97ee116c0cf3bf849624a52a"
+  }
+}

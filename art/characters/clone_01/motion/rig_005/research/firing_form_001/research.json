@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "research_id": "firing_form_001",
+  "date": "2026-11-07",
+  "timezone": "Asia/Seoul",
+  "request": "사격 자세에 대한 폼을 다시 연구해줘",
+  "scope": "Research only: user photo interpretation, public primary-source text and current rig source review. No runtime or artwork changes.",
+  "status": "research_documented_not_implemented",
+  "photo_reference": {
+    "source": "User attachment in the current conversation",
+    "local_file": null,
+    "photo_observations_are": "Qualitative projected silhouette observations, not measured 3D anatomy or center of pressure."
+  },
+  "sources": [
+    {
+      "id": "army_tc_3_22_9_c3",
+      "title": "TC 3-22.9 Rifle and Carbine",
+      "url": "https://rdl.train.army.mil/catalog-ws/view/100.ATSC/492701D5-25E9-40A7-9498-74C22831F268-1463059585416/tc3_22x9c3.pdf",
+      "publisher": "Headquarters, Department of the Army",
+      "base_edition": "2016-05-13",
+      "included_change": "Change 3, 2019-11-20",
+      "locators": [
+        "6-1 to 6-3: stability, legs, elbows, butt stock and stock weld",
+        "6-16, paragraph 6-37: standing unsupported"
+      ],
+      "access": "Official PDF text opened through web tool. PDF screenshot request timed out.",
+      "images_reviewed": false
+    },
+    {
+      "id": "usmc_mcrp_8_10b_2",
+      "title": "MCRP 8-10B.2 Rifle Marksmanship (formerly MCRP 3-01A)",
+      "url": "https://www.marines.mil/portals/1/Publications/MCRP%208-10B.2.pdf?ver=2017-03-15-112143-047",
+      "publisher": "Headquarters United States Marine Corps",
+      "base_edition": "2012-10-11",
+      "renaming_erratum": "2016-05-02",
+      "locators": [
+        "6-3 to 6-7: support hand, shoulder, firing elbow, stock weld",
+        "6-29 to 6-30: combat and training standing positions",
+        "10-1 to 10-2: weapon presentation and head position"
+      ],
+      "access": "Official PDF text opened through web tool via indexed reference. Direct download and screenshot returned 403.",
+      "images_reviewed": false
+    }
+  ],
+  "current_runtime_revision": "013",
+  "runtime_inputs": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "e9c76b2eacaa5e016f77958f5b6f03b329c4903abf1f047442005f53c2f114a3"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "85173b6d9e7c7d26ecc8467c4eb96752a6a4d67c7c482526fbb149239d084078"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "990dd9b0c656dca722db57cec3d9bf76532a1aefa236d97eccb8a1eca4c903a8"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "7877ecc8dc577a2945401495ef71b91fdef8cec37f8ae530f64e7bca07ade188"
+    }
+  ],
+  "findings": [
+    "Use the whole lower-body/pelvis/ribcage/shoulder silhouette as the pose reference.",
+    "Fit body-to-stock and head/neck/shoulder relationships before minimizing eye/sight distance.",
+    "Hand-target IK alone does not author elbow silhouettes or depth.",
+    "Treat eye aiming and weapon support height as separate project controls.",
+    "Preserve the requested non-eye-level running fire; the still photo is an aimed standing reference."
+  ],
+  "document": "docs/35-firing-form-reference-research.md",
+  "runtime_changed": false,
+  "new_images": 0,
+  "gifs_generated": false,
+  "validation": {
+    "tests": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "official_pdf_figure_review": "unavailable; do not claim visual review"
+  },
+  "latest_military_training_standard_claimed": false
+}

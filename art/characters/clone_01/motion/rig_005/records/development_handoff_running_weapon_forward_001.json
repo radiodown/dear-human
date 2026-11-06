@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "iteration": "running_weapon_forward_001",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/running_weapon_forward_001.json",
+    "sha256": "be94926a51a4ef845ea8a38f76f051f20a7021dba07025646cb03c9b0f6f4f49"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "c5239e87ff89f3120d71075d7a612849e194fbc59ea87d7b6ddbc86ed277f61a"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "75bfab3144b86ec55ee3d8594706df3a8bac72890e7c3a50049b16885a9590fb"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "302c74b9badb1bab36e8534c2941da15699a6effb10b99b6f4176b9e94fa2fcb"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "b66b1d0ec860a7502e95987dec93d0aa8764d7b6363758866a21932ca6ad6057"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "ce9c7e960f9dc5de666766b81d10c211b25693fc92cd760d1a20f0ff299cda58"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_weapon_forward_001/index.json",
+    "sha256": "e5905a87ba84d52375bbb64d2a57a3044e939688012a900ee64afeea4b602273"
+  },
+  "entry_points": {
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire",
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "test_tool_defaults_modified": false,
+    "reserved_test_output": "art/characters/clone_01/motion/rig_005/tests/running_weapon_forward_001",
+    "reserved_browser_output": "art/characters/clone_01/motion/rig_005/reviews/running_weapon_forward_001",
+    "read_only_dependency_query": {
+      "command": "python3 tools/agent_pipeline.py --root . --limit 8 impact --kind character --entity-id clone_01 --revision-id rig_005",
+      "status": "ok",
+      "affected_revisions": 0,
+      "scope": "Dependency lookup only; not validation."
+    }
+  },
+  "remaining": [
+    "User playback review of rear-sight/eye separation during running fire and added manual bend.",
+    "User review of arm/grip contact at deep bend and alternate carry heights; forward travel is limited by available arm reach.",
+    "User review of reload and run entry/exit transitions.",
+    "No runtime, syntax, document/catalog or browser validation was run."
+  ],
+  "preserved": "Current running_mechanics_002 gait/posture, current breath/recoil/cloth development, firing form, kneeling, grip, camera and rifle-height control."
+}

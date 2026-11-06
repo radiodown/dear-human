@@ -1,0 +1,19 @@
+# far_forearm_reload
+
+Exact JSON submitted to the built-in image_gen tool.
+
+```json
+{
+  "use_case": "stylized-concept",
+  "asset_type": "Production game character cutout for Dear Human, existing 2D parts rig",
+  "input_images": {
+    "image_1": "Style, costume and right-facing orthographic pose reference only",
+    "image_2": "Glove/armor material and separated-parts style reference only"
+  },
+  "primary_request": "Create ONE isolated far/left forearm segment for the reference woman's reload pose, viewed in an oblique shortened perspective as she brings the arm across the abdomen to manipulate a magazine. Show the receding side/back of the same black glove bracer with two restrained gold-trim straps, not a long straight-on front-facing tube. It should look moderately foreshortened while retaining anatomical volume. Author it in a neutral vertical local bone layout for rigging: rounded elbow attachment at the TOP near 8%, wrist cuff at the BOTTOM near 93%, both centered. Include sleeve overlap at elbow and wrist but NO hand, upper arm, torso, magazine or gun. The game rotates and places this local forearm. No external pose layout or multiple views.",
+  "style": "Photorealistic high-detail 3D-render texture, matching the supplied dark tactical armor; still a flat 2D game sprite.",
+  "composition": "One asset centered on a square canvas, completely visible, generous transparent margin, no text, labels, swatches, reference figures, contact sheet or extra objects.",
+  "lighting": "Soft neutral studio lighting matching the references, clean alpha edges without a dark backdrop or cast ground shadow.",
+  "invariants": "Keep the established Dear Human armor/glove design and believable adult human anatomy. Output real transparency, never a painted checkerboard. No whole-character redesign."
+}
+```

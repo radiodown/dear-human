@@ -1,0 +1,152 @@
+{
+  "status": "passed",
+  "scope": "Browser display and input checks, not art acceptance",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire",
+  "browser": "Local Google Chrome through Python Playwright",
+  "checks": [
+    "Real single-shot and held-fire inputs lower the pelvis and lean the torso; releasing restores idle",
+    "Standing fire keeps both planted feet, level aim, hand contacts and shoulder stock contact",
+    "Standing-fire mode preserves its braced pose when paused",
+    "Paused standing-fire pose displays facing left at 500px viewport"
+  ],
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/idle.png",
+      "sha256": "4d2820601007c889edbcda4c51613d2a6f5fdca8c9841daa889292ae32070a38"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/single_shot.png",
+      "sha256": "5e89577f3968e3e9346b7bef3b4ba5cdcb899e3a62e6e85aa0166a0f3e9b66be"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/standing_fire.png",
+      "sha256": "370125ed65217a3b17787cf9d860bd75c3a9ad87db2bd476a0305ef2c799d038"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/released.png",
+      "sha256": "de404379dfef8bc83788e2ebf61d5a8b466c52043857d6df5b34e4d7401c42e2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/standing_fire_left.png",
+      "sha256": "9d52d38b21cf95ed36795c39b26125aa5021a3d7d5621c9096199e51186c8c32"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/index.html",
+      "sha256": "2040444c7a813ac86a27cc53aeb2857b7b14c8bc1ed54437934ba02ca9e89009"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "8b3f9c79b56f90f0b91973642de53e9d0953cd765b05fa0a6c68fb491d382b45"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "7a5aace992d72635d2f336c6a88cf97c0e4db8829fa51f2e663752120262a1e6"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "18df58028b8f9f20f1adbcafee0e6784a8c3a52be12936ff86d15411a67576ff"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "34ba419e8c4b3bf2af2847a8353676f5f69b2b3f0d0124876c2ebd4b413e9a3e"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "08033041a14b77f02897f8f3878dc2c9c241714cc33b3c0eeca2522265b0ce8d"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "a78b7f2a538d69021a1d4aed42ff87557ba86477e8db3e267a231c76bf417314"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "25602aa63b0cdecc68842b8ad609bf09945eb994883e16f5b5b52597b6608ff6"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "d70d7b5fd1ab039caa8d617243ba31eb2544a36511dcf8511dea7fd106a5009a"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "a133f6ac1318b60d1cc637b71b533f278dce495779b4f246c1954c779d2af264"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "75b00bca2cbeddd0076da5d25607a7372d12e6df9ed22e4f5709e0f7732e016c"
+    }
+  ],
+  "new_hand_art": "missing; support-hand placeholder explicitly labelled",
+  "gifs_generated": false,
+  "standing_fire": {
+    "idle": {
+      "hip": -171.49371968525085,
+      "lean": 0,
+      "aim": 0,
+      "muzzle": 0,
+      "shots": 0,
+      "grip": 1.4210854715202004e-14,
+      "stock": 0,
+      "feet": [
+        {
+          "x": 16,
+          "y": -23.04,
+          "a": -0.0
+        },
+        {
+          "x": -8.000000000000002,
+          "y": -23.04,
+          "a": 0
+        }
+      ]
+    },
+    "held": {
+      "hip": -165.09128308759955,
+      "lean": 5.628740944267842,
+      "aim": 0.9510810972617766,
+      "muzzle": 0.07823125654891047,
+      "shots": 7,
+      "grip": 0,
+      "stock": 8.881784197001252e-16,
+      "feet": [
+        {
+          "x": 16,
+          "y": -23.04,
+          "a": -0.0
+        },
+        {
+          "x": -8.000000000000002,
+          "y": -23.04,
+          "a": 0
+        }
+      ]
+    },
+    "recovered": {
+      "hip": -171.43145660415965,
+      "lean": 0.059251652332384844,
+      "aim": 0.009848918289972315,
+      "muzzle": 0.004740132186590787,
+      "shots": 8,
+      "grip": 3.552713678800501e-15,
+      "stock": 0,
+      "feet": [
+        {
+          "x": 16,
+          "y": -23.04,
+          "a": -0.0
+        },
+        {
+          "x": -8.000000000000002,
+          "y": -23.04,
+          "a": 0
+        }
+      ]
+    }
+  }
+}

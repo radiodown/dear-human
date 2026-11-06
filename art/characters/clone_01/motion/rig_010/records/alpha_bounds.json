@@ -1,0 +1,80 @@
+[
+  {
+    "id": "support_hand_foregrip",
+    "path": "art/characters/clone_01/motion/rig_010/source/support_hand_foregrip.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bounds": [
+      33,
+      262,
+      1240,
+      1182
+    ],
+    "usable_bounds": [
+      214,
+      314,
+      1009,
+      986
+    ],
+    "sha256": "68e2aa5f37dbc4bd87fcd8cc5b773dff767227d9fb7593cf7e5125b1ad5e5007"
+  },
+  {
+    "id": "near_upper_arm_profile",
+    "path": "art/characters/clone_01/motion/rig_010/source/near_upper_arm_profile.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bounds": [
+      49,
+      65,
+      1192,
+      1230
+    ],
+    "usable_bounds": [
+      430,
+      68,
+      787,
+      1148
+    ],
+    "sha256": "630e8110c6b7d781be7bfe321edcf7a84b7fde9479c99a080b6136247e5c679a"
+  },
+  {
+    "id": "far_forearm_reload",
+    "path": "art/characters/clone_01/motion/rig_010/source/far_forearm_reload.png",
+    "size": [
+      1254,
+      1254
+    ],
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ],
+    "bounds": [
+      77,
+      60,
+      1226,
+      1214
+    ],
+    "usable_bounds": [
+      283,
+      120,
+      863,
+      1133
+    ],
+    "sha256": "1694f452ab876b6539fb62896de883ae0d61d9575c46f1ec680d6a47cddabcd6"
+  }
+]

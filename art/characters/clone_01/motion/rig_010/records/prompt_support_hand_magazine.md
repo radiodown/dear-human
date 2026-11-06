@@ -1,0 +1,19 @@
+# support_hand_magazine
+
+Exact JSON submitted to the built-in image_gen tool.
+
+```json
+{
+  "use_case": "stylized-concept",
+  "asset_type": "Production game character cutout for Dear Human, existing 2D parts rig",
+  "input_images": {
+    "image_1": "Style, costume and right-facing orthographic pose reference only",
+    "image_2": "Glove/armor material and separated-parts style reference only"
+  },
+  "primary_request": "Create ONE isolated left gloved hand in a firm magazine grasp for the reference woman's reload. Match reference 2's black tactical glove, metal cuff and restrained gold. Wrist enters from LEFT, palm faces somewhat toward the viewer, four naturally curled fingers wrap around the RIGHT/front face of a narrow vertically held M16 magazine, thumb opposes at the left/back face. The magazine is ONLY an invisible pose guide; OMIT it and leave its central grip opening transparent. Make the fingers truly close around the narrow object, unlike an open upturned supporting palm. Include a short wrist cuff, no forearm, no weapon, no other hands.",
+  "style": "Photorealistic high-detail 3D-render texture, matching the supplied dark tactical armor; still a flat 2D game sprite.",
+  "composition": "One asset centered on a square canvas, completely visible, generous transparent margin, no text, labels, swatches, reference figures, contact sheet or extra objects.",
+  "lighting": "Soft neutral studio lighting matching the references, clean alpha edges without a dark backdrop or cast ground shadow.",
+  "invariants": "Keep the established Dear Human armor/glove design and believable adult human anatomy. Output real transparency, never a painted checkerboard. No whole-character redesign."
+}
+```

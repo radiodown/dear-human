@@ -1,0 +1,104 @@
+{
+  "status": "passed",
+  "scope": "Single existing atlas part and synthetic compositing; full character integration and art acceptance untested",
+  "comparison_scale": "One source texel per screen pixel; minification quality untested",
+  "three_revision": "187",
+  "webgl_version": "WebGL 2.0 (OpenGL ES 3.0 Chromium)",
+  "max_texture_size": 16384,
+  "right": {
+    "silhouette_iou": 1,
+    "mean_opaque_rgb_error_0_to_255": 0.49017451881317087,
+    "opaque_pixels": 513851
+  },
+  "left": {
+    "silhouette_iou": 1,
+    "mean_opaque_rgb_error_0_to_255": 0.49017451881317087,
+    "opaque_pixels": 513851
+  },
+  "transparent_order": {
+    "green_over_red": [
+      128,
+      127,
+      0,
+      255
+    ],
+    "red_over_green": [
+      255,
+      0,
+      0,
+      255
+    ]
+  },
+  "resources_after_100_renders": {
+    "geometries": 1,
+    "textures": 1
+  },
+  "single_part_draws": 1,
+  "browser": "156.0.8078.80",
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/plan_c/preparation_001/reviews/existing_body_right.png",
+      "sha256": "8199af108be6788d1f0cb577e03d30deef4fe091d4dc5fa7a83af504e70511b8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_c/preparation_001/reviews/existing_body_left.png",
+      "sha256": "5608ffd62c53dce5b0aa9a11cd6bc39f4c2288119061efe3ed6134b344c08e86"
+    }
+  ],
+  "page_errors": [],
+  "external_requests": [],
+  "source_hashes": [
+    {
+      "path": "game/plan-c/package.json",
+      "sha256": "ffed3007824dacb3b645cf465cbf92e179d1d642d65f4013e7b11c0fbed88cb2"
+    },
+    {
+      "path": "game/plan-c/package-lock.json",
+      "sha256": "018d1d8c940ce1c42f9f3b53b5de3ee6f0dadbaca47825a8261ceffe8a5ced9e"
+    },
+    {
+      "path": "game/plan-c/part-mesh.js",
+      "sha256": "23d543d4d76cfb44373faf7398ff1c68353ed38ea5c82250b5b300ecd0e929e8"
+    },
+    {
+      "path": "game/plan-c/browser-probe.js",
+      "sha256": "30485255b2ebe38339f99aac3e23da7251deb7d5af19c5165b3bb37208fac73e"
+    },
+    {
+      "path": "tools/review_plan_c.py",
+      "sha256": "2deb67db1cb41e09bd13e392a4262ec4379cfb98d0f6ae4792e8d5535bad2e17"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "5db0a7113dffdbd89d4356a71bb78eae1d81cf9f4226c84ee21a5ffc2ee150e6"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/base_atlas.png",
+      "sha256": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+      "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/support_hand_foregrip_v2.png",
+      "sha256": "b332de73c0a989a25a3891633ea9063e3cf8aa127ac14097b217284abffa06e2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/near_upper_arm_profile.png",
+      "sha256": "630e8110c6b7d781be7bfe321edcf7a84b7fde9479c99a080b6136247e5c679a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/far_forearm_reload.png",
+      "sha256": "1694f452ab876b6539fb62896de883ae0d61d9575c46f1ec680d6a47cddabcd6"
+    }
+  ]
+}

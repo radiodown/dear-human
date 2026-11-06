@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "iteration": "closed_grip_014",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "총을 잡고있는 손이 가볍게 받치고있는게 아니라 총열을 잡고있어야해. 엄지는 안나오는상채인거지",
+  "validation_preference": "검증은 내가할게 개발만해봐",
+  "scope": "Replace the lightly supporting palm with four closed near-side fingers wrapping the horizontal handguard; completely hide the far-side thumb.",
+  "part_key": "support_hand_closed_grip",
+  "binding": {
+    "path": "art/characters/clone_01/motion/rig_014/rig/hand_binding.json",
+    "sha256": "32cfac4a5117f75828018d65036e8b60c2feab2f19723453bdd55e1261b2b8f8"
+  },
+  "generation": {
+    "path": "art/characters/clone_01/motion/rig_014/records/generation.json",
+    "sha256": "c3dd3095a6a93bd66303781b36a0b5a87552ca2390e8d35ed378183a46efd6b9"
+  },
+  "weapon_support_uv": {
+    "previous": [
+      0.63,
+      0.48
+    ],
+    "current": [
+      0.63,
+      0.34
+    ]
+  },
+  "weapon_binding": "m16_binding_014",
+  "layering": "Existing common WebGL draw order renders the four visible fingers over the handguard. The thumb is not drawn in the source.",
+  "runtime_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "4c11be7ad484ea86181200f0722b8517d849fd2d5f1f71f3de17e73855c3e250"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "85173b6d9e7c7d26ecc8467c4eb96752a6a4d67c7c482526fbb149239d084078"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "80d0ce3c086a3cf0fe9d663d9b45dd9b4958f60148d99f1a7b7a97ed4e48b3af"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "da48fb8b9c91abd3997c59a687dd77b2d6bc2ae9f24df649be7319bffe85ee5c"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "68c2c53ba6081e75379b53ea1d7fe44d52e159edd8e76ea0e0e74e3662fc3981"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "de8f7d883ff7a22705714e6fe11b5b4e9f46f26b10481b65cbc000150e858ba4"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "dbd4e72751fa12dcdd72195b6cc6ab9401873555690da0d1931b83550c8562fd"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "b3de124fdbd9c24b587e7d7a7ed34c8a3ba99d112580886a3cf10f077280d0d4"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_014/source/support_hand_closed_grip.png",
+      "sha256": "9efad42d9f19d3bbd32c88dc532f5dc0ec06695dad10d5455ebf0d999fa53366"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_014/rig/hand_binding.json",
+      "sha256": "32cfac4a5117f75828018d65036e8b60c2feab2f19723453bdd55e1261b2b8f8"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_014/rig/weapon.json",
+      "sha256": "9c2d08f6824db9688ca3ee52d582b062d88ad7d1cf8204bb54dcdd6084acb275"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_013/index.json",
+    "sha256": "93bb67e9de1b5d6e0551fbc93783b3b5c3aeb000607b71d77d6c69e25efb057e"
+  },
+  "validation": {
+    "tests": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "existing_test_maintenance": "Updated active hand key in existing source aspect-ratio test; no execution.",
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/closed_grip_014",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/closed_grip_014"
+  },
+  "remaining": [
+    "User review of hand size, wrist connection and curled-finger/handguard overlap in all motions and both facing directions.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing; reload still uses the previous temporary hand.",
+    "Existing body articulation, running fire and 2D muzzle lighting remain awaiting user validation."
+  ],
+  "new_raster_images": 1,
+  "external_model_calls": 1,
+  "generation_tool": "Built-in image_gen",
+  "generation_elapsed_seconds": 28.487,
+  "generation_cost": null,
+  "generation_model": null,
+  "gifs_generated": false,
+  "development_time_seconds": null
+}

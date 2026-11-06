@@ -1,0 +1,9 @@
+{
+  "status": "failed",
+  "scope": "First browser comparison against Canvas2D with body part reduced from 1315 to 200 pixels high",
+  "three_version": "0.187.0",
+  "failure": "sRGB color mismatch: 7.088025444855154 exceeded mean RGB difference threshold 4",
+  "hypothesis": "Canvas2D minification and GPU linear texture sampling use different reconstruction; this comparison does not isolate color space",
+  "next_attempt": "Use native texel scale with the original threshold to isolate UV and color space; keep minification quality unverified",
+  "new_art_generated": false
+}

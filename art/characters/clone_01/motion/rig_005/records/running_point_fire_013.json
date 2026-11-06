@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "iteration": "running_point_fire_013",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "뛰어쏴는 아이레벨 조준이 아닌걸로해줘",
+  "validation_preference": "검증은 내가할게 개발만해봐",
+  "scope": "Remove eye-level aiming in running fire. Lower the rifle to a chest/underarm seat and keep the head looking forward, with shared hand/weapon sockets and existing muzzle light.",
+  "carry": {
+    "shoulder_seat": [
+      -13.5,
+      4
+    ],
+    "running_seat": [
+      -10.5,
+      20
+    ],
+    "head_counter_pitch_radians": -0.045,
+    "entry_time_constant_seconds": 0.07,
+    "exit_time_constant_seconds": 0.12,
+    "fire_ready_amount": 0.75,
+    "separate_firing_readiness": "aimAmount remains the firing preparation amount; eyeAim=aimAmount*(1-runCarryAmount).",
+    "first_shot": "Existing .12-second preparation plus lowered carry readiness. Direct internal fire event retained.",
+    "gait": "Existing cadence, stride, foot lift and pelvis trajectory retained; upper-body aiming lean uses eyeAim."
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "7be22966524899f7796d57d9958def9e48af02f650f61cc5a2e4c2400173d6be"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "e9c76b2eacaa5e016f77958f5b6f03b329c4903abf1f047442005f53c2f114a3"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "755d3d00e191530c60d921f3e0a914f4831f7ce2a859904eb5c85bb86267a46d"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "564a1845e663f284fb895cc68f4088b70bf81318cce277489f53ff20ed3a85f0"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "125e8cabfd59cba5d97c04fe9e2ccc03ae7be2618b61b74ed8fa2b4b4f3df9db"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "35dad6360661290801e22cc6a575574667178bad834cae468afde442e3ad32ee"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "99dcfe5a681aebbb6bc0cb25aed14c5a092bc5721f0203b6f203d6849ff3b8e8"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "d4b173c2df9024f71a43912f8a46535f8a9533b61f1688bd765cf7329dce03a3"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_011/rig/weapon.json",
+      "sha256": "e204af3172dfe7ad4266d05b6dc77ff1ba1196b5495e9ebedef31fada86180eb"
+    },
+    {
+      "path": "art/fx/muzzle_flash/lighting_001/profile.json",
+      "sha256": "367cec6bdb0e31c6be2bff20afd2d07faa28dc967cda4f9100166ca3ef225556"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_012/index.json",
+    "sha256": "3de68ae74a22ffd1ae3d8b34219768cb0cea82ad0743f3e124a9793b22a4ec2a"
+  },
+  "validation": {
+    "tests": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/running_point_fire_013",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/running_point_fire_013"
+  },
+  "remaining": [
+    "User visual review of running low carry, forward gaze and entry/exit transitions.",
+    "User visual review of warm spill, material response, highlight clipping and shot timing.",
+    "Device shader compatibility and performance review.",
+    "Approximate 2D surfaces only; no new normal maps or 3D cast shadows.",
+    "User visual and interaction review of waist folding, knee contact, pose transitions, running weight and handguard/finger overlap.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing.",
+    "Existing texture has no newly painted hidden surfaces for deep folding or viewpoint changes."
+  ],
+  "new_raster_images": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "development_cost": null,
+  "development_time_seconds": null
+}

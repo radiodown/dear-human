@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "iteration": "articulation_combat_011",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "scope": "Separate torso, rigid bust plate, waist and skirt; add manual bend, natural shouldered idle, kneeling fire, running fire and palm-up underhand support.",
+  "outfit": {
+    "source": {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    },
+    "parts": {
+      "path": "art/characters/clone_01/motion/rig_011/rig/body_parts.json",
+      "sha256": "e6d534d9990b1bc078b9971e129a7a5b3a377aa711d0333767b3770ce25e3624"
+    },
+    "authoring_recipe": {
+      "path": "art/characters/clone_01/motion/rig_011/recipe/build_body_parts.py",
+      "sha256": "23bb60c469330687d404acc3bdba7db690163a641eee9c262ab9921bb95918a9"
+    },
+    "waist_axis_above_hip": 34,
+    "bend_degrees": [
+      0,
+      45
+    ],
+    "rigid_bust_relative_degrees": [
+      -5,
+      5
+    ],
+    "angle_transition_time_constant_seconds": 0.1,
+    "method": "Explicit UV breastplate mesh plus matching hole in torso. Boundary vertices share plate motion. Hermite waist bridge joins upper body to pelvis; skirt remains with pelvis. Source raster unchanged."
+  },
+  "stances": {
+    "idle": {
+      "foot_tracks": [
+        20,
+        -20
+      ],
+      "pelvis_softening": 2.6,
+      "body_lean_radians": 0.07,
+      "breathing_period_seconds": 3.8,
+      "stock": "Shouldered at stockPocket throughout"
+    },
+    "walk": {
+      "speed": 108,
+      "period": 1.4,
+      "stance": 0.68,
+      "lift": 6.5
+    },
+    "run": {
+      "speed": 195,
+      "period": 0.78,
+      "stance": 0.46,
+      "lift": 18
+    },
+    "kneel": {
+      "pelvis": [
+        -8,
+        -90
+      ],
+      "front_track": 42,
+      "rear_track": -113,
+      "rear_foot_angle_radians": 0.9,
+      "transition_time_constant_seconds": 0.16,
+      "fire_waits_for_amount": 0.94,
+      "standing_rear_step": false
+    }
+  },
+  "motion_modes": [
+    "idle",
+    "walk",
+    "fire",
+    "walk_fire",
+    "run",
+    "run_fire",
+    "kneel",
+    "kneel_fire",
+    "reload",
+    "reload_empty"
+  ],
+  "hand": {
+    "path": "art/characters/clone_01/motion/rig_011/rig/hand_binding.json",
+    "sha256": "a0118a904b615a340e39da12c64dac231bc08ce852417aaf48a945251468d55c"
+  },
+  "generation": {
+    "path": "art/characters/clone_01/motion/rig_011/records/generation.json",
+    "sha256": "e9ae5b49402735af2abf7b3e25dfce345e27e48d75aac0483dd592a823bd310a"
+  },
+  "weapon_binding": {
+    "path": "art/weapons/m16_basic/rig_011/rig/weapon.json",
+    "sha256": "e204af3172dfe7ad4266d05b6dc77ff1ba1196b5495e9ebedef31fada86180eb"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "b74568feca730bab0aad96de15331acc905e7fefbba6d0498fbecd8d30ba3630"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "79c12a5b6f4b2814f0f1b7c0cab9c8fac24af39c7dfed05f5ba0e4a8de3dfce2"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "55e9418ff5c33124bc1fc5b0b779358d89b5d44317d69295646064690efcbed8"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "a44d35042cc348e7798830a68b394029aafac0cff3362b04259ad8f2c0758357"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "97879172d6bf6372ac680ea72a148083642acea292443ff27031714784bca18e"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "8d1da2721365eeede104328aa18bc03496c429f145842b49c1266a6333b81279"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "854d35b6d47eab86f6e4da351ee61ae534917da213683f7b702b14704d8fc3a0"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "4ccb682bc226913bd5c9396b6a5d61bde46432e308fbf48159d09f8f2e86b0ab"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "f9743c4e02cf2d52d64b3731e103714496633c0e4e7333390721a41a1e8ad42b"
+    },
+    {
+      "path": "game/styles.css",
+      "sha256": "887e024728548ec20a05836ba506e959ba523c429310e8036e8602001217c4ce"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "a1770fea66986238d7f3c643cf066aff50b4a14efecc6d868a987a602e8beee3"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "18b17274862b72a929657330ab248ee00fb57198a93aa0b2a7f4955d28db2a5e"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "9fc9e2e297ef67989569156d0638125e0b7b213f7f711e89312999cb79f33f53"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "d4b173c2df9024f71a43912f8a46535f8a9533b61f1688bd765cf7329dce03a3"
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_010"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_011"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_011"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_010/index.json",
+    "sha256": "769d4b9061edc8ca7ff76a4b5eb4513c12c8c39e10b93f43f0bea87908ba27c8"
+  },
+  "validation": {
+    "tests": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_pose_tests_written": false,
+    "source_coordinate_registration": "Authored coordinates only, no quality acceptance",
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/articulation_combat_011",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/articulation_combat_011"
+  },
+  "remaining": [
+    "User visual and interaction review of waist folding, knee contact, pose transitions, running weight and handguard/finger overlap.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing.",
+    "Existing texture has no newly painted hidden surfaces for deep folding or viewpoint changes."
+  ],
+  "gifs_generated": false,
+  "model": "See image generation receipt; no model name returned",
+  "development_time_seconds": null,
+  "development_cost": null
+}

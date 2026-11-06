@@ -1,0 +1,200 @@
+{
+  "scope": "Simulation tests for waist and new parts 010; not visual or gameplay acceptance",
+  "render_rates": [
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 19,
+      "recoilEvents": 19,
+      "ammo": 11,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 0,
+      "facing": 1,
+      "pendingShot": false,
+      "preFire": 0.12499999999999999,
+      "springs": {
+        "head": -0.028793953230668433,
+        "hair": 0.15386328427850599,
+        "cloth": 0.014156592620763618,
+        "cape": 0.12414563824908008,
+        "recoil": -0.04674070236470699
+      }
+    },
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 19,
+      "recoilEvents": 19,
+      "ammo": 11,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 0,
+      "facing": 1,
+      "pendingShot": false,
+      "preFire": 0.12499999999999999,
+      "springs": {
+        "head": -0.028793953230668433,
+        "hair": 0.15386328427850599,
+        "cloth": 0.014156592620763618,
+        "cape": 0.12414563824908008,
+        "recoil": -0.04674070236470699
+      }
+    },
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 19,
+      "recoilEvents": 19,
+      "ammo": 11,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 0,
+      "facing": 1,
+      "pendingShot": false,
+      "preFire": 0.12499999999999999,
+      "springs": {
+        "head": -0.028793953230668433,
+        "hair": 0.15386328427850599,
+        "cloth": 0.014156592620763618,
+        "cape": 0.12414563824908008,
+        "recoil": -0.04674070236470699
+      }
+    }
+  ],
+  "settle_after_04_sec": {
+    "head": 4.0168741801564814e-7,
+    "hair": -0.0002476404306431318,
+    "cloth": 8.879003242827622e-8,
+    "cape": -0.00009928986938527427,
+    "recoil": -9.575649677956298e-12
+  },
+  "max_grip_error_logical_px": 4.263256414560601e-14,
+  "recoil": {
+    "first_tick_offset": -0.37711232303364284,
+    "muzzle_angle": 0.0038904586898336237,
+    "maximum_forward_overshoot": 0,
+    "peak_backward_offset": -1.4230477166801467
+  },
+  "gait_geometry": {
+    "max_leg_error": 5.549516171688151e-14,
+    "max_sole_penetration": 3.552713678800501e-15,
+    "min_forward_knee_cross": 1530.909473176785
+  },
+  "max_planted_track_slide": 1.1368683772161603e-13,
+  "largest_stop_foot_step": 3.0626579542285888,
+  "proportions": {
+    "head_count": 7.5,
+    "reference_head_count": 7.5025641025641026,
+    "hip": -171.5,
+    "knees": [
+      -97.3572264084303,
+      -96.83412035129042
+    ],
+    "ankles": [
+      -23.04,
+      -23.04
+    ]
+  },
+  "aspect_ratio_preserved": true,
+  "max_stock_contact_error": 2.864289338439558e-14,
+  "combat_gait": {
+    "hip_drop": [
+      8.80010742711363,
+      12.59788037142971
+    ],
+    "lean_degrees": [
+      14.193252486122885,
+      15.344054904492644
+    ],
+    "muzzle_degrees": [
+      0.15340092415626566,
+      1.2159237920931392
+    ],
+    "steps_per_minute": 85.71428571428572,
+    "step_distance": 75.6,
+    "toe_lift": 6.5
+  },
+  "standing_fire": {
+    "hip_drop": [
+      6.884852813742384,
+      6.919999999997344
+    ],
+    "lean_degrees": [
+      14.651387854037631,
+      14.89415905527508
+    ],
+    "largest_hip_step_at_120hz": 1.4423028828004192,
+    "front_foot_planted": true,
+    "rear_foot_support_step": 4,
+    "seated_stock": true,
+    "single_shot_braces": true,
+    "recovers_after_release": true
+  },
+  "cape": {
+    "hem_x_range": [
+      -49.67278022614734,
+      -41.390473024580295
+    ],
+    "pinned_shoulder": true,
+    "preserved_strip_lengths": true,
+    "fixed_step_equivalent": true
+  },
+  "secondary": {
+    "hair_tip_x_range": [
+      -2.579229988619812,
+      -1.684960763403991
+    ],
+    "hem_radians": [
+      -0.033803384384011675,
+      0.033803384384011675
+    ],
+    "fixed_root_and_lengths": true,
+    "settles": true,
+    "fixed_step_equivalent": true
+  },
+  "protected_armor_regions": true,
+  "head_aim": {
+    "offset": {
+      "x": 2.4999999990766035,
+      "y": 6.399999997636105,
+      "a": 0.014999999994459619
+    },
+    "max_head_return_step": 0.1419282402119446
+  },
+  "reload_contacts": {
+    "max_wrist_step_at_120hz": 2.666279363512006,
+    "max_magazine_palm_error": 2.929642751054232e-14,
+    "new_hand_art": "missing"
+  },
+  "pre_fire": {
+    "first_shot_seconds": 0.12499999999999999,
+    "body_degrees_before_shot": 14.365470666535815,
+    "neck_radians_before_shot": 0.013629330809523665,
+    "queued_shot_cancelled_by_reload": true
+  },
+  "shared_hip_anchor_error": 2.864289338439558e-14,
+  "reload_arm_behind_torso": true,
+  "waist": {
+    "pivot_above_hip": 34,
+    "strain": {
+      "back": 1.2896919957554118,
+      "front": 0.599489583496194
+    },
+    "rigid_chest_and_skirt": true,
+    "seams_continuous": true
+  },
+  "new_part_joint_registration": true,
+  "reuse_hashes": {
+    "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c",
+    "art/characters/clone_01/motion/rig_004/source/base_atlas.png": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1",
+    "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe",
+    "art/characters/clone_01/motion/rig_004/source/body_core.png": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8",
+    "art/characters/clone_01/motion/rig_005/rig/parts.json": "5db0a7113dffdbd89d4356a71bb78eae1d81cf9f4226c84ee21a5ffc2ee150e6",
+    "game/animation/gait.js": "b38c999e12d490168d486b28697eefb4220d59ab4c820b20b4743825d57ec147",
+    "game/animation/proportions.js": "18c3e039d994834c949d5a4fb905a3da5aa91a8b96d75bdc2a161084ae7f38d1",
+    "game/animation/rig-core.js": "1025305df0de6b97d8481de76f36f384ee0e2ee4161ec0ba60dce47716be2181",
+    "game/animation/webgl-character.js": "27da1f8141d80b0a1f508f9c4ac078c09ab79bc4bc71c5b043d60eb83ea76acf",
+    "game/animation/cape.js": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+  }
+}

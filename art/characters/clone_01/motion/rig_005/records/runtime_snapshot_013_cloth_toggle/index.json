@@ -1,0 +1,35 @@
+{
+  "scope": "013 runtime before cloth_toggle_fix_001. User validation remains pending.",
+  "files": [
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_013_cloth_toggle/game/animation/rig-core.js",
+      "sha256": "990dd9b0c656dca722db57cec3d9bf76532a1aefa236d97eccb8a1eca4c903a8"
+    },
+    {
+      "original_path": "game/animation/secondary-motion.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_013_cloth_toggle/game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "original_path": "game/animation/waist.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_013_cloth_toggle/game/animation/waist.js",
+      "sha256": "b74568feca730bab0aad96de15331acc905e7fefbba6d0498fbecd8d30ba3630"
+    },
+    {
+      "original_path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_013_cloth_toggle/game/rig-lab.js",
+      "sha256": "37887b63b7860f30e71a68d383ddae8e32ca62041e04da03bf1c31f83133148f"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_013_cloth_toggle/game/index.html",
+      "sha256": "68c26bfb9ae8e6f97b2c6a632d7585c031e58b325e29ee25a26df1e8b90c065d"
+    },
+    {
+      "original_path": "art/characters/clone_01/motion/rig_005/README.md",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_013_cloth_toggle/art/characters/clone_01/motion/rig_005/README.md",
+      "sha256": "3a19c411c74a7a51e8919aa8ee7c451d49620af86447cde3fbdec6f74f3b0748"
+    }
+  ]
+}

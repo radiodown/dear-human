@@ -1,0 +1,18 @@
+{
+  "version": "kneeling_fire_001",
+  "date_local": "2026-11-07",
+  "user_request": "그냥 이미지로 앉아쏴 자세의 클론을 그려줘",
+  "tool": "built-in image_gen.imagegen",
+  "model_id": null,
+  "seed": null,
+  "billed_cost": null,
+  "tool_wall_time_seconds": 37.9,
+  "source_reference": "../../reference_003_3d/source/appearance.png",
+  "submitted_prompt": "prompt.json",
+  "exact_prompt_markdown": "prompt.md",
+  "output": "../source/kneeling_fire.png",
+  "generated_original": "/Users/jin/.codex/generated_images/01a1b2ea-07fb-79f2-a757-fe76bc8d7922/exec-eb2abca9-cb39-4984-8339-6d1ede720b87.png",
+  "status": "generated; user art review pending; standalone illustration",
+  "scope": "Image only. No rig, runtime, Plan B/C, GIF or site changes.",
+  "verification": "No tests, syntax checks, document/catalog checks or browser review executed, following the standing user review handoff."
+}

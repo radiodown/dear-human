@@ -1,5 +1,17 @@
 # Dear Human 제작 규칙
 
+- 정답 이미지 적용 앉아쏴 `kneeling_image_017`은 [적용 기록](docs/kneeling-image-application-017.md), `game/animation/kneeling-pose.js`, `rig_017`을 따른다. 골반 앞의 접지 무릎·전용 흉곽/양팔·수평 총신과 눈/견착 정렬을 사용한다. 기존 UV에서 무릎 장갑·정강이·연결 천과 스커트 앞/뒤 패널을 나누고 망토의 남는 길이를 바닥 경로로 펼친다. 새 사선/접힘 원화·실제 3D/천 충돌을 만든 결과가 아니며 원본 PNG와 014 손/M16·현재 달리기 총 전진·016 반응·플랜 B/C는 유지한다. 변경 전은 runtime_snapshot_before_kneeling_image_017에 보존했다. 사용자 지시로 테스트·구문/문서/목록 검사·브라우저 검수 없이 untested·사용자 검수 대기다. 후속 결과는 tests/reviews의 kneeling_image_017을 사용하며 도구 기본 경로는 바꾸지 않았다.
+
+- 사용자는 [앉아쏴 이미지 kneeling_fire_001](art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png)을 “이 그림이 맞는거임”이라고 자세 기준으로 채택했다. [파츠 모션 문제 분석](docs/kneeling-image-parts-analysis-001.md)을 따른다. 현재 무릎 목표의 골반 대비 전후 배치, 정강이와 통합된 무릎 장갑, 허벅지를 따르지 않는 스커트, 공통 상체/팔 가이드, 볼 접촉·바닥 망토의 부재를 구분한다. 그림에는 받침 팔꿈치–앞무릎 접촉 조건이 없다. 이번은 소스/원본 그림 분석과 기준 채택 기록만 수행했으며 런타임 변경·새 그림·검사는 없다.
+
+- 호흡·상체·의상 반응 016은 [기록](docs/breathing-and-body-motion-016.md)을 따른다. secondary-motion.js의 공통 호흡/허리 움직임과 실제 발사 이벤트의 bodyRecoil을 허리→흉곽→어깨에 적용한다. ‘허리·옷자락’은 허리 천/하단 옷자락의 추가 반응을 pose에서 즉시 켜고 끄며 일시정지에서도 비교한다. 호흡과 기본 자세는 독립적으로 유지한다. 변경 전 작업 파일은 runtime_snapshot_before_breathing_016에 보존했다. 테스트·구문/문서/목록 검사·브라우저 검수 없이 untested·사용자 검수 대기이며 후속 결과는 tests/reviews의 breathing_016으로 분리한다. 현재 gait.js는 이번 변경 대상이 아니다.
+
+- 수직 시점 `camera_pitch_001`은 [기록](docs/camera-pitch-001.md)을 따른다. 공통 파츠 카메라는 기본 12° 하향, 범위 0~20°이며 같은 페이지에서 정측면 0°와 비교한다. 기존 그림의 깊이 배치/정사영이고 실제 3D 모델이나 윗면 원화 추가가 아니다. 손·무기·총구·바닥은 같은 투영을 사용한다. 변경 전 표시 소스는 `runtime_snapshot_before_camera_pitch_001`에 보존했다. 테스트·구문/문서/목록 검사·브라우저 검수는 실행하지 않았으며 `untested`·사용자 검수 대기다. 후속 검사를 요청받으면 `tests/reviews`의 `camera_pitch_001`로 분리한다.
+
+- 최신 손 014는 [35](docs/35-closed-handguard-grip.md)를 따른다. 가볍게 받치던 손 대신 rig_014의 네 손가락으로 핸드가드를 감싸 쥔 손을 사용하며 엄지는 반대편에 가려져 보이지 않는다. M16 접점은 m16_binding_014의 (.63, .34)다. 이전 013은 runtime_snapshot_013에 보존했다. 사용자 검증 인계 지시로 테스트·문서/목록 검사·브라우저 검수를 실행하지 않았으며 untested·사용자 검수 대기다. 다음 출력은 tests/reviews의 closed_grip_014를 사용한다.
+
+- 사용자 지시로 **플랜 C · Three.js 도입 준비**를 추가했다. [31](docs/31-plan-c-threejs-readiness.md), `game/plan-c/`, `art/characters/clone_01/motion/plan_c/preparation_001/`을 따른다. Three.js 0.187.0을 별도 고정하고 기존 파츠/소켓의 기초 검사와 몸통 한 파츠의 Chrome 시험을 수행했다. 전체 캐릭터 어댑터·C 선택 UI·3D 모델·새 모션은 아직 미구현이다. 기존 파츠의 Three.js 표시를 모션 개선이나 실제 3D 전환으로 보고하지 않는다. 축소 비교 실패와 원본 배율 통과를 구분하고, 후속 검사는 새 버전 경로에 남긴다.
+
 - 사용자 지시로 2dimg2motion을 **플랜 B**로 가동했다. 별도 경로는 `art/characters/clone_01/motion/plan_b/`, 첫 결과는 M16 준비 보행 14프레임 `walk_001`이다. [실제 생성·검수·한계](docs/27-plan-b-2dimg2motion.md)를 따르고 기존 캐릭터 페이지의 ‘플랜 B · 걷기’에서 재생한다. 아직 사용자 아트 채택 전이며 사격·장전 등 플랜 B 추가 모션은 미제작이다.
 - 플랜 B `walk_001`은 사용자 지적 후 크기·비례 검수 실패로 판정했다. 공식 규약 재검토와 `walk_002` 키포즈 재시도도 [27](docs/27-plan-b-2dimg2motion.md)에 기록했다. 후속 작업 전에 `img2mo-knowledge/index.md`와 `failures.md`를 읽는다. 같은 캔버스·전체 높이·발 기준선만으로 크기 일관성을 통과시키지 않는다. 기준 대비 머리·흉갑·어깨~벨트·M16 길이·중심을 검수하고 키포즈가 실패하면 중간 프레임을 생성하지 않는다. 프레임마다 자동 확대/축소·중심 맞춤으로 실패를 숨기지 않는다.
 
@@ -20,6 +32,37 @@
 - 원본·도구/모델·레시피·실제 비용/시간·의존 버전은 파일로 기록한다. 페이지 방문만으로 생성이나 전체 렌더를 자동 실행하지 않는다.
 - 대화에는 대상 페이지 진입점, 변경 내용과 남은 문제를 짧게 전달한다. 아직 만들지 않은 사이트나 검수하지 않은 에셋을 완성됐다고 보고하지 않는다.
 - GIF 출력은 사용자의 일회성 열람 요청이었다. 이후 보정에서는 GIF를 자동 생성하거나 갱신하지 않는다. 현재 보행·반동·원화 비례 보정은 game/animation/gait.js와 proportions.js의 공통 기준을 사용하며 각 파츠의 원본 가로세로 비율을 유지한다.
-- 현재 공통 미리보기는 rig_005이며 [28](docs/28-combat-walk-and-cape.md)을 따른다. rig_004의 그림을 재사용한다. 이전 rig_002는 사용자 반려 후 기록용으로 보존한다. 새 검사는 art/characters/clone_01/motion/rig_005/tests에 기록하고, 과거 결과를 덮어쓰지 않는다. 몸통·허리·하의는 한 의상 레이어이고, 어깨 장갑은 상완에 포함하므로 별도로 중복 표시하지 않는다. 개머리판 stock 소켓과 어깨 stockPocket의 접점을 유지하며 손 도달 검사만으로 견착이 맞았다고 판단하지 않는다.
+- 현재 공통 미리보기는 rig_005이며 [28](docs/28-combat-walk-and-cape.md)을 따른다. rig_004의 그림을 재사용한다. 이전 rig_002는 사용자 반려 후 기록용으로 보존한다. 새 검사는 art/characters/clone_01/motion/rig_005/tests에 기록하고, 과거 결과를 덮어쓰지 않는다. 의상 파트 분리는 최신 011 지시를 우선하고, 어깨 장갑은 상완에 포함하므로 별도로 중복 표시하지 않는다. 개머리판 stock 소켓과 어깨 stockPocket의 접점을 유지하며 손 도달 검사만으로 견착이 맞았다고 판단하지 않는다.
 
 - 사용자 최신 지시로 플랜 B는 이번 보정 대상에서 제외한다. 파츠 전투 보행은 보폭·골반 낮춤·전경·조준 안정화를 함께 조정하고, 망토는 cape.js의 어깨 고정·길이 유지·지연 반응을 사용한다. 다중 망토 원화는 아직 생성하지 않았다.
+- 머리카락·허리/옷자락·팔꿈치 연결·장전 접점과 고개를 숙여 총에 기대는 사격은 [29](docs/29-secondary-motion-and-firing-stance.md)를 따른다. 현재 수치 검사는 rig_005/tests/standing_fire_007에 기록한다. 장전용 놓기·탄창 파지·조작부 손 3종은 미제작이고 기존 받침 손을 임시 사용한다. 접점 수치 통과를 손 그림 완성이나 사용자 아트 채택으로 보고하지 않는다.
+
+- 최신 견착 높이 보정 08은 어깨 stockPocket을 로컬 (-13.5, 4)로 낮춰 총이 얼굴을 가리지 않게 했다. 고개 숙임·전신 사격 자세는 07을 유지하며 새 검사는 rig_005/tests/shoulder_height_008, 브라우저 검토는 reviews/shoulder_height_008에 저장한다. 첨부 자세 그림은 포즈 참고이며 외형 변경 지시가 아니다.
+
+- 최신 09는 [30](docs/30-body-mechanics-and-reload-views.md)을 따른다. 골반–의상–허벅지 연결, 어깨까지 고정한 머리카락, 보행 하중, 반동 뒷발 반응, 탄창 기울기와 장전 왼팔의 몸통 뒤 가림을 보정했다. 마지막 사용자 지시로 목의 단독 숙임을 줄이고 상체가 약 .12초 먼저 기울어진 뒤 첫 발을 쏜다. 입력은 requestFire/trigger를 사용한다. 검사는 rig_005/tests/body_mechanics_009, 브라우저 검토는 reviews/body_mechanics_009에 기록한다. 어깨/장전 전완의 시점 전환 그림과 손 3종은 아직 미제작이다.
+
+- 이전 010은 [31](docs/31-waist-axis-and-new-parts.md)의 실제 허리축과 흉갑/연결 천/스커트 세 부착물을 사용한다. 같은 원본 텍스처를 재사용하며 상체–스커트 사이 천만 당겨지고 접힌다. 새 총열 받침 손 v2·측면 어깨·장전 전완 원본과 프롬프트는 rig_010에 저장했다. 장전 손 3종은 아직 미제작이다. 사용자가 “검증은 내가할게 개발만해봐”라고 지시했으므로 이후 별도 지시 전에는 추가 테스트·문서/목록 검사·브라우저 캡처를 자동 실행하지 않고 개발 인계와 검수 대기 상태를 기록한다.
+
+- 011 의상/자세는 [32](docs/32-body-articulation-and-combat-poses.md)를 따른다. 몸통·바스트/흉갑·허리 연결부·스커트의 네 메시 부착물과 실제 허리축, 숙임 0~45°·흉갑 상대각 ±5° 조절을 사용한다. 흉갑 영역은 몸통 메시에서 제외하고 경계 정점만 연결한다. 견착 대기·앉기/앉아쏴·달리기/뛰며쏴를 같은 페이지에 연결했고 총열 하단 받침 손은 rig_011에 보존한다. 무기는 m16_binding_011의 support (.63, .48)을 따른다. 변경 전 코드는 runtime_snapshot_010에 보존했다. 사용자 지시로 테스트·목록/문서 검사·브라우저 검수는 실행하지 않았다. 새 결과는 untested·사용자 검수 대기이며 기존 010 검사 기록을 현재 검증으로 해석하지 않는다. 플랜 B와 플랜 C는 이번 보정 대상이 아니다.
+
+- 최신 공통 렌더러는 [33](docs/33-muzzle-light-on-character.md)의 총구 조명 012를 사용한다. game/animation/muzzle-light.js가 .055초 flash 타이머·현재 muzzle 소켓·재질별 2D 표면 근사를 공유하며 원본 알파와 가림 순서 안에서 빛을 더한다. 실제 노멀맵·3D 그림자는 없다. 같은 페이지의 캐릭터 조명 on/off와 0~200% 세기를 사용한다. 원본·플랜 B/C·GIF는 변경하지 않았다. 이전 011 소스는 runtime_snapshot_011에 보존하고 tests/reviews의 다음 출력은 muzzle_light_012로 분리한다. 사용자 검증 인계 지시는 계속 유효하며 추가 검사를 실행하지 않았으므로 untested·검수 대기로 기록한다.
+
+- 최신 자세 013은 [34](docs/34-running-fire-without-eye-aim.md)의 뛰며쏴를 따른다. 달리기 중 eyeAim은 해제하고 총 받침을 몸통 로컬 (-10.5, 20)으로 낮춘다. 발사 준비량과 눈 조준량을 분리하며 runCarryAmount가 .75를 넘은 뒤 첫 발을 허용한다. 머리/상체의 조준 숙임도 해제하고 012 총구 조명·기존 달리기와 파츠는 재사용한다. 012 소스는 runtime_snapshot_012에 보존했다. 사용자 검증 인계 지시로 추가 검사를 실행하지 않았으며 다음 출력은 tests/reviews의 running_point_fire_013이다.
+
+- 최신 첨부 사격 사진의 연구는 [35](docs/35-firing-form-reference-research.md)와 rig_005/research/firing_form_001을 따른다. 발–무릎–골반–흉곽–어깨의 전신 실루엣과 개머리판 접촉을 먼저 작성하고 머리 보정은 작게 다룬다. 사진의 사선 구도나 픽셀 각도를 그대로 측면 리그에 옮기지 않는다. 뛰며쏴의 눈높이 조준 해제는 유지하며 시선과 총 지지 높이는 별도 조건으로 본다. 이번은 조사만 수행해 런타임은 013 그대로다. 교범 본문은 확인했지만 PDF 그림 캡처는 접근 오류로 확보하지 못했으므로 그림까지 시각 검수했다고 보고하지 않는다.
+
+- 앉아쏴 사진 보정은 [별도 기록](docs/kneeling-reference-pose-001.md)의 `kneeling_reference_001`을 따른다. 뒷무릎 목표·앞발·뒷발끝에서 고정 길이 다리와 골반 원호를 계산하고 앉아쏴 반동·첫 발 준비를 보정했다. 현재 작업 폴더의 받침 손 변경은 유지한다. 기존 `runtime_snapshot_013`을 덮어쓰지 않고 `runtime_snapshot_before_kneeling_reference_001`에 기준을 보존했다. 새 그림·GIF·테스트·문서/목록 검사·브라우저 캡처는 실행하지 않았고 `untested`·사용자 검수 대기다. 무릎 관절 오차를 무릎 장갑의 실제 바닥 접촉이나 아트 채택으로 해석하지 않는다. 망토 바닥 접힘·깊은 의상 주름은 미구현이다.
+
+- 달리기 보정 `running_mechanics_001`은 [36](docs/36-running-mechanics.md)을 따른다. 속도 260 / 주기 .90초 / 지지 .44 / 발 들림 42와 지지 압축·체공 곡선, 뒤꿈치/무릎 회수 궤적을 사용한다. `RunFootContacts`는 고정 스텝에서 접지 track을 유지하고 회수 중 보정을 풀며 감속 시 기존 접지의 연장을 막는다. `pose()`는 접지 상태를 갱신하지 않는다. 현재 앉아쏴·손·천 및 총 낮춘 뛰며쏴는 유지한다. 변경 전 두 소스는 `runtime_snapshot_before_running_mechanics_001`에 보존했다. 테스트·구문/문서/목록 검사·브라우저 캡처 없이 `untested`·사용자 검수 대기다. 후속 결과는 tests/reviews의 `running_mechanics_001`을 사용하며 이번에는 검사 도구 기본 출력 경로를 수정하지 않았다.
+
+- 사격 폼 적용 015는 [적용 기록](docs/firing-form-application-001.md)을 따른다. firing-form.js의 발/골반·흉곽·어깨와 양팔 기준 가이드를 사용하며 몸통 UV의 흉곽–허리 연결 행은 rig_015에 저장한다. 014 닫힌 손과 M16 접점·기존 무릎 접지·달리기 접지/체공 및 카메라 작업은 유지한다. 머리 회전 전달 .28과 작은 보정값을 공통 기준으로 사용한다. 뛰며쏴의 정면 시선과 달리기 총 낮춤 0~18(기본 6)은 별도 조건이다. 이전 작업 폴더는 runtime_snapshot_before_firing_form_001에 보존했다. 사용자 지시로 테스트·문서/목록 검사·브라우저 검수를 실행하지 않았고 untested·사용자 검수 대기다. 다음 검사 출력은 tests/reviews의 firing_form_015다.
+
+- 달리기 최신 미세 보정은 [running_mechanics_002](docs/running-mechanics-002.md)다. 자동 허리 숙임 15°와 작은 하중 반응을 사용하고 수동 bend는 추가량으로 유지한다. 실제 몸통 각도를 역보정해 원본 정면 시선을 유지하며 달리기 총신 기본각은 수평으로 분리한다. 총 높이 조절·현재 사격 폼/손/앉기/천/카메라는 재사용한다. RUN은 속도 245 / 주기 .84초 / 지지 .45 / 발 들림 32 / 압축 4 / 전후 진폭 1.1 / 회전 .008을 사용한다. 발 회수는 5차 수평 곡선과 회수 40% 정점의 단일 수직 곡선으로 연결한다. 001 기록을 덮어쓰지 않고 변경 전 두 소스를 runtime_snapshot_before_running_mechanics_002에 보존했다. 사용자 검증 인계 지시로 테스트·구문/문서/목록 검사·브라우저 캡처 없이 untested·검수 대기다. 후속 출력은 tests/reviews의 running_mechanics_002이며 이번에는 검사 도구 기본 경로를 바꾸지 않았다.
+
+- 뛰며쏴 총 전진은 [running_weapon_forward_001](docs/running-weapon-forward-001.md)을 따른다. firing-form.js의 기본 2 + 몸통–골반 숙임(rad)×8 + 골반 낮춤 최대 1.5를 달리기/들기 전환에 곱하고 최대 10 및 양팔 도달 범위로 제한한다. formArmLengths를 실제 팔 IK와 한도 계산에서 공유한다. stockPocket/stockTarget/무기 프레임을 먼저 수평 이동한 뒤 양손·탄창·총구를 계산하며 총 높이와 수평 방향은 유지한다. 장전 조작 중에는 전진량을 줄인다. 변경 전 소스는 runtime_snapshot_before_running_weapon_forward_001에 보존했다. 추가 테스트·구문/문서/목록 검사·브라우저 캡처 없이 untested·사용자 검수 대기이며 후속 결과는 tests/reviews의 running_weapon_forward_001로 분리한다.
+
+- 사격 허리각 조절은 [fire_waist_controls_001](docs/fire-waist-controls-001.md)을 따른다. 같은 페이지의 서서쏴/뛰며쏴 기본각을 각각 0~45°(.5° 단위), 기본 12°/15°로 조절한다. 공통 리그 setFireWaist API와 고정 스텝 전환을 사용하고 실제 사격 준비량에 따라 적용한다. 기존 bend는 공통 추가 숙임으로 별도 가산한다. 값은 브라우저 저장소와 fireBend/runFireBend 주소 값으로 복원한다. 현재 사격 자세의 일시정지 조절은 설정만 즉시 적용하며 시간을 진행하지 않는다. 현재 앉아쏴·호흡/반동·손·총 전진·카메라는 유지한다. 변경 전 네 소스는 runtime_snapshot_before_fire_waist_controls_001에 보존했다. 테스트·구문/문서/목록 검사·브라우저 검수 없이 untested·사용자 검수 대기이며 후속 출력은 tests/reviews의 fire_waist_controls_001로 분리한다.
+
+- 앉아쏴 총 높이 조절은 [kneeling_weapon_level_001](docs/kneeling-weapon-level-001.md)을 따른다. 같은 페이지의 앉아쏴 총 낮춤 0~18(기본 0)과 공통 리그 setKneelCarryDrop을 사용한다. 앉는 양에 따라 총 지지점/무기 프레임을 월드 수직으로 내린 뒤 양손·탄창·장전·총구를 계산하며 수평 총구 방향은 유지한다. 기존 머리 보정 한도는 유지하고 아이레벨이나 물리적 어깨 견착 완료로 보고하지 않는다. 브라우저 저장값과 kneelDrop 주소로 복원하며 전체 초기화는 0이다. 변경 전 네 소스는 runtime_snapshot_before_kneeling_weapon_level_001에 보존했다. 테스트·구문/문서/목록 검사·브라우저 검수 없이 untested·사용자 검수 대기이며 후속 결과는 tests/reviews의 kneeling_weapon_level_001로 분리한다.
+
+- 모든 자세의 총구 기본 방향은 [forward_muzzle_001](docs/forward-muzzle-001.md)의 전방 수평 0을 따른다. 서기/걷기에 남아 있던 torso/bend의 무기 회전 전달을 제거해 사격 허리각·공통 추가 숙임·자세 전환과 방향을 분리했다. 기존 반동·장전 조작의 회전은 유지하고 stock 목표의 이동/높이와 같은 프레임에서 손·탄창·조준선·총구를 계산한다. 변경 전 두 소스는 runtime_snapshot_before_forward_muzzle_001에 보존했다. 사용자 지시로 테스트·구문/문서/목록 검사·브라우저 검수 없이 untested·사용자 검수 대기이며 후속 결과는 tests/reviews의 forward_muzzle_001로 분리한다.

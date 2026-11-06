@@ -1,0 +1,84 @@
+{
+  "revision": "before_kneeling_image_017",
+  "reason": "Preserve current working sources including running weapon advance and breathing 016 before the approved kneeling-image correction.",
+  "files": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "302c74b9badb1bab36e8534c2941da15699a6effb10b99b6f4176b9e94fa2fcb"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "75bfab3144b86ec55ee3d8594706df3a8bac72890e7c3a50049b16885a9590fb"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "c5239e87ff89f3120d71075d7a612849e194fbc59ea87d7b6ddbc86ed277f61a"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "f5acf2794e5a3ace13fb59d6cc914ebad24a934bfb20e36761e556e1453160ef"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "fead78bbcaeecdb82e2530d5cbefbcc0d65465dfa1ac4c3b57877e4330366837"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "1a33412a7e4bd6d6df7d88d397ff2b87d9b8957b9853ca48717ca3b90f0bff6c"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "be2898091db08326c7f51217f51926657f1e630d55cee5c1e20446d1f2ecf6db"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "115fca19bdb0adb3145d7af44398f4e82efc8252d526a29b6c0a451d6cd112c7"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "ce9c7e960f9dc5de666766b81d10c211b25693fc92cd760d1a20f0ff299cda58"
+    },
+    {
+      "path": "game/public/assets/catalog/asset_index.json",
+      "sha256": "fea21c970989d997ff6b01d857d878e79aee19dd7dad1e7870261cb5fa570108"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/README.md",
+      "sha256": "218d5c4c8333a6d7485f2eafe7a6f094289ad9c0d7ae91f8e4a08567ac834ba1"
+    },
+    {
+      "path": "AGENTS.md",
+      "sha256": "46a3e8ac2fc279dac80abbbeb26ff1d85825e40197c232314ca280bedfc5737d"
+    },
+    {
+      "path": "README.md",
+      "sha256": "5f2745a34e8bf84941b7bb0ce76b9080d314dffa9d70b99c11feac95b22c0620"
+    },
+    {
+      "path": "art/README.md",
+      "sha256": "8729beaff934a299c1c2a28f9340ac3aa1bb6568009653df5d6c367da3f11a97"
+    },
+    {
+      "path": "skills/dear-human-pipeline/SKILL.md",
+      "sha256": "da93b750f5a3e575fa3e67d0b3947b913906395660768c255604ad6161cd6e25"
+    },
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "f93e0a5c3bae02b3b2cd1fe3b47c2d0817a551cb0c41bbd475bd33ea970a0e53",
+      "preservation": "Reconstructed before-change bytes by reversing the single material selector edit."
+    }
+  ],
+  "verification": "Source preservation only; no checks executed."
+}

@@ -1,0 +1,12 @@
+{
+  "date_local": "2026-11-07",
+  "version": "kneeling_fire_001",
+  "user_instruction": "이걸 기준으로 파츠모션에서 문제가 뭔지 분석 . 이 그림이 맞는거임",
+  "image": "../source/kneeling_fire.png",
+  "adopted_as": "User-approved visual pose reference for kneeling fire parts-motion analysis",
+  "analysis": "../../../../../../docs/kneeling-image-parts-analysis-001.md",
+  "runtime_applied": false,
+  "verification": "Static source/art analysis only; no tests, syntax/document/catalog checks or browser review executed.",
+  "generation_record": "generation.json",
+  "generation_record_preserved": true
+}

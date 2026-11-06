@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "revision_id": "underbarrel_hand_011",
+  "source_image": {
+    "path": "art/characters/clone_01/motion/rig_011/source/support_hand_underbarrel.png",
+    "width": 1774,
+    "height": 887
+  },
+  "part": {
+    "atlas": "underhand_011",
+    "rect": [
+      64,
+      200,
+      1580,
+      660
+    ],
+    "material": "rigid",
+    "label": "총열 아래 받침 손"
+  },
+  "binding": {
+    "height": 11.5,
+    "pivot": [
+      0.22531645569620254,
+      0.5303030303030303
+    ],
+    "grip": [
+      0.6240506329113924,
+      0.22727272727272727
+    ]
+  },
+  "authored_source_points": {
+    "wrist": [
+      420,
+      550
+    ],
+    "palm_contact": [
+      1050,
+      350
+    ]
+  },
+  "weapon_support_uv": [
+    0.63,
+    0.48
+  ],
+  "raster_edits": false,
+  "verification": "untested",
+  "notes": "Authored landmarks for a supinated palm underneath the handguard; source rectangle is a manual crop registration, not an alpha quality test."
+}

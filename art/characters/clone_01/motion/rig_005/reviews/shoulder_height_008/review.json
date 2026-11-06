@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "iteration": "shoulder_height_008",
+  "scope": "Lower the shared shoulder stock contact based on the user side-view pose illustration; preserve head dip and whole-body brace from 007. Plan B excluded.",
+  "art_direction_status": "awaiting_user_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/shoulder_height_008.json",
+    "sha256": "973c7f28fb5ac1291a21b21bafbfb4141ccd95c7cacbf5de69e6e944e7d69267"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "a78b7f2a538d69021a1d4aed42ff87557ba86477e8db3e267a231c76bf417314"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "34ba419e8c4b3bf2af2847a8353676f5f69b2b3f0d0124876c2ebd4b413e9a3e"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "18df58028b8f9f20f1adbcafee0e6784a8c3a52be12936ff86d15411a67576ff"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "08033041a14b77f02897f8f3878dc2c9c241714cc33b3c0eeca2522265b0ce8d"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "a133f6ac1318b60d1cc637b71b533f278dce495779b4f246c1954c779d2af264"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "2040444c7a813ac86a27cc53aeb2857b7b14c8bc1ed54437934ba02ca9e89009"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "b492d834163c2970ac4ceab2ef3d7da92ef7c34f23eadf7a8190ef3c68dba11d"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "688b1287cf5c12790e98247bc1cf5da46c6e882844272885887feb03e0b710fa"
+    }
+  ],
+  "simulation_metrics": {
+    "path": "art/characters/clone_01/motion/rig_005/tests/shoulder_height_008/simulation-metrics.json",
+    "sha256": "dd3dbef51a012fca3ca7f30c4760cf4d999e48f6016985998c151ce979e8b413"
+  },
+  "browser_reports": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/browser.json",
+      "sha256": "528373fdbb58e7dfd4db8e79f414c24e38f77b54fa231e8a817d7f5b7be2c9ea"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/browser.json",
+      "sha256": "d6f4d6f0534cdedc42399658d2d43da72508289dcd09d5eff5fed5dff9ce748e"
+    }
+  ],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/idle.png",
+      "sha256": "01814321df021596a3c7e630b9bc5d06f3ab7df6a186a8c0ab5d6c2e5e536bbd",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/walk_a.png",
+      "sha256": "e60576bbbd88aab2895c78075be90ce0977e8c674a395aa5b9d2076a0cecbcb4",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/walk_b.png",
+      "sha256": "1ae989488e2376f0077d99ce2aa1b30cf2673814def39c26ec2c3a607c6f51c1",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/walk_fire.png",
+      "sha256": "98eaccbc874afd366f2ce4ed467e4463a87b235a189ab1f8c119b9163be04a10",
+      "inspection": "Visually inspected; user art acceptance remains pending."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/fire_brace.png",
+      "sha256": "3a3b9f897373d58bfdb7d554846e5f98899eb01bcec4c2aa214a5cfbd8be328e",
+      "inspection": "Visually inspected; user art acceptance remains pending."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/reload_extract.png",
+      "sha256": "694942c7ddd83845580f1180f8899c1b19f731999d93a9a2e9d775e89b77757e",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/reload_insert.png",
+      "sha256": "df2c6eff3a324361b99904f022659e168b4eaff7ec85efb41653d07e4d91b5e0",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/reload_bolt.png",
+      "sha256": "3a08d360686a3dcb0655124d017a32f29c9c701144f47217eabd240f8ed99488",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/secondary/narrow_left.png",
+      "sha256": "61b6e054a7cc904ae1c267a7eb0718ddb48164f3f643875eae0e0a6121d0285c",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/idle.png",
+      "sha256": "4d2820601007c889edbcda4c51613d2a6f5fdca8c9841daa889292ae32070a38",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/single_shot.png",
+      "sha256": "5e89577f3968e3e9346b7bef3b4ba5cdcb899e3a62e6e85aa0166a0f3e9b66be",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/standing_fire.png",
+      "sha256": "370125ed65217a3b17787cf9d860bd75c3a9ad87db2bd476a0305ef2c799d038",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/released.png",
+      "sha256": "de404379dfef8bc83788e2ebf61d5a8b466c52043857d6df5b34e4d7401c42e2",
+      "inspection": "Automated browser capture; selected frames visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/shoulder_height_008/standing_inputs/standing_fire_left.png",
+      "sha256": "9d52d38b21cf95ed36795c39b26125aa5021a3d7d5621c9096199e51186c8c32",
+      "inspection": "Visually inspected; user art acceptance remains pending."
+    }
+  ],
+  "checks": {
+    "simulation_tests": 22,
+    "browser_checks": 11,
+    "javascript_syntax": "passed"
+  },
+  "observations": [
+    "Stock contact lowered by 12.6 logical pixels to the front of the shoulder.",
+    "Face now clears the stock/receiver; the head dip and whole-body brace from 007 remain.",
+    "Hands and stock stay constrained through moving fire, recoil and reload."
+  ],
+  "limitations": [
+    "User visual review remains pending.",
+    "No cheek/weapon collision solver.",
+    "Existing three reload hand variants remain unmade."
+  ],
+  "gifs_generated": false
+}

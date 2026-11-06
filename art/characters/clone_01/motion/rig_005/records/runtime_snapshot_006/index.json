@@ -1,0 +1,55 @@
+{
+  "scope": "Working correction 006 sources before standing-fire correction 007; previous review results preserved separately.",
+  "files": [
+    {
+      "original_path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/game/animation/gait.js",
+      "sha256": "d5ebad415d4ceb84e045b112f3996c28e6ece093b2244e20913e89fb6face156"
+    },
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/game/animation/rig-core.js",
+      "sha256": "776e3bcce8803b54ef123e50ffb66a5a8cfeab78cf593765d4af8aa56ae0ac08"
+    },
+    {
+      "original_path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/game/animation/webgl-character.js",
+      "sha256": "84c9ecafb4bbe6d628ee79da2e6dfd7f0735aea33784cc354951e96197b3b6e6"
+    },
+    {
+      "original_path": "game/animation/secondary-motion.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/game/animation/secondary-motion.js",
+      "sha256": "25602aa63b0cdecc68842b8ad609bf09945eb994883e16f5b5b52597b6608ff6"
+    },
+    {
+      "original_path": "game/animation/reload-pose.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/game/animation/reload-pose.js",
+      "sha256": "d70d7b5fd1ab039caa8d617243ba31eb2544a36511dcf8511dea7fd106a5009a"
+    },
+    {
+      "original_path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/game/rig-lab.js",
+      "sha256": "7a5aace992d72635d2f336c6a88cf97c0e4db8829fa51f2e663752120262a1e6"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/game/index.html",
+      "sha256": "77d1a6afdedc97ccdfd96f68c28fb4d6ab6e0e4587b11576148526959f137331"
+    },
+    {
+      "original_path": "game/package.json",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/game/package.json",
+      "sha256": "10d6a5d3f56b566d69a28bfb41eca613d63d4e7e9a01cf4d85d43fd943732f35"
+    },
+    {
+      "original_path": "tools/tests/rig-core.test.mjs",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/tools/tests/rig-core.test.mjs",
+      "sha256": "909fa8383831bc5500b6f5489a09b0d81f3776fb2fe161422002cc583ca20919"
+    },
+    {
+      "original_path": "tools/review_parts_motion.py",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_006/tools/review_parts_motion.py",
+      "sha256": "61c6dccaadab4612a85a7343ccf66a009178e78bd59167d07770692e477a8f0d"
+    }
+  ]
+}

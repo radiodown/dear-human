@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "iteration": "010",
+  "status": "development_handoff",
+  "art_direction_status": "awaiting_user_review",
+  "verification": "untested",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "browser_review_for_010": "not_run",
+  "runtime_sources": [
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "53217464c3582c909f53b9adfc90e09fadee7420fa6a451591604c6e2a363972"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "1025305df0de6b97d8481de76f36f384ee0e2ee4161ec0ba60dce47716be2181"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "18c3e039d994834c949d5a4fb905a3da5aa91a8b96d75bdc2a161084ae7f38d1"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "28beb903e8dc114fcc52b51669ec3b6bab141322743592153e5dbe2018dc9e6c"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "2610f0ddcc456900c5186202c80e78ccb8dd990ca70eb82321d1423c183f909d"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "f3afb7abeff496db3034ce67b48da2dfa96232271f969acd1d82b43bf5effbf6"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "a1770fea66986238d7f3c643cf066aff50b4a14efecc6d868a987a602e8beee3"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "1b5a4866894bc5f4e1d21b4a788423fd261b4acb24c2fd73ef8246e7fe9f2618"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "240482cd2f5c80f4abb685843989c68178f8da0a94fc94c3ffedd0ad2370e065"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "5db0a7113dffdbd89d4356a71bb78eae1d81cf9f4226c84ee21a5ffc2ee150e6"
+    }
+  ],
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/waist_parts_010.json",
+    "sha256": "2224d2ab73ec0a0c2386677bbca63372afe7787ce0261b158bb9f84c7c59f5ad"
+  },
+  "selected_parts": [
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/support_hand_foregrip_v2.png",
+      "sha256": "b332de73c0a989a25a3891633ea9063e3cf8aa127ac14097b217284abffa06e2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/near_upper_arm_profile.png",
+      "sha256": "630e8110c6b7d781be7bfe321edcf7a84b7fde9479c99a080b6136247e5c679a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/far_forearm_reload.png",
+      "sha256": "1694f452ab876b6539fb62896de883ae0d61d9575c46f1ec680d6a47cddabcd6"
+    }
+  ],
+  "remaining": [
+    "User visual and interaction review",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing"
+  ],
+  "generation_limit": "Additional magazine-grip hand generation was rejected by the image tool; no file exists for that attempt."
+}

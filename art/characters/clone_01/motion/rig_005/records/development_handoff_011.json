@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "iteration": "011",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/articulation_combat_011.json",
+    "sha256": "c8d65746654aee1cdeab125b8a87fdc447df0448700d15b0d9c700504841f7b8"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "b74568feca730bab0aad96de15331acc905e7fefbba6d0498fbecd8d30ba3630"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "79c12a5b6f4b2814f0f1b7c0cab9c8fac24af39c7dfed05f5ba0e4a8de3dfce2"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "55e9418ff5c33124bc1fc5b0b779358d89b5d44317d69295646064690efcbed8"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "a44d35042cc348e7798830a68b394029aafac0cff3362b04259ad8f2c0758357"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "97879172d6bf6372ac680ea72a148083642acea292443ff27031714784bca18e"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "8d1da2721365eeede104328aa18bc03496c429f145842b49c1266a6333b81279"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "854d35b6d47eab86f6e4da351ee61ae534917da213683f7b702b14704d8fc3a0"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "4ccb682bc226913bd5c9396b6a5d61bde46432e308fbf48159d09f8f2e86b0ab"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "f9743c4e02cf2d52d64b3731e103714496633c0e4e7333390721a41a1e8ad42b"
+    },
+    {
+      "path": "game/styles.css",
+      "sha256": "887e024728548ec20a05836ba506e959ba523c429310e8036e8602001217c4ce"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "a1770fea66986238d7f3c643cf066aff50b4a14efecc6d868a987a602e8beee3"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "18b17274862b72a929657330ab248ee00fb57198a93aa0b2a7f4955d28db2a5e"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "9fc9e2e297ef67989569156d0638125e0b7b213f7f711e89312999cb79f33f53"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "d4b173c2df9024f71a43912f8a46535f8a9533b61f1688bd765cf7329dce03a3"
+    }
+  ],
+  "parts": [
+    {
+      "path": "art/characters/clone_01/motion/rig_011/rig/body_parts.json",
+      "sha256": "e6d534d9990b1bc078b9971e129a7a5b3a377aa711d0333767b3770ce25e3624"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_011/rig/hand_binding.json",
+      "sha256": "a0118a904b615a340e39da12c64dac231bc08ce852417aaf48a945251468d55c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_011/source/support_hand_underbarrel.png",
+      "sha256": "6fe752c2ae000567b4c89b76072af1fc2ce45e7f693399c81116a9385fcdc5a1"
+    }
+  ],
+  "entry_points": {
+    "idle": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle",
+    "bend": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle&bend=30",
+    "kneel_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire"
+  },
+  "remaining": [
+    "User visual and interaction review of waist folding, knee contact, pose transitions, running weight and handguard/finger overlap.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing.",
+    "Existing texture has no newly painted hidden surfaces for deep folding or viewpoint changes."
+  ],
+  "unmodified_scopes": [
+    "Plan B",
+    "Plan C",
+    "Existing generated source images",
+    "Past prompts and validation results",
+    "GIF outputs"
+  ]
+}

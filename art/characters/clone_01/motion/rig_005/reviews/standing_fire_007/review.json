@@ -1,0 +1,167 @@
+{
+  "schema_version": 1,
+  "iteration": "secondary_006_and_firing_007",
+  "art_direction_status": "awaiting_user_review",
+  "scope": "Shared rig_005: continuous walking hair, waist/hem response, elbow sleeve seams and support forearm occlusion, reload wrist and magazine contact, head/whole-body firing brace. Plan B excluded.",
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "18df58028b8f9f20f1adbcafee0e6784a8c3a52be12936ff86d15411a67576ff"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "25602aa63b0cdecc68842b8ad609bf09945eb994883e16f5b5b52597b6608ff6"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "d70d7b5fd1ab039caa8d617243ba31eb2544a36511dcf8511dea7fd106a5009a"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "354b3ad827f81dd7bdbb24158298e73d73876eea7203fbe96d543dad5e598a11"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "34ba419e8c4b3bf2af2847a8353676f5f69b2b3f0d0124876c2ebd4b413e9a3e"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "08033041a14b77f02897f8f3878dc2c9c241714cc33b3c0eeca2522265b0ce8d"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "7a5aace992d72635d2f336c6a88cf97c0e4db8829fa51f2e663752120262a1e6"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "b4519b2a70e11ca4af105448f4d0d9b5de45d93b95d776df033d5e745ad4f4ba"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "10d6a5d3f56b566d69a28bfb41eca613d63d4e7e9a01cf4d85d43fd943732f35"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "a1d4769dc10e73abf65281f322ee3ea12572296d7ec2eab918e9172edc902775"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "09b2e21c09faeb09c69c9e88d2f5f8b3c6816a21aff90763e24585609b79328d"
+    }
+  ],
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/secondary_and_fire_007.json",
+    "sha256": "2fcbb8cbc5c0c4a1df7788958d98a033b1833e95828b41bfb2b216d7a4c05a05"
+  },
+  "simulation_metrics": {
+    "path": "art/characters/clone_01/motion/rig_005/tests/standing_fire_007/simulation-metrics.json",
+    "sha256": "47729b821d033b6731bed1f56b96da7db0d17747296d68f250940568ebe15b57"
+  },
+  "browser_reports": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/browser.json",
+      "sha256": "594e73ec090536cd081d7c46517186e49f175037374ac078482cc83bed2724c3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/browser.json",
+      "sha256": "89ea4f720604a2a02b45ae281b9a5c397783734137955df8e2d9028992e28af8"
+    }
+  ],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/idle.png",
+      "sha256": "8d7fe951f5e4fc34544b152a41c8b52e22c30a46164875fb5cf39693a5555eee",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/single_shot.png",
+      "sha256": "ff31617a220921737491d658348f61dfa78a53529c4601de84752bc871b82fe0",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/standing_fire.png",
+      "sha256": "4dadc4511dd9b81d10e64dd6e7fb22f8066634202e8e8d74882155cfec7cc399",
+      "inspection": "Visually inspected; actual shared app screenshot, not artistic acceptance."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/released.png",
+      "sha256": "e494ef2f077d50871e7b4f775b6e0780919db8982116e3bf8de3a97a28358aa2",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/standing_fire_left.png",
+      "sha256": "34d840a6e587cd5dc3f59ab82ed5c068aed2f0d85ef849663aa9478101cca574",
+      "inspection": "Visually inspected; actual shared app screenshot, not artistic acceptance."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/idle.png",
+      "sha256": "a4c215d35f5233c86f3fc1f5da9494efb2f843f41f953a7dab26892e6fd9eb24",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/walk_a.png",
+      "sha256": "fffb0bb57b56d871a8f2710c961c7bea67091a54b25a49eb709dccff8ec84f74",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/walk_b.png",
+      "sha256": "84005f2e70294511d44f7cb0d2238654f8047bc8ef38481cc3c5ab361160f0bd",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/walk_fire.png",
+      "sha256": "70c29efcfa7ed387abadf0831552ff39d4b75d34ce16decd75438becad51b0f8",
+      "inspection": "Visually inspected; actual shared app screenshot, not artistic acceptance."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/fire_brace.png",
+      "sha256": "716d5d43579871a0b5eeb3bc699f11dc2e5b031c4a2aa7b3dd3ca58e1aabeb89",
+      "inspection": "Visually inspected; actual shared app screenshot, not artistic acceptance."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/reload_extract.png",
+      "sha256": "9b4fa7d0bc2cf31c4f33bb2d7a8d1538966dcf19884eb3082e62e989ce2bd9e0",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/reload_insert.png",
+      "sha256": "fcc99e291692873f736c0250acc712894f624932074f3e7cfce65821e6a60582",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/reload_bolt.png",
+      "sha256": "aa124e53d689c1ee904778b5c7fcbf5057858c0bc034afe64f4d1593f1ebc4fa",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/secondary/narrow_left.png",
+      "sha256": "4f2965b876d2214f21b55eed260a7cc427254e17a80c53afcf6631ce96e08022",
+      "inspection": "Automated browser capture; selected frames are visually inspected separately."
+    }
+  ],
+  "checks": {
+    "javascript_syntax": "passed",
+    "simulation_tests": 22,
+    "browser_checks": 11,
+    "browser_page_errors": []
+  },
+  "observations": [
+    "Walking hair tips continue to move after start impulse settles; scalp region and centerline lengths are fixed.",
+    "Upper cuirass stays rigid while waist and cloth hem respond to gait.",
+    "Elbow sleeve blends and forearm occlusion changed; fixed side-view art still limits depth and foreshortening.",
+    "Reload wrist paths and carried-magazine contacts share continuous targets; alternate hand art is explicitly missing.",
+    "Firing lowers the head and braces pelvis/torso while feet stay planted; head amplitude was reduced after a screenshot hid too much of the face."
+  ],
+  "limitations": [
+    "Artistic naturalness requires user review.",
+    "Missing hand artwork is not validated by numerical contact tests.",
+    "No cloth/hair/body collision; no independent pouch rig or additional arm perspective artwork.",
+    "Spine official documentation informed the custom implementation; no Spine editor/runtime was executed."
+  ],
+  "gifs_generated": false,
+  "new_original_images_generated": 0
+}

@@ -1,4 +1,4 @@
-import { RigLab } from './rig-lab.js';
+import { RigLab, MOTIONS } from './rig-lab.js';
 import { PlanBLab } from './plan-b-lab.js';
 const $ = (id) => document.getElementById(id);
 const lab = new RigLab();
@@ -133,16 +133,22 @@ function showRoute() {
     setRevision(current, Boolean(requested && requested !== current));
     const labParams = new URLSearchParams(query || '');
     const motion = labParams.get('motion');
-    if (motion && ['idle','walk','fire','walk_fire'].includes(motion)) lab.setMode(motion);
+    if (motion && Object.hasOwn(MOTIONS,motion)) lab.setMode(motion);
     if (labParams.get('debug') === '1') { lab.options.debug=true; $('rig-debug').checked=true; }
     if (labParams.get('mesh') === '1') { lab.options.mesh=true; $('rig-mesh').checked=true; }
+    lab.setArticulation(Number(labParams.get('bend')??0),Number(labParams.get('bust')??0),{immediate:true,updateUrl:false});
+    lab.setFireWaist(labParams.has('fireBend')?Number(labParams.get('fireBend')):undefined,labParams.has('runFireBend')?Number(labParams.get('runFireBend')):undefined,{immediate:true,updateUrl:false,persist:false});
+    lab.setLighting(labParams.get('light')!=='0',Number(labParams.get('lightStrength')??1),{updateUrl:false});
+    lab.setRunCarryDrop(labParams.has('carryDrop')?Number(labParams.get('carryDrop')):undefined,{immediate:true,updateUrl:false});
+    lab.setKneelCarryDrop(labParams.has('kneelDrop')?Number(labParams.get('kneelDrop')):undefined,{immediate:true,updateUrl:false,persist:false});
+    lab.setCameraPitch(labParams.has('viewPitch')?Number(labParams.get('viewPitch')):undefined,{updateUrl:false});
     const weapon = labParams.get('weapon');
     if (weapon && ['m16_basic','diagnostic'].includes(weapon)) { lab.rig.equip(weapon); $('rig-weapon').value=weapon; }
     if (motion === 'reload' || motion === 'reload_empty') { lab.setMode('idle'); lab.rig.ammo=motion==='reload_empty'?0:15; lab.rig.startReload(); }
     if (labParams.get('face') === 'left' && lab.rig.facing !== -1) lab.rig.turn();
     const sampleTime = Number(labParams.get('time'));
     if (Number.isFinite(sampleTime) && sampleTime > 0 && sampleTime <= 10) {
-      lab.rig.trigger=motion==='fire'||motion==='walk_fire';
+      lab.rig.trigger=!!MOTIONS[motion]?.fire;
       for (let remaining=sampleTime; remaining>1e-8; remaining-=1/60) lab.rig.advance(Math.min(remaining,1/60));
     }
     lab.paused=labParams.get('paused')==='1'; $('rig-pause').textContent=lab.paused?'재생':'일시정지';

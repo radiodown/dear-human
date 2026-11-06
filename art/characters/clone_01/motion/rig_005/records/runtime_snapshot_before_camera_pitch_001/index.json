@@ -1,0 +1,35 @@
+{
+  "scope": "Rendering and preview controls before camera_pitch_001. Current working files preserved; no validation performed.",
+  "files": [
+    {
+      "original_path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_camera_pitch_001/game/animation/webgl-character.js",
+      "sha256": "80d0ce3c086a3cf0fe9d663d9b45dd9b4958f60148d99f1a7b7a97ed4e48b3af"
+    },
+    {
+      "original_path": "game/animation/muzzle-light.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_camera_pitch_001/game/animation/muzzle-light.js",
+      "sha256": "14079716fdec521407e9badb42b2ab6b7abaec23f44613a4b15ace2291d0e2ba"
+    },
+    {
+      "original_path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_camera_pitch_001/game/rig-lab.js",
+      "sha256": "da48fb8b9c91abd3997c59a687dd77b2d6bc2ae9f24df649be7319bffe85ee5c"
+    },
+    {
+      "original_path": "game/app.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_camera_pitch_001/game/app.js",
+      "sha256": "8fb52c224deb2b5e8fbb9dcc3549bcc846e7cf20bedfa385b083f6c54100d22e"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_camera_pitch_001/game/index.html",
+      "sha256": "68c2c53ba6081e75379b53ea1d7fe44d52e159edd8e76ea0e0e74e3662fc3981"
+    },
+    {
+      "original_path": "game/styles.css",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_camera_pitch_001/game/styles.css",
+      "sha256": "033c44ca80ad1ed19dac68dcb55a5ab2525f36ab1ee1e558e97d49b552f8862c"
+    }
+  ]
+}

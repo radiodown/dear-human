@@ -1,0 +1,10 @@
+{
+  "created_at": "2026-11-07T07:28:02+09:00",
+  "pose_reference": "kneeling_fire_001",
+  "runtime_iteration": "kneeling_image_017",
+  "runtime_applied": true,
+  "handoff": "art/characters/clone_01/motion/rig_005/records/kneeling_image_017/handoff.json",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "note": "The earlier adoption record describes its original analysis-only state and remains unchanged."
+}

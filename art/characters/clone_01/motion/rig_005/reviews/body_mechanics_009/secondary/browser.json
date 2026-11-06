@@ -1,0 +1,119 @@
+{
+  "status": "passed",
+  "scope": "Browser display and input checks, not art acceptance",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk",
+  "browser": "Local Google Chrome through Python Playwright",
+  "checks": [
+    "Pre-fire lean is visible before the first round consumes ammunition",
+    "Existing character route loads idle, walk, moving fire and reload poses without page errors",
+    "Paused canvas stays identical",
+    "Single frame advances paused reload",
+    "Hair and garment toggles disable and restore the actual walking response",
+    "Live empty reload visits extraction, insertion and bolt phases and refills",
+    "Live firing still consumes ammunition",
+    "Mirrored walking displays at 500px viewport"
+  ],
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/idle.png",
+      "sha256": "98d494f58cf229eb033ff9cf417ca08baab76194239e1bb6f8ea961c826206ca"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/walk_a.png",
+      "sha256": "462ae791b3f81e4bf7d8cf147c25b1aca0cb4f74641de80970fd2a347cdaa1fd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/walk_b.png",
+      "sha256": "883029aff48fae7c35328213b6e0b72f1b230e6ea59bc5c58b03fc61d7397bf2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/walk_fire.png",
+      "sha256": "65e8ed48364f28e72e67babccb907addefe3e96aaa341dff662b249a63236f50"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/pre_fire.png",
+      "sha256": "b7eede8bda8c273b26d599702df043456626eb982187cfb8e2289d2905620f2b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/fire_brace.png",
+      "sha256": "6625d0fd1e01e0c9bbc45b235301e3c2fb08e402be0377e2fc97c5bac991234f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/reload_extract.png",
+      "sha256": "fe6f55d466456889a873e5ba454ea050ff0b715486278348446d3780cc3ffecd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/reload_fetch.png",
+      "sha256": "6b2d96669adcfb3388668b259aaa0f07901dbd611303fff276e8f8d72563a57e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/reload_insert.png",
+      "sha256": "7e3b135de9bf283d531d989cafdebc0c21a4283b12c018e340735d68cb38d2fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/reload_return.png",
+      "sha256": "a2ea8bf1587d722bb7933e313d795b9cf66c389718a904f7f26ad07d19bbd296"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/reload_bolt.png",
+      "sha256": "955d6a954de5a3b10f81d5a34e0bac381c0490ee13409ed6182c7bc28a228004"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/body_mechanics_009/secondary/narrow_left.png",
+      "sha256": "169bd764a5faa962803b2f70631b8230db52e1f6b40dbe8c4f1672118cab40f4"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/index.html",
+      "sha256": "5ff9b5a7ced6f1380cbbf5213cff1b13c35a1d8736b63e930ca0c0156e113dc1"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "8b3f9c79b56f90f0b91973642de53e9d0953cd765b05fa0a6c68fb491d382b45"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "6688d3197e745cf201c17c4c69c4e71cd5df7abfd4b9dc1bf3172d404476c797"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "b38c999e12d490168d486b28697eefb4220d59ab4c820b20b4743825d57ec147"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "6c21b2f4d79f5c493abb412164d9c68dbcf0bf9a70b39142adbff1a7ce6c6a8d"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "2ced0c785111d3198eaebf13f4a28577aae15752928027251c3a684ba29614bb"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "62e9a536d172a3c24078da1a2da018de63b5abc1fdd54c0518c38facfacde9ee"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "7ec8181fc08454184331b2e82a8b1f3a19e5c3a894a14e5683cc8c9706c3ab7d"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "89d235199cabf32b4d9ad22f843beff306d1c5d78a4d015e215c7516f88a62d6"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "9a9d0315802d3dfff7ae33a0d30a7b9a7b345dbc17c8c6cadb3fc5d672d2c1b2"
+    }
+  ],
+  "new_hand_art": "missing; support-hand placeholder explicitly labelled",
+  "gifs_generated": false
+}

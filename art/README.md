@@ -1,5 +1,9 @@
 # Dear Human 아트 보관함
 
+[앉아쏴 보정 rig_017](characters/clone_01/motion/rig_017/README.md)은 사용자 채택 `kneeling_fire_001`을 기준으로 기존 무릎/정강이·스커트 UV를 분리하고 공통 리그의 자세·견착·바닥 망토를 수정했다. 새 원화 생성 없이 현재 rig_005에 연결했으며 `untested`·사용자 검수 대기다.
+
+최신 손은 [rig_014](characters/clone_01/motion/rig_014/README.md)의 총열 감싸 쥔 손이다. 엄지는 반대편에 가려져 보이지 않으며 공통 rig_005에 연결했다. [M16 접점 014](weapons/m16_basic/rig_014/README.md)과 함께 사용자 검수 대기다. 사용자 지시로 추가 검사는 실행하지 않았다.
+
 현재 파츠 보행은 [rig_005](characters/clone_01/motion/rig_005/README.md)다. rig_004의 이미지를 재사용하며 전투 자세·보폭·망토를 보정했다. 플랜 B는 별도 경로를 유지하고 이번 보정에서 변경하지 않았다.
 
 - [Plan B · 2dimg2motion](characters/clone_01/motion/plan_b/README.md): M16 준비 보행 14프레임, 키포즈·중간 프레임 원본, 정확한 제출 프롬프트, PNG 시퀀스·시트·검수 기록. 기존 캐릭터 페이지의 ‘플랜 B · 걷기’에서 검토한다.
@@ -20,3 +24,5 @@
 원화는 사용자 채택, 파츠·모션은 초안이다. 현재 구조·수치 검사와 웹 정지 캡처를 확인했으며 파지/가림 보정·전체 동작 검수·성능 측정·도구 최종 확정은 남아 있다. 상세 내용은 [24](../docs/24-motion-rig-test.md), 목록은 [asset_index](../game/public/assets/catalog/asset_index.json)를 따른다. 도구가 제공하지 않은 모델 ID·seed·비용과 측정하지 않은 수작업 시간은 null이다.
 
 현재 공통 페이지는 rig_004를 사용한다. 최신 구현과 한계는 [26](../docs/26-side-parts-and-shoulder-contact.md)을 따른다. 과거 런타임 코드의 정확한 바이트는 해당 버전의 records/runtime_snapshot에 보존해 과거 검사 해시를 현재 코드와 혼동하지 않게 했다.
+
+- [총구 조명 lighting_001](fx/muzzle_flash/lighting_001/README.md): 현재 발사 소켓과 타이머에 연결한 2D 셰이더 조명. 새 이미지·GIF 생성 없이 기존 캐릭터 페이지에 연결했으며 사용자 검수 대기다.

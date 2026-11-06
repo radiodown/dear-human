@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "tool": "Built-in image_gen",
+  "intent": "edit",
+  "generation_model": null,
+  "generation_cost": null,
+  "prompt_path": "art/characters/clone_01/motion/rig_011/records/prompt_support_hand_underbarrel.json",
+  "reference_image": "art/characters/clone_01/motion/rig_010/source/support_hand_foregrip_v2.png",
+  "output_image": "art/characters/clone_01/motion/rig_011/source/support_hand_underbarrel.png",
+  "source_output": "/Users/jin/.codex/generated_images/01a1b0aa-f503-72c0-8b25-85bbf9991e2a/exec-2613bc0f-6052-465d-8577-230bf30fd057.png",
+  "elapsed_seconds": 34.461,
+  "status": "generated_connected_draft",
+  "verification": "untested",
+  "raster_processing": "Original generated PNG copied unchanged; runtime uses source UV rectangle and authored grip landmarks.",
+  "user_instruction": "검증은 내가할게 개발만해봐"
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "command": "catalog-check",
+  "status": "failed",
+  "summary": {
+    "entities": 3,
+    "revisions": 10,
+    "item_count": 0,
+    "issue_count": 7
+  },
+  "items": [],
+  "issues": [
+    {
+      "code": "artifact_changed",
+      "path": "character:clone_01:rig_005",
+      "message": "art/characters/clone_01/motion/rig_005/rig/parts.json"
+    },
+    {
+      "code": "artifact_changed",
+      "path": "character:clone_01:rig_005",
+      "message": "game/animation/proportions.js"
+    },
+    {
+      "code": "artifact_changed",
+      "path": "character:clone_01:rig_005",
+      "message": "game/animation/reload-pose.js"
+    },
+    {
+      "code": "artifact_changed",
+      "path": "character:clone_01:rig_005",
+      "message": "game/animation/rig-core.js"
+    },
+    {
+      "code": "artifact_changed",
+      "path": "character:clone_01:rig_005",
+      "message": "game/animation/webgl-character.js"
+    },
+    {
+      "code": "artifact_changed",
+      "path": "character:clone_01:rig_005",
+      "message": "game/package.json"
+    },
+    {
+      "code": "artifact_changed",
+      "path": "character:clone_01:rig_005",
+      "message": "tools/tests/rig-core.test.mjs"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "dev": "python ../tools/preview_server.py",
-    "check": "node --check app.js && node --check rig-lab.js && node --check plan-b-lab.js && node --check animation/frame-sequence.js && node --check animation/cape.js && node --check animation/gait.js && node --check animation/proportions.js && node --check animation/rig-core.js && node --check animation/webgl-character.js && node --check animation/weapon-profiles.js",
+    "check": "node --check app.js && node --check rig-lab.js && node --check plan-b-lab.js && node --check animation/frame-sequence.js && node --check animation/cape.js && node --check animation/muzzle-light.js && node --check animation/firing-form.js && node --check animation/waist.js && node --check animation/secondary-motion.js && node --check animation/reload-pose.js && node --check animation/gait.js && node --check animation/proportions.js && node --check animation/rig-core.js && node --check animation/webgl-character.js && node --check animation/weapon-profiles.js && node --check animation/side-camera.js",
     "test": "node --test ../tools/tests/rig-core.test.mjs"
   }
 }

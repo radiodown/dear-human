@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "iteration": "breathing_016",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/breathing_016/recipe.json",
+    "sha256": "858d5997337450f1499b0d2af0f84c2036f69dd40268e4d10fd45610d973ce4f"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "b66b1d0ec860a7502e95987dec93d0aa8764d7b6363758866a21932ca6ad6057"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "fead78bbcaeecdb82e2530d5cbefbcc0d65465dfa1ac4c3b57877e4330366837"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "a9776c88e9a2c44711b0fc1c1c92202bab8aacf37a0cf46388c5ebbbecc5b08b"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "be2898091db08326c7f51217f51926657f1e630d55cee5c1e20446d1f2ecf6db"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "115fca19bdb0adb3145d7af44398f4e82efc8252d526a29b6c0a451d6cd112c7"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_breathing_016/index.json",
+    "sha256": "e3b3b17e46663cddaf578ec86271eccc5055cd62afc6a5ccf6da6802a45874d7"
+  },
+  "entry_points": {
+    "idle": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle",
+    "walk": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk",
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run",
+    "fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire",
+    "walk_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk_fire",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire",
+    "kneel_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "tool_default_output_paths_changed": false,
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/breathing_016",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/breathing_016"
+  },
+  "remaining": [
+    "User visual review of breathing strength, waist rhythm during walking/running, upper-body shot recovery and transitions.",
+    "User review of cloth/armor boundaries, paused on/off comparison and combined aiming/stock/hand contacts.",
+    "Existing temporary reload hand art and 2D projection/cloth collision limitations remain."
+  ],
+  "preserved_scopes": [
+    "Source images and submitted prompts",
+    "Current hand and M16 binding",
+    "Current firing form, kneeling and running contact solutions",
+    "Current gait.js working implementation",
+    "Camera and muzzle light",
+    "Plan B",
+    "Plan C",
+    "Historical review records and GIF outputs"
+  ]
+}

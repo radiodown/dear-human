@@ -1,0 +1,35 @@
+{
+  "use_case": "stylized-concept",
+  "asset_type": "Standalone full-body character illustration for Dear Human",
+  "primary_request": "Draw the adult female clone from the supplied character reference in a grounded one-knee kneeling rifle-firing stance.",
+  "input_images": [
+    {
+      "image": 1,
+      "role": "Character identity, face, hair, body proportions, armor, clothing and material reference only. Replace the standing pose and reference weapon."
+    }
+  ],
+  "subject": {
+    "identity": "The same adult woman in her mid-20s: refined East Asian features, very pale cool-toned skin, dark eyes, long straight jet-black hair with natural bangs and small side braids. Calm focused expression, gaze following the rifle sights.",
+    "outfit": "Preserve the reference's fitted black and gunmetal segmented tactical armor, pale gray chest insets, restrained worn gold detailing, high collar, compact shoulder plates, armored gloves, utility belt and pouches, layered short armored skirt, garter and thigh straps, dark stockings, and tall articulated armored combat boots. Preserve the heavy black shoulder cape and gold edging.",
+    "weapon": "A realistically proportioned matte-black classic M16 rifle with fixed stock, fixed carry handle and iron sights, long barrel and conventional handguard. No futuristic weapon, optic or oversized accessories."
+  },
+  "pose": {
+    "body": "Face toward the right of the image. Right knee and knee armor visibly contact the floor beneath and slightly behind the pelvis. Right lower leg folds backward with the boot toe planted. Left foot is firmly flat ahead of the body, left knee raised and shin nearly vertical. Pelvis is low and balanced over the support points. Torso inclines forward slightly from the hips, with coherent anatomy and believable armor articulation.",
+    "rifle_contact": "The rifle is nearly horizontal at shoulder height, buttstock firmly seated in the right shoulder pocket, cheek lightly contacting the stock, eye aligned with the iron sights. Right hand holds the pistol grip. Left hand wraps firmly around the handguard with fingers visibly curled around it; the far-side thumb is naturally occluded. Left forearm supports the rifle and left elbow braces naturally near the forward thigh. Keep the face readable above and behind the receiver.",
+    "cloth": "Hair follows gravity behind the shoulder. The cape hangs from the shoulders and folds naturally onto the floor behind the kneeling body. Skirt panels and waist fabric articulate and compress around the bent hips without clipping."
+  },
+  "composition": {
+    "framing": "One complete figure, both boots, grounded knee, cape and entire rifle including muzzle visible, with comfortable margins. Horizontal composition.",
+    "viewpoint": "Predominantly side view with a slight front three-quarter angle so the face and both arms remain readable. Restrained perspective, no dramatic foreshortening."
+  },
+  "scene_backdrop": "Simple charcoal-gray studio background and a matte neutral floor with subtle contact shadows. No scenery, other people or props.",
+  "style_medium": "High-quality cinematic 3D-rendered character illustration with realistic anime character proportions, detailed physically believable metal, leather and woven fabric. Match the supplied reference's identity and finish.",
+  "lighting_mood": "Soft broad cool-neutral key light and restrained rim light that reveal black armor edges, face, hand grip and the full kneeling silhouette.",
+  "constraints": [
+    "One adult character, exactly two arms and two legs, anatomically coherent hands and feet.",
+    "Preserve character identity and costume. Change the pose and use an M16.",
+    "Clear grounded kneeling aiming pose, not a squat or standing crouch.",
+    "No helmet, muzzle flash, smoke, text, rank labels, watermark or diagram overlays.",
+    "No cropped boots, muzzle, head or cape; no extra limbs or floating equipment."
+  ]
+}

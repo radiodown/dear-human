@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "iteration": "running_mechanics_002",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/running_mechanics_002.json",
+    "sha256": "aad6ee21765a4027d99f96882d5e47234fd796be01e98f852008fd3ef1971d8b"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "302c74b9badb1bab36e8534c2941da15699a6effb10b99b6f4176b9e94fa2fcb"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "ea2d892437c7675397e34aa24284edb5f43440453585a1c51752f07b754c35ee"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "5b1963b8e17c77c25e5c38783170aa4119ebb49812738f323f003c68f33b0b70"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "f5acf2794e5a3ace13fb59d6cc914ebad24a934bfb20e36761e556e1453160ef"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "fead78bbcaeecdb82e2530d5cbefbcc0d65465dfa1ac4c3b57877e4330366837"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "1a33412a7e4bd6d6df7d88d397ff2b87d9b8957b9853ca48717ca3b90f0bff6c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "ce9c7e960f9dc5de666766b81d10c211b25693fc92cd760d1a20f0ff299cda58"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_mechanics_002/index.json",
+    "sha256": "769c8b22f2abe9f5b28cdd9c49ecf046b40d8901faf9a571d2948a3c7f6127da"
+  },
+  "entry_points": {
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "test_tool_defaults_modified": false,
+    "reserved_test_output": "art/characters/clone_01/motion/rig_005/tests/running_mechanics_002",
+    "reserved_browser_output": "art/characters/clone_01/motion/rig_005/reviews/running_mechanics_002",
+    "read_only_dependency_query": {
+      "command": "python3 tools/agent_pipeline.py --root . --limit 8 impact --kind character --entity-id clone_01 --revision-id rig_005",
+      "status": "ok",
+      "affected_revisions": 0,
+      "scope": "Dependency lookup, not validation."
+    }
+  },
+  "remaining": [
+    "User playback review of the 15-degree running waist silhouette and forward gaze/muzzle.",
+    "User review of compact continuous foot recovery, landing weight and foot/leg reach across transitions.",
+    "Manual bend remains additive; 15 degrees describes the automatic running base posture.",
+    "Shot recoil and reload intentionally retain small/non-level weapon motion.",
+    "No tests, syntax/document/catalog checks or browser review were run; artistic and runtime acceptance remain pending."
+  ],
+  "integration_scope": "Running fine-tuning of the current shared rig. Existing firing form, grip, kneeling, cloth, camera and adjustable rifle height are retained."
+}

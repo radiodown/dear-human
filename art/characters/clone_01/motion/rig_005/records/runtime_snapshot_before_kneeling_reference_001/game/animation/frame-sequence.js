@@ -1,0 +1,59 @@
+// Model-generated PNG playback, shared with future game views.
+export class FrameSequence {
+  constructor(canvas, onFrame = () => {}) {
+    this.canvas = canvas;
+    this.context = canvas.getContext('2d');
+    this.onFrame = onFrame;
+    this.index = 0;
+    this.speed = 1;
+    this.paused = false;
+    this.visible = false;
+    this.tick = this.tick.bind(this);
+    document.addEventListener('visibilitychange', () => this.schedule());
+  }
+  async load(manifestUrl) {
+    if (this.pending) return this.pending;
+    this.pending = (async () => {
+      const response = await fetch(manifestUrl, {cache:'no-store'});
+      if (!response.ok) throw new Error('플랜 B 모션 목록을 불러오지 못했습니다.');
+      this.manifest = await response.json();
+      const {canvas, frameCount, durationMs, spritesheet} = this.manifest;
+      if (frameCount !== 14 || !canvas?.width || !canvas?.height || !(durationMs > 0)) throw new Error('플랜 B 모션 형식이 올바르지 않습니다.');
+      this.atlas = new Image();
+      this.atlas.src = new URL(spritesheet, new URL(manifestUrl, location.href)).href;
+      await this.atlas.decode();
+      if (this.atlas.naturalWidth !== canvas.width * frameCount || this.atlas.naturalHeight !== canvas.height) throw new Error('플랜 B 시트 크기가 목록과 다릅니다.');
+      this.canvas.width = canvas.width;
+      this.canvas.height = canvas.height;
+      this.draw();
+      this.schedule();
+    })();
+    try { await this.pending; } catch (error) { this.pending = null; throw error; }
+  }
+  show(visible) { this.visible = visible; this.schedule(); }
+  schedule() {
+    cancelAnimationFrame(this.raf);
+    this.lastTime = null;
+    this.elapsed = 0;
+    if (this.visible && !this.paused && !document.hidden && this.atlas?.complete && this.manifest) this.raf = requestAnimationFrame(this.tick);
+  }
+  tick(time) {
+    if (this.lastTime !== null) this.elapsed += Math.min(time - this.lastTime, 150) * this.speed;
+    this.lastTime = time;
+    while (this.elapsed >= this.manifest.durationMs) {
+      this.index = (this.index + 1) % this.manifest.frameCount;
+      this.elapsed -= this.manifest.durationMs;
+    }
+    this.draw();
+    this.raf = requestAnimationFrame(this.tick);
+  }
+  seek(index) { this.index = Math.max(0, Math.min(13, index)); this.draw(); }
+  pause(paused) { this.paused = paused; this.schedule(); }
+  draw() {
+    if (!this.manifest || !this.atlas?.complete) return;
+    const {width, height} = this.manifest.canvas;
+    this.context.clearRect(0, 0, width, height);
+    this.context.drawImage(this.atlas, this.index * width, 0, width, height, 0, 0, width, height);
+    this.onFrame(this.index);
+  }
+}

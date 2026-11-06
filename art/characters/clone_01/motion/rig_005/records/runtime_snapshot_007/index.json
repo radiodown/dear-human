@@ -1,0 +1,65 @@
+{
+  "scope": "Pre-height-correction 007 runtime; review and metric files remain at their original paths.",
+  "files": [
+    {
+      "original_path": "game/animation/proportions.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/game/animation/proportions.js",
+      "sha256": "354b3ad827f81dd7bdbb24158298e73d73876eea7203fbe96d543dad5e598a11"
+    },
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/game/animation/rig-core.js",
+      "sha256": "34ba419e8c4b3bf2af2847a8353676f5f69b2b3f0d0124876c2ebd4b413e9a3e"
+    },
+    {
+      "original_path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/game/animation/gait.js",
+      "sha256": "18df58028b8f9f20f1adbcafee0e6784a8c3a52be12936ff86d15411a67576ff"
+    },
+    {
+      "original_path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/game/animation/webgl-character.js",
+      "sha256": "08033041a14b77f02897f8f3878dc2c9c241714cc33b3c0eeca2522265b0ce8d"
+    },
+    {
+      "original_path": "game/animation/weapon-profiles.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/game/animation/weapon-profiles.js",
+      "sha256": "a133f6ac1318b60d1cc637b71b533f278dce495779b4f246c1954c779d2af264"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/game/index.html",
+      "sha256": "b4519b2a70e11ca4af105448f4d0d9b5de45d93b95d776df033d5e745ad4f4ba"
+    },
+    {
+      "original_path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/game/rig-lab.js",
+      "sha256": "7a5aace992d72635d2f336c6a88cf97c0e4db8829fa51f2e663752120262a1e6"
+    },
+    {
+      "original_path": "game/package.json",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/game/package.json",
+      "sha256": "10d6a5d3f56b566d69a28bfb41eca613d63d4e7e9a01cf4d85d43fd943732f35"
+    },
+    {
+      "original_path": "tools/tests/rig-core.test.mjs",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/tools/tests/rig-core.test.mjs",
+      "sha256": "a1d4769dc10e73abf65281f322ee3ea12572296d7ec2eab918e9172edc902775"
+    },
+    {
+      "original_path": "tools/review_parts_motion.py",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/tools/review_parts_motion.py",
+      "sha256": "09b2e21c09faeb09c69c9e88d2f5f8b3c6816a21aff90763e24585609b79328d"
+    },
+    {
+      "original_path": "docs/29-secondary-motion-and-firing-stance.md",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/docs/29-secondary-motion-and-firing-stance.md.txt",
+      "sha256": "c892aac0eb44bf691b14feb2c7f089850c93852f42ee6a6c32196360e5f1b546"
+    },
+    {
+      "original_path": "art/characters/clone_01/motion/rig_005/README.md",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/art/characters/clone_01/motion/rig_005/README.md.txt",
+      "sha256": "d93ef66187bb9de36718f7dd4b95fabe0ee2ca2371a0a23e51218624162e5760"
+    }
+  ]
+}

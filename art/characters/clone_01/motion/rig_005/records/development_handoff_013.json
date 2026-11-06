@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "iteration": "013",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/running_point_fire_013.json",
+    "sha256": "8bd968d8f21c0ac683e250c364a97aea4a729956df1603d6ebc29dc41bd258d7"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "7be22966524899f7796d57d9958def9e48af02f650f61cc5a2e4c2400173d6be"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "e9c76b2eacaa5e016f77958f5b6f03b329c4903abf1f047442005f53c2f114a3"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "755d3d00e191530c60d921f3e0a914f4831f7ce2a859904eb5c85bb86267a46d"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "564a1845e663f284fb895cc68f4088b70bf81318cce277489f53ff20ed3a85f0"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "125e8cabfd59cba5d97c04fe9e2ccc03ae7be2618b61b74ed8fa2b4b4f3df9db"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "35dad6360661290801e22cc6a575574667178bad834cae468afde442e3ad32ee"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "99dcfe5a681aebbb6bc0cb25aed14c5a092bc5721f0203b6f203d6849ff3b8e8"
+    }
+  ],
+  "entry_points": {
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire"
+  },
+  "remaining": [
+    "User visual review of running low carry, forward gaze and entry/exit transitions.",
+    "User visual review of warm spill, material response, highlight clipping and shot timing.",
+    "Device shader compatibility and performance review.",
+    "Approximate 2D surfaces only; no new normal maps or 3D cast shadows.",
+    "User visual and interaction review of waist folding, knee contact, pose transitions, running weight and handguard/finger overlap.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing.",
+    "Existing texture has no newly painted hidden surfaces for deep folding or viewpoint changes."
+  ],
+  "unmodified_scopes": [
+    "Source artwork and prompts",
+    "Weapon and grip source sockets",
+    "Muzzle lighting implementation",
+    "Gait cadence, stride and foot placement",
+    "Plan B",
+    "Plan C",
+    "Past validation results",
+    "GIF outputs"
+  ]
+}

@@ -1,0 +1,170 @@
+{
+  "schema_version": 1,
+  "iteration": "breathing_016",
+  "authored_date": "2026-11-07",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_request": "대기 호흡감, 이동·달리기의 작은 허리 움직임, 사격 중 작은 상체 흔들림과 반응하지 않는 허리·옷자락 체크 수정",
+  "validation_preference": "검증은 내가할게 개발만해봐",
+  "previous_form_recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/firing_form_015.json",
+    "sha256": "42b0cf85c48cd37b18b53cdc4819e3c3742505ab0b6ac31e18bf463c0ec6dd75"
+  },
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_breathing_016/index.json",
+    "sha256": "e3b3b17e46663cddaf578ec86271eccc5055cd62afc6a5ccf6da6802a45874d7"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "b66b1d0ec860a7502e95987dec93d0aa8764d7b6363758866a21932ca6ad6057"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "fead78bbcaeecdb82e2530d5cbefbcc0d65465dfa1ac4c3b57877e4330366837"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "a9776c88e9a2c44711b0fc1c1c92202bab8aacf37a0cf46388c5ebbbecc5b08b"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "be2898091db08326c7f51217f51926657f1e630d55cee5c1e20446d1f2ecf6db"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "115fca19bdb0adb3145d7af44398f4e82efc8252d526a29b6c0a451d6cd112c7"
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_010"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_011"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_014"
+    },
+    {
+      "kind": "fx",
+      "entity_id": "muzzle_flash",
+      "revision_id": "lighting_001"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_014"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_015"
+    }
+  ],
+  "reused_inputs": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "ce9c7e960f9dc5de666766b81d10c211b25693fc92cd760d1a20f0ff299cda58"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "5b1963b8e17c77c25e5c38783170aa4119ebb49812738f323f003c68f33b0b70"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "302c74b9badb1bab36e8534c2941da15699a6effb10b99b6f4176b9e94fa2fcb"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "f5acf2794e5a3ace13fb59d6cc914ebad24a934bfb20e36761e556e1453160ef"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "1a33412a7e4bd6d6df7d88d397ff2b87d9b8957b9853ca48717ca3b90f0bff6c"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    }
+  ],
+  "body_motion": {
+    "breath_period_seconds": 3.8,
+    "breath_waist_radians": 0.014,
+    "breath_chest_pitch_radians": 0.005,
+    "breath_chest_rise_logical_pixels": 0.7,
+    "breath_movement_reduction": 0.48,
+    "breath_eye_aim_reduction": 0.45,
+    "walk_waist_primary_radians": 0.012,
+    "run_waist_primary_radians": 0.018,
+    "waist_second_harmonic_radians": [
+      0.004,
+      0.006
+    ],
+    "pelvis_and_foot_targets_modified": false,
+    "rigid_chest_frame_moved_without_sprite_scaling": true
+  },
+  "shot_body_recovery": {
+    "trigger": "Each committed fire event, gated by recoil toggle",
+    "frequency_hz": 3.8,
+    "damping": 0.72,
+    "limit_radians": 0.03,
+    "impulse_radians_per_second": -0.65,
+    "kneeling_reduction": 0.45,
+    "stock_hand_muzzle_frame": "Existing shared solved weapon frame after additive waist and chest motion"
+  },
+  "cloth_fix": {
+    "cause": [
+      "Waist spring output was unused by outfitPoint.",
+      "Hem only affected original V .92..1 with a small angle."
+    ],
+    "waist_fold": "Interior sin(pi*t)^2 displacement, with pinned endpoint positions and slopes",
+    "hem_start_v": 0.88,
+    "waist_follow_hz": 3.6,
+    "hem_follow_hz": 3.0,
+    "hem_stride_target_radians": [
+      0.065,
+      0.1
+    ],
+    "hem_breath_target_radians": 0.022,
+    "paused_toggle": "Keep fabric simulation state advancing while masked; immediately select simulated or zero local offsets in pose without advancing time",
+    "independent_motion": "Breathing, base joint articulation and body recoil remain independent of cloth checkbox",
+    "belt_and_upper_pouches": "Keep original pelvis attachment"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "tool_default_output_paths_changed": false,
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/breathing_016",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/breathing_016"
+  },
+  "remaining": [
+    "User visual review of breathing strength, waist rhythm during walking/running, upper-body shot recovery and transitions.",
+    "User review of cloth/armor boundaries, paused on/off comparison and combined aiming/stock/hand contacts.",
+    "Existing temporary reload hand art and 2D projection/cloth collision limitations remain."
+  ],
+  "new_raster_images": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "development_time_seconds": null,
+  "development_cost": null
+}

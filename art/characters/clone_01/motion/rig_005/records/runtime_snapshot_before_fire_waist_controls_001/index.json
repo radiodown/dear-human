@@ -1,0 +1,25 @@
+{
+  "scope": "Current runtime before separate standing/running fire waist-angle controls. Preservation only, no validation.",
+  "files": [
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_fire_waist_controls_001/game/animation/rig-core.js",
+      "sha256": "ff49ae794e88cfa6aaaae3ca989eb3bbbe7973734329051041f102ebb3d81c25"
+    },
+    {
+      "original_path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_fire_waist_controls_001/game/rig-lab.js",
+      "sha256": "be2898091db08326c7f51217f51926657f1e630d55cee5c1e20446d1f2ecf6db"
+    },
+    {
+      "original_path": "game/app.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_fire_waist_controls_001/game/app.js",
+      "sha256": "2411d6800b92330e4842b4bfae17e631922f82f1fdf0b052004c202b891f8150"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_fire_waist_controls_001/game/index.html",
+      "sha256": "44745a2b97f66a1cd0959083873824be4f1b9d79f4391dc2a54bf64a50bac2d3"
+    }
+  ]
+}

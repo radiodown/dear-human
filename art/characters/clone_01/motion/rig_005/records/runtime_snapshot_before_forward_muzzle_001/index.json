@@ -1,0 +1,15 @@
+{
+  "scope": "Common runtime before horizontal forward muzzle baseline for all poses and waist angles. Preservation only, no validation.",
+  "files": [
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_forward_muzzle_001/game/animation/rig-core.js",
+      "sha256": "ffad381edf7b1b3019ad6cc0842d84eff0a683c48ef441bd4a7c8399ac6b2945"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_forward_muzzle_001/game/index.html",
+      "sha256": "d6e2c015e36628985d8cf4f22766efe5d4029df8b5e2744dc88115b4a399fdf0"
+    }
+  ]
+}

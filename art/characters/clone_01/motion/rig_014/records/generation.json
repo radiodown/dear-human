@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "tool": "Built-in image_gen",
+  "intent": "edit",
+  "generation_model": null,
+  "generation_cost": null,
+  "prompt_path": "art/characters/clone_01/motion/rig_014/records/prompt_support_hand_closed_grip.json",
+  "reference_image": "art/characters/clone_01/motion/rig_011/source/support_hand_underbarrel.png",
+  "output_image": "art/characters/clone_01/motion/rig_014/source/support_hand_closed_grip.png",
+  "source_output": "/Users/jin/.codex/generated_images/01a1b2d8-7962-7db2-b05c-b19e7f73a24b/exec-9758a08a-3028-4a12-8a36-ff14ed789e40.png",
+  "width": 1774,
+  "height": 887,
+  "elapsed_seconds": 28.487,
+  "status": "generated_connected_draft",
+  "verification": "untested",
+  "raster_processing": "Original generated PNG copied unchanged. Runtime UV registration only; generated alpha and aspect ratio preserved.",
+  "user_instruction": "총을 잡고있는 손이 가볍게 받치고있는게 아니라 총열을 잡고있어야해. 엄지는 안나오는상채인거지",
+  "validation_preference": "검증은 내가할게 개발만해봐"
+}

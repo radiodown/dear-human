@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "iteration": "shoulder_height_008",
+  "recorded_date": "2026-11-06",
+  "status": "draft_awaiting_user_review",
+  "scope": "Lower the shared shoulder stock contact based on the user side-view pose illustration; preserve head dip and whole-body brace from 007. Plan B excluded.",
+  "user_feedback": {
+    "issue": "Rifle and stock contact were too high, covering the face.",
+    "reference": "User attached a side-on rifle pose illustration of a person in a green top. Pose relationship only; no change to character appearance or M16.",
+    "attachment_local_path": null
+  },
+  "before": {
+    "stockPocket": {
+      "x": -13.5,
+      "y": -8.6
+    }
+  },
+  "after": {
+    "stockPocket": {
+      "x": -13.5,
+      "y": 4
+    }
+  },
+  "local_vertical_drop": 12.6,
+  "preserved": [
+    "Head dip and whole-body firing brace",
+    "Weapon artwork, size, local sockets and aim stabilization",
+    "Arm lengths and source sprite aspect ratios",
+    "Hair, garment and cape motion",
+    "Plan B"
+  ],
+  "method": "Move the common shoulder pocket. Buttstock stays constrained to that target, both hands follow weapon sockets using unchanged two-bone IK. No independent visual gun translation.",
+  "runtime_sources": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "a78b7f2a538d69021a1d4aed42ff87557ba86477e8db3e267a231c76bf417314"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "34ba419e8c4b3bf2af2847a8353676f5f69b2b3f0d0124876c2ebd4b413e9a3e"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "18df58028b8f9f20f1adbcafee0e6784a8c3a52be12936ff86d15411a67576ff"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "08033041a14b77f02897f8f3878dc2c9c241714cc33b3c0eeca2522265b0ce8d"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "a133f6ac1318b60d1cc637b71b533f278dce495779b4f246c1954c779d2af264"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "2040444c7a813ac86a27cc53aeb2857b7b14c8bc1ed54437934ba02ca9e89009"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "b492d834163c2970ac4ceab2ef3d7da92ef7c34f23eadf7a8190ef3c68dba11d"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "688b1287cf5c12790e98247bc1cf5da46c6e882844272885887feb03e0b710fa"
+    }
+  ],
+  "previous_runtime_snapshot": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_007/index.json",
+    "sha256": "1e49c1e2ddec8dfbb48e089fc9e63a38b97370617fa77bd25f68559602ba4bc9"
+  },
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004",
+      "usage": "Unchanged artwork and UVs"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_004",
+      "usage": "Unchanged weapon image and local sockets"
+    }
+  ],
+  "reused_images": [
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/base_atlas.png",
+      "sha256": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+      "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3"
+    }
+  ],
+  "tools": "Shared JavaScript/WebGL rig, Node tests, Python Playwright and local Chrome",
+  "model": null,
+  "image_generation_calls": 0,
+  "gifs_generated": false,
+  "generation_cost": null,
+  "total_elapsed_seconds": null,
+  "measured": {
+    "max_hand_contact_error": 4.263256414560601e-14,
+    "max_stock_contact_error": 2.864289338439558e-14
+  },
+  "limitations": [
+    "User visual review remains pending.",
+    "No cheek/weapon collision solver.",
+    "Existing three reload hand variants remain unmade."
+  ]
+}

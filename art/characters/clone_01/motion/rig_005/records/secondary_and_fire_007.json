@@ -1,0 +1,185 @@
+{
+  "schema_version": 1,
+  "iteration": "secondary_006_and_firing_007",
+  "recorded_date": "2026-11-06",
+  "status": "draft_awaiting_user_visual_review",
+  "scope": "Shared rig_005: continuous walking hair, waist/hem response, elbow sleeve seams and support forearm occlusion, reload wrist and magazine contact, head/whole-body firing brace. Plan B excluded.",
+  "tool": "Hand-edited shared JavaScript/WebGL; Node test runner; Python Playwright with local Google Chrome",
+  "image_generation_calls": 0,
+  "images_generated": 0,
+  "gifs_generated": false,
+  "model": null,
+  "seed": null,
+  "generation_cost": null,
+  "total_elapsed_seconds": null,
+  "elapsed_time_note": "Whole-task duration not reliably measured. No billed image generation was requested.",
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004",
+      "usage": "Existing artwork only"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_004"
+    }
+  ],
+  "reused_images": [
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/base_atlas.png",
+      "sha256": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+      "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "18df58028b8f9f20f1adbcafee0e6784a8c3a52be12936ff86d15411a67576ff"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "25602aa63b0cdecc68842b8ad609bf09945eb994883e16f5b5b52597b6608ff6"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "d70d7b5fd1ab039caa8d617243ba31eb2544a36511dcf8511dea7fd106a5009a"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "354b3ad827f81dd7bdbb24158298e73d73876eea7203fbe96d543dad5e598a11"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "34ba419e8c4b3bf2af2847a8353676f5f69b2b3f0d0124876c2ebd4b413e9a3e"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "08033041a14b77f02897f8f3878dc2c9c241714cc33b3c0eeca2522265b0ce8d"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "7a5aace992d72635d2f336c6a88cf97c0e4db8829fa51f2e663752120262a1e6"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "b4519b2a70e11ca4af105448f4d0d9b5de45d93b95d776df033d5e745ad4f4ba"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "10d6a5d3f56b566d69a28bfb41eca613d63d4e7e9a01cf4d85d43fd943732f35"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "a1d4769dc10e73abf65281f322ee3ea12572296d7ec2eab918e9172edc902775"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "09b2e21c09faeb09c69c9e88d2f5f8b3c6816a21aff90763e24585609b79328d"
+    }
+  ],
+  "hair": {
+    "segments": 8,
+    "pinned_segments": 1,
+    "length": 88,
+    "method": "Damped per-segment angles, speed and gait input, fixed centerline lengths"
+  },
+  "outfit": {
+    "method": "Protected upper cuirass; waist rotation and delayed hem control on existing coherent outfit layer",
+    "independent_armor_panels": false
+  },
+  "arms": {
+    "method": "Existing two-bone IK, localized elbow sleeve blend; far forearm draws in front of body while far upper arm stays behind",
+    "armor_regions_protected": true
+  },
+  "reload": {
+    "method": "Continuous eased hand position and angle keys; carried magazine solved from the same palm contact",
+    "new_hand_art": "Not generated: release, magazine_grip, bolt_press; existing support_hand remains a labelled placeholder",
+    "tactical_seconds": 2.2,
+    "empty_seconds": 2.8
+  },
+  "head_aim": {
+    "maximum_local_offset": {
+      "x": 2,
+      "y": 2.5,
+      "radians": 0.04
+    },
+    "follow_seconds": 0.09,
+    "hair_root_follows_head": true,
+    "cheek_collision_or_contact_solver": false
+  },
+  "measured": {
+    "secondary": {
+      "hair_tip_x_range": [
+        -13.679178615395033,
+        -5.510747716381077
+      ],
+      "hem_radians": [
+        -0.09121541275613289,
+        0.09121646553517718
+      ],
+      "fixed_root_and_lengths": true,
+      "settles": true,
+      "fixed_step_equivalent": true
+    },
+    "reload_contacts": {
+      "max_wrist_step_at_120hz": 2.5642280055591833,
+      "max_magazine_palm_error": 2.929642751054232e-14,
+      "new_hand_art": "missing"
+    },
+    "standing_fire": {
+      "hip_drop": [
+        6.810800525760897,
+        6.90556490176084
+      ],
+      "lean_degrees": [
+        5.7061396702057285,
+        6.011867154312452
+      ],
+      "largest_hip_step_at_120hz": 0.30920935622253864,
+      "planted_feet": true,
+      "seated_stock": true,
+      "single_shot_braces": true,
+      "recovers_after_release": true
+    },
+    "head_aim": {
+      "offset": {
+        "x": 1.9543514194873597,
+        "y": 2.4429392743591998,
+        "a": 0.039087028389747196
+      },
+      "max_head_return_step": 0.041017982161447586
+    }
+  },
+  "limitations": [
+    "Artistic naturalness requires user review.",
+    "Missing hand artwork is not validated by numerical contact tests.",
+    "No cloth/hair/body collision; no independent pouch rig or additional arm perspective artwork.",
+    "Spine official documentation informed the custom implementation; no Spine editor/runtime was executed."
+  ],
+  "official_sources": [
+    "https://esotericsoftware.com/spine-physics-constraints",
+    "https://esotericsoftware.com/spine-ik-constraints",
+    "https://esotericsoftware.com/blog/Mesh-weight-workflows",
+    "https://esotericsoftware.com/spine-weights",
+    "https://esotericsoftware.com/spine-slots",
+    "https://esotericsoftware.com/spine-keys#Slot-attachment",
+    "https://www.moore.army.mil/infantry/DoctrineSupplement/ATP3-21.8/PDFs/fm3_22x9.pdf"
+  ]
+}

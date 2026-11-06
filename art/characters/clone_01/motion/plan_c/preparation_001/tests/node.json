@@ -1,0 +1,193 @@
+{
+  "status": "passed",
+  "scope": "Node import, existing PNG dimensions, atlas geometry and socket projection only",
+  "created_at": "2026-11-06T12:44:51.827Z",
+  "three": "0.187.0",
+  "node": "v24.14.0",
+  "atlases": 7,
+  "geometries": 23,
+  "projected_sockets": 10860,
+  "max_projection_error_px": 6.355287432313019e-14,
+  "samples": [
+    {
+      "facing": 1,
+      "motion": "idle",
+      "shots": 0,
+      "ammo": 30,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": 1,
+      "motion": "walk",
+      "shots": 0,
+      "ammo": 30,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": 1,
+      "motion": "fire",
+      "shots": 29,
+      "ammo": 1,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": 1,
+      "motion": "walk_fire",
+      "shots": 29,
+      "ammo": 1,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": 1,
+      "motion": "reload",
+      "shots": 0,
+      "ammo": 30,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": 1,
+      "motion": "reload_empty",
+      "shots": 0,
+      "ammo": 30,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": -1,
+      "motion": "idle",
+      "shots": 0,
+      "ammo": 30,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": -1,
+      "motion": "walk",
+      "shots": 0,
+      "ammo": 30,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": -1,
+      "motion": "fire",
+      "shots": 29,
+      "ammo": 1,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": -1,
+      "motion": "walk_fire",
+      "shots": 29,
+      "ammo": 1,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": -1,
+      "motion": "reload",
+      "shots": 0,
+      "ammo": 30,
+      "seconds": 2.999999999999992
+    },
+    {
+      "facing": -1,
+      "motion": "reload_empty",
+      "shots": 0,
+      "ammo": 30,
+      "seconds": 2.999999999999992
+    }
+  ],
+  "source_hashes": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "5db0a7113dffdbd89d4356a71bb78eae1d81cf9f4226c84ee21a5ffc2ee150e6"
+    },
+    {
+      "path": "game/plan-c/package.json",
+      "sha256": "ffed3007824dacb3b645cf465cbf92e179d1d642d65f4013e7b11c0fbed88cb2"
+    },
+    {
+      "path": "game/plan-c/package-lock.json",
+      "sha256": "018d1d8c940ce1c42f9f3b53b5de3ee6f0dadbaca47825a8261ceffe8a5ced9e"
+    },
+    {
+      "path": "game/plan-c/part-mesh.js",
+      "sha256": "23d543d4d76cfb44373faf7398ff1c68353ed38ea5c82250b5b300ecd0e929e8"
+    },
+    {
+      "path": "game/plan-c/browser-probe.js",
+      "sha256": "ffd1c8877e354e163b8289db24e7c1bd14bf05529d56ccc5cd72beae56bb57bd"
+    },
+    {
+      "path": "tools/check_plan_c.mjs",
+      "sha256": "1bc962a99d6bd4c81a42326a94dd8e90ee9a9f42d44ac2bb90737ae32f22bab6"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/frame-sequence.js",
+      "sha256": "4e35f6f1534e47e685765f1c70c0bc59a8ce174273d48a4fc6b4853a310ce1bb"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "b38c999e12d490168d486b28697eefb4220d59ab4c820b20b4743825d57ec147"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "18c3e039d994834c949d5a4fb905a3da5aa91a8b96d75bdc2a161084ae7f38d1"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "2843897cec9c91d8bab135fa168508d614a58df2dd3119cc59d90d4b5613087a"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "057551536dba1389d428adbfceaef7826cdcd8e96d0f121700a03a3f9c556b26"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "53217464c3582c909f53b9adfc90e09fadee7420fa6a451591604c6e2a363972"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "89d235199cabf32b4d9ad22f843beff306d1c5d78a4d015e215c7516f88a62d6"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "27da1f8141d80b0a1f508f9c4ac078c09ab79bc4bc71c5b043d60eb83ea76acf"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/base_atlas.png",
+      "sha256": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+      "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/support_hand_foregrip_v2.png",
+      "sha256": "b332de73c0a989a25a3891633ea9063e3cf8aa127ac14097b217284abffa06e2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/near_upper_arm_profile.png",
+      "sha256": "630e8110c6b7d781be7bfe321edcf7a84b7fde9479c99a080b6136247e5c679a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/far_forearm_reload.png",
+      "sha256": "1694f452ab876b6539fb62896de883ae0d61d9575c46f1ec680d6a47cddabcd6"
+    }
+  ],
+  "full_character_renderer": "not_implemented",
+  "art_acceptance": "not_requested"
+}

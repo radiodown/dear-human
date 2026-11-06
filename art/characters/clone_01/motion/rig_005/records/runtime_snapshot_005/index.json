@@ -1,0 +1,55 @@
+{
+  "scope": "Pre-correction 005 runtime; original review and metrics stay at their original paths.",
+  "files": [
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/game/animation/rig-core.js",
+      "sha256": "94ae64714da3afdb53eb27c561438fefcb50b9affcffbb4f5171e3660742ea82"
+    },
+    {
+      "original_path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/game/animation/webgl-character.js",
+      "sha256": "a7a4370f7dd0f40ed3c6ec9ae0115681589fff5abb0b7c922bcbf6db755a2a44"
+    },
+    {
+      "original_path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/game/rig-lab.js",
+      "sha256": "85e444c9728536641cbd9521eb116291d1dc16cda24d4e78f6423dc9ec7a395b"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/game/index.html",
+      "sha256": "e36c8e70be8048e4e7019a55a6dffaf79170bb088a62b216e49c0c0ea4ea5f2d"
+    },
+    {
+      "original_path": "game/package.json",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/game/package.json",
+      "sha256": "b8807784adc9b4ede0c038a23682ede3a0cfd889e5a87ac9ec5ef893006fcbcf"
+    },
+    {
+      "original_path": "tools/tests/rig-core.test.mjs",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/tools/tests/rig-core.test.mjs",
+      "sha256": "4adf46cb5bda4ab9f36777777cd7a1c9363ac99e8afcee3d83e84558ece918e6"
+    },
+    {
+      "original_path": "art/characters/clone_01/motion/rig_005/README.md",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/art/characters/clone_01/motion/rig_005/README.md.txt",
+      "sha256": "932b21f0a03d8b4310e8071354e725561cb157e9df1e6dd95eead75159259557"
+    },
+    {
+      "original_path": "skills/dear-human-pipeline/SKILL.md",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/skills/dear-human-pipeline/SKILL.md",
+      "sha256": "be2356d894f30d8214a62fea8f6e2ecbceaf49c97c68ac085d73c3a783793510"
+    },
+    {
+      "original_path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/game/animation/gait.js",
+      "sha256": "d5ebad415d4ceb84e045b112f3996c28e6ece093b2244e20913e89fb6face156"
+    },
+    {
+      "original_path": "docs/28-combat-walk-and-cape.md",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_005/docs/28-combat-walk-and-cape.md.txt",
+      "sha256": "ada9b8f7f5b923d77e81ac180b6ee08d4ad63d23064eb5689adbb32126995415"
+    }
+  ]
+}

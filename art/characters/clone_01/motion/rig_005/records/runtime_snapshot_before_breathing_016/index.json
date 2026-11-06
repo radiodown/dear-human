@@ -1,0 +1,43 @@
+{
+  "iteration": "before_breathing_016",
+  "saved_at": "2026-11-06T22:10:59.632651+00:00",
+  "purpose": "Preserve current working files before breathing, upper-body motion and cloth toggle changes. Gait is context only and is not edited by this change.",
+  "sources": [
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "3f344dc541b90ccf55da65096848b050c746900dccb8225d9f3de0929e0f4222"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "5e885ac9a31661d61d35fc2ddd6f92ca63d4b110a56274aa29c9db6e78d2d12c"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "302c74b9badb1bab36e8534c2941da15699a6effb10b99b6f4176b9e94fa2fcb"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "5b1963b8e17c77c25e5c38783170aa4119ebb49812738f323f003c68f33b0b70"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "ae8e7df8bbe677e654183215138167212f3fca0afc17e41af90a49b72f6b554d"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "7db147a2ae2b3da772d91d71b7f90ae09dc8e9e4b80a180f8eeabb4da3a84155"
+    },
+    {
+      "path": "game/public/assets/catalog/asset_index.json",
+      "sha256": "c7068a1204bac6f107667298fe08e7b6d694e858bcd5fcc393d611781b82e526"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/README.md",
+      "sha256": "b53d28477dba207fc704caa9b625b1c4749559cb9666c0cba5d4ba0c7572c4a9"
+    }
+  ]
+}

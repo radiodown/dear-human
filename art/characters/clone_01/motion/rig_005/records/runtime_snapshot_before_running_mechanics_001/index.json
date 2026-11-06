@@ -1,0 +1,15 @@
+{
+  "scope": "Running implementation before running_mechanics_001; includes the kneeling changes present at task start. Preservation only, no validation.",
+  "files": [
+    {
+      "original_path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_mechanics_001/game/animation/gait.js",
+      "sha256": "59c8391d8648d59d52e5ac275f65fdc86ad2b4270ca73877dd944908da9a3d36"
+    },
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_mechanics_001/game/animation/rig-core.js",
+      "sha256": "4c11be7ad484ea86181200f0722b8517d849fd2d5f1f71f3de17e73855c3e250"
+    }
+  ]
+}

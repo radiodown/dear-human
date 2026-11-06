@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "iteration": "forward_muzzle_001",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/forward_muzzle_001.json",
+    "sha256": "07e137c468517ed416b1cbd1f97c56aee268a4caa453c5f4cdf525f624f9457a"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "3962d2d99483af32849be323de6261bdf89e821cb97ce209ed30d6341b23c5c0"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "f8adf28cc8ff3424a200dd152a16eb9b3d1879f4c2a8966f566bcf23b2cf5f4a"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "929fd44e70371f8294c07036cbacc1bd3825377ee0138d25efd9a830a5352bac"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "d6369f7ba7eebb22c305fb62789f67d495fd77c539a9ef188806a0fe115dd406"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "5116057226006c11c14e80a3e932af053ecfbc12f4eeaf5d648324db7dbe36c7"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_forward_muzzle_001/index.json",
+    "sha256": "3ef951c6f73dd7edefe93980455d5974ac2bcbed0791fa40cfe8f2c0ebee18c6"
+  },
+  "entry_points": {
+    "fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire",
+    "walk_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk_fire",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire",
+    "kneel_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "test_tool_defaults_modified": false,
+    "reserved_test_output": "art/characters/clone_01/motion/rig_005/tests/forward_muzzle_001",
+    "reserved_browser_output": "art/characters/clone_01/motion/rig_005/reviews/forward_muzzle_001",
+    "read_only_dependency_query": {
+      "command": "python3 tools/agent_pipeline.py --root . --limit 8 impact --kind character --entity-id clone_01 --revision-id rig_005",
+      "status": "ok",
+      "affected_revisions": 0,
+      "scope": "Dependency lookup only, not validation."
+    }
+  },
+  "remaining": [
+    "User playback review of horizontal forward muzzle across standing, walking, running, kneeling and their transitions.",
+    "User review of hand reach, stock/shoulder relationship and occlusion with large combined waist angles and rifle height changes.",
+    "Existing shot kick and deliberate reload rotation remain; horizontal describes the baseline pose.",
+    "No tests, syntax/document/catalog checks or browser review were run."
+  ]
+}

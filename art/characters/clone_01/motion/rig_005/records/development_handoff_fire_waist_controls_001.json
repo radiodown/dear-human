@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "iteration": "fire_waist_controls_001",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/fire_waist_controls_001.json",
+    "sha256": "63efc6ad883a98ab92b92473523214d6a6f1027b5bd3597ff82aedae4ed436cb"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "1720bea6965a34bf81616b45d2b5e0750890f3fdc7540908c34b37a62b70310d"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "cfdf3868cffb3b83d4901b4e2a5922e2fb419300d6d08cf48b0df93e97891acc"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "f65915138f89e48b3139ed91fae4f5d50636d3e8779089ea7d92ebc4331e2f22"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "864f239a6f57cf96691eafae21e7f534de54701fed8769929b61d34810f1c03e"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "d6369f7ba7eebb22c305fb62789f67d495fd77c539a9ef188806a0fe115dd406"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "929fd44e70371f8294c07036cbacc1bd3825377ee0138d25efd9a830a5352bac"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "b66b1d0ec860a7502e95987dec93d0aa8764d7b6363758866a21932ca6ad6057"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_fire_waist_controls_001/index.json",
+    "sha256": "7c4d3e009355ba50c5bb5e175fad52a7784c4da59089d4899dbe18510330eb87"
+  },
+  "entry_points": {
+    "fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "test_tool_defaults_modified": false,
+    "reserved_test_output": "art/characters/clone_01/motion/rig_005/tests/fire_waist_controls_001",
+    "reserved_browser_output": "art/characters/clone_01/motion/rig_005/reviews/fire_waist_controls_001",
+    "read_only_dependency_query": {
+      "command": "python3 tools/agent_pipeline.py --root . --limit 8 impact --kind character --entity-id clone_01 --revision-id rig_005",
+      "status": "ok",
+      "affected_revisions": 0,
+      "scope": "Dependency lookup only, not validation."
+    }
+  },
+  "remaining": [
+    "User interaction review of both firing waist sliders during playback and while paused in an existing firing pose.",
+    "User review of saved values, shared URL overrides, mode changes and reset behavior.",
+    "User review of cloth, grips, shoulder contact and reach at large combined firing/common bend angles.",
+    "Walking-fire and kneeling-fire do not get independent sliders in this change; existing common added bend remains available.",
+    "No tests, syntax/document/catalog checks or browser review were run."
+  ],
+  "preserved": "Current common rig, kneeling artwork and pose 017, secondary/body motion 016, running posture, forward rifle placement, hand/weapon sockets and camera."
+}

@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "revision_id": "closed_grip_hand_014",
+  "source_image": {
+    "path": "art/characters/clone_01/motion/rig_014/source/support_hand_closed_grip.png",
+    "width": 1774,
+    "height": 887
+  },
+  "part": {
+    "atlas": "closedgrip_014",
+    "rect": [
+      250,
+      140,
+      1120,
+      720
+    ],
+    "material": "rigid",
+    "label": "총열 감싸 쥔 손 · 엄지 가림"
+  },
+  "binding": {
+    "height": 18,
+    "pivot": [
+      0.3125,
+      0.5555555555555556
+    ],
+    "grip": [
+      0.7053571428571429,
+      0.3402777777777778
+    ]
+  },
+  "authored_source_points": {
+    "wrist": [
+      600,
+      540
+    ],
+    "handguard_axis": [
+      1040,
+      385
+    ]
+  },
+  "weapon_support_uv": [
+    0.63,
+    0.34
+  ],
+  "layering": "All four near-side curled fingers draw in front of the handguard. Far-side thumb is absent from the sprite.",
+  "raster_edits": false,
+  "verification": "untested",
+  "notes": "Manual source rectangle and landmarks for development connection; not an alpha or visual-quality test."
+}

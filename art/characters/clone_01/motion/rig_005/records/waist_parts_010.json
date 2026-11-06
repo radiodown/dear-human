@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "iteration": "waist_and_parts_010",
+  "scope": "Add actual waist axis and separate chest/cloth/skirt attachments; connect generated foregrip hand, side shoulder/upper arm and oblique reload forearm to existing rig_005 page.",
+  "status": "development_connected_awaiting_user_validation",
+  "user_validation_preference": "User explicitly requested development only and will perform validation; do not run additional checks or browser captures.",
+  "waist": {
+    "axis_above_hip": 34,
+    "source_texture": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+    "bands": {
+      "torso_shell": [
+        0,
+        0.485
+      ],
+      "waist_cloth": [
+        0.485,
+        0.56
+      ],
+      "skirt_core": [
+        0.56,
+        1
+      ]
+    },
+    "method": "Rigid chest rotates about waist; skirt follows pelvis; cloth bridge uses shared border positions and Hermite endpoint tangents. Back extends and front compresses under bowing. No raster edits or collision/force simulation."
+  },
+  "new_parts": {
+    "support_hand_foregrip": {
+      "atlas": "foregrip_010",
+      "rect": [
+        151,
+        314,
+        941,
+        713
+      ]
+    },
+    "near_upper_arm": {
+      "atlas": "near_arm_010",
+      "rect": [
+        430,
+        68,
+        357,
+        1080
+      ],
+      "joint_points": [
+        [
+          0.48,
+          0.15
+        ],
+        [
+          0.56,
+          0.93
+        ]
+      ]
+    },
+    "far_forearm_reload": {
+      "atlas": "reload_forearm_010",
+      "rect": [
+        283,
+        120,
+        580,
+        1013
+      ],
+      "joint_points": [
+        [
+          0.297,
+          0.099
+        ],
+        [
+          0.788,
+          0.923
+        ]
+      ],
+      "view": "oblique reload view; body-side pose"
+    }
+  },
+  "joint_method": "Two 2D source joint anchors per oblique sprite, uniform scaling and rotation; source aspect ratio preserved.",
+  "reload_view": {
+    "forearm_projected_length": [
+      34,
+      40
+    ],
+    "magazine_extraction_distance": 16,
+    "switch": "New forearm selected in authored reload view interval while behind torso."
+  },
+  "foregrip": {
+    "image": "support_hand_foregrip_v2",
+    "height": 14,
+    "pivot": [
+      0.2,
+      0.78
+    ],
+    "grip": [
+      0.69,
+      0.366
+    ],
+    "reload_uses": "Existing support_hand placeholder"
+  },
+  "images": [
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/support_hand_foregrip_v2.png",
+      "sha256": "b332de73c0a989a25a3891633ea9063e3cf8aa127ac14097b217284abffa06e2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/near_upper_arm_profile.png",
+      "sha256": "630e8110c6b7d781be7bfe321edcf7a84b7fde9479c99a080b6136247e5c679a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/far_forearm_reload.png",
+      "sha256": "1694f452ab876b6539fb62896de883ae0d61d9575c46f1ec680d6a47cddabcd6"
+    }
+  ],
+  "failed_or_unselected": [
+    {
+      "id": "support_hand_foregrip_v1",
+      "state": "retained_not_used",
+      "reason": "No usable transparent grip opening; corrected in v2."
+    },
+    {
+      "id": "support_hand_magazine",
+      "state": "no_output",
+      "reason": "Built-in image tool rejected the request with moderation_blocked / violence; no alternate API used."
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "53217464c3582c909f53b9adfc90e09fadee7420fa6a451591604c6e2a363972"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "1025305df0de6b97d8481de76f36f384ee0e2ee4161ec0ba60dce47716be2181"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "18c3e039d994834c949d5a4fb905a3da5aa91a8b96d75bdc2a161084ae7f38d1"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "28beb903e8dc114fcc52b51669ec3b6bab141322743592153e5dbe2018dc9e6c"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "2610f0ddcc456900c5186202c80e78ccb8dd990ca70eb82321d1423c183f909d"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "f3afb7abeff496db3034ce67b48da2dfa96232271f969acd1d82b43bf5effbf6"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "a1770fea66986238d7f3c643cf066aff50b4a14efecc6d868a987a602e8beee3"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "1b5a4866894bc5f4e1d21b4a788423fd261b4acb24c2fd73ef8246e7fe9f2618"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "240482cd2f5c80f4abb685843989c68178f8da0a94fc94c3ffedd0ad2370e065"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "5db0a7113dffdbd89d4356a71bb78eae1d81cf9f4226c84ee21a5ffc2ee150e6"
+    }
+  ],
+  "generation": {
+    "path": "art/characters/clone_01/motion/rig_010/records/generation.json",
+    "sha256": "4c396f22b56a1c854ff23ae5a599d5547bd5343d97ee116c0cf3bf849624a52a"
+  },
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_009/index.json",
+    "sha256": "fd3419ed772905b7e3764dc900769a46edf2f8dbdb9c37dc47836391fbfdac2b"
+  },
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004",
+      "usage": "Original body, hair, legs and reusable parts"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_010"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_009"
+    }
+  ],
+  "validation": {
+    "current_revision": "untested_after_user_handoff",
+    "prior_simulation_record": "art/characters/clone_01/motion/rig_005/tests/waist_and_parts_010/simulation-metrics.json",
+    "note": "The initial simulation work occurred before the user took over validation. Later UI/connection changes have not received final verification. No browser review for 010."
+  },
+  "remaining": [
+    "User visual and interaction review",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing"
+  ],
+  "gifs_generated": false,
+  "generation_model": null,
+  "generation_cost": null,
+  "total_elapsed_seconds": null
+}

@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "iteration": "running_mechanics_001",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/running_mechanics_001.json",
+    "sha256": "795c096afa7024f7d5405cc0d0f1a3d8b29e7872fbc86c974f130091dbf1f441"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "5373afd8ebdd9094a7ceff93bfc1e4546b0645a04f6a19678154ee5f1f14a404"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "7f718a14b6fb6684040179589483f0ce4297cd33fd2704b6475436214792dd08"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_mechanics_001/index.json",
+    "sha256": "b1e0eb7a0d9989e9e4ab2366727c35b82f5e8dfefce94206766417fa24defe68"
+  },
+  "entry_points": {
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire",
+    "walk_transition": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "reserved_test_output": "art/characters/clone_01/motion/rig_005/tests/running_mechanics_001",
+    "reserved_browser_output": "art/characters/clone_01/motion/rig_005/reviews/running_mechanics_001",
+    "test_tool_defaults_modified": false,
+    "read_only_dependency_query": {
+      "command": "python3 tools/agent_pipeline.py --root . --limit 8 impact --kind character --entity-id clone_01 --revision-id rig_005",
+      "status": "ok",
+      "affected_revisions": 0,
+      "scope": "Dependency lookup only; not runtime or catalog-file validation."
+    }
+  },
+  "remaining": [
+    "User playback review of landing compression, flight timing, trailing heel recovery and forward knee silhouette.",
+    "User review of walk/run acceleration, deceleration, stop, kneel and direction transitions, including leg reach.",
+    "User review of torso/rifle motion in running fire with the existing low carry and current hand art.",
+    "Existing source artwork has no new hidden surfaces or motion-specific replacement art.",
+    "No tests, syntax checks, document/catalog checks or browser review were run for this change."
+  ],
+  "integration_scope": "Running-mechanics slice of the current common rig; existing concurrent kneeling, grip and cloth changes are retained. Other development handoffs describe their own changes."
+}

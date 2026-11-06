@@ -1,0 +1,83 @@
+{
+  "status": "prepared_not_integrated",
+  "request": "Research Three.js and prepare its adoption as Plan C",
+  "client_date": "2026-11-06",
+  "client_timezone": "Asia/Seoul",
+  "recorded_preparation_window": {
+    "started_at_utc": "2026-11-06T12:41:00+00:00",
+    "ended_at_utc": "2026-11-06T12:50:40.911002+00:00",
+    "elapsed_seconds": 580.91,
+    "scope": "Measured preparation window after initial document and web research; total research time not measured"
+  },
+  "total_task_time_seconds": null,
+  "tools": {
+    "three": {
+      "version": "0.187.0",
+      "revision": "187",
+      "license": "MIT",
+      "registry": "https://registry.npmjs.org/three",
+      "integrity": "sha512-Qiu7R+Cmh8CstZsY1uJOSWnVlfo7ZtNLV7mF8Jltk3LB3AtDu9cRZlcnRKkAk8Y4z6KKw35z7Y7Urd7jWY8etA=="
+    },
+    "node": "v24.14.0",
+    "playwright": "1.56.0",
+    "chrome": "156.0.8078.80",
+    "python_venv_used": "/tmp/dear-human-plan-c-venv"
+  },
+  "reuse": {
+    "definition": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+    "source_hashes": "../tests/node-final.json",
+    "atlases_checked": 7,
+    "parts_checked": 23,
+    "existing_dimensions_function": "game/animation/proportions.js:partDimensions",
+    "failed_plan_b_art_used": false,
+    "new_images_generated": 0,
+    "new_models_generated": 0
+  },
+  "checks": {
+    "node": "../tests/node-final.json",
+    "browser": "../reviews/browser.json",
+    "first_failed_comparison": "attempt_001.json",
+    "catalog_baseline": "../tests/catalog-baseline.json",
+    "catalog_issue_count": 7,
+    "earlier_node_snapshot": "../tests/node.json"
+  },
+  "baseline_note": "Catalog was valid at initial read; unrelated existing runtime/art sources changed during investigation. This work does not update or adopt those changes. Every probe report identifies the exact source hashes it checked.",
+  "cost": {
+    "paid_generation_calls": 0,
+    "recorded_external_charge": null,
+    "currency": null,
+    "reason": "No image/model generation or hosting was invoked; billing totals were not queried"
+  },
+  "not_implemented": [
+    "full_character_three_adapter",
+    "preview_plan_c_selector",
+    "3d_model",
+    "animation_clips",
+    "production_bundle",
+    "deployment"
+  ],
+  "next_step": "Implement an optional full-character view in the same sample app using the shared rig/pose/warp functions, then compare all motions before adoption",
+  "references": [
+    "https://github.com/mrdoob/three.js/releases/tag/r187",
+    "https://threejs.org/manual/pages/installation.html",
+    "https://threejs.org/docs/pages/WebGLRenderer.html",
+    "https://threejs.org/docs/pages/OrthographicCamera.html",
+    "https://threejs.org/docs/pages/BufferGeometry.html",
+    "https://threejs.org/docs/pages/SkinnedMesh.html",
+    "https://threejs.org/manual/pages/animation-system.html",
+    "https://threejs.org/docs/pages/GLTFLoader.html",
+    "https://threejs.org/manual/pages/color-management.html",
+    "https://threejs.org/manual/pages/transparency.html",
+    "https://threejs.org/manual/pages/how-to-dispose-of-objects.html"
+  ],
+  "final_report_freshness": {
+    "tests/node-final.json": {
+      "status": "passed",
+      "changed_sources_since_execution": []
+    },
+    "reviews/browser.json": {
+      "status": "passed",
+      "changed_sources_since_execution": []
+    }
+  }
+}

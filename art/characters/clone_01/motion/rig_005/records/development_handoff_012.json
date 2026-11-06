@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "iteration": "012",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/muzzle_light_012.json",
+    "sha256": "112c861764db334ef1a791ae6ad7fb425c27473b1222a34d7b042ccc95083fe1"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "14079716fdec521407e9badb42b2ab6b7abaec23f44613a4b15ace2291d0e2ba"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "7877ecc8dc577a2945401495ef71b91fdef8cec37f8ae530f64e7bca07ade188"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "4d8cb7e4f4074c2ff8f1d267c9e5020655736bc08dd885f29b0614beba852b8e"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "cdc9ecc99212bb401f9b79c5b01f8497540ed50887023e1998c88dbb5d216d4c"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "8fb52c224deb2b5e8fbb9dcc3549bcc846e7cf20bedfa385b083f6c54100d22e"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "2fac289688735cbc9e4de3251c825289cc4d51d611e5d062585198817aada90e"
+    },
+    {
+      "path": "game/styles.css",
+      "sha256": "033c44ca80ad1ed19dac68dcb55a5ab2525f36ab1ee1e558e97d49b552f8862c"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "84a989fd39b88028981ce744c4733c1f66cabb9f4e60dc9aac03733130d14944"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "d707e2b4448aeaf4ce54267d12a04a543797eabb8f9d11637badf4d99bb11bce"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "3b1a5788bf44612bf5ddf02b1cfddb2cae1ff8929438a4360922d4cff99fa880"
+    }
+  ],
+  "effect_profile": {
+    "path": "art/fx/muzzle_flash/lighting_001/profile.json",
+    "sha256": "367cec6bdb0e31c6be2bff20afd2d07faa28dc967cda4f9100166ca3ef225556"
+  },
+  "entry_points": {
+    "fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire",
+    "first_shot_paused": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire&time=0.13&paused=1",
+    "same_time_light_off": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire&time=0.13&paused=1&light=0"
+  },
+  "remaining": [
+    "User visual review of warm spill, material response, highlight clipping and shot timing.",
+    "Device shader compatibility and performance review.",
+    "Approximate 2D surfaces only; no new normal maps or 3D cast shadows.",
+    "User visual and interaction review of waist folding, knee contact, pose transitions, running weight and handguard/finger overlap.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing.",
+    "Existing texture has no newly painted hidden surfaces for deep folding or viewpoint changes."
+  ],
+  "unmodified_scopes": [
+    "011 kinematics, outfit meshes and source artwork",
+    "M16 sockets and artwork",
+    "Plan B",
+    "Plan C",
+    "Past prompts and validation results",
+    "GIF outputs"
+  ]
+}

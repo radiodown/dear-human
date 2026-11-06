@@ -1,0 +1,15 @@
+{
+  "scope": "Common rig before posture-dependent forward rifle placement for running fire. Preservation only, not validation.",
+  "files": [
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_weapon_forward_001/game/animation/rig-core.js",
+      "sha256": "a9776c88e9a2c44711b0fc1c1c92202bab8aacf37a0cf46388c5ebbbecc5b08b"
+    },
+    {
+      "original_path": "game/animation/firing-form.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_weapon_forward_001/game/animation/firing-form.js",
+      "sha256": "5b1963b8e17c77c25e5c38783170aa4119ebb49812738f323f003c68f33b0b70"
+    }
+  ]
+}

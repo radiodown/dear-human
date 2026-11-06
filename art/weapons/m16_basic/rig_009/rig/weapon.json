@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "revision_id": "m16_binding_009",
+  "runtime_source": "game/animation/weapon-profiles.js",
+  "profile": {
+    "id": "m16_basic",
+    "width": 150,
+    "height": 39.62075848303393,
+    "pivot": {
+      "x": 0.22,
+      "y": 0.5
+    },
+    "stock": {
+      "x": 0.01,
+      "y": 0.55
+    },
+    "primary": {
+      "x": 0.29,
+      "y": 0.82
+    },
+    "support": {
+      "x": 0.66,
+      "y": 0.4
+    },
+    "muzzle": {
+      "x": 0.995,
+      "y": 0.34
+    },
+    "mag": {
+      "x": 0.42,
+      "y": 0.6
+    },
+    "magazineAngle": -0.2,
+    "rearSight": {
+      "x": 0.305,
+      "y": 0.075
+    },
+    "frontSight": {
+      "x": 0.8,
+      "y": 0.075
+    },
+    "fireInterval": 0.1,
+    "capacity": 30,
+    "reloadTactical": 2.2,
+    "reloadEmpty": 2.8
+  },
+  "artwork": {
+    "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+    "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3"
+  },
+  "notes": "Existing weapon atlas. Added a seated magazine angle and registered rear/front sight points. No new image generation. Historical 004 runtime retained in its records/runtime_snapshot."
+}

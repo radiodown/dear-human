@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "iteration": "kneeling_weapon_level_001",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "앉아쏴 총구레벨도 내릴수있게해줘",
+  "validation_preference": "검증은 내가할게 개발만해봐",
+  "scope": "Add independent downward rifle-height control for kneeling/kneeling fire while preserving horizontal muzzle direction and shared sockets.",
+  "controls": {
+    "range": [
+      0,
+      18
+    ],
+    "default": 0,
+    "ui_step": 1,
+    "units": "Common rig logical pixels, not displayed pixels or degrees.",
+    "api": "CharacterRig.setKneelCarryDrop(value, immediate=false)",
+    "time_constant_seconds": 0.1
+  },
+  "pose_integration": "kneelDrop times kneeling weight shifts stockPocket and stockTarget down in world Y before constructing the weapon frame and deriving all grips/magazine/reload/muzzle sockets.",
+  "gaze": "Keep existing bounded kneeling head alignment; low rifle height is not a claim of completed eye-level aiming.",
+  "metrics": "Lowered kneeling contacts display as gun support rather than shouldering.",
+  "persistence": {
+    "local_storage_key": "dear-human:kneel-drop:v1",
+    "url_parameter": "kneelDrop",
+    "url_overrides_saved_setting": true,
+    "full_reset": 0,
+    "storage_failures_nonblocking": true
+  },
+  "paused": "Immediate height setting in the current kneeling pose without advancing time or emitting shots.",
+  "runtime_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "ffad381edf7b1b3019ad6cc0842d84eff0a683c48ef441bd4a7c8399ac6b2945"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "5116057226006c11c14e80a3e932af053ecfbc12f4eeaf5d648324db7dbe36c7"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "2ffadff819ca073526cb2fda68ef6049a17a3b9e67d4fee87d2a8bae0646fd6d"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "d6e2c015e36628985d8cf4f22766efe5d4029df8b5e2744dc88115b4a399fdf0"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "d6369f7ba7eebb22c305fb62789f67d495fd77c539a9ef188806a0fe115dd406"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "929fd44e70371f8294c07036cbacc1bd3825377ee0138d25efd9a830a5352bac"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_weapon_level_001/index.json",
+    "sha256": "46259c57133c85b19158d478f5aa29ab488183813b78a4ce46a9c51fc181e43c"
+  },
+  "entry_points": {
+    "kneel_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire",
+    "kneel": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "test_tool_defaults_modified": false,
+    "reserved_test_output": "art/characters/clone_01/motion/rig_005/tests/kneeling_weapon_level_001",
+    "reserved_browser_output": "art/characters/clone_01/motion/rig_005/reviews/kneeling_weapon_level_001",
+    "read_only_dependency_query": {
+      "command": "python3 tools/agent_pipeline.py --root . --limit 8 impact --kind character --entity-id clone_01 --revision-id rig_005",
+      "status": "ok",
+      "affected_revisions": 0,
+      "scope": "Dependency lookup only, not validation."
+    }
+  },
+  "remaining": [
+    "User playback review of the lowered kneeling rifle, hands and gaze relationship.",
+    "User review of reach and occlusion at maximum lowering combined with large common waist bend.",
+    "User review of reload/stance transitions, paused input, storage, URL overrides and full reset.",
+    "Existing bounded head alignment is retained; numerical gun support contact is not physical shoulder seating or art acceptance.",
+    "No tests, syntax/document/catalog checks or browser review were run."
+  ],
+  "new_raster_images": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "development_cost": null,
+  "development_time_seconds": null
+}

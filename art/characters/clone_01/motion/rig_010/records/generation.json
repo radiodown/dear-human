@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "tool": "Built-in image_gen",
+  "generation_model": null,
+  "generation_cost": null,
+  "requested_calls": 5,
+  "generated_images": 4,
+  "selected_images": 3,
+  "raster_processing": "Original PNGs copied unchanged; runtime uses UV rectangles and registered joint anchors.",
+  "attempts": [
+    {
+      "id": "support_hand_foregrip",
+      "prompt_path": "art/characters/clone_01/motion/rig_010/records/prompt_support_hand_foregrip.json",
+      "status": "generated",
+      "elapsed_seconds": 42.997,
+      "selected": false,
+      "failure": null
+    },
+    {
+      "id": "near_upper_arm_profile",
+      "prompt_path": "art/characters/clone_01/motion/rig_010/records/prompt_near_upper_arm_profile.json",
+      "status": "generated",
+      "elapsed_seconds": 86.877,
+      "selected": true,
+      "failure": null
+    },
+    {
+      "id": "far_forearm_reload",
+      "prompt_path": "art/characters/clone_01/motion/rig_010/records/prompt_far_forearm_reload.json",
+      "status": "generated",
+      "elapsed_seconds": 133.642,
+      "selected": true,
+      "failure": null
+    },
+    {
+      "id": "support_hand_magazine",
+      "prompt_path": "art/characters/clone_01/motion/rig_010/records/prompt_support_hand_magazine.json",
+      "status": "rejected_by_image_tool",
+      "elapsed_seconds": null,
+      "selected": false,
+      "failure": {
+        "code": "moderation_blocked",
+        "category": "violence",
+        "request_id": "96ff5402-dcd6-4b63-8599-969585953e41"
+      }
+    },
+    {
+      "id": "support_hand_foregrip_v2",
+      "prompt_path": "art/characters/clone_01/motion/rig_010/records/prompt_support_hand_foregrip_v2.json",
+      "status": "generated",
+      "selected": true,
+      "elapsed_seconds": 46.969
+    }
+  ],
+  "validation_handoff": "User requested development only after the initial simulation work. No additional validation or browser capture was run after that instruction."
+}

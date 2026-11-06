@@ -1,5 +1,7 @@
 __pycache__/
 *.py[cod]
+node_modules/
+.venv-plan-c/
 
 # One-off local review export requested for viewing only.
 art/characters/clone_01/motion/rig_002/exports/gif_001/

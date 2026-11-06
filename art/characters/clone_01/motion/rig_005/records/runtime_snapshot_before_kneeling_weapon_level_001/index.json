@@ -1,0 +1,25 @@
+{
+  "scope": "Current shared runtime before independent kneeling rifle-height control. Preservation only, no validation.",
+  "files": [
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_weapon_level_001/game/animation/rig-core.js",
+      "sha256": "1720bea6965a34bf81616b45d2b5e0750890f3fdc7540908c34b37a62b70310d"
+    },
+    {
+      "original_path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_weapon_level_001/game/rig-lab.js",
+      "sha256": "cfdf3868cffb3b83d4901b4e2a5922e2fb419300d6d08cf48b0df93e97891acc"
+    },
+    {
+      "original_path": "game/app.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_weapon_level_001/game/app.js",
+      "sha256": "f65915138f89e48b3139ed91fae4f5d50636d3e8779089ea7d92ebc4331e2f22"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_weapon_level_001/game/index.html",
+      "sha256": "864f239a6f57cf96691eafae21e7f534de54701fed8769929b61d34810f1c03e"
+    }
+  ]
+}

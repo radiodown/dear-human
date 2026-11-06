@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "iteration": "running_mechanics_002",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "허리를 15~도 정도 숙이고 정면을 응시, 총구 정면으로 뛰게 해줘. 뛰는 모션도 아직 이상해. 좀더 파인튜닝",
+  "validation_preference": "검증은 내가할게 개발만해봐",
+  "scope": "15-degree running waist with independent forward gaze/horizontal muzzle and smoother compact running recovery.",
+  "before": {
+    "period": 0.9,
+    "speed": 260,
+    "stance": 0.44,
+    "lift": 42,
+    "contact_drop": 10.5,
+    "compression": 6,
+    "sway": 3.2,
+    "roll": 0.02
+  },
+  "after": {
+    "period": 0.84,
+    "speed": 245,
+    "stance": 0.45,
+    "lift": 32,
+    "contact_drop": 8.5,
+    "compression": 4,
+    "sway": 1.1,
+    "roll": 0.008,
+    "waist_base_degrees": 15,
+    "waist_load_variation_radians": 0.003
+  },
+  "upper_body": {
+    "waist": "15 degrees relative to pelvis at full run, plus the existing manual bend and small load/recoil response.",
+    "gaze": "Counter actual torso pitch against the source forward registration; preserve 15 percent of shot head motion.",
+    "muzzle": "Blend ordinary body/bend pitch to a horizontal baseline at full running posture; maximum run shot pitch .012 radians. Existing reload release remains.",
+    "carry_height": "Existing runCarry amount and adjustable carryDrop retained; no new lowering applied."
+  },
+  "recovery": {
+    "horizontal": "Single quintic with equal planted-retreat velocities and zero endpoint accelerations.",
+    "vertical": "Single asymmetric beta-shaped bell peaking at 40 percent of swing, zero endpoint velocities.",
+    "boot": "Smaller toe-off and recovery pitch, continuous tangent interpolation in swing.",
+    "legs": "Existing fixed-length 76+76 IK, existing contact history and travel-derived speed profile retained."
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "302c74b9badb1bab36e8534c2941da15699a6effb10b99b6f4176b9e94fa2fcb"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "ea2d892437c7675397e34aa24284edb5f43440453585a1c51752f07b754c35ee"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "5b1963b8e17c77c25e5c38783170aa4119ebb49812738f323f003c68f33b0b70"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "f5acf2794e5a3ace13fb59d6cc914ebad24a934bfb20e36761e556e1453160ef"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "fead78bbcaeecdb82e2530d5cbefbcc0d65465dfa1ac4c3b57877e4330366837"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "1a33412a7e4bd6d6df7d88d397ff2b87d9b8957b9853ca48717ca3b90f0bff6c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "ce9c7e960f9dc5de666766b81d10c211b25693fc92cd760d1a20f0ff299cda58"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_mechanics_002/index.json",
+    "sha256": "769c8b22f2abe9f5b28cdd9c49ecf046b40d8901faf9a571d2948a3c7f6127da"
+  },
+  "previous_iteration": "art/characters/clone_01/motion/rig_005/records/running_mechanics_001.json",
+  "entry_points": {
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_check": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "test_tool_defaults_modified": false,
+    "reserved_test_output": "art/characters/clone_01/motion/rig_005/tests/running_mechanics_002",
+    "reserved_browser_output": "art/characters/clone_01/motion/rig_005/reviews/running_mechanics_002",
+    "read_only_dependency_query": {
+      "command": "python3 tools/agent_pipeline.py --root . --limit 8 impact --kind character --entity-id clone_01 --revision-id rig_005",
+      "status": "ok",
+      "affected_revisions": 0,
+      "scope": "Dependency lookup, not validation."
+    }
+  },
+  "remaining": [
+    "User playback review of the 15-degree running waist silhouette and forward gaze/muzzle.",
+    "User review of compact continuous foot recovery, landing weight and foot/leg reach across transitions.",
+    "Manual bend remains additive; 15 degrees describes the automatic running base posture.",
+    "Shot recoil and reload intentionally retain small/non-level weapon motion.",
+    "No tests, syntax/document/catalog checks or browser review were run; artistic and runtime acceptance remain pending."
+  ],
+  "new_raster_images": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "development_cost": null,
+  "development_time_seconds": null
+}

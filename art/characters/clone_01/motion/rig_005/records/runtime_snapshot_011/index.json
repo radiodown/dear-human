@@ -1,0 +1,100 @@
+{
+  "scope": "011 articulation / combat runtime before muzzle lighting 012. User validation remains pending.",
+  "files": [
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/rig-core.js",
+      "sha256": "a44d35042cc348e7798830a68b394029aafac0cff3362b04259ad8f2c0758357"
+    },
+    {
+      "original_path": "game/animation/waist.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/waist.js",
+      "sha256": "b74568feca730bab0aad96de15331acc905e7fefbba6d0498fbecd8d30ba3630"
+    },
+    {
+      "original_path": "game/animation/secondary-motion.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "original_path": "game/animation/frame-sequence.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/frame-sequence.js",
+      "sha256": "4e35f6f1534e47e685765f1c70c0bc59a8ce174273d48a4fc6b4853a310ce1bb"
+    },
+    {
+      "original_path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/gait.js",
+      "sha256": "79c12a5b6f4b2814f0f1b7c0cab9c8fac24af39c7dfed05f5ba0e4a8de3dfce2"
+    },
+    {
+      "original_path": "game/animation/weapon-profiles.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/weapon-profiles.js",
+      "sha256": "8d1da2721365eeede104328aa18bc03496c429f145842b49c1266a6333b81279"
+    },
+    {
+      "original_path": "game/animation/reload-pose.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "original_path": "game/animation/proportions.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/proportions.js",
+      "sha256": "55e9418ff5c33124bc1fc5b0b779358d89b5d44317d69295646064690efcbed8"
+    },
+    {
+      "original_path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/webgl-character.js",
+      "sha256": "97879172d6bf6372ac680ea72a148083642acea292443ff27031714784bca18e"
+    },
+    {
+      "original_path": "game/animation/cape.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "original_path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/rig-lab.js",
+      "sha256": "854d35b6d47eab86f6e4da351ee61ae534917da213683f7b702b14704d8fc3a0"
+    },
+    {
+      "original_path": "game/app.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/app.js",
+      "sha256": "4ccb682bc226913bd5c9396b6a5d61bde46432e308fbf48159d09f8f2e86b0ab"
+    },
+    {
+      "original_path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/index.html",
+      "sha256": "f9743c4e02cf2d52d64b3731e103714496633c0e4e7333390721a41a1e8ad42b"
+    },
+    {
+      "original_path": "game/styles.css",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/styles.css",
+      "sha256": "887e024728548ec20a05836ba506e959ba523c429310e8036e8602001217c4ce"
+    },
+    {
+      "original_path": "game/package.json",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/game/package.json",
+      "sha256": "a1770fea66986238d7f3c643cf066aff50b4a14efecc6d868a987a602e8beee3"
+    },
+    {
+      "original_path": "tools/tests/rig-core.test.mjs",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/tools/tests/rig-core.test.mjs",
+      "sha256": "18b17274862b72a929657330ab248ee00fb57198a93aa0b2a7f4955d28db2a5e"
+    },
+    {
+      "original_path": "tools/review_parts_motion.py",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/tools/review_parts_motion.py",
+      "sha256": "9fc9e2e297ef67989569156d0638125e0b7b213f7f711e89312999cb79f33f53"
+    },
+    {
+      "original_path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "d4b173c2df9024f71a43912f8a46535f8a9533b61f1688bd765cf7329dce03a3"
+    },
+    {
+      "original_path": "art/characters/clone_01/motion/rig_005/README.md",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/art/characters/clone_01/motion/rig_005/README.md",
+      "sha256": "db4cc77b767e11f3e50b574d3ef2baf5f520d893b57959d36c948ea4cca86a19"
+    }
+  ]
+}

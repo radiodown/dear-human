@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "scope": "Browser display and input checks, not art acceptance",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk",
+  "browser": "Local Google Chrome through Python Playwright",
+  "checks": [
+    "Existing character route loads idle, walk, moving fire and reload poses without page errors",
+    "Paused canvas stays identical",
+    "Single frame advances paused reload",
+    "Hair and garment toggles disable and restore the actual walking response",
+    "Live empty reload visits extraction, insertion and bolt phases and refills",
+    "Live firing still consumes ammunition",
+    "Mirrored walking displays at 500px viewport"
+  ],
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/idle.png",
+      "sha256": "a4c215d35f5233c86f3fc1f5da9494efb2f843f41f953a7dab26892e6fd9eb24"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/walk_a.png",
+      "sha256": "fffb0bb57b56d871a8f2710c961c7bea67091a54b25a49eb709dccff8ec84f74"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/walk_b.png",
+      "sha256": "84005f2e70294511d44f7cb0d2238654f8047bc8ef38481cc3c5ab361160f0bd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/walk_fire.png",
+      "sha256": "70c29efcfa7ed387abadf0831552ff39d4b75d34ce16decd75438becad51b0f8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/fire_brace.png",
+      "sha256": "716d5d43579871a0b5eeb3bc699f11dc2e5b031c4a2aa7b3dd3ca58e1aabeb89"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/reload_extract.png",
+      "sha256": "9b4fa7d0bc2cf31c4f33bb2d7a8d1538966dcf19884eb3082e62e989ce2bd9e0"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/reload_insert.png",
+      "sha256": "fcc99e291692873f736c0250acc712894f624932074f3e7cfce65821e6a60582"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/reload_bolt.png",
+      "sha256": "aa124e53d689c1ee904778b5c7fcbf5057858c0bc034afe64f4d1593f1ebc4fa"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/secondary_006/narrow_left.png",
+      "sha256": "7ace75c7845cf98b0f5f7ccd2a2b3a73c2b168f485e5af6352c4d1a8bd4641d1"
+    }
+  ],
+  "new_hand_art": "missing; support-hand placeholder explicitly labelled",
+  "gifs_generated": false
+}

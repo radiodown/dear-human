@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "iteration": "kneeling_image_017",
+  "created_at": "2026-11-07T07:28:02+09:00",
+  "user_instruction": "수정해줘",
+  "approved_pose": {
+    "path": "art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png",
+    "sha256": "8895f62a9e7c2ab91f1389639be30ac73309c3d889824e5cdb0ca695b0c77564"
+  },
+  "pose_adoption": "art/characters/clone_01/concepts/kneeling_fire_001/records/pose_reference_adoption.json",
+  "basis": "docs/kneeling-image-parts-analysis-001.md",
+  "sources": [
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/base_atlas.png",
+      "sha256": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1"
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_015"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_014"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_014"
+    }
+  ],
+  "authored_pose": "game/animation/kneeling-pose.js",
+  "authored_parts": "art/characters/clone_01/motion/rig_017/rig/kneeling_parts.json",
+  "authoring_command": "python3 art/characters/clone_01/motion/rig_017/recipe/build_kneeling_parts.py",
+  "method": "Grounded fixed-length kneeling silhouette, dedicated chest/shoulder/arm profiles, level rifle, bounded sight-relative head seating, independent UV knee pads, thigh-draped skirt panels, grounded length-preserving cape ribbon.",
+  "reference_interpretation": "Side-rig pose interpretation; no elbow-to-forward-knee contact requirement.",
+  "source_ratios": "Original sprite rectangles/aspect ratios and leg bone lengths retained; authored arm projection stays within original bone lengths.",
+  "generation": {
+    "new_raster_images": 0,
+    "image_model_calls": 0,
+    "model": null,
+    "billed_cost": null,
+    "development_seconds": null
+  },
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_image_017/index.json"
+}

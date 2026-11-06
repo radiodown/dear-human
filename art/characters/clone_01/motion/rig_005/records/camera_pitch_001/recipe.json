@@ -1,0 +1,162 @@
+{
+  "schema_version": 1,
+  "iteration": "camera_pitch_001",
+  "recorded_date_local": "2026-11-07",
+  "timezone": "Asia/Seoul",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "지금 시점이 정측면이자나 약간 아래를 내려다보게 수직각도를 바꿔볼까",
+  "validation_preference": "검증은 내가할게 개발만해봐",
+  "scope": "Small elevated orthographic view of existing flat side attachments in the shared renderer.",
+  "camera": {
+    "default_pitch_degrees": 12,
+    "range_degrees": [
+      0,
+      20
+    ],
+    "projection": "x unchanged; y*cos(pitch)+z*sin(pitch)",
+    "depth_units": {
+      "body_and_outfit_seams": 0,
+      "near_leg_and_primary_shoulder": 8,
+      "far_leg_and_support_shoulder": -8,
+      "weapon_both_hands_and_magazine": 8,
+      "hair_free_tip": -3,
+      "cape_free_tip": -7
+    },
+    "soft_depth": "Smooth depth ramp after pinned upper 5/8 of hair and upper 1/5 of cape.",
+    "arm_depth": "Continuous interpolation through root, elbow and wrist; both wrists share weapon depth.",
+    "facing": "Mirror horizontal axis only; elevation and near/far depths do not reverse.",
+    "exploded_parts": "Force original 0-degree view and disable camera controls; keep requested angle for return.",
+    "framing": "Existing origin and display scale retained; no per-frame normalization.",
+    "url_parameter": "viewPitch",
+    "missing_url_value": 12
+  },
+  "ground": "Projected plane/grid and two height-faded ellipses; original line/marks at 0 degrees.",
+  "lighting": "Project muzzle socket/flash with weapon depth; rotate proxy surface normal by camera pitch.",
+  "runtime_sources": [
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "1a33412a7e4bd6d6df7d88d397ff2b87d9b8957b9853ca48717ca3b90f0bff6c"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "f5acf2794e5a3ace13fb59d6cc914ebad24a934bfb20e36761e556e1453160ef"
+    },
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "f93e0a5c3bae02b3b2cd1fe3b47c2d0817a551cb0c41bbd475bd33ea970a0e53"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "3ede283139f45923473e877bc187347d6256e2a5820755d76c5256abe1b5006d"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "1348f67cf2a9a4e9c2b51e98a51c2c59117b816a128f873515047a95bebc9f01"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "fa515d74e4fc8324ec7151d32fdbc16303793d190a90ee2e65c16228ba3ac277"
+    },
+    {
+      "path": "game/styles.css",
+      "sha256": "7c1bbd5a96bcc65807cfdd15e8bd054e3bda3a92ab8f2acc743d8faf0c6fdd89"
+    }
+  ],
+  "reused_inputs": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "347c910331aaa2bd2c3349ae53591de1f0ad595a4151d563617b7077bc83fd1a"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "5373afd8ebdd9094a7ceff93bfc1e4546b0645a04f6a19678154ee5f1f14a404"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "3f344dc541b90ccf55da65096848b050c746900dccb8225d9f3de0929e0f4222"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "b3de124fdbd9c24b587e7d7a7ed34c8a3ba99d112580886a3cf10f077280d0d4"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_014/rig/weapon.json",
+      "sha256": "9c2d08f6824db9688ca3ee52d582b062d88ad7d1cf8204bb54dcdd6084acb275"
+    }
+  ],
+  "previous_render_sources": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_camera_pitch_001/index.json",
+    "sha256": "4912ffd9891bc150f964c08f046da104eb8523b86c1d1d80b5091a0dc1a4c691"
+  },
+  "new_files_to_remove_when_restoring_previous_render_sources": [
+    "game/animation/side-camera.js"
+  ],
+  "entry_points": {
+    "elevated": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle&viewPitch=12",
+    "side": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle&viewPitch=0",
+    "firing": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire&viewPitch=12",
+    "kneeling": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire&viewPitch=12",
+    "running": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire&viewPitch=12"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_checks": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "captures": "not_run",
+    "new_tests_written": false,
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/camera_pitch_001",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/camera_pitch_001",
+    "output_configuration": "Reserved paths only; test/review tools were not run or rewritten."
+  },
+  "remaining": [
+    "User visual review of 0/12/20-degree poses, both facing directions, pause, motion changes and URL restoration.",
+    "User review of shoulder/hip/neck overlaps, stock seating, wrist/handguard overlap, reload and foot/knee contact under projection.",
+    "Flat side artwork only: no newly exposed crown, armor/weapon top surfaces or view-dependent occlusion.",
+    "Ground ellipses are display cues, not 3D cast shadows. Existing muzzle normals remain approximate.",
+    "Existing hand art, kneeling, running and other motion changes remain subject to their own user review.",
+    "Device shader compatibility and performance remain untested."
+  ],
+  "source_artwork_regenerated": false,
+  "plan_b_changed": false,
+  "plan_c_changed": false,
+  "new_raster_images": 0,
+  "external_generation_calls": 0,
+  "gifs_generated": false,
+  "tools": [
+    {
+      "name": "Codex local source edits",
+      "version": null
+    },
+    {
+      "name": "Python standard library",
+      "purpose": "Preserve sources and write metadata/hashes; no validation"
+    }
+  ],
+  "generation_cost": 0,
+  "development_cost": null,
+  "development_time_seconds": null,
+  "time_measurement": "Total development wall time was not measured."
+}

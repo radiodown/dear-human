@@ -1,0 +1,11 @@
+{
+  "name": "dear-human-plan-c-readiness",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "check": "node --check part-mesh.js && node --check browser-probe.js && node ../../tools/check_plan_c.mjs"
+  },
+  "dependencies": {
+    "three": "0.187.0"
+  }
+}

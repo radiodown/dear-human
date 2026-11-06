@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "iteration": "015",
+  "status": "development_handoff",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "additional_validation_after_instruction": "not_run",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/firing_form_015.json",
+    "sha256": "42b0cf85c48cd37b18b53cdc4819e3c3742505ab0b6ac31e18bf463c0ec6dd75"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "5b1963b8e17c77c25e5c38783170aa4119ebb49812738f323f003c68f33b0b70"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "5373afd8ebdd9094a7ceff93bfc1e4546b0645a04f6a19678154ee5f1f14a404"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "3f344dc541b90ccf55da65096848b050c746900dccb8225d9f3de0929e0f4222"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "347c910331aaa2bd2c3349ae53591de1f0ad595a4151d563617b7077bc83fd1a"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "f5acf2794e5a3ace13fb59d6cc914ebad24a934bfb20e36761e556e1453160ef"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "ae8e7df8bbe677e654183215138167212f3fca0afc17e41af90a49b72f6b554d"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "2411d6800b92330e4842b4bfae17e631922f82f1fdf0b052004c202b891f8150"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "7db147a2ae2b3da772d91d71b7f90ae09dc8e9e4b80a180f8eeabb4da3a84155"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "718f9491133df376f9ca8fb623ec13afb8e6ff0b9dba68739a6430fb9b2eb7c5"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "570b48c3eb7479ab7b342bf4e5fc363b07c1a4c8d4136842ae77312fbf108f4d"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "ed7d61aaa74205d89e0d74d88bbb19488572ca74671e28e86bc20605c1e1ca6d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "ce9c7e960f9dc5de666766b81d10c211b25693fc92cd760d1a20f0ff299cda58"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "1a33412a7e4bd6d6df7d88d397ff2b87d9b8957b9853ca48717ca3b90f0bff6c"
+    },
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "f93e0a5c3bae02b3b2cd1fe3b47c2d0817a551cb0c41bbd475bd33ea970a0e53"
+    }
+  ],
+  "native_parts": {
+    "path": "art/characters/clone_01/motion/rig_015/rig/body_parts.json",
+    "sha256": "4cd43b8b1d3d623e33c364719f243921faf1ccb086ba2f6f43588e1e82f1e58d"
+  },
+  "entry_points": {
+    "fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire",
+    "run_fire_no_additional_drop": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire&carryDrop=0"
+  },
+  "remaining": [
+    "User visual review of whole-body silhouette, stock/cheek contact, elbow guides and grip overlap.",
+    "Transitions, torso cloth folds, camera-dependent projection and device performance await user review.",
+    "No 3D shoulder/arm depth model, collision-aware cloth or newly painted hidden surfaces.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing."
+  ],
+  "unmodified_scopes": [
+    "Generated source images and submitted prompts",
+    "Current closed hand and M16 source sockets",
+    "Kneeling knee-contact solution",
+    "Running contact/flight implementation",
+    "Current camera implementation",
+    "Plan B",
+    "Plan C",
+    "Past validation results",
+    "GIF outputs"
+  ]
+}

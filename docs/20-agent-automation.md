@@ -1,5 +1,11 @@
 # 20. AI 에이전트 스킬·도구와 반복 작업 자동화
 
+앉아쏴 최신 개발 인계는 [정답 이미지 적용 017](kneeling-image-application-017.md)이다. `rig_017/recipe/build_kneeling_parts.py`는 기존 UV 부착물을 작성·연결하고 `record_handoff.py`는 이 버전의 레시피·인계와 목록 메타데이터를 저장하는 작성 레시피다. 테스트·문서/목록 검사 도구가 아니며 검사 통과를 기록하지 않는다. 사용자 검증 인계 지시를 유지해 이번에도 추가 검사 없이 `untested`·사용자 검수 대기로 저장했다. 후속 검사는 tests/reviews의 `kneeling_image_017`에 분리하고 도구 기본 경로는 변경하지 않았다.
+
+현재 파츠 손 014는 [35](35-closed-handguard-grip.md)의 감싸 쥔 손·엄지 가림과 핸드가드 축 접점을 사용한다. built-in image_gen 편집 원본·영어 JSON/MD 프롬프트·생성 기록을 rig_014에 저장하고 공통 rig_005에 연결했다. 사용자 검증 인계 지시는 계속 유효하므로 추가 테스트·문서/목록 검사·브라우저 검수는 실행하지 않았다. 다음 검사 출력은 `tests/closed_grip_014`, `reviews/closed_grip_014`이며 현재 상태는 untested·검수 대기다.
+
+플랜 C의 실제 준비 검사는 [31](31-plan-c-threejs-readiness.md)을 따른다. `npm --prefix game/plan-c ci --ignore-scripts` 후 `npm --prefix game/plan-c run check`는 기존 PNG·평면 메시·소켓 투영을 검사한다. `tools/check_plan_c.mjs --output`과 `tools/review_plan_c.py --output`은 명시한 새 버전 경로에 결과를 저장한다. 후자는 Playwright/Chrome·실행 중인 기존 미리보기 서버가 필요하다. 캐릭터 전체 생성·리깅·등록·배포 명령은 아니며 `agent_pipeline.py`의 읽기 전용 명령과 구분한다.
+
 [문서 목록](../README.md) · 반복 작업을 스킬·도구로 구성할 수 있어야 한다는 사용자 요구를 반영한다.
 
 ## 1. 구성 원칙

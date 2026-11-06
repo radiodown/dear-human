@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "iteration": "muzzle_light_012",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "scope": "Add shot-synchronized warm muzzle spill to the existing 011 character, with per-material response, distance/time attenuation, and in-page lighting comparison. Replace the diagnostic muzzle triangle with native procedural flame/halo.",
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "effect_profile": {
+    "path": "art/fx/muzzle_flash/lighting_001/profile.json",
+    "sha256": "367cec6bdb0e31c6be2bff20afd2d07faa28dc967cda4f9100166ca3ef225556"
+  },
+  "effect_recipe": {
+    "path": "art/fx/muzzle_flash/lighting_001/records/recipe.json",
+    "sha256": "3a5da886f4d80123336af29e7fba6e5415003f6f6f378a34e7808917d3efb2af"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "14079716fdec521407e9badb42b2ab6b7abaec23f44613a4b15ace2291d0e2ba"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "7877ecc8dc577a2945401495ef71b91fdef8cec37f8ae530f64e7bca07ade188"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "4d8cb7e4f4074c2ff8f1d267c9e5020655736bc08dd885f29b0614beba852b8e"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "cdc9ecc99212bb401f9b79c5b01f8497540ed50887023e1998c88dbb5d216d4c"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "8fb52c224deb2b5e8fbb9dcc3549bcc846e7cf20bedfa385b083f6c54100d22e"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "2fac289688735cbc9e4de3251c825289cc4d51d611e5d062585198817aada90e"
+    },
+    {
+      "path": "game/styles.css",
+      "sha256": "033c44ca80ad1ed19dac68dcb55a5ab2525f36ab1ee1e558e97d49b552f8862c"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "84a989fd39b88028981ce744c4733c1f66cabb9f4e60dc9aac03733130d14944"
+    },
+    {
+      "path": "tools/tests/rig-core.test.mjs",
+      "sha256": "d707e2b4448aeaf4ce54267d12a04a543797eabb8f9d11637badf4d99bb11bce"
+    },
+    {
+      "path": "tools/review_parts_motion.py",
+      "sha256": "3b1a5788bf44612bf5ddf02b1cfddb2cae1ff8929438a4360922d4cff99fa880"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "d4b173c2df9024f71a43912f8a46535f8a9533b61f1688bd765cf7329dce03a3"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_011/rig/weapon.json",
+      "sha256": "e204af3172dfe7ad4266d05b6dc77ff1ba1196b5495e9ebedef31fada86180eb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_011/rig/body_parts.json",
+      "sha256": "e6d534d9990b1bc078b9971e129a7a5b3a377aa711d0333767b3770ce25e3624"
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "rig_004"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_010"
+    },
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_011"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_011"
+    },
+    {
+      "kind": "fx",
+      "entity_id": "muzzle_flash",
+      "revision_id": "lighting_001"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_011/index.json",
+    "sha256": "123d2d7e28d0ecd1b2d9896d9e9fa55c83ec87089292afe401be695d2a89982d"
+  },
+  "validation": {
+    "tests": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "new_tests_written": false,
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/muzzle_light_012",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/muzzle_light_012"
+  },
+  "remaining": [
+    "User visual review of warm spill, material response, highlight clipping and shot timing.",
+    "Device shader compatibility and performance review.",
+    "Approximate 2D surfaces only; no new normal maps or 3D cast shadows.",
+    "User visual and interaction review of waist folding, knee contact, pose transitions, running weight and handguard/finger overlap.",
+    "Release, magazine-grip and bolt-operation hand artwork remains missing.",
+    "Existing texture has no newly painted hidden surfaces for deep folding or viewpoint changes."
+  ],
+  "gifs_generated": false,
+  "external_model_calls": 0,
+  "new_raster_images": 0,
+  "development_time_seconds": null,
+  "development_cost": null
+}

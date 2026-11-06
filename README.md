@@ -1,5 +1,25 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**정답 이미지 적용 앉아쏴 017:** [변경 기록](docs/kneeling-image-application-017.md) · [앉아쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire). 골반 앞의 무릎 지지, 전용 상체/양팔·수평 견착, 독립 무릎 장갑과 허벅지를 따르는 스커트, 망토 바닥 접힘을 기존 파츠로 연결했다. 사용자 지시로 추가 검사 없이 `untested`·검수 대기다.
+
+**앉아쏴 정답 이미지 기준 분석:** 사용자가 [kneeling_fire_001](art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png)을 자세 기준으로 채택했다. [현재 파츠 모션과의 차이·보정 순서](docs/kneeling-image-parts-analysis-001.md)를 기록했다. 소스와 원본 그림의 정적 분석이며 런타임 변경·추가 검사는 수행하지 않았다.
+
+**호흡·상체·의상 반응 016 개발 인계:** [변경 기록](docs/breathing-and-body-motion-016.md). [같은 캐릭터 페이지](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle)에 대기 호흡, 걷기·달리기 허리 움직임, 발사 후 상체 복귀와 ‘허리·옷자락’ 체크 수정을 연결했다. 사용자 지시에 따라 추가 검증 없이 `untested`·검수 대기다.
+
+**사격 폼 015 개발 인계:** [사진 기반 폼 적용](docs/firing-form-application-001.md). 무릎·골반·흉곽·어깨를 연결하고 작은 머리 보정과 양팔 기준 포즈를 적용했다. [같은 사격 페이지](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire)에서 달리기 총 높이도 시선과 별도로 조절한다. 사용자 지시로 추가 검증은 실행하지 않았다.
+
+**앉아쏴 사진 보정 001 개발 인계:** [사진 분석과 자세 변경](docs/kneeling-reference-pose-001.md). [앉아쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire)는 뒷무릎·앞발·뒷발끝을 기준으로 골반과 다리를 연결하고 상체·총 반동을 줄였다. 기존 파츠와 현재 받침 손 연결을 재사용하며 추가 검증은 실행하지 않았다.
+
+**총열 파지 손 014 개발 인계:** [네 손가락으로 감싸 쥔 손·엄지 가림](docs/35-closed-handguard-grip.md)을 [같은 캐릭터 페이지](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle)에 연결했다. 새 손과 핸드가드 중심 접점을 사용하며 사용자 요청대로 추가 검증은 실행하지 않았다.
+
+**뛰며쏴 013 개발 인계:** [눈높이 조준 해제](docs/34-running-fire-without-eye-aim.md). [뛰며쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire)는 시선을 정면에 두고 총을 가슴 쪽으로 낮춰 쏘도록 변경했다. 기존 달리기·파츠·총구 조명을 재사용하며 사용자 요청대로 추가 검증은 실행하지 않았다.
+
+**총구 조명 012 개발 인계:** [발사 순간 캐릭터에 닿는 빛](docs/33-muzzle-light-on-character.md)을 같은 [사격 페이지](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire)에 연결했다. 피부·금속·천의 반응, 거리·방향·시간 감쇠와 조명 on/off·세기 조절을 추가했다. 사용자 요청대로 추가 검증은 실행하지 않았다.
+
+**파츠 모션 011 개발 인계:** [몸통·바스트·허리·스커트 분리와 전투 자세](docs/32-body-articulation-and-combat-poses.md). [같은 캐릭터 페이지](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle)에 허리 숙임·흉갑 각도 조절, 견착 대기·앉아쏴·뛰며쏴와 총열 아래 받침 손을 연결했다. 사용자가 검증을 맡기로 해 추가 검사는 실행하지 않았으며 검수 대기 상태다.
+
+**플랜 C · Three.js 도입 준비:** [31. 조사·시험·도입 순서](docs/31-plan-c-threejs-readiness.md), [실행 준비 코드](game/plan-c/README.md), [검사 기록](art/characters/clone_01/motion/plan_c/README.md)을 추가했다. Three.js 0.187.0을 별도로 고정하고 기존 파츠의 기초 호환성을 검사했다. 현재 전체 캐릭터 미리보기 연결·3D 모델·새 모션은 미구현이며 기본 재생은 유지한다.
+
 플랜 B 외부 도구는 `tools/vendor/2dimg2motion` Git 서브모듈로 고정했다. 저장소를 받은 뒤 아래 명령으로 같은 버전을 준비한다. 이미 생성한 PNG와 웹 미리보기는 본 저장소에 포함된다.
 
 ```powershell
@@ -61,6 +81,37 @@ git submodule update --init --recursive
 | [25. 인체 모션 자료 조사](docs/25-human-motion-research.md) | 실제 모션캡처 데이터·이용 조건·발 접지·전환 연구·현재 2D 리그 도입안 |
 | [26. 측면 파츠와 견착 보정](docs/26-side-parts-and-shoulder-contact.md) | 같은 구도의 파츠 재제작·UV 겹침 수정·개머리판 접점·검토 기록 |
 | [28. 전투 보행과 망토](docs/28-combat-walk-and-cape.md) | 보폭·체중 이동·이동 사격 전경·지연되는 망토·추가 그림 판단 |
+| [29. 머리카락·의상·팔·사격 자세](docs/29-secondary-motion-and-firing-stance.md) | 공식 표현 조사, 지속 보조 모션·팔꿈치 연결·장전 접점·손 3종 미제작·고개를 숙이는 사격 |
+| [30. 골반 연결·발사 전 자세·장전 시점](docs/30-body-mechanics-and-reload-views.md) | 골반과 허벅지 연결·어깨 이하 머리 고정·뒷발 반응·보행 하중·장전 가림·팔의 추가 원화 판단 |
+| [31. 허리축과 추가 원화](docs/31-waist-axis-and-new-parts.md) | 실제 허리축·흉갑/연결 천/스커트 분리·새 받침 손·측면 어깨·장전 전완 · 개발 인계 |
+| [31. 플랜 C · Three.js 도입 준비](docs/31-plan-c-threejs-readiness.md) | 공식 조사·버전 고정·기존 아틀라스/소켓 호환성·단일 파츠 Chrome 시험·전체 연결 전 조건 |
+
+| [32. 몸통 관절과 전투 자세](docs/32-body-articulation-and-combat-poses.md) | 몸통·바스트·허리·스커트 분리·숙임 조절·견착 대기·앉아쏴·뛰며쏴·총열 아래 받침 손 · 개발 인계 |
+
+| [33. 총구 빛의 캐릭터 반영](docs/33-muzzle-light-on-character.md) | 발사 이벤트·총구 소켓·피부/금속/천 조명·거리/시간 감쇠·비교 조절 · 개발 인계 |
+
+| [34. 뛰며쏴 · 눈높이 조준 해제](docs/34-running-fire-without-eye-aim.md) | 낮춘 총 지지·정면 시선·발사 준비와 눈 조준 분리·전환 · 개발 인계 |
+
+| [35. 총열 감싸 쥔 손](docs/35-closed-handguard-grip.md) | 네 손가락 파지·엄지 가림·핸드가드 축 접점 · 개발 인계 |
+
+| [35. 첨부 사진 기준 사격 폼 재연구](docs/35-firing-form-reference-research.md) | 공식 교범 본문·사진의 전신 실루엣·현재 리그 한계·보정 우선순위 · 조사만 수행 |
+
+| [앉아쏴 사진 보정 001](docs/kneeling-reference-pose-001.md) | 뒷무릎·앞발·뒷발끝 지지·골반 원호·반동 안정화 · 사용자 검수 대기 |
+| [수직 시점 001](docs/camera-pitch-001.md) | 기본 12° 하향·0~20° 비교·손/무기/바닥의 공통 투영 · 사용자 검수 대기 |
+
+| [36. 달리기 접지·골반·다리 회수](docs/36-running-mechanics.md) | 지지 압축·체공 타이밍·긴 보폭·뒤꿈치/무릎 회수·걷기↔달리기 접지 · 개발 인계 |
+
+| [사격 폼 적용 015](docs/firing-form-application-001.md) | 전신 실루엣·흉곽/어깨 축·견착·양팔 가이드·독립적인 달리기 총 높이 · 개발 인계 |
+
+| [달리기 미세 보정 002](docs/running-mechanics-002.md) | 허리 15°·정면 시선·수평 총구·연속 발 회수·골반 안정화 · 개발 인계 |
+
+| [뛰며쏴 총 전진 001](docs/running-weapon-forward-001.md) | 숙임·웅크림에 따른 총 전진·공통 소켓·양팔 도달 한도 · 개발 인계 |
+
+| [사격 허리각 조절 001](docs/fire-waist-controls-001.md) | 서서쏴·뛰며쏴 각도 조절·브라우저 저장·주소 복원 · 개발 인계 |
+
+| [앉아쏴 총 높이 조절 001](docs/kneeling-weapon-level-001.md) | 총 낮춤·수평 총구 유지·브라우저 저장·주소 복원 · 개발 인계 |
+
+| [모든 자세의 전방 수평 총구 001](docs/forward-muzzle-001.md) | 허리각과 총신 방향 분리·전방 수평 기준·공통 접점 · 개발 인계 |
 
 ## 읽는 방법
 

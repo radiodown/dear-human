@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "iteration": "camera_pitch_001",
+  "verification": "untested",
+  "status": "development_handoff",
+  "art_direction_status": "awaiting_user_review",
+  "user_validation_instruction": "검증은 내가할게 개발만해봐",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/camera_pitch_001/recipe.json",
+    "sha256": "24137ed11be3caebd1ab0eb1f2c4aae5eeb3be33d2f57b73d9d6a3907675434b"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "1a33412a7e4bd6d6df7d88d397ff2b87d9b8957b9853ca48717ca3b90f0bff6c"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "f5acf2794e5a3ace13fb59d6cc914ebad24a934bfb20e36761e556e1453160ef"
+    },
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "f93e0a5c3bae02b3b2cd1fe3b47c2d0817a551cb0c41bbd475bd33ea970a0e53"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "3ede283139f45923473e877bc187347d6256e2a5820755d76c5256abe1b5006d"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "1348f67cf2a9a4e9c2b51e98a51c2c59117b816a128f873515047a95bebc9f01"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "fa515d74e4fc8324ec7151d32fdbc16303793d190a90ee2e65c16228ba3ac277"
+    },
+    {
+      "path": "game/styles.css",
+      "sha256": "7c1bbd5a96bcc65807cfdd15e8bd054e3bda3a92ab8f2acc743d8faf0c6fdd89"
+    }
+  ],
+  "reused_inputs": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "347c910331aaa2bd2c3349ae53591de1f0ad595a4151d563617b7077bc83fd1a"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "5373afd8ebdd9094a7ceff93bfc1e4546b0645a04f6a19678154ee5f1f14a404"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "1954a4733b0705d99da5644541a2aebcd4c1dd3e1ff88365a37f1a760a4b3589"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "f712c56ee1e828691739dcfecbda8fe350d6f883336994a2f37d736f000d6dda"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "3f344dc541b90ccf55da65096848b050c746900dccb8225d9f3de0929e0f4222"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "b3de124fdbd9c24b587e7d7a7ed34c8a3ba99d112580886a3cf10f077280d0d4"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_014/rig/weapon.json",
+      "sha256": "9c2d08f6824db9688ca3ee52d582b062d88ad7d1cf8204bb54dcdd6084acb275"
+    }
+  ],
+  "entry_points": {
+    "elevated": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle&viewPitch=12",
+    "side": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle&viewPitch=0",
+    "firing": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire&viewPitch=12",
+    "kneeling": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire&viewPitch=12",
+    "running": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire&viewPitch=12"
+  },
+  "validation": {
+    "tests": "not_run",
+    "syntax_checks": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run",
+    "captures": "not_run",
+    "new_tests_written": false,
+    "next_test_output": "art/characters/clone_01/motion/rig_005/tests/camera_pitch_001",
+    "next_browser_output": "art/characters/clone_01/motion/rig_005/reviews/camera_pitch_001",
+    "output_configuration": "Reserved paths only; test/review tools were not run or rewritten."
+  },
+  "remaining": [
+    "User visual review of 0/12/20-degree poses, both facing directions, pause, motion changes and URL restoration.",
+    "User review of shoulder/hip/neck overlaps, stock seating, wrist/handguard overlap, reload and foot/knee contact under projection.",
+    "Flat side artwork only: no newly exposed crown, armor/weapon top surfaces or view-dependent occlusion.",
+    "Ground ellipses are display cues, not 3D cast shadows. Existing muzzle normals remain approximate.",
+    "Existing hand art, kneeling, running and other motion changes remain subject to their own user review.",
+    "Device shader compatibility and performance remain untested."
+  ],
+  "restoration": {
+    "snapshot": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_camera_pitch_001/index.json",
+    "scope": "Render/UI files only; simulation sources were not changed in this task."
+  }
+}

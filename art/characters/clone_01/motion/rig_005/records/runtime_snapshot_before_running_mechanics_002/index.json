@@ -1,0 +1,15 @@
+{
+  "scope": "Current rig before running_mechanics_002: 15 degree running waist, forward gaze/muzzle and continuous running recovery. Preservation only; no validation.",
+  "files": [
+    {
+      "original_path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_mechanics_002/game/animation/gait.js",
+      "sha256": "5373afd8ebdd9094a7ceff93bfc1e4546b0645a04f6a19678154ee5f1f14a404"
+    },
+    {
+      "original_path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_mechanics_002/game/animation/rig-core.js",
+      "sha256": "347c910331aaa2bd2c3349ae53591de1f0ad595a4151d563617b7077bc83fd1a"
+    }
+  ]
+}

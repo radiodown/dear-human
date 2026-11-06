@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "revision_id": "lighting_001",
+  "status": "development_connected_awaiting_user_validation",
+  "verification": "untested",
+  "tool": "Code-native WebGL shader authoring",
+  "generation_model": null,
+  "generation_cost": null,
+  "model_calls": 0,
+  "new_raster_images": 0,
+  "gifs_generated": false,
+  "elapsed_seconds": null,
+  "profile": {
+    "path": "art/fx/muzzle_flash/lighting_001/profile.json",
+    "sha256": "367cec6bdb0e31c6be2bff20afd2d07faa28dc967cda4f9100166ca3ef225556"
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "14079716fdec521407e9badb42b2ab6b7abaec23f44613a4b15ace2291d0e2ba"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "7877ecc8dc577a2945401495ef71b91fdef8cec37f8ae530f64e7bca07ade188"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "d4b173c2df9024f71a43912f8a46535f8a9533b61f1688bd765cf7329dce03a3"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_011/rig/weapon.json",
+      "sha256": "e204af3172dfe7ad4266d05b6dc77ff1ba1196b5495e9ebedef31fada86180eb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_011/rig/body_parts.json",
+      "sha256": "e6d534d9990b1bc078b9971e129a7a5b3a377aa711d0333767b3770ce25e3624"
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "parts_011"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "revision_id": "m16_binding_011"
+    }
+  ],
+  "user_instruction": "검증은 내가할게 개발만해봐",
+  "validation": {
+    "tests": "not_run",
+    "shader_runtime_compile_review": "not_run",
+    "docs_catalog_checks": "not_run",
+    "browser_review": "not_run"
+  },
+  "remaining": [
+    "User visual review of warm spill, material response, highlight clipping and shot timing.",
+    "Device shader compatibility and performance review.",
+    "Approximate 2D surfaces only; no new normal maps or 3D cast shadows."
+  ]
+}
