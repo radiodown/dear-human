@@ -347,15 +347,19 @@
           "artifacts": [
             {
               "path": "art/characters/clone_01/motion/retarget_001/records/retarget.json",
-              "sha256": "d2b37bb622dccbed87fb892cebf9bc5218e74e6ad97a3c96fb60254c2a6c7727"
+              "sha256": "854766354133b006aededc816b94599e44088f1365304bba7b004498bd15702b"
             },
             {
               "path": "game/animation/mocap-retarget.js",
-              "sha256": "d708198994cf98f45d5e3b46021c0e64b2c37d69aac845c4f84983227b4bcc47"
+              "sha256": "0bb43ec97e83153823b7f9978e3b6e7fb075c85356de42626ebe8a52bf4ed6b7"
             },
             {
               "path": "tools/tests/mocap-retarget.test.mjs",
-              "sha256": "14e3eec60c98f7caa5a8c415571b87a17f0c19a7d1661ab6d95cc737cc0f8f00"
+              "sha256": "ad5d13003877bdf853af5b389c47e22ac3725447a2aacdacc5bb557095f9514a"
+            },
+            {
+              "path": "game/animation/mocap-renderer.js",
+              "sha256": "448b58e65cae8be66ddc39aacb9cff120d609edb095823a3416f8aae3f5f562b"
             }
           ],
           "dependencies": [
@@ -408,11 +412,11 @@
             },
             {
               "path": "game/mocap-lab.js",
-              "sha256": "c2517e7f2dc5f846ed2ca0b5d6d7e6ddfdafd15f35596dcf855e60ffc9e0434f"
+              "sha256": "a24731aa4b13db7e8beded8309c29eb753a96eb9b3503443f8b86dee8de9f378"
             },
             {
               "path": "tools/tests/gltf-motion.test.mjs",
-              "sha256": "7a3d40bc41be7beb3feae29af833dfff690f837a699fcc0db139f01ca4ef24f5"
+              "sha256": "ae200ae76c453efe746f465d28f61f7f01788859c5995bb33f9ee448d785d5a5"
             }
           ],
           "dependencies": [
@@ -464,7 +468,7 @@
             },
             {
               "path": "tools/tests/gltf-motion.test.mjs",
-              "sha256": "7a3d40bc41be7beb3feae29af833dfff690f837a699fcc0db139f01ca4ef24f5"
+              "sha256": "ae200ae76c453efe746f465d28f61f7f01788859c5995bb33f9ee448d785d5a5"
             }
           ],
           "dependencies": [

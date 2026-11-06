@@ -8,15 +8,21 @@
     "rig": "art/characters/clone_01/motion/rig_002 (parts, rig-core, gait, proportions, webgl-character; files not modified)"
   },
   "method": {
-    "projection": "plane of the smoothed pelvis heading (circular mean, ±30 frames) viewed at an adjustable camera yaw: 0° = side view from the character's right, 90° = front; screen axis R = F·cosθ + L·sinθ; ground travel scaled by cosθ. Default 0°; the approved art is a 3/4 view, so the user is choosing the matching angle",
+    "projection": "plane of the smoothed pelvis heading (circular mean, ±30 frames) viewed at an adjustable camera yaw: 0° = side view from the character's right, 90° = front; screen axis R = F·cosθ + L·sinθ; ground travel scaled by cosθ. Default 0°; the approved art is a 3/4 view, so the user is choosing the matching angle; vertical pitch φ (−60…+60°, + = looking down): screen up = height·cosφ − (depth toward camera)·sinφ; leg, arm and torso screen angles use it, physical heights (pelvis, clearance) do not. URL pitch=",
     "scale": "rig leg length (thigh 66 + shin 90 px) / BVH leg length (hip→knee→ankle) = 1.794 px/cm",
-    "pelvis": "when a flat foot is planted, pelvis height is chosen so the FK leg (mocap angles, rig lengths) reaches that foot; otherwise BVH hip height × scale + rig ankle height; lowered only if an IK foot is out of reach",
+    "pelvis": "when a flat foot is planted, pelvis height is chosen so the FK leg (mocap angles, rig lengths) reaches that foot; otherwise BVH hip height × scale + rig ankle height; lowered only if an IK foot is out of reach; the reach-lowering is applied in proportion to each leg's IK weight",
     "torso": "Hips→Neck sagittal lean minus rest-pose lean, clamped ±0.3 rad, plus existing recoil term",
     "feet": "pitch from ankle→ball vector (3D horizontal length, toe-out compensated); heel pivot when dorsiflexed, toe pivot when plantarflexed; clearance = min(ankle, ball) height above ground; rig footPose geometry",
-    "foot_lock": "contact = clearance < 1.5 cm and |pitch| < 0.35 rad; pivot world X locked during contact, released with 0.7/frame decay, offset ≤ 6 cm",
+    "foot_lock": "contact = clearance < 1.5 cm, |pitch| < 0.35 rad and pivot world speed < 35 cm/s; heel/toe pivots blended over ±0.1 rad; offset ≤ 6 cm, released at 0.85/frame",
     "legs": "angle-based (2026-11-06 revision): sagittal thigh/shin angles from the mocap drive rig segments by FK (rig lengths 66/90 kept); during ground contact the angles blend toward the 2-bone IK solution to the locked foot; layer 0 (far) = Left, layer 1 (near) = Right",
     "upper_body": "existing CharacterRig weapon mount, grips and arm IK rigidly re-based onto the mocap torso (IK is invariant under rigid transforms)",
-    "blend": "weight 1 on contact frames; ramps to 0 over 6 frames from frames with clearance < 1.5 cm; reduced by foot pitch 0.25→0.75 rad (toe roll follows FK because the rig boot is shorter than a human foot); FK that would sink the boot is re-solved by IK lifted to the floor"
+    "blend": "weight 1 on contact frames; ramps to 0 over 6 frames from frames with clearance < 1.5 cm; reduced by foot pitch 0.25→0.75 rad (toe roll follows FK because the rig boot is shorter than a human foot); FK that would sink the boot is re-solved by IK lifted to the floor",
+    "smoothing": "foot pitch and torso lean ±2 frames; contact weights ±2 frames; pelvis height pre-fitted per frame and smoothed with a ±6-frame triangle; FK↔IK ramp 10 frames; soft IK in the last 3 px of leg extension (feet may stay up to ~1.1 px short)",
+    "match_mode": "optional \"뼈대 일치(비례 무시)\": legs start at the projected hip joints and copy mocap thigh/shin angles (pure FK, no floor IK or foot lock); the whole body is shifted vertically so the lowest boot point touches the floor; arms copy mocap upper/fore arm angles (Right = front armA, Left = back armB); the rifle is carried by the front hand with its grip offset kept; the back hand may leave the rifle. URL match=1; boots: rotation and lengthwise scale are solved so the boot toe lands on the projected skeleton ankle→toe-end vector (exact whenever the projected foot is longer than the art ankle height; otherwise direction only); spine: the projected spine joints' forward/back offsets from the neck→hip line (5 samples, scaled to the rig torso length) warp the chest and inner-torso meshes; shoulders: arm roots placed at the projected mocap shoulder joints relative to the neck, scaled by rig/skeleton torso length (side view puts both shoulders ≈11 px under the neck, unlike the art-calibrated rig_002 offsets); torso: the projected hip→neck angle is used as is (no ±0.3 rad clamp, no rest-pose subtraction, unwrapped through full rotations, ±2-frame smoothing); grounding uses the lowest of boots, knees, hip, neck and head crown",
+    "proportion_mode": "optional \"뼈대 비율\": thigh/shin and upper/fore arm lengths take the mocap skeleton ratios at the leg-length scale (100STYLE: legs 78.5/77.5 px instead of 66/90, arms 55.9/45.8 px instead of 43/38); limb sprites stretch to the segment length; torso, pelvis, head, boots and hands keep their art size; works with the default and the match mode; rifle grips are re-solved with the new arm lengths (0 px error). Knee angle accuracy is unchanged (mean 5.9° → 5.8°) because the angle-based retarget already absorbs the ratio. URL prop=1. Update: the same toggle also stretches the art to skeleton lengths — torso art and shoulder/mount offsets vertically by hip→neck / 77 px (100STYLE ×1.28, UAL ×1.40), head by neck→head-end / 47 px when a real head-end joint exists (100STYLE ×1.00), boots lengthwise by ankle→toe-end / rig ankle→toe (×2.9) with floor contact using the stretched boot; hands unchanged. Drawn by game/animation/mocap-renderer.js (subclass; rig_002 renderer unmodified)",
+    "live_lengths": "optional \"실시간 길이\" (requires 뼈대 비율): segment lengths and art scales follow the per-frame projected skeleton lengths at the current view (thigh, shin, upper/fore arm per side, hip→neck torso, neck→head-end head, ankle→toe-end boot); pelvis fit precomputed for this key; screen fit uses the fixed clip proportions so the view does not pulse. URL live=1",
+    "head": "optional \"고개 따라가기\" (default on): head and hair rotate about the neck pivot by the projected neck→head(-end) direction relative to the torso, zeroed at the clip's standing posture (median over frames with pelvis ≥ 90% of max and |lean| < 0.15 rad; whole-clip median otherwise) because BVH rest poses keep the head straight up while people look forward with ≈21° forward neck; clamped ±0.7 rad, smoothed ±2 frames; spring nods still add",
+    "debug": "rig debug also draws hip → neck → crown and neck → both shoulders"
   },
   "measurements_trimmed_ranges": {
     "ik_error_max_px": {
@@ -80,7 +86,8 @@
   "tools": {
     "retarget": "game/animation/mocap-retarget.js",
     "viewer": "game/mocap-lab.js",
-    "tests": "tools/tests/mocap-retarget.test.mjs"
+    "tests": "tools/tests/mocap-retarget.test.mjs",
+    "renderer": "game/animation/mocap-renderer.js"
   },
   "cost_usd": 0,
   "manual_time_minutes": null,
@@ -140,5 +147,127 @@
       ]
     },
     "remaining": "toe-roll frames still bend ~10° less than mocap; swing foot reaches ~9 px further back because the rig shin is longer"
+  },
+  "jitter_fix": {
+    "reported": "user: legs tremble while walking",
+    "causes": [
+      "reach-lowering of the pelvis switched off when the lifting leg weight crossed 0.01 (3.5 px pelvis pop → 8 px knee jump on the nearly straight stance leg)",
+      "near-straight stance IK amplified 0.1 px distance changes into knee jumps",
+      "false contact while the landing foot was still sweeping forward (lock offset snapped to 6 cm)",
+      "heel/toe pivot switch with clamped projected foot length at large view angles",
+      "weight drop from 1 to 0.75 at toe-off"
+    ],
+    "second_difference_max_px_FW_1000_1600": {
+      "knee_before": {
+        "0deg": 12.9,
+        "90deg": 16.9
+      },
+      "ankle_before": {
+        "0deg": 14.1,
+        "90deg": 30.2
+      },
+      "knee_after": {
+        "0deg": 2.6,
+        "90deg": 4.9
+      },
+      "ankle_after": {
+        "0deg": 2.6,
+        "90deg": 2.7
+      },
+      "bvh_knee_reference": 0.7
+    },
+    "ual_walk_foot_pitch_second_difference_deg": {
+      "before": 16.4,
+      "after": 5.2,
+      "note": "remaining kinks come from 30 fps source keys"
+    }
+  },
+  "foot_fit": {
+    "reported": "user: feet differ a lot from the skeleton",
+    "causes": [
+      "art boot ankle→toe 15 px vs human 43 px at the same scale, ankle pivot 19.5 px above the sole vs ≈14 px",
+      "boot angle came from 3D foot pitch instead of the projected screen angle",
+      "a 2D boot cannot turn toward the camera"
+    ],
+    "before": {
+      "0deg_default": {
+        "direction_deg": 27.0,
+        "length_px": -21.2
+      },
+      "60deg_match_prop_live": {
+        "direction_deg": 10.5,
+        "p90_deg": 18.6
+      }
+    },
+    "after_match_mode_FW_1000_1600": {
+      "0deg": {
+        "direction_deg": 0.0,
+        "toe_px": 0.0,
+        "inexact_frames": "0/600"
+      },
+      "60deg": {
+        "direction_deg": 0.0,
+        "toe_px_mean": 0.18,
+        "inexact_frames": "27/600"
+      },
+      "90deg": {
+        "direction_deg": 0.0,
+        "toe_px_mean": 1.35,
+        "inexact_frames": "148/600"
+      }
+    },
+    "default_mode": "unchanged (ground contact first)"
+  },
+  "head_ranges_deg": {
+    "100STYLE ID": [
+      -12.2,
+      23.3
+    ],
+    "100STYLE FW": [
+      -10.1,
+      27.7
+    ],
+    "UAL Idle/Walk": [
+      -0.2,
+      0.2
+    ],
+    "UAL Hit_Head": [
+      -11.7,
+      4.6
+    ],
+    "UAL Death01": [
+      -25.6,
+      1.9
+    ],
+    "neutral_100STYLE": 21.2
+  },
+  "spine_bend_max_px": {
+    "100STYLE FW": 4.2,
+    "UAL Walk_Loop": 1.9,
+    "UAL Death01": 10.9,
+    "UAL Punch_Cross": 9.8
+  },
+  "torso_match_fix": {
+    "reported": "user: torso completely different from the skeleton",
+    "causes": [
+      "default-mode lean clamp ±0.3 rad applied in match mode",
+      "rest-pose spine angle subtracted (UAL 4°)",
+      "no unwrapping through ±180°",
+      "grounding only on boots (roll sank under the floor)"
+    ],
+    "mean_abs_diff_deg_before": {
+      "UAL Walk_Loop": 4.5,
+      "UAL Crouch_Fwd_Loop": 30.1,
+      "UAL Death01": 37.7,
+      "UAL Roll": 39.5
+    },
+    "mean_abs_diff_deg_after": {
+      "100STYLE FW": 0.58,
+      "UAL Walk_Loop": 0.53,
+      "UAL Crouch_Fwd_Loop": 0.57,
+      "UAL Death01": 0.57,
+      "UAL Roll": 0.67,
+      "UAL Roll max": 3.3
+    }
   }
 }

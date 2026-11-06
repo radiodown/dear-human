@@ -4,7 +4,7 @@ import { facingYaw, smoothAngles, parseFrameCuts } from './animation/bvh.js';
 import { motionFromBVH, motionFromFiles } from './animation/motion-import.js';
 import { CharacterRig } from './animation/rig-core.js';
 import { MocapRig, buildRetargetTrack, estimateProgress } from './animation/mocap-retarget.js';
-import { WebGLCharacter } from './animation/webgl-character.js';
+import { MocapWebGLCharacter } from './animation/mocap-renderer.js';
 
 const $ = (id) => document.getElementById(id);
 // rig_002 카탈로그가 rig-lab.js 해시를 고정하므로 같은 정의·아틀라스를 여기서 읽는다(파일은 수정하지 않음).
@@ -28,8 +28,8 @@ function sideOf(name) { return /^Left/.test(name) ? 'left' : /^Right/.test(name)
 
 export class MocapLab {
   constructor() {
-    this.clipKey = 'FW'; this.viewAngle = 0; this.speed = 1; this.paused = false; this.time = 0;
-    this.options = { align: true, rootLock: true, trim: true, contacts: true, labels: false, compare: true, footLock: true, fire: false, rigDebug: false };
+    this.clipKey = 'FW'; this.viewAngle = 0; this.viewPitch = 0; this.speed = 1; this.paused = false; this.time = 0;
+    this.options = { align: true, rootLock: true, trim: true, contacts: true, labels: false, compare: true, footLock: true, fire: false, rigDebug: false, match: false, proportions: false, live: false, headFollow: true };
     this.rigMode = 'retarget'; this.mocapRig = new MocapRig();
     this.cache = new Map(); this.cuts = {}; this.active = false; this.status = 'idle'; this.raf = 0; this.last = 0;
     this.pendingFrame = null; this.rig = new CharacterRig(); this.rigRenderer = null;
@@ -37,8 +37,13 @@ export class MocapLab {
   }
 
   applyParams(params) {
+    const pitch = Number(params.get('pitch'));
+    if (params.has('pitch') && Number.isFinite(pitch)) this.setViewPitch(pitch, false);
     const angle = Number(params.get('angle'));
     if (params.has('angle') && Number.isFinite(angle)) this.setViewAngle(angle, false);
+    if (params.has('live')) { this.options.live = params.get('live') === '1'; $('mocap-live').checked = this.options.live; this.mocapRig.live = this.options.live; }
+    if (params.has('prop')) { this.options.proportions = params.get('prop') === '1'; $('mocap-proportions').checked = this.options.proportions; this.mocapRig.proportions = this.options.proportions; }
+    if (params.has('match')) { this.options.match = params.get('match') === '1'; $('mocap-match').checked = this.options.match; this.mocapRig.match = this.options.match; }
     const clip = params.get('clip');
     if (clip && clip in MOCAP_CLIPS && clip !== 'USER') this.clipKey = clip;
     const frame = Number(params.get('frame'));
@@ -61,7 +66,7 @@ export class MocapLab {
   async initRig() {
     try {
       const { definition, images } = await loadRigAssets();
-      this.rigRenderer = new WebGLCharacter($('mocap-rig-canvas'), images[0], images[1], definition);
+      this.rigRenderer = new MocapWebGLCharacter($('mocap-rig-canvas'), images[0], images[1], definition);
       $('mocap-rig-loading').hidden = true; this.syncRigMode(); this.render();
     } catch (error) { $('mocap-rig-loading').textContent = `비교 리그를 불러오지 못했습니다: ${error.message}`; }
   }
@@ -107,7 +112,7 @@ export class MocapLab {
       }
     });
     const bones = clip.joints.map((j, k) => j.parent >= 0 ? [j.parent, k] : null).filter(Boolean);
-    const track = buildRetargetTrack(clip, P, yaw, progress, { viewAngle: this.viewAngle });
+    const track = buildRetargetTrack(clip, P, yaw, progress, { viewAngle: this.viewAngle, viewPitch: this.viewPitch });
     return { clip, P, stride, yaw, progress, inPlace, ground, contacts, bones, track, sides: clip.joints.map((j) => sideOf(j.end ? clip.joints[j.parent].name : j.name)) };
   }
 
@@ -177,6 +182,10 @@ export class MocapLab {
     this.rig.setWalking(this.clipKey !== 'ID');
     this.rig.trigger = this.mocapRig.trigger = this.options.fire;
     this.mocapRig.footLock = this.options.footLock;
+    this.mocapRig.match = this.options.match;
+    this.mocapRig.proportions = this.options.proportions;
+    this.mocapRig.live = this.options.live;
+    this.mocapRig.headFollow = this.options.headFollow;
     $('mocap-rig-label').textContent = this.rigMode === 'retarget' ? 'RETARGET / RIG_002 · BVH 하체 + 무기 IK 상체' : 'CURRENT RIG / RIG_002 · 절차 보행';
   }
   activeRig() { return this.rigMode === 'retarget' ? this.mocapRig : this.rig; }
@@ -191,6 +200,10 @@ export class MocapLab {
     const [route, query] = location.hash.split('?'), params = new URLSearchParams(query || '');
     params.delete('motion'); params.set('view', 'mocap'); params.set('clip', this.clipKey);
     if (this.viewAngle) params.set('angle', String(this.viewAngle)); else params.delete('angle');
+    if (this.viewPitch) params.set('pitch', String(this.viewPitch)); else params.delete('pitch');
+    if (this.options.match) params.set('match', '1'); else params.delete('match');
+    if (this.options.proportions) params.set('prop', '1'); else params.delete('prop');
+    if (this.options.live) params.set('live', '1'); else params.delete('live');
     if (this.paused && this.data) { params.set('frame', String(this.frame())); params.set('paused', '1'); } else { params.delete('frame'); params.delete('paused'); }
     history.replaceState(null, '', `${location.pathname}${location.search}${route}?${params}`);
   }
@@ -210,6 +223,8 @@ export class MocapLab {
     $('mocap-anim').addEventListener('change', (e) => this.openFiles(this.userFiles, Number(e.target.value)));
     $('mocap-view-select').addEventListener('change', (e) => { if (e.target.value !== '') this.setViewAngle(Number(e.target.value)); });
     $('mocap-view-angle').addEventListener('input', (e) => this.setViewAngle(Number(e.target.value)));
+    $('mocap-view-pitch').addEventListener('input', (e) => this.setViewPitch(Number(e.target.value)));
+    $('mocap-view-pitch-reset').addEventListener('click', () => this.setViewPitch(0));
     $('mocap-pause').addEventListener('click', () => this.setPaused(!this.paused));
     $('mocap-prev').addEventListener('click', () => this.step(-1));
     $('mocap-next').addEventListener('click', () => this.step(1));
@@ -217,13 +232,15 @@ export class MocapLab {
     $('mocap-frame').addEventListener('input', (e) => { if (!this.data) return; this.paused = true; this.setFrame(Number(e.target.value)); this.syncButtons(); this.render(); });
     $('mocap-frame').addEventListener('change', () => this.syncUrl());
     $('mocap-rig-mode').addEventListener('change', (e) => { this.rigMode = e.target.value; this.syncRigMode(); this.render(); });
-    for (const key of ['align', 'rootLock', 'trim', 'contacts', 'labels', 'compare', 'footLock', 'fire', 'rigDebug']) {
+    for (const key of ['align', 'rootLock', 'trim', 'contacts', 'labels', 'compare', 'footLock', 'fire', 'rigDebug', 'match', 'proportions', 'live', 'headFollow']) {
       $(`mocap-${key}`).addEventListener('change', (e) => {
         const frame = this.data ? this.frame() : 0;
         this.options[key] = e.target.checked;
         if (key === 'trim' && this.data) { this.syncSlider(); this.setFrame(frame); }
         if (key === 'compare') $('mocap-stages').classList.toggle('single', !e.target.checked);
-        if (key === 'footLock' || key === 'fire') this.syncRigMode();
+        if (key === 'footLock' || key === 'fire' || key === 'match' || key === 'proportions' || key === 'live' || key === 'headFollow') this.syncRigMode();
+        if (key === 'live' && e.target.checked && !this.options.proportions) { this.options.proportions = true; $('mocap-proportions').checked = true; this.syncRigMode(); }
+        if (key === 'match' || key === 'proportions' || key === 'live') this.syncUrl();
         this.render();
       });
     }
@@ -263,7 +280,17 @@ export class MocapLab {
     $('mocap-view-angle-label').value = `${this.viewAngle}°`;
     const preset = [...$('mocap-view-select').options].find((o) => Number(o.value) === this.viewAngle && o.value !== '');
     $('mocap-view-select').value = preset ? preset.value : '';
-    if (this.data) { this.data.track = buildRetargetTrack(this.data.clip, this.data.P, this.data.yaw, this.data.progress, { viewAngle: this.viewAngle }); this.mocapRig.setTrack(this.data.track); }
+    if (this.data) { this.data.track = buildRetargetTrack(this.data.clip, this.data.P, this.data.yaw, this.data.progress, { viewAngle: this.viewAngle, viewPitch: this.viewPitch }); this.mocapRig.setTrack(this.data.track); }
+    if (updateUrl) this.syncUrl();
+    this.render();
+  }
+
+  /** 상하 각도(+ 위에서 내려다봄, − 아래에서 올려다봄, −60~60°)를 바꾸고 리타겟 트랙을 다시 만든다. */
+  setViewPitch(degrees, updateUrl = true) {
+    this.viewPitch = Math.round(Math.min(60, Math.max(-60, degrees)));
+    $('mocap-view-pitch').value = String(this.viewPitch);
+    $('mocap-view-pitch-label').value = `${this.viewPitch > 0 ? '+' : ''}${this.viewPitch}°`;
+    if (this.data) { this.data.track = buildRetargetTrack(this.data.clip, this.data.P, this.data.yaw, this.data.progress, { viewAngle: this.viewAngle, viewPitch: this.viewPitch }); this.mocapRig.setTrack(this.data.track); }
     if (updateUrl) this.syncUrl();
     this.render();
   }
@@ -274,13 +301,15 @@ export class MocapLab {
     const h = this.options.align ? d.yaw[frame] : d.yaw[start];
     const F = [Math.sin(h), Math.cos(h)], L = [Math.cos(h), -Math.sin(h)];
     const vc = Math.cos(this.viewAngle * Math.PI / 180), vs = Math.sin(this.viewAngle * Math.PI / 180);
+    const pc = Math.cos(this.viewPitch * Math.PI / 180), ps = Math.sin(this.viewPitch * Math.PI / 180);
     const originFrame = this.options.rootLock ? frame : start;
     const ox = P[originFrame * stride], oz = P[originFrame * stride + 2];
     const J = d.clip.joints.length, out = new Array(J);
     for (let j = 0; j < J; j++) {
       const x = P[frame * stride + j * 3] - ox, y = P[frame * stride + j * 3 + 1] - d.ground, z = P[frame * stride + j * 3 + 2] - oz;
       const forward = x * F[0] + z * F[1], left = x * L[0] + z * L[1];
-      out[j] = { x: forward * vc + left * vs, y, depth: forward * vs - left * vc };
+      const depth = forward * vs - left * vc;
+      out[j] = { x: forward * vc + left * vs, y: y * pc - depth * ps, depth: depth * pc + y * ps };
     }
     return out;
   }
@@ -367,11 +396,11 @@ export class MocapLab {
     $('mocap-metrics').textContent = `프레임 ${frame} (${a}–${b}, ${Math.round(fps)}fps) · 골반 높이 ${hipY.toFixed(1)}cm · 진행 속도 ${(Math.abs(speed) < 0.5 ? 0 : speed).toFixed(0)}cm/s · 접지 추정 L ${contact[0] ? '●' : '○'} R ${contact[1] ? '●' : '○'} · 정면 ${(d.yaw[frame] * 180 / Math.PI).toFixed(0)}°${d.inPlace ? ' · 제자리 클립 → 디딤발로 진행량 추정' : ''}`;
     if (this.rigMode === 'retarget' && this.options.compare) {
       const pose = this.mocapRig.pose(), err = Math.max(...pose.legs.map((l) => l.error));
-      $('mocap-retarget').textContent = `리타겟 · 배율 ${d.track.scale.toFixed(3)}px/cm · 골반 ${pose.pelvis.y.toFixed(1)}px · 몸통 ${(pose.torso.a * 180 / Math.PI).toFixed(1)}° · 다리 IK 오차 ${err.toFixed(2)}px · 손잡이 오차 ${pose.gripError.toFixed(2)}px · 발 고정 L ${pose.legs[0].foot.locked ? '●' : '○'} R ${pose.legs[1].foot.locked ? '●' : '○'} · 바닥 IK 가중 L ${pose.legs[0].weight.toFixed(2)} R ${pose.legs[1].weight.toFixed(2)} (0=모캡 각도)`;
+      $('mocap-retarget').textContent = `리타겟 · 배율 ${d.track.scale.toFixed(3)}px/cm · 골반 ${pose.pelvis.y.toFixed(1)}px · 몸통 ${(pose.torso.a * 180 / Math.PI).toFixed(1)}° · 다리 IK 오차 ${err.toFixed(2)}px · 손잡이 오차 ${pose.gripError.toFixed(2)}px · 발 고정 L ${pose.legs[0].foot.locked ? '●' : '○'} R ${pose.legs[1].foot.locked ? '●' : '○'} · 바닥 IK 가중 L ${pose.legs[0].weight.toFixed(2)} R ${pose.legs[1].weight.toFixed(2)} (0=모캡 각도) ${pose.spineBend ? ` · 척추 휨 ${Math.max(...pose.spineBend.map(Math.abs)).toFixed(1)}px` : ''} · 고개 ${pose.headTilt === null ? '스프링만' : `${(pose.headTilt * 180 / Math.PI).toFixed(1)}°`} · 마디 ${(() => { const L = this.mocapRig.lens(); return `허벅지/정강이 ${L.thigh.toFixed(0)}/${L.shin.toFixed(0)} · 위팔/아래팔 ${L.upperArm.toFixed(0)}/${L.forearm.toFixed(0)}px · 그림 배율 몸통 ×${L.torso.toFixed(2)} 머리 ×${L.head.toFixed(2)} 부츠 ${pose.partScale ? pose.partScale.foot.map((v) => `×${v.toFixed(2)}`).join("/") : `×${L.foot.toFixed(2)}`}${this.options.match ? " (발끝 맞춤)" : ""}`; })()}`;
     } else $('mocap-retarget').textContent = '';
   }
 
   snapshot() {
-    return { status: this.status, active: this.active, clip: this.clipKey, viewAngle: this.viewAngle, paused: this.paused, frame: this.data ? this.frame() : null, range: this.range(), options: { ...this.options }, joints: this.data?.clip.joints.length ?? null };
+    return { status: this.status, active: this.active, clip: this.clipKey, viewAngle: this.viewAngle, viewPitch: this.viewPitch, paused: this.paused, frame: this.data ? this.frame() : null, range: this.range(), options: { ...this.options }, joints: this.data?.clip.joints.length ?? null };
   }
 }
