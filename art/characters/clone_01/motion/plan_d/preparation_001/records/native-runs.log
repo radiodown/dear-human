@@ -1,0 +1,21 @@
+[overlay]
+$ native/plan-d/build/bin/dear-human-plan-d --view overlay --paused --capture art/characters/clone_01/motion/plan_d/preparation_001/reviews/overlay.png --frames 3
+exit_code: 0
+2026-11-07 08:28:02.057 dear-human-plan-d[53143:851730] Dear Human Plan D | SDL 3.4.20 | GPU metal
+2026-11-07 08:28:02.229 dear-human-plan-d[53143:851730] GPU capture: art/characters/clone_01/motion/plan_d/preparation_001/reviews/overlay.png (2560 x 1600)
+Plan D ready. 1 bones / 2 solid / 3 overlay. Space pause. Escape quit.
+
+[bones]
+$ native/plan-d/build/bin/dear-human-plan-d --view bones --paused --capture art/characters/clone_01/motion/plan_d/preparation_001/reviews/bones.png --frames 3
+exit_code: 0
+2026-11-07 08:28:15.510 dear-human-plan-d[53180:852103] Dear Human Plan D | SDL 3.4.20 | GPU metal
+2026-11-07 08:28:15.645 dear-human-plan-d[53180:852103] GPU capture: art/characters/clone_01/motion/plan_d/preparation_001/reviews/bones.png (2560 x 1600)
+Plan D ready. 1 bones / 2 solid / 3 overlay. Space pause. Escape quit.
+
+[solid]
+$ native/plan-d/build/bin/dear-human-plan-d --view solid --walk --phase 1.0 --paused --capture art/characters/clone_01/motion/plan_d/preparation_001/reviews/solid-walk-pose.png --frames 3
+exit_code: 0
+2026-11-07 08:28:15.917 dear-human-plan-d[53181:852263] Dear Human Plan D | SDL 3.4.20 | GPU metal
+2026-11-07 08:28:16.032 dear-human-plan-d[53181:852263] GPU capture: art/characters/clone_01/motion/plan_d/preparation_001/reviews/solid-walk-pose.png (2560 x 1600)
+Plan D ready. 1 bones / 2 solid / 3 overlay. Space pause. Escape quit.
+

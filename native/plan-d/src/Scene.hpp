@@ -2,6 +2,7 @@
 
 #include "Skeleton.hpp"
 #include <cstdint>
+#include <optional>
 #include <vector>
 
 namespace dh {
@@ -14,6 +15,7 @@ struct MeshData {
 };
 enum class View { Skeleton, Solid, Overlay };
 struct SceneGeometry { MeshData world; MeshData bones; MeshData hud; };
+struct RenderFrame { SceneGeometry scene; Mat4 camera; };
 struct ViewState {
     View view{View::Overlay};
     float worldX{}, facing{1}, phase{}, walkAmount{};
@@ -24,4 +26,5 @@ SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state,
                         int pixelWidth, int pixelHeight);
 Mat4 cameraMatrix(const ViewState& state, float aspect);
 const char* viewName(View view);
+std::optional<View> viewTabAt(float x, float y, int windowWidth, int windowHeight);
 } // namespace dh

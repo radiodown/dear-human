@@ -1,5 +1,9 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**플랜 D · Windows/macOS 공통 구조 002:** [구조·검수 범위](docs/plan-d-cross-platform-002.md). 이동·보행·포즈는 SDL 없는 C++ 코어로, 입력·창·GPU는 인터페이스 뒤로 분리했다. 공통 렌더 프레임과 SDL GPU 그리기를 공유하고 Metal/D3D12 설정만 CMake가 선택한다. 코어 단독 빌드·최소 이동 검사·기존과 동일한 Mac 캡처를 확인했으며 실제 Windows 빌드·실행은 미확인이다.
+
+**플랜 D · 로컬 3D 기초:** [실행 안내](native/plan-d/README.md) · [개발 범위](docs/plan-d-native-001.md) · [세 화면 캡처](art/characters/clone_01/motion/plan_d/preparation_001/README.md). C++20·SDL3 GPU/Metal로 환경 구축 → 21개 관절 뼈대 → 기본 도형 렌더링을 추가했다. `native/plan-d/run.command`로 별도 로컬 창에서 실행한다. macOS 빌드·세 정지 화면만 확인했으며 채택 캐릭터 외형·전체 조작/보행 품질·Windows는 후속이다.
+
 **정답 이미지 적용 앉아쏴 017:** [변경 기록](docs/kneeling-image-application-017.md) · [앉아쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire). 골반 앞의 무릎 지지, 전용 상체/양팔·수평 견착, 독립 무릎 장갑과 허벅지를 따르는 스커트, 망토 바닥 접힘을 기존 파츠로 연결했다. 사용자 지시로 추가 검사 없이 `untested`·검수 대기다.
 
 **앉아쏴 정답 이미지 기준 분석:** 사용자가 [kneeling_fire_001](art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png)을 자세 기준으로 채택했다. [현재 파츠 모션과의 차이·보정 순서](docs/kneeling-image-parts-analysis-001.md)를 기록했다. 소스와 원본 그림의 정적 분석이며 런타임 변경·추가 검사는 수행하지 않았다.
@@ -54,6 +58,8 @@ git submodule update --init --recursive
 
 | 문서 | 내용 |
 |---|---|
+| [플랜 D · 공통 구조 002](docs/plan-d-cross-platform-002.md) | SDL 없는 이동 코어·플랫폼/렌더러 인터페이스·Metal/D3D12 설정·한정 검수 |
+| [플랜 D · 로컬 3D 기초 001](docs/plan-d-native-001.md) | C++20·SDL3 GPU 환경·21개 관절·기본 도형·Metal 캡처·로컬 실행 |
 | [01. 프로젝트 범위](docs/01-project-scope.md) | 검증 목적, 필수 구현, 제외 범위, 완료 조건 |
 | [02. 캐릭터·아트 설정](docs/02-world-and-art.md) | 첨부 기준 클론·3D풍 전술 갑옷, M16, 적 실루엣, 베스퍼의 야외 검문소 아트 |
 | [03. 게임플레이](docs/03-gameplay-and-stage.md) | 조작, 전투, 웨이브, 진행·실패·재시작 규칙 |

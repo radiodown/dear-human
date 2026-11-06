@@ -1,5 +1,10 @@
 # Dear Human 제작 규칙
 
+- 플랜 D 최신 구조는 [공통 구조 002](docs/plan-d-cross-platform-002.md)와 `plan_d/architecture_002`다. 공통 이동·보행·포즈·장면의 `plan-d-core`, 인터페이스만 쓰는 `plan-d-app`, 창/입력/공통 SDL GPU의 `plan-d-sdl`을 분리한다. 게임 코어에 SDL·Metal·D3D 타입이나 OS 조건문을 넣지 않고 읽기 전용 RenderFrame을 IRenderer로 전달한다. CMake가 Metal 또는 D3D12 설정을 선택하며 Windows 진입점은 `native/plan-d/run-windows.ps1`이다. SDL 없는 코어 빌드·작은 이동 검사 한 번·기존과 동일한 Mac GPU PNG만 확인했다. Windows 실제 빌드·실행은 미확인이다. 변경 전 소스와 이전 캡처를 보존하고 후속 검사는 새 버전 경로에 남긴다.
+
+- 사용자 최신 검증 지시는 “이미지나 랜더링 피드백에 필요한건 검사는하되, 과도한 테스트는 하지말것”이다. 필요한 빌드·짧은 실행·시각 피드백 확인은 수행하고, 관련 없는 검사 묶음·반복 테스트는 자동 실행하지 않는다. 과거 버전의 `untested` 기록을 소급 변경하지 않는다.
+- **플랜 D · 로컬 3D 기초**는 [개발 기록](docs/plan-d-native-001.md), `native/plan-d/`, `art/characters/clone_01/motion/plan_d/preparation_001/`을 따른다. C++20·CMake·SDL3 3.4.20 / macOS Metal로 환경 구축 → 21개 관절 → 기본 도형 렌더링을 추가했다. 실행은 `native/plan-d/run.command`이며 웹 서버를 사용하지 않는다. 세 화면의 짧은 네이티브 실행·GPU PNG만 확인했다. 중립 절차적 인체·단단한 도형 부착이며 채택 외형·가중치 스키닝·M16·사격·앉아쏴는 미구현이다. 전체 조작·자연스러운 보행·Windows·성능은 미검수다. 기존 웹 플랜 A/B/C·원본은 유지하며 후속 산출물은 새 버전에 보존한다.
+
 - 정답 이미지 적용 앉아쏴 `kneeling_image_017`은 [적용 기록](docs/kneeling-image-application-017.md), `game/animation/kneeling-pose.js`, `rig_017`을 따른다. 골반 앞의 접지 무릎·전용 흉곽/양팔·수평 총신과 눈/견착 정렬을 사용한다. 기존 UV에서 무릎 장갑·정강이·연결 천과 스커트 앞/뒤 패널을 나누고 망토의 남는 길이를 바닥 경로로 펼친다. 새 사선/접힘 원화·실제 3D/천 충돌을 만든 결과가 아니며 원본 PNG와 014 손/M16·현재 달리기 총 전진·016 반응·플랜 B/C는 유지한다. 변경 전은 runtime_snapshot_before_kneeling_image_017에 보존했다. 사용자 지시로 테스트·구문/문서/목록 검사·브라우저 검수 없이 untested·사용자 검수 대기다. 후속 결과는 tests/reviews의 kneeling_image_017을 사용하며 도구 기본 경로는 바꾸지 않았다.
 
 - 사용자는 [앉아쏴 이미지 kneeling_fire_001](art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png)을 “이 그림이 맞는거임”이라고 자세 기준으로 채택했다. [파츠 모션 문제 분석](docs/kneeling-image-parts-analysis-001.md)을 따른다. 현재 무릎 목표의 골반 대비 전후 배치, 정강이와 통합된 무릎 장갑, 허벅지를 따르지 않는 스커트, 공통 상체/팔 가이드, 볼 접촉·바닥 망토의 부재를 구분한다. 그림에는 받침 팔꿈치–앞무릎 접촉 조건이 없다. 이번은 소스/원본 그림 분석과 기준 채택 기록만 수행했으며 런타임 변경·새 그림·검사는 없다.

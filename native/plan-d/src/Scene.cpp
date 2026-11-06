@@ -39,8 +39,8 @@ void ellipsoid(MeshData& mesh, const Mat4& model, Color color) {
         for (int s=0; s<segments; ++s) {
             const Vec3 a=model.point(point(r,s)), b=model.point(point(r+1,s));
             const Vec3 c=model.point(point(r+1,s+1)), d=model.point(point(r,s+1));
-            if (r != rings-1) triangle(mesh, a, b, c, color);
-            if (r != 0) triangle(mesh, a, c, d, color);
+            if (r != rings-1) triangle(mesh, a, c, b, color);
+            if (r != 0) triangle(mesh, a, d, c, color);
         }
 }
 void cylinder(MeshData& mesh, Vec3 from, Vec3 to, float radius, Color color) {
@@ -116,6 +116,15 @@ const char* viewName(View view) {
     case View::Overlay: return "OVERLAY";
     }
     return "";
+}
+std::optional<View> viewTabAt(float x, float y, int windowWidth, int windowHeight) {
+    if (windowWidth <= 0 || windowHeight <= 0) return std::nullopt;
+    const float ui = std::min(static_cast<float>(windowWidth)/1280, static_cast<float>(windowHeight)/800);
+    x /= ui; y /= ui;
+    if (y < 122 || y > 152 || x < 28 || x >= 490) return std::nullopt;
+    const int tab = static_cast<int>((x-28)/158);
+    if (tab < 3 && x < 28+tab*158+146) return static_cast<View>(tab);
+    return std::nullopt;
 }
 Mat4 cameraMatrix(const ViewState& state, float aspect) {
     const Vec3 target{state.worldX,.94f,0};

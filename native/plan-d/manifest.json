@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "plan": "D",
+  "revision_id": "architecture_002",
+  "previous_revision_id": "preparation_001",
+  "display_name": "로컬 3D · Windows/macOS 공통 코어와 렌더러 인터페이스",
+  "status": "draft",
+  "runtime": "native_cpp_sdl_gpu",
+  "entrypoint_macos": "native/plan-d/run.command",
+  "entrypoint_windows": "native/plan-d/run-windows.ps1",
+  "executable_macos": "native/plan-d/build/bin/dear-human-plan-d",
+  "records": "art/characters/clone_01/motion/plan_d/architecture_002",
+  "architecture": {
+    "core": "plan-d-core: platform-independent Simulation/Skeleton/Scene",
+    "application": "plan-d-app: common application loop using IPlatform and IRenderer",
+    "backend": "plan-d-sdl: SDL window/input and common SDL GPU renderer",
+    "platform_profiles": ["macOS Metal/MSL", "Windows D3D12/DXIL"],
+    "core_and_application_link_sdl": false,
+    "render_frame_is_read_only": true
+  },
+  "sdl_version": "3.4.20",
+  "joints": 21,
+  "views": ["bones", "solid", "overlay"],
+  "geometry": "procedural_rigid_3d_meshes_attached_to_hierarchical_joints",
+  "skinning": false,
+  "character_art_status": "neutral_technical_mannequin_not_adopted_clone_appearance",
+  "verification": {
+    "macos_build": "passed",
+    "metal_render_and_png_readback": "passed",
+    "scope": "SDL-free core build, one focused movement check, one native overlay frame visually reviewed and byte-identical to preparation_001",
+    "shared_core_build_without_sdl": "passed",
+    "movement_timing_pause_and_render_separation": "passed",
+    "interactive_input": "awaiting_user_review",
+    "animation_quality": "awaiting_user_review",
+    "windows_build_and_runtime": "untested",
+    "performance": "not_measured"
+  },
+  "dependencies_on_existing_plans": [],
+  "requires_web_server": false
+}

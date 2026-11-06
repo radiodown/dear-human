@@ -5,6 +5,14 @@ description: Run reusable catalog, cache, dependency and document checks for ass
 
 # Dear Human production pipeline
 
+## 최신 검증 범위와 플랜 D
+
+플랜 D 현재 공통 구조는 `docs/plan-d-cross-platform-002.md`와 `plan_d/architecture_002`다. `plan-d-core`는 SDL 없는 이동/포즈/장면, `plan-d-app`은 IPlatform/IRenderer만 사용하는 실행 루프, `plan-d-sdl`은 창/입력/GPU 구현이다. OS·GPU 타입을 코어로 올리지 않고 읽기 전용 RenderFrame을 전달한다. Windows/macOS 설정 분리를 실제 Windows 빌드·실행 검증으로 보고하지 않는다. 이번 결과는 최소 코어 검사와 Mac 동일 화면 확인에 한정하며 이전 preparation_001 기록과 변경 전 소스를 보존한다.
+
+사용자 최신 지시는 “이미지나 랜더링 피드백에 필요한건 검사는하되, 과도한 테스트는 하지말것”이다. 필요한 빌드·짧은 실행·시각 피드백은 수행하되 관련 없는 전체 검사나 반복 테스트는 자동 실행하지 않는다. 이전 버전의 미검수 기록은 그대로 보존한다.
+
+플랜 D는 `docs/plan-d-native-001.md`, `native/plan-d/`, `art/characters/clone_01/motion/plan_d/preparation_001/`에 분리한 C++20·SDL3 GPU의 로컬 3D 프로토타입이다. 이번 순서는 환경 구축 → 간단한 뼈대 → 기본 도형 렌더링이다. 웹 공통 미리보기를 새로 만들거나 기존 A/B/C를 덮어쓰지 않는다. 중립 절차적 인체는 채택 캐릭터 외형이 아니며, macOS 빌드·Metal의 세 정지 화면 확인을 전체 입력·보행 품질·Windows 검증으로 확대 보고하지 않는다. 실행은 `native/plan-d/run.command`이며 후속 결과는 새 버전 경로에 남긴다.
+
 ## 정답 이미지 적용 앉아쏴 017 개발 인계
 
 `docs/kneeling-image-application-017.md`와 `rig_005/records/kneeling_image_017`을 따른다. 전용 `kneeling-pose.js`와 rig_017의 기존 UV 부착물을 공통 rig_005에 연결했다. 접지 무릎은 골반 앞에 두고 무릎 장갑/정강이를 분리하며 스커트 패널은 허벅지를, 남는 망토는 바닥 경로를 따른다. 전용 상체/양팔·수평 총신과 눈 정렬은 사용자 채택 이미지를 기준으로 한다. 원본·014 손/M16·현재 달리기 총 전진·016 반응·플랜 B/C·GIF는 유지한다. 사용자 지시로 테스트·구문/문서/목록 검사·브라우저 검수를 실행하지 않으며 후속 출력은 tests/reviews의 kneeling_image_017로 분리한다. 현재는 untested·사용자 검수 대기이며 실제 3D/새 사선 원화·깊은 압축 주름 완성으로 보고하지 않는다.
