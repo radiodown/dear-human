@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "revision_id": "reference_003_3d",
+  "status": "generated_awaiting_user_review",
+  "tool": "image_gen.imagegen",
+  "mode": "built_in",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "started_at_utc": "2026-11-06T07:22:58.762Z",
+  "finished_at_utc": "2026-11-06T07:23:36.519Z",
+  "elapsed_seconds": 37.757,
+  "request": {
+    "num_last_images_to_include": 1,
+    "transparent_background": true,
+    "prompt_path": "art/characters/clone_01/concepts/reference_003_3d/records/prompt.json"
+  },
+  "inputs": [
+    {
+      "type": "user_conversation_image",
+      "description": "Latest attached black-haired armored adult female, used directly by conversation reference. Local source path and byte hash were not exposed.",
+      "local_path": null,
+      "sha256": null
+    },
+    {
+      "type": "user_visual_json",
+      "path": "art/characters/clone_01/concepts/reference_003_3d/records/user_reference.json",
+      "sha256": "8801fa448830051783f6e26dad0cfa487a6fce26c961c7500a07265d56223735"
+    }
+  ],
+  "output": {
+    "path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+    "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c",
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGBA"
+  },
+  "verification": {
+    "file_decode": "passed",
+    "sampled_background_alpha": {
+      "0,0": 0,
+      "10,10": 0,
+      "100,200": 0,
+      "900,200": 0,
+      "30,900": 0,
+      "1000,1500": 0
+    },
+    "alpha_extrema": [
+      0,
+      254
+    ],
+    "visual_inspection": "Generated character was inspected against the latest conversation image: black long hair, pale cool skin, armored black/gunmetal outfit, gold-edged cape, garter straps, tall armored boots, helmet, lowered rifle and 3D-rendered materials. Exact facial likeness remains for user review.",
+    "production_ready_cutout": false,
+    "rig_test": "not_implemented",
+    "three_dimensional_model": false
+  },
+  "reference_scope": "Visual identity and style only. General rank, futuristic rifle, background and listed helmet electronics are not changes to narrative, M16 gameplay defaults or implemented systems.",
+  "runtime_dependencies": []
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built_in",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "started_at_utc": "2026-11-06T07:40:50.906Z",
+  "finished_at_utc": "2026-11-06T07:42:13.872Z",
+  "generation_elapsed_seconds": 82.966,
+  "requested_size_note": "Requested in prompt only; actual output dimensions are recorded below.",
+  "inputs": [],
+  "prompt_path": "art/weapons/m16_basic/rig_002/records/prompt.json",
+  "output": {
+    "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+    "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      254
+    ]
+  },
+  "status": "draft_motion_test",
+  "visual_inspection": "Generated atlas inspected. Character has 16 separated cells; rifle and magazine are separate UV regions. Images are used unmodified; alpha measurements determine source UV regions only.",
+  "limitations": [
+    "Character-facing image is a slight three-quarter view; production side view is pending.",
+    "Shared near/far limb and grip images are prototype reuse, not final anatomical contact validation.",
+    "Generation wall time excludes manual coding, rigging and review time."
+  ],
+  "rigging_elapsed_seconds": null
+}

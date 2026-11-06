@@ -1,0 +1,376 @@
+{
+  "schema_version": 1,
+  "entries": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "display_name": "주인공 클론",
+      "status": "draft",
+      "selected_revision_id": "reference_003_3d",
+      "revisions": [
+        {
+          "revision_id": "reference_003_3d",
+          "display_name": "첨부 기준 · 3D풍 전술 갑옷",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "file_decode_sha256_and_sampled_alpha",
+          "art_direction_status": "approved",
+          "recipe_key": "224809f3f65e6554bff7069fed4a1ecdbf7ddc9df3c8d30d8ca5a052fdc99440",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+              "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/reference_003_3d/records/prompt.json",
+              "sha256": "224809f3f65e6554bff7069fed4a1ecdbf7ddc9df3c8d30d8ca5a052fdc99440"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/reference_003_3d/records/prompt.md",
+              "sha256": "1ff131da48db03e4bec8fe7da7adcc3bf1734beff35c1df2eea81ff2f3762e15"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/reference_003_3d/records/user_reference.json",
+              "sha256": "8801fa448830051783f6e26dad0cfa487a6fce26c961c7500a07265d56223735"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/reference_003_3d/records/user_reference.md",
+              "sha256": "3f9618cb55c1e786b318215ef2f58a6c69ad15e53dc270ab81ec1bf2afde6708"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/reference_003_3d/records/generation.json",
+              "sha256": "9c4242abf44cdbbbd71f3e16d31f9b31db04a8d2dbd396ac4d3dc66a87171bf4"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/reference_003_3d/records/adoption.json",
+              "sha256": "8e75ba86639b754e19ced8c6bda3ac15605dd165de848a207c76f26f92e35a1d"
+            }
+          ],
+          "dependencies": [],
+          "description": "사용자 채택 외형입니다. 검은 장발·전술 갑옷·망토와 사실적인 3D 렌더 질감을 유지합니다. 파츠 모션 초안은 모션 테스트에서 별도로 검토합니다.",
+          "review_notes": [
+            "새 외형 사용자 채택 완료",
+            "이전 제복·중단 시험 자료 삭제",
+            "분리 파츠·M16 모션 시험 재개 · 최종 도구 판단은 후속"
+          ],
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "성인 · 24세 상당"
+            ],
+            [
+              "체형",
+              "첨부 기준 · 날씬하고 탄탄한 비례"
+            ],
+            [
+              "머리",
+              "검은 긴 생머리 · 자연스러운 앞머리"
+            ],
+            [
+              "눈",
+              "짙은 눈"
+            ],
+            [
+              "피부",
+              "매우 하얀 쿨톤"
+            ],
+            [
+              "화풍",
+              "사실적인 3D 렌더 질감"
+            ],
+            [
+              "의상",
+              "블랙·건메탈 전술 갑옷 · 절제된 금장"
+            ],
+            [
+              "외투",
+              "금장 테두리의 어깨 망토"
+            ],
+            [
+              "군화",
+              "높은 장갑 군화 · 무릎/정강이 장갑"
+            ],
+            [
+              "하의",
+              "장갑 패널 하의 · 가터 · 스타킹"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "검은 머리",
+              "hex": "#17171D"
+            },
+            {
+              "label": "쿨톤 피부",
+              "hex": "#EEE7E9"
+            },
+            {
+              "label": "건메탈 갑옷",
+              "hex": "#4A4E55"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B89A62"
+            },
+            {
+              "label": "버건디",
+              "hex": "#34202A"
+            }
+          ],
+          "preview": {
+            "image_path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false,
+            "sampled_background_alpha": {
+              "0,0": 0,
+              "10,10": 0,
+              "100,200": 0,
+              "900,200": 0,
+              "30,900": 0,
+              "1000,1500": 0
+            }
+          },
+          "prompt_path": "art/characters/clone_01/concepts/reference_003_3d/records/prompt.json",
+          "prompt_document": "art/characters/clone_01/concepts/reference_003_3d/records/prompt.md"
+        },
+        {
+          "revision_id": "rig_002",
+          "display_name": "파츠 모션 · 첫 시험",
+          "verification": "passed",
+          "verification_scope": "file_hash_7_simulation_tests_and_still_browser_captures",
+          "art_direction_status": "awaiting_motion_review",
+          "recipe_key": "ca7b8870471f24005cada635e25fe0e003b37fc5f8c01cbd43c12464ff3ea0b6",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/rig_002/previews/idle-desktop.png",
+              "sha256": "e144bd3f1ea656d86bbcde4ad55037925cec64a14d26208c1f5853ffe27bbbdf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/previews/moving-fire-desktop.png",
+              "sha256": "54d3af373ac4bc3c50b020542d6615070694e5e474f007ea2598cc825b870c38"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/previews/narrow-500.png",
+              "sha256": "22cff6084515015b60387162e5a1cd7d516b9ec997f7b8373df4cc4e8015e8cf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/previews/reload-desktop.png",
+              "sha256": "a0a015b3e9152c7578c9253cdfbe38e2073cc1b7aa2a5a7102e4e8595409f4c2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/records/generation.json",
+              "sha256": "5e0ad0c910cb0453043081a373e987e60b7a021096bdcb51e176a50d64d579aa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/records/prompt.json",
+              "sha256": "1d361462a3bc5142be57bfd9bc7a0220c135d2bff08878e29a68346b478d800b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/records/prompt.md",
+              "sha256": "ab37a3714a0d0a8941fdea4beb4f1896e1ef9355b1d7b1ca210ae74851de9378"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/rig/parts.json",
+              "sha256": "eb0aba746b320fd8168cd6e21af610730346005338d64890ee793f9c280ab597"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/source/parts_atlas.png",
+              "sha256": "35f081f1ad995a2688f355b0b0a0da1214f884ede110c9fa2c39cba8727668a3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/tests/simulation-metrics.json",
+              "sha256": "8fcef5f32e1a1f3cc2a673eca07ea0376fd6ecac43ede6547cda06c6c2884441"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/tests/test-report.json",
+              "sha256": "90726872cc48a4884277fe444da97d1d497be72c8eb72708eec5882b0f8db416"
+            },
+            {
+              "path": "game/animation/rig-core.js",
+              "sha256": "d41878bdc17baf45c42cac831065e352c6c189d0605bf8ae32f9905efe764cec"
+            },
+            {
+              "path": "game/animation/webgl-character.js",
+              "sha256": "8cfe85a235a7e74a4d480f22a43618a89b9d32fda1805abbee5406f543530cd2"
+            },
+            {
+              "path": "game/rig-lab.js",
+              "sha256": "2fe69a3024264454e9ee8a74378d28adff38b42c1acb85bec28bdee7ee1bb065"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "weapon",
+              "entity_id": "m16_basic",
+              "revision_id": "m16_rig_002"
+            }
+          ],
+          "description": "16칸 파츠 아틀라스·자체 WebGL/2본 IK·국소 메시·M16 반동과 장전 초안. 전체 동작 시각 검수와 도구 최종 판단은 후속.",
+          "preview": {
+            "type": "parts_rig",
+            "sample_url": "#/samples/characters/clone_01?motion=idle"
+          },
+          "prompt_path": "art/characters/clone_01/motion/rig_002/records/prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/rig_002/records/prompt.md",
+          "motions": [
+            "idle",
+            "walk",
+            "fire",
+            "walk_fire",
+            "reload",
+            "reload_empty",
+            "hit_response"
+          ]
+        }
+      ],
+      "capabilities": [
+        "concept_image",
+        "parts_atlas",
+        "webgl_rig"
+      ],
+      "motions": [
+        "idle",
+        "walk",
+        "fire",
+        "walk_fire",
+        "reload",
+        "reload_empty",
+        "hit_response"
+      ],
+      "review_revision_id": "reference_003_3d"
+    },
+    {
+      "kind": "weapon",
+      "entity_id": "m16_basic",
+      "display_name": "M16",
+      "status": "draft",
+      "selected_revision_id": "m16_rig_002",
+      "revisions": [
+        {
+          "revision_id": "m16_rig_002",
+          "display_name": "M16 · 분리 본체/탄창",
+          "verification": "passed",
+          "verification_scope": "image_decode_hash_and_simulation_fixture",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "78450cf18418a5c1eec1c4567dd427b040077aee8f856ddca3315f9c5e4139cb",
+          "artifacts": [
+            {
+              "path": "art/weapons/m16_basic/rig_002/definition/weapon.json",
+              "sha256": "7943f118697c1ac6de7c1067e61e16b9815c154bbcc0d7b4a74bcdc42dcf251d"
+            },
+            {
+              "path": "art/weapons/m16_basic/rig_002/records/generation.json",
+              "sha256": "808bba136419e9ee09c5b7d7723a41dc9d7de2b688d664930ead0a56ae431f2d"
+            },
+            {
+              "path": "art/weapons/m16_basic/rig_002/records/prompt.json",
+              "sha256": "78450cf18418a5c1eec1c4567dd427b040077aee8f856ddca3315f9c5e4139cb"
+            },
+            {
+              "path": "art/weapons/m16_basic/rig_002/records/prompt.md",
+              "sha256": "4bd174199e75a8cbb4d5ae2d0a506f15879ef86d87b9ed6a2a591d1a9bfd8992"
+            },
+            {
+              "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+              "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3"
+            },
+            {
+              "path": "game/animation/weapon-profiles.js",
+              "sha256": "8d1260215437290391504986a3e6fe6e001d354ac96a739f54f838449250c725"
+            },
+            {
+              "path": "art/weapons/m16_basic/rig_002/previews/mount-desktop.png",
+              "sha256": "1fdc4a926707aa72db6a748f5d0733b245515513ffbe342bd75d678d22175232"
+            }
+          ],
+          "dependencies": [],
+          "description": "모션 시험용 독립 M16 아틀라스입니다. 본체·탄창이 분리되어 있고 동일 캐릭터 리그에 장착합니다. 이미지와 파지·장전은 초안입니다.",
+          "appearance_specs": [
+            [
+              "기본 무기",
+              "M16 · 소총"
+            ],
+            [
+              "탄창",
+              "분리형 · 30발"
+            ],
+            [
+              "발사 간격",
+              "0.1초"
+            ],
+            [
+              "일반/빈 장전",
+              "2.2초 / 2.8초"
+            ],
+            [
+              "캐릭터",
+              "clone_01 · 공통 파츠 재사용"
+            ],
+            [
+              "상태",
+              "모션 테스트 초안"
+            ]
+          ],
+          "review_notes": [
+            "캐릭터와 별도 이미지",
+            "M16 본체·탄창 UV 영역 분리",
+            "상단 모션 테스트에서 동일 리그 장착",
+            "진단 도형은 두 번째 완성 무기가 아님"
+          ],
+          "palette": [
+            {
+              "label": "건메탈",
+              "hex": "#4A4E55"
+            },
+            {
+              "label": "블랙",
+              "hex": "#181A20"
+            }
+          ],
+          "preview": {
+            "image_path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+            "width": 1536,
+            "height": 1024,
+            "views": [
+              "parts_atlas"
+            ],
+            "type": "parts_atlas",
+            "production_ready_cutout": false
+          },
+          "prompt_path": "art/weapons/m16_basic/rig_002/records/prompt.json",
+          "prompt_document": "art/weapons/m16_basic/rig_002/records/prompt.md"
+        }
+      ],
+      "capabilities": [
+        "weapon_parts",
+        "rig_mount"
+      ],
+      "review_revision_id": "m16_rig_002",
+      "motions": [
+        "fire",
+        "reload",
+        "reload_empty"
+      ]
+    },
+    {
+      "kind": "enemy",
+      "entity_id": "swarm_creature_melee",
+      "display_name": "초기 근접 군집생물",
+      "status": "planned",
+      "selected_revision_id": null,
+      "revisions": [],
+      "capabilities": [],
+      "motions": []
+    }
+  ]
+}

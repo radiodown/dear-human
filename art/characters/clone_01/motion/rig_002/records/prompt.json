@@ -1,0 +1,26 @@
+{
+  "use_case": "identity-preserve",
+  "asset_type": "transparent modular skeletal-animation parts atlas",
+  "reference_role": "The approved adult black-haired woman is the sole identity, costume and realistic 3D-rendered material reference. Functional disconnected parts of the SAME character, not a redesign.",
+  "style": "Realistic stylized 3D game cinematic render, pale cool skin, black hair, matte black and gunmetal armor, pale gray chest insets, restrained worn gold trim. Consistent soft diffuse lighting. Not cel shaded, not cartoon, not pink haired.",
+  "layout": "Square 2048 by 2048 transparent atlas. EXACT 4 columns by 4 rows of equal cells. One isolated part centered per cell, generous transparent margins, absolutely no overlap across cells. No labels or grid. Consistent RIGHT-facing side/slight three-quarter view for a side-scrolling rifle pose. All limb parts straight down, round overlapping joint ends and complete hidden surfaces. Do not assemble a figure.",
+  "cells_row_major": [
+    "HEAD and short neck only. Preserve reference adult face, calm dark eyes, pale skin, black crown hair and bangs. Nose faces RIGHT. Hair above chin only, no long back hair, no helmet.",
+    "Long straight black BACK HAIR only, crown roots to below shoulders, no face or body, vertical.",
+    "Fully clothed black high-collar INNER TORSO only, neck to waist, narrow waist, fitted undersuit. No rigid chest plate, arms, head, cape or skirt. No exposed body.",
+    "Rigid black/gunmetal CHEST ARMOR only, matching pale gray insets and muted gold trim, collar to waist. No person, arms or cape.",
+    "Armored PELVIS and short layered tactical skirt/safety shorts with belt, small pouches and hanging garter straps. No torso, legs or cape.",
+    "One armored UPPER ARM only, rounded shoulder to elbow, straight vertical. No forearm, body or hand.",
+    "One armored FOREARM only, elbow to wrist, straight vertical, complete joint ends. No hand or upper arm.",
+    "One armored gripping GLOVE only, closed around an invisible rifle grip, wrist top, knuckles right. No rifle or sleeve.",
+    "One THIGH only, hip to knee, pale upper skin, black garter band and straps, dark stocking, vertical. No skirt, shin or foot.",
+    "One SHIN only, compact knee armor at top and articulated shin guard over stocking, knee to ankle, vertical. No thigh or boot.",
+    "One black armored COMBAT BOOT only, ankle to sole, reinforced sole and laces, foot faces RIGHT side view. No shin or knee.",
+    "Complete black CAPE BACK panel only, shoulders to ankle, gold border and low wing emblem, heavy cloth, vertical. No person or sleeves.",
+    "One compact segmented SHOULDER ARMOR plate only with small gold wing insignia, no arm or body.",
+    "One narrow FRONT CAPE edge panel only, long vertical black cloth and gold border, shoulder to ankle. No body or sleeve.",
+    "One detached black tactical HELMET with dark visor only, matching reference. No person or hands.",
+    "One long black SIDE HAIR lock only, temple to below shoulder, straight and vertical. No face."
+  ],
+  "constraints": "Genuine transparent background. No halo, glow, haze, floor, shadow, gray backdrop, checkerboard drawing, text, watermark, weapons, full figures or new accessories. Rigid armor retains solid 3D material shapes; cloth and hair are independently deformable."
+}

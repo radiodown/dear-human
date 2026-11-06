@@ -1,0 +1,224 @@
+{
+  "schema_version": 1,
+  "rig_id": "clone_01_rig_002",
+  "character_reference": "reference_003_3d",
+  "atlas_rect_units": "source_pixels",
+  "atlases": {
+    "character": {
+      "path": "art/characters/clone_01/motion/rig_002/source/parts_atlas.png",
+      "width": 1254,
+      "height": 1254
+    },
+    "weapon": {
+      "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+      "width": 1536,
+      "height": 1024
+    }
+  },
+  "parts": {
+    "head": {
+      "atlas": "character",
+      "rect": [
+        66,
+        24,
+        210,
+        280
+      ],
+      "material": "rigid",
+      "cell": 0
+    },
+    "hair_back": {
+      "atlas": "character",
+      "rect": [
+        392,
+        11,
+        156,
+        298
+      ],
+      "material": "soft",
+      "cell": 1
+    },
+    "inner_torso": {
+      "atlas": "character",
+      "rect": [
+        703,
+        15,
+        177,
+        294
+      ],
+      "material": "soft",
+      "cell": 2
+    },
+    "chest": {
+      "atlas": "character",
+      "rect": [
+        1005,
+        25,
+        195,
+        283
+      ],
+      "material": "rigid",
+      "cell": 3
+    },
+    "pelvis": {
+      "atlas": "character",
+      "rect": [
+        40,
+        350,
+        265,
+        263
+      ],
+      "material": "rigid",
+      "cell": 4
+    },
+    "upper_arm": {
+      "atlas": "character",
+      "rect": [
+        414,
+        329,
+        120,
+        282
+      ],
+      "material": "rigid",
+      "cell": 5
+    },
+    "forearm": {
+      "atlas": "character",
+      "rect": [
+        749,
+        333,
+        93,
+        279
+      ],
+      "material": "rigid",
+      "cell": 6
+    },
+    "hand": {
+      "atlas": "character",
+      "rect": [
+        1007,
+        391,
+        187,
+        134
+      ],
+      "material": "rigid",
+      "cell": 7
+    },
+    "thigh": {
+      "atlas": "character",
+      "rect": [
+        98,
+        637,
+        130,
+        290
+      ],
+      "material": "rigid",
+      "cell": 8
+    },
+    "shin": {
+      "atlas": "character",
+      "rect": [
+        427,
+        630,
+        93,
+        301
+      ],
+      "material": "rigid",
+      "cell": 9
+    },
+    "boot": {
+      "atlas": "character",
+      "rect": [
+        691,
+        695,
+        196,
+        186
+      ],
+      "material": "rigid",
+      "cell": 10
+    },
+    "cape": {
+      "atlas": "character",
+      "rect": [
+        991,
+        631,
+        219,
+        299
+      ],
+      "material": "soft",
+      "cell": 11
+    },
+    "shoulder": {
+      "atlas": "character",
+      "rect": [
+        89,
+        1006,
+        171,
+        180
+      ],
+      "material": "rigid",
+      "cell": 12
+    },
+    "cape_front": {
+      "atlas": "character",
+      "rect": [
+        415,
+        946,
+        95,
+        303
+      ],
+      "material": "soft",
+      "cell": 13
+    },
+    "helmet": {
+      "atlas": "character",
+      "rect": [
+        664,
+        980,
+        231,
+        231
+      ],
+      "material": "rigid",
+      "cell": 14
+    },
+    "hair_side": {
+      "atlas": "character",
+      "rect": [
+        1050,
+        950,
+        89,
+        295
+      ],
+      "material": "soft",
+      "cell": 15
+    },
+    "rifle": {
+      "atlas": "weapon",
+      "rect": [
+        21,
+        171,
+        1503,
+        397
+      ],
+      "material": "rigid"
+    },
+    "magazine": {
+      "atlas": "weapon",
+      "rect": [
+        690,
+        659,
+        150,
+        322
+      ],
+      "material": "rigid"
+    }
+  },
+  "limitations": [
+    "Draft right-facing three-quarter parts, not a full 90-degree side view.",
+    "Near/far limbs reuse the same source parts with tint; separate final views are not yet drawn.",
+    "Gripping hand is one shape reused for primary and support.",
+    "The generated forearm and shoulder have slight pre-bends; joint overlap needs visual review.",
+    "Rigid chest receives no bust deformation.",
+    "Atlas alpha bounds use a threshold only to measure UV regions; generated raster files were not edited."
+  ]
+}

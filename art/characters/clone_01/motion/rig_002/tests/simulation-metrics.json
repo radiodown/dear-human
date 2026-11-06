@@ -1,0 +1,74 @@
+{
+  "scope": "Simulation tests, not visual or gameplay acceptance",
+  "render_rates": [
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 20,
+      "recoilEvents": 20,
+      "ammo": 10,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 1.4210854715202004e-14,
+      "facing": 1,
+      "springs": {
+        "head": -0.031003655614050038,
+        "hair": 0.21359727076474777,
+        "cloth": 0.017961188127580116,
+        "cape": 0.601399572733822,
+        "recoil": -0.018189691674320094
+      }
+    },
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 20,
+      "recoilEvents": 20,
+      "ammo": 10,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 1.4210854715202004e-14,
+      "facing": 1,
+      "springs": {
+        "head": -0.031003655614050038,
+        "hair": 0.21359727076474777,
+        "cloth": 0.017961188127580116,
+        "cape": 0.601399572733822,
+        "recoil": -0.018189691674320094
+      }
+    },
+    {
+      "seconds": 1.9999999999999953,
+      "shots": 20,
+      "recoilEvents": 20,
+      "ammo": 10,
+      "reload": null,
+      "reloadCompletions": 0,
+      "weapon": "m16_basic",
+      "gripError": 1.4210854715202004e-14,
+      "facing": 1,
+      "springs": {
+        "head": -0.031003655614050038,
+        "hair": 0.21359727076474777,
+        "cloth": 0.017961188127580116,
+        "cape": 0.601399572733822,
+        "recoil": -0.018189691674320094
+      }
+    }
+  ],
+  "settle_after_04_sec": {
+    "head": 7.365123070475904e-9,
+    "hair": 0.0002588097928269959,
+    "cloth": -0.00000924384416092531,
+    "cape": -0.004549728882620776,
+    "recoil": -1.2844869190069802e-7
+  },
+  "max_grip_error_logical_px": 3.03543989777123e-14,
+  "reuse_hashes": {
+    "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c",
+    "art/characters/clone_01/motion/rig_002/source/parts_atlas.png": "35f081f1ad995a2688f355b0b0a0da1214f884ede110c9fa2c39cba8727668a3",
+    "art/characters/clone_01/motion/rig_002/rig/parts.json": "eb0aba746b320fd8168cd6e21af610730346005338d64890ee793f9c280ab597",
+    "game/animation/rig-core.js": "d41878bdc17baf45c42cac831065e352c6c189d0605bf8ae32f9905efe764cec",
+    "game/animation/webgl-character.js": "8cfe85a235a7e74a4d480f22a43618a89b9d32fda1805abbee5406f543530cd2"
+  }
+}

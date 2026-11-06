@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "tool": "image_gen.imagegen",
+  "mode": "built_in",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "started_at_utc": "2026-11-06T07:40:50.906Z",
+  "finished_at_utc": "2026-11-06T07:41:42.932Z",
+  "generation_elapsed_seconds": 52.026,
+  "requested_size_note": "Requested in prompt only; actual output dimensions are recorded below.",
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+      "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+    }
+  ],
+  "prompt_path": "art/characters/clone_01/motion/rig_002/records/prompt.json",
+  "output": {
+    "path": "art/characters/clone_01/motion/rig_002/source/parts_atlas.png",
+    "sha256": "35f081f1ad995a2688f355b0b0a0da1214f884ede110c9fa2c39cba8727668a3",
+    "width": 1254,
+    "height": 1254,
+    "mode": "RGBA",
+    "alpha_extrema": [
+      0,
+      255
+    ]
+  },
+  "status": "draft_motion_test",
+  "visual_inspection": "Generated atlas inspected. Character has 16 separated cells; rifle and magazine are separate UV regions. Images are used unmodified; alpha measurements determine source UV regions only.",
+  "limitations": [
+    "Character-facing image is a slight three-quarter view; production side view is pending.",
+    "Shared near/far limb and grip images are prototype reuse, not final anatomical contact validation.",
+    "Generation wall time excludes manual coding, rigging and review time."
+  ],
+  "rigging_elapsed_seconds": null
+}

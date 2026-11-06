@@ -1,0 +1,8 @@
+{
+  "status": "approved",
+  "user_decision_date": "2026-11-06",
+  "source": "User explicitly approved the current appearance, requested concept MD updates, deletion of previous work and restart of motion production.",
+  "image_sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c",
+  "motion_status": "new_test_in_progress",
+  "previous_concepts_and_interrupted_tests": "deleted_at_user_request"
+}

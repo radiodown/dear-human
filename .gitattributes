@@ -1,0 +1,3 @@
+# Preserve exact source bytes: asset catalog and reuse checks verify SHA-256 hashes.
+# This includes original prompts and the rig source files recorded as artifacts.
+* -text

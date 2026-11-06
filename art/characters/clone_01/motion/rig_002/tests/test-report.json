@@ -1,0 +1,64 @@
+{
+  "status": "partial_pass",
+  "simulation_checks": 7,
+  "pipeline_unit_checks": 14,
+  "max_ik_target_error_logical_px": 3.03543989777123e-14,
+  "render_rates_hz": [
+    30,
+    60,
+    120
+  ],
+  "shots_in_2_seconds": [
+    20,
+    20,
+    20
+  ],
+  "visual_review": "Still captures inspected for assembly, moving fire/debug mesh, empty reload at 0.75 sec and 500 px viewport. Static screenshots do not validate all animation frames or live input.",
+  "captures": {
+    "idle-desktop.png": {
+      "window": [
+        1440,
+        1120
+      ],
+      "motion": "idle"
+    },
+    "moving-fire-desktop.png": {
+      "window": [
+        1440,
+        1120
+      ],
+      "motion": "walk_fire",
+      "debug": true,
+      "mesh": true
+    },
+    "reload-desktop.png": {
+      "window": [
+        1440,
+        1120
+      ],
+      "motion": "reload_empty",
+      "time": 0.75,
+      "paused": true
+    },
+    "narrow-500.png": {
+      "window": [
+        500,
+        1100
+      ],
+      "motion": "idle"
+    }
+  },
+  "browser_method": "Local Chrome headless screenshot, no remote debugging. In-app browser setup failed; remote-control launch rejected by automatic review; narrower screenshot capture succeeded.",
+  "not_verified": [
+    "Actual pointer/keyboard/button interaction",
+    "Full animation-cycle visual acceptance",
+    "Tab hiding/resume in a browser",
+    "Final source-portrait likeness and palm-art grip contact",
+    "Armor swapping",
+    "Hardware GPU/FPS and many-enemy load",
+    "Spine/Phaser runtime integration",
+    "2dimg2motion or PixelFX production"
+  ],
+  "tool_decision": "pending_user_motion_review",
+  "raster_generation": "two built-in imagegen calls, no frame-by-frame regeneration"
+}
