@@ -1,5 +1,7 @@
 // Shared simulation for the library and the future game scene. Units are logical pixels.
 import { WEAPONS } from './weapon-profiles.js';
+import { GAIT, gaitBody, gaitFoot } from './gait.js';
+import { HUMAN, handOffset } from './proportions.js';
 export { WEAPONS } from './weapon-profiles.js';
 export const STEP = 1 / 120;
 export const clamp = (v, lo, hi) => Math.max(lo, Math.min(hi, v));
@@ -21,21 +23,32 @@ export class Spring {
   impulse(v) { this.v = clamp(this.v+v, -this.limit*100, this.limit*100); }
   step(dt) {
     const w = 2*Math.PI*this.hz;
-    this.v += (-w*w*this.x - 2*this.damping*w*this.v)*dt;
-    this.x = clamp(this.x+this.v*dt, -this.limit, this.limit);
+    const x=this.x,v=this.v,z=this.damping;
+    // Exact free damped-oscillator update. Euler used to reverse a high-frequency
+    // negative impulse on its very first tick (a visible forward gun kick).
+    if(Math.abs(z-1)<1e-6){
+      const c=v+w*x,e=Math.exp(-w*dt);this.x=(x+c*dt)*e;this.v=(v-w*c*dt)*e;
+    }else if(z<1){
+      const d=w*Math.sqrt(1-z*z),c=Math.cos(d*dt),s=Math.sin(d*dt),e=Math.exp(-z*w*dt);
+      this.x=e*(x*c+(v+z*w*x)/d*s);this.v=e*(v*c-(z*w*v+w*w*x)/d*s);
+    }else{
+      const q=Math.sqrt(z*z-1),r1=-w*(z-q),r2=-w*(z+q),a=(v-r2*x)/(r1-r2),b=x-a;
+      this.x=a*Math.exp(r1*dt)+b*Math.exp(r2*dt);this.v=r1*a*Math.exp(r1*dt)+r2*b*Math.exp(r2*dt);
+    }
+    this.x=clamp(this.x,-this.limit,this.limit);
     if (Math.abs(this.x) >= this.limit && this.x*this.v > 0) this.v = 0;
   }
   reset() { this.x = this.v = 0; }
 }
 export class CharacterRig {
   constructor() {
-    this.head = new Spring(6,.8,1.3); this.hair = new Spring(4.5,.65,3);
-    this.cloth = new Spring(5.5,.65,1.2); this.cape = new Spring(3,.75,5);
-    this.recoil = new Spring(16,.85,4);
+    this.head = new Spring(5.5,.9,.6); this.hair = new Spring(3.8,.85,2);
+    this.cloth = new Spring(6,.9,.5); this.cape = new Spring(3,.9,3);
+    this.recoil = new Spring(12,1,3);
     this.enabled = { recoil:true, head:true, hair:true, cloth:true, cape:true };
     this.weapon = WEAPONS.m16_basic; this.ammo=30; this.time=0; this.shots=0; this.recoilEvents=0;
     this.cooldown=0; this.flash=0; this.phase=0; this.facing=1; this.walk=false; this.trigger=false;
-    this.reload=null; this.reloadCompletions=0; this.accumulator=0; this.rootX=0; this.distance=0;
+    this.reload=null; this.reloadCompletions=0; this.accumulator=0; this.rootX=0; this.distance=0;this.walkAmount=0;
   }
   equip(id) {
     if (!WEAPONS[id]) throw new Error(`Unknown weapon: ${id}`);
@@ -44,18 +57,18 @@ export class CharacterRig {
   }
   turn() { this.facing *= -1; for (const k of ['head','hair','cloth','cape']) this[k].reset(); }
   setWalking(value) {
-    if (this.walk !== value) { this.hair.impulse(value ? 36 : -36); this.cape.impulse(value ? 55 : -55); }
+    if (this.walk !== value) { this.hair.impulse(value ? 4 : -4); this.cape.impulse(value ? 10 : -10); }
     this.walk = value;
   }
   fire() {
     if (this.reload || this.cooldown > 1e-7) return false;
     if (!this.ammo) { this.startReload(); return false; }
     this.ammo--; this.shots++; this.cooldown=this.weapon.fireInterval; this.flash=.055;
-    if (this.enabled.recoil) { this.recoil.impulse(-500); this.recoilEvents++; }
-    if (this.enabled.head) this.head.impulse(-45);
-    if (this.enabled.hair) this.hair.impulse(70);
-    if (this.enabled.cloth) this.cloth.impulse(25);
-    if (this.enabled.cape) this.cape.impulse(40);
+    if (this.enabled.recoil) { this.recoil.impulse(-300); this.recoilEvents++; }
+    if (this.enabled.head) this.head.impulse(-6);
+    if (this.enabled.hair) this.hair.impulse(11);
+    if (this.enabled.cloth) this.cloth.impulse(4);
+    if (this.enabled.cape) this.cape.impulse(5);
     return true;
   }
   hit() { this.head.impulse(45); this.hair.impulse(-65); this.cape.impulse(-65); }
@@ -75,14 +88,21 @@ export class CharacterRig {
       if (this.reload.t+1e-8 >= this.reload.duration) { this.ammo=this.weapon.capacity; this.reload=null; this.reloadCompletions++; }
     }
     if (this.trigger) this.fire();
-    if (this.walk) { this.phase+=STEP*7.5; this.distance+=STEP*48*(this.reload ? .75 : 1); }
+    const target=this.walk?1:0;
+    this.walkAmount+=(target-this.walkAmount)*(1-Math.exp(-STEP/.12));
+    if(Math.abs(this.walkAmount-target)<1e-4)this.walkAmount=target;
+    const delta=STEP*GAIT.speed*this.walkAmount*(this.reload ? .75 : 1);
+    this.distance+=delta;this.phase+=delta/(GAIT.speed*GAIT.period)*Math.PI*2;
     for (const k of ['head','hair','cloth','cape','recoil']) { if (this.enabled[k]) this[k].step(STEP); else this[k].reset(); }
   }
   pose() {
-    const bob=this.walk?Math.cos(this.phase*2)*1.1:Math.sin(this.time*Math.PI*.5)*.35;
-    const torso={x:-1+this.recoil.x*.20,y:-224+bob};
+    const pelvis=gaitBody(this.phase,this.walkAmount,this.time),bob=pelvis.y-HUMAN.hipY;
+    const lean=pelvis.lean+this.recoil.x*.003;
+    const torso={...transform({x:-1,y:-HUMAN.torsoAboveHip},{x:pelvis.x+this.recoil.x*.22,y:pelvis.y,a:lean}),a:lean};
+    const bodyPoint=(x,y)=>transform({x,y},torso);
     const r=this.reload, q=r?clamp(r.t/.25,0,1)*clamp((r.duration-r.t)/.25,0,1):0;
-    const weapon={x:torso.x-8+this.recoil.x,y:torso.y+22+q*9,a:clamp(-this.recoil.x*.009,0,.0349)+q*.16};
+    const mount=bodyPoint(HUMAN.mount.x,HUMAN.mount.y+q*7);
+    const weapon={x:mount.x+this.recoil.x,y:mount.y,a:clamp(this.recoil.x*.012,-.0349,0)+q*.13};
     const w=this.weapon;
     const socket=(p)=>transform({x:(p.x-w.pivot.x)*w.width,y:(p.y-w.pivot.y)*w.height},weapon);
     const primary=socket(w.primary), support=socket(w.support), mag=socket(w.mag);
@@ -94,15 +114,21 @@ export class CharacterRig {
       else if(r.empty&&t<2.2) {supportTarget=socket({x:.37,y:.22});}
       else {const start=r.empty?2.2:1.25;const v=clamp((t-start)/.3,0,1);supportTarget={x:lerp(mag.x,support.x,v),y:lerp(mag.y+8,support.y,v)};}
     }
-    const shoulderA={x:torso.x+1,y:torso.y-5}, shoulderB={x:torso.x-10,y:torso.y-3};
-    const armA=ik2(shoulderA,primary,38,38,1), armB=ik2(shoulderB,supportTarget,40,40,1);
-    const legs=[-1,1].map(side=>{
-      const stride=this.walk?Math.sin(this.phase+(side===1?0:Math.PI)):0;
-      const foot={x:side*9+stride*21,y:-8-Math.max(0,-stride)*9};
-      return ik2({x:side*9,y:-126+bob},foot,58,62,-side);
+    const shoulderA=bodyPoint(HUMAN.primaryShoulder.x,HUMAN.primaryShoulder.y), shoulderB=bodyPoint(HUMAN.supportShoulder.x,HUMAN.supportShoulder.y);
+    const handAngleA=weapon.a+HUMAN.primaryWristAngle,handAngleB=weapon.a+HUMAN.supportWristAngle;
+    const offsetA=transform(handOffset(),{x:0,y:0,a:handAngleA}),offsetB=transform(handOffset(),{x:0,y:0,a:handAngleB});
+    const wrist=(grip,offset)=>({x:grip.x-offset.x,y:grip.y-offset.y});
+    const armA=ik2(shoulderA,wrist(primary,offsetA),HUMAN.upperArm,HUMAN.forearm,1), armB=ik2(shoulderB,wrist(supportTarget,offsetB),HUMAN.upperArm,HUMAN.forearm,1);
+    const palmA={x:armA.hand.x+offsetA.x,y:armA.hand.y+offsetA.y},palmB={x:armB.hand.x+offsetB.x,y:armB.hand.y+offsetB.y};
+    const legs=[0,1].map(layer=>{
+      const foot=gaitFoot(this.phase,layer,this.walkAmount);
+      const root={x:pelvis.x+(layer===0?-3:3),y:pelvis.y+(layer===0?1:0)};
+      // Both human knees flex toward the direction of travel. Layer/depth is
+      // represented by draw order, not by giving the rear knee a reverse hinge.
+      return {...ik2(root,foot,GAIT.thigh,GAIT.shin,-1),foot};
     });
-    return { torso, bob, weapon, sockets:{primary,support,mag,muzzle:socket(w.muzzle)}, armA,armB,legs,magOffset,magazineVisible,
-      head:this.head.x,hair:this.hair.x,cloth:this.cloth.x,cape:this.cape.x,gripError:Math.max(armA.error,armB.error) };
+    return { torso,pelvis,bob,walkAmount:this.walkAmount, weapon, sockets:{primary,support,mag,muzzle:socket(w.muzzle)}, armA,armB,palmA,palmB,handAngleA,handAngleB,supportTarget,legs,magOffset,magazineVisible,
+      head:this.head.x,hair:this.hair.x,cloth:this.cloth.x,cape:this.cape.x,gripError:Math.max(Math.hypot(palmA.x-primary.x,palmA.y-primary.y),Math.hypot(palmB.x-supportTarget.x,palmB.y-supportTarget.y)) };
   }
   snapshot() {
     const p=this.pose();return {seconds:this.time,shots:this.shots,recoilEvents:this.recoilEvents,ammo:this.ammo,reload:this.reload,reloadCompletions:this.reloadCompletions,weapon:this.weapon.id,gripError:p.gripError,facing:this.facing,springs:Object.fromEntries(['head','hair','cloth','cape','recoil'].map(k=>[k,this[k].x]))};

@@ -1,2 +1,5 @@
 __pycache__/
 *.py[cod]
+
+# One-off local review export requested for viewing only.
+art/characters/clone_01/motion/rig_002/exports/gif_001/

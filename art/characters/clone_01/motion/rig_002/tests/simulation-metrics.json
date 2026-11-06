@@ -9,14 +9,14 @@
       "reload": null,
       "reloadCompletions": 0,
       "weapon": "m16_basic",
-      "gripError": 1.4210854715202004e-14,
+      "gripError": 0,
       "facing": 1,
       "springs": {
-        "head": -0.031003655614050038,
-        "hair": 0.21359727076474777,
-        "cloth": 0.017961188127580116,
-        "cape": 0.601399572733822,
-        "recoil": -0.018189691674320094
+        "head": -0.017792253964136823,
+        "hair": 0.1167733019247807,
+        "cloth": 0.008111245513609793,
+        "cape": 0.10421518146568651,
+        "recoil": -0.01596172324055404
       }
     },
     {
@@ -27,14 +27,14 @@
       "reload": null,
       "reloadCompletions": 0,
       "weapon": "m16_basic",
-      "gripError": 1.4210854715202004e-14,
+      "gripError": 0,
       "facing": 1,
       "springs": {
-        "head": -0.031003655614050038,
-        "hair": 0.21359727076474777,
-        "cloth": 0.017961188127580116,
-        "cape": 0.601399572733822,
-        "recoil": -0.018189691674320094
+        "head": -0.017792253964136823,
+        "hair": 0.1167733019247807,
+        "cloth": 0.008111245513609793,
+        "cape": 0.10421518146568651,
+        "recoil": -0.01596172324055404
       }
     },
     {
@@ -45,30 +45,59 @@
       "reload": null,
       "reloadCompletions": 0,
       "weapon": "m16_basic",
-      "gripError": 1.4210854715202004e-14,
+      "gripError": 0,
       "facing": 1,
       "springs": {
-        "head": -0.031003655614050038,
-        "hair": 0.21359727076474777,
-        "cloth": 0.017961188127580116,
-        "cape": 0.601399572733822,
-        "recoil": -0.018189691674320094
+        "head": -0.017792253964136823,
+        "hair": 0.1167733019247807,
+        "cloth": 0.008111245513609793,
+        "cape": 0.10421518146568651,
+        "recoil": -0.01596172324055404
       }
     }
   ],
   "settle_after_04_sec": {
-    "head": 7.365123070475904e-9,
-    "hair": 0.0002588097928269959,
-    "cloth": -0.00000924384416092531,
-    "cape": -0.004549728882620776,
-    "recoil": -1.2844869190069802e-7
+    "head": 4.0168741801564814e-7,
+    "hair": -0.0002476404306431318,
+    "cloth": 8.879003242827622e-8,
+    "cape": -0.00009928986938527427,
+    "recoil": -9.575649677956298e-12
   },
-  "max_grip_error_logical_px": 3.03543989777123e-14,
+  "max_grip_error_logical_px": 2.842170943040401e-14,
+  "recoil": {
+    "first_tick_offset": -1.8992729107490725,
+    "muzzle_angle": -0.0160046427327331,
+    "maximum_forward_overshoot": 0,
+    "peak_backward_offset": -1.4230477166801467
+  },
+  "gait_geometry": {
+    "max_leg_error": 5.1237965343830035e-14,
+    "max_sole_penetration": 3.552713678800501e-15,
+    "min_forward_knee_cross": 2117.3537440228984
+  },
+  "max_planted_track_slide": 1.1368683772161603e-13,
+  "largest_stop_foot_step": 1.9499160137756992,
+  "proportions": {
+    "head_count": 7.894736842105263,
+    "reference_head_count": 7.857142857142857,
+    "hip": -170,
+    "knees": [
+      -105.87770666670275,
+      -108.32462048696566
+    ],
+    "ankles": [
+      -19.5,
+      -19.5
+    ]
+  },
+  "aspect_ratio_preserved": true,
   "reuse_hashes": {
     "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c",
     "art/characters/clone_01/motion/rig_002/source/parts_atlas.png": "35f081f1ad995a2688f355b0b0a0da1214f884ede110c9fa2c39cba8727668a3",
     "art/characters/clone_01/motion/rig_002/rig/parts.json": "eb0aba746b320fd8168cd6e21af610730346005338d64890ee793f9c280ab597",
-    "game/animation/rig-core.js": "d41878bdc17baf45c42cac831065e352c6c189d0605bf8ae32f9905efe764cec",
-    "game/animation/webgl-character.js": "8cfe85a235a7e74a4d480f22a43618a89b9d32fda1805abbee5406f543530cd2"
+    "game/animation/gait.js": "03e2f4d30e945d7d6a388481aaa4e607eeac68521f0a469f45e2775039d5ea9f",
+    "game/animation/proportions.js": "6afdb369fba45928bf611b1fc2e156f65aa3d4c5edbb4d1a7281f5993f71299e",
+    "game/animation/rig-core.js": "7193d5844dfab8e86db897460ea060ad9fe058f21d34f44ad0fa9e690e559973",
+    "game/animation/webgl-character.js": "af84ec4aa84957807d174fbe49670ad61e4d189a32163f0fde5fdaf450d97206"
   }
 }

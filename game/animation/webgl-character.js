@@ -1,4 +1,6 @@
 import { transform } from './rig-core.js';
+import { GAIT } from './gait.js';
+import { HUMAN, partDimensions } from './proportions.js';
 
 export class WebGLCharacter {
   constructor(canvas, atlas, weaponAtlas, definition) {
@@ -46,9 +48,14 @@ export class WebGLCharacter {
     this.submit(vertices,this.white,color,this.gl.LINES);
   }
   marker(p,color) {this.line([{x:p.x-2,y:p.y},{x:p.x+2,y:p.y},{x:p.x,y:p.y-2},{x:p.x,y:p.y+2}],color);}
-  limb(key,start,end,width,overlap=7,tint) {
+  sprite(key,x,y,height,options={}) {
+    const {width}=partDimensions(this.definition.parts[key].rect,height);
+    this.mesh(key,x,y,width,height,options);
+  }
+  limb(key,start,end,tint) {
     const dx=end.x-start.x,dy=end.y-start.y;
-    this.mesh(key,start.x,start.y,width,Math.hypot(dx,dy)+overlap,{angle:Math.atan2(dy,dx)-Math.PI/2,pivot:[.5,.07],tint});
+    const [a,b]=HUMAN.joints[key],height=Math.hypot(dx,dy)/(b-a);
+    this.sprite(key,start.x,start.y,height,{angle:Math.atan2(dy,dx)-Math.PI/2,pivot:[.5,a],tint});
   }
   render(rig,{zoom=1,debug=false,mesh=false,explode=false,showCape=true,size=300}={}) {
     const gl=this.gl,box=this.canvas.getBoundingClientRect(),dpr=Math.min(window.devicePixelRatio||1,2);
@@ -60,36 +67,39 @@ export class WebGLCharacter {
     this.origin={x:width*.45,y:height-35*dpr};this.facing=rig.facing;
     const p=rig.pose(),t=p.torso;
     this.line([{x:-100,y:1},{x:150,y:1}],[.7,.75,.73,.4]);
+    const marks=[];for(let x=-120;x<200;x+=24){const at=x-(rig.distance%24);marks.push({x:at,y:3},{x:at+5,y:3});}
+    this.line(marks,[.55,.63,.65,.3]);
     if(explode){
       const keys=['head','hair_back','inner_torso','chest','pelvis','upper_arm','forearm','hand','thigh','shin','boot','cape','shoulder','cape_front','helmet','hair_side'];
       this.scale=Math.min(width/270,height/330);this.origin={x:width/2,y:height/2};this.facing=1;
       keys.forEach((k,i)=>{const item=this.definition.parts[k];const aspect=item.rect[2]/item.rect[3];const h=Math.min(65,48/aspect);this.mesh(k,(i%4-1.5)*64,(Math.floor(i/4)-2)*77,aspect*h,h);});return;
     }
-    const capeWarp=(u,v)=>({x:(p.cape+ (rig.walk?-4:0))*v*v,y:Math.sin(u*Math.PI)*p.cape*v*.3});
-    if(showCape)this.mesh('cape',t.x-12,t.y-5,99,218,{warp:capeWarp});
-    this.mesh('hair_back',t.x-4+p.head*.3,t.y-57,45,83,{warp:(u,v)=>({x:p.hair*v*v,y:0}),angle:p.head*.008});
+    const bodyPoint=(x,y)=>transform({x,y},t);
+    const bodyMesh=(key,x,y,options={})=>{const at=bodyPoint(x,y);this.sprite(key,at.x,at.y,HUMAN.heights[key],{...options,angle:(options.angle??0)+t.a});};
+    const capeWarp=(u,v)=>({x:(p.cape-p.walkAmount*1.7)*v*v,y:Math.sin(u*Math.PI)*p.cape*v*.15});
+    if(showCape){bodyMesh('cape',-10,2,{warp:capeWarp,angle:-t.a*.8});bodyMesh('cape_front',-24,3,{pivot:[.75,.02],warp:capeWarp,angle:-t.a*.7});}
+    bodyMesh('hair_back',-3+p.head*.3,-53,{warp:(u,v)=>({x:p.hair*v*v,y:0}),angle:p.head*.008-t.a*.5});
     const far=[.72,.76,.83,1];
-    const drawLeg=(leg,tint)=>{this.limb('thigh',leg.root,leg.elbow,24,10,tint);this.limb('shin',leg.elbow,leg.hand,22,6,tint);this.mesh('boot',leg.hand.x+5,leg.hand.y-8,35,24,{tint});};
+    const drawLeg=(leg,tint)=>{this.limb('thigh',leg.root,leg.elbow,tint);this.limb('shin',leg.elbow,leg.hand,tint);this.sprite('boot',leg.foot.x,leg.foot.y,GAIT.bootHeight,{tint,angle:leg.foot.a,pivot:[GAIT.ankleU,GAIT.ankleV]});};
     drawLeg(p.legs[0],far);drawLeg(p.legs[1]);
-    this.limb('upper_arm',p.armB.root,p.armB.elbow,23,8,far);this.limb('forearm',p.armB.elbow,p.armB.hand,20,7,far);
-    this.mesh('inner_torso',t.x,t.y-15,62,94,{warp:(u,v)=>({x:0,y:p.cloth*Math.sin(v*Math.PI)**2*Math.sin(u*Math.PI)})});
+    this.limb('upper_arm',p.armB.root,p.armB.elbow,far);this.limb('forearm',p.armB.elbow,p.armB.hand,far);
+    this.sprite('shoulder',p.armB.root.x,p.armB.root.y-6,HUMAN.heights.shoulder,{tint:far,angle:t.a});
+    bodyMesh('inner_torso',0,-12,{warp:(u,v)=>({x:0,y:p.cloth*Math.sin(v*Math.PI)**2*Math.sin(u*Math.PI)})});
     // Outer armor is a rigid attachment: deliberately receives no cloth deformation.
-    this.mesh('chest',t.x,t.y-15,64,94);
-    this.mesh('pelvis',t.x,t.y+72,69,55);
-    this.mesh('head',t.x+5+p.head*.35,t.y-16,43,58,{pivot:[.5,1],angle:p.head*.012});
-    this.mesh('hair_side',t.x-6,t.y-51,17,77,{warp:(u,v)=>({x:p.hair*v*v,y:0})});
-    if(showCape)this.mesh('cape_front',t.x-29,t.y-4,18,209,{warp:capeWarp});
-    this.mesh('shoulder',p.armB.root.x-3,p.armB.root.y-8,27,23,{tint:far});
+    bodyMesh('chest',0,-12);
+    this.sprite('pelvis',p.pelvis.x-1,p.pelvis.y-HUMAN.pelvisAboveHip,HUMAN.heights.pelvis,{angle:p.pelvis.a});
+    bodyMesh('head',3+p.head*.35,-6,{pivot:[.5,1],angle:p.head*.012-t.a*.5});
+    bodyMesh('hair_side',-7,-42,{warp:(u,v)=>({x:p.hair*v*v,y:0}),angle:-t.a*.5});
     const w=rig.weapon;
     if(w.id==='diagnostic'){
       const shape=[{x:-33,y:-4},{x:83,y:-4},{x:83,y:3},{x:-33,y:-4},{x:83,y:3},{x:-33,y:3}].flatMap(v=>{const s=this.screen(transform(v,p.weapon));return[s.x,s.y,0,0];});
       this.submit(shape,this.white,[.5,.75,.8,1]);
     }else this.mesh('rifle',p.weapon.x,p.weapon.y,w.width,w.height,{pivot:[w.pivot.x,w.pivot.y],angle:p.weapon.a});
-    if(p.magazineVisible&&w.id==='m16_basic')this.mesh('magazine',p.sockets.mag.x,p.sockets.mag.y+p.magOffset,12,27,{angle:p.weapon.a});
-    this.mesh('hand',p.armB.hand.x,p.armB.hand.y,17,13,{pivot:[.6,.5],angle:p.weapon.a});
-    this.limb('upper_arm',p.armA.root,p.armA.elbow,24,8);this.limb('forearm',p.armA.elbow,p.armA.hand,20,7);
-    this.mesh('shoulder',p.armA.root.x-3,p.armA.root.y-9,28,24);
-    this.mesh('hand',p.armA.hand.x,p.armA.hand.y,17,13,{pivot:[.6,.5],angle:p.weapon.a});
+    if(p.magazineVisible&&w.id==='m16_basic')this.sprite('magazine',p.sockets.mag.x,p.sockets.mag.y+p.magOffset,27,{angle:p.weapon.a});
+    this.sprite('hand',p.armB.hand.x,p.armB.hand.y,HUMAN.handHeight,{pivot:HUMAN.handPivot,angle:p.handAngleB});
+    this.limb('upper_arm',p.armA.root,p.armA.elbow);this.limb('forearm',p.armA.elbow,p.armA.hand);
+    this.sprite('shoulder',p.armA.root.x,p.armA.root.y-6,HUMAN.heights.shoulder,{angle:t.a});
+    this.sprite('hand',p.armA.hand.x,p.armA.hand.y,HUMAN.handHeight,{pivot:HUMAN.handPivot,angle:p.handAngleA});
     if(rig.flash>0){
       const m=p.sockets.muzzle;
       const verts=[{x:0,y:-3},{x:19,y:0},{x:0,y:3}].flatMap(v=>{const s=this.screen(transform(v,{...m,a:p.weapon.a}));return[s.x,s.y,0,0];});this.submit(verts,this.white,[1,.79,.31,.95]);
@@ -99,6 +109,7 @@ export class WebGLCharacter {
     if(debug){
       for(const arm of[p.armA,p.armB,...p.legs]){this.line([arm.root,arm.elbow,arm.elbow,arm.hand]);this.marker(arm.target,[1,.47,.28,1]);}
       for(const [name,s]of Object.entries(p.sockets))this.marker(s,name==='muzzle'?[1,.85,.3,1]:[.4,1,.6,1]);
+      for(const leg of p.legs){this.line([leg.foot.heel,leg.foot.toe],leg.foot.stance?[.4,1,.55,1]:[1,.65,.3,1]);this.marker(leg.foot.pivot,[1,.8,.4,1]);}
     }
     this.lastPose=p;
   }

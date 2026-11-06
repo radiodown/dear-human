@@ -50,8 +50,8 @@
           "description": "사용자 채택 외형입니다. 검은 장발·전술 갑옷·망토와 사실적인 3D 렌더 질감을 유지합니다. 파츠 모션 초안은 모션 테스트에서 별도로 검토합니다.",
           "review_notes": [
             "새 외형 사용자 채택 완료",
-            "이전 제복·중단 시험 자료 삭제",
-            "분리 파츠·M16 모션 시험 재개 · 최종 도구 판단은 후속"
+            "원화 비례·발 접지·무릎·반동 보정 03 적용",
+            "GIF는 일회성 출력으로 유지 · 추가 생성 없음"
           ],
           "appearance_specs": [
             [
@@ -140,11 +140,11 @@
         },
         {
           "revision_id": "rig_002",
-          "display_name": "파츠 모션 · 첫 시험",
+          "display_name": "파츠 모션 · 보행/비례 보정 03",
           "verification": "passed",
-          "verification_scope": "file_hash_7_simulation_tests_and_still_browser_captures",
+          "verification_scope": "14_simulation_tests_and_selected_pose_captures_gait_003",
           "art_direction_status": "awaiting_motion_review",
-          "recipe_key": "ca7b8870471f24005cada635e25fe0e003b37fc5f8c01cbd43c12464ff3ea0b6",
+          "recipe_key": "a7467285bdd5b6201602b73e85a158865202a9b69eba12eec678dcf71a5728ad",
           "artifacts": [
             {
               "path": "art/characters/clone_01/motion/rig_002/previews/idle-desktop.png",
@@ -175,6 +175,42 @@
               "sha256": "ab37a3714a0d0a8941fdea4beb4f1896e1ef9355b1d7b1ca210ae74851de9378"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/calibration.json",
+              "sha256": "b35102e083d8e7ff6301541e607e99e6868ee9c3591c15672ad24fbd45523bb8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/clean-walk.png",
+              "sha256": "0e3ea145eaa347779b206b1ddcd5e55df6958bf4425f8358db8cd701ea8ca283"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/contact.png",
+              "sha256": "8866112a54c67a7783a614309803a29bb788289389203df59be8716f85fffbb0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/down.png",
+              "sha256": "62e2b88c262770c2c28186482ed4032fad66ab8a6da9be9f8c9579bd36a864ba"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/passing.png",
+              "sha256": "a62c911e68b96e9519308ae3b8e8672b8e506cf35bca1b4397e89b674cd4036e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/proportions.png",
+              "sha256": "c7eb62c04e01210201da19ef0498dda2725373712e0098c96341ace748e13361"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/review.json",
+              "sha256": "968e16ba813c8a55e4ab1c11881d2e6ab7624103b3c9dbc468d789431b05ba1c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/shot.png",
+              "sha256": "5dfa9b019c9248318b53dc365accd61d6d48a336151d2b7180bab432936cd898"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_002/reviews/gait_003/up.png",
+              "sha256": "8704ba3b4714da8b356517eccc4dbd0976559cf9eeb52dfb5ecf53fba83f0967"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_002/rig/parts.json",
               "sha256": "eb0aba746b320fd8168cd6e21af610730346005338d64890ee793f9c280ab597"
             },
@@ -184,23 +220,35 @@
             },
             {
               "path": "art/characters/clone_01/motion/rig_002/tests/simulation-metrics.json",
-              "sha256": "8fcef5f32e1a1f3cc2a673eca07ea0376fd6ecac43ede6547cda06c6c2884441"
+              "sha256": "3b5a898739cd199ce4dcfe6eef2e1ee7042bc8fbdcf92ef4afd5be882b9a91a6"
             },
             {
               "path": "art/characters/clone_01/motion/rig_002/tests/test-report.json",
-              "sha256": "90726872cc48a4884277fe444da97d1d497be72c8eb72708eec5882b0f8db416"
+              "sha256": "556bc9df814b57c6905d4fad3af93317e4443ccde27ee081cefe40b8447b423c"
+            },
+            {
+              "path": "game/animation/gait.js",
+              "sha256": "03e2f4d30e945d7d6a388481aaa4e607eeac68521f0a469f45e2775039d5ea9f"
+            },
+            {
+              "path": "game/animation/proportions.js",
+              "sha256": "6afdb369fba45928bf611b1fc2e156f65aa3d4c5edbb4d1a7281f5993f71299e"
             },
             {
               "path": "game/animation/rig-core.js",
-              "sha256": "d41878bdc17baf45c42cac831065e352c6c189d0605bf8ae32f9905efe764cec"
+              "sha256": "7193d5844dfab8e86db897460ea060ad9fe058f21d34f44ad0fa9e690e559973"
             },
             {
               "path": "game/animation/webgl-character.js",
-              "sha256": "8cfe85a235a7e74a4d480f22a43618a89b9d32fda1805abbee5406f543530cd2"
+              "sha256": "af84ec4aa84957807d174fbe49670ad61e4d189a32163f0fde5fdaf450d97206"
             },
             {
               "path": "game/rig-lab.js",
               "sha256": "2fe69a3024264454e9ee8a74378d28adff38b42c1acb85bec28bdee7ee1bb065"
+            },
+            {
+              "path": "tools/tests/rig-core.test.mjs",
+              "sha256": "0f71652f12ecbbd985d0a2bebc2b0cbca4a846eeb18397ff78c57cd4a9aa48a1"
             }
           ],
           "dependencies": [
@@ -215,7 +263,7 @@
               "revision_id": "m16_rig_002"
             }
           ],
-          "description": "16칸 파츠 아틀라스·자체 WebGL/2본 IK·국소 메시·M16 반동과 장전 초안. 전체 동작 시각 검수와 도구 최종 판단은 후속.",
+          "description": "원화 기준 약 7.9등신·파츠 종횡비·발 접지·무릎 방향·반동 복원을 보정한 자체 WebGL 모션입니다. 손목/손바닥 접점과 장전도 같은 리그를 사용합니다.",
           "preview": {
             "type": "parts_rig",
             "sample_url": "#/samples/characters/clone_01?motion=idle"
@@ -230,7 +278,9 @@
             "reload",
             "reload_empty",
             "hit_response"
-          ]
+          ],
+          "motion_iteration": "gait_003",
+          "review_report": "art/characters/clone_01/motion/rig_002/reviews/gait_003/review.json"
         }
       ],
       "capabilities": [
@@ -266,7 +316,7 @@
           "artifacts": [
             {
               "path": "art/weapons/m16_basic/rig_002/definition/weapon.json",
-              "sha256": "7943f118697c1ac6de7c1067e61e16b9815c154bbcc0d7b4a74bcdc42dcf251d"
+              "sha256": "fbff79e0d554b80437f169ce83cb7638bd172ec07f1e1e7c5d530e989d14e11a"
             },
             {
               "path": "art/weapons/m16_basic/rig_002/records/generation.json",
@@ -286,7 +336,7 @@
             },
             {
               "path": "game/animation/weapon-profiles.js",
-              "sha256": "8d1260215437290391504986a3e6fe6e001d354ac96a739f54f838449250c725"
+              "sha256": "026f6a6e1792d7780ba3da06d7e4fce27f4f9fbc7dc258bd9ab3af605ed9dac3"
             },
             {
               "path": "art/weapons/m16_basic/rig_002/previews/mount-desktop.png",

@@ -1,0 +1,94 @@
+{
+  "measurement": "manual visual landmarks, not anatomical measurements",
+  "reference_image": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+  "reference": {
+    "width": 1024,
+    "height": 1536,
+    "crown": 22,
+    "sole": 1507,
+    "chin": 211,
+    "collar": 227,
+    "shoulder": 310,
+    "belt": 520,
+    "hip": 660,
+    "knee": 970,
+    "ankle": 1410
+  },
+  "body": {
+    "nominalHeight": 300,
+    "headHeight": 47,
+    "headCrownToChin": 38,
+    "hipY": -170,
+    "torsoAboveHip": 77,
+    "pelvisAboveHip": 35,
+    "primaryShoulder": {
+      "x": -12,
+      "y": 5
+    },
+    "supportShoulder": {
+      "x": 8,
+      "y": 6
+    },
+    "upperArm": 43,
+    "forearm": 38,
+    "mount": {
+      "x": 8,
+      "y": 9
+    },
+    "handHeight": 11,
+    "handAspect": 1.3955223880597014,
+    "handPivot": [
+      0.18,
+      0.52
+    ],
+    "handGrip": [
+      0.62,
+      0.56
+    ],
+    "primaryWristAngle": -0.45,
+    "supportWristAngle": -0.65,
+    "heights": {
+      "head": 47,
+      "hair_back": 72,
+      "hair_side": 62,
+      "inner_torso": 64,
+      "chest": 64,
+      "pelvis": 58,
+      "cape": 239,
+      "cape_front": 235,
+      "shoulder": 22,
+      "hand": 11,
+      "helmet": 40
+    },
+    "joints": {
+      "upper_arm": [
+        0.12,
+        0.9
+      ],
+      "forearm": [
+        0.06,
+        0.93
+      ],
+      "thigh": [
+        0.05,
+        0.94
+      ],
+      "shin": [
+        0.13,
+        0.96
+      ]
+    }
+  },
+  "gait": {
+    "period": 1.08,
+    "speed": 104,
+    "stance": 0.62,
+    "lift": 16,
+    "thigh": 66,
+    "shin": 90,
+    "bootWidth": 27.397849462365592,
+    "bootHeight": 26,
+    "ankleU": 0.36,
+    "ankleV": 0.25
+  }
+}
