@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "command": "catalog-check",
+  "status": "ok",
+  "summary": {
+    "entities": 1,
+    "revisions": 2,
+    "item_count": 0,
+    "issue_count": 0
+  },
+  "items": [],
+  "issues": []
+}

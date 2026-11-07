@@ -5839,6 +5839,156 @@
           ],
           "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/keyposes_prompt.json",
           "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/keyposes_prompt.md"
+        },
+        {
+          "revision_id": "turnaround_001",
+          "display_name": "샘플 일러스트 · 앞뒤좌우 4방향",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Four 1024x1536 RGB PNGs decoded and hashed; isolated intended-commit Chrome gallery, four directions/original links, URL restoration, 500px layout and approved-reference return passed. User art acceptance and precise cross-view consistency remain pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ea50ca268ecbba1213cf7d51ac99858b0854e3f755bb56bf7513b021157432cf",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/README.md",
+              "sha256": "ffc762a4f57d62d787d8352f6af0ab309c6a4095d7311a39816ad458a82f798d"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/generation.json",
+              "sha256": "d2ff80cae8a1fb328158a9d454d8d9036394fb2817b89322563b21f541a3d424"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_back.json",
+              "sha256": "32710428872ad88d3c8a2ac38792282b7e3f6d8176226526bc8adff0d6258153"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_back.md",
+              "sha256": "5aa3e349ede0eafa66c23f7f913f9af979992c3886eeb3504068464f6bf0406f"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_front.json",
+              "sha256": "d8015d330935eda5eb519214f5161ea47b941be1f76b35daf35b84440a49e73c"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_front.md",
+              "sha256": "e58bf8ec78dd4afe6fb69ed63827da3f08c8b0bcfa7166f207d85827845812f0"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_left.json",
+              "sha256": "485aa6331d084627fc918ecb7f010e011331950cb3bd5c5a7be16ba844b52cad"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_left.md",
+              "sha256": "6ece0b541a28d89b523627b934ac297ebb8f7d9171e5bda3c955963d3cc54c31"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_right.json",
+              "sha256": "21f46255d3d968907e5f7244bc0ac52808624f66303096ff4e593e2961ae966e"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_right.md",
+              "sha256": "8877daa01171d69876095dcbcdf286f98c6586d3ececbafc80dc402d577eac86"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/records/tool_runs.json",
+              "sha256": "4f3168c2fed53bc446b30c5114ba2401a728c63609a56e77e0da9be1ee8b689a"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/reviews/browser.json",
+              "sha256": "0d87a005063a80de46beade96ecb9d6d91869b37ae16fcd1b5f631d64c16f5fe"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/reviews/catalog-check.json",
+              "sha256": "d58f77c70469a240be000020fdadf01bd7deea343c42c2f6b9a1bfc205862db6"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/reviews/desktop-gallery.png",
+              "sha256": "b37b68e348c08036475bb462df1115ad8cabb8c8c9685e0c5c3dc37b9203ab82"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/reviews/desktop-right.png",
+              "sha256": "483bad775cccd1456538cc5d3fc9fd10d5623d13e33f0d67fd2887f59f38c4fd"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/reviews/initial-shared-workspace-check.json",
+              "sha256": "ec8ee7db9c05aad92a92075a90a4428cf60cb707eadbba1d7d0986983fee2e3c"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/reviews/narrow-gallery.png",
+              "sha256": "b335362ab1a62c846d8e839ade0c6d404c19a890cd2efe3c19066c05193d721e"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/source/back.png",
+              "sha256": "f1640efc780371d7e226a8ce77715b64fce0691ef1d45443f6eb9351c1cb5a88"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/source/front.png",
+              "sha256": "2220886447a7b7aa2a1c4d26af7e15a306c8409064b7937a9a96ac7dc1643985"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/source/left.png",
+              "sha256": "66e8fd9e75b2a8512954282372891bf4289e6084dcae3b3a143d24a0e9e34414"
+            },
+            {
+              "path": "art/characters/clone_01/concepts/turnaround_001/source/right.png",
+              "sha256": "2792ef950c4e152a086a5aa5b61391c34c2f849cb319d6789f973c770d4eafb2"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            }
+          ],
+          "description": "채택 원화를 참조해 생성한 앞·뒤·좌·우 전신 샘플입니다. 검은 장발·건메탈 갑옷·금장 망토를 같은 중립 자세로 비교합니다. 손에 든 소총/헬멧은 제외했으며 후면 구조와 세부 일관성은 검수 대기입니다.",
+          "review_notes": [
+            "내장 image_gen 4회 · 각 1024×1536 PNG · 리사이즈/미러링/정렬 없음",
+            "좌측면은 화면 왼쪽, 우측면은 화면 오른쪽을 봅니다.",
+            "후면의 두 갈래 망토·문양·뒤 장갑판은 추정이며 방향 간 주름/장비 세부 차이가 남습니다.",
+            "채택 원화와 파츠/모션은 유지 · 사용자 아트 검수 대기"
+          ],
+          "preview": {
+            "type": "concept_image",
+            "image_path": "art/characters/clone_01/concepts/turnaround_001/source/front.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front",
+              "back",
+              "left_profile",
+              "right_profile"
+            ],
+            "production_ready_cutout": false,
+            "images": {
+              "front": {
+                "image_path": "art/characters/clone_01/concepts/turnaround_001/source/front.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "back": {
+                "image_path": "art/characters/clone_01/concepts/turnaround_001/source/back.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "left": {
+                "image_path": "art/characters/clone_01/concepts/turnaround_001/source/left.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "right": {
+                "image_path": "art/characters/clone_01/concepts/turnaround_001/source/right.png",
+                "width": 1024,
+                "height": 1536
+              }
+            }
+          },
+          "capabilities": [
+            "concept_image"
+          ],
+          "motions": [],
+          "prompt_path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_front.json",
+          "prompt_document": "art/characters/clone_01/concepts/turnaround_001/records/prompt_front.md"
         }
       ],
       "capabilities": [
@@ -5860,7 +6010,7 @@
         "reload_empty",
         "hit_response"
       ],
-      "review_revision_id": "reference_003_3d"
+      "review_revision_id": "turnaround_001"
     },
     {
       "kind": "weapon",

@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "revision_id": "turnaround_001",
+  "request": "샘플일러스트로 앞 뒤 좌우 4장을 뽑고 커밋 푸시",
+  "source_revision": "reference_003_3d",
+  "tool": "image_gen.imagegen",
+  "tool_mode": "built_in",
+  "generation_calls": 4,
+  "calls": [
+    {
+      "view": "front",
+      "tool": "image_gen.imagegen",
+      "mode": "built_in",
+      "prompt_path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_front.json",
+      "prompt_document": "art/characters/clone_01/concepts/turnaround_001/records/prompt_front.md",
+      "submitted_prompt_format": "Exact UTF-8 JSON text in prompt_<view>.json without the trailing file newline",
+      "referenced_image_paths": [
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/reference_003_3d/source/appearance.png"
+      ],
+      "inputs": [
+        {
+          "path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+          "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+        }
+      ],
+      "transparent_background": false,
+      "started_at": "2026-11-07T08:27:11.504Z",
+      "finished_at": "2026-11-07T08:27:46.579Z",
+      "elapsed_seconds": 35.075,
+      "output": {
+        "path": "art/characters/clone_01/concepts/turnaround_001/source/front.png",
+        "sha256": "2220886447a7b7aa2a1c4d26af7e15a306c8409064b7937a9a96ac7dc1643985",
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGB"
+      },
+      "model_id": null,
+      "seed": null,
+      "billed_cost": null
+    },
+    {
+      "view": "back",
+      "tool": "image_gen.imagegen",
+      "mode": "built_in",
+      "prompt_path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_back.json",
+      "prompt_document": "art/characters/clone_01/concepts/turnaround_001/records/prompt_back.md",
+      "submitted_prompt_format": "Exact UTF-8 JSON text in prompt_<view>.json without the trailing file newline",
+      "referenced_image_paths": [
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/turnaround_001/source/front.png"
+      ],
+      "inputs": [
+        {
+          "path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+          "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+        },
+        {
+          "path": "art/characters/clone_01/concepts/turnaround_001/source/front.png",
+          "sha256": "2220886447a7b7aa2a1c4d26af7e15a306c8409064b7937a9a96ac7dc1643985"
+        }
+      ],
+      "transparent_background": false,
+      "started_at": "2026-11-07T08:28:00.861Z",
+      "finished_at": "2026-11-07T08:29:20.222Z",
+      "elapsed_seconds": 79.361,
+      "output": {
+        "path": "art/characters/clone_01/concepts/turnaround_001/source/back.png",
+        "sha256": "f1640efc780371d7e226a8ce77715b64fce0691ef1d45443f6eb9351c1cb5a88",
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGB"
+      },
+      "model_id": null,
+      "seed": null,
+      "billed_cost": null
+    },
+    {
+      "view": "left",
+      "tool": "image_gen.imagegen",
+      "mode": "built_in",
+      "prompt_path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_left.json",
+      "prompt_document": "art/characters/clone_01/concepts/turnaround_001/records/prompt_left.md",
+      "submitted_prompt_format": "Exact UTF-8 JSON text in prompt_<view>.json without the trailing file newline",
+      "referenced_image_paths": [
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/turnaround_001/source/front.png",
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/turnaround_001/source/back.png"
+      ],
+      "inputs": [
+        {
+          "path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+          "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+        },
+        {
+          "path": "art/characters/clone_01/concepts/turnaround_001/source/front.png",
+          "sha256": "2220886447a7b7aa2a1c4d26af7e15a306c8409064b7937a9a96ac7dc1643985"
+        },
+        {
+          "path": "art/characters/clone_01/concepts/turnaround_001/source/back.png",
+          "sha256": "f1640efc780371d7e226a8ce77715b64fce0691ef1d45443f6eb9351c1cb5a88"
+        }
+      ],
+      "transparent_background": false,
+      "started_at": "2026-11-07T08:29:40.618Z",
+      "finished_at": "2026-11-07T08:30:14.682Z",
+      "elapsed_seconds": 34.064,
+      "output": {
+        "path": "art/characters/clone_01/concepts/turnaround_001/source/left.png",
+        "sha256": "66e8fd9e75b2a8512954282372891bf4289e6084dcae3b3a143d24a0e9e34414",
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGB"
+      },
+      "model_id": null,
+      "seed": null,
+      "billed_cost": null
+    },
+    {
+      "view": "right",
+      "tool": "image_gen.imagegen",
+      "mode": "built_in",
+      "prompt_path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_right.json",
+      "prompt_document": "art/characters/clone_01/concepts/turnaround_001/records/prompt_right.md",
+      "submitted_prompt_format": "Exact UTF-8 JSON text in prompt_<view>.json without the trailing file newline",
+      "referenced_image_paths": [
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/turnaround_001/source/front.png",
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/turnaround_001/source/back.png",
+        "/Users/jin/Desktop/dear-human/art/characters/clone_01/concepts/turnaround_001/source/left.png"
+      ],
+      "inputs": [
+        {
+          "path": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+          "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+        },
+        {
+          "path": "art/characters/clone_01/concepts/turnaround_001/source/front.png",
+          "sha256": "2220886447a7b7aa2a1c4d26af7e15a306c8409064b7937a9a96ac7dc1643985"
+        },
+        {
+          "path": "art/characters/clone_01/concepts/turnaround_001/source/back.png",
+          "sha256": "f1640efc780371d7e226a8ce77715b64fce0691ef1d45443f6eb9351c1cb5a88"
+        },
+        {
+          "path": "art/characters/clone_01/concepts/turnaround_001/source/left.png",
+          "sha256": "66e8fd9e75b2a8512954282372891bf4289e6084dcae3b3a143d24a0e9e34414"
+        }
+      ],
+      "transparent_background": false,
+      "started_at": "2026-11-07T08:30:41.071Z",
+      "finished_at": "2026-11-07T08:31:21.184Z",
+      "elapsed_seconds": 40.113,
+      "output": {
+        "path": "art/characters/clone_01/concepts/turnaround_001/source/right.png",
+        "sha256": "2792ef950c4e152a086a5aa5b61391c34c2f849cb319d6789f973c770d4eafb2",
+        "width": 1024,
+        "height": 1536,
+        "mode": "RGB"
+      },
+      "model_id": null,
+      "seed": null,
+      "billed_cost": null
+    }
+  ],
+  "generation_elapsed_seconds_sum": 188.613,
+  "billed_cost": null,
+  "model_id": null,
+  "seed": null,
+  "postprocessing": "None. Generated PNG bytes copied unchanged; no mirroring, resizing, alignment, compositing or GIF.",
+  "art_direction_status": "awaiting_user_review",
+  "limitations": [
+    "Unseen back surfaces are generated interpretations, including split cape and rear armor construction.",
+    "Small design and proportion differences between independent generations remain for user review.",
+    "Opaque studio backgrounds; not production sprite cutouts or an exact 3D turntable."
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "recorded_at": "2026-11-07T08:37:33.615820+00:00",
+  "url": "http://127.0.0.1:42991/#/samples/characters/clone_01?rev=turnaround_001",
+  "final_sample_url": "http://127.0.0.1:4173/#/samples/characters/clone_01?rev=turnaround_001",
+  "scope": "Isolated intended commit UI; PNG decode and brief reference-gallery checks only; no motion or art acceptance checks",
+  "checks": [
+    {
+      "name": "desktop_gallery_four_full_pngs",
+      "passed": true
+    },
+    {
+      "name": "single_front_source_active_and_original",
+      "passed": true
+    },
+    {
+      "name": "single_back_source_active_and_original",
+      "passed": true
+    },
+    {
+      "name": "single_left_source_active_and_original",
+      "passed": true
+    },
+    {
+      "name": "single_right_source_active_and_original",
+      "passed": true
+    },
+    {
+      "name": "direction_url_restored_after_reload",
+      "passed": true
+    },
+    {
+      "name": "500px_gallery_two_columns_no_page_overflow",
+      "passed": true
+    },
+    {
+      "name": "approved_reference_retained_and_legacy_controls_restored",
+      "passed": true
+    }
+  ],
+  "page_errors": [],
+  "http_errors": [],
+  "source_sha256": {
+    "game/app.js": "9f2de4abb46f3ae6047a3f65a0300800b99ddb18894cc17a6a11e94cb4843460",
+    "game/index.html": "8e5cf73ff84d8ccb4bd06263e4137a9fd51a41b740e0cda99017320c062fa8fd",
+    "game/styles.css": "6c211fbfd7a5962be5dfda883a5b9c4666792badcf2e5ea7e13e226c40ea0fdc"
+  },
+  "art_direction_status": "awaiting_user_review",
+  "visual_notes": [
+    "Generated images reviewed: front, back, left-looking profile, right-looking profile; full body and soles are visible.",
+    "Back split cape and rear armor details are inferred; views differ in folds and small equipment details."
+  ],
+  "passed": true
+}

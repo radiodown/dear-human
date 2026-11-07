@@ -1,5 +1,7 @@
 # Dear Human 아트 보관함
 
+[앞뒤좌우 샘플 일러스트 001](characters/clone_01/concepts/turnaround_001/README.md): 채택 외형 기반 정면·후면·좌측면·우측면 PNG 4장, 정확한 영어 JSON/MD·실제 생성 시간/해시와 같은 캐릭터 페이지의 방향별 보기. 새 외형의 최종 채택은 사용자 검수 대기다.
+
 [플랜 B · 경계 보행007](characters/clone_01/motion/plan_b/pixel_guard_007/README.md): 상체 전경·낮춘 무릎·양발 교차의 경계 걷기와 같은 자세의 이동 사격. 기준/키포즈/중간 원본·정확한 프롬프트·시간/해시·필요한 PNG/Chrome 기록을 보존하며 최종 아트 검수 대기다.
 
 [플랜 B · 전투 모션006](characters/clone_01/motion/plan_b/pixel_combat_006/README.md): 이동 사격과 앉아쏴의 모델 생성 PNG·발사광·반동·머리/망토 반응, 채택/반려 시트와 정확한 프롬프트·실제 Chrome 캡처를 보존한다.

@@ -1,5 +1,7 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**앞뒤좌우 샘플 일러스트 001:** [4방향 보기](http://127.0.0.1:4173/#/samples/characters/clone_01?rev=turnaround_001) · [PNG 4장·프롬프트·제작 기록](art/characters/clone_01/concepts/turnaround_001/README.md). 채택 외형을 참조해 정면·후면·좌우 측면을 각각 생성했다. 같은 페이지에서 전체/개별 방향을 비교하며 후면 추정 구조와 방향 사이 세부 일관성은 아트 검수 대기다.
+
 **달리기·완전 대기 팔 001:** [완전 대기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=relaxed) · [달리기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run) · [기록/전후 비교](docs/carry-arms-001.md). 총 지지점과 낮춘 자세의 팔꿈치 선택을 보정해 팔이 반대로 접히는 문제를 줄였다. 총구 아래 방향·팔 길이·양손 파지는 유지하고 큰 높이 조절은 도달 범위로 제한한다. 필요한 짧은 접점/전환·Chrome 확인을 마쳤으며 최종 자세/가림은 사용자 검수 대기다.
 
 **플랜 B · 입력 사격001:** [조작](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b) · [기록](docs/plan-b-input-fire-001.md). 단발은 한 발, ‘누르고 연사’/Space는 누르는 동안 발사한다. 발사 횟수와 반동 복귀를 표시하고 걷기 순서를 이어간다. 이동 사격은 기존 PNG의 다음 발 디딤에 맞추며 입력/해제·500px Chrome 확인을 마쳤다.
