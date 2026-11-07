@@ -1,0 +1,39 @@
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human Plan B pixel_walk_004 four walking anchors 02 05 08 11",
+  "input_images": {
+    "image_1": "EDIT TARGET: exact 1024x1024 board containing four identical copies of the baseline, fixed 512x512 cells.",
+    "image_2": "IDENTITY SOURCE: exact 512x512 original baseline; do not resize or redesign this woman."
+  },
+  "primary_request": "Edit the FIRST supplied image in place into four distinct WALKING key poses. Keep the image dimensions and exact 2 by 2 cell layout. Use the provided baseline image as the exact visual identity source, not loose inspiration. Only change the lower-body pose and the lower half of the passive cape, preserving the entire head, hair crown, face, chest, both arms and M16 at their current exact size and current exact coordinates in EACH cell. Do NOT redraw a larger or taller version. Do NOT expand the sprite to fill the cell. Keep the deliberate empty transparent margins.",
+  "identity_lock": "Same slender adult woman, long straight black hair, pale cool face, black/gunmetal simplified armor, short three-panel skirt, thigh stocking bands, tall armored boots, plain dark cape with a little gold on the hem. Preserve the exact chunky pixel clusters, outline weight and colors. Do not redesign, simplify, beautify, add details, remove details, change proportions or reinterpret the character.",
+  "spatial_lock": "The source image already has the correct placement. COPY its upper body and horizontal rifle positions across all cells exactly. No camera movement, per-cell zoom, translation or different framing. Crown stays near local y=74, feet on local y=438, belt around local y=234, muzzle around local x=371/y=144. The head, chest, shoulder-to-belt distance and M16 length remain identical to the edit target. Body is about 364 pixels tall, NOT 420 pixels tall. Upper half should stay still like a soldier walking while maintaining a steady rifle. Only legs below the skirt and lower cape need changing.",
+  "layout": "Exactly FOUR whole-body transparent sprites in the EXISTING TWO columns by TWO rows grid. Reading order 02 top-left, 05 top-right, 08 bottom-left, 11 bottom-right. Each cell 512x512. All body parts and complete rifle stay within its own cell. No labels, borders or guide lines.",
+  "coordinate_space": "screen-space. Fixed right-facing profile, rifle toward screen-right. Near brighter shin/boot is one leg, far darker shin/boot is the other; never swap their identity when crossing.",
+  "topology_lock": "Exactly one head, two arms, two hands, two legs and two boots in each cell. Near firing arm connected to the near shoulder, its screen-left/rear hand remains on the pistol grip. Far support arm connected to the far shoulder, its screen-right/front hand remains under the handguard. The weapon always remains in the same screen-space hands. Do not mirror, swap hands, detach the rifle or add limbs.",
+  "walk_design": "A small, unhurried in-place walk. Short stride, soft knees, foot lift only about 12 pixels. NOT a run, high-knee march, lunge or crouch. Feet exchange foreground/background support through a full two-leg cycle. Torso and rifle remain steady. Cape has slight delayed sway only near hem.",
+  "keyposes": [
+    {
+      "index": 2,
+      "cell": "top-left",
+      "pose": "Near BRIGHTER shin/boot reaches forward toward screen-right, heel touches the ground near x=247,y=438. Far DARKER boot trails toward screen-left near x=193 with toe on ground. Both legs similar original length, modest spread."
+    },
+    {
+      "index": 5,
+      "cell": "top-right",
+      "pose": "Near BRIGHTER leg now supports the body under the pelvis, foot near x=211,y=438. Far DARKER leg bends slightly and passes forward with the boot near x=238,y=426, clear of the ground. The near brighter leg stays visually in front at the crossing."
+    },
+    {
+      "index": 8,
+      "cell": "bottom-left",
+      "pose": "OPPOSITE contact. Far DARKER shin/boot now reaches forward toward screen-right and contacts ground near x=247,y=438. Near BRIGHTER boot trails toward screen-left near x=193. This must clearly be the opposite leg from top-left; do not just copy the first pose."
+    },
+    {
+      "index": 11,
+      "cell": "bottom-right",
+      "pose": "OPPOSITE passing. Far DARKER leg supports beneath pelvis near x=211,y=438. Near BRIGHTER leg passes forward, its brighter shin/boot lifted near x=238,y=426. Opposite support and swing to top-right, no high knee."
+    }
+  ],
+  "background": "Actual transparent alpha background. Preserve empty gutters. No cast shadow, floor, checkerboard image, text, watermark or effects.",
+  "critical": "This is a precise edit of the board, not a new sprite-sheet composition. Keep the unchanged upper-body pixels and their scale. Generate all four poses together with matching proportions. Do not change the baseline character or fit sprites to cell bounds."
+}

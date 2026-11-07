@@ -1,0 +1,19 @@
+{
+  "source_revision": "plan_b_pixel_walk_004",
+  "user_feedback": "다리가 전혀 교차하질않아서 엄청어색해",
+  "status": "rejected",
+  "findings": [
+    "02/08 and05/11 repeat nearly identical leg silhouettes without stable near/far leg identity.",
+    "A silhouette change and advancing frame counter do not demonstrate opposite-leg alternation.",
+    "The support-to-swing transition must be traceable through both hip-knee-ankle chains at two passing/crossing events."
+  ],
+  "new_gate": [
+    "Near shin/boot remains the lighter foreground leg, far shin/boot the darker background leg throughout.",
+    "02 and08 have opposite fore-aft ordering of the same leg identities.",
+    "05 and11 show opposite support/swing limbs, including overlapping shins at passing.",
+    "Intermediate04 and10 visibly pass the swing foot from behind to ahead of the planted support leg."
+  ],
+  "original_evidence": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/contact-sheet.png",
+  "original_evidence_sha256": "d2f59674df57cf80f70230132d3a1be6c143b95a9afa073b4c129396d997efa8",
+  "historical_reports_preserved": true
+}

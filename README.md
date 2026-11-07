@@ -1,18 +1,8 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
-**플랜 D · 얼굴/앞머리와 몸 접촉 006:** [실행](native/plan-d/run.command) · [기록](docs/plan-d-face-hair-006.md) · [얼굴/전신과 모델](art/characters/clone_01/motion/plan_d/hair_006/README.md). 주변 소품 제거, 기존 몸을 유지한 두상·얼굴·앞머리 보정. 사용자 외형 검수 대기.
+**플랜 B · 도트 걷기 004:** [재생](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=pixel_004&motion=walk) · [기록](docs/plan-b-pixel-walk-004.md). 도트 003 캐릭터의 14프레임 제자리 걷기를 연결했다. `./run.sh` 실행 후 ‘플랜 B · 도트 걷기’에서 확인한다. 크기 확대를 줄였으며 발 높이 약 3px·망토 세부·루프 연결은 검수 대기다.
 
 **플랜 B · 도트 단순화 003:** [새 시도](docs/plan-b-pixel-003.md) · [미리보기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=pixel_003). 장식·재질 묘사를 줄인 도트풍 기준 외형과 걷기 키포즈 4개를 만들었다. 키포즈는 머리·상체·총의 크기 변화로 반려했으며 완성 보행은 미제작이다. 기준 외형의 아트 채택은 사용자 검수 대기다.
-
-**플랜 D · 무료 샘플/충돌 005:** [실행](native/plan-d/run.command) · [도입 기록](docs/plan-d-samples-005.md) · [전신과 헤어 비교](art/characters/clone_01/motion/plan_d/samples_005/README.md). 기존 몸을 유지한 헤어 5종·소품 6종, 바람/관성·구/상자 접촉 초안. 기본 전신, N 샘플 교체, B 장애물 왕복. Mac 확인·사용자 검수 대기.
-
-**플랜 D · 머리카락 004:** [조사·도입 기록](docs/plan-d-hair-004.md) · [머리만 보기](native/plan-d/review-hair.command) · [정면/옆/뒤와 GLB](art/characters/clone_01/motion/plan_d/hair_004/README.md). 모델링 품질 반려 후 머리를 분리하고, 조사에 따라 가이드·카드·coverage atlas·방향성 광택을 적용했다. 기술 연결과 원화 완성도는 구분하며 외형 검수 대기다.
-
-**플랜 D · clone_01 3D 모델 초안 003:** [제작·검수 범위](docs/plan-d-clone-model-003.md) · [GLB와 실제 화면](art/characters/clone_01/motion/plan_d/clone_model_003/README.md). 체형·얼굴·장발·갑옷·의상·망토의 실제 메시를 21관절에 연결하고 같은 데이터를 GLB로 저장했다. `native/plan-d/run.command`에서 모델을 기본 표시하며 `Q/E` 회전·`F` 얼굴·`M` 마네킹 비교가 가능하다. 파일/렌더링 경로는 확인했고 원화 수준의 얼굴·질감·천 충돌은 미완료다.
-
-**플랜 D · Windows/macOS 공통 구조 002:** [구조·검수 범위](docs/plan-d-cross-platform-002.md). 이동·보행·포즈는 SDL 없는 C++ 코어로, 입력·창·GPU는 인터페이스 뒤로 분리했다. 공통 렌더 프레임과 SDL GPU 그리기를 공유하고 Metal/D3D12 설정만 CMake가 선택한다. 코어 단독 빌드·최소 이동 검사·기존과 동일한 Mac 캡처를 확인했으며 실제 Windows 빌드·실행은 미확인이다.
-
-**플랜 D · 로컬 3D 기초:** [실행 안내](native/plan-d/README.md) · [개발 범위](docs/plan-d-native-001.md) · [세 화면 캡처](art/characters/clone_01/motion/plan_d/preparation_001/README.md). C++20·SDL3 GPU/Metal로 환경 구축 → 21개 관절 뼈대 → 기본 도형 렌더링을 추가했다. `native/plan-d/run.command`로 별도 로컬 창에서 실행한다. macOS 빌드·세 정지 화면만 확인했으며 채택 캐릭터 외형·전체 조작/보행 품질·Windows는 후속이다.
 
 **정답 이미지 적용 앉아쏴 017:** [변경 기록](docs/kneeling-image-application-017.md) · [앉아쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire). 골반 앞의 무릎 지지, 전용 상체/양팔·수평 견착, 독립 무릎 장갑과 허벅지를 따르는 스커트, 망토 바닥 접힘을 기존 파츠로 연결했다. 사용자 지시로 추가 검사 없이 `untested`·검수 대기다.
 
@@ -52,7 +42,7 @@ git submodule update --init --recursive
 
 현재는 설계 문서·에이전트 스킬·검사/조회 CLI 외에 정적 캐릭터 시안과 로컬 통합 샘플 셸이 있다. [아트 보관함](art/README.md)에 원본·영어 JSON 프롬프트·MD·생성 기록을 모았다. 사용자가 새 3D풍 전술 갑옷 외형을 채택했다. 이전 자료는 삭제했고 같은 사이트에 분리 파츠·자체 WebGL 리그·M16으로 대기·제자리 보행·사격·이동 사격·장전 초안을 연결했다. [모션 테스트](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle)와 [현재 측면 파츠·견착 보정과 한계](docs/26-side-parts-and-shoulder-contact.md)를 확인한다. 제작 도구의 최종 채택과 실제 전투·1스테이지는 후속이다.
 
-프로젝트 루트에서 `python tools/preview_server.py --port 4173`을 실행하면 [캐릭터 샘플](http://127.0.0.1:4173/#/samples/characters/clone_01)을 볼 수 있다. 로컬 Chrome 캡처로 실제 표시를 확인했다. 버튼·키보드·포인터·탭 전환의 자동 조작과 하드웨어 성능 검수는 미완료다.
+프로젝트 루트에서 `./run.sh`를 실행하면 [캐릭터 샘플](http://127.0.0.1:4173/#/samples/characters/clone_01)을 볼 수 있다. Python 3.9 이상이 필요하며 종료는 `Ctrl+C`, 포트 변경은 `./run.sh --port 4174`다. 로컬 Chrome 캡처로 실제 표시를 확인했다. 버튼·키보드·포인터·탭 전환의 자동 조작과 하드웨어 성능 검수는 미완료다.
 
 사용자 지시로 **플랜 B · 2dimg2motion**을 가동했다. [별도 폴더](art/characters/clone_01/motion/plan_b/README.md)의 M16 보행 14프레임 `walk_001`은 사용자 지적 후 **크기·비례 검수 실패**로 판정했다. [기존 캐릭터 페이지](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&motion=walk)에 실패 상태를 표시한다. 공식 규약 재검토 후 `walk_002` 키포즈를 한 차례 재생성했으나 비례 검수에서 반려했으며, 수정된 완성 모션은 아직 없다. [실제 실행 기록과 승인 조건](docs/27-plan-b-2dimg2motion.md)을 따른다.
 
@@ -68,9 +58,6 @@ git submodule update --init --recursive
 
 | 문서 | 내용 |
 |---|---|
-| [플랜 D · clone_01 모델링 003](docs/plan-d-clone-model-003.md) | 실제 곡면·장비·머리/망토·정점 가중치·GLB 저장·렌더 피드백과 품질 한계 |
-| [플랜 D · 공통 구조 002](docs/plan-d-cross-platform-002.md) | SDL 없는 이동 코어·플랫폼/렌더러 인터페이스·Metal/D3D12 설정·한정 검수 |
-| [플랜 D · 로컬 3D 기초 001](docs/plan-d-native-001.md) | C++20·SDL3 GPU 환경·21개 관절·기본 도형·Metal 캡처·로컬 실행 |
 | [01. 프로젝트 범위](docs/01-project-scope.md) | 검증 목적, 필수 구현, 제외 범위, 완료 조건 |
 | [02. 캐릭터·아트 설정](docs/02-world-and-art.md) | 첨부 기준 클론·3D풍 전술 갑옷, M16, 적 실루엣, 베스퍼의 야외 검문소 아트 |
 | [03. 게임플레이](docs/03-gameplay-and-stage.md) | 조작, 전투, 웨이브, 진행·실패·재시작 규칙 |

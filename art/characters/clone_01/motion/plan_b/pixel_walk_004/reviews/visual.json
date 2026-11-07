@@ -1,0 +1,26 @@
+{
+  "status": "draft_playable",
+  "baseline_key_gate": "passed_for_inbetween_generation",
+  "evidence": [
+    "reviews/key-size-comparison.png",
+    "output/contact-sheet.png",
+    "reviews/browser-walk.png",
+    "reviews/browser-frame-02.png",
+    "reviews/browser-frame-05.png",
+    "reviews/browser-frame-08.png",
+    "reviews/browser-frame-11.png"
+  ],
+  "observations": [
+    "All14 frames exist and browser playback changes actual canvas pixels.",
+    "Head, chest, shoulder-to-belt distance and M16 retain similar size to003 baseline; prior visible key-sheet enlargement reduced.",
+    "Contact, recovery and passing silhouettes read as a walk, with rifle held in both hands."
+  ],
+  "remaining_issues": [
+    "Opaque sole bottoms434..437 (3px spread); strict identical ground baseline not met.",
+    "Cape shape, fine outline and near/far shin highlights vary.",
+    "Neutral baseline return causes a slight settle/hold near loop boundary; support-leg continuity needs final user review."
+  ],
+  "structure_scope": "PNG contracts and browser rendering passed; full upstream delivery validation did not pass.",
+  "art_acceptance": "awaiting_user_review",
+  "gif_omitted_per_user_instruction": true
+}

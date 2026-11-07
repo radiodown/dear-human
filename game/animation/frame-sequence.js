@@ -12,23 +12,38 @@ export class FrameSequence {
     document.addEventListener('visibilitychange', () => this.schedule());
   }
   async load(manifestUrl) {
-    if (this.pending) return this.pending;
+    if (this.sourceUrl === manifestUrl && this.pending) return this.pending;
+    const requestId = this.requestId = (this.requestId || 0) + 1;
+    this.sourceUrl = manifestUrl;
+    cancelAnimationFrame(this.raf);
+    this.manifest = null;
+    this.atlas = null;
     this.pending = (async () => {
       const response = await fetch(manifestUrl, {cache:'no-store'});
       if (!response.ok) throw new Error('플랜 B 모션 목록을 불러오지 못했습니다.');
-      this.manifest = await response.json();
-      const {canvas, frameCount, durationMs, spritesheet} = this.manifest;
+      const manifest = await response.json();
+      const {canvas, frameCount, durationMs, spritesheet} = manifest;
       if (frameCount !== 14 || !canvas?.width || !canvas?.height || !(durationMs > 0)) throw new Error('플랜 B 모션 형식이 올바르지 않습니다.');
-      this.atlas = new Image();
-      this.atlas.src = new URL(spritesheet, new URL(manifestUrl, location.href)).href;
-      await this.atlas.decode();
-      if (this.atlas.naturalWidth !== canvas.width * frameCount || this.atlas.naturalHeight !== canvas.height) throw new Error('플랜 B 시트 크기가 목록과 다릅니다.');
+      const atlas = new Image();
+      atlas.src = new URL(spritesheet, new URL(manifestUrl, location.href)).href;
+      await atlas.decode();
+      if (atlas.naturalWidth !== canvas.width * frameCount || atlas.naturalHeight !== canvas.height) throw new Error('플랜 B 시트 크기가 목록과 다릅니다.');
+      if (requestId !== this.requestId) return false;
+      this.manifest = manifest;
+      this.atlas = atlas;
+      this.index = 0;
       this.canvas.width = canvas.width;
       this.canvas.height = canvas.height;
+      this.canvas.dataset.pixelArt = String(Boolean(manifest.pixelArt));
+      this.context.imageSmoothingEnabled = !manifest.pixelArt;
       this.draw();
       this.schedule();
+      return true;
     })();
-    try { await this.pending; } catch (error) { this.pending = null; throw error; }
+    try { return await this.pending; } catch (error) {
+      if (requestId === this.requestId) { this.pending = null; this.sourceUrl = null; }
+      throw error;
+    }
   }
   show(visible) { this.visible = visible; this.schedule(); }
   schedule() {

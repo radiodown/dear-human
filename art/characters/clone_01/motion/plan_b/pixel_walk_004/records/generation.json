@@ -1,0 +1,120 @@
+{
+  "revision_id": "plan_b_pixel_walk_004",
+  "recorded_at": "2026-11-07T13:59:55.665613+09:00",
+  "request": "캐릭터가 걷게해줘.",
+  "tool": "built-in image_gen",
+  "workflow": "2dimg2motion: shared four-key gate then eight model-generated in-betweens",
+  "model_id": null,
+  "seed": null,
+  "actual_cost": null,
+  "unavailable_metadata": "Model ID, seed and actual billing were not exposed by the tool.",
+  "image_calls": 3,
+  "sum_observed_tool_time_ms": 159959,
+  "timing_note": "The two in-between calls were independent and run concurrently; sum of observed call times is not wall-clock elapsed time.",
+  "calls": [
+    {
+      "stage": "keyposes",
+      "tool_time_ms": 37040,
+      "prompt": "records/keyposes_prompt.json",
+      "prompt_document": "records/keyposes_prompt.md",
+      "inputs": [
+        {
+          "path": "source/keypose_edit_board.png",
+          "sha256": "2249dc47fe08dc3a5d362ccce06b4f7909694c4dd41b873d8a62e0b222a3e177"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+        }
+      ],
+      "output": "source/keyposes.png",
+      "output_sha256": "b5ee30de182266cdc2855759844db077a6f19906351667b1add3dc3673662707",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true
+    },
+    {
+      "stage": "inbetweens_a",
+      "tool_time_ms": 40926,
+      "prompt": "records/inbetweens_a_prompt.json",
+      "prompt_document": "records/inbetweens_a_prompt.md",
+      "inputs": [
+        {
+          "path": "source/inbetweens_a_edit_board.png",
+          "sha256": "788595ce399856095601fcb30c5d2b1a71f8435aa9922c3a68f2192e0c99958d"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+        },
+        {
+          "path": "source/keyposes_normalized.png",
+          "sha256": "5d565a9d6bf8420600a2ddb3a70e195d67e9a6a5433c9f456915b26f7dac0b86"
+        }
+      ],
+      "output": "source/inbetweens_a.png",
+      "output_sha256": "3f5393e46e4634ce1d3bd4214aa9441cc1027d723ed60e057a7b03ce547fb01f",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true
+    },
+    {
+      "stage": "inbetweens_b",
+      "tool_time_ms": 81993,
+      "prompt": "records/inbetweens_b_prompt.json",
+      "prompt_document": "records/inbetweens_b_prompt.md",
+      "inputs": [
+        {
+          "path": "source/inbetweens_b_edit_board.png",
+          "sha256": "61a5075534adf41cb75c9ec681806f0d1ccb708993bcc634dab20805be0541cf"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+        },
+        {
+          "path": "source/keyposes_normalized.png",
+          "sha256": "5d565a9d6bf8420600a2ddb3a70e195d67e9a6a5433c9f456915b26f7dac0b86"
+        }
+      ],
+      "output": "source/inbetweens_b.png",
+      "output_sha256": "ece7bb6d1152e165d94b4db377de700a6b5fd18b8f1eb928201f37395cec5838",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true
+    }
+  ],
+  "baseline_dependency": "plan_b_pixel_003",
+  "baseline_sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f",
+  "key_gate": "reviews/key-gate.json",
+  "local_tool": "Pillow 11.3.0",
+  "local_operations": [
+    "copy whole baseline/key images into fixed input boards",
+    "uniform whole-sheet resize to1024x1024 and equal512x512 cell splits",
+    "uniform alpha<=8 cleanup of generated gutter noise",
+    "PNG atlas and comparison/contact sheet packing"
+  ],
+  "per_frame_fitting": false,
+  "pose_synthesis_or_interpolation": false,
+  "frame_count": 14,
+  "generated_pose_count": 12,
+  "exact_source_endpoints": [
+    0,
+    13
+  ],
+  "gif_generated": false,
+  "status": "draft_playable",
+  "art_acceptance": "awaiting_user_review",
+  "limitations": [
+    "About3px opaque sole-height jitter remains without per-frame alignment.",
+    "Cape length/outline and leg highlights vary; neutral return at loop boundary needs review.",
+    "M16 is baked into sprites; not a skinned rig or replaceable weapon.",
+    "No fixed palette or single logical pixel grid enforced."
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "status": "passed_with_limitations",
+  "validator": "2dimg2motion validate_14frame_pattern.py, unmodified",
+  "upstream_delivery_passed": false,
+  "raw_issues": [
+    "unstable foot baseline: [439, 434, 437, 434, 435, 438, 437, 434, 437, 434, 437, 437, 437, 439]",
+    "missing file: art/characters/clone_01/motion/plan_b/pixel_walk_004/output/preview.gif"
+  ],
+  "first_pass_issues": [
+    "clone_01-pixel-walk_10.png: corners must be transparent",
+    "unstable foot baseline: [439, 512, 512, 512, 493, 512, 512, 512, 512, 512, 512, 512, 496, 439]",
+    "missing file: art/characters/clone_01/motion/plan_b/pixel_walk_004/output/preview.gif"
+  ],
+  "alpha_cleanup": "One common alpha<=8 cutoff removes nearly invisible noise; all generated original sheets retained, baseline00/13 untouched.",
+  "opaque_foot_bottoms": [
+    437,
+    434,
+    436,
+    434,
+    435,
+    437,
+    435,
+    434,
+    436,
+    434,
+    436,
+    436,
+    436,
+    437
+  ],
+  "opaque_foot_range_px": 3,
+  "baseline_jitter": "Retained and disclosed; no per-frame scale or y alignment to hide the error.",
+  "gif_omission": "No automatic GIF generation per user instruction. Browser PNG playback is the preview.",
+  "png_contract_errors": [],
+  "passed_checks": [
+    "14 contiguous RGBA frames at one canvas size",
+    "transparent corners after uniform noise cleanup",
+    "00 and13 byte-identical source baseline",
+    "02/05/08/11 keyframes identical to corresponding full frames"
+  ],
+  "verification_scope": "PNG contracts only; strict upstream foot-line equality and GIF requirements are not satisfied."
+}

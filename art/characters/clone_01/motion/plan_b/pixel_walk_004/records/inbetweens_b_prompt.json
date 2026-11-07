@@ -1,0 +1,43 @@
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human Plan B pixel_walk_004 generated walking in-betweens, exact four-cell edit",
+  "input_images": {
+    "image_1": "EDIT TARGET: four-cell sprite board with the correct positions and size. Change only lower-body pose and lower cape to the requested intermediate instants.",
+    "image_2": "Exact original 512x512 baseline: unchanged visual identity, head/chest/arms/rifle size and position.",
+    "image_3": "Approved walking key-pose sheet, 2x2 reading order 02 05 08 11. Immutable motion anchors; do not output these key poses again."
+  },
+  "primary_request": "Edit the FIRST supplied image in place to generate exactly FOUR different intermediate walking sprites. Preserve the exact 1024x1024 canvas, 2x2 arrangement and 512x512 cells. Use the provided baseline image as the exact visual identity source, not loose inspiration. Only change pose and animation timing. Preserve the entire head, face, hair crown, chest, both arms and horizontal M16 at their current exact size and exact local coordinates. No reframing, zoom, extra character or larger drawing. Keep the empty gutters.",
+  "identity_lock": "Same slender adult woman, cool pale face, long black straight hair, black/gunmetal broad armor plates, short three-panel skirt, thigh stocking bands, tall armored boots, dark shoulder cape with sparse gold hem. Same coarse square pixel clusters and limited colors. Do not redesign, simplify, beautify, add details, remove details, change proportions or reinterpret the character.",
+  "scale_and_position_lock": "Match the edit board and baseline: crown near local y=74, soles on local y=438, belt near local y=234, muzzle near x=371/y=144. Body about 364px tall, never enlarged. Rifle about174px long, no shortening or lengthening. Fixed orthographic right-facing side view. Torso and gun steady; lower cape follows small delayed sway. Change lower-body pose below the skirt; preserve upper-body drawing.",
+  "layout": "Exactly four whole-body sprites in equal 512x512 cells in the EXISTING 2 columns by 2 rows grid, reading order top-left/top-right/bottom-left/bottom-right. No captions, frame numbers, borders or guide lines. Complete rifle, boots and cape within each cell.",
+  "limb_lock": "Exactly one head, two arms, two hands, two legs, two boots. Near brighter shin/boot stays attached to the same near hip, far darker shin/boot to the same far hip, even at crossing. Near firing hand stays at the screen-left rear pistol grip and same near shoulder. Far support hand stays under the screen-right fore-end and same far shoulder. The weapon always remains in the same screen-space hands. No mirroring, swapped limbs or detached/duplicated rifle.",
+  "motion": "Slow small-stride walk in place. No high knees or run. Use natural low foot arcs, heel-to-toe support and opposite-leg alternation. Every cell is a new intermediate instant between its immutable given anchors. Do not repeat a contact or lifted-foot key pose for all cells.",
+  "background": "Actual transparent alpha background including gutters. No ground shadow, checkerboard image, floor, text, watermark or effects.",
+  "ordered_inbetweens": [
+    {
+      "frame": 7,
+      "cell": "top-left",
+      "segment": "05 -> 08 second third",
+      "pose": "Far darker boot reaches forward with heel almost touching ground near the opposite contact. Near brighter boot trails behind with heel rising. Less separated than key08, just before its contact."
+    },
+    {
+      "frame": 9,
+      "cell": "top-right",
+      "segment": "08 -> 11 first third",
+      "pose": "After opposite contact, far darker forward boot plants flat and starts moving toward pelvis. Near brighter trailing heel lifts, near knee bends and near toe begins leaving ground. Opposite leg mechanics from03."
+    },
+    {
+      "frame": 10,
+      "cell": "bottom-left",
+      "segment": "08 -> 11 second third",
+      "pose": "Far darker foot supports near pelvis. Near brighter leg recovers from behind, boot lifted a little and approaching the support leg. One frame BEFORE the near-brighter passing pose11. Opposite leg mechanics from04."
+    },
+    {
+      "frame": 12,
+      "cell": "bottom-right",
+      "segment": "11 -> 13 neutral baseline",
+      "pose": "Recover from lifted near-brighter passing pose11 to exact neutral baseline13. Lower the lifted near boot close to the other foot, knees nearly straight, small foot separation. Cape returns toward the exact baseline hanging shape. Do not retain the high passing knee or wide contact stride."
+    }
+  ],
+  "critical": "Edit the board at its existing size. Four new intermediate poses, all matching baseline head/torso/rifle scale. Do not just reproduce input cells; change lower-body pose as specified. Do not change any approved anchor."
+}

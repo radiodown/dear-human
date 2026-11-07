@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=pixel_004&motion=walk",
+  "browser": "Local macOS Chrome via Playwright",
+  "scope": "One short Plan B animation and source-switch render review; no full game tests.",
+  "checks": [
+    "new14-frame atlas loads",
+    "autoplay advances and rendered pixels change",
+    "pause and single step",
+    "seek02/05/08/11",
+    "half speed and grid background",
+    "old530px atlas and new512px atlas both load",
+    "rapid source switch retains new atlas",
+    "500px layout",
+    "hidden playback stops",
+    "Plan B button defaults to new walk"
+  ],
+  "distinct_rendered_samples": 11,
+  "page_errors": [],
+  "art_acceptance": "awaiting_user_review"
+}

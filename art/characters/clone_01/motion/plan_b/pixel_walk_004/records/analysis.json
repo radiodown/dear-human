@@ -1,0 +1,14 @@
+{
+  "input_revision": "plan_b_pixel_003",
+  "source": "source/baseline.png",
+  "canvas": [
+    512,
+    512
+  ],
+  "facing": "screen-right",
+  "near_leg": "brighter foreground shin/boot",
+  "far_leg": "darker background shin/boot",
+  "weapon_hands": "screen-left rear grip / screen-right fore-end",
+  "strategy_change": "Edit a same-size four-copy baseline board; lock upper-body size and coordinates; small low-foot-lift gait. Prior rejected key sheets are not inputs.",
+  "per_frame_fitting": false
+}

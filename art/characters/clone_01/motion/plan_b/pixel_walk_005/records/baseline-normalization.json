@@ -1,0 +1,15 @@
+{
+  "source_size": [
+    1254,
+    1254
+  ],
+  "canvas": [
+    512,
+    512
+  ],
+  "whole_image_scale": 0.4082934609250399,
+  "resampling": "nearest",
+  "done_before_key_generation": true,
+  "crop_or_subject_fit": false,
+  "purpose": "Keep fixed canvas coordinates while clarifying near/far leg values."
+}

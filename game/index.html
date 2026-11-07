@@ -31,7 +31,7 @@
 
     <div class="workspace" id="workspace">
       <section class="viewer-panel" aria-label="아트와 모션 미리보기">
-        <div class="preview-mode" aria-label="미리보기 종류"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button><button id="mode-rig" type="button" aria-pressed="false">파츠 모션 테스트 <span>LIVE</span></button><button id="mode-plan-b" type="button" aria-pressed="false">플랜 B · 도트 시도</button></div>
+        <div class="preview-mode" aria-label="미리보기 종류"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button><button id="mode-rig" type="button" aria-pressed="false">파츠 모션 테스트 <span>LIVE</span></button><button id="mode-plan-b" type="button" aria-pressed="false">플랜 B · 도트 걷기</button></div>
         <div id="reference-view">
         <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
         <div class="art-stage bg-dark" id="art-stage"><span class="stage-label" id="stage-label">APPEARANCE / STATIC REFERENCE</span><div class="art-frame" id="art-frame" data-view="sheet"><img id="character-art" alt="주인공 클론의 정면과 오른쪽 측면 전신 외형 시안" draggable="false"></div><p id="image-loading" class="image-loading" role="status">외형 시안을 불러오는 중…</p></div>
@@ -58,9 +58,9 @@
           <p class="rig-note">발사 순간 총구 가까이의 얼굴·손·갑옷에 따뜻한 빛이 닿도록 연결했습니다. ‘캐릭터에 총구 빛’과 ‘빛 세기’로 비교할 수 있습니다. 장전 손 모양 3종(놓기·탄창 쥐기·조작부 누르기)은 미제작이며 장전에는 기존 임시 손을 사용합니다. 사용자 검수 대기 상태입니다.</p>
         </div>
         <div id="plan-b-view" hidden>
-          <div class="rig-toolbar"><strong>PLAN B / 2dimg2motion</strong><label>시도 <select id="plan-b-study" aria-label="플랜 B 시도"><option value="pixel-baseline">도트 003 · 기준 외형</option><option value="pixel-keys">도트 003 · 걷기 키포즈</option><option value="walk-001">걷기 001 · 반려 기록</option></select></label></div>
+          <div class="rig-toolbar"><strong>PLAN B / 2dimg2motion</strong><label>시도 <select id="plan-b-study" aria-label="플랜 B 시도"><option value="pixel-walk">도트 004 · 걷기</option><option value="pixel-baseline">도트 003 · 기준 외형</option><option value="pixel-keys">도트 003 · 키포즈 반려 기록</option><option value="walk-001">걷기 001 · 반려 기록</option></select></label></div>
           <div id="plan-b-pixel-view">
-            <p class="rig-note" id="plan-b-pixel-note">긴 머리·검은 갑옷·망토·M16을 남기고 문양·장식·작은 버클·재질 묘사를 줄인 도트풍 시도입니다. 기준 외형과 걷기 키포즈를 따로 확인할 수 있습니다. 완성된 보행 애니메이션은 아직 없습니다.</p>
+            <p class="rig-note" id="plan-b-pixel-note">긴 머리·검은 갑옷·망토·M16을 남기고 문양·장식·작은 버클·재질 묘사를 줄인 도트 003의 정지 이미지 기록입니다. 걷기 재생은 위 목록에서 ‘도트 004 · 걷기’를 선택하세요.</p>
             <p class="error" id="plan-b-pixel-quality-warning" role="status" hidden>이 키포즈는 기준보다 머리·상체·총이 커져 크기 검수에서 반려했습니다. 05/11의 지지 다리 교대도 불명확합니다. 중간 프레임은 생성하지 않았으며 아래 이미지는 시도 기록입니다.</p>
             <div id="plan-b-pixel-stage" class="plan-b-pixel-stage bg-light"><img id="plan-b-pixel-image" alt="장식을 줄인 플랜 B 도트풍 기준 캐릭터" width="512" height="512"><p id="plan-b-pixel-loading" role="status">도트 시도를 불러오는 중…</p></div>
             <div class="rig-playback"><label>표시 크기 <select id="plan-b-pixel-size"><option value="large">크게 · 512px</option><option value="medium">중간 · 384px</option><option value="small">작게 · 256px</option></select></label><label>배경 <select id="plan-b-pixel-background"><option value="light">밝게</option><option value="dark">어둡게</option><option value="grid">격자</option></select></label></div>
@@ -72,8 +72,8 @@
           <div id="plan-b-stage" class="plan-b-stage bg-light"><canvas id="plan-b-canvas" aria-label="플랜 B · 모델로 생성한 14프레임 M16 준비 보행"></canvas><p id="plan-b-loading" role="status">플랜 B 모션을 불러오는 중…</p></div>
           <div class="rig-playback"><button id="plan-b-pause" type="button">일시정지</button><button id="plan-b-step" type="button">다음 프레임</button><output id="plan-b-counter">00 / 13</output><label>속도 <select id="plan-b-speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label><label>배경 <select id="plan-b-background"><option value="light">밝게</option><option value="dark">어둡게</option><option value="grid">격자</option></select></label></div>
           <label class="plan-b-scrubber">프레임 <input id="plan-b-frame" type="range" min="0" max="13" value="0" aria-label="플랜 B 프레임"></label>
-          <div class="plan-b-links"><a href="/art/characters/clone_01/motion/plan_b/walk_001/output/contact-sheet.png" target="_blank" rel="noopener">반려한 14프레임 ↗</a><a href="/art/characters/clone_01/motion/plan_b/walk_002/reviews/baseline-key-size-comparison.png" target="_blank" rel="noopener">기준·새 키포즈 크기 대조 ↗</a></div>
-          <p class="rig-note">전신을 다시 그린 PNG 애니메이션입니다. M16은 프레임에 포함됩니다. 얼굴·망토의 세부 흔들림과 루프 연결은 검토가 필요합니다.</p>
+          <div class="plan-b-links"><a id="plan-b-contact-link" href="/art/characters/clone_01/motion/plan_b/pixel_walk_004/output/contact-sheet.png" target="_blank" rel="noopener">걷기 14프레임 ↗</a><a id="plan-b-comparison-link" href="/art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/key-size-comparison.png" target="_blank" rel="noopener">기준·새 키포즈 크기 대조 ↗</a></div>
+          <p class="rig-note" id="plan-b-walk-note">도트 캐릭터의 14프레임 제자리 걷기입니다. 모션과 아트 채택은 검수 대기입니다.</p>
           </div>
         </div>
         <section class="motion-strip"><div><p class="eyebrow">MOTION STUDIES / WAIST & PARTS 10 + PLAN B</p><h2>허리축·연결 천·새 손과 팔 · 검수 대기</h2></div><div class="motion-list"><span>대기</span><span>이동</span><span>기본 사격</span><span>이동 사격</span><span>장전 초안</span><span>피격 반응</span><span>플랜 B · 걷기 14프레임</span></div></section>

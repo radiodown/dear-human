@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "scope": "Visual gate to proceed to in-betweens, not final art acceptance.",
+  "evidence": "reviews/key-size-comparison.png",
+  "observations": [
+    "With one shared source-sheet scale, head, chest, shoulder-to-belt distance and rifle remain close to the 003 baseline; no prior 003-style visible enlargement.",
+    "Crown, belt and ground registration remain stable without per-frame fitting.",
+    "Contact and passing silhouettes are readable; near/far shin highlights vary and require review in playback.",
+    "Four complete characters, hands stay at rear grip and fore-end, no cropped rifle or neighboring-cell cut."
+  ],
+  "art_acceptance": "awaiting_user_review",
+  "per_frame_fitting": false,
+  "limitation": "Detailed pixel-grid, perfect leg labeling and cape continuity are not final-quality claims."
+}
