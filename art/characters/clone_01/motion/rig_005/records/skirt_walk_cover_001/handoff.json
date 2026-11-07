@@ -1,0 +1,59 @@
+{
+  "iteration": "skirt_walk_cover_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/recipe.json",
+    "sha256": "278361e7aa944c3465b648a0c40558083052b1131314dac84d8282ca766a34c3"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "short_garment_check": {
+      "path": "art/characters/clone_01/motion/rig_005/tests/skirt_walk_cover_001/garment-smoke.json",
+      "sha256": "3264b8ab918ca3fb6780ba2c99af5476fc95309909ce79f928f1e1a393091fd9"
+    },
+    "short_chrome_comparison": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/browser.json",
+      "sha256": "c994c5ff364f44c5f1e005cc806632b79faa2f9f19b3c327c7d10a99e5d4b135"
+    },
+    "live_walking": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk-playback.json",
+      "sha256": "f28fd65ab4c1496c1cb06d13e5977fd7c0794935c5146c2268eb58743882aa03"
+    },
+    "pinned_seam_standing_kneeling_and_joints": {
+      "scope": "Short skirt seam/waist pin, unchanged standing/kneeling, leg-order envelope and thigh joint check; not art/collision acceptance.",
+      "maxPinnedError": 1.7763568394002505e-15,
+      "maxSeamError": 1.7763568394002505e-15,
+      "maxStandingDifference": 0,
+      "maxKneelingDifference": 0,
+      "maxLegOrderDifference": 0,
+      "maxJointOffset": 0,
+      "maxForwardCoverGain": 14.78553916190656,
+      "status": "passed",
+      "runtime_sources": [
+        {
+          "path": "game/animation/waist.js",
+          "sha256": "2c21f76ddbe6e7d0be02fff87acdbb07e4b749617a021a90041ee67e82e7e2df"
+        },
+        {
+          "path": "game/animation/webgl-character.js",
+          "sha256": "cc16a6d62789fda5126be7bc5a2ec2ff3317a639bfcde879a72ea22689cb0dcf"
+        }
+      ]
+    },
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_results": "unchanged"
+  },
+  "comparison_method": "Freeze identical game pose/time; switch only skirt projection and proximal-thigh warp to saved previous behavior. No artwork edits or frame alignment.",
+  "review_harness": "Saved baseline module imports are rebased in a local Playwright response fixture; application CSP was retained. Initial blob import was rejected by CSP before captures.",
+  "entry_points": {
+    "walk": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk",
+    "walk_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk_fire",
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run"
+  },
+  "remaining": [
+    "User review of visible skirt/thigh alpha overlap across the full gait cycle.",
+    "Extreme strides/manual settings, source pleat distortion and kneeling transitions were not exhaustively reviewed.",
+    "This is authored 2D garment drape and skinning; no physical cloth/collision or newly drawn folds."
+  ]
+}

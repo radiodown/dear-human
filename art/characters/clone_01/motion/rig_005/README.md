@@ -1,5 +1,7 @@
 # clone_01 · 파츠 모션 rig_005
 
+**걷기 스커트 덮임 skirt_walk_cover_001:** [변경 내용](../../../../../docs/skirt-walk-cover-001.md) · [레시피](records/skirt_walk_cover_001/recipe.json) · [인계](records/skirt_walk_cover_001/handoff.json). 걷기에서 허벅지 윗단의 회전을 골반에 연결하고 스커트 패널이 양쪽 다리의 바깥 움직임을 받아 덮도록 했다. 아랫단의 과도한 들림을 줄이고 아래 늘어짐을 더했다. 벨트/중앙 경계·고관절/무릎 중심·대기/앉아쏴와 원본은 유지한다. 필요한 짧은 연결 확인과 Chrome 전후/재생 결과는 tests/reviews의 `skirt_walk_cover_001`이며 실제 알파 덮임과 자연스러움은 사용자 검수 대기다.
+
 **머리·몸통 연결 head_body_sync_001:** [변경 내용](../../../../../docs/head-body-sync-001.md) · [레시피](records/head_body_sync_001/recipe.json) · [인계](records/head_body_sync_001/handoff.json). 지속적인 기본 숙임만 시선 보정하고 발걸음/몸통의 순간 회전은 머리에 전달한다. 흉곽의 별도 상하 바운스는 제거하고 느린 호흡·접지 움직임은 유지했다. 머리/눈/뒤 머리카락이 공통 `headFrame`을 쓰며 앉아쏴 조준과 총구/대기/조절 기능은 유지한다. 필요한 구문·짧은 동기화/접점·Chrome 확인 결과는 tests/reviews의 `head_body_sync_001`이다. 자연스러움과 목 실루엣은 사용자 검수 대기다.
 
 **달리기 총구·두 대기 carry_idle_001:** [변경 내용](../../../../../docs/carry-idle-001.md) · [레시피](records/carry_idle_001/recipe.json) · [인계](records/carry_idle_001/handoff.json). 비사격 달리기 총구를 아래 35°로 내리고 완전 대기(총구 아래 58°·상체 전경 해제)를 추가했다. 기존 견착 대기와 뛰며쏴의 전방 수평은 유지하며, 두 낮춘 자세에서 발사 입력은 총을 든 뒤 첫 발을 낸다. 완전 대기도 같은 조절·별도 저장·일시정지 비교를 사용한다. 필요한 짧은 구문·접점/전환·Chrome 확인 결과는 tests/reviews의 `carry_idle_001`이며 아트 검수는 대기다.

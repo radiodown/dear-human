@@ -7,6 +7,8 @@ description: Run reusable catalog, cache, dependency and document checks for ass
 
 ## 검증 범위
 
+스커트 보행 덮임 최신은 `docs/skirt-walk-cover-001.md`다. 허벅지 윗단은 골반에 연결하고 두 스커트 패널은 양쪽 다리의 바깥 움직임을 받아 덮는다. 벨트/중앙 경계·관절 중심과 대기/완전 앉아쏴는 유지한다. 아랫단의 들림은 줄이고 아래 늘어짐을 더했으며 실제 천 충돌은 없다. 필요한 결과는 tests/reviews의 `skirt_walk_cover_001`에 분리하고 이전 기록·원본 PNG·플랜 B/C·GIF는 변경하지 않는다.
+
 머리/몸통 연결 최신은 `docs/head-body-sync-001.md`다. 지속적인 숙임만 시선 역보정하고 순간 몸통 회전은 머리에 동기 전달한다. 별도의 흉곽 상하 바운스는 제거하며 호흡·접지·017 조준·carry_idle_001과 조절/저장은 유지한다. 공통 `headFrame`을 표시와 눈/머리카락에서 공유하고 새 결과는 tests/reviews의 `head_body_sync_001`로 분리한다. 필요한 짧은 동기화/접점/Chrome 범위만 확인하며 이전 검사·플랜 B/C·GIF는 변경하지 않는다.
 
 달리기 총구·두 대기 최신은 `docs/carry-idle-001.md`다. 비사격 달리기는 아래 35°, 완전 대기 `relaxed`는 전경을 풀고 아래 58°로 총을 든다. `idle` 견착 대기와 사격은 전방 수평이다. 최신 사용자 지시가 이전 모든 자세 수평 규칙의 두 낮춘 자세를 대체한다. 준비량을 따라 총을 들고 기존 첫 발 조건을 유지한다. 완전 대기를 포함한 9개 동작은 같은 조절/별도 저장을 사용한다. 필요한 결과는 tests/reviews의 `carry_idle_001`에 분리하고 기존 기록·플랜 B/C·GIF는 변경하지 않는다.

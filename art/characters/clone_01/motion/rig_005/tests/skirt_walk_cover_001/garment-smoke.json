@@ -1,0 +1,21 @@
+{
+  "scope": "Short skirt seam/waist pin, unchanged standing/kneeling, leg-order envelope and thigh joint check; not art/collision acceptance.",
+  "maxPinnedError": 1.7763568394002505e-15,
+  "maxSeamError": 1.7763568394002505e-15,
+  "maxStandingDifference": 0,
+  "maxKneelingDifference": 0,
+  "maxLegOrderDifference": 0,
+  "maxJointOffset": 0,
+  "maxForwardCoverGain": 14.78553916190656,
+  "status": "passed",
+  "runtime_sources": [
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "2c21f76ddbe6e7d0be02fff87acdbb07e4b749617a021a90041ee67e82e7e2df"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "cc16a6d62789fda5126be7bc5a2ec2ff3317a639bfcde879a72ea22689cb0dcf"
+    }
+  ]
+}

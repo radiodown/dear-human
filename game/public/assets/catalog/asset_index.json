@@ -1026,20 +1026,20 @@
         },
         {
           "revision_id": "rig_005",
-          "display_name": "파츠 모션 · 머리/몸통 연결 001",
+          "display_name": "파츠 모션 · 스커트 보행 덮임 001",
           "status": "draft",
           "verification": "untested",
-          "verification_scope": "Latest head_body_sync_001 has scoped syntax, motion coherence/contacts and Chrome common-head-frame checks. Overall inherited art/combinations await user review; historical results unchanged.",
+          "verification_scope": "Latest skirt_walk_cover_001 has scoped garment, same-pose Chrome comparison and short walk checks. Full gait alpha/occlusion and inherited combinations await user review; historical results unchanged.",
           "art_direction_status": "awaiting_user_review",
           "recipe_key": "4fa3feb51a2775f096352f7da2ff63f5e1599affa9a7405100a01a8474a68e20",
           "artifacts": [
             {
               "path": "AGENTS.md",
-              "sha256": "657e3f332a2c575d31ae4a6257d1e678006f3dc623ba87f680045049bc3ce049"
+              "sha256": "812a0fd899daac8f618bbdde5577f3944e3403e0e6f3b0199c58ce8b1d30cc9b"
             },
             {
               "path": "README.md",
-              "sha256": "920a3a17dca496e5f9b70cb22d5f8a24f1118e1120adafa7de5f0e517184dc11"
+              "sha256": "447c945976f0b012bdea2fe40a345b4b35545aa9cc381997c48f452491751b34"
             },
             {
               "path": "art/characters/clone_01/concepts/kneeling_fire_001/records/runtime_application_017.json",
@@ -1059,7 +1059,7 @@
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/README.md",
-              "sha256": "71c351b7896114989086966bd106b5e4cb98ac3b32647427c5c678632f6e80cc"
+              "sha256": "b398374a102953eea9010d05752ac4c3f7097c98d731d9550db5d83315394d99"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/articulation_combat_011.json",
@@ -2218,12 +2218,40 @@
               "sha256": "e5905a87ba84d52375bbb64d2a57a3044e939688012a900ee64afeea4b602273"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_skirt_walk_cover_001/index.json",
+              "sha256": "3c08a57e74bcd0cb2b24d148ba8a6f270b8cd864ac8853fa6af7d6f07f6e79d0"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/records/secondary_and_fire_007.json",
               "sha256": "2fcbb8cbc5c0c4a1df7788958d98a033b1833e95828b41bfb2b216d7a4c05a05"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/shoulder_height_008.json",
               "sha256": "973c7f28fb5ac1291a21b21bafbfb4141ccd95c7cacbf5de69e6e944e7d69267"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/check.mjs",
+              "sha256": "baee36e64cf396cce95730d12099b81e7d93e9cca5e06ef864fd2daf2a6f4bad"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/handoff.json",
+              "sha256": "e2bd21622f128e680595a2eb273c14924cdd31691375d02a7d0044e33f46b80b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/recipe.json",
+              "sha256": "278361e7aa944c3465b648a0c40558083052b1131314dac84d8282ca766a34c3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/record.py",
+              "sha256": "6901bb3d91edc331398bbaf3cc505a6dc998eee93c163857fe25f7254ffb4e00"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/review.py",
+              "sha256": "6b56059fded1d55c1ad527d350d32b5d78f9d2b687e36f8538c2b7fe333b6278"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/walk_playback.py",
+              "sha256": "fdde9ca10884f880b1859addc1addb0a3f1e0361895f55aaefe6a1e3ab921845"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/ui_snapshot/index.html",
@@ -2510,6 +2538,66 @@
               "sha256": "9d52d38b21cf95ed36795c39b26125aa5021a3d7d5621c9096199e51186c8c32"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/browser.json",
+              "sha256": "c994c5ff364f44c5f1e005cc806632b79faa2f9f19b3c327c7d10a99e5d4b135"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/first_drape_trial/browser.json",
+              "sha256": "c325d2b466f208c028629ca8ad208607023bc0b9e12c1df548b9bd22609fa83c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/first_drape_trial/run_after.png",
+              "sha256": "e5fcb839c88fbdeab9734eecd0f7bc42a347684a89221bd658d197753595cf60"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/first_drape_trial/run_before.png",
+              "sha256": "9f5651034facec4f2a4898c10b6ef1a90bc7f910ab41d9a56f7d42e59446a4d7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/first_drape_trial/walk_front_after.png",
+              "sha256": "6425dd70010a7faab464119632676b59386c19fabf737608194a54f85f19f8ed"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/first_drape_trial/walk_front_before.png",
+              "sha256": "a1da127f8902dcbb62b6b34f1ad730239cad7444c8a25a398a3d67845bb3da4e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/first_drape_trial/walk_other_after.png",
+              "sha256": "0ff9eb153f03ca37ebfc14ceefaea87b24848b746b4f81c354a8c290ac21bec1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/first_drape_trial/walk_other_before.png",
+              "sha256": "901463af12115bfc1a33e35c36ca6f75a7005ebcea341350abbfc3a046561d83"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/run_after.png",
+              "sha256": "eec43e97103a3d7a70f5bf9201fa39903b457a3c2353fec6f6616fac894ee2f1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/run_before.png",
+              "sha256": "9f5651034facec4f2a4898c10b6ef1a90bc7f910ab41d9a56f7d42e59446a4d7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk-playback.json",
+              "sha256": "f28fd65ab4c1496c1cb06d13e5977fd7c0794935c5146c2268eb58743882aa03"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk_front_after.png",
+              "sha256": "24936c0a2b2af9169b531e81f9f371fb736257cb3b73ed840460e8d7e5882ee6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk_front_before.png",
+              "sha256": "a1da127f8902dcbb62b6b34f1ad730239cad7444c8a25a398a3d67845bb3da4e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk_other_after.png",
+              "sha256": "eaf9a6b986d9f96effb0b9e320558f74a80783dcdb29d323ef697f668208deb2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk_other_before.png",
+              "sha256": "901463af12115bfc1a33e35c36ca6f75a7005ebcea341350abbfc3a046561d83"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/reviews/standing_fire_007/browser.json",
               "sha256": "594e73ec090536cd081d7c46517186e49f175037374ac078482cc83bed2724c3"
             },
@@ -2636,6 +2724,10 @@
             {
               "path": "art/characters/clone_01/motion/rig_005/tests/simulation-metrics.json",
               "sha256": "4469bbead85ff84d476e8d959a1b818f54ecfa7e47928eb45b27f5b2d920e54b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/tests/skirt_walk_cover_001/garment-smoke.json",
+              "sha256": "3264b8ab918ca3fb6780ba2c99af5476fc95309909ce79f928f1e1a393091fd9"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/tests/standing_fire_007/simulation-metrics.json",
@@ -2766,6 +2858,10 @@
               "sha256": "e822904ced65473a2e9071ba8d82a9d4e42ab215468076cefc1d6fb6602a2273"
             },
             {
+              "path": "docs/skirt-walk-cover-001.md",
+              "sha256": "f583dffe95121490239c2a30528754e4b2d9fde67db1c81f4dc57620a609de28"
+            },
+            {
               "path": "game/animation/cape.js",
               "sha256": "acc8ce7af67b0920e46fd103cacaf145d193399b09711780896cd79932af96f8"
             },
@@ -2811,7 +2907,7 @@
             },
             {
               "path": "game/animation/waist.js",
-              "sha256": "532c60fce657b7f274cf4b45864a383e833cadab375511295161fc0c753cef1e"
+              "sha256": "2c21f76ddbe6e7d0be02fff87acdbb07e4b749617a021a90041ee67e82e7e2df"
             },
             {
               "path": "game/animation/weapon-profiles.js",
@@ -2819,7 +2915,7 @@
             },
             {
               "path": "game/animation/webgl-character.js",
-              "sha256": "b5b9cf491e256e91552734ba56c7d5cc63156fe7f592d190b132466f52c7d896"
+              "sha256": "cc16a6d62789fda5126be7bc5a2ec2ff3317a639bfcde879a72ea22689cb0dcf"
             },
             {
               "path": "game/app.js",
@@ -2843,7 +2939,7 @@
             },
             {
               "path": "skills/dear-human-pipeline/SKILL.md",
-              "sha256": "84bac84d45606ef11ac4d649069cad2c564b773cc8e7d836131eb9ad0529dbf4"
+              "sha256": "ed59a5e1376589308949399d6a09a669de854257813033585c4f4638c015d2d9"
             },
             {
               "path": "tools/review_parts_motion.py",
@@ -2957,28 +3053,31 @@
             "User visual review of coherent head/neck silhouette and naturalness during repeated body load cycles.",
             "Extreme combined manual settings and occlusion were not exhaustively reviewed.",
             "Existing temporary reload hand reach/occlusion remains outside this correction.",
-            "No new art, Plan B/C work, GIF or 3D collision was created."
+            "No new art, Plan B/C work, GIF or 3D collision was created.",
+            "User review of visible skirt/thigh alpha overlap across the full gait cycle.",
+            "Extreme strides/manual settings, source pleat distortion and kneeling transitions were not exhaustively reviewed.",
+            "This is authored 2D garment drape and skinning; no physical cloth/collision or newly drawn folds."
           ],
           "motion_recipes": {
             "kneel": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
             "kneel_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
             "idle": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
-            "walk": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
-            "run": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "walk": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/recipe.json",
+            "run": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/recipe.json",
             "fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
-            "walk_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
-            "run_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "walk_fire": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/recipe.json",
+            "run_fire": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/recipe.json",
             "relaxed": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json"
           },
           "motion_review_reports": {
             "kneel": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
             "kneel_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
             "idle": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
-            "walk": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
-            "run": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "walk": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/handoff.json",
+            "run": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/handoff.json",
             "fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
-            "walk_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
-            "run_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "walk_fire": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/handoff.json",
+            "run_fire": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/handoff.json",
             "relaxed": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json"
           },
           "motion_iterations": {
@@ -3065,6 +3164,16 @@
               "review_report": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
               "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/index.json",
               "sample_url": "#/samples/characters/clone_01?motion=run"
+            },
+            "skirt_walk_cover_001": {
+              "iteration": "skirt_walk_cover_001",
+              "verification": "passed",
+              "verification_scope": "Changed JS syntax, garment attachment/seam/unchanged standing-kneeling checks, same-pose Chrome before/after and short live walk. Full alpha coverage/art acceptance not passed.",
+              "art_direction_status": "awaiting_user_review",
+              "recipe_path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/recipe.json",
+              "review_report": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/handoff.json",
+              "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_skirt_walk_cover_001/index.json",
+              "sample_url": "#/samples/characters/clone_01?motion=walk"
             }
           },
           "running_mechanics": {
@@ -3189,6 +3298,16 @@
             "review_report": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
             "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/index.json",
             "sample_url": "#/samples/characters/clone_01?motion=run"
+          },
+          "skirt_walk_cover": {
+            "iteration": "skirt_walk_cover_001",
+            "verification": "passed",
+            "verification_scope": "Changed JS syntax, garment attachment/seam/unchanged standing-kneeling checks, same-pose Chrome before/after and short live walk. Full alpha coverage/art acceptance not passed.",
+            "art_direction_status": "awaiting_user_review",
+            "recipe_path": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/recipe.json",
+            "review_report": "art/characters/clone_01/motion/rig_005/records/skirt_walk_cover_001/handoff.json",
+            "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_skirt_walk_cover_001/index.json",
+            "sample_url": "#/samples/characters/clone_01?motion=walk"
           }
         },
         {

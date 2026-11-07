@@ -1,5 +1,7 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**걷기 스커트 덮임 001:** [이동](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk) · [기록](docs/skirt-walk-cover-001.md). 허벅지 윗단을 골반 쪽에 연결하고 스커트가 양쪽 다리의 움직임을 받아 벌어지되 아랫단 덮임을 유지하도록 보정했다. 대기·앉아쏴 좌표와 원본 PNG는 유지했다. 필요한 짧은 메시/화면 비교를 마쳤으며 전체 프레임의 자연스러움과 가림은 사용자 검수 대기다.
+
 **플랜 B · 경계 보행007:** [경계 걷기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk) · [경계 이동 사격](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk_fire) · [기록](docs/plan-b-guard-007.md). 골반부터 상체를 앞으로 숙이고 무릎을 낮춘 경계 보행을 새로 생성했다. 전방 시선·수평 M16·양발 교차를 유지하며 기본 선택도007 걷기다. 필요한 PNG/Chrome만 확인했고 발 높이4~5px·망토/윤곽은 아트 검수 대기다.
 
 **머리·몸통 연결 001:** [달리기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run) · [기록](docs/head-body-sync-001.md). 머리가 발걸음/몸통 회전을 같은 순간에 따라가게 하고, 흉곽에 따로 더하던 상하 바운스를 제거했다. 지속적인 달리기 숙임의 정면 시선 보정과 앉아쏴 조준은 유지하며 머리·눈·뒤 머리카락이 같은 프레임을 사용한다. 필요한 짧은 수치/Chrome 확인을 마쳤으며 자연스러움은 사용자 검수 대기다.
