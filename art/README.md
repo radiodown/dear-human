@@ -1,5 +1,7 @@
 # Dear Human 아트 보관함
 
+[파츠 모션 V2 · 프레임 클립 001](characters/clone_01/motion/parts_v2/frame_clips_001/README.md): 같은 페이지의 별도 탭에서 기존 파츠로 저장한 9개 클립·136포즈를 한 장씩 재생한다. 클립/리그 정의 사본·오프라인 작성 도구·필요한 Chrome 검토를 보존하며 자세/타이밍/루프는 사용자 검수 대기다.
+
 [앞뒤좌우 샘플 일러스트 001](characters/clone_01/concepts/turnaround_001/README.md): 채택 외형 기반 정면·후면·좌측면·우측면 PNG 4장, 정확한 영어 JSON/MD·실제 생성 시간/해시와 같은 캐릭터 페이지의 방향별 보기. 새 외형의 최종 채택은 사용자 검수 대기다.
 
 [플랜 B · 경계 보행007](characters/clone_01/motion/plan_b/pixel_guard_007/README.md): 상체 전경·낮춘 무릎·양발 교차의 경계 걷기와 같은 자세의 이동 사격. 기준/키포즈/중간 원본·정확한 프롬프트·시간/해시·필요한 PNG/Chrome 기록을 보존하며 최종 아트 검수 대기다.

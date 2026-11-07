@@ -1,0 +1,214 @@
+{
+  "schema_version": 1,
+  "iteration": "parts_v2_frame_001",
+  "user_request": "파츠모션v2탭을 따로만들고 동작을 연결하려하지말고 뭐랄까 애니메이션 움직이듯 프레임동작으로 보여주면 어떨까ㅣ",
+  "status": "development_connected_with_scoped_checks",
+  "art_direction_status": "awaiting_user_review",
+  "method": "Offline saved poses from independent, settled instances of the current shared parts rig. Runtime changes only the held frame index; no live simulation or interpolation.",
+  "clip_manifest": {
+    "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/manifest.json",
+    "sha256": "bcc78e24c51299ee01c9492c4e3a2bb3dcf24c07f451fa61b5108e712b8d4796"
+  },
+  "clips": {
+    "idle": {
+      "frames": 24,
+      "fps": 6.315789
+    },
+    "relaxed": {
+      "frames": 24,
+      "fps": 6.315789
+    },
+    "walk": {
+      "frames": 14,
+      "fps": 12.5
+    },
+    "fire": {
+      "frames": 8,
+      "fps": 20
+    },
+    "walk_fire": {
+      "frames": 14,
+      "fps": 12.5
+    },
+    "run": {
+      "frames": 10,
+      "fps": 13.513514
+    },
+    "run_fire": {
+      "frames": 10,
+      "fps": 13.513514
+    },
+    "kneel": {
+      "frames": 24,
+      "fps": 6.315789
+    },
+    "kneel_fire": {
+      "frames": 8,
+      "fps": 20
+    }
+  },
+  "total_frames": 136,
+  "controls": [
+    "separate V2 tab",
+    "nine hard-cut action clips",
+    "frame buttons/slider/back/forward",
+    "pause/play",
+    "native/6/12/18/24fps",
+    "loop/one-shot-last-frame hold",
+    "frame URL restore",
+    "mirror",
+    "0/12/20-degree camera",
+    "cape toggle"
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/app.js",
+      "sha256": "9e54486d0a505b53e146a1f415ab46083b17e0849747172186c4742c74c7beb5"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "7840a678bf6fa3e549b5eb613f3b08f8fd3e8373f095c4663219f10444bd2f0b"
+    },
+    {
+      "path": "game/styles.css",
+      "sha256": "fcb18dac7733393abef27895a3efb292b668921448cc9c006bb935e46e628f97"
+    },
+    {
+      "path": "game/parts-v2-lab.js",
+      "sha256": "84e66051646c3815b16fda9d5a3775089971fda7ab8a9becb5645ff50407b681"
+    },
+    {
+      "path": "game/animation/parts-frame-player.js",
+      "sha256": "8dc84bfad92177f3d87ac2d25095a8cc8f30e17584c8d6124c22f2ccb6bfbdb6"
+    },
+    {
+      "path": "game/package.json",
+      "sha256": "d6c4560e965e092bed0f488218c6d04bc6dffdb3baecf39210fcf9be9e3cf8f2"
+    }
+  ],
+  "previous_app": {
+    "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/index.json",
+    "sha256": "096bbb78691ece42911ededeff32c5e2eb5f1aa74dd6ade77887b664eb8b03cf"
+  },
+  "pose_authoring_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "40cb66d19ab7dde706d0363a1f47303a29f4931dea442fd97e15d237729c3eec"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "53c8435af134138a80d6968804bf2f1bb88924701d74b5cf9dfe905f7cb29712"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "8b4c6d4c84f68fce08bde2ea09a44150b3faa23d6561e0c651a6bd841bad4577"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "06c64df5a88f5d22d75afbf98c157d40f9acd8b9ec927acc106392c7614fb8c3"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "8d7dfb23dffb3f1eb8b49ec7a8467b79f170ae0d14c7ba0abedf77c80217336b"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "fb0af926daf6761067c86a7eb52583186a198f239e329e154e77364547ed5de3"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "acc8ce7af67b0920e46fd103cacaf145d193399b09711780896cd79932af96f8"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "2c21f76ddbe6e7d0be02fff87acdbb07e4b749617a021a90041ee67e82e7e2df"
+    },
+    {
+      "path": "game/animation/motion-controls.js",
+      "sha256": "42805b0005b9d7dd2e1bd36a80f0f1e78b727425571a11daa1062317be16c59d"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "6bc1c61f6b5da1d55a28a99a7d5bb4ecf069e787fa682ead75f5a6d704700515"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "ff248efa1cc05563aabb958608073046967bd7704a6c6e44caeb44fade177e37"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "c3bc5db39d40b3e7a3a7e0b7d1f935519f18b162880b375de835953f235f0c25"
+    },
+    {
+      "path": "game/animation/muzzle-light.js",
+      "sha256": "89c290c71c1cd3b4303e36ebd4a6b07d06ca1b348853fc49e2e86cc2399d221a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/parts.json",
+      "sha256": "6bc1c61f6b5da1d55a28a99a7d5bb4ecf069e787fa682ead75f5a6d704700515"
+    }
+  ],
+  "source_art": [
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/base_atlas.png",
+      "sha256": "fb8b74dd0deb93f1f70e4be3e143ff9382b866c4ce9c3b1b8421b6deb95fd8a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    },
+    {
+      "path": "art/weapons/m16_basic/rig_002/source/weapon_atlas.png",
+      "sha256": "0a062365ae148d7eabbf426f5d386f392754107770af13d05d5f9d6010d894a3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/support_hand_foregrip_v2.png",
+      "sha256": "b332de73c0a989a25a3891633ea9063e3cf8aa127ac14097b217284abffa06e2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/near_upper_arm_profile.png",
+      "sha256": "630e8110c6b7d781be7bfe321edcf7a84b7fde9479c99a080b6136247e5c679a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_010/source/far_forearm_reload.png",
+      "sha256": "1694f452ab876b6539fb62896de883ae0d61d9575c46f1ec680d6a47cddabcd6"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_011/source/support_hand_underbarrel.png",
+      "sha256": "6fe752c2ae000567b4c89b76072af1fc2ce45e7f693399c81116a9385fcdc5a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_014/source/support_hand_closed_grip.png",
+      "sha256": "9efad42d9f19d3bbd32c88dc532f5dc0ec06695dad10d5455ebf0d999fa53366"
+    }
+  ],
+  "runtime_loading": "Only the selected saved clip is fetched; loaded clips are cached. No automatic bake or full clip render on page visits.",
+  "retained": [
+    "LIVE rig and action controls",
+    "current adopted appearance",
+    "Plan B/C",
+    "original PNGs",
+    "historical tests/records"
+  ],
+  "new_art_rasters": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "recorded_at": "2026-11-07T17:39:34.802126+09:00",
+  "elapsed_since_snapshot_seconds": 656.5,
+  "time_scope": "Wall time since source snapshot; initial reading not measured.",
+  "development_cost": null
+}

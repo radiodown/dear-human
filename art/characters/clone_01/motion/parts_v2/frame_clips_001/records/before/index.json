@@ -1,0 +1,26 @@
+{
+  "iteration": "before_parts_v2_001",
+  "started_epoch": 1794040118.277982,
+  "files": [
+    {
+      "path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/game/index.html",
+      "sha256": "56691ccb896cc2ed2c0c3b89e2c20937bb8679af1e2713d538d961ec5382db7d"
+    },
+    {
+      "path": "game/app.js",
+      "snapshot_path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/game/app.js",
+      "sha256": "7fde4e92ac5e0723c77f444bc36d46c2056e2e0934e99be7535b08f960916bfc"
+    },
+    {
+      "path": "game/styles.css",
+      "snapshot_path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/game/styles.css",
+      "sha256": "b50297129b56d773aca3042df15ec0e29b274b73339b22d570caa62ca45ee79c"
+    },
+    {
+      "path": "game/package.json",
+      "snapshot_path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/game/package.json",
+      "sha256": "718f9491133df376f9ca8fb623ec13afb8e6ff0b9dba68739a6430fb9b2eb7c5"
+    }
+  ]
+}

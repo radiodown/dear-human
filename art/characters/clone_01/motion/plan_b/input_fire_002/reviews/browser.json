@@ -1,15 +1,461 @@
 {
-  "status": "failed",
+  "status": "passed",
   "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b",
   "browser": "Local macOS Chrome via Playwright",
   "scope": "Focused cadence, immediate input, walking continuity, release and socket/flash render review.",
   "page_errors": [],
-  "checks": [],
-  "bursts": {},
-  "failure": "Page.wait_for_function: Timeout 10000ms exceeded.",
-  "page_state": {
-    "loading": true,
-    "load": "플랜 B 모션을 불러오는 중…",
-    "error": ""
+  "checks": [
+    "Single shot starts immediately on walking pose05, outside the old02/08 gate, and remains exactly one shot.",
+    "Guard/basic walking and kneeling all measure approximately100ms shot intervals with immediate first shot.",
+    "Both walking loops keep ordered01..12 frames at the original95ms cadence while firing.",
+    "Pointer release outside the control emits no further shots; kneeling returns to clean idle.",
+    "Actual live flash/weapon alignment inspected on walking pose05 and kneeling at500px."
+  ],
+  "bursts": {
+    "guard-walk": {
+      "shots": [
+        {
+          "time": 2792,
+          "count": 2,
+          "frame": 5
+        },
+        {
+          "time": 2904.0999999940395,
+          "count": 3,
+          "frame": 6
+        },
+        {
+          "time": 3020.7000000029802,
+          "count": 4,
+          "frame": 7
+        },
+        {
+          "time": 3120.7000000029802,
+          "count": 5,
+          "frame": 8
+        },
+        {
+          "time": 3220.5,
+          "count": 6,
+          "frame": 9
+        },
+        {
+          "time": 3320.5999999940395,
+          "count": 7,
+          "frame": 10
+        },
+        {
+          "time": 3420.2000000029802,
+          "count": 8,
+          "frame": 11
+        },
+        {
+          "time": 3520.2999999970198,
+          "count": 9,
+          "frame": 12
+        },
+        {
+          "time": 3620.5,
+          "count": 10,
+          "frame": 1
+        },
+        {
+          "time": 3720.2000000029802,
+          "count": 11,
+          "frame": 2
+        },
+        {
+          "time": 3820.4000000059605,
+          "count": 12,
+          "frame": 3
+        },
+        {
+          "time": 3920.4000000059605,
+          "count": 13,
+          "frame": 4
+        }
+      ],
+      "frames": [
+        {
+          "time": 2760.2999999970198,
+          "frame": 5
+        },
+        {
+          "time": 2910.5,
+          "frame": 6
+        },
+        {
+          "time": 3010.4000000059605,
+          "frame": 7
+        },
+        {
+          "time": 3109.9000000059605,
+          "frame": 8
+        },
+        {
+          "time": 3189.0999999940395,
+          "frame": 9
+        },
+        {
+          "time": 3289.2000000029802,
+          "frame": 10
+        },
+        {
+          "time": 3389.4000000059605,
+          "frame": 11
+        },
+        {
+          "time": 3470.7999999970198,
+          "frame": 12
+        },
+        {
+          "time": 3571.2000000029802,
+          "frame": 1
+        },
+        {
+          "time": 3670.9000000059605,
+          "frame": 2
+        },
+        {
+          "time": 3770.5,
+          "frame": 3
+        },
+        {
+          "time": 3860.0999999940395,
+          "frame": 4
+        },
+        {
+          "time": 3971.4000000059605,
+          "frame": 5
+        },
+        {
+          "time": 4059.7999999970198,
+          "frame": 6
+        },
+        {
+          "time": 4139.4000000059605,
+          "frame": 7
+        },
+        {
+          "time": 4240.29999999702,
+          "frame": 8
+        }
+      ],
+      "median_walk_frame_ms": 99.70000000298023,
+      "measured_average_shot_interval_ms": 102.58181818236004,
+      "shots_during_hold": 12,
+      "no_additional_shot_after_release": true
+    },
+    "pixel-walk": {
+      "shots": [
+        {
+          "time": 4522.20000000298,
+          "count": 1,
+          "frame": 5
+        },
+        {
+          "time": 4653.0999999940395,
+          "count": 2,
+          "frame": 6
+        },
+        {
+          "time": 4737,
+          "count": 3,
+          "frame": 7
+        },
+        {
+          "time": 4836.4000000059605,
+          "count": 4,
+          "frame": 8
+        },
+        {
+          "time": 4937.29999999702,
+          "count": 5,
+          "frame": 9
+        },
+        {
+          "time": 5036.0999999940395,
+          "count": 6,
+          "frame": 10
+        },
+        {
+          "time": 5136.29999999702,
+          "count": 7,
+          "frame": 11
+        },
+        {
+          "time": 5236.4000000059605,
+          "count": 8,
+          "frame": 12
+        },
+        {
+          "time": 5336.5,
+          "count": 9,
+          "frame": 1
+        },
+        {
+          "time": 5436.0999999940395,
+          "count": 10,
+          "frame": 3
+        },
+        {
+          "time": 5554,
+          "count": 11,
+          "frame": 4
+        },
+        {
+          "time": 5636.5,
+          "count": 12,
+          "frame": 5
+        }
+      ],
+      "frames": [
+        {
+          "time": 4487.4000000059605,
+          "frame": 5
+        },
+        {
+          "time": 4637.4000000059605,
+          "frame": 6
+        },
+        {
+          "time": 4726.4000000059605,
+          "frame": 7
+        },
+        {
+          "time": 4825.70000000298,
+          "frame": 8
+        },
+        {
+          "time": 4905.4000000059605,
+          "frame": 9
+        },
+        {
+          "time": 4987.4000000059605,
+          "frame": 10
+        },
+        {
+          "time": 5088.0999999940395,
+          "frame": 11
+        },
+        {
+          "time": 5176.0999999940395,
+          "frame": 12
+        },
+        {
+          "time": 5275.9000000059605,
+          "frame": 1
+        },
+        {
+          "time": 5355.5,
+          "frame": 2
+        },
+        {
+          "time": 5437.5,
+          "frame": 3
+        },
+        {
+          "time": 5538.29999999702,
+          "frame": 4
+        },
+        {
+          "time": 5626.29999999702,
+          "frame": 5
+        },
+        {
+          "time": 5721.79999999702,
+          "frame": 6
+        },
+        {
+          "time": 5805.29999999702,
+          "frame": 7
+        },
+        {
+          "time": 5888.79999999702,
+          "frame": 8
+        },
+        {
+          "time": 5989.29999999702,
+          "frame": 9
+        }
+      ],
+      "median_walk_frame_ms": 88.5,
+      "measured_average_shot_interval_ms": 101.29999999972907,
+      "shots_during_hold": 12,
+      "no_additional_shot_after_release": true
+    },
+    "kneel-fire": {
+      "shots": [
+        {
+          "time": 6188.4000000059605,
+          "count": 1,
+          "frame": 6
+        },
+        {
+          "time": 6320.20000000298,
+          "count": 2,
+          "frame": 12
+        },
+        {
+          "time": 6420.20000000298,
+          "count": 3,
+          "frame": 6
+        },
+        {
+          "time": 6521,
+          "count": 4,
+          "frame": 12
+        },
+        {
+          "time": 6620.0999999940395,
+          "count": 5,
+          "frame": 6
+        },
+        {
+          "time": 6721.0999999940395,
+          "count": 6,
+          "frame": 12
+        },
+        {
+          "time": 6819.79999999702,
+          "count": 7,
+          "frame": 6
+        },
+        {
+          "time": 6920.29999999702,
+          "count": 8,
+          "frame": 12
+        },
+        {
+          "time": 7020.20000000298,
+          "count": 9,
+          "frame": 6
+        },
+        {
+          "time": 7120,
+          "count": 10,
+          "frame": 12
+        },
+        {
+          "time": 7220.0999999940395,
+          "count": 11,
+          "frame": 6
+        },
+        {
+          "time": 7320.4000000059605,
+          "count": 12,
+          "frame": 12
+        }
+      ],
+      "frames": [
+        {
+          "time": 6164.4000000059605,
+          "frame": 0
+        },
+        {
+          "time": 6204,
+          "frame": 6
+        },
+        {
+          "time": 6274.29999999702,
+          "frame": 7
+        },
+        {
+          "time": 6324.29999999702,
+          "frame": 12
+        },
+        {
+          "time": 6374.29999999702,
+          "frame": 1
+        },
+        {
+          "time": 6424.5999999940395,
+          "frame": 6
+        },
+        {
+          "time": 6473.5999999940395,
+          "frame": 7
+        },
+        {
+          "time": 6524.29999999702,
+          "frame": 12
+        },
+        {
+          "time": 6573.70000000298,
+          "frame": 1
+        },
+        {
+          "time": 6623.4000000059605,
+          "frame": 6
+        },
+        {
+          "time": 6673.9000000059605,
+          "frame": 7
+        },
+        {
+          "time": 6724.79999999702,
+          "frame": 12
+        },
+        {
+          "time": 6773.5999999940395,
+          "frame": 1
+        },
+        {
+          "time": 6824.4000000059605,
+          "frame": 6
+        },
+        {
+          "time": 6873.5999999940395,
+          "frame": 7
+        },
+        {
+          "time": 6924.4000000059605,
+          "frame": 12
+        },
+        {
+          "time": 6973.79999999702,
+          "frame": 1
+        },
+        {
+          "time": 7023.79999999702,
+          "frame": 6
+        },
+        {
+          "time": 7074.5,
+          "frame": 7
+        },
+        {
+          "time": 7123.5,
+          "frame": 12
+        },
+        {
+          "time": 7174.29999999702,
+          "frame": 1
+        },
+        {
+          "time": 7224.29999999702,
+          "frame": 6
+        },
+        {
+          "time": 7274.5999999940395,
+          "frame": 7
+        },
+        {
+          "time": 7323.70000000298,
+          "frame": 12
+        },
+        {
+          "time": 7370.79999999702,
+          "frame": 1
+        },
+        {
+          "time": 7473.70000000298,
+          "frame": 0
+        }
+      ],
+      "measured_average_shot_interval_ms": 102.9090909090909,
+      "shots_during_hold": 12,
+      "no_additional_shot_after_release": true
+    }
   }
 }

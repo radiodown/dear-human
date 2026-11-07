@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "revision_id": "parts_v2_frame_clips_001",
+  "method": "Saved independent poses sampled offline from the existing parts rig; discrete holds, no in-between or cross-clip interpolation.",
+  "definition": "parts.json",
+  "art_direction_status": "awaiting_user_review",
+  "clips": [
+    {
+      "id": "idle",
+      "label": "견착 대기",
+      "frameCount": 24,
+      "fps": 6.315789473684211,
+      "path": "idle.json",
+      "sha256": "89ff8cfcdd669a412053d56810cc4a5c57c2ce7540baac36ca2769166684747c"
+    },
+    {
+      "id": "relaxed",
+      "label": "완전 대기",
+      "frameCount": 24,
+      "fps": 6.315789473684211,
+      "path": "relaxed.json",
+      "sha256": "b2c04bbfbc1c208b2b593ebf6e0340bffa298eef70a57fffa789d0a3de764600"
+    },
+    {
+      "id": "walk",
+      "label": "걷기",
+      "frameCount": 14,
+      "fps": 12.499999999999998,
+      "path": "walk.json",
+      "sha256": "043842af1193039a0f132938cb696ce2530dd615cf456212fa6f2d70837dfe14"
+    },
+    {
+      "id": "fire",
+      "label": "서서쏴",
+      "frameCount": 8,
+      "fps": 20,
+      "path": "fire.json",
+      "sha256": "aad842a9e69e2b31ac47dc9fb575de4fdc1b68c4d49da478b4bb8eb7f9b1c478"
+    },
+    {
+      "id": "walk_fire",
+      "label": "걸으며쏴",
+      "frameCount": 14,
+      "fps": 12.499999999999998,
+      "path": "walk_fire.json",
+      "sha256": "262c80366460b10c2461b74dba342e0b2f1cb23f6cf33002b63edeb1c8a4d91f"
+    },
+    {
+      "id": "run",
+      "label": "달리기",
+      "frameCount": 10,
+      "fps": 13.513513513513514,
+      "path": "run.json",
+      "sha256": "0d3262f1c276b06255a66517d67406a5915adb0eeaf49e512331d73e49f24dc4"
+    },
+    {
+      "id": "run_fire",
+      "label": "뛰며쏴",
+      "frameCount": 10,
+      "fps": 13.513513513513514,
+      "path": "run_fire.json",
+      "sha256": "86a5781dfe5236ab0d00335d016e32bbb9086ee9f557786057e60453122e4aad"
+    },
+    {
+      "id": "kneel",
+      "label": "앉기",
+      "frameCount": 24,
+      "fps": 6.315789473684211,
+      "path": "kneel.json",
+      "sha256": "4863a50fe6dacbdce474bdf133365892178a7077adff2e2586d8e3256b27b0c6"
+    },
+    {
+      "id": "kneel_fire",
+      "label": "앉아쏴",
+      "frameCount": 8,
+      "fps": 20,
+      "path": "kneel_fire.json",
+      "sha256": "89626d3150e83595cfae584fbe9b653a15f9e002c4be03eb940f7bc25aa67e30"
+    }
+  ],
+  "sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "40cb66d19ab7dde706d0363a1f47303a29f4931dea442fd97e15d237729c3eec"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "53c8435af134138a80d6968804bf2f1bb88924701d74b5cf9dfe905f7cb29712"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "8b4c6d4c84f68fce08bde2ea09a44150b3faa23d6561e0c651a6bd841bad4577"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "06c64df5a88f5d22d75afbf98c157d40f9acd8b9ec927acc106392c7614fb8c3"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "8d7dfb23dffb3f1eb8b49ec7a8467b79f170ae0d14c7ba0abedf77c80217336b"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "fb0af926daf6761067c86a7eb52583186a198f239e329e154e77364547ed5de3"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "acc8ce7af67b0920e46fd103cacaf145d193399b09711780896cd79932af96f8"
+    },
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "2c21f76ddbe6e7d0be02fff87acdbb07e4b749617a021a90041ee67e82e7e2df"
+    },
+    {
+      "path": "game/animation/motion-controls.js",
+      "sha256": "42805b0005b9d7dd2e1bd36a80f0f1e78b727425571a11daa1062317be16c59d"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "game/animation/reload-pose.js",
+      "sha256": "0bcaaa641a4748a2ff4d473f6fce7936101ac04976c500a8f14d8f63e40cdd09"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "6bc1c61f6b5da1d55a28a99a7d5bb4ecf069e787fa682ead75f5a6d704700515"
+    }
+  ]
+}

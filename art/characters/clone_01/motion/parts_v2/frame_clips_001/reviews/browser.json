@@ -1,0 +1,69 @@
+{
+  "status": "passed",
+  "scope": "Short local Chrome UI/discrete-frame behavior only; existing pose/loop aesthetics await user review.",
+  "checks": [
+    "V2 loads only on selection; held pixels stay identical, adjacent frames differ, backward restores the same pixels; play/seek/FPS work.",
+    "All nine clips hard-cut to frame 1; zero CharacterRig.step calls while V2 renders/plays/switches clips.",
+    "Reference and original LIVE tabs remain reachable; hidden V2 does not advance.",
+    "Shared URL restores frame, paused state, FPS, no-loop, facing and camera; one-shot playback stops at the last frame.",
+    "500px layout keeps action/frame controls accessible without page overflow."
+  ],
+  "clips": {
+    "idle": 24,
+    "relaxed": 24,
+    "walk": 14,
+    "fire": 8,
+    "walk_fire": 14,
+    "run": 10,
+    "run_fire": 10,
+    "kneel": 24,
+    "kneel_fire": 8
+  },
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/reviews/v2-walk-desktop.png",
+      "sha256": "03dcb3c48171da989875b9f0255cc85ed57132e79e0915675cec491a9d845415"
+    },
+    {
+      "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/reviews/v2-kneel-narrow.png",
+      "sha256": "e1f136463f42e7cf49d69b3a3fc1535e5b5d21c67c93461c1c71a74c7fd19364"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/app.js",
+      "sha256": "9e54486d0a505b53e146a1f415ab46083b17e0849747172186c4742c74c7beb5"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "7840a678bf6fa3e549b5eb613f3b08f8fd3e8373f095c4663219f10444bd2f0b"
+    },
+    {
+      "path": "game/styles.css",
+      "sha256": "fcb18dac7733393abef27895a3efb292b668921448cc9c006bb935e46e628f97"
+    },
+    {
+      "path": "game/parts-v2-lab.js",
+      "sha256": "84e66051646c3815b16fda9d5a3775089971fda7ab8a9becb5645ff50407b681"
+    },
+    {
+      "path": "game/animation/parts-frame-player.js",
+      "sha256": "8dc84bfad92177f3d87ac2d25095a8cc8f30e17584c8d6124c22f2ccb6bfbdb6"
+    }
+  ],
+  "clip_requests": [
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/fire.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/idle.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/kneel.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/kneel_fire.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/manifest.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/parts.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/relaxed.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/run.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/run_fire.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/walk.json",
+    "http://127.0.0.1:4174/art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/walk_fire.json"
+  ],
+  "gifs_generated": false
+}

@@ -1,5 +1,7 @@
 # clone_01 · 파츠 모션 rig_005
 
+**앉기 무릎 파츠 knee_parts_001:** [변경/전후 비교](../../../../../docs/knee-parts-001.md) · [부착물](records/knee_parts_001/attachments.json) · [레시피](records/knee_parts_001/recipe.json) · [인계](records/knee_parts_001/handoff.json). 무릎 장갑/정강이를 장갑 윤곽에서 분리하고 공유 경계를 연결했다. 무릎 밖으로 튀어나오던 천을 짧게 바꾸고 앉기/일어서기 각도 점프를 고쳤다. 017의 관절 목표·다리 길이·현재 원본/다른 동작은 유지한다. 필요한 짧은 연결/전환·Chrome 비교는 tests/reviews의 `knee_parts_001`이며 최종 아트 검수는 대기다.
+
 **달리기·완전 대기 팔 carry_arms_001:** [변경/전후 비교](../../../../../docs/carry-arms-001.md) · [레시피](records/carry_arms_001/recipe.json) · [인계](records/carry_arms_001/handoff.json). 낮춘 총의 지지점을 옮겨 손목이 어깨 뒤로 접히는 자세를 보정하고 팔꿈치의 아래쪽 분기를 유지한다. 총 높이가 도달을 넘으면 총 전체를 양팔 범위 안으로 옮긴다. 기존 총구35°/58°·원본/팔 길이·현재 보행과 사격 자세는 유지한다. 필요한 짧은 접점/전환·Chrome 전후/재생은 tests/reviews의 `carry_arms_001`이며 최종 아트 검수는 대기다.
 
 **허벅지·보행 폼 leg_gait_001:** [변경/전후 비교](../../../../../docs/leg-gait-001.md) · [레시피](records/leg_gait_001/recipe.json) · [인계](records/leg_gait_001/handoff.json). 사용자 요청으로 허벅지 렌더 폭을 .76배로 줄이고 움직이는 고관절을 +2/-2로 모았다. 걷기 골반/보폭/회수와 달리기 착지/밀어내기/체공을 함께 보정하고 상체 흔들림을 줄였다. 원본·뼈 길이·무릎 장갑/군화·현재 머리 연결/총구/대기/조절과 앉아쏴 관절 목표는 유지한다. 필요한 짧은 구문·접지/도달/전환·Chrome 비교 결과는 tests/reviews의 `leg_gait_001`이며 최종 아트 검수는 대기다.

@@ -1,0 +1,32 @@
+{
+  "iteration": "parts_v2_frame_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/recipe/recipe.json",
+    "sha256": "322b1009085574edf1b22590b97c88af87a45d8a987c60c67b65a75a137b819a"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "new_check_command": "npm --prefix game run check:parts-v2",
+    "short_discrete_clip_check": {
+      "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/tests/discrete-frames.json",
+      "sha256": "08aa9f9d825b0d46d9e4edf920d13a8fdfbcc38a86627074da64924b929d15bd"
+    },
+    "short_chrome_ui": {
+      "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/reviews/browser.json",
+      "sha256": "e56ac8c65b8d51c8cc40d432a8f30498103b3ed8b5771f43f8864858b268b7a8"
+    },
+    "clip_count": 9,
+    "frame_count": 136,
+    "live_simulation_steps_while_testing_v2": 0,
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_results": "unchanged"
+  },
+  "entry_point": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=parts-v2&motion=walk",
+  "remaining": [
+    "User review of frame count, held-pose rhythm, loop seams and individual silhouettes.",
+    "First clips reuse sampled LIVE poses; newly authored V2 key poses have not been made.",
+    "V2 is a frame preview. Original action controls, live fire/reload/hit inputs and gameplay state are not applied to saved clips."
+  ]
+}

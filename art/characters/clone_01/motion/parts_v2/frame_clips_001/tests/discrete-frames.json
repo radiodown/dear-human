@@ -1,0 +1,55 @@
+{
+  "scope": "Saved clip contacts and discrete clock/seek/cut/one-shot behavior only; no full suite or art approval.",
+  "clips": {
+    "idle": {
+      "frames": 24,
+      "fps": 6.315789
+    },
+    "relaxed": {
+      "frames": 24,
+      "fps": 6.315789
+    },
+    "walk": {
+      "frames": 14,
+      "fps": 12.5
+    },
+    "fire": {
+      "frames": 8,
+      "fps": 20
+    },
+    "walk_fire": {
+      "frames": 14,
+      "fps": 12.5
+    },
+    "run": {
+      "frames": 10,
+      "fps": 13.513514
+    },
+    "run_fire": {
+      "frames": 10,
+      "fps": 13.513514
+    },
+    "kneel": {
+      "frames": 24,
+      "fps": 6.315789
+    },
+    "kneel_fire": {
+      "frames": 8,
+      "fps": 20
+    }
+  },
+  "frames": 136,
+  "maxGripError": 0,
+  "maxLegError": 0,
+  "status": "passed",
+  "sources": [
+    {
+      "path": "game/animation/parts-frame-player.js",
+      "sha256": "8dc84bfad92177f3d87ac2d25095a8cc8f30e17584c8d6124c22f2ccb6bfbdb6"
+    },
+    {
+      "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/manifest.json",
+      "sha256": "bcc78e24c51299ee01c9492c4e3a2bb3dcf24c07f451fa61b5108e712b8d4796"
+    }
+  ]
+}

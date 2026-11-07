@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "iteration": "knee_parts_001",
+  "user_request": "앉기에서 무릎파츠가 이상해",
+  "status": "development_connected_with_scoped_checks",
+  "art_direction_status": "awaiting_user_review",
+  "findings": [
+    "Horizontal UV split at .28 cut through the actual knee plate, leaving its tip on the rotating shin.",
+    "Repeated lower-third thigh connector protruded as a triangular wedge around both knees.",
+    "Raw atan2 wrap caused a 6.3456-radian pad-angle jump during sitting/standing."
+  ],
+  "attachments": {
+    "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/attachments.json",
+    "sha256": "99124c0661114ee54e28baaff7b6af24bacefa3d2a9aedd37db0c8b31383a22a"
+  },
+  "changes": {
+    "frontier_uv": [
+      [
+        0,
+        0.21
+      ],
+      [
+        0.35,
+        0.21
+      ],
+      [
+        0.48,
+        0.25
+      ],
+      [
+        0.61,
+        0.33
+      ],
+      [
+        1,
+        0.34
+      ]
+    ],
+    "pad_pivot": 0.19,
+    "collar_rigid_from": 0.44,
+    "pad_registration": "Blend from original shin .13 pivot to .19. New lower .34 keeps the same .15-height floor clearance.",
+    "collar": "Share the complete plate UV border, then join the unchanged rigid shin below .44.",
+    "inner_cloth": "Small central lower-stocking crop, rounded mesh, original texture ratio and current thigh width scale.",
+    "angle": "Normalize the shin angle to [-pi,pi] before blending toward upright."
+  },
+  "preserved": [
+    "original PNGs",
+    "017 pose reference/definition and joint targets",
+    "fixed thigh/shin lengths and foot contacts",
+    "standing/walking/running intact-shin path",
+    "current arm carry, slim thigh/gait and skirt fixes",
+    "per-action controls",
+    "Plan B/C work and all historical validation"
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "fb0af926daf6761067c86a7eb52583186a198f239e329e154e77364547ed5de3"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "ff248efa1cc05563aabb958608073046967bd7704a6c6e44caeb44fade177e37"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "6bc1c61f6b5da1d55a28a99a7d5bb4ecf069e787fa682ead75f5a6d704700515"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/index.json",
+    "sha256": "228e493c3600d16e1edea020d4ccd88325bced3e5befe00d7dcb8344152767f3"
+  },
+  "dependencies": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "40cb66d19ab7dde706d0363a1f47303a29f4931dea442fd97e15d237729c3eec"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "53c8435af134138a80d6968804bf2f1bb88924701d74b5cf9dfe905f7cb29712"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "8b4c6d4c84f68fce08bde2ea09a44150b3faa23d6561e0c651a6bd841bad4577"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "c3bc5db39d40b3e7a3a7e0b7d1f935519f18b162880b375de835953f235f0c25"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_017/rig/kneeling_parts.json",
+      "sha256": "5bab0b05104a3f4061709d17363a23b8cc02fe181dc40b1ce61c62f1f8043ad3"
+    },
+    {
+      "path": "art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png",
+      "sha256": "8895f62a9e7c2ab91f1389639be30ac73309c3d889824e5cdb0ca695b0c77564"
+    }
+  ],
+  "tools": [
+    "Local Python UV authoring",
+    "shared WebGL renderer",
+    "Node scoped geometry check",
+    "Playwright with local macOS Google Chrome"
+  ],
+  "new_art_rasters": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "recorded_at": "2026-11-07T17:27:17.503234+09:00",
+  "elapsed_since_snapshot_seconds": 543.8,
+  "time_scope": "Wall time since source snapshot; initial source reading not measured.",
+  "development_cost": null
+}

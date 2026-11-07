@@ -1026,20 +1026,20 @@
         },
         {
           "revision_id": "rig_005",
-          "display_name": "파츠 모션 · 달리기/완전 대기 팔 001",
+          "display_name": "파츠 모션 · 앉기 무릎 파츠 001",
           "status": "draft",
           "verification": "untested",
-          "verification_scope": "Latest carry_arms_001 has scoped arm/stock contacts, elbow branch, raise/return and Chrome carry checks. Inherited motion combinations and art acceptance remain pending; historical results unchanged.",
+          "verification_scope": "Latest knee_parts_001 has scoped UV/collar continuity, bone constraints and Chrome sitting/standing checks. Deep folded artwork and inherited combinations remain pending; historical results unchanged.",
           "art_direction_status": "awaiting_user_review",
           "recipe_key": "4fa3feb51a2775f096352f7da2ff63f5e1599affa9a7405100a01a8474a68e20",
           "artifacts": [
             {
               "path": "AGENTS.md",
-              "sha256": "f9da4ac7cbb79103bee765083da8424e2af27df4a39e444cca4d3169c1730fb5"
+              "sha256": "21271fb7fbcc81985a32536bbc766ef772e921a144c18310995087d50b7172d3"
             },
             {
               "path": "README.md",
-              "sha256": "46ce9d139464587bcedd95ae1c1c2f3a5705ed6412685105783785d553106b48"
+              "sha256": "4a532d0e063d8c96a50854027e13a5b6499e53cc8e81b85e83ae1aab61f1c2c0"
             },
             {
               "path": "art/characters/clone_01/concepts/kneeling_fire_001/records/runtime_application_017.json",
@@ -1059,7 +1059,7 @@
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/README.md",
-              "sha256": "6c1e21abd1bf24b808d40e203a2574ff780657b198067d9293515ad97759615d"
+              "sha256": "671985a6ed7fbd01b824b9ad193702623b61abfa37bd36dc0bb477fb4dfdfe8c"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/articulation_combat_011.json",
@@ -1228,6 +1228,34 @@
             {
               "path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/review.py",
               "sha256": "b80284ea593b34850dcb8af63843597be2e1a3f467c6ab89cc6147506e079b08"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/attachments.json",
+              "sha256": "99124c0661114ee54e28baaff7b6af24bacefa3d2a9aedd37db0c8b31383a22a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/author.py",
+              "sha256": "cf3a168ad8a01756a81ecec7d099558cb4f95568088650a22e5242cb9c861422"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/check.mjs",
+              "sha256": "79d9ffb24dc8741326118ba2123f41e45d358174b47bdae281fdfc4c163224e3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/handoff.json",
+              "sha256": "d380797e1e6c1b5374fe269f34020231588ada4a8089b25119d3f836258d8089"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/recipe.json",
+              "sha256": "3c8bb57b9a4829bf0cf08c94431b664e943ac92ab7798864b419c12f839d50b5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/record.py",
+              "sha256": "a190177b27a5beceb53b3b84eb11dd88cf6981a4d5929821c5d04590d649e4b8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/review.py",
+              "sha256": "99a420427c21ba4c5b296578b1524a9ad180d375fb0fd114fbc313bb65cc28cd"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/kneeling_image_017/handoff.json",
@@ -2202,6 +2230,22 @@
               "sha256": "1063201f2b3bb696e11a7a0582d6f8436098b6305c4d1974596639c1785e3ce8"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/art/characters/clone_01/motion/rig_005/rig/parts.json",
+              "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/game/animation/kneeling-pose.js",
+              "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/game/animation/webgl-character.js",
+              "sha256": "6ede6365ce6089cc23c79f4397a6eecf5423f4204ddf72510f93d0e697911410"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/index.json",
+              "sha256": "228e493c3600d16e1edea020d4ccd88325bced3e5befe00d7dcb8344152767f3"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_image_017/index.json",
               "sha256": "a77b7cda4d72f693477b9a79df5530c5e95206e0c5c22014f3592501134830b5"
             },
@@ -2502,6 +2546,34 @@
               "sha256": "ea64bd68170288b156e4d50131a15029ad1ca3f41a8c040a2055d09ce71bfbdc"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/browser.json",
+              "sha256": "f7d880ac1403e7d4dc404bbdd2361616a7ee97168c05369df4b83ce10b74b7b3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/kneel-after-side-detail.png",
+              "sha256": "9dbb73ea898b220fb21ad6bd3c0265556dfc896b9ab75692380bc80f18192186"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/kneel-before-debug.png",
+              "sha256": "b33d4204a6b026ea2a68c0b3f7d93dd94b831b5ad994f2d673150b113f33a471"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/kneel-before.png",
+              "sha256": "f3a6809336c8652238d27687c2d41f9785bf7e79e5446207e1a2ef6d3e7c0955"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/kneel-comparison.png",
+              "sha256": "90086b94ba616014dd7acbb4e584d336a472f930ff8674a93ab14b99bcdc0588"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/kneel_fire-comparison.png",
+              "sha256": "38a39feb2d9018b04124a34e213d683d0f66ea41bab39577fbf91a1605ca5553"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/source-regions.png",
+              "sha256": "fa8e4d14447a6bf43240b6c5ea2cd066852483e4adaba67df431da39b8851513"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/reviews/left_stopped.png",
               "sha256": "77de47f520f23d78a93f1f3c157ee21c854af4b587a0639b9c345e2ee656e64f"
             },
@@ -2771,7 +2843,7 @@
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
-              "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+              "sha256": "6bc1c61f6b5da1d55a28a99a7d5bb4ecf069e787fa682ead75f5a6d704700515"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/tests/body_mechanics_009/simulation-metrics.json",
@@ -2804,6 +2876,10 @@
             {
               "path": "art/characters/clone_01/motion/rig_005/tests/head_body_sync_001/sync-smoke.json",
               "sha256": "bc1c1d405d8586400ef4fe3d3dedd409a8321f94cc916bef34c79f2dfd7a5749"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/tests/knee_parts_001/knee-attachments.json",
+              "sha256": "2873a6a681c096305d86d6ea7eb42b07ae7715e7056a981f5d31a80f944bb2f5"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/tests/leg_gait_001/gait-smoke.json",
@@ -2934,6 +3010,10 @@
               "sha256": "dd2a71d30e10b649c49f84d0a9754e21aa4e09da25b87d86a321395c86a78716"
             },
             {
+              "path": "docs/knee-parts-001.md",
+              "sha256": "d49ece0a71de8c884510c880e7119ef835f1e58e8ca4c1612ba2adb361605d9f"
+            },
+            {
               "path": "docs/kneeling-image-application-017.md",
               "sha256": "0b69b96c1f0e32e90fab61fb3dafb7bb9a9bc6018d03208d04dcc03da05130f0"
             },
@@ -2979,7 +3059,7 @@
             },
             {
               "path": "game/animation/kneeling-pose.js",
-              "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+              "sha256": "fb0af926daf6761067c86a7eb52583186a198f239e329e154e77364547ed5de3"
             },
             {
               "path": "game/animation/motion-controls.js",
@@ -3019,7 +3099,7 @@
             },
             {
               "path": "game/animation/webgl-character.js",
-              "sha256": "6ede6365ce6089cc23c79f4397a6eecf5423f4204ddf72510f93d0e697911410"
+              "sha256": "ff248efa1cc05563aabb958608073046967bd7704a6c6e44caeb44fade177e37"
             },
             {
               "path": "game/app.js",
@@ -3043,7 +3123,7 @@
             },
             {
               "path": "skills/dear-human-pipeline/SKILL.md",
-              "sha256": "7b98d3fa33ded8f417e9fe1b65ddc2153036669f4d605cc7e238a2f9fb9c5359"
+              "sha256": "374274ac15ac0a2c376d8433e82ced82995aacd0335b67a8f39d16878c614829"
             },
             {
               "path": "tools/review_parts_motion.py",
@@ -3166,11 +3246,14 @@
             "Extreme manual controls, reload and stance transitions were not exhaustively visually reviewed.",
             "User review of lowered carry arm silhouette and gun/body occlusion.",
             "Large weapon-height settings are bounded by the real two-arm reach and may not apply the full requested drop.",
-            "All extreme controls, alternate weapons and reload combinations were not exhaustively reviewed; existing reload art/IK limitations remain."
+            "All extreme controls, alternate weapons and reload combinations were not exhaustively reviewed; existing reload art/IK limitations remain.",
+            "User art review of the deep rear-knee collar deformation and occlusion using the existing side artwork.",
+            "Extreme manual controls and all stance/reload combinations were not exhaustively reviewed.",
+            "UV/mesh contact constraints do not certify physical alpha-surface collision or new folded/oblique artwork."
           ],
           "motion_recipes": {
-            "kneel": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/recipe.json",
-            "kneel_fire": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/recipe.json",
+            "kneel": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/recipe.json",
+            "kneel_fire": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/recipe.json",
             "idle": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/recipe.json",
             "walk": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/recipe.json",
             "run": "art/characters/clone_01/motion/rig_005/records/carry_arms_001/recipe.json",
@@ -3180,8 +3263,8 @@
             "relaxed": "art/characters/clone_01/motion/rig_005/records/carry_arms_001/recipe.json"
           },
           "motion_review_reports": {
-            "kneel": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/handoff.json",
-            "kneel_fire": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/handoff.json",
+            "kneel": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/handoff.json",
+            "kneel_fire": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/handoff.json",
             "idle": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/handoff.json",
             "walk": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/handoff.json",
             "run": "art/characters/clone_01/motion/rig_005/records/carry_arms_001/handoff.json",
@@ -3304,6 +3387,17 @@
               "review_report": "art/characters/clone_01/motion/rig_005/records/carry_arms_001/handoff.json",
               "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_arms_001/index.json",
               "sample_url": "#/samples/characters/clone_01?motion=relaxed"
+            },
+            "knee_parts_001": {
+              "iteration": "knee_parts_001",
+              "verification": "passed",
+              "verification_scope": "Two changed JS syntax checks, complementary UV/edge/rigid-shin/bone constraints, one 288-step sit/stand cycle and short Chrome kneel/kneel_fire comparison and UI transition. No full QA or art acceptance.",
+              "art_direction_status": "awaiting_user_review",
+              "recipe_path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/recipe.json",
+              "review_report": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/handoff.json",
+              "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/index.json",
+              "attachment_path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/attachments.json",
+              "sample_url": "#/samples/characters/clone_01?motion=kneel"
             }
           },
           "running_mechanics": {
@@ -3458,6 +3552,17 @@
             "review_report": "art/characters/clone_01/motion/rig_005/records/carry_arms_001/handoff.json",
             "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_arms_001/index.json",
             "sample_url": "#/samples/characters/clone_01?motion=relaxed"
+          },
+          "knee_parts": {
+            "iteration": "knee_parts_001",
+            "verification": "passed",
+            "verification_scope": "Two changed JS syntax checks, complementary UV/edge/rigid-shin/bone constraints, one 288-step sit/stand cycle and short Chrome kneel/kneel_fire comparison and UI transition. No full QA or art acceptance.",
+            "art_direction_status": "awaiting_user_review",
+            "recipe_path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/recipe.json",
+            "review_report": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/handoff.json",
+            "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/index.json",
+            "attachment_path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/attachments.json",
+            "sample_url": "#/samples/characters/clone_01?motion=kneel"
           }
         },
         {
@@ -5989,6 +6094,204 @@
           "motions": [],
           "prompt_path": "art/characters/clone_01/concepts/turnaround_001/records/prompt_front.json",
           "prompt_document": "art/characters/clone_01/concepts/turnaround_001/records/prompt_front.md"
+        },
+        {
+          "revision_id": "parts_v2_frame_001",
+          "display_name": "파츠 모션 V2 · 프레임 클립 001",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Scoped discrete frame player, clip constraints and short Chrome UI/hold/cut/URL/500px checks only. No naturalness/loop acceptance or full gameplay QA.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/recipe/recipe.json",
+          "recipe_key": "322b1009085574edf1b22590b97c88af87a45d8a987c60c67b65a75a137b819a",
+          "review_report": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/handoff.json",
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "rig_005"
+            }
+          ],
+          "dependency_usage": "Reuse current raw part art and the shared renderer. Poses and part definition copied into this independent version; LIVE is not stepped during playback.",
+          "preview": {
+            "type": "parts_frame_clips",
+            "sample_url": "#/samples/characters/clone_01?plan=parts-v2&motion=walk"
+          },
+          "motions": [
+            "idle",
+            "relaxed",
+            "walk",
+            "fire",
+            "walk_fire",
+            "run",
+            "run_fire",
+            "kneel",
+            "kneel_fire"
+          ],
+          "frame_manifest": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/manifest.json",
+          "limitations": [
+            "User review of frame count, held-pose rhythm, loop seams and individual silhouettes.",
+            "First clips reuse sampled LIVE poses; newly authored V2 key poses have not been made.",
+            "V2 is a frame preview. Original action controls, live fire/reload/hit inputs and gameplay state are not applied to saved clips."
+          ],
+          "artifacts": [
+            {
+              "path": "AGENTS.md",
+              "sha256": "17052d5e4c776c6b3276b09d07e182e64ccd31efc452f186fc35c9c7b21ca92a"
+            },
+            {
+              "path": "README.md",
+              "sha256": "c64ca5430f81f7d95771fbe4ec27f9b1eb7b2ee6b4ba1398bec75cb877bad5dc"
+            },
+            {
+              "path": "art/README.md",
+              "sha256": "29863547c893c50c0c000dc7ee9fa3c36a7fbff47706ed266cf1e921bf95803a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/README.md",
+              "sha256": "1e6fa833efab99f965325ee4154f6fcb6ac2047c8c55b93f694fd84a908d1f28"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/README.md",
+              "sha256": "0242e46b347c2a1807277037a0d5ecfee6294d8be8d83181d0c454d5fc3a0bb5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/fire.json",
+              "sha256": "aad842a9e69e2b31ac47dc9fb575de4fdc1b68c4d49da478b4bb8eb7f9b1c478"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/idle.json",
+              "sha256": "89ff8cfcdd669a412053d56810cc4a5c57c2ce7540baac36ca2769166684747c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/kneel.json",
+              "sha256": "4863a50fe6dacbdce474bdf133365892178a7077adff2e2586d8e3256b27b0c6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/kneel_fire.json",
+              "sha256": "89626d3150e83595cfae584fbe9b653a15f9e002c4be03eb940f7bc25aa67e30"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/manifest.json",
+              "sha256": "bcc78e24c51299ee01c9492c4e3a2bb3dcf24c07f451fa61b5108e712b8d4796"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/parts.json",
+              "sha256": "6bc1c61f6b5da1d55a28a99a7d5bb4ecf069e787fa682ead75f5a6d704700515"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/relaxed.json",
+              "sha256": "b2c04bbfbc1c208b2b593ebf6e0340bffa298eef70a57fffa789d0a3de764600"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/run.json",
+              "sha256": "0d3262f1c276b06255a66517d67406a5915adb0eeaf49e512331d73e49f24dc4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/run_fire.json",
+              "sha256": "86a5781dfe5236ab0d00335d016e32bbb9086ee9f557786057e60453122e4aad"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/walk.json",
+              "sha256": "043842af1193039a0f132938cb696ce2530dd615cf456212fa6f2d70837dfe14"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/clips/walk_fire.json",
+              "sha256": "262c80366460b10c2461b74dba342e0b2f1cb23f6cf33002b63edeb1c8a4d91f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/recipe/bake.mjs",
+              "sha256": "b60ae6334a5501cf2b99eb505904744f7065a32cc20ff4d53bab829bc471f5ba"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/recipe/check.mjs",
+              "sha256": "ae29ff0911d4df1d9c3b2ccb5e391fc6fd506e8c374c9e1c07df09b146e2d4b3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/recipe/recipe.json",
+              "sha256": "322b1009085574edf1b22590b97c88af87a45d8a987c60c67b65a75a137b819a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/recipe/record.py",
+              "sha256": "b411d4d7cb51b2704d239d2b2cf1c0e20aed9da708952b55eb58203691b6381a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/recipe/review.py",
+              "sha256": "a318b769155608677988db639773008ae01d47a14c1444a121bf58d9f3c86e12"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/game/app.js",
+              "sha256": "7fde4e92ac5e0723c77f444bc36d46c2056e2e0934e99be7535b08f960916bfc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/game/index.html",
+              "sha256": "56691ccb896cc2ed2c0c3b89e2c20937bb8679af1e2713d538d961ec5382db7d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/game/package.json",
+              "sha256": "718f9491133df376f9ca8fb623ec13afb8e6ff0b9dba68739a6430fb9b2eb7c5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/game/styles.css",
+              "sha256": "b50297129b56d773aca3042df15ec0e29b274b73339b22d570caa62ca45ee79c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/before/index.json",
+              "sha256": "096bbb78691ece42911ededeff32c5e2eb5f1aa74dd6ade77887b664eb8b03cf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/records/handoff.json",
+              "sha256": "0590c9e7e8b6e0fa73258fee8dde9c37634df54daeb05703dfd4bfa3222b78dd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/reviews/browser.json",
+              "sha256": "e56ac8c65b8d51c8cc40d432a8f30498103b3ed8b5771f43f8864858b268b7a8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/reviews/v2-kneel-narrow.png",
+              "sha256": "e1f136463f42e7cf49d69b3a3fc1535e5b5d21c67c93461c1c71a74c7fd19364"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/reviews/v2-walk-desktop.png",
+              "sha256": "03dcb3c48171da989875b9f0255cc85ed57132e79e0915675cec491a9d845415"
+            },
+            {
+              "path": "art/characters/clone_01/motion/parts_v2/frame_clips_001/tests/discrete-frames.json",
+              "sha256": "08aa9f9d825b0d46d9e4edf920d13a8fdfbcc38a86627074da64924b929d15bd"
+            },
+            {
+              "path": "docs/parts-motion-v2-001.md",
+              "sha256": "028f093b9e4ad03d07212c7a0291d9b36b9c56b94580d99fa0a2d38b4ae7ae44"
+            },
+            {
+              "path": "game/animation/parts-frame-player.js",
+              "sha256": "8dc84bfad92177f3d87ac2d25095a8cc8f30e17584c8d6124c22f2ccb6bfbdb6"
+            },
+            {
+              "path": "game/app.js",
+              "sha256": "9e54486d0a505b53e146a1f415ab46083b17e0849747172186c4742c74c7beb5"
+            },
+            {
+              "path": "game/index.html",
+              "sha256": "7840a678bf6fa3e549b5eb613f3b08f8fd3e8373f095c4663219f10444bd2f0b"
+            },
+            {
+              "path": "game/package.json",
+              "sha256": "d6c4560e965e092bed0f488218c6d04bc6dffdb3baecf39210fcf9be9e3cf8f2"
+            },
+            {
+              "path": "game/parts-v2-lab.js",
+              "sha256": "84e66051646c3815b16fda9d5a3775089971fda7ab8a9becb5645ff50407b681"
+            },
+            {
+              "path": "game/styles.css",
+              "sha256": "fcb18dac7733393abef27895a3efb292b668921448cc9c006bb935e46e628f97"
+            },
+            {
+              "path": "skills/dear-human-pipeline/SKILL.md",
+              "sha256": "da8d41414337ccff1b3478350ce0ed56fe32b0b02aa6ea2a3060b71102f8a395"
+            }
+          ]
         }
       ],
       "capabilities": [

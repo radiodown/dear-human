@@ -1,0 +1,41 @@
+{
+  "iteration": "knee_parts_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/knee_parts_001/recipe.json",
+    "sha256": "3c8bb57b9a4829bf0cf08c94431b664e943ac92ab7798864b419c12f839d50b5"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "short_geometry_check": {
+      "path": "art/characters/clone_01/motion/rig_005/tests/knee_parts_001/knee-attachments.json",
+      "sha256": "2873a6a681c096305d86d6ea7eb42b07ae7715e7056a981f5d31a80f944bb2f5"
+    },
+    "short_chrome_comparison": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/browser.json",
+      "sha256": "f7d880ac1403e7d4dc404bbdd2361616a7ee97168c05369df4b83ce10b74b7b3"
+    },
+    "transition_frames": 288,
+    "max_uv_area_difference": 0,
+    "max_collar_seam_gap": 2.0097183471152322e-14,
+    "rigid_shin_difference": 0,
+    "max_bone_length_error": 4.263256414560601e-14,
+    "unchanged_part_definitions": 28,
+    "previous_max_angle_step_rad": 6.345566822072026,
+    "current_max_angle_step_rad": 0.06238151489243998,
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_results": "unchanged"
+  },
+  "comparison_method": "Saved/current two-module and attachment-definition sets at identical time and zoom135%; no pose, sprite or frame alignment.",
+  "review_harness": "Initial wait assumed a faster existing easing. Replaced with UI mode changes and condition waits using function predicates compatible with the existing CSP; no app/CSP change.",
+  "entry_points": {
+    "kneel": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel",
+    "kneel_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire"
+  },
+  "remaining": [
+    "User art review of the deep rear-knee collar deformation and occlusion using the existing side artwork.",
+    "Extreme manual controls and all stance/reload combinations were not exhaustively reviewed.",
+    "UV/mesh contact constraints do not certify physical alpha-surface collision or new folded/oblique artwork."
+  ]
+}
