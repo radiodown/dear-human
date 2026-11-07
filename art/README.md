@@ -1,5 +1,7 @@
 # Dear Human 아트 보관함
 
+[플랜 D · clone_01 모델 초안 003](characters/clone_01/motion/plan_d/clone_model_003/README.md)에 실제 3D 곡면·21관절 가중치·15재질 GLB와 전신/얼굴/뒤쪽/보행 GPU 캡처를 보존했다. 형식 검사는 오류·경고 0이며 얼굴 닮음·세부 질감·천 충돌은 미완료다. [로컬 실행](../native/plan-d/README.md)에서 기본 표시하고 기존 마네킹과 비교한다.
+
 [플랜 D · 로컬 3D](characters/clone_01/motion/plan_d/README.md)는 별도 네이티브 경로다. `preparation_001`에 중립 21개 관절 인체의 뼈대/도형/겹쳐 보기 GPU 캡처와 환경·개발 기록을 보존했다. 실행은 [native/plan-d](../native/plan-d/README.md)이며 이번 세 정지 화면의 렌더 확인과 채택 캐릭터 외형·완성 모션 검수는 구분한다.
 
 [앉아쏴 보정 rig_017](characters/clone_01/motion/rig_017/README.md)은 사용자 채택 `kneeling_fire_001`을 기준으로 기존 무릎/정강이·스커트 UV를 분리하고 공통 리그의 자세·견착·바닥 망토를 수정했다. 새 원화 생성 없이 현재 rig_005에 연결했으며 `untested`·사용자 검수 대기다.

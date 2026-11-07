@@ -1,4 +1,5 @@
 #include "Scene.hpp"
+#include "CloneModel.hpp"
 #include <array>
 #include <cstdio>
 #include <string_view>
@@ -126,12 +127,15 @@ std::optional<View> viewTabAt(float x, float y, int windowWidth, int windowHeigh
     if (tab < 3 && x < 28+tab*158+146) return static_cast<View>(tab);
     return std::nullopt;
 }
-Mat4 cameraMatrix(const ViewState& state, float aspect) {
-    const Vec3 target{state.worldX,.94f,0};
+Vec3 cameraPosition(const ViewState& state) {
+    const Vec3 target{state.worldX,state.inspectFace?1.72f:.94f,0};
     const float yaw=radians(state.yaw), pitch=radians(state.pitch);
-    const Vec3 eye=target+Vec3{8*std::sin(yaw)*std::cos(pitch),8*std::sin(pitch),8*std::cos(yaw)*std::cos(pitch)};
-    const float height=3.05f/state.zoom;
-    return orthographic(height*aspect,height,.1f,40)*lookAt(eye,target);
+    return target+Vec3{8*std::sin(yaw)*std::cos(pitch),8*std::sin(pitch),8*std::cos(yaw)*std::cos(pitch)};
+}
+Mat4 cameraMatrix(const ViewState& state, float aspect) {
+    const Vec3 target{state.worldX,state.inspectFace?1.72f:.94f,0};
+    const float height=(state.inspectFace?.65f:3.05f)/state.zoom;
+    return orthographic(height*aspect,height,.1f,40)*lookAt(cameraPosition(state),target);
 }
 SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw, int ph) {
     SceneGeometry scene;
@@ -143,7 +147,9 @@ SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw
         box(scene.world,Mat4::translation({center,.001f,static_cast<float>(i)})*Mat4::scale({30,.003f,.008f}),{.18f,.23f,.28f});
     box(scene.world,Mat4::translation({center,.004f,0})*Mat4::scale({30,.004f,.012f}),{.33f,.43f,.47f});
 
-    if(state.view != View::Skeleton) {
+    if(state.view != View::Skeleton && state.appearance == Appearance::Clone01)
+        appendCloneModel(scene.world,skeleton);
+    if(state.view != View::Skeleton && state.appearance == Appearance::Mannequin) {
         ellipsoid(scene.world,skeleton.world(Pelvis)*Mat4::scale({.16f,.13f,.22f}),bodyColor);
         ellipsoid(scene.world,skeleton.world(Chest)*Mat4::translation({0,.04f,0})*Mat4::scale({.17f,.24f,.25f}),bodyColor);
         cylinder(scene.world,skeleton.position(Waist),skeleton.position(Chest),.115f,{.29f,.36f,.42f});
@@ -182,7 +188,7 @@ SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw
     const Color white{.89f,.93f,.94f}, muted{.48f,.59f,.65f}, panel{.065f,.095f,.125f};
     rect(scene.hud,0,0,static_cast<float>(pw),106*ui,panel,pw,ph);
     text(scene.hud,"DEAR HUMAN / PLAN D",28*ui,22*ui,3*ui,white,pw,ph);
-    text(scene.hud,"01 ENVIRONMENT   /   02 SKELETON   /   03 MESH",29*ui,60*ui,1.65f*ui,muted,pw,ph);
+    text(scene.hud,state.appearance==Appearance::Clone01?"CLONE 01 / 3D MODEL STUDY 003":"MANNEQUIN / BASELINE",29*ui,60*ui,1.65f*ui,muted,pw,ph);
     for(int i=0;i<3;++i) {
         const bool active=static_cast<int>(state.view)==i;
         const float x=(28+i*158)*ui;
@@ -192,14 +198,16 @@ SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw
     }
     const float footer=static_cast<float>(ph)-91*ui;
     rect(scene.hud,0,footer,static_cast<float>(pw),91*ui,panel,pw,ph);
-    text(scene.hud,"ARROWS MOVE   W WALK   SPACE PAUSE   Q E ORBIT   V SIDE   R RESET",28*ui,footer+20*ui,1.65f*ui,white,pw,ph);
+    text(scene.hud,"ARROWS MOVE  W WALK  SPACE PAUSE  Q E ORBIT  F FACE  M COMPARE  R RESET",28*ui,footer+20*ui,1.55f*ui,white,pw,ph);
     char status[160];
     std::snprintf(status,sizeof(status),"21 JOINTS  /  %s  /  %s  /  PITCH %.0f  /  YAW %.0f  /  SCROLL ZOOM",
         state.paused?"PAUSED":"PLAYING",state.walkAmount>.01f?"WALK":"REST",state.pitch,state.yaw);
     text(scene.hud,status,28*ui,footer+51*ui,1.5f*ui,muted,pw,ph);
-    text(scene.hud,"LEFT",28*ui,177*ui,1.5f*ui,leftColor,pw,ph);
-    text(scene.hud,"RIGHT",28*ui,199*ui,1.5f*ui,rightColor,pw,ph);
-    text(scene.hud,"SPINE",28*ui,221*ui,1.5f*ui,spineColor,pw,ph);
+    if(state.view!=View::Solid) {
+        text(scene.hud,"LEFT",28*ui,177*ui,1.5f*ui,leftColor,pw,ph);
+        text(scene.hud,"RIGHT",28*ui,199*ui,1.5f*ui,rightColor,pw,ph);
+        text(scene.hud,"SPINE",28*ui,221*ui,1.5f*ui,spineColor,pw,ph);
+    }
     return scene;
 }
 } // namespace dh

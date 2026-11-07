@@ -34,6 +34,8 @@ PlatformFrame SdlPlatform::pollFrame() {
             case SDL_SCANCODE_V: frame.input.actions.push_back(Action::SideView); break;
             case SDL_SCANCODE_R: frame.input.actions.push_back(Action::Reset); break;
             case SDL_SCANCODE_F12: frame.input.actions.push_back(Action::Capture); break;
+            case SDL_SCANCODE_M: frame.input.actions.push_back(Action::Appearance); break;
+            case SDL_SCANCODE_F: frame.input.actions.push_back(Action::Face); break;
             default: break;
             }
         }

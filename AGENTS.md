@@ -1,5 +1,7 @@
 # Dear Human 제작 규칙
 
+- 플랜 D 현재 외형은 [clone_model_003](docs/plan-d-clone-model-003.md)과 해당 art 버전의 실제 3D 모델 초안이다. 채택 원화를 보고 코드로 체형/얼굴/장발/갑옷/의상/망토를 작성해 21관절 CPU linear blend skinning에 연결했다. 28,334 정점·44,768 삼각형·15재질이며 같은 데이터를 GLB로 저장했다. 기본은 모델 단독 / yaw65·pitch8이고 Q/E 360°·F 얼굴·M 마네킹 비교를 사용한다. 실제 PNG는 전신/얼굴/뒤쪽/90프레임 보행이며 GLB 공식 검사는 오류/경고 0이다. 원화 얼굴·질감 재현, 천/머리 충돌, M16/사격/앉아쏴와 Windows 실행은 미완료다. 뷰어는 같은 C++ 작성 메시를 쓰며 GLB 가져오기 로더·구운 클립은 미구현이다. 형식/표시 통과와 아트 채택을 구분하고 원화·A/B/C·이전 결과는 보존한다.
+
 - 플랜 D 최신 구조는 [공통 구조 002](docs/plan-d-cross-platform-002.md)와 `plan_d/architecture_002`다. 공통 이동·보행·포즈·장면의 `plan-d-core`, 인터페이스만 쓰는 `plan-d-app`, 창/입력/공통 SDL GPU의 `plan-d-sdl`을 분리한다. 게임 코어에 SDL·Metal·D3D 타입이나 OS 조건문을 넣지 않고 읽기 전용 RenderFrame을 IRenderer로 전달한다. CMake가 Metal 또는 D3D12 설정을 선택하며 Windows 진입점은 `native/plan-d/run-windows.ps1`이다. SDL 없는 코어 빌드·작은 이동 검사 한 번·기존과 동일한 Mac GPU PNG만 확인했다. Windows 실제 빌드·실행은 미확인이다. 변경 전 소스와 이전 캡처를 보존하고 후속 검사는 새 버전 경로에 남긴다.
 
 - 사용자 최신 검증 지시는 “이미지나 랜더링 피드백에 필요한건 검사는하되, 과도한 테스트는 하지말것”이다. 필요한 빌드·짧은 실행·시각 피드백 확인은 수행하고, 관련 없는 검사 묶음·반복 테스트는 자동 실행하지 않는다. 과거 버전의 `untested` 기록을 소급 변경하지 않는다.

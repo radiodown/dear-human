@@ -16,8 +16,8 @@ public:
     const char* backend() const override;
 private:
     GpuBackendConfig config_{gpuBackendConfig()};
-    static constexpr Uint32 vertexCapacity = 4 * 1024 * 1024;
-    static constexpr Uint32 indexCapacity = 1024 * 1024;
+    static constexpr Uint32 vertexCapacity = 8 * 1024 * 1024;
+    static constexpr Uint32 indexCapacity = 4 * 1024 * 1024;
     SDL_Window* window_{};
     SDL_GPUDevice* device_{};
     SDL_GPUGraphicsPipeline *lit_{}, *overlay_{};

@@ -7,6 +7,8 @@ description: Run reusable catalog, cache, dependency and document checks for ass
 
 ## 최신 검증 범위와 플랜 D
 
+플랜 D 실제 캐릭터 모델 첫 결과는 `docs/plan-d-clone-model-003.md`와 `plan_d/clone_model_003`이다. 실제 곡면·21관절 정점 가중치·15재질을 작성해 같은 데이터의 GLB를 저장했다. 네이티브 전신/얼굴/뒤쪽/짧은 보행과 GLB 공식 형식 검사를 확인했다. 얼굴 닮음·원화 질감·천/머리 충돌·완성 모션은 미완료이며 사용자 아트 채택과 구분한다. 현재 뷰어는 같은 C++ 작성 코드에서 메시를 생성하며 GLB 로더·구운 클립은 없다. Q/E 회전·F 얼굴·M 마네킹 비교를 사용하고 새 결과는 새 버전 경로에 남긴다.
+
 플랜 D 현재 공통 구조는 `docs/plan-d-cross-platform-002.md`와 `plan_d/architecture_002`다. `plan-d-core`는 SDL 없는 이동/포즈/장면, `plan-d-app`은 IPlatform/IRenderer만 사용하는 실행 루프, `plan-d-sdl`은 창/입력/GPU 구현이다. OS·GPU 타입을 코어로 올리지 않고 읽기 전용 RenderFrame을 전달한다. Windows/macOS 설정 분리를 실제 Windows 빌드·실행 검증으로 보고하지 않는다. 이번 결과는 최소 코어 검사와 Mac 동일 화면 확인에 한정하며 이전 preparation_001 기록과 변경 전 소스를 보존한다.
 
 사용자 최신 지시는 “이미지나 랜더링 피드백에 필요한건 검사는하되, 과도한 테스트는 하지말것”이다. 필요한 빌드·짧은 실행·시각 피드백은 수행하되 관련 없는 전체 검사나 반복 테스트는 자동 실행하지 않는다. 이전 버전의 미검수 기록은 그대로 보존한다.

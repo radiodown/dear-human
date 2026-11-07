@@ -75,6 +75,13 @@ inline Mat4 operator*(const Mat4& a, const Mat4& b) {
                 result.m[c*4+r] += a.m[k*4+r] * b.m[c*4+k];
     return result;
 }
+inline Mat4 inverseRigid(const Mat4& a) {
+    Mat4 result = Mat4::identity();
+    for (int c=0;c<3;++c) for (int r=0;r<3;++r) result.m[c*4+r]=a.m[r*4+c];
+    const Vec3 translation=result.direction({-a.m[12],-a.m[13],-a.m[14]});
+    result.m[12]=translation.x; result.m[13]=translation.y; result.m[14]=translation.z;
+    return result;
+}
 inline Mat4 lookAt(Vec3 eye, Vec3 target) {
     const Vec3 forward = normalized(target - eye);
     const Vec3 right = normalized(cross(forward, {0, 1, 0}));

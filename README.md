@@ -1,5 +1,7 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**플랜 D · clone_01 3D 모델 초안 003:** [제작·검수 범위](docs/plan-d-clone-model-003.md) · [GLB와 실제 화면](art/characters/clone_01/motion/plan_d/clone_model_003/README.md). 체형·얼굴·장발·갑옷·의상·망토의 실제 메시를 21관절에 연결하고 같은 데이터를 GLB로 저장했다. `native/plan-d/run.command`에서 모델을 기본 표시하며 `Q/E` 회전·`F` 얼굴·`M` 마네킹 비교가 가능하다. 파일/렌더링 경로는 확인했고 원화 수준의 얼굴·질감·천 충돌은 미완료다.
+
 **플랜 D · Windows/macOS 공통 구조 002:** [구조·검수 범위](docs/plan-d-cross-platform-002.md). 이동·보행·포즈는 SDL 없는 C++ 코어로, 입력·창·GPU는 인터페이스 뒤로 분리했다. 공통 렌더 프레임과 SDL GPU 그리기를 공유하고 Metal/D3D12 설정만 CMake가 선택한다. 코어 단독 빌드·최소 이동 검사·기존과 동일한 Mac 캡처를 확인했으며 실제 Windows 빌드·실행은 미확인이다.
 
 **플랜 D · 로컬 3D 기초:** [실행 안내](native/plan-d/README.md) · [개발 범위](docs/plan-d-native-001.md) · [세 화면 캡처](art/characters/clone_01/motion/plan_d/preparation_001/README.md). C++20·SDL3 GPU/Metal로 환경 구축 → 21개 관절 뼈대 → 기본 도형 렌더링을 추가했다. `native/plan-d/run.command`로 별도 로컬 창에서 실행한다. macOS 빌드·세 정지 화면만 확인했으며 채택 캐릭터 외형·전체 조작/보행 품질·Windows는 후속이다.
@@ -58,6 +60,7 @@ git submodule update --init --recursive
 
 | 문서 | 내용 |
 |---|---|
+| [플랜 D · clone_01 모델링 003](docs/plan-d-clone-model-003.md) | 실제 곡면·장비·머리/망토·정점 가중치·GLB 저장·렌더 피드백과 품질 한계 |
 | [플랜 D · 공통 구조 002](docs/plan-d-cross-platform-002.md) | SDL 없는 이동 코어·플랫폼/렌더러 인터페이스·Metal/D3D12 설정·한정 검수 |
 | [플랜 D · 로컬 3D 기초 001](docs/plan-d-native-001.md) | C++20·SDL3 GPU 환경·21개 관절·기본 도형·Metal 캡처·로컬 실행 |
 | [01. 프로젝트 범위](docs/01-project-scope.md) | 검증 목적, 필수 구현, 제외 범위, 완료 조건 |

@@ -21,6 +21,8 @@ UpdateResult Simulation::advance(const InputFrame& input, double elapsedSeconds)
             break;
         case Action::Reset: state_ = ViewState{}; accumulated_ = 0; break;
         case Action::Capture: result.captureRequested = true; break;
+        case Action::Appearance: state_.appearance=state_.appearance==Appearance::Clone01?Appearance::Mannequin:Appearance::Clone01; break;
+        case Action::Face: state_.inspectFace=!state_.inspectFace; break;
         }
     }
     if (input.pointer) {
@@ -31,7 +33,7 @@ UpdateResult Simulation::advance(const InputFrame& input, double elapsedSeconds)
     const float elapsed = static_cast<float>(std::clamp(elapsedSeconds, 0.0, .1));
     state_.zoom = std::clamp(state_.zoom + input.zoomSteps * .08f, .65f, 1.65f);
     // Camera inspection remains available when game time is paused.
-    state_.yaw = std::clamp(state_.yaw + std::clamp(input.orbitAxis, -1.0f, 1.0f) * elapsed * 50, -80.0f, 80.0f);
+    state_.yaw = std::remainder(state_.yaw + std::clamp(input.orbitAxis, -1.0f, 1.0f) * elapsed * 50, 360.0f);
     state_.pitch = std::clamp(state_.pitch + std::clamp(input.pitchAxis, -1.0f, 1.0f) * elapsed * 25, 0.0f, 35.0f);
     if (state_.paused) accumulated_ = 0;
     else accumulated_ += std::clamp(elapsedSeconds, 0.0, .1);
@@ -57,6 +59,6 @@ RenderFrame Simulation::renderFrame(int pixelWidth, int pixelHeight) const {
     if (pixelWidth <= 0 || pixelHeight <= 0)
         throw std::invalid_argument("Render dimensions must be positive");
     return {makeScene(skeleton_, state_, pixelWidth, pixelHeight),
-            cameraMatrix(state_, static_cast<float>(pixelWidth) / pixelHeight)};
+            cameraMatrix(state_, static_cast<float>(pixelWidth) / pixelHeight),cameraPosition(state_)};
 }
 } // namespace dh

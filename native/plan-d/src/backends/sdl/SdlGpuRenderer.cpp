@@ -79,13 +79,14 @@ SDL_GPUGraphicsPipeline* SdlGpuRenderer::makePipeline(SDL_GPUShader* vertex,SDL_
     const SDL_GPUVertexAttribute attributes[]{
         {0,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3,static_cast<Uint32>(offsetof(Vertex,position))},
         {1,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3,static_cast<Uint32>(offsetof(Vertex,normal))},
-        {2,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT4,static_cast<Uint32>(offsetof(Vertex,color))}
+        {2,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT4,static_cast<Uint32>(offsetof(Vertex,color))},
+        {3,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3,static_cast<Uint32>(offsetof(Vertex,material))}
     };
     SDL_GPUColorTargetDescription target{};
     target.format=SDL_GPU_TEXTUREFORMAT_R8G8B8A8_UNORM;
     SDL_GPUGraphicsPipelineCreateInfo info{};
     info.vertex_shader=vertex; info.fragment_shader=fragment;
-    info.vertex_input_state={&buffer,1,attributes,3};
+    info.vertex_input_state={&buffer,1,attributes,4};
     info.primitive_type=SDL_GPU_PRIMITIVETYPE_TRIANGLELIST;
     info.rasterizer_state.fill_mode=SDL_GPU_FILLMODE_FILL;
     info.rasterizer_state.cull_mode=SDL_GPU_CULLMODE_NONE;
@@ -165,7 +166,7 @@ bool SdlGpuRenderer::draw(const RenderFrame& frame,const std::filesystem::path& 
     SDL_BindGPUVertexBuffers(pass,0,&vertexBinding,1);
     SDL_BindGPUIndexBuffer(pass,&indexBinding,SDL_GPU_INDEXELEMENTSIZE_32BIT);
     SDL_BindGPUGraphicsPipeline(pass,lit_);
-    const float lighting[]{-.4f,.85f,.55f,0};
+    const float lighting[]{.50f,.80f,.55f,0,frame.eye.x,frame.eye.y,frame.eye.z,0};
     SDL_PushGPUVertexUniformData(pending.command,0,camera.m.data(),sizeof(camera.m));
     SDL_PushGPUFragmentUniformData(pending.command,0,lighting,sizeof(lighting));
     const auto worldCount=static_cast<Uint32>(scene.world.indices.size());
@@ -173,7 +174,7 @@ bool SdlGpuRenderer::draw(const RenderFrame& frame,const std::filesystem::path& 
     const auto hudCount=static_cast<Uint32>(scene.hud.indices.size());
     SDL_DrawGPUIndexedPrimitives(pass,worldCount,1,0,0,0);
     SDL_BindGPUGraphicsPipeline(pass,overlay_);
-    const float unlit[]{0,1,0,1};
+    const float unlit[]{0,1,0,1,frame.eye.x,frame.eye.y,frame.eye.z,0};
     SDL_PushGPUFragmentUniformData(pending.command,0,unlit,sizeof(unlit));
     if(boneCount) SDL_DrawGPUIndexedPrimitives(pass,boneCount,1,worldCount,0,0);
     const Mat4 identity=Mat4::identity();

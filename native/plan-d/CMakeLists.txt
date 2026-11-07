@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(DearHumanPlanD VERSION 0.2.0 LANGUAGES CXX)
+project(DearHumanPlanD VERSION 0.3.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -9,7 +9,7 @@ option(PLAN_D_BUILD_VIEWER "Build the native SDL viewer" ON)
 option(PLAN_D_BUILD_MOVEMENT_CHECK "Build the small shared-movement check" OFF)
 
 # This target has no SDL includes, library links or platform definitions.
-add_library(plan-d-core STATIC src/Simulation.cpp src/Skeleton.cpp src/Scene.cpp)
+add_library(plan-d-core STATIC src/Simulation.cpp src/Skeleton.cpp src/Scene.cpp src/CloneModel.cpp src/ModelExport.cpp)
 target_include_directories(plan-d-core PUBLIC src)
 if(MSVC)
     target_compile_options(plan-d-core PRIVATE /W4 /permissive- /utf-8)
