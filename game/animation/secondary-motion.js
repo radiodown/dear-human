@@ -8,7 +8,7 @@ function follow(node,target,hz,dt){
 // Additive joint motion, shared by the game rig and its preview. Keep the
 // pelvis/foot solution intact and move the rigid chest through its own frame.
 export const BODY_MOTION=Object.freeze({breathPeriod:3.8,breathWaist:.014,breathChest:.005,breathRise:.70,
-  walkWaist:.012,runWaist:.018,recoilHz:3.8,recoilDamping:.72,recoilLimit:.030,recoilImpulse:-.65});
+  walkWaist:.008,runWaist:.010,recoilHz:3.8,recoilDamping:.72,recoilLimit:.030,recoilImpulse:-.65});
 export function bodyMotion({time,phase,amount=0,running=0,eyeAim=0,kneeling=0,recoil=0,energy=0,drive=0}){
   const breath=Math.sin(time*Math.PI*2/BODY_MOTION.breathPeriod);
   const breathing=(1-.48*amount)*(1-.45*eyeAim);
@@ -16,7 +16,7 @@ export function bodyMotion({time,phase,amount=0,running=0,eyeAim=0,kneeling=0,re
     (BODY_MOTION.walkWaist+(BODY_MOTION.runWaist-BODY_MOTION.walkWaist)*running)*Math.sin(phase-.28)
     +(.004+.002*running)*Math.sin(phase*2-.55));
   const mobile=amount*(1-.55*eyeAim)*(1-kneeling)*energy;
-  const followThrough=mobile*((.022+.014*running)*Math.sin(phase-.50)+.010*Math.sin(phase*2-.85));
+  const followThrough=mobile*((.010+.008*running)*Math.sin(phase-.50)+.004*Math.sin(phase*2-.85));
   const weightShift=drive*energy*(1-kneeling)*(1-.4*eyeAim);
   const kick=recoil*(1-.45*kneeling)*(1+.45*energy*(1-kneeling));
   return {breath,waist:breath*BODY_MOTION.breathWaist*breathing+stride+followThrough+weightShift+kick,

@@ -2,6 +2,9 @@
 // Never transfer front-portrait perspective ratios onto unrelated side parts.
 export const REFERENCE = Object.freeze({width:1024,height:1536,crown:42,sole:1505,chin:237,
   collar:235,shoulder:315,belt:550,hip:665,knee:1030,ankle:1390});
+// Explicit silhouette correction requested by the user. Only transverse thigh
+// width changes; native source files, bone length, knee armor and boots stay.
+export const LEG_SHAPE=Object.freeze({thighWidth:.76,movingHipX:[2,-2]});
 export const HUMAN = Object.freeze({
   nominalHeight:300, headHeight:45.5, headCrownToChin:40,
   hipY:-171.5, torsoAboveHip:71.5, pelvisAboveHip:35,bodyAspect:637/1315,

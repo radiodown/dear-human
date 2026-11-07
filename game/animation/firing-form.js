@@ -14,7 +14,8 @@ export const FIRING_FORM=Object.freeze({
 });
 // Right-facing world Y points down, so positive rifle pitch lowers the muzzle.
 export const WEAPON_CARRY=Object.freeze({runPitch:35*Math.PI/180,restPitch:58*Math.PI/180,
-  runSeatOffset:{x:-4,y:0},restSeat:{x:-24,y:8},relaxTime:.18,raiseStart:.05,raiseEnd:.85});
+  runSeatOffset:{x:4.5,y:-6},restSeat:{x:0,y:-6},relaxTime:.18,raiseStart:.05,raiseEnd:.85,
+  elbows:{primary:{x:-8,y:34},support:{x:12,y:34}},reachMargin:.75});
 const mix=(a,b,t)=>a+(b-a)*t;
 const transform=(p,t)=>({x:t.x+Math.cos(t.a)*p.x-Math.sin(t.a)*p.y,y:t.y+Math.sin(t.a)*p.x+Math.cos(t.a)*p.y});
 export function weaponCarry({running=0,relaxed=0,aim=0,reload=0}){
@@ -52,14 +53,39 @@ export function runningWeaponAdvance(weight,bend,crouch,arms){
   }
   return advance;
 }
-export function formArm(solve,root,wrist,frame,side,eyeAim,carry,kneeling=0){
+export function fitCarryStock(stock,arms){
+  // At a fixed rifle angle each wrist offset defines a reachable stock disk.
+  // Use the closest point in their intersection, so an extreme height
+  // control cannot push the rifle behind the body. Keep real arm lengths.
+  const disks=arms.map(({root,offset,upper,forearm})=>({x:root.x-offset.x,y:root.y-offset.y,r:upper+forearm-WEAPON_CARRY.reachMargin}));
+  const inside=p=>disks.every(d=>Math.hypot(p.x-d.x,p.y-d.y)<=d.r+1e-7);
+  if(inside(stock))return {...stock,dx:0,dy:0};
+  const candidates=[];
+  for(const d of disks){
+    const dx=stock.x-d.x,dy=stock.y-d.y,length=Math.hypot(dx,dy);
+    if(length>0)candidates.push({x:d.x+dx*d.r/length,y:d.y+dy*d.r/length});
+  }
+  const [a,b]=disks,dx=b.x-a.x,dy=b.y-a.y,d=Math.hypot(dx,dy);
+  if(d>0&&d<=a.r+b.r&&d>=Math.abs(a.r-b.r)){
+    const along=(a.r*a.r-b.r*b.r+d*d)/(2*d),height=Math.sqrt(Math.max(0,a.r*a.r-along*along));
+    for(const sign of [-1,1])candidates.push({x:a.x+dx*along/d-sign*dy*height/d,y:a.y+dy*along/d+sign*dx*height/d});
+  }
+  const nearest=candidates.filter(inside).sort((a,b)=>Math.hypot(a.x-stock.x,a.y-stock.y)-Math.hypot(b.x-stock.x,b.y-stock.y))[0];
+  if(!nearest)return {...stock,dx:0,dy:0};
+  return {...nearest,dx:nearest.x-stock.x,dy:nearest.y-stock.y};
+}
+export function formArm(solve,root,wrist,frame,side,eyeAim,carry,kneeling=0,lowered=0){
   const profile=FIRING_FORM.arms[side],seated=KNEEL_ART.arms[side];
   // Authored projection stays within the original bone lengths. No automatic
   // reach-dependent stretching to hide an unreachable wrist.
   const {upper,forearm}=formArmLengths(side,eyeAim,carry,kneeling);
-  const referenceElbow=transform({x:mix(profile.elbow.x,seated.elbow.x,kneeling),y:mix(profile.elbow.y,seated.elbow.y,kneeling)},{...root,a:frame.a});
+  const tuck=Math.max(0,Math.min(1,lowered))*(1-kneeling),low=WEAPON_CARRY.elbows[side];
+  const referenceElbow=transform({x:mix(mix(profile.elbow.x,seated.elbow.x,kneeling),low.x,tuck),
+    y:mix(mix(profile.elbow.y,seated.elbow.y,kneeling),low.y,tuck)},{...root,a:frame.a});
   const candidates=[solve(root,wrist,upper,forearm,1),solve(root,wrist,upper,forearm,-1)];
   const distance=arm=>Math.hypot(arm.elbow.x-referenceElbow.x,arm.elbow.y-referenceElbow.y);
-  const arm=distance(candidates[0])<=distance(candidates[1])?candidates[0]:candidates[1];
-  return {...arm,referenceElbow,projectedLengths:{upper,forearm}};
+  // A lowered two-hand carry keeps the elbows on the same underside branch
+  // while entering/leaving the pose. Firing/kneeling keep their authored guide.
+  const index=tuck>.001?0:distance(candidates[0])<=distance(candidates[1])?0:1;
+  return {...candidates[index],referenceElbow,bendSign:index===0?1:-1,projectedLengths:{upper,forearm}};
 }

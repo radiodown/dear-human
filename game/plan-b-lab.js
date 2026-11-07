@@ -6,6 +6,13 @@ const PREVIOUS_WALK_ROOT = '/art/characters/clone_01/motion/plan_b/pixel_walk_00
 const COMBAT_ROOT = '/art/characters/clone_01/motion/plan_b/pixel_combat_006';
 const GUARD_ROOT = '/art/characters/clone_01/motion/plan_b/pixel_guard_007';
 const DEFAULT_STUDY = 'guard-walk';
+const firingOptions = study => {
+  const manifest = root => `${root}/output/manifest.json`;
+  if (['guard-walk', 'guard-fire'].includes(study)) return {kind: 'walking', baseUrl: manifest(`${GUARD_ROOT}/walk`), fireUrl: manifest(`${GUARD_ROOT}/walk_fire`)};
+  if (['pixel-walk', 'walk-fire'].includes(study)) return {kind: 'walking', baseUrl: manifest(WALK_ROOT), fireUrl: manifest(`${COMBAT_ROOT}/walk_fire`)};
+  if (study === 'kneel-fire') return {kind: 'stationary', baseUrl: manifest(`${COMBAT_ROOT}/kneel_fire`), fireUrl: manifest(`${COMBAT_ROOT}/kneel_fire`)};
+  return null;
+};
 const COMBAT = {
   'guard-walk': {
     study: 'guard_007', motion: 'walk', root: `${GUARD_ROOT}/walk`, title: '도트 007 · 경계 걷기',
@@ -34,12 +41,40 @@ export class PlanBLab {
   constructor() {
     this.visible = false;
     this.study = DEFAULT_STUDY;
-    this.player = new FrameSequence($('plan-b-canvas'), index => {
+    this.player = new FrameSequence($('plan-b-canvas'), (index, state) => {
       $('plan-b-frame').value = index;
-      const reference = this.player.manifest?.referenceFrameIndices?.includes(index);
-      const shot = this.player.manifest?.shotIndices?.includes(index);
+      const reference = !state.input || state.preview ? this.player.manifest?.referenceFrameIndices?.includes(index) : false;
+      const shot = state.input && !state.preview ? state.phase === 'shot' : this.player.manifest?.shotIndices?.includes(index);
       $('plan-b-counter').value = `${String(index).padStart(2,'0')} / 13${reference ? ' · 정지 기준' : shot ? ' · 발사' : [2,5,8,11].includes(index) ? ' · 키포즈' : ''}`;
+      this.syncFireControls(state);
     });
+    $('plan-b-shot').addEventListener('click', () => {
+      if (this.player.paused) this.pause(false);
+      this.player.requestFire();
+    });
+    const hold = $('plan-b-hold');
+    hold.addEventListener('pointerdown', event => {
+      if (event.button !== 0 || this.holdPointer !== undefined || hold.disabled) return;
+      event.preventDefault(); this.holdPointer = event.pointerId;
+      hold.setPointerCapture(event.pointerId); this.holdFire(true);
+    });
+    const releasePointer = event => {
+      if (event.pointerId !== this.holdPointer) return;
+      this.holdPointer = undefined; this.holdFire(false);
+    };
+    for (const event of ['pointerup', 'pointercancel', 'lostpointercapture']) hold.addEventListener(event, releasePointer);
+    hold.addEventListener('keydown', event => {
+      if (!['Space', 'Enter'].includes(event.code)) return;
+      event.preventDefault(); if (!event.repeat) this.holdFire(true);
+    });
+    hold.addEventListener('keyup', event => { if (['Space', 'Enter'].includes(event.code)) { event.preventDefault(); this.holdFire(false); } });
+    hold.addEventListener('blur', () => this.holdFire(false));
+    window.addEventListener('blur', () => { this.holdPointer = undefined; this.player.cancelFire(); });
+    window.addEventListener('keydown', event => {
+      if (!this.visible || event.code !== 'Space' || /INPUT|TEXTAREA|SELECT|BUTTON/.test(event.target.tagName)) return;
+      event.preventDefault(); if (!event.repeat) this.holdFire(true);
+    });
+    window.addEventListener('keyup', event => { if (event.code === 'Space') this.holdFire(false); });
     $('plan-b-pause').addEventListener('click', () => this.pause(!this.player.paused));
     $('plan-b-step').addEventListener('click', () => { this.pause(true); this.player.seek((this.player.index + 1) % 14); });
     $('plan-b-cross-first').addEventListener('click', () => { this.pause(true); this.player.seek(this.reviewFrames?.[0] ?? 5); });
@@ -47,13 +82,30 @@ export class PlanBLab {
     $('plan-b-frame').addEventListener('input', event => { this.pause(true); this.player.seek(Number(event.target.value)); });
     $('plan-b-speed').addEventListener('change', event => { this.player.speed = Number(event.target.value); });
     $('plan-b-background').addEventListener('change', event => { $('plan-b-stage').className = `plan-b-stage bg-${event.target.value}`; });
-    $('plan-b-study').addEventListener('change', event => this.selectStudy(event.target.value, true));
+    this.studyButtons = [...document.querySelectorAll('[data-plan-b-study]')];
+    this.studyButtons.forEach(button => button.addEventListener('click', () => this.selectStudy(button.dataset.planBStudy, true)));
     $('plan-b-pixel-background').addEventListener('change', event => { $('plan-b-pixel-stage').className = `plan-b-pixel-stage bg-${event.target.value}`; });
     $('plan-b-pixel-size').addEventListener('change', event => { $('plan-b-pixel-stage').dataset.size = event.target.value; });
     $('plan-b-pixel-image').addEventListener('load', () => { $('plan-b-pixel-loading').hidden = true; });
     $('plan-b-pixel-image').addEventListener('error', () => { $('plan-b-pixel-loading').hidden = false; $('plan-b-pixel-loading').textContent = '도트 이미지를 불러오지 못했습니다.'; });
   }
   pause(paused) { this.player.pause(paused); $('plan-b-pause').textContent = paused ? '재생' : '일시정지'; }
+  holdFire(held) {
+    if (held && (!this.visible || !this.player.fire)) return;
+    if (held && this.player.paused) this.pause(false);
+    this.player.trigger(held);
+  }
+  syncFireControls(state = {}) {
+    $('plan-b-shot').disabled = !state.input || state.pending || state.held || ['shot', 'recovery'].includes(state.phase);
+    $('plan-b-hold').disabled = !state.input;
+    $('plan-b-hold').setAttribute('aria-pressed', String(Boolean(state.held)));
+    const count = `${state.shotCount ?? 0}발`;
+    if ($('plan-b-shot-count').value !== count) $('plan-b-shot-count').value = count;
+    const label = !state.input ? '준비 중' : state.preview ? '포즈 검토' : state.phase === 'shot' ? '발사'
+      : state.phase === 'recovery' ? state.held ? '연사 중' : '반동·복귀'
+      : state.held ? '연사 중' : '사격 대기';
+    if ($('plan-b-fire-state').textContent !== label) $('plan-b-fire-state').textContent = label;
+  }
   writeParams(params) {
     params.set('plan', 'b');
     if (COMBAT[this.study]) {
@@ -70,12 +122,21 @@ export class PlanBLab {
     }
   }
   selectStudy(study, updateUrl = false) {
+    this.player.cancelFire();
     this.study = ['guard-walk', 'guard-fire', 'walk-fire', 'kneel-fire', 'pixel-walk', 'pixel-walk-004', 'pixel-baseline', 'pixel-keys', 'walk-001'].includes(study) ? study : DEFAULT_STUDY;
     const combat = COMBAT[this.study];
     const oldWalk = this.study === 'walk-001';
     const previousWalk = this.study === 'pixel-walk-004';
     const walk = Boolean(combat) || oldWalk || previousWalk || this.study === 'pixel-walk';
-    $('plan-b-study').value = this.study;
+    const fire = firingOptions(this.study);
+    $('plan-b-fire-controls').hidden = !fire;
+    $('plan-b-fire-note').hidden = !fire;
+    this.syncFireControls();
+    this.studyButtons.forEach(button => {
+      const active = button.dataset.planBStudy === this.study;
+      button.setAttribute('aria-pressed', String(active));
+      if (active && button.closest('#plan-b-history')) $('plan-b-history').open = true;
+    });
     $('plan-b-pixel-view').hidden = walk;
     $('plan-b-walk-view').hidden = !walk;
     this.player.show(this.visible && walk);
@@ -103,8 +164,8 @@ export class PlanBLab {
       $('plan-b-comparison-link').textContent = combat ? combat.comparisonLabel ?? '기준·발사 자세 대조 ↗' : oldWalk || previousWalk ? '기준·키포즈 크기 대조 ↗' : '양발 교대·교차 대조 ↗';
       $('plan-b-loading').hidden = false;
       $('plan-b-loading').textContent = '플랜 B 모션을 불러오는 중…';
-      this.player.load(`${root}/output/manifest.json`).then(loaded => {
-        if (loaded && this.study === selected) $('plan-b-loading').hidden = true;
+      this.player.load(`${root}/output/manifest.json`, fire).then(loaded => {
+        if (loaded && this.study === selected) { $('plan-b-loading').hidden = true; this.player.draw(); }
       }).catch(error => {
         if (this.study === selected) { $('plan-b-loading').hidden = false; $('plan-b-loading').textContent = error.message; }
       });

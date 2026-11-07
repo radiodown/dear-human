@@ -1,9 +1,9 @@
 import { transform } from './rig-core.js';
-import { partDimensions } from './proportions.js';
+import { partDimensions, LEG_SHAPE } from './proportions.js';
 import { capeOffset, groundedCapeSurface } from './cape.js';
 import { sleeveOffset } from './secondary-motion.js';
 import { outfitPoint, skirtPanelPoint, thighRootOffset, torsoPoint, bustPoint, waistStrain } from './waist.js';
-import { KNEEL_ART, kneelingKneeAngle } from './kneeling-pose.js';
+import { KNEEL_ART, kneelingKneeAngle, kneelingShinPoint } from './kneeling-pose.js';
 import { MUZZLE_LIGHT, muzzleLightState, lightSurface, CHARACTER_VERTEX_SHADER, CHARACTER_FRAGMENT_SHADER } from './muzzle-light.js';
 import { SIDE_CAMERA, sideCamera, sideDepthPose } from './side-camera.js';
 
@@ -90,8 +90,9 @@ export class WebGLCharacter {
   }
   marker(p,color) {this.line([{...p,x:p.x-2},{...p,x:p.x+2},{...p,y:p.y-2},{...p,y:p.y+2}],color);}
   sprite(key,x,y,height,options={}) {
+    const {widthScale=1,...settings}=options;
     const {width}=partDimensions(this.definition.parts[key].rect,height);
-    this.mesh(key,x,y,width,height,options);
+    this.mesh(key,x,y,width*widthScale,height,settings);
   }
   limb(key,start,end,tint,jointBend=null,upper=false,hipPose=null) {
     const dx=end.x-start.x,dy=end.y-start.y;
@@ -99,13 +100,14 @@ export class WebGLCharacter {
     const [a,b]=part.joints??[0,1],joints=part.joint_points??[[.5,a],[.5,b]];
     const sx=(joints[1][0]-joints[0][0])*rect[2],sy=(joints[1][1]-joints[0][1])*rect[3];
     const height=Math.hypot(dx,dy)*rect[3]/Math.hypot(sx,sy);
-    const {width}=partDimensions(this.definition.parts[key].rect,height);
+    const widthScale=key.endsWith('_thigh')?LEG_SHAPE.thighWidth:1;
+    const width=partDimensions(this.definition.parts[key].rect,height).width*widthScale;
     const angle=Math.atan2(dy,dx)-Math.atan2(sy,sx);
     const warp=hipPose?(u,v)=>thighRootOffset(hipPose,width,height,joints[0],angle,u,v)
       :jointBend===null||part.joint_points?undefined:(u,v)=>sleeveOffset(width,height,[a,b],jointBend,upper,u,v);
     const depth=p=>{const t=Math.max(0,Math.min(1,((p.x-start.x)*dx+(p.y-start.y)*dy)/(dx*dx+dy*dy||1)));
       return (start.z??0)+((end.z??0)-(start.z??0))*t;};
-    this.sprite(key,start.x,start.y,height,{angle,pivot:joints[0],tint,warp,depth,rows:18});
+    this.sprite(key,start.x,start.y,height,{angle,pivot:joints[0],tint,warp,depth,rows:18,widthScale});
   }
   armSegment(prefix,arm,upper,key=null){
     const a=Math.atan2(arm.elbow.y-arm.root.y,arm.elbow.x-arm.root.x),b=Math.atan2(arm.hand.y-arm.elbow.y,arm.hand.x-arm.elbow.x);
@@ -121,12 +123,18 @@ export class WebGLCharacter {
     const upper=Math.atan2(leg.elbow.y-leg.root.y,leg.elbow.x-leg.root.x),lower=Math.atan2(leg.hand.y-leg.elbow.y,leg.hand.x-leg.elbow.x);
     const bend=Math.atan2(Math.sin(lower-upper),Math.cos(lower-upper));
     this.sprite(prefix+'_knee_fold',leg.elbow.x,leg.elbow.y,clothHeight,{
-      pivot:[.5,.72],angle:upper+bend/2-Math.PI/2,depth:leg.elbow.z,tint:[1,1,1,amount]
+      pivot:[.5,.5],angle:upper+bend/2-Math.PI/2,depth:leg.elbow.z,tint:[1,1,1,amount],widthScale:LEG_SHAPE.thighWidth
     });
-    this.limb(prefix+'_shin_shaft',leg.elbow,leg.hand);
     const shin=this.definition.parts[prefix+'_shin'],height=Math.hypot(leg.hand.x-leg.elbow.x,leg.hand.y-leg.elbow.y)/(shin.joints[1]-shin.joints[0]);
+    const width=partDimensions(shin.rect,height).width;
+    // The short collar shares the pad's entire UV edge, then joins the rigid
+    // shin before its main plate. Neither bone nor ankle is moved or stretched.
+    this.mesh(prefix+'_shin_shaft',0,0,width,height,{
+      project:(u,v)=>kneelingShinPoint(leg,amount,width,height,shin.joints[0],u,v),
+      depth:leg.elbow.z,normalAngle:lower-Math.PI/2
+    });
     return ()=>this.sprite(prefix+'_knee_cap',leg.elbow.x,leg.elbow.y,height,{
-      pivot:[.5,KNEEL_ART.kneePivot],angle:kneelingKneeAngle(leg,amount),depth:leg.elbow.z
+      pivot:[.5,shin.joints[0]+(KNEEL_ART.kneePivot-shin.joints[0])*amount],angle:kneelingKneeAngle(leg,amount),depth:leg.elbow.z
     });
   }
   render(rig,{zoom=1,debug=false,mesh=false,explode=false,showCape=true,size=300,muzzleLight=true,lightStrength=1,cameraPitch=SIDE_CAMERA.defaultPitch}={}) {

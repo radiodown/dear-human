@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "iteration": "carry_arms_001",
+  "user_requests": [
+    "달리기에서 팔이 이상해",
+    "완전대기도 팔이꺽겨"
+  ],
+  "status": "development_connected_with_scoped_checks",
+  "art_direction_status": "awaiting_user_review",
+  "findings": [
+    "Relaxed carry put the primary wrist behind its shoulder, selecting the forward elbow/reversed forearm branch.",
+    "Running carry placed the rifle too far behind the body, flaring the primary elbow."
+  ],
+  "changes": {
+    "run_seat_offset": {
+      "before": [
+        -4,
+        0
+      ],
+      "after": [
+        4.5,
+        -6
+      ]
+    },
+    "relaxed_seat": {
+      "before": [
+        -24,
+        8
+      ],
+      "after": [
+        0,
+        -6
+      ]
+    },
+    "coordinate_space": "Shoulder frame logical pixels, positive y down.",
+    "elbows": "Stable underside IK branch throughout lowered carry and raise/return.",
+    "reach": "Nearest point in the intersection of both fixed-length wrist/stock disks; move the complete rifle frame.",
+    "extension_reserve": 0.75,
+    "application": "Lowered non-reloading carry only."
+  },
+  "preserved": [
+    "Muzzle down 35 degrees running / 58 degrees relaxed",
+    "shouldered idle and firing/kneeling guides",
+    "source PNGs and original projected arm lengths",
+    "hand sockets and closed support grip",
+    "current slimmer thighs/gait, head/body synchronization and skirt overlap",
+    "per-action controls and saved profiles",
+    "Plan B/C work"
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "06c64df5a88f5d22d75afbf98c157d40f9acd8b9ec927acc106392c7614fb8c3"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "40cb66d19ab7dde706d0363a1f47303a29f4931dea442fd97e15d237729c3eec"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_arms_001/index.json",
+    "sha256": "d70989fb64c13f5dbee951260fc1b3abea4c2e84de7a7c2c4148bd1f310493c3"
+  },
+  "dependencies": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "8b4c6d4c84f68fce08bde2ea09a44150b3faa23d6561e0c651a6bd841bad4577"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "53c8435af134138a80d6968804bf2f1bb88924701d74b5cf9dfe905f7cb29712"
+    },
+    {
+      "path": "game/animation/motion-controls.js",
+      "sha256": "42805b0005b9d7dd2e1bd36a80f0f1e78b727425571a11daa1062317be16c59d"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "6ede6365ce6089cc23c79f4397a6eecf5423f4204ddf72510f93d0e697911410"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ],
+  "new_art_rasters": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "recorded_at": "2026-11-07T17:07:12.027970+09:00",
+  "elapsed_since_snapshot_seconds": 422.0,
+  "time_scope": "Wall time since source snapshot; initial source reading not measured.",
+  "development_cost": null
+}

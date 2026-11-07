@@ -1,0 +1,153 @@
+{
+  "iteration": "leg_gait_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/leg_gait_001/recipe.json",
+    "sha256": "776a422a53c63a7d6ac05ea8423a2154986dd55ae092b754ccb5a4f46a44d959"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "short_gait_check": {
+      "path": "art/characters/clone_01/motion/rig_005/tests/leg_gait_001/gait-smoke.json",
+      "sha256": "33fcd89283491584da0d1475fbfcb5da2ddd8f5bf0fdb9c4db25b95cc59f3410"
+    },
+    "short_chrome_comparison": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/leg_gait_001/browser.json",
+      "sha256": "4042dd0b0157a46193b10b16b901de55bd95c76aa8295fb33d6821ef6ca1c01d"
+    },
+    "strength_samples": [
+      0,
+      100,
+      150
+    ],
+    "moving_states_sampled": 12,
+    "walk_run_stop": "passed",
+    "static_joint_target_difference": 0,
+    "pelvis_velocity_join_differences": [
+      2.9194757722450504e-05,
+      1.9248158622531264e-05
+    ],
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_results": "unchanged"
+  },
+  "form_metrics": {
+    "previous_walk": {
+      "maxLegError": 5.3290705182007514e-14,
+      "maxBoneLengthError": 4.263256414560601e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "minFloor": -3.552713678800501e-15,
+      "maxStanceDrift": 8.526512829121202e-14,
+      "minHip": -165.0252563964455,
+      "maxHip": -159.4035647996997,
+      "maxLift": 10.774526491661579,
+      "thighMin": [
+        -3.1541599194777055,
+        1.0402729553709567
+      ],
+      "thighMax": [
+        40.00939944842953,
+        38.11428312988979
+      ],
+      "kneeMin": [
+        35.41186357245338,
+        14.506776448615597
+      ],
+      "kneeMax": [
+        63.60984070911079,
+        61.485399376124555
+      ]
+    },
+    "current_walk": {
+      "maxLegError": 4.935587579328813e-14,
+      "maxBoneLengthError": 4.263256414560601e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "minFloor": -3.552713678800501e-15,
+      "maxStanceDrift": 8.526512829121202e-14,
+      "minHip": -173.63865425750936,
+      "maxHip": -171.6667192037545,
+      "maxLift": 7.369687984810719,
+      "thighMin": [
+        -6.598928177318028,
+        -4.756931452640694
+      ],
+      "thighMax": [
+        23.03542262674303,
+        21.991856894008745
+      ],
+      "kneeMin": [
+        9.297152527612132,
+        9.297152527612132
+      ],
+      "kneeMax": [
+        39.25436657658738,
+        39.59492651704706
+      ]
+    },
+    "previous_run": {
+      "maxLegError": 6.404745667978755e-14,
+      "maxBoneLengthError": 4.263256414560601e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "minFloor": -3.552713678800501e-15,
+      "maxStanceDrift": 0,
+      "minHip": -165.81341860315786,
+      "maxHip": -156.34684561686186,
+      "maxLift": 43.99601703486374,
+      "thighMin": [
+        0.8026341201313173,
+        7.001975425765838
+      ],
+      "thighMax": [
+        58.53238871567719,
+        59.055847273669826
+      ],
+      "kneeMin": [
+        28.24061781957847,
+        0.41566750056802704
+      ],
+      "kneeMax": [
+        111.14431467866812,
+        111.45794197466964
+      ]
+    },
+    "current_run": {
+      "maxLegError": 5.549516171688151e-14,
+      "maxBoneLengthError": 4.263256414560601e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "minFloor": -3.552713678800501e-15,
+      "maxStanceDrift": 0,
+      "minHip": -172.18280634870234,
+      "maxHip": -164.36156608689762,
+      "maxLift": 35.998622935638465,
+      "thighMin": [
+        -12.491136616823546,
+        -6.314829249645796
+      ],
+      "thighMax": [
+        40.622369144771895,
+        39.43272617725031
+      ],
+      "kneeMin": [
+        15.124081994403555,
+        15.425988065074934
+      ],
+      "kneeMax": [
+        92.58959398016093,
+        93.73010505168925
+      ]
+    }
+  },
+  "comparison_method": "Separate saved/current module sets, naturally stepped to quarter-cycle phases. Cadence and elapsed time differ; no pose/part alignment or raster edits.",
+  "review_harness": "Initial archive-response fixture argument binding was corrected before captures; local application CSP remained intact.",
+  "entry_points": {
+    "walk": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk",
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run",
+    "walk_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk_fire",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire"
+  },
+  "remaining": [
+    "User review of slimmer thigh proportions and knee-armor transition silhouette.",
+    "Repeated gait rhythm, skirt overlap and depth ordering remain art review items.",
+    "Extreme manual controls, reload and stance transitions were not exhaustively visually reviewed."
+  ]
+}

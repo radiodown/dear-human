@@ -1,0 +1,74 @@
+{
+  "status": "implemented_scoped_checks_passed",
+  "mode": "Existing PNG/atlas reuse; no image generation",
+  "sources": [
+    {
+      "path": "game/index.html",
+      "before_sha256": "a4d4660f1405bf290a97cd06d9f731368925e713c5fa6eb1890af56ac7189114",
+      "after_sha256": "e09295d3d6555004754a051fbdb5019292c1ee51a0c40938af18cf7acbda9cad"
+    },
+    {
+      "path": "game/plan-b-lab.js",
+      "before_sha256": "efbaad32f4d37c2ffa44f19aaddb8e4ce7620b4f6ac284c1f46d91b42648b33b",
+      "after_sha256": "150e3574d15ddabc948526e829e035f52b36a2f4ac8ef644b0f2b4e223b1a93e"
+    },
+    {
+      "path": "game/styles.css",
+      "before_sha256": "f9f35578f39bab2184f326f10a4febf0d4f6c2ec39fcd4fce587b8d5ad281871",
+      "after_sha256": "b50297129b56d773aca3042df15ec0e29b274b73339b22d570caa62ca45ee79c"
+    },
+    {
+      "path": "game/animation/frame-sequence.js",
+      "before_sha256": "a30c8555c98e8f2f6ab76fce7f0a052f55827233b6a98533b4d28d3de57aeb96",
+      "after_sha256": "e068aba686f9c227bf191dc12e2b1470f11622d54d7f058418f9b06f6286e474"
+    },
+    {
+      "path": "game/animation/sequence-fire.js",
+      "before_sha256": null,
+      "after_sha256": "79754c55b10a56bd96efc0c6cbbe6790d6547588e9149e286499f400df585170"
+    }
+  ],
+  "animation_dependencies": [
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/manifest.json",
+      "sha256": "ef02c9d98eeac4c6e2bead36cb99cf4e4e17eaa282f87d5107a411912ff81edf"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/manifest.json",
+      "sha256": "3ab084f7490bec4802761e09494a092b8a7c8dc70548f52221bee500c748cc95"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/manifest.json",
+      "sha256": "828301b9d4afdf840344c7b3c5881c963568c797749a3a7d937846c614d96cca"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/manifest.json",
+      "sha256": "51d27da221a1eff6cfd6e8f10665633bbbee61ba9c90a9acd3d2781d2dc2dd02"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/manifest.json",
+      "sha256": "8fcf291aaa41c1e722f79613163116127f3a4ac17d6b99b937e5dbf4e2dd3ccd"
+    }
+  ],
+  "image_calls": 0,
+  "new_animation_frames": 0,
+  "existing_art_modified": false,
+  "gif_generated": false,
+  "manual_pose_review_counts_as_fire": false,
+  "walking_shot_indices": [
+    2,
+    8
+  ],
+  "walking_recovery_frame_count": 2,
+  "kneeling_shot_indices": [
+    5,
+    11
+  ],
+  "kneeling_recovery_frame_count": 2,
+  "walking_input_latency_note": "Input waits for the next existing contact shot pose; approximately up to0.57s at1x without an active recoil. Animation speed scales this wait. No independent firearm-rate simulation is claimed.",
+  "kneeling_clip_times_ms": [
+    285,
+    265
+  ],
+  "art_acceptance": "Existing PNG continuity/ground/cape issues remain awaiting user review."
+}

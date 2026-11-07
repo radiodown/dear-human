@@ -1,0 +1,21 @@
+{
+  "iteration": "before_knee_parts_001",
+  "started_epoch": 1794039493.732812,
+  "files": [
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/game/animation/webgl-character.js",
+      "sha256": "6ede6365ce6089cc23c79f4397a6eecf5423f4204ddf72510f93d0e697911410"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_knee_parts_001/art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ]
+}

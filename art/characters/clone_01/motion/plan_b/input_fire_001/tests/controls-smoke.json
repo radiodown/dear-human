@@ -1,0 +1,12 @@
+{
+  "status": "passed",
+  "scope": "Small deterministic input/shot-count/phase-continuity checks of the actual SequenceFire controller.",
+  "checks": [
+    "No shot is emitted by idle walking loops.",
+    "One accepted click yields exactly one shot over three loops; walking frame order never resets.",
+    "Held trigger produces repeated shots; release emits no subsequent shot.",
+    "Cancel drops a pending shot as well as the held trigger.",
+    "Stationary single shot starts immediately, shows recoil/recovery and returns to the clean baseline.",
+    "Stationary automatic fire alternates the existing firing poses; last recoil completes after release."
+  ]
+}

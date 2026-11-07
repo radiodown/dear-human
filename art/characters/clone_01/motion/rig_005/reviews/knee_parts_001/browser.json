@@ -1,0 +1,230 @@
+{
+  "status": "passed",
+  "scope": "Short macOS Chrome kneel/kneel_fire attachment comparison, live stand/sit and side view; user art review pending.",
+  "browser": "Local Google Chrome via Python Playwright",
+  "checks": [
+    "kneel: same-source-ratio saved/current attachment comparison; joints and grips retained.",
+    "kneel_fire: same-source-ratio saved/current attachment comparison; joints and grips retained.",
+    "Short live standing/sitting return and side-view knee detail inspected; no full gameplay QA."
+  ],
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/kneel-comparison.png",
+      "sha256": "90086b94ba616014dd7acbb4e584d336a472f930ff8674a93ab14b99bcdc0588"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/kneel-after-side-detail.png",
+      "sha256": "9dbb73ea898b220fb21ad6bd3c0265556dfc896b9ab75692380bc80f18192186"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/knee_parts_001/kneel_fire-comparison.png",
+      "sha256": "38a39feb2d9018b04124a34e213d683d0f66ea41bab39577fbf91a1605ca5553"
+    }
+  ],
+  "poses": {
+    "kneel_before": {
+      "time": 1.4999999999999971,
+      "grip": 0,
+      "kneeSupport": {
+        "amount": 1,
+        "target": {
+          "x": 14,
+          "y": -13.734939759036148
+        },
+        "actual": {
+          "x": 13.99999999999999,
+          "y": -13.734939759036152
+        },
+        "error": 1.1234667099445444e-14
+      },
+      "legs": [
+        {
+          "root": {
+            "x": -4,
+            "y": -81.56330075942051
+          },
+          "knee": {
+            "x": 70.01857501291929,
+            "y": -98.80425644803708
+          },
+          "ankle": {
+            "x": 76,
+            "y": -23.040000000000006
+          }
+        },
+        {
+          "root": {
+            "x": -16,
+            "y": -83.56330075942051
+          },
+          "knee": {
+            "x": 13.99999999999999,
+            "y": -13.734939759036152
+          },
+          "ankle": {
+            "x": -60.88922037832701,
+            "y": -26.681162031435555
+          }
+        }
+      ],
+      "triangles": 3200
+    },
+    "kneel_after": {
+      "time": 1.4999999999999971,
+      "grip": 0,
+      "kneeSupport": {
+        "amount": 1,
+        "target": {
+          "x": 14,
+          "y": -13.734939759036148
+        },
+        "actual": {
+          "x": 13.99999999999999,
+          "y": -13.734939759036152
+        },
+        "error": 1.1234667099445444e-14
+      },
+      "legs": [
+        {
+          "root": {
+            "x": -4,
+            "y": -81.56330075942051
+          },
+          "knee": {
+            "x": 70.01857501291929,
+            "y": -98.80425644803708
+          },
+          "ankle": {
+            "x": 76,
+            "y": -23.040000000000006
+          }
+        },
+        {
+          "root": {
+            "x": -16,
+            "y": -83.56330075942051
+          },
+          "knee": {
+            "x": 13.99999999999999,
+            "y": -13.734939759036152
+          },
+          "ankle": {
+            "x": -60.88922037832701,
+            "y": -26.681162031435555
+          }
+        }
+      ],
+      "triangles": 3024
+    },
+    "kneel_fire_before": {
+      "time": 1.4999999999999971,
+      "grip": 2.842170943040401e-14,
+      "kneeSupport": {
+        "amount": 1,
+        "target": {
+          "x": 14,
+          "y": -13.734939759036148
+        },
+        "actual": {
+          "x": 13.999999999999988,
+          "y": -13.734939759036152
+        },
+        "error": 1.293207299340885e-14
+      },
+      "legs": [
+        {
+          "root": {
+            "x": -3.4982217032690617,
+            "y": -81.77674810480052
+          },
+          "knee": {
+            "x": 70.56034994296468,
+            "y": -98.84508035255286
+          },
+          "ankle": {
+            "x": 76.00000000000001,
+            "y": -23.039999999999992
+          }
+        },
+        {
+          "root": {
+            "x": -15.498221703269062,
+            "y": -83.77674810480052
+          },
+          "knee": {
+            "x": 13.999999999999988,
+            "y": -13.734939759036152
+          },
+          "ankle": {
+            "x": -60.88922037832702,
+            "y": -26.68116203143557
+          }
+        }
+      ],
+      "triangles": 3204
+    },
+    "kneel_fire_after": {
+      "time": 1.4999999999999971,
+      "grip": 2.842170943040401e-14,
+      "kneeSupport": {
+        "amount": 1,
+        "target": {
+          "x": 14,
+          "y": -13.734939759036148
+        },
+        "actual": {
+          "x": 13.999999999999988,
+          "y": -13.734939759036152
+        },
+        "error": 1.293207299340885e-14
+      },
+      "legs": [
+        {
+          "root": {
+            "x": -3.4982217032690617,
+            "y": -81.77674810480052
+          },
+          "knee": {
+            "x": 70.56034994296468,
+            "y": -98.84508035255286
+          },
+          "ankle": {
+            "x": 76.00000000000001,
+            "y": -23.039999999999992
+          }
+        },
+        {
+          "root": {
+            "x": -15.498221703269062,
+            "y": -83.77674810480052
+          },
+          "knee": {
+            "x": 13.999999999999988,
+            "y": -13.734939759036152
+          },
+          "ankle": {
+            "x": -60.88922037832702,
+            "y": -26.68116203143557
+          }
+        }
+      ],
+      "triangles": 3028
+    }
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "fb0af926daf6761067c86a7eb52583186a198f239e329e154e77364547ed5de3"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "ff248efa1cc05563aabb958608073046967bd7704a6c6e44caeb44fade177e37"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "6bc1c61f6b5da1d55a28a99a7d5bb4ecf069e787fa682ead75f5a6d704700515"
+    }
+  ],
+  "gifs_generated": false
+}

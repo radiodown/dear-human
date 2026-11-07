@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b",
+  "browser": "Local macOS Chrome via Playwright",
+  "scope": "Focused actual-canvas input/shot-count/release and narrow UI review; no full-game tests.",
+  "checks": [
+    "Default guarded walk runs without unsolicited shots.",
+    "One click fires exactly once; live shot/recoil recovers while walking continues.",
+    "Held pointer repeats; release outside the button stops further shots and completes recovery.",
+    "Focused hold button supports keyboard press/release without repeated keydown shots.",
+    "Window blur cancels the held trigger and pending input.",
+    "Walking-fire tab also waits for input instead of auto-firing its baked loop.",
+    "Kneeling single shot starts immediately and returns to clean idle; no second shot.",
+    "Kneeling automatic fire repeats and returns to idle after the final recoil.",
+    "Manual pose review emits no shot and resumes into clean waiting pose.",
+    "Archived studies remain playback-only; cached current tab restores usable controls.",
+    "Shot/hold/count controls fit500px."
+  ],
+  "page_errors": [],
+  "pointer_release_count": 3,
+  "kneeling_release_count": 3
+}

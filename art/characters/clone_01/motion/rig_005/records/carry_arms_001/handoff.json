@@ -1,0 +1,56 @@
+{
+  "iteration": "carry_arms_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/carry_arms_001/recipe.json",
+    "sha256": "8482c6383cfcfdff4087b2c6f783411b6b340825213bdc48f5060bc2d68948c0"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "short_carry_check": {
+      "path": "art/characters/clone_01/motion/rig_005/tests/carry_arms_001/carry-arms.json",
+      "sha256": "268a50bf6ad16a81a234aadf0fc69e9cb66a76b509f616b7a5a4389697a14942"
+    },
+    "short_chrome_comparison": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/carry_arms_001/browser.json",
+      "sha256": "15f01bbc3ec8e602dc4468b8e23e608ebf25a977d05dca6a2f0889f28b34b37a"
+    },
+    "carry_states_sampled": 6,
+    "raise_return": {
+      "run": {
+        "firstShot": {
+          "afterSeconds": 0.12499999999999956,
+          "pitchDegrees": -0.6877068409147148,
+          "lowered": 0
+        },
+        "maxGripError": 3.1776437161565096e-14,
+        "maxElbowStep": 6.114156258427578,
+        "bendChanges": 0
+      },
+      "relaxed": {
+        "firstShot": {
+          "afterSeconds": 0.12499999999999956,
+          "pitchDegrees": -0.916998481200331,
+          "lowered": 0
+        },
+        "maxGripError": 3.1776437161565096e-14,
+        "maxElbowStep": 8.80880777441474,
+        "bendChanges": 0
+      }
+    },
+    "unchanged_joint_target_maximum_difference": 0,
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_results": "unchanged"
+  },
+  "comparison_method": "Separate saved/current two-module sets at the same fixed-step times. No sprite resizing or pose alignment.",
+  "entry_points": {
+    "relaxed": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=relaxed",
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run"
+  },
+  "remaining": [
+    "User review of lowered carry arm silhouette and gun/body occlusion.",
+    "Large weapon-height settings are bounded by the real two-arm reach and may not apply the full requested drop.",
+    "All extreme controls, alternate weapons and reload combinations were not exhaustively reviewed; existing reload art/IK limitations remain."
+  ]
+}

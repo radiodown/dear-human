@@ -1,0 +1,14 @@
+{
+  "status": "failed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b",
+  "browser": "Local macOS Chrome via Playwright",
+  "scope": "Focused actual-canvas input/shot-count/release and narrow UI review; no full-game tests.",
+  "checks": [],
+  "page_errors": [],
+  "failure": "Locator.input_value: Error: Node is not an <input>, <textarea> or <select> element\nCall log:\n  - waiting for locator(\"#plan-b-shot-count\")\n",
+  "page_state": {
+    "load": "플랜 B 모션을 불러오는 중…",
+    "loading": false,
+    "error": ""
+  }
+}

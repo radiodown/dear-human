@@ -1,0 +1,36 @@
+{
+  "iteration": "before_leg_gait_001",
+  "started_epoch": 1794036036.581079,
+  "files": [
+    {
+      "path": "game/animation/proportions.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_leg_gait_001/game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_leg_gait_001/game/animation/gait.js",
+      "sha256": "61fe3501cdfe972ae7d46d904b85bafa5b0c6253c5c3a5e788e5cef96ce6ca22"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_leg_gait_001/game/animation/rig-core.js",
+      "sha256": "9e4079acaacd34dc8f1b675d7ca2a584088ced01417e7db1b5ca6a55748e2520"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_leg_gait_001/game/animation/webgl-character.js",
+      "sha256": "cc16a6d62789fda5126be7bc5a2ec2ff3317a639bfcde879a72ea22689cb0dcf"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_leg_gait_001/game/animation/secondary-motion.js",
+      "sha256": "156cba76437ceb54c8659809383ab7fd7e4346c5e343ecab264529a0d6e192f8"
+    },
+    {
+      "path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_leg_gait_001/game/index.html",
+      "sha256": "6ae318ce07c34b78d050363e8cabc8a08bc699428b61482b5d4a744cef218ebe"
+    }
+  ]
+}

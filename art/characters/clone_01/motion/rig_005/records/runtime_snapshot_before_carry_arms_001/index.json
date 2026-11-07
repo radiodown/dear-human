@@ -1,0 +1,16 @@
+{
+  "iteration": "before_carry_arms_001",
+  "started_epoch": 1794038410.011245,
+  "files": [
+    {
+      "path": "game/animation/firing-form.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_arms_001/game/animation/firing-form.js",
+      "sha256": "d5ea761d6c29adf652aed104b4f1dbe8aec387794f03f8f7c4bc4ae94e32057c"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_arms_001/game/animation/rig-core.js",
+      "sha256": "7f332859112aeb4b493a4a6dcf56835d83fe3f7f4ea7c8517f05867795fb50f9"
+    }
+  ]
+}

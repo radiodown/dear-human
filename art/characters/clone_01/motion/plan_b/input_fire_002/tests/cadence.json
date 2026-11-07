@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "interval_ms": 100,
+  "flash_ms": 55,
+  "recovery_ms": 160,
+  "checks": [
+    "Single shot is immediate and does not repeat after recovery.",
+    "Held input fires immediately, then every100ms:11 shots including the first over1000ms.",
+    "Release emits no future shots and finishes recovery.",
+    "Kneeling uses non-flash recoil frames, shares the same10Hz rate and cancels safely.",
+    "Cadence tolerates different render-step sizes without being tied to walking indices."
+  ]
+}

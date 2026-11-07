@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "iteration": "leg_gait_001",
+  "user_request": "허벅지 다리가 너무 두꺼워. 그리고 걷고 뛰는 폼이 이상해",
+  "status": "development_connected_with_scoped_checks",
+  "art_direction_status": "awaiting_user_review",
+  "scope": "Explicit slimmer transverse thigh silhouette and authored walking/running form correction.",
+  "findings": [
+    "Native thigh sprite width was broad relative to current torso; moving hip roots were separated 12 logical units fore/aft.",
+    "Walking remained low with persistently bent knees; running had little trailing-thigh extension and a high recovery."
+  ],
+  "shape": {
+    "thigh_width_scale": 0.76,
+    "moving_hip_x": [
+      2,
+      -2
+    ],
+    "applies_to": [
+      "near/far thigh",
+      "thigh-derived knee connector"
+    ],
+    "preserved": [
+      "source PNGs",
+      "bone lengths",
+      "other sprite dimensions",
+      "knee armor",
+      "boots"
+    ],
+    "authorization": "User explicitly requested a thinner thigh/leg silhouette; this is an intentional width edit rather than frame size normalization."
+  },
+  "gait_parameters": {
+    "walk": {
+      "period": 1.12,
+      "speed": 100,
+      "stance": 0.62,
+      "lift": 5.5,
+      "trackOffset": -8,
+      "thigh": 76,
+      "shin": 76,
+      "extensionReserve": 0.5,
+      "bootWidth": 34.666666666666664,
+      "bootHeight": 32,
+      "ankleU": 0.35,
+      "ankleV": 0.28
+    },
+    "run": {
+      "period": 0.74,
+      "speed": 245,
+      "stance": 0.4,
+      "lift": 30,
+      "trackOffset": -18,
+      "contactDrop": 4,
+      "compression": 2.5,
+      "pushRise": 3,
+      "lean": 0.2617993877991494,
+      "sway": 0.7,
+      "roll": 0.008
+    }
+  },
+  "motion": {
+    "walk_body_offset": "-2 + bob*.30; lower additional landing load",
+    "extra_swing_lift_at_100_percent": {
+      "walk": 2,
+      "run": 6
+    },
+    "run_push_off": "Support rise of 3 logical units, continuous position/velocity into flight and next landing.",
+    "upper_body": "Reduced stride waist and follow-through angles; no separate vertical chest bounce.",
+    "reach_reserve": 0.5,
+    "contact_history": "Existing fixed-step RunFootContacts; pose remains read-only."
+  },
+  "controls": "Existing per-action settings retained. Zero energy uses the new base gait with extra response disabled; button/note copy updated accordingly.",
+  "retained": [
+    "Skirt overlap",
+    "head/body synchronization",
+    "lowered non-firing run and relaxed idle",
+    "firing muzzle behavior",
+    "standing/relaxed/kneeling joint targets",
+    "Plan B/C work"
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "8b4c6d4c84f68fce08bde2ea09a44150b3faa23d6561e0c651a6bd841bad4577"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "53c8435af134138a80d6968804bf2f1bb88924701d74b5cf9dfe905f7cb29712"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "7f332859112aeb4b493a4a6dcf56835d83fe3f7f4ea7c8517f05867795fb50f9"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "6ede6365ce6089cc23c79f4397a6eecf5423f4204ddf72510f93d0e697911410"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "8d7dfb23dffb3f1eb8b49ec7a8467b79f170ae0d14c7ba0abedf77c80217336b"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "a4d4660f1405bf290a97cd06d9f731368925e713c5fa6eb1890af56ac7189114"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_leg_gait_001/index.json",
+    "sha256": "5d8393260bb33df8b66d83490582734188f3291459ecf1e0186c5621789de9c5"
+  },
+  "dependencies": [
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "2c21f76ddbe6e7d0be02fff87acdbb07e4b749617a021a90041ee67e82e7e2df"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "d5ea761d6c29adf652aed104b4f1dbe8aec387794f03f8f7c4bc4ae94e32057c"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/limbs_atlas.png",
+      "sha256": "5742ea3f8b6896654708a8a7cafd489105efa9c49b4fdce27f1cc15d282f38fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_004/source/body_core.png",
+      "sha256": "f6a3121ac49e5ed64693a2b239f97a104269f3861bdd8aa5718d118b8adc30d8"
+    }
+  ],
+  "new_art_rasters": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "recorded_at": "2026-11-07T16:32:11.016187+09:00",
+  "elapsed_since_snapshot_seconds": 694.4,
+  "time_scope": "Wall time since source snapshot; earlier source reading not measured.",
+  "development_cost": null
+}

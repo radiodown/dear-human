@@ -1,5 +1,11 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**달리기·완전 대기 팔 001:** [완전 대기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=relaxed) · [달리기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run) · [기록/전후 비교](docs/carry-arms-001.md). 총 지지점과 낮춘 자세의 팔꿈치 선택을 보정해 팔이 반대로 접히는 문제를 줄였다. 총구 아래 방향·팔 길이·양손 파지는 유지하고 큰 높이 조절은 도달 범위로 제한한다. 필요한 짧은 접점/전환·Chrome 확인을 마쳤으며 최종 자세/가림은 사용자 검수 대기다.
+
+**플랜 B · 입력 사격001:** [조작](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b) · [기록](docs/plan-b-input-fire-001.md). 단발은 한 발, ‘누르고 연사’/Space는 누르는 동안 발사한다. 발사 횟수와 반동 복귀를 표시하고 걷기 순서를 이어간다. 이동 사격은 기존 PNG의 다음 발 디딤에 맞추며 입력/해제·500px Chrome 확인을 마쳤다.
+
+**허벅지·보행 폼 001:** [이동](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk) · [달리기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run) · [기록/전후 비교](docs/leg-gait-001.md). 허벅지 폭을 24% 줄이고 이동 고관절 간격을 좁혔다. 걷기는 덜 웅크리고 발을 낮게 회수하며, 달리기는 착지·뒷발 밀기·체공을 구분하도록 보정했다. 원본·뼈 길이·현재 총구/대기·머리 연결은 유지하며 필요한 짧은 접지/Chrome 확인을 마쳤다. 체형과 자연스러움은 사용자 검수 대기다.
+
 **걷기 스커트 덮임 001:** [이동](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk) · [기록](docs/skirt-walk-cover-001.md). 허벅지 윗단을 골반 쪽에 연결하고 스커트가 양쪽 다리의 움직임을 받아 벌어지되 아랫단 덮임을 유지하도록 보정했다. 대기·앉아쏴 좌표와 원본 PNG는 유지했다. 필요한 짧은 메시/화면 비교를 마쳤으며 전체 프레임의 자연스러움과 가림은 사용자 검수 대기다.
 
 **플랜 B · 경계 보행007:** [경계 걷기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk) · [경계 이동 사격](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk_fire) · [기록](docs/plan-b-guard-007.md). 골반부터 상체를 앞으로 숙이고 무릎을 낮춘 경계 보행을 새로 생성했다. 전방 시선·수평 M16·양발 교차를 유지하며 기본 선택도007 걷기다. 필요한 PNG/Chrome만 확인했고 발 높이4~5px·망토/윤곽은 아트 검수 대기다.

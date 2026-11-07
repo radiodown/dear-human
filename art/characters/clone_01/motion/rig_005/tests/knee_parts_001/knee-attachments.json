@@ -1,0 +1,27 @@
+{
+  "scope": "Knee attachment UV/edge constraints and one short sit/stand cycle; no full QA or art acceptance.",
+  "maxUVAreaDifference": 0,
+  "maxSeamGap": 2.0097183471152322e-14,
+  "maxRigidShaftDifference": 0,
+  "maxPadAngleStep": 0.06238151489243998,
+  "previousMaxPadAngleStep": 6.345566822072026,
+  "maxBoneError": 4.263256414560601e-14,
+  "maxGroundPadY": -5.329070518200751e-15,
+  "unchangedParts": 28,
+  "transitionFrames": 288,
+  "status": "passed",
+  "runtime_sources": [
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "fb0af926daf6761067c86a7eb52583186a198f239e329e154e77364547ed5de3"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "ff248efa1cc05563aabb958608073046967bd7704a6c6e44caeb44fade177e37"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "6bc1c61f6b5da1d55a28a99a7d5bb4ecf069e787fa682ead75f5a6d704700515"
+    }
+  ]
+}

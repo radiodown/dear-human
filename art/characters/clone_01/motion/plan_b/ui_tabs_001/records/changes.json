@@ -1,0 +1,20 @@
+{
+  "changed_sources": [
+    {
+      "path": "game/index.html",
+      "before_sha256": "2fe04f946efa843ac6cf4e616248a54c4af584e76488293f39fed6df8402c044",
+      "after_sha256": "6ae318ce07c34b78d050363e8cabc8a08bc699428b61482b5d4a744cef218ebe"
+    },
+    {
+      "path": "game/plan-b-lab.js",
+      "before_sha256": "bbaf57bc7efc8cd4aaa1cadf96b65dabe8dedcff2d3942ff80a7ddb7e5e0e819",
+      "after_sha256": "efbaad32f4d37c2ffa44f19aaddb8e4ce7620b4f6ac284c1f46d91b42648b33b"
+    },
+    {
+      "path": "game/styles.css",
+      "before_sha256": "d9f3eeb90d7976c1f039de7b90d30c1d213d4939a0fe4fb851c5fd908b2f3513",
+      "after_sha256": "f9f35578f39bab2184f326f10a4febf0d4f6c2ec39fcd4fce587b8d5ad281871"
+    }
+  ],
+  "motion_assets_changed": false
+}

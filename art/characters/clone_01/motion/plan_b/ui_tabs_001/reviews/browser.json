@@ -1,0 +1,21 @@
+{
+  "status": "passed_with_review_limitations",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b",
+  "browser": "Local macOS Chrome via Playwright",
+  "scope": "Focused UI interaction, URL restoration and desktop/500px screenshots only. Existing animation art unchanged.",
+  "checks": [
+    "Five main tabs switch the loaded motion, aria-pressed highlight and original query values.",
+    "Legacy004 direct URL expands and highlights its archived tab.",
+    "Static003 archive opens; native Enter activation returns to walking.",
+    "Direct007 firing URL restores its primary tab.",
+    "Default guard walk has one selected button; archive initially collapsed.",
+    "500px direct guard URL loads; clicking kneeling fire loads its sequence and renders the narrow screenshot."
+  ],
+  "page_errors_observed": [],
+  "review_notes": [
+    "First sequence completed interactions then failed an incorrect test expectation that an expanded archive would auto-close on main-tab navigation. The UI retains that open state.",
+    "Two later initial-readiness waits timed out. Fresh direct diagnostics showed the same desktop and500px URLs loaded after a short wait, with no page errors, and kneeling fire loaded normally. These timeouts are retained as a review limitation; no full startup/load-race claim is made."
+  ],
+  "assets_regenerated": false,
+  "gif_generated": false
+}

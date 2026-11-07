@@ -1,0 +1,15 @@
+{
+  "status": "failed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b",
+  "browser": "Local macOS Chrome via Playwright",
+  "scope": "Focused cadence, immediate input, walking continuity, release and socket/flash render review.",
+  "page_errors": [],
+  "checks": [],
+  "bursts": {},
+  "failure": "Page.wait_for_function: Timeout 10000ms exceeded.",
+  "page_state": {
+    "loading": true,
+    "load": "플랜 B 모션을 불러오는 중…",
+    "error": ""
+  }
+}
