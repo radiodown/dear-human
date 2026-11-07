@@ -1,0 +1,5 @@
+walk-in-place maximum hair change relative to head: 0.009370 m
+after stop, change over one second: 0.000002 m
+after movement and turn, idle change: 0.000003 m
+sphere guide penetration on/off: 0.000000 / 0.079498 m
+box guide penetration on/off: 0.000000 / 0.054652 m

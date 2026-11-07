@@ -3157,6 +3157,218 @@
             "Existing temporary reload hand artwork remains unchanged.",
             "No tests, syntax/document/catalog checks or browser review have run."
           ]
+        },
+        {
+          "revision_id": "plan_b_pixel_003",
+          "display_name": "플랜 B 도트 003 · 단순화 기준 외형",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "PNG decode, sampled transparency and short local Chrome display only. Style acceptance pending; no enforced palette/grid or completed animation.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "c888772c594409a1c54558be53209d84e98a6329afca17cbb78015ed6ce6fa66",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/README.md",
+              "sha256": "dd43be5966b51e9c2bf33ddd626fc4377a6644920fc5322f71f841b857bd4b94"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/generation.json",
+              "sha256": "35adbc9cd68cd1c39f8ec919427b6f393bef1612eea2f9e7888034e24058e47d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/visual.json",
+              "sha256": "de935602bab2598197ac932f6d7c6c1b9274aceeb65e53262901a1bb6b172cf6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/browser.json",
+              "sha256": "252f911f2686570c14dda0ebcf9cb5e90fe98293ce4fe45b8d76a3a8a5a8d02d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/recipe/prepare.py",
+              "sha256": "093880316d92765fc697f5cdae2513d2ae1c351c6d99f4323e136e873e328cbc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/recipe/record.py",
+              "sha256": "92fb5550f47af4bf2cb67321156065c5e4b71f6441757b6adcd00d308b0cb788"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/runtime_snapshot_pixel_003/game/app.js",
+              "sha256": "4e3f93821ed73786234221651e79425027f3c965c29d3ef15cc6346ebb8b8355"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/runtime_snapshot_pixel_003/game/index.html",
+              "sha256": "014357c53edc4b7f9dc67d51878bb09b61f8dde4f2c235b9e52fd893b26910ae"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/runtime_snapshot_pixel_003/game/plan-b-lab.js",
+              "sha256": "1acb31fd4b7e9d95773138e26887044dbf0301ba37b154d5d44d3a1f9c3f20fa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/runtime_snapshot_pixel_003/game/styles.css",
+              "sha256": "4aa87c05d647529c8285e2b601a9dab4de7a1846a7c649765d06bf5539adc5b7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/source/baseline_generated.png",
+              "sha256": "6af11b3693bbc1ffd0035a2325ca0ec87af95eb4cfb62f10b97b6e89682f65d7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/output/baseline.png",
+              "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/output/manifest.json",
+              "sha256": "408144b69be27838284320cd8bd3ca267158b624c1891c099fe81a6a7921f3e5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/baseline_prompt.json",
+              "sha256": "c888772c594409a1c54558be53209d84e98a6329afca17cbb78015ed6ce6fa66"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/baseline_prompt.md",
+              "sha256": "54f936e2a02dd3e3ed246147b408951513e280bacd2f4ce72e13ff2b6764f78a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/normalization.json",
+              "sha256": "918e2f60ec069e41ea34468a12456f67e54aa565f409dcd6ae14e4583f2d4e31"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/browser-baseline.png",
+              "sha256": "0dafda232ffaa070ccd67cc94784c83b349bacb268d6e70670094703954c2b06"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/browser-narrow.png",
+              "sha256": "a92c095892e5dcb5a5942f3879245ca1c6d5c8d26593dde60321ac80bf588294"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "side_master_004"
+            }
+          ],
+          "preview": {
+            "type": "concept_image",
+            "image_path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/output/baseline.png",
+            "width": 512,
+            "height": 512,
+            "views": [
+              "right_profile"
+            ],
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=pixel_003"
+          },
+          "motions": [],
+          "capabilities": [
+            "concept_image"
+          ],
+          "description": "긴 머리·검은 갑옷·망토·M16을 유지하며 장식·문양·재질 묘사를 줄인 도트풍 기준 외형. 스타일 채택 대기이며 고정 팔레트 최종 스프라이트나 완성 모션은 아닙니다.",
+          "review_notes": [
+            "도트풍 기준 외형 1장 · 같은 페이지에서 표시 확인",
+            "후속 키포즈는 크기 일관성 실패 · 완성 보행 미제작",
+            "기존 외형·파츠 리그·플랜 C/D 유지"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/baseline_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/baseline_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_pixel_walk_003_keys",
+          "display_name": "플랜 B 도트 003 · 키포즈 크기 검수 실패",
+          "status": "failed",
+          "verification": "failed",
+          "verification_scope": "Visual baseline comparison failed: enlarged head/torso/rifle and ambiguous opposite support-leg phase. Browser display passed separately.",
+          "art_direction_status": "rejected",
+          "recipe_key": "e80b984ec35f9a7070a8d6de4dd5c06d9382284229efda9726377f6a943bad71",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/README.md",
+              "sha256": "dd43be5966b51e9c2bf33ddd626fc4377a6644920fc5322f71f841b857bd4b94"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/generation.json",
+              "sha256": "35adbc9cd68cd1c39f8ec919427b6f393bef1612eea2f9e7888034e24058e47d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/visual.json",
+              "sha256": "de935602bab2598197ac932f6d7c6c1b9274aceeb65e53262901a1bb6b172cf6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/browser.json",
+              "sha256": "252f911f2686570c14dda0ebcf9cb5e90fe98293ce4fe45b8d76a3a8a5a8d02d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/recipe/prepare.py",
+              "sha256": "093880316d92765fc697f5cdae2513d2ae1c351c6d99f4323e136e873e328cbc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/recipe/record.py",
+              "sha256": "92fb5550f47af4bf2cb67321156065c5e4b71f6441757b6adcd00d308b0cb788"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/runtime_snapshot_pixel_003/game/app.js",
+              "sha256": "4e3f93821ed73786234221651e79425027f3c965c29d3ef15cc6346ebb8b8355"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/runtime_snapshot_pixel_003/game/index.html",
+              "sha256": "014357c53edc4b7f9dc67d51878bb09b61f8dde4f2c235b9e52fd893b26910ae"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/runtime_snapshot_pixel_003/game/plan-b-lab.js",
+              "sha256": "1acb31fd4b7e9d95773138e26887044dbf0301ba37b154d5d44d3a1f9c3f20fa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/runtime_snapshot_pixel_003/game/styles.css",
+              "sha256": "4aa87c05d647529c8285e2b601a9dab4de7a1846a7c649765d06bf5539adc5b7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/source/keyposes.png",
+              "sha256": "0e6e9afd88ae2b4d0894e7264ebc48400365e8adbc03399e36e065b4f3ed5420"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/keyposes_prompt.json",
+              "sha256": "e80b984ec35f9a7070a8d6de4dd5c06d9382284229efda9726377f6a943bad71"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/keyposes_prompt.md",
+              "sha256": "465086c9806a3093a3f5effad768999cd11f55870c1823e4f06e416002f72854"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/baseline-key-comparison.png",
+              "sha256": "77a2ddbea71af5a2ad352c09baf00771b860b9f8d8ada122c4c025a31815eaeb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/browser-keyposes.png",
+              "sha256": "3fc0b4738c6e1f5c1c0e936cfc408860df3d811712b7d9cdc52f21a804ae5ece"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_pixel_003"
+            }
+          ],
+          "preview": {
+            "type": "key_pose_sheet",
+            "image_path": "art/characters/clone_01/motion/plan_b/pixel_walk_003/source/keyposes.png",
+            "width": 1254,
+            "height": 1254,
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=pixel_003&pixelView=keys"
+          },
+          "motions": [],
+          "capabilities": [
+            "concept_image"
+          ],
+          "description": "도트 기준으로 한 번에 생성한 02/05/08/11 걷기 키포즈. 기준보다 머리·상체·총이 커져 반려했으며 중간 프레임·14프레임 애니메이션은 생성하지 않았습니다.",
+          "review_notes": [
+            "기준 대비 크기 실패 · 개별 프레임 확대/축소/중심 맞춤 없음",
+            "05/11 지지 다리 교대 불명확",
+            "새 스타일의 외형 채택과 키포즈 실패를 구분"
+          ]
         }
       ],
       "capabilities": [

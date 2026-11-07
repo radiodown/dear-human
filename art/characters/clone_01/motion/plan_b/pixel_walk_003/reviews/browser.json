@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "scope": "Short local Chrome render review of the new Plan B static views and navigation, not full game or animation-quality validation.",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=pixel_003",
+  "browser": "Local macOS Google Chrome, headless via Playwright",
+  "checks": [
+    "pixel baseline decoded and displayed",
+    "key sheet decoded and failure status visible",
+    "old walk atlas still loads at original URL",
+    "pixel background and size controls",
+    "500px layout fits viewport",
+    "reference view retained"
+  ],
+  "page_errors": [],
+  "art_acceptance": "awaiting_user_review",
+  "keypose_art_gate": "failed",
+  "reviewer_setup_note": "Initial attempt stopped at the Playwright string-predicate CSP restriction. Repeated this same focused review with bypass_csp=True, matching the existing browser reviewer; production CSP unchanged."
+}

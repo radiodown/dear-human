@@ -7,6 +7,12 @@ description: Run reusable catalog, cache, dependency and document checks for ass
 
 ## 최신 검증 범위와 플랜 D
 
+최신은 `docs/plan-d-face-hair-006.md`다. 주변 소품/외부 장애물 시연과 B/T/L·이동 차단을 제거했다. 기존 몸을 유지한 새 얼굴/두상·앞머리 전용 atlas와 목/어깨/등에 대한 근사 헤어 접촉을 사용한다. 기본은 긴 머리 006·바람 OFF이며 보행 지연/정지 감쇠와 N 헤어 비교는 유지한다. Mac 얼굴/전신 렌더와 짧은 몸 접촉/보행 확인만 수행했고 사용자 외형 검수 대기다. 이전 005 소품과 수치는 현재 기능/검증으로 보고하지 않는다.
+
+플랜 D 최신은 `docs/plan-d-samples-005.md`와 `plan_d/samples_005`다. 사용자 선택에 따라 무료 CC0 Quaternius 헤어 5개·Kenney 소품 6개와 MIT cgltf를 실제 도입했다. 003 몸/얼굴/21관절과 004 헤어를 유지하고 사용자의 짧은 머리 지적 후 기본은 전신+기존 긴 머리 004로 되돌렸다. 외부 헤어는 비교용 선택 항목이다. 후속 `samples_005/records/idle_001`은 정지 안정/보행 찰랑거림을 목표로 바람 기본 OFF, 머리 기준 형태 복귀·뿌리/끝 강성 차이·스텝당 한 번의 접촉 속도 처리를 사용한다. N 샘플/P 물리/U 바람/C 충돌/B 장애물/T 구·상자/G 충돌 형상/L 소품을 사용한다. 자체 004와 Long/Buns는 120Hz 가이드 반응, 짧은 세 헤어는 고정이다. Mac 빌드·장착/접촉 렌더·짧은 코어 접촉 확인만 수행했다. 근사 가이드 접촉을 모든 삼각형 무관통·양방향 강체·천/모발끼리 충돌·원화 품질·Windows 통과로 보고하지 않는다. 라이선스/원본은 art/external/samples_005에 보존하며 기존 export는 004 정지 모델 전용이다. 사용자 검수 대기다.
+
+플랜 D 최신 헤어는 `docs/plan-d-hair-004.md`, `plan_d/hair_004/research/decision.md`를 따른다. 사용자의 품질 반려와 선행 조사 지시 후 가이드 기반 카드·coverage atlas·접선 광택·4× MSAA를 도입했다. H 머리만/F 얼굴/Q·E 회전으로 같은 네이티브 뷰어에서 검토한다. 실제 머리 GLB와 형식/정지 렌더 확인을 원화 수준 완성·외부 헤어 라이브러리 통합·물리/LOD·Windows 통과로 보고하지 않는다. 003 몸/얼굴은 유지하며 사용자 아트 검수 대기다.
+
 플랜 D 실제 캐릭터 모델 첫 결과는 `docs/plan-d-clone-model-003.md`와 `plan_d/clone_model_003`이다. 실제 곡면·21관절 정점 가중치·15재질을 작성해 같은 데이터의 GLB를 저장했다. 네이티브 전신/얼굴/뒤쪽/짧은 보행과 GLB 공식 형식 검사를 확인했다. 얼굴 닮음·원화 질감·천/머리 충돌·완성 모션은 미완료이며 사용자 아트 채택과 구분한다. 현재 뷰어는 같은 C++ 작성 코드에서 메시를 생성하며 GLB 로더·구운 클립은 없다. Q/E 회전·F 얼굴·M 마네킹 비교를 사용하고 새 결과는 새 버전 경로에 남긴다.
 
 플랜 D 현재 공통 구조는 `docs/plan-d-cross-platform-002.md`와 `plan_d/architecture_002`다. `plan-d-core`는 SDL 없는 이동/포즈/장면, `plan-d-app`은 IPlatform/IRenderer만 사용하는 실행 루프, `plan-d-sdl`은 창/입력/GPU 구현이다. OS·GPU 타입을 코어로 올리지 않고 읽기 전용 RenderFrame을 전달한다. Windows/macOS 설정 분리를 실제 Windows 빌드·실행 검증으로 보고하지 않는다. 이번 결과는 최소 코어 검사와 Mac 동일 화면 확인에 한정하며 이전 preparation_001 기록과 변경 전 소스를 보존한다.

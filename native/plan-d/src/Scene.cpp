@@ -1,5 +1,6 @@
 #include "Scene.hpp"
 #include "CloneModel.hpp"
+#include "SampleWorld.hpp"
 #include <array>
 #include <cstdio>
 #include <string_view>
@@ -128,17 +129,18 @@ std::optional<View> viewTabAt(float x, float y, int windowWidth, int windowHeigh
     return std::nullopt;
 }
 Vec3 cameraPosition(const ViewState& state) {
-    const Vec3 target{state.worldX,state.inspectFace?1.72f:.94f,0};
+    const Vec3 target{state.worldX,state.inspectFace?1.72f:(state.inspectHair?1.53f:.94f),0};
     const float yaw=radians(state.yaw), pitch=radians(state.pitch);
     return target+Vec3{8*std::sin(yaw)*std::cos(pitch),8*std::sin(pitch),8*std::cos(yaw)*std::cos(pitch)};
 }
 Mat4 cameraMatrix(const ViewState& state, float aspect) {
-    const Vec3 target{state.worldX,state.inspectFace?1.72f:.94f,0};
-    const float height=(state.inspectFace?.65f:3.05f)/state.zoom;
+    const Vec3 target{state.worldX,state.inspectFace?1.72f:(state.inspectHair?1.53f:.94f),0};
+    const float height=(state.inspectFace?.65f:(state.inspectHair?1.06f:3.05f))/state.zoom;
     return orthographic(height*aspect,height,.1f,40)*lookAt(cameraPosition(state),target);
 }
-SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw, int ph) {
+SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw, int ph,const SampleWorld* samples) {
     SceneGeometry scene;
+    if(!state.inspectHair) {
     const float center=std::floor(state.worldX);
     box(scene.world,Mat4::translation({center,-.055f,0})*Mat4::scale({30,.1f,16}),{.11f,.15f,.19f});
     for(int i=-12;i<=12;++i)
@@ -147,8 +149,35 @@ SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw
         box(scene.world,Mat4::translation({center,.001f,static_cast<float>(i)})*Mat4::scale({30,.003f,.008f}),{.18f,.23f,.28f});
     box(scene.world,Mat4::translation({center,.004f,0})*Mat4::scale({30,.004f,.012f}),{.33f,.43f,.47f});
 
-    if(state.view != View::Skeleton && state.appearance == Appearance::Clone01)
-        appendCloneModel(scene.world,skeleton);
+    }
+    const bool sampled=samples && samples->available();
+    if(state.view != View::Skeleton && state.appearance == Appearance::Clone01) {
+        appendCloneModel(scene.world,skeleton,state.inspectHair,!sampled);
+        if(sampled) samples->appendHair(scene.world,skeleton,state);
+    }
+    if(sampled && state.showColliders) {
+        // Sparse rings overlaid for inspecting proxy placement without hiding the body.
+        const Color debug{.22f,.88f,.70f};
+        for(const auto& c:samples->colliders()) {
+            const Vec3 e=c.shape==ColliderShape::Box || c.shape==ColliderShape::Ellipsoid?c.extent:Vec3{c.radius,c.radius,c.radius};
+            if(c.shape==ColliderShape::Box) {
+                for(int axis=0;axis<3;++axis)for(float a:{-1.0f,1.0f})for(float b:{-1.0f,1.0f}) {
+                    const Vec3 start=axis==0?Vec3{-e.x,a*e.y,b*e.z}:axis==1?Vec3{a*e.x,-e.y,b*e.z}:Vec3{a*e.x,b*e.y,-e.z};
+                    const Vec3 end=start+(axis==0?Vec3{2*e.x,0,0}:axis==1?Vec3{0,2*e.y,0}:Vec3{0,0,2*e.z});
+                    cylinder(scene.bones,c.center+start,c.center+end,.0015f,debug);
+                }
+                continue;
+            }
+            for(int axis=0;axis<3;++axis) for(int i=0;i<24;++i) {
+                const auto point=[&](int j) {
+                    const float a=2*pi*j/24;
+                    return c.center+(axis==0?Vec3{0,e.y*std::cos(a),e.z*std::sin(a)}:axis==1?Vec3{e.x*std::cos(a),0,e.z*std::sin(a)}:Vec3{e.x*std::cos(a),e.y*std::sin(a),0});
+                };
+                cylinder(scene.bones,point(i),point(i+1),.0015f,debug);
+            }
+            if(c.shape==ColliderShape::Capsule)cylinder(scene.bones,c.center,c.end,.003f,debug);
+        }
+    }
     if(state.view != View::Skeleton && state.appearance == Appearance::Mannequin) {
         ellipsoid(scene.world,skeleton.world(Pelvis)*Mat4::scale({.16f,.13f,.22f}),bodyColor);
         ellipsoid(scene.world,skeleton.world(Chest)*Mat4::translation({0,.04f,0})*Mat4::scale({.17f,.24f,.25f}),bodyColor);
@@ -188,7 +217,15 @@ SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw
     const Color white{.89f,.93f,.94f}, muted{.48f,.59f,.65f}, panel{.065f,.095f,.125f};
     rect(scene.hud,0,0,static_cast<float>(pw),106*ui,panel,pw,ph);
     text(scene.hud,"DEAR HUMAN / PLAN D",28*ui,22*ui,3*ui,white,pw,ph);
-    text(scene.hud,state.appearance==Appearance::Clone01?"CLONE 01 / 3D MODEL STUDY 003":"MANNEQUIN / BASELINE",29*ui,60*ui,1.65f*ui,muted,pw,ph);
+    text(scene.hud,state.appearance==Appearance::Clone01?"CLONE 01 / FACE AND HAIR 006":"MANNEQUIN / BASELINE",29*ui,60*ui,1.65f*ui,muted,pw,ph);
+    if(sampled) {
+        char hairLabel[160];std::snprintf(hairLabel,sizeof(hairLabel),"N HAIR %d/6  %s  /  ORIGINAL BODY",state.hairSample+1,samples->hairName());
+        text(scene.hud,hairLabel,570*ui,25*ui,1.6f*ui,leftColor,pw,ph);
+        char flags[160];std::snprintf(flags,sizeof(flags),"P PHYSICS %s  U WIND %s  C COLLISION %s",!samples->dynamicHair()?"FIXED":state.hairPhysics?"ON":"OFF",state.wind?"ON":"OFF",state.collisions?"ON":"OFF");
+        text(scene.hud,flags,570*ui,55*ui,1.5f*ui,white,pw,ph);
+        std::snprintf(flags,sizeof(flags),"BODY CONTACT / NECK SHOULDERS BACK / G VIEW");
+        text(scene.hud,flags,570*ui,79*ui,1.4f*ui,muted,pw,ph);
+    }
     for(int i=0;i<3;++i) {
         const bool active=static_cast<int>(state.view)==i;
         const float x=(28+i*158)*ui;
@@ -198,7 +235,7 @@ SceneGeometry makeScene(const Skeleton& skeleton, const ViewState& state, int pw
     }
     const float footer=static_cast<float>(ph)-91*ui;
     rect(scene.hud,0,footer,static_cast<float>(pw),91*ui,panel,pw,ph);
-    text(scene.hud,"ARROWS MOVE  W WALK  SPACE PAUSE  Q E ORBIT  F FACE  M COMPARE  R RESET",28*ui,footer+20*ui,1.55f*ui,white,pw,ph);
+    text(scene.hud,state.inspectHair?"ARROWS MOVE  W WALK  SPACE PAUSE  Q E ORBIT  F FACE  H FULL BODY  M COMPARE":"ARROWS MOVE  W WALK  SPACE PAUSE  Q E ORBIT  F FACE  H HAIR  M COMPARE",28*ui,footer+20*ui,1.55f*ui,white,pw,ph);
     char status[160];
     std::snprintf(status,sizeof(status),"21 JOINTS  /  %s  /  %s  /  PITCH %.0f  /  YAW %.0f  /  SCROLL ZOOM",
         state.paused?"PAUSED":"PLAYING",state.walkAmount>.01f?"WALK":"REST",state.pitch,state.yaw);

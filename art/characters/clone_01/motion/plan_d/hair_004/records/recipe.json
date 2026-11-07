@@ -1,0 +1,38 @@
+{
+  "revision_id": "hair_004",
+  "created_at": "2026-11-07T10:04:22.399423+09:00",
+  "reference": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+  "base_model": "clone_model_003",
+  "research": "research/decision.md",
+  "authoring": "original C++ guide curves and standard-library Python coverage rasterizer",
+  "external_code_copied": false,
+  "external_model_api_calls": 0,
+  "paid_assets_purchased": 0,
+  "service_cost_usd": 0,
+  "agent_time_cost": "not metered",
+  "observed_work_window_local": "approximately 2026-11-07 09:49–10:04 Asia/Seoul; includes pre-research iterations",
+  "hair_vertices": 21025,
+  "hair_triangles": 30256,
+  "hair_cards": 157,
+  "atlas_source_strands": 822,
+  "atlas_seed": 41700,
+  "atlas_dimensions": [
+    1024,
+    1024
+  ],
+  "coverage": "native 4x MSAA alpha-to-coverage; GLB MASK 0.35",
+  "sdl_version": "3.4.20",
+  "platform_checked": "macOS arm64 Metal",
+  "windows": "not run",
+  "quality_status": "technique integrated; visual draft awaiting user review",
+  "limitations": [
+    "helmet-like crown mass",
+    "repeated guide pattern",
+    "coverage grain at magnification",
+    "no hair self shadow or AO",
+    "no mipmap or distance LOD",
+    "no hair collision/simulation",
+    "no GLB importer",
+    "GLB uses PBR fallback lighting"
+  ]
+}

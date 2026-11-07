@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.24)
-project(DearHumanPlanD VERSION 0.3.0 LANGUAGES CXX)
+project(DearHumanPlanD VERSION 0.6.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -7,9 +7,10 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 
 option(PLAN_D_BUILD_VIEWER "Build the native SDL viewer" ON)
 option(PLAN_D_BUILD_MOVEMENT_CHECK "Build the small shared-movement check" OFF)
+option(PLAN_D_BUILD_SAMPLE_CHECK "Build the focused asset/sway/contact check" OFF)
 
 # This target has no SDL includes, library links or platform definitions.
-add_library(plan-d-core STATIC src/Simulation.cpp src/Skeleton.cpp src/Scene.cpp src/CloneModel.cpp src/ModelExport.cpp)
+add_library(plan-d-core STATIC src/Simulation.cpp src/Skeleton.cpp src/Scene.cpp src/CloneModel.cpp src/HairModel.cpp src/HeadModel.cpp src/ModelExport.cpp src/SampleAssets.cpp src/HairDynamics.cpp src/SampleWorld.cpp)
 target_include_directories(plan-d-core PUBLIC src)
 if(MSVC)
     target_compile_options(plan-d-core PRIVATE /W4 /permissive- /utf-8)
@@ -20,6 +21,11 @@ if(PLAN_D_BUILD_MOVEMENT_CHECK)
     add_executable(plan-d-movement-check tests/movement.cpp)
     target_link_libraries(plan-d-movement-check PRIVATE plan-d-core)
     set_target_properties(plan-d-movement-check PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
+endif()
+if(PLAN_D_BUILD_SAMPLE_CHECK)
+    add_executable(plan-d-sample-check tests/samples.cpp)
+    target_link_libraries(plan-d-sample-check PRIVATE plan-d-core)
+    set_target_properties(plan-d-sample-check PROPERTIES RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin")
 endif()
 if(NOT PLAN_D_BUILD_VIEWER)
     return()
@@ -111,3 +117,19 @@ elseif(WIN32)
 endif()
 add_custom_target(plan-d-shaders DEPENDS ${shader_outputs})
 add_dependencies(dear-human-plan-d plan-d-shaders)
+
+# Native and GLB export share this authored atlas; builds only copy it.
+set(hair_atlas_output "${runtime_directory}/assets/hair-atlas.png")
+add_custom_command(OUTPUT "${hair_atlas_output}"
+    COMMAND ${CMAKE_COMMAND} -E make_directory "${runtime_directory}/assets"
+    COMMAND ${CMAKE_COMMAND} -E copy_if_different "${CMAKE_CURRENT_SOURCE_DIR}/assets/hair-atlas.png" "${hair_atlas_output}"
+    DEPENDS assets/hair-atlas.png VERBATIM)
+add_custom_target(plan-d-assets DEPENDS "${hair_atlas_output}")
+add_dependencies(dear-human-plan-d plan-d-assets)
+
+# Copy the pinned free sample files and license notices beside the executable.
+add_custom_target(plan-d-samples
+    COMMAND ${CMAKE_COMMAND} -E copy_directory
+        "${CMAKE_CURRENT_SOURCE_DIR}/assets/samples" "${runtime_directory}/assets/samples"
+    VERBATIM)
+add_dependencies(dear-human-plan-d plan-d-samples)

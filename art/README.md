@@ -1,5 +1,13 @@
 # Dear Human 아트 보관함
 
+[Plan D / face and hair 006](characters/clone_01/motion/plan_d/hair_006/README.md): current head, fringe and body-only hair contact. Scenery removed.
+
+[플랜 B · 도트 단순화 003](characters/clone_01/motion/plan_b/pixel_walk_003/README.md): 장식과 명암을 줄인 기준 외형 1장·걷기 키포즈 4개. 기준 외형 채택 대기, 키포즈는 크기 일관성 실패로 보존하며 완성 보행은 없다.
+
+[플랜 D · 무료 샘플/충돌 005](characters/clone_01/motion/plan_d/samples_005/README.md): 기존 몸에 외부 헤어 5개와 소품 6개, 유연한 헤어의 흔들림·근사 접촉. [외부 원본/라이선스](external/samples_005/README.md).
+
+[플랜 D · 머리카락 004](characters/clone_01/motion/plan_d/hair_004/README.md): 논문·공개 구현 조사 후 가이드/카드/coverage를 도입했다. 별도 hair.glb·atlas·정면/옆/뒤 캡처를 보존하며 원화 품질 검수 대기다.
+
 [플랜 D · clone_01 모델 초안 003](characters/clone_01/motion/plan_d/clone_model_003/README.md)에 실제 3D 곡면·21관절 가중치·15재질 GLB와 전신/얼굴/뒤쪽/보행 GPU 캡처를 보존했다. 형식 검사는 오류·경고 0이며 얼굴 닮음·세부 질감·천 충돌은 미완료다. [로컬 실행](../native/plan-d/README.md)에서 기본 표시하고 기존 마네킹과 비교한다.
 
 [플랜 D · 로컬 3D](characters/clone_01/motion/plan_d/README.md)는 별도 네이티브 경로다. `preparation_001`에 중립 21개 관절 인체의 뼈대/도형/겹쳐 보기 GPU 캡처와 환경·개발 기록을 보존했다. 실행은 [native/plan-d](../native/plan-d/README.md)이며 이번 세 정지 화면의 렌더 확인과 채택 캐릭터 외형·완성 모션 검수는 구분한다.

@@ -6,16 +6,18 @@
 
 namespace dh::model {
 enum MaterialId : std::uint16_t { Skin, Lip, EyeWhite, Iris, Hair, HairHighlight, Fabric,
-    Armor, ArmorEdge, GrayInset, Gold, Leather, Stocking, Cape, CapeInner, MaterialCount };
+    Armor, ArmorEdge, GrayInset, Gold, Leather, Stocking, Cape, CapeInner, HairCards, MaterialCount };
 struct Material { std::string_view name; Color color; float metallic{}, roughness{.7f}; };
 struct Binding {
     Joint a{Pelvis}, b{Pelvis}; float blend{};
 };
+enum class Part : std::uint8_t { Body, Head, Crown, Fringe, Temple, Back, Braid, Wisps };
 struct BoundVertex {
     Vertex vertex;
     std::array<std::uint16_t,4> joints{};
     std::array<float,4> weights{1,0,0,0};
     MaterialId material{Fabric};
+    Part part{Part::Body};
 };
 struct Model {
     std::vector<BoundVertex> vertices;

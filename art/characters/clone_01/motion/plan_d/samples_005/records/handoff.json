@@ -1,0 +1,20 @@
+{
+  "entrypoint": "native/plan-d/run.command",
+  "default": "full body + imported Long + 6 props; playing; wind on",
+  "verification": "Mac build / focused attachment and contact render / small core check passed",
+  "windows": "untested",
+  "limitations": [
+    "stylized sample quality, not approved clone appearance",
+    "normal maps and source custom shaders not connected",
+    "guide collision only; triangles may still clip",
+    "short scalp styles fixed",
+    "kinematic one-way probe; no rigid-body stacking or dynamic cloth",
+    "old exporter original004 only"
+  ],
+  "reviews": [
+    "long-full-final.png",
+    "long-sphere-contact.png",
+    "original-box-contact.png"
+  ],
+  "user_review": "pending"
+}

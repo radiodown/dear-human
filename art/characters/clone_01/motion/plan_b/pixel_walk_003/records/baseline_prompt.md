@@ -1,0 +1,29 @@
+# Exact submitted baseline prompt
+
+```json
+{
+  "use_case": "style-transfer",
+  "asset_type": "Dear Human Plan B pixel-art animation baseline, one full-body sprite",
+  "input_images": {
+    "image_1": "Existing approved character identity and right-facing M16 ready stance; simplify its design into pixel art."
+  },
+  "primary_request": "Redesign this exact adult female character as a restrained, sharply readable low-resolution pixel-art game sprite. Substantially reduce the number of costume elements and material details. This is the same character, same adult body proportions, same full-body right-facing side view and same two-handed horizontal M16 ready stance, redrawn in pixel art.",
+  "identity_lock": [
+    "Long straight black hair reaching the waist, pale cool-toned face with a tiny dark eye and no helmet.",
+    "Slender realistic adult proportions, roughly seven to seven-and-a-half heads tall. No chibi head.",
+    "Black and gunmetal tactical armor, one small muted-gold shoulder accent and sparse gold cape hem.",
+    "One shoulder cape with a simple uninterrupted dark silhouette down to the lower calf, plain short armor skirt, thigh stocking band and tall armored boots.",
+    "Exactly one recognizable classic M16: fixed stock, carry handle, straight long barrel, front sight and magazine. Firing hand at the rear grip, support hand under the front handguard."
+  ],
+  "simplification": [
+    "Replace braided hair, hair clips and individual strands with three broad stepped black/blue-grey pixel clusters.",
+    "Remove eagle crests, embroidery, fabric grain, scratches, stitching, tiny rivets, extra buckles, layered pouches and redundant straps.",
+    "Merge chest armor into one readable plate, skirt into two or three broad panels, boots into a simple shin plate and foot.",
+    "Use two or three discrete tones per material and approximately twenty-four colors overall. Broad clean pixel clusters, sparse single-pixel highlights, hard stair-step silhouettes."
+  ],
+  "composition": "ONE sprite only, centered with generous transparent space, full head, cape, both feet and complete rifle entirely in frame. Fixed orthographic right-facing profile. Neutral stationary ready stance. No duplicated poses, no props, no labels.",
+  "style_medium": "Authentic hand-placed 2D pixel art designed on a roughly 128 by 192 logical pixel grid and enlarged with nearest-neighbor square pixels. Deliberate coarse pixel clusters. No smooth gradients, no realistic rendering, no glossy 3D, no painterly or vector edges, no anti-aliasing, no dithering noise.",
+  "background": "Actual transparent alpha background, no ground plane, no cast shadow, no checkerboard pattern drawn into the image.",
+  "constraints": "Preserve character identity, adult figure proportions, long hair, cape, M16 length relative to upper body and side-facing ready pose. Simplify detail, not the anatomy. No text, watermark or scene."
+}
+```

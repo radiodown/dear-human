@@ -1,4 +1,6 @@
 #include "CloneModelData.hpp"
+#include "HairModel.hpp"
+#include "HeadModel.hpp"
 #include <functional>
 
 namespace dh::model {
@@ -24,7 +26,8 @@ struct Builder {
             {"black straps and gloves",{.09f,.095f,.105f},.05f,.65f},
             {"charcoal stockings",{.15f,.14f,.16f},0,.91f},
             {"black cape",{.085f,.09f,.11f},0,.96f},
-            {"burgundy cape lining",{.085f,.065f,.075f},0,.97f}}};
+            {"burgundy cape lining",{.085f,.065f,.075f},0,.97f},
+            {"hair cards coverage atlas",{.09f,.092f,.10f},0,.46f}}};
         for(std::size_t i=0;i<JointCount;++i) {
             model.bindWorld[i]=bind.world(static_cast<Joint>(i));
             model.inverseBind[i]=inverseRigid(model.bindWorld[i]);
@@ -237,64 +240,7 @@ struct Builder {
             tube({p(hand,{.028f,.015f,.035f}),p(hand,{.05f,-.008f,.044f}),p(hand,{.052f,-.032f,.03f})},.011f,Leather,hand,8,.8f);
         }
     }
-    void headAndHair() {
-        const Vec3 center=p(Head,{0,.035f,0});
-        // A shaped head surface: narrow jaw/chin, cheek volume and forehead.
-        surface(64,96,[=](float u,float v) {
-            const float a=u*2*pi,t=(v-.5f)*pi;
-            const float s=std::sin(t),c=std::cos(t);
-            const float jaw=1-.24f*std::max(0.0f,-s);
-            const float y=.125f*s,z=.091f*c*std::sin(a)*jaw;
-            const float front=std::max(0.0f,std::cos(a));
-            const float nose=.012f*std::exp(-std::pow((y+.002f)/.035f,2)-std::pow(z/.010f,2))+
-                .023f*std::exp(-std::pow((y+.023f)/.012f,2)-std::pow(z/.012f,2));
-            const float x=.079f*c*std::cos(a)+.011f*front*std::exp(-std::pow((s+.12f)*3,2))+nose*front;
-            return center+Vec3{x,y,z};
-        },Skin,[](Vec3,float){return rigid(Head);});
-        for(const float side:{-1.0f,1.0f}) {
-            oval(center+Vec3{-.004f,-.004f,side*.088f},{.014f,.025f,.014f},Skin,Head);
-            oval(center+Vec3{.008f,-.012f,side*.098f},{.003f,.005f,.003f},Gold,Head,6,10);
-            oval(center+Vec3{.078f,.022f,side*.034f},{.003f,.0055f,.017f},EyeWhite,Head,10,20);
-            oval(center+Vec3{.081f,.022f,side*.034f},{.0018f,.0048f,.0050f},Iris,Head,10,16);
-            oval(center+Vec3{.0828f,.024f,side*.032f},{.0008f,.0008f,.0008f},EyeWhite,Head,5,8);
-            tube({center+Vec3{.080f,.024f,side*.018f},center+Vec3{.082f,.028f,side*.034f},center+Vec3{.075f,.025f,side*.052f}},.0014f,Hair,Head,6,.7f);
-            tube({center+Vec3{.083f,.046f,side*.021f},center+Vec3{.081f,.048f,side*.039f},center+Vec3{.073f,.043f,side*.057f}},.0025f,Hair,Head,6,.45f);
-        }
-        tube({center+Vec3{.083f,-.052f,-.016f},center+Vec3{.086f,-.050f,-.006f},center+Vec3{.087f,-.052f,0},
-            center+Vec3{.086f,-.050f,.006f},center+Vec3{.083f,-.052f,.016f}},.0015f,Lip,Head,8);
-        tube({center+Vec3{.083f,-.053f,-.015f},center+Vec3{.087f,-.056f,0},center+Vec3{.083f,-.053f,.015f}},.0018f,Lip,Head,8,.8f);
-        // Crown cap with a forehead opening, then layered 3D clumps down back.
-        surface(12,48,[=](float u,float v) {
-            const float a=u*2*pi,start=.25f+.39f*std::max(0.0f,std::cos(a)),t=start+(pi/2-start)*v;
-            return center+Vec3{.087f*std::cos(t)*std::cos(a),.136f*std::sin(t),.101f*std::cos(t)*std::sin(a)};
-        },Hair,[](Vec3,float){return rigid(Head);});
-        for(int lock=0;lock<25;++lock) {
-            const float u=static_cast<float>(lock)/24;
-            const float z=(u-.5f)*.22f;
-            const float tip=1.19f+.07f*std::cos(lock*2.4f);
-            tube({center+Vec3{-.036f,.10f,z*.58f},center+Vec3{-.079f,.01f,z*.88f},
-                {-.116f,1.57f,z*1.35f},{-.15f,1.42f,z*1.47f},{-.18f,tip,z*1.4f}},
-                .014f,lock%4==0?HairHighlight:Hair,Head,8,.36f);
-        }
-        // Individual fringe locks have volume and taper above the eyes.
-        for(int lock=0;lock<11;++lock) {
-            const float z=(lock-5)*.015f;
-            const float endY=.053f-.009f*std::cos(lock*1.5f);
-            tube({center+Vec3{.025f,.124f,z*.45f},center+Vec3{.072f,.11f,z*.8f},
-                center+Vec3{.086f,.079f,z},center+Vec3{.086f,endY,z+.004f*std::sin(static_cast<float>(lock))}},
-                .011f,lock%3==0?HairHighlight:Hair,Head,8,.12f);
-        }
-        for(const float side:{-1.0f,1.0f}) {
-            for(int lock=0;lock<4;++lock)
-                tube({center+Vec3{.025f,.088f,side*(.08f+lock*.003f)},center+Vec3{.02f,-.005f,side*.098f},
-                    {-.012f,1.53f,side*(.12f+lock*.008f)},{-.045f,1.39f-lock*.035f,side*.14f}},
-                    .012f,Hair,Head,8,.25f);
-            for(int bead=0;bead<7;++bead) {
-                const float y=center.y+.075f-bead*.016f;
-                oval({.01f+.005f*std::sin(bead*pi),y,side*.098f},{.009f,.010f,.007f},HairHighlight,Head,6,10);
-            }
-        }
-    }
+    void headAndHair() { buildHead(model); }
     Vec3 capePoint(float u,float v) const {
         const float side=u*2-1;
         return {-.105f-.18f*v-.065f*(1-side*side)+.013f*std::sin(u*14*pi)*(v+.2f),
@@ -326,7 +272,10 @@ struct Builder {
         limb(RightHip,RightKnee,RightAnkle,.073f,.058f,true);
         limb(LeftShoulder,LeftElbow,LeftWrist,.047f,.038f,false);
         limb(RightShoulder,RightElbow,RightWrist,.047f,.038f,false);
+        const auto headStart=model.vertices.size();
         headAndHair();
+        for(auto i=headStart;i<model.vertices.size();++i) model.vertices[i].part=Part::Head;
+        buildHair(model);
         for(auto& v:model.vertices) {
             v.vertex.normal=normalized(v.vertex.normal);
             if(length(v.vertex.normal)<.5f) v.vertex.normal={0,1,0};
@@ -343,7 +292,7 @@ const Model& cloneModel() {
 } // namespace dh::model
 
 namespace dh {
-void appendCloneModel(MeshData& target,const Skeleton& skeleton) {
+void appendCloneModel(MeshData& target,const Skeleton& skeleton,bool hairStudy,bool includeHair) {
     const auto& model=model::cloneModel();
     const auto base=static_cast<std::uint32_t>(target.vertices.size());
     std::array<Mat4,JointCount> skin;
@@ -351,15 +300,20 @@ void appendCloneModel(MeshData& target,const Skeleton& skeleton) {
     target.vertices.reserve(target.vertices.size()+model.vertices.size());
     for(const auto& source:model.vertices) {
         Vertex output=source.vertex;
-        output.position={}; output.normal={};
+        output.position={}; output.normal={}; output.flow={};
         for(std::size_t j=0;j<4;++j) if(source.weights[j]>0) {
             output.position=output.position+skin[source.joints[j]].point(source.vertex.position)*source.weights[j];
             output.normal=output.normal+skin[source.joints[j]].direction(source.vertex.normal)*source.weights[j];
+            output.flow=output.flow+skin[source.joints[j]].direction(source.vertex.flow)*source.weights[j];
         }
         output.normal=normalized(output.normal);
         target.vertices.push_back(output);
     }
     target.indices.reserve(target.indices.size()+model.indices.size());
-    for(const auto index:model.indices) target.indices.push_back(base+index);
+    for(std::size_t i=0;i<model.indices.size();i+=3) {
+        if(hairStudy && model.vertices[model.indices[i]].part==model::Part::Body) continue;
+        if(!includeHair && model.vertices[model.indices[i]].part>=model::Part::Crown) continue;
+        for(int j=0;j<3;++j) target.indices.push_back(base+model.indices[i+j]);
+    }
 }
 } // namespace dh

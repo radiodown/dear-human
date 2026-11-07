@@ -3,5 +3,8 @@ __pycache__/
 node_modules/
 .venv-plan-c/
 
+# Local downloads, unused external samples, and duplicate source assets.
+/tmp/
+
 # One-off local review export requested for viewing only.
 art/characters/clone_01/motion/rig_002/exports/gif_001/

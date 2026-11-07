@@ -1,0 +1,10 @@
+{
+  "timestamp": "2026-11-07T10:30:35.513171+09:00",
+  "platform": "macOS arm64",
+  "command": "cmake --build native/plan-d/build -j 6",
+  "result": "passed",
+  "final_build_warnings": 0,
+  "core_check_command": "c++ -std=c++20 -O2 -I native/plan-d/src native/plan-d/tests/samples.cpp native/plan-d/build/libplan-d-core.a -o /tmp/dear-human-samples-check; /tmp/dear-human-samples-check native/plan-d/build/bin/assets/samples",
+  "core_check_result": "passed",
+  "windows": "not run"
+}

@@ -1,6 +1,10 @@
 # Dear Human · 플랜 D
 
-Windows/macOS 공통 C++20 코어와 SDL3 GPU 구현을 분리한 로컬 3D 프로토타입이다. 현재는 **clone_model_003 · clone_01 모델링 초안**을 기본 표시하며 구조는 architecture_002의 경계를 유지한다. 별도 웹 서버 없이 실행한다. macOS Metal은 실행 확인했고 Windows D3D12는 실제 빌드·실행이 남아 있다.
+Windows/macOS 공통 C++20 코어와 SDL3 GPU의 로컬 3D 프로토타입이다. 최신은 hair_006이며 Mac 실행 확인, Windows 실행은 미확인이다.
+
+[얼굴/앞머리와 몸 접촉 006](../../docs/plan-d-face-hair-006.md)을 따른다. 몸과 긴 머리를 유지하고 얼굴과 앞머리를 보정했다. 모든 주변 소품과 외부 장애물 시연은 제거했다. N 헤어 비교, W 걷기, F 얼굴 확대를 사용하며 바람은 기본 OFF다.
+
+[최신 산출물과 화면](../../art/characters/clone_01/motion/plan_d/hair_006/README.md). 얼굴/앞머리는 사용자 외형 검수 대기다.
 
 ## 실행
 
@@ -10,7 +14,7 @@ Finder에서 [run.command](run.command)를 더블클릭하거나 프로젝트 �
 ./native/plan-d/run.command
 ```
 
-첫 화면은 clone_01의 3D 모델 초안이다. 이 Mac에는 CMake 4.4.5, Ninja 1.13.2, SDL 3.4.20을 준비했고 Apple Clang 21로 빌드했다. 전신·얼굴·뒤쪽·짧은 보행을 실제 Metal 창에서 캡처해 확인했다. 원화 수준의 얼굴·질감 재현과 사용자 아트 채택은 별도다. [제작 범위와 한계](../../docs/plan-d-clone-model-003.md), [GLB 파일](../../art/characters/clone_01/motion/plan_d/clone_model_003/source/clone_01.glb)을 따른다.
+첫 화면은 clone_01의 3D 모델 초안이다. 이 Mac에는 CMake 4.4.5, Ninja 1.13.2, SDL 3.4.20을 준비했고 Apple Clang 21로 빌드했다. 003에서 전신·얼굴·뒤쪽·짧은 보행, 004에서 머리 정면·옆·뒤·사선 정지를 Metal 창에서 확인했다. 원화 수준의 얼굴·질감 재현과 사용자 아트 채택은 별도다. [제작 범위와 한계](../../docs/plan-d-clone-model-003.md), [GLB 파일](../../art/characters/clone_01/motion/plan_d/clone_model_003/source/clone_01.glb)을 따른다.
 
 다른 Mac의 필수 환경은 Apple Command Line Tools와 CMake/Ninja이며, SDL은 설치된 정확한 버전을 찾고 없으면 CMake가 고정 릴리스를 내려받는다. Homebrew를 사용한다면 다음 명령으로 준비한다.
 
@@ -27,8 +31,12 @@ brew install cmake ninja sdl3
 | `W` | 간단한 제자리 보행 켜기/끄기 |
 | `Space` | 시간 일시정지/재개 |
 | `Q` / `E` | 360° 수평 시점 회전 |
-| `F` | 얼굴 확대 / 전신 |
+| `F` | 얼굴 확대 / 현재 보기 |
+| `H` | 머리만 / 전체 (얼굴 확대 해제) |
 | `M` | clone_01 / 중립 마네킹 비교 |
+| `N` / `Shift+N` | 헤어 6슬롯 다음/이전 |
+| `P` / `U` / `C` | 헤어 물리 / 바람 / 충돌 켜기·끄기 |
+| `G` | 몸 충돌 형상 표시 |
 | `↑` / `↓` | 내려다보는 각도 조절 |
 | `V` | 정측면 0° / 사선 25°·하향 12° 비교 |
 | 마우스 휠 | 확대/축소 |
@@ -45,6 +53,9 @@ brew install cmake ninja sdl3
 - [Skeleton.cpp](src/Skeleton.cpp): 골반·허리·흉곽·목·머리, 양팔, 양다리의 21개 관절과 부모–자식 변환. 좌표는 X 이동 / Y 높이 / Z 깊이이며 기본 전방은 +X다.
 - [Scene.cpp](src/Scene.cpp): 같은 뼈대에 붙이는 구·타원체·원기둥·상자 메시, 관절 표시, 바닥 격자와 조작 안내.
 - [CloneModel.cpp](src/CloneModel.cpp): clone_01 체형·얼굴·머리·의상·갑옷의 실제 곡면과 정점 가중치·CPU 스키닝.
+- [HairModel.cpp](src/HairModel.cpp): 파트별 가이드·곡면 카드·두피 받침과 UV. [atlas 생성기](tools/build_hair_atlas.py)는 명시적 오프라인 실행 전용.
+- [SampleAssets.cpp](src/SampleAssets.cpp): MIT cgltf로 무료 glTF/GLB를 실제 읽고 기존 Head에 장착한다. base color 텍스처를 Metal/HLSL에서 공유한다.
+- [HairDynamics.cpp](src/HairDynamics.cpp), [SampleWorld.cpp](src/SampleWorld.cpp): 120Hz 가이드 반응·근사 접촉·샘플 장면. Long/Buns/004 유연, 짧은 세 샘플 고정.
 - [ModelExport.cpp](src/ModelExport.cpp): 뷰어와 같은 모델 데이터를 스켈레톤·가중치·재질을 포함한 GLB로 저장.
 - [Platform.hpp](src/Platform.hpp), [Renderer.hpp](src/Renderer.hpp): `IPlatform`과 `IRenderer` 인터페이스. 공통 코드에 SDL 창이나 GPU 핸들을 노출하지 않는다.
 - [Application.cpp](src/Application.cpp): 위 인터페이스만 사용하는 공통 실행 루프. 움직임을 먼저 갱신하고 읽기 전용 렌더 프레임을 전달한다.
@@ -56,12 +67,13 @@ brew install cmake ninja sdl3
 
 의존 관계는 **플랫폼 입력 → 공통 Simulation → 공통 RenderFrame → IRenderer → SDL GPU → Metal/D3D12**다. Mac/Windows마다 이동이나 애니메이션을 다시 작성하지 않는다. 추상화와 실제 Windows 동작 확인은 구분한다. 상세 경계는 [공통 구조 기록](../../docs/plan-d-cross-platform-002.md)을 따른다.
 
-현재 clone_01은 28,334 정점·44,768 삼각형·21개 관절·15개 재질의 첫 모델이다. 실제 머리카락·망토 곡면과 정점 가중치 스키닝을 추가했고 장갑은 관절에 단단하게 부착한다. 원화의 얼굴과 세부 질감은 아직 부족하다. 텍스처·천/머리 충돌·총기·사격·장전·앉아쏴는 미구현이다. 기존 사인파 보행은 연결 확인용이며 지지발 고정·물리·자연스러운 보행 완성은 아니다. `M`으로 이전 중립 도형을 비교할 수 있다.
+원본 004 전체 모델은 45,835 정점·69,680 삼각형·21관절·16재질이며 머리카락만은 21,025 정점·30,256 삼각형이다. 157개 헤어 카드와 1024² coverage atlas를 사용한다. 형상/표시 경로와 원화 완성도는 구분한다. 실제 자체 그림자·모발끼리 충돌·거리 LOD·총기·사격·장전·앉아쏴는 미구현이다. 기존 사인파 보행은 연결 확인용이다.
 
-GLB 저장은 다음처럼 새 경로에 명시적으로 실행한다. 뷰어는 같은 C++ 원본에서 메시를 만들며 GLB를 가져오는 로더는 아직 없다.
+GLB 저장은 다음처럼 새 경로에 명시적으로 실행한다. 현재 export는 자체 006 정지 리그 전용이다. 선택한 외부 헤어/소품과 물리 변형은 내보내지 않는다. 뷰어의 외부 샘플에는 cgltf 로더를 사용한다.
 
 ```sh
 native/plan-d/build/bin/dear-human-plan-d --export-model /tmp/clone_01.glb
+native/plan-d/build/bin/dear-human-plan-d --export-hair /tmp/hair.glb
 ```
 
 ## 직접 빌드

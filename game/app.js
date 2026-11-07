@@ -12,14 +12,14 @@ function setPreviewMode(mode, updateUrl=true) {
   $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode));
   $('mode-rig').setAttribute('aria-pressed', String(rigMode));
   $('mode-plan-b').setAttribute('aria-pressed', String(planBMode));
-  $('review-state').textContent = planBMode ? '플랜 B · 크기 검수 실패' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
+  $('review-state').textContent = planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
   lab.show(rigMode);
   planB.show(planBMode);
   if (rigMode && !labInitialized) { labInitialized=true; lab.init(); }
   if (updateUrl) {
     const [route,query] = location.hash.split('?');const params=new URLSearchParams(query||'');
-    if (planBMode) { params.set('plan','b'); params.set('motion','walk'); }
-    else { params.delete('plan'); if(rigMode)params.set('motion',lab.mode);else params.delete('motion'); }
+    if (planBMode) planB.writeParams(params);
+    else { params.delete('plan'); params.delete('study'); params.delete('pixelView'); if(rigMode)params.set('motion',lab.mode);else params.delete('motion'); }
     history.replaceState(null,'',`${location.pathname}${location.search}${route}${params.size?'?'+params:''}`);
   }
   if (!rigMode && !planBMode) fitArt();

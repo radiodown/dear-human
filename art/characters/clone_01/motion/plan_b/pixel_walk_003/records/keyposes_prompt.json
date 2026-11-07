@@ -1,0 +1,34 @@
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human Plan B pixel_walk_003, four shared walking key poses for a scale-consistency gate; not a finished sequence",
+  "identity_source": "Use the provided standardized baseline image as the exact visual identity source, not loose inspiration. It is the newly simplified pixel-art baseline. Only change pose and animation timing. Preserve the identical adult woman, head size, face, pale skin, long straight black hair, broad black/gunmetal armor panels, short skirt, stocking bands, plain long cape with gold hem, tall armored boots, pixel cluster size, and limited colors. Do not redesign, simplify further, beautify, add details, remove details, change proportions or reinterpret the character.",
+  "layout": "Exactly FOUR separate full-body sprites in a precise TWO columns by TWO rows grid. Reading order: 02 top-left, 05 top-right, 08 bottom-left, 11 bottom-right. Square 1024 by 1024 canvas, each invisible cell is exactly 512 by 512. No labels, grid lines, borders or decorations. Every cell reproduces the same scale and same coordinates as the 512 by 512 baseline, without shrinking to fit. Broad transparent gutters and all weapons and boots entirely inside their cells.",
+  "scale_lock": "In each 512 by 512 cell, the baseline woman is approximately 364 pixels tall, head crown near local y=74, ground baseline y=438. Maintain identical head size, shoulder-to-belt length, chest width and horizontal M16 length as the reference. Keep the pelvis centered near local x=215. A slight lowering of the pelvis during contact is allowed, but never enlarge the head, torso or rifle to compensate. The baseline rifle is approximately 174 pixels long. Never automatically fit a pose to its silhouette height. Use identical chunky square pixel size in all four cells.",
+  "topology_lock": "Fixed orthographic right-facing side profile; no mirror, no turn. Exactly one head, two arms, two hands, two legs, two boots. The near firing hand toward screen-left always stays on the rear M16 pistol grip, connected to the same near shoulder. The far support hand toward screen-right always stays under the front handguard, connected to the same far shoulder. No swapped hands, shoulders or legs. Hair stays on scalp; cape stays on shoulder.",
+  "weapon_lock": "The SAME classic M16 is held horizontally toward screen-right in every cell, stock at shoulder, complete carry handle, fixed stock, magazine and long straight barrel. Constant dimensions and position relative to chest. Both arms keep the ready stance; only small natural whole-body bob. No firing, reload, flash, smoke, shells or extra objects.",
+  "ordered_keyposes": [
+    {
+      "frame": 2,
+      "cell": "top-left",
+      "pose": "First contact: near boot extended forward toward screen-right with heel on the ground, far boot extended behind toward screen-left with toe on the ground; medium small walk stride; knees softly bent. Cape trails slightly toward screen-left."
+    },
+    {
+      "frame": 5,
+      "cell": "top-right",
+      "pose": "First passing: weight supported on the near leg almost under the pelvis; far knee visibly swings forward, far boot lifted clear of the ground. Not both feet planted; retain enough visible separation to read the lifted foot. Cape begins to settle."
+    },
+    {
+      "frame": 8,
+      "cell": "bottom-left",
+      "pose": "Opposite contact: far boot now forward toward screen-right, near boot behind toward screen-left; exchange the contact legs without mirroring the upper body. Same modest stride width as 02. Cape trails slightly toward screen-left."
+    },
+    {
+      "frame": 11,
+      "cell": "bottom-right",
+      "pose": "Opposite passing: weight supported on far leg under pelvis; near knee swings forward with the near boot visibly lifted, following the opposite support leg to 05. Cape begins to settle."
+    }
+  ],
+  "style": "Keep the exact coarse square-pixel art style of the baseline, same stepped outlines and broad flat color clusters. No anti-aliasing, smooth gradients, airbrush, dither noise or 3D shading.",
+  "background": "Actual transparent alpha in all four cells and all gutters. No ground line, cast shadow, fake checkerboard pattern, text or watermark.",
+  "acceptance": "Four clearly different full-body walking poses. The head, chest, shoulder-to-belt length and rifle must remain exactly the same size in every cell as the supplied baseline. If a knee bends and the body lowers, lower the body rather than changing its scale."
+}

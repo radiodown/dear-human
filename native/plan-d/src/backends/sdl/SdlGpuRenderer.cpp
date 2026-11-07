@@ -40,6 +40,7 @@ void SdlGpuRenderer::initialize(SDL_Window* window) {
     uploadInfo.usage=SDL_GPU_TRANSFERBUFFERUSAGE_UPLOAD; uploadInfo.size=vertexCapacity+indexCapacity;
     upload_=SDL_CreateGPUTransferBuffer(device_,&uploadInfo);
     require(upload_ != nullptr,"Create upload buffer");
+    loadHairAtlas();
     SDL_GPUShader* vertex=loadShader(true);
     SDL_GPUShader* fragment=nullptr;
     try {
@@ -56,6 +57,44 @@ void SdlGpuRenderer::initialize(SDL_Window* window) {
     SDL_Log("Dear Human Plan D | SDL %d.%d.%d | GPU %s",
         SDL_VERSIONNUM_MAJOR(SDL_GetVersion()),SDL_VERSIONNUM_MINOR(SDL_GetVersion()),SDL_VERSIONNUM_MICRO(SDL_GetVersion()),backend());
 }
+void SdlGpuRenderer::loadHairAtlas() {
+    const auto directory=std::filesystem::path(SDL_GetBasePath())/"assets";
+    hairAtlas_=loadTexture(directory/"hair-atlas.png");
+    sampleTextures_[0]=loadTexture(directory/"samples/hair/T_Hair_1_BaseColor.png");
+    sampleTextures_[1]=loadTexture(directory/"samples/hair/T_Hair_2_BaseColor.png");
+    SDL_GPUSamplerCreateInfo sampler{};
+    sampler.min_filter=SDL_GPU_FILTER_LINEAR;sampler.mag_filter=SDL_GPU_FILTER_LINEAR;
+    sampler.mipmap_mode=SDL_GPU_SAMPLERMIPMAPMODE_NEAREST;
+    sampler.address_mode_u=sampler.address_mode_v=sampler.address_mode_w=SDL_GPU_SAMPLERADDRESSMODE_CLAMP_TO_EDGE;
+    hairSampler_=SDL_CreateGPUSampler(device_,&sampler);require(hairSampler_ != nullptr,"Create hair sampler");
+}
+SDL_GPUTexture* SdlGpuRenderer::loadTexture(const std::filesystem::path& path) {
+    std::unique_ptr<SDL_Surface,decltype(&SDL_DestroySurface)> loaded(SDL_LoadPNG(path.string().c_str()),SDL_DestroySurface);
+    require(loaded != nullptr,"Load hair coverage atlas");
+    std::unique_ptr<SDL_Surface,decltype(&SDL_DestroySurface)> surface(SDL_ConvertSurface(loaded.get(),SDL_PIXELFORMAT_RGBA32),SDL_DestroySurface);
+    require(surface != nullptr,"Convert hair atlas");
+    SDL_GPUTextureCreateInfo info{};
+    info.type=SDL_GPU_TEXTURETYPE_2D;info.format=SDL_GPU_TEXTUREFORMAT_R8G8B8A8_UNORM;
+    info.usage=SDL_GPU_TEXTUREUSAGE_SAMPLER;info.width=surface->w;info.height=surface->h;
+    info.layer_count_or_depth=1;info.num_levels=1;info.sample_count=SDL_GPU_SAMPLECOUNT_1;
+    auto* texture=SDL_CreateGPUTexture(device_,&info);require(texture != nullptr,"Create sample texture");
+    try {
+    SDL_GPUTransferBufferCreateInfo uploadInfo{};
+    uploadInfo.usage=SDL_GPU_TRANSFERBUFFERUSAGE_UPLOAD;uploadInfo.size=surface->pitch*surface->h;
+    auto release=[this](SDL_GPUTransferBuffer* buffer){if(buffer)SDL_ReleaseGPUTransferBuffer(device_,buffer);};
+    std::unique_ptr<SDL_GPUTransferBuffer,decltype(release)> upload(SDL_CreateGPUTransferBuffer(device_,&uploadInfo),release);
+    require(upload != nullptr,"Create hair upload");
+    void* pixels=SDL_MapGPUTransferBuffer(device_,upload.get(),false);require(pixels != nullptr,"Map hair upload");
+    std::memcpy(pixels,surface->pixels,uploadInfo.size);SDL_UnmapGPUTransferBuffer(device_,upload.get());
+    PendingCommand pending{SDL_AcquireGPUCommandBuffer(device_)};require(pending.command != nullptr,"Acquire hair upload command");
+    auto* copy=SDL_BeginGPUCopyPass(pending.command);require(copy != nullptr,"Begin hair texture upload");
+    const SDL_GPUTextureTransferInfo source{upload.get(),0,static_cast<Uint32>(surface->pitch/4),static_cast<Uint32>(surface->h)};
+    SDL_GPUTextureRegion target{};target.texture=texture;target.w=surface->w;target.h=surface->h;target.d=1;
+    SDL_UploadToGPUTexture(copy,&source,&target,false);SDL_EndGPUCopyPass(copy);
+    auto* command=pending.command;pending.command=nullptr;require(SDL_SubmitGPUCommandBuffer(command),"Submit hair atlas");
+    } catch(...) { SDL_ReleaseGPUTexture(device_,texture);throw; }
+    return texture;
+}
 SDL_GPUShader* SdlGpuRenderer::loadShader(bool vertex) {
     const char* base=SDL_GetBasePath();
     require(base != nullptr,"Find executable directory");
@@ -68,7 +107,7 @@ SDL_GPUShader* SdlGpuRenderer::loadShader(bool vertex) {
     info.code=static_cast<const Uint8*>(bytes.get()); info.code_size=size;
     info.entrypoint=vertex?"vertex_main":"fragment_main";
     info.format=config_.shaderFormat; info.stage=vertex?SDL_GPU_SHADERSTAGE_VERTEX:SDL_GPU_SHADERSTAGE_FRAGMENT;
-    info.num_uniform_buffers=1;
+    info.num_uniform_buffers=1; info.num_samplers=vertex?0:3;
     auto* shader=SDL_CreateGPUShader(device_,&info);
     require(shader != nullptr,vertex?"Compile vertex shader":"Compile fragment shader");
     return shader;
@@ -80,18 +119,21 @@ SDL_GPUGraphicsPipeline* SdlGpuRenderer::makePipeline(SDL_GPUShader* vertex,SDL_
         {0,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3,static_cast<Uint32>(offsetof(Vertex,position))},
         {1,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3,static_cast<Uint32>(offsetof(Vertex,normal))},
         {2,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT4,static_cast<Uint32>(offsetof(Vertex,color))},
-        {3,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3,static_cast<Uint32>(offsetof(Vertex,material))}
+        {3,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3,static_cast<Uint32>(offsetof(Vertex,material))},
+        {4,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT3,static_cast<Uint32>(offsetof(Vertex,flow))},
+        {5,0,SDL_GPU_VERTEXELEMENTFORMAT_FLOAT2,static_cast<Uint32>(offsetof(Vertex,uv))}
     };
     SDL_GPUColorTargetDescription target{};
     target.format=SDL_GPU_TEXTUREFORMAT_R8G8B8A8_UNORM;
     SDL_GPUGraphicsPipelineCreateInfo info{};
     info.vertex_shader=vertex; info.fragment_shader=fragment;
-    info.vertex_input_state={&buffer,1,attributes,4};
+    info.vertex_input_state={&buffer,1,attributes,6};
     info.primitive_type=SDL_GPU_PRIMITIVETYPE_TRIANGLELIST;
     info.rasterizer_state.fill_mode=SDL_GPU_FILLMODE_FILL;
     info.rasterizer_state.cull_mode=SDL_GPU_CULLMODE_NONE;
     info.rasterizer_state.front_face=SDL_GPU_FRONTFACE_COUNTER_CLOCKWISE;
-    info.multisample_state.sample_count=SDL_GPU_SAMPLECOUNT_1;
+    info.multisample_state.sample_count=SDL_GPU_SAMPLECOUNT_4;
+    info.multisample_state.enable_alpha_to_coverage=true;
     info.depth_stencil_state.compare_op=SDL_GPU_COMPAREOP_LESS_OR_EQUAL;
     info.depth_stencil_state.enable_depth_test=depth;
     info.depth_stencil_state.enable_depth_write=depth;
@@ -105,6 +147,7 @@ void SdlGpuRenderer::resize(Uint32 width,Uint32 height) {
     if(width_==width && height_==height && color_ && depth_) return;
     if(color_) { SDL_ReleaseGPUTexture(device_,color_); color_=nullptr; }
     if(depth_) { SDL_ReleaseGPUTexture(device_,depth_); depth_=nullptr; }
+    if(multisampleColor_) { SDL_ReleaseGPUTexture(device_,multisampleColor_); multisampleColor_=nullptr; }
     SDL_GPUTextureCreateInfo info{};
     info.type=SDL_GPU_TEXTURETYPE_2D; info.width=width; info.height=height;
     info.layer_count_or_depth=1; info.num_levels=1; info.sample_count=SDL_GPU_SAMPLECOUNT_1;
@@ -112,6 +155,9 @@ void SdlGpuRenderer::resize(Uint32 width,Uint32 height) {
     info.usage=SDL_GPU_TEXTUREUSAGE_COLOR_TARGET|SDL_GPU_TEXTUREUSAGE_SAMPLER;
     color_=SDL_CreateGPUTexture(device_,&info);
     require(color_ != nullptr,"Create color target");
+    info.sample_count=SDL_GPU_SAMPLECOUNT_4; info.usage=SDL_GPU_TEXTUREUSAGE_COLOR_TARGET;
+    multisampleColor_=SDL_CreateGPUTexture(device_,&info);
+    require(multisampleColor_ != nullptr,"Create MSAA color target");
     info.format=depthFormat_; info.usage=SDL_GPU_TEXTUREUSAGE_DEPTH_STENCIL_TARGET;
     depth_=SDL_CreateGPUTexture(device_,&info);
     require(depth_ != nullptr,"Create depth target");
@@ -130,7 +176,7 @@ bool SdlGpuRenderer::draw(const RenderFrame& frame,const std::filesystem::path& 
     const auto vertexBytes=static_cast<Uint32>(combined.vertices.size()*sizeof(Vertex));
     const auto indexBytes=static_cast<Uint32>(combined.indices.size()*sizeof(Uint32));
     if(vertexBytes>vertexCapacity || indexBytes>indexCapacity)
-        throw std::runtime_error("Scene exceeds the preparation_001 geometry budget");
+        throw std::runtime_error("Scene exceeds the native geometry buffer capacity");
 
     PendingCommand pending{SDL_AcquireGPUCommandBuffer(device_)};
     require(pending.command != nullptr,"Acquire GPU command buffer");
@@ -153,8 +199,8 @@ bool SdlGpuRenderer::draw(const RenderFrame& frame,const std::filesystem::path& 
     SDL_EndGPUCopyPass(copy);
 
     SDL_GPUColorTargetInfo colorTarget{};
-    colorTarget.texture=color_; colorTarget.clear_color={.075f,.105f,.14f,1};
-    colorTarget.load_op=SDL_GPU_LOADOP_CLEAR; colorTarget.store_op=SDL_GPU_STOREOP_STORE; colorTarget.cycle=true;
+    colorTarget.texture=multisampleColor_; colorTarget.resolve_texture=color_; colorTarget.cycle_resolve_texture=true; colorTarget.clear_color={.075f,.105f,.14f,1};
+    colorTarget.load_op=SDL_GPU_LOADOP_CLEAR; colorTarget.store_op=SDL_GPU_STOREOP_RESOLVE; colorTarget.cycle=true;
     SDL_GPUDepthStencilTargetInfo depthTarget{};
     depthTarget.texture=depth_; depthTarget.clear_depth=1;
     depthTarget.load_op=SDL_GPU_LOADOP_CLEAR; depthTarget.store_op=SDL_GPU_STOREOP_DONT_CARE;
@@ -166,6 +212,8 @@ bool SdlGpuRenderer::draw(const RenderFrame& frame,const std::filesystem::path& 
     SDL_BindGPUVertexBuffers(pass,0,&vertexBinding,1);
     SDL_BindGPUIndexBuffer(pass,&indexBinding,SDL_GPU_INDEXELEMENTSIZE_32BIT);
     SDL_BindGPUGraphicsPipeline(pass,lit_);
+    const SDL_GPUTextureSamplerBinding bindings[]={{hairAtlas_,hairSampler_},{sampleTextures_[0],hairSampler_},{sampleTextures_[1],hairSampler_}};
+    SDL_BindGPUFragmentSamplers(pass,0,bindings,3);
     const float lighting[]{.50f,.80f,.55f,0,frame.eye.x,frame.eye.y,frame.eye.z,0};
     SDL_PushGPUVertexUniformData(pending.command,0,camera.m.data(),sizeof(camera.m));
     SDL_PushGPUFragmentUniformData(pending.command,0,lighting,sizeof(lighting));
@@ -235,12 +283,17 @@ void SdlGpuRenderer::shutdown() {
     if(overlay_) SDL_ReleaseGPUGraphicsPipeline(device_,overlay_);
     if(lit_) SDL_ReleaseGPUGraphicsPipeline(device_,lit_);
     if(color_) SDL_ReleaseGPUTexture(device_,color_);
+    if(multisampleColor_) SDL_ReleaseGPUTexture(device_,multisampleColor_);
+    if(hairAtlas_) SDL_ReleaseGPUTexture(device_,hairAtlas_);
+    for(auto*& texture:sampleTextures_) {if(texture)SDL_ReleaseGPUTexture(device_,texture);texture=nullptr;}
+    if(hairSampler_) SDL_ReleaseGPUSampler(device_,hairSampler_);
     if(depth_) SDL_ReleaseGPUTexture(device_,depth_);
     if(upload_) SDL_ReleaseGPUTransferBuffer(device_,upload_);
     if(indices_) SDL_ReleaseGPUBuffer(device_,indices_);
     if(vertices_) SDL_ReleaseGPUBuffer(device_,vertices_);
     if(window_) SDL_ReleaseWindowFromGPUDevice(device_,window_);
     SDL_DestroyGPUDevice(device_);
+    multisampleColor_=nullptr; hairAtlas_=nullptr; hairSampler_=nullptr;
     device_=nullptr; overlay_=nullptr; lit_=nullptr; color_=nullptr; depth_=nullptr;
     upload_=nullptr; indices_=nullptr; vertices_=nullptr; window_=nullptr;
 }

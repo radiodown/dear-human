@@ -1,0 +1,65 @@
+{
+  "status": "failed",
+  "scope": "Visual comparison of the newly simplified baseline with a single 4-key generated sheet; no full animation exists.",
+  "baseline_style": {
+    "status": "draft",
+    "art_acceptance": "awaiting_user_review",
+    "observed": "Long black hair, pale adult face, dark armor, cape and classic M16 retained; embroidery, small buckles and surface textures substantially reduced.",
+    "limitations": [
+      "Generated pixel-art style only; no enforced fixed palette or single logical pixel grid.",
+      "The full-body PNG includes rifle; independent weapon swapping is unavailable."
+    ]
+  },
+  "keypose_gate": {
+    "status": "failed",
+    "evidence": "reviews/baseline-key-comparison.png",
+    "observations": [
+      "At one common sheet scale, heads, upper torsos and rifles are visibly larger than the 512x512 baseline.",
+      "Soles extend below the requested fixed ground guide; the batch does not preserve baseline scale and registration.",
+      "05 and 11 do not establish a sufficiently clear opposite support-leg phase.",
+      "Generated output is 1254x1254 rather than requested 1024x1024; this difference alone is not the scale failure. A single uniform whole-sheet scale still shows body/weapon proportion drift."
+    ],
+    "measured_rigid_part_ratios": null,
+    "per_frame_fitting_used": false,
+    "inbetweens_generated": false
+  },
+  "file_observations": {
+    "source/baseline_generated.png": {
+      "size": [
+        1024,
+        1536
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "corner_alpha": 0
+    },
+    "output/baseline.png": {
+      "size": [
+        512,
+        512
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "corner_alpha": 0
+    },
+    "source/keyposes.png": {
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "corner_alpha": 0
+    }
+  },
+  "verification_limit": "Pixel data and browser visibility are distinct from style acceptance and key-pose visual correctness."
+}

@@ -1,0 +1,12 @@
+sample,vertices,triangles,wind_offset_m,contact_steps,max_proxy_penetration_m
+0,21025,30256,0.248149,480,0.001231
+1,3080,2906,0.080805,480,0.000000
+2,3502,3284,0.048651,480,0.000000
+3,757,1301,0.000000,0,0.040831
+4,466,830,0.000000,0,0.115196
+5,466,830,0.000000,0,0.087448
+collision penetration on 0.000966 / off 0.101337
+sphere penetration on 0.000000 / off 0.079531
+box penetration on 0.000000 / off 0.053515
+block stop x 0.490000 / collision off 1.800005
+PASS: sample loading, finite sway, collision difference, block stop, pause/read-only render

@@ -1,0 +1,22 @@
+{
+  "schema_version": 1,
+  "type": "static_style_study",
+  "revision_id": "plan_b_pixel_003",
+  "image": "baseline.png",
+  "canvas": {
+    "width": 512,
+    "height": 512
+  },
+  "art_direction_status": "awaiting_user_review",
+  "animation_available": false,
+  "keypose_sheet": "../source/keyposes.png",
+  "keypose_gate": "failed",
+  "keyframe_indices": [
+    2,
+    5,
+    8,
+    11
+  ],
+  "fullframe_count": 0,
+  "sample_url": "#/samples/characters/clone_01?plan=b&study=pixel_003"
+}

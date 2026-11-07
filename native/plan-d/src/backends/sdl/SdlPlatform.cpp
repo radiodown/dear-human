@@ -35,7 +35,13 @@ PlatformFrame SdlPlatform::pollFrame() {
             case SDL_SCANCODE_R: frame.input.actions.push_back(Action::Reset); break;
             case SDL_SCANCODE_F12: frame.input.actions.push_back(Action::Capture); break;
             case SDL_SCANCODE_M: frame.input.actions.push_back(Action::Appearance); break;
+            case SDL_SCANCODE_H: frame.input.actions.push_back(Action::Hair); break;
             case SDL_SCANCODE_F: frame.input.actions.push_back(Action::Face); break;
+            case SDL_SCANCODE_N: frame.input.actions.push_back(event.key.mod&SDL_KMOD_SHIFT?Action::PreviousHair:Action::NextHair); break;
+            case SDL_SCANCODE_P: frame.input.actions.push_back(Action::Physics); break;
+            case SDL_SCANCODE_U: frame.input.actions.push_back(Action::Wind); break;
+            case SDL_SCANCODE_C: frame.input.actions.push_back(Action::Collisions); break;
+            case SDL_SCANCODE_G: frame.input.actions.push_back(Action::Colliders); break;
             default: break;
             }
         }

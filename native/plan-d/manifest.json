@@ -1,49 +1,111 @@
 {
   "schema_version": 1,
   "plan": "D",
-  "revision_id": "clone_model_003",
-  "previous_revision_id": "architecture_002",
-  "display_name": "로컬 3D · clone_01 실제 메시와 21관절 모델 초안",
+  "revision_id": "hair_006",
+  "previous_revision_id": "samples_005",
+  "display_name": "Plan D / face, fringe and body contact 006",
   "status": "draft",
   "runtime": "native_cpp_sdl_gpu",
   "entrypoint_macos": "native/plan-d/run.command",
   "entrypoint_windows": "native/plan-d/run-windows.ps1",
   "executable_macos": "native/plan-d/build/bin/dear-human-plan-d",
-  "records": "art/characters/clone_01/motion/plan_d/clone_model_003",
-  "model_file": "art/characters/clone_01/motion/plan_d/clone_model_003/source/clone_01.glb",
-  "preview_image": "art/characters/clone_01/motion/plan_d/clone_model_003/reviews/three-quarter.png",
+  "records": "art/characters/clone_01/motion/plan_d/hair_006",
+  "model_file": "art/characters/clone_01/motion/plan_d/hair_006/source/clone_01.glb",
+  "preview_image": "art/characters/clone_01/motion/plan_d/hair_006/reviews/face-final.png",
   "architecture": {
     "core": "plan-d-core: platform-independent Simulation/Skeleton/Scene",
     "application": "plan-d-app: common application loop using IPlatform and IRenderer",
     "backend": "plan-d-sdl: SDL window/input and common SDL GPU renderer",
-    "platform_profiles": ["macOS Metal/MSL", "Windows D3D12/DXIL"],
+    "platform_profiles": [
+      "macOS Metal/MSL",
+      "Windows D3D12/DXIL"
+    ],
     "core_and_application_link_sdl": false,
     "render_frame_is_read_only": true
   },
   "sdl_version": "3.4.20",
   "joints": 21,
-  "vertices": 28334,
-  "triangles": 44768,
-  "materials": 15,
-  "views": ["bones", "solid", "overlay"],
-  "geometry": "original_procedural_clone_01_surfaces_and_equipment_meshes",
+  "vertices": 59366,
+  "triangles": 95744,
+  "materials": 16,
+  "views": [
+    "bones",
+    "solid",
+    "overlay"
+  ],
+  "geometry": "original_body_with_rebuilt_head_face_fringe_and_body_only_hair_contact",
   "skinning": "cpu_linear_blend_plus_rigid_equipment",
-  "appearance_options": ["clone", "mannequin"],
+  "appearance_options": [
+    "clone",
+    "mannequin"
+  ],
   "default_appearance": "clone",
-  "character_art_status": "first_modeling_draft_awaiting_user_review_reference_fidelity_incomplete",
-  "glb_importer": false,
+  "character_art_status": "head_face_fringe_reworked_user_review_pending",
+  "glb_importer": true,
   "baked_animation_clips": false,
   "verification": {
     "macos_build": "passed",
     "metal_render_and_png_readback": "passed",
-    "scope": "macOS build, three 3-frame native views and one 90-frame walk, four GPU PNGs visually inspected, official GLB validation",
-    "gltf_validator": "2.0.0-dev.3.10: 0 errors, 0 warnings",
-    "prior_architecture_checks": "see architecture_002; standalone movement check not rerun this revision",
-    "interactive_input": "awaiting_user_review",
-    "animation_quality": "awaiting_user_review",
+    "scope": "Mac build; focused face/front and walking full-body captures; short walking-stop/body-contact check",
+    "core_check": "hair_006/records/walk-body-check.txt",
+    "interactive_input": "user_review_pending",
     "windows_build_and_runtime": "untested",
-    "performance": "not_measured"
+    "performance": "not_measured",
+    "reference_fidelity": "incomplete; user art review pending"
   },
   "dependencies_on_existing_plans": [],
-  "requires_web_server": false
+  "requires_web_server": false,
+  "hair_model_file": "art/characters/clone_01/motion/plan_d/hair_006/source/hair.glb",
+  "hair_entrypoint_macos": "native/plan-d/review-hair.command",
+  "hair": {
+    "vertices": 19425,
+    "triangles": 27952,
+    "cards": 141,
+    "groups": [
+      "crown",
+      "fringe",
+      "temple",
+      "back",
+      "braid",
+      "wisps"
+    ],
+    "atlas": "art/characters/clone_01/motion/plan_d/hair_006/source/hair-atlas.png",
+    "atlas_size": [
+      1536,
+      1024
+    ],
+    "source_atlas_strands": 1782,
+    "coverage": "depth_write_4x_msaa_alpha_to_coverage",
+    "glb_coverage": "alpha_mask_0.35",
+    "physics": true,
+    "lod": false,
+    "native_shader": "shifted_tangent_two_lobe_approximation",
+    "glb_shader": "standard_pbr_fallback",
+    "external_hair_library_integrated": true,
+    "physics_scope": "head neck torso shoulders upper arms back/cape proxies; no external obstacles",
+    "idle_walk_revision": "samples_005/records/idle_001"
+  },
+  "default_hair_sample": 0,
+  "model_file_scope": "current_native_006_rest_rig_not_external_hair_or_physics_frames",
+  "samples": {
+    "external_hair_count": 5,
+    "original_hair_count": 1,
+    "prop_count": 0,
+    "asset_license": "CC0-1.0",
+    "importer": "cgltf MIT 85cd62382dfea638278962690cf515023f33ed00",
+    "sources": "art/external/samples_005/sources.json",
+    "flexible": [
+      "native_long_006",
+      "Long",
+      "Buns"
+    ],
+    "fixed": [
+      "SimpleParted",
+      "BuzzedFemale",
+      "Buzzed"
+    ],
+    "prop_physics": "removed at user request; body-only hair proxies"
+  },
+  "default_hair_note": "Long native hair 006, preserved length; no scenery samples",
+  "default_wind": false
 }

@@ -1,0 +1,66 @@
+{
+  "revision_id": "pixel_walk_003",
+  "recorded_at": "2026-11-07T13:09:26.947355+09:00",
+  "request": "플랜 b 에서 뭔가 요소를 도트적으로 줄이고 시도해줘",
+  "tool": "built-in image_gen",
+  "model_id": null,
+  "seed": null,
+  "cost": null,
+  "cost_note": "The built-in tool did not expose model ID, seed or actual billing.",
+  "image_generation_calls": 2,
+  "observed_tool_time_ms": 69668,
+  "calls": [
+    {
+      "stage": "simplified_pixel_baseline",
+      "input": "art/characters/clone_01/motion/rig_004/source/side_master.png",
+      "input_sha256": "c105bf8d7d5aa8f96a5dbde397975326b05f38b1b1e68472ac9a6eb463063966",
+      "prompt": "records/baseline_prompt.json",
+      "prompt_document": "records/baseline_prompt.md",
+      "output": "source/baseline_generated.png",
+      "size": [
+        1024,
+        1536
+      ],
+      "transparent_background": true,
+      "tool_time_ms": 36675
+    },
+    {
+      "stage": "shared_walk_keys_02_05_08_11",
+      "input": "output/baseline.png",
+      "input_sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f",
+      "prompt": "records/keyposes_prompt.json",
+      "prompt_document": "records/keyposes_prompt.md",
+      "output": "source/keyposes.png",
+      "size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "tool_time_ms": 32993,
+      "visual_gate": "failed"
+    }
+  ],
+  "postprocessing": {
+    "tool": "Pillow",
+    "version": "11.3.0",
+    "allowed_operations": [
+      "baseline fixed 1/4 nearest-neighbor resize and fixed padding BEFORE key generation",
+      "one uniform key sheet scale for comparison only",
+      "equal-cell splitting for comparison",
+      "comparison labels and fixed ground guides outside artwork"
+    ],
+    "per_frame_scale_or_center_fitting": false,
+    "pose_synthesis": false,
+    "alpha_rematting": false
+  },
+  "baseline_style_status": "awaiting_user_review",
+  "keypose_status": "rejected_scale_and_leg_phase_gate",
+  "inbetweens_generated": false,
+  "full_animation_generated": false,
+  "gif_generated": false,
+  "dependencies": [
+    "reference_003_3d",
+    "side_master_004"
+  ],
+  "preservation": "Existing artwork, rejected walk_001/walk_002 and Plan A/C/D retained. Runtime and catalog before this work stored in records/runtime_snapshot_before_pixel_003."
+}

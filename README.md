@@ -1,5 +1,13 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**플랜 D · 얼굴/앞머리와 몸 접촉 006:** [실행](native/plan-d/run.command) · [기록](docs/plan-d-face-hair-006.md) · [얼굴/전신과 모델](art/characters/clone_01/motion/plan_d/hair_006/README.md). 주변 소품 제거, 기존 몸을 유지한 두상·얼굴·앞머리 보정. 사용자 외형 검수 대기.
+
+**플랜 B · 도트 단순화 003:** [새 시도](docs/plan-b-pixel-003.md) · [미리보기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=pixel_003). 장식·재질 묘사를 줄인 도트풍 기준 외형과 걷기 키포즈 4개를 만들었다. 키포즈는 머리·상체·총의 크기 변화로 반려했으며 완성 보행은 미제작이다. 기준 외형의 아트 채택은 사용자 검수 대기다.
+
+**플랜 D · 무료 샘플/충돌 005:** [실행](native/plan-d/run.command) · [도입 기록](docs/plan-d-samples-005.md) · [전신과 헤어 비교](art/characters/clone_01/motion/plan_d/samples_005/README.md). 기존 몸을 유지한 헤어 5종·소품 6종, 바람/관성·구/상자 접촉 초안. 기본 전신, N 샘플 교체, B 장애물 왕복. Mac 확인·사용자 검수 대기.
+
+**플랜 D · 머리카락 004:** [조사·도입 기록](docs/plan-d-hair-004.md) · [머리만 보기](native/plan-d/review-hair.command) · [정면/옆/뒤와 GLB](art/characters/clone_01/motion/plan_d/hair_004/README.md). 모델링 품질 반려 후 머리를 분리하고, 조사에 따라 가이드·카드·coverage atlas·방향성 광택을 적용했다. 기술 연결과 원화 완성도는 구분하며 외형 검수 대기다.
+
 **플랜 D · clone_01 3D 모델 초안 003:** [제작·검수 범위](docs/plan-d-clone-model-003.md) · [GLB와 실제 화면](art/characters/clone_01/motion/plan_d/clone_model_003/README.md). 체형·얼굴·장발·갑옷·의상·망토의 실제 메시를 21관절에 연결하고 같은 데이터를 GLB로 저장했다. `native/plan-d/run.command`에서 모델을 기본 표시하며 `Q/E` 회전·`F` 얼굴·`M` 마네킹 비교가 가능하다. 파일/렌더링 경로는 확인했고 원화 수준의 얼굴·질감·천 충돌은 미완료다.
 
 **플랜 D · Windows/macOS 공통 구조 002:** [구조·검수 범위](docs/plan-d-cross-platform-002.md). 이동·보행·포즈는 SDL 없는 C++ 코어로, 입력·창·GPU는 인터페이스 뒤로 분리했다. 공통 렌더 프레임과 SDL GPU 그리기를 공유하고 Metal/D3D12 설정만 CMake가 선택한다. 코어 단독 빌드·최소 이동 검사·기존과 동일한 Mac 캡처를 확인했으며 실제 Windows 빌드·실행은 미확인이다.
