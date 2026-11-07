@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "iteration": "head_body_sync_001",
+  "user_request": "머리하고 몸하고 뭔가 동작이 같이 일어나지 않고 바운스가 있으면 어색해",
+  "status": "development_connected_with_scoped_checks",
+  "art_direction_status": "awaiting_user_review",
+  "scope": "Couple transient head/body motion and remove separate step chest bounce.",
+  "findings": [
+    "Head position followed the neck, but body rotation mixed at .28 and running countered the entire current torso pitch.",
+    "The dynamic layer added an out-of-phase chest-only vertical stride offset."
+  ],
+  "changes": [
+    "Separate gait transient angular motion from sustained lean.",
+    "Counter sustained running/manual lean only; deliver current body pitch to the head without a follow delay.",
+    "Remove extra chest-only stride rise; retain slow breathing and grounded pelvis motion.",
+    "Use one solved headFrame for eye calculations, head rendering, scalp attachment and camera depth."
+  ],
+  "retained": [
+    "Small event-driven head reactions",
+    "Kneeling 017 bounded sight fit",
+    "Carry/idle 001 and both idles",
+    "Nine-action controls/storage",
+    "Bone lengths, foot contacts and existing source proportions"
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "61fe3501cdfe972ae7d46d904b85bafa5b0c6253c5c3a5e788e5cef96ce6ca22"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "156cba76437ceb54c8659809383ab7fd7e4346c5e343ecab264529a0d6e192f8"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "9e4079acaacd34dc8f1b675d7ca2a584088ced01417e7db1b5ca6a55748e2520"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "b5b9cf491e256e91552734ba56c7d5cc63156fe7f592d190b132466f52c7d896"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "c3bc5db39d40b3e7a3a7e0b7d1f935519f18b162880b375de835953f235f0c25"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/index.json",
+    "sha256": "1063201f2b3bb696e11a7a0582d6f8436098b6305c4d1974596639c1785e3ce8"
+  },
+  "dependencies": [
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "d5ea761d6c29adf652aed104b4f1dbe8aec387794f03f8f7c4bc4ae94e32057c"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ],
+  "new_art_rasters": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "recorded_at": "2026-11-07T15:56:06.136608+09:00",
+  "elapsed_since_snapshot_seconds": 340.4,
+  "time_scope": "Wall time since source snapshot; earlier source reading not measured.",
+  "development_cost": null
+}

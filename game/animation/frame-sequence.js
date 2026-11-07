@@ -24,6 +24,10 @@ export class FrameSequence {
       const manifest = await response.json();
       const {canvas, frameCount, durationMs, spritesheet} = manifest;
       if (frameCount !== 14 || !canvas?.width || !canvas?.height || !(durationMs > 0)) throw new Error('플랜 B 모션 형식이 올바르지 않습니다.');
+      const loopRange = manifest.loopRange ?? [0, frameCount - 1];
+      if (!Array.isArray(loopRange) || loopRange.length !== 2 || !loopRange.every(Number.isInteger) || loopRange[0] < 0 || loopRange[1] >= frameCount || loopRange[0] >= loopRange[1]) throw new Error('플랜 B 반복 구간이 올바르지 않습니다.');
+      const frameDurations = manifest.frameDurationsMs ?? Array(frameCount).fill(durationMs);
+      if (!Array.isArray(frameDurations) || frameDurations.length !== frameCount || !frameDurations.every(value => Number.isFinite(value) && value > 0)) throw new Error('플랜 B 프레임 시간이 올바르지 않습니다.');
       const atlas = new Image();
       atlas.src = new URL(spritesheet, new URL(manifestUrl, location.href)).href;
       await atlas.decode();
@@ -31,7 +35,9 @@ export class FrameSequence {
       if (requestId !== this.requestId) return false;
       this.manifest = manifest;
       this.atlas = atlas;
-      this.index = 0;
+      this.loopRange = loopRange;
+      this.frameDurations = frameDurations;
+      this.index = loopRange[0];
       this.canvas.width = canvas.width;
       this.canvas.height = canvas.height;
       this.canvas.dataset.pixelArt = String(Boolean(manifest.pixelArt));
@@ -55,9 +61,10 @@ export class FrameSequence {
   tick(time) {
     if (this.lastTime !== null) this.elapsed += Math.min(time - this.lastTime, 150) * this.speed;
     this.lastTime = time;
-    while (this.elapsed >= this.manifest.durationMs) {
-      this.index = (this.index + 1) % this.manifest.frameCount;
-      this.elapsed -= this.manifest.durationMs;
+    while (this.elapsed >= this.frameDurations[this.index]) {
+      this.elapsed -= this.frameDurations[this.index];
+      const [start, end] = this.loopRange;
+      this.index = this.index < start || this.index >= end ? start : this.index + 1;
     }
     this.draw();
     this.raf = requestAnimationFrame(this.tick);

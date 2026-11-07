@@ -31,7 +31,7 @@ export function sideDepthPose(p){
     stockPocket:point(p.stockPocket,d.weapon),stockTarget:point(p.stockTarget,d.weapon),
     supportTarget:point(p.supportTarget,d.weapon),palmA:point(p.palmA,d.weapon),palmB:point(p.palmB,d.weapon),
     sockets:Object.fromEntries(Object.entries(p.sockets).map(([key,p])=>[key,point(p,d.weapon)])),
-    headDepth,eye:point(p.eye,headDepth),
+    headDepth,headFrame:point(p.headFrame,headDepth),eye:point(p.eye,headDepth),
     sightLine:p.sightLine?{rear:point(p.sightLine.rear,d.weapon),front:point(p.sightLine.front,d.weapon)}:null,
     kneeSupport:{...p.kneeSupport,target:point(p.kneeSupport.target,d.near),actual:legs[1].elbow}};
 }

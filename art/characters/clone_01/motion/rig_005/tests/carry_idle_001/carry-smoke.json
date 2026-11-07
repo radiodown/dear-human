@@ -1,0 +1,68 @@
+{
+  "scope": "Short carry/idle and firing-transition constraints only; no full suite or art acceptance.",
+  "states": {
+    "idle": {
+      "maxGripError": 1.4210854715202004e-14,
+      "maxLegError": 5.0242958677880804e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "pitchDegrees": 0,
+      "shots": 0
+    },
+    "relaxed": {
+      "maxGripError": 3.1776437161565096e-14,
+      "maxLegError": 5.0242958677880804e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "pitchDegrees": 58,
+      "shots": 0
+    },
+    "run": {
+      "maxGripError": 3.1776437161565096e-14,
+      "maxLegError": 6.404745667978755e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "pitchDegrees": 35,
+      "shots": 0
+    },
+    "run_fire": {
+      "maxGripError": 2.842170943040401e-14,
+      "maxLegError": 4.9387831689024055e-14,
+      "maxStockError": 2.909377512977897e-14,
+      "pitchDegrees": -0.03213653972369829,
+      "shots": 19
+    }
+  },
+  "transitions": {
+    "relaxed": {
+      "firstShot": {
+        "afterSeconds": 0.12499999999999956,
+        "pitchDegrees": -0.916998481200331,
+        "lowered": 0
+      },
+      "maxGripError": 3.1776437161565096e-14,
+      "returnedPitchDegrees": 58
+    },
+    "run": {
+      "firstShot": {
+        "afterSeconds": 0.12499999999999956,
+        "pitchDegrees": -0.6877068409147148,
+        "lowered": 0
+      },
+      "maxGripError": 2.842170943040401e-14,
+      "returnedPitchDegrees": 35
+    }
+  },
+  "status": "passed",
+  "runtime_sources": [
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "2fae0fdc764b81416575779aed7b9a45e774ae94431a7a765349d692634edc7e"
+    },
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "d5ea761d6c29adf652aed104b4f1dbe8aec387794f03f8f7c4bc4ae94e32057c"
+    },
+    {
+      "path": "game/animation/motion-controls.js",
+      "sha256": "42805b0005b9d7dd2e1bd36a80f0f1e78b727425571a11daa1062317be16c59d"
+    }
+  ]
+}

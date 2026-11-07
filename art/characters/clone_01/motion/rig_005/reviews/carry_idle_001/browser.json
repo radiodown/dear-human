@@ -1,0 +1,53 @@
+{
+  "status": "passed",
+  "scope": "Short macOS Chrome carry/idle display, playback and controls check; user art review pending.",
+  "browser": "Local Google Chrome via Python Playwright",
+  "base_url": "http://127.0.0.1:4174",
+  "checks": [
+    "Relaxed idle has the same controls, paused height editing and its own remembered values.",
+    "Actual run playback lowers the muzzle; a shot input raises it before firing.",
+    "Shouldered idle, relaxed idle, non-firing run and running fire display distinct expected muzzle directions."
+  ],
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/idle.png",
+      "sha256": "ed05f1b0fce96836b374558888680176659ade322cf660f22ed1d86b891cd288"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/relaxed.png",
+      "sha256": "dfe787aacb5726eb3db93c5df20185cf28b4429afe6dee187ca2589f76efcbdb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/run.png",
+      "sha256": "885b5d1e54ac2f41d05cdd782fdd644531cd30c40273f8001238365768491275"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/run_fire.png",
+      "sha256": "d6b62deeb9945b562d12079f892c6b1ba842d48525a035b30747d7fe3a9076b3"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "d5ea761d6c29adf652aed104b4f1dbe8aec387794f03f8f7c4bc4ae94e32057c"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "2fae0fdc764b81416575779aed7b9a45e774ae94431a7a765349d692634edc7e"
+    },
+    {
+      "path": "game/animation/motion-controls.js",
+      "sha256": "42805b0005b9d7dd2e1bd36a80f0f1e78b727425571a11daa1062317be16c59d"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "383b2ca03c70c2c4b144b79f8435f4701227ed013d7d6531dbd3e2df90f9f983"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "07d602c9113ebf79b8268d42f957d1eecbbccfbd3616dd52c735e8c066bf7d42"
+    }
+  ],
+  "gifs_generated": false
+}

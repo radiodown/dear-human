@@ -1,0 +1,159 @@
+{
+  "tool": "built-in image_gen",
+  "top_level_mode": "Default built-in tool mode",
+  "rejected_calls": 0,
+  "observed_time_note": "Sum of individual tool waits; independent action/group calls ran concurrently. This sum is not wall-clock task time.",
+  "source_dependency": "plan_b_pixel_walk_005",
+  "target_torso_pitch_degrees": [
+    20,
+    25
+  ],
+  "actual_joint_angle_measurement": null,
+  "actual_cost": null,
+  "model_id": null,
+  "seed": null,
+  "model_cost_note": "Not supplied by the built-in tool.",
+  "per_frame_fitting": false,
+  "pose_warp_or_interpolation": false,
+  "gif_generated": false,
+  "art_acceptance": "awaiting_user_review",
+  "action": "walk_fire",
+  "image_calls_for_action": 3,
+  "shared_baseline_calls": 1,
+  "calls": [
+    {
+      "action": "shared",
+      "stage": "baseline",
+      "prompt": "records/baseline_prompt.json",
+      "prompt_document": "records/baseline_prompt.md",
+      "observed_tool_time_ms": 38504,
+      "inputs": [
+        {
+          "path": "source/identity_005.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        }
+      ],
+      "output": "source/baseline_generated.png",
+      "output_sha256": "0c764432bb65bdef604705afa99a5257340c2aac05c186a2371aeca0700469c6",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "accepted_guard_stance"
+    },
+    {
+      "action": "walk_fire",
+      "stage": "keyposes",
+      "prompt": "walk_fire/records/keyposes_prompt.json",
+      "prompt_document": "walk_fire/records/keyposes_prompt.md",
+      "observed_tool_time_ms": 46224,
+      "inputs": [
+        {
+          "path": "walk_fire/source/keypose_edit_board.png",
+          "sha256": "ad20c7d4ca687b7caedc308aa32f2cdb35184667e09391fa81f8b3497df386d2"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+        },
+        {
+          "path": "source/leg_guide_005.png",
+          "sha256": "9e3f3d3deb35c8131f224ada7cb12ad52c9807e8b9fc65815b7bed12269c201d"
+        }
+      ],
+      "output": "walk_fire/source/keyposes.png",
+      "output_sha256": "99176a2e1ca5a6caf9af4423f42d9dfb8b18b1ccbef50abdc1eecaa14966db50",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "accepted_for_inbetweens"
+    },
+    {
+      "action": "walk_fire",
+      "stage": "inbetweens_a",
+      "prompt": "walk_fire/records/inbetweens_a_prompt.json",
+      "prompt_document": "walk_fire/records/inbetweens_a_prompt.md",
+      "observed_tool_time_ms": 123110,
+      "inputs": [
+        {
+          "path": "walk_fire/source/inbetweens_a_edit_board.png",
+          "sha256": "f2b35ba8580130a8e1794961625fb915ea48e5a3901788246cecc7eb1279e37d"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+        },
+        {
+          "path": "walk_fire/source/keyposes_normalized.png",
+          "sha256": "5d0b67ecc4da2d805edda4b6bbf100f6ce233b8603d7caf8ba0f6eeac36171f7"
+        }
+      ],
+      "output": "walk_fire/source/inbetweens_a.png",
+      "output_sha256": "69e7d717c77728fda3e98fd58c26ae9d09b184aab2273f95ef237bf89f6f46a4",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "packed"
+    },
+    {
+      "action": "walk_fire",
+      "stage": "inbetweens_b",
+      "prompt": "walk_fire/records/inbetweens_b_prompt.json",
+      "prompt_document": "walk_fire/records/inbetweens_b_prompt.md",
+      "observed_tool_time_ms": 162436,
+      "inputs": [
+        {
+          "path": "walk_fire/source/inbetweens_b_edit_board.png",
+          "sha256": "525e1bfba3981d0ad180dbac323c08101115088ef7e95d54505cd1bf2b3e1cf2"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+        },
+        {
+          "path": "walk_fire/source/keyposes_normalized.png",
+          "sha256": "5d0b67ecc4da2d805edda4b6bbf100f6ce233b8603d7caf8ba0f6eeac36171f7"
+        }
+      ],
+      "output": "walk_fire/source/inbetweens_b.png",
+      "output_sha256": "377868ca8a02441f038a09db08590b31cc7ee822fec68c209eec8d676943898b",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "packed"
+    }
+  ],
+  "exported_frame_count": 14,
+  "moving_loop_range": [
+    1,
+    12
+  ],
+  "frame_durations_ms": [
+    85,
+    85,
+    45,
+    100,
+    85,
+    105,
+    85,
+    80,
+    45,
+    100,
+    85,
+    105,
+    85,
+    85
+  ],
+  "shot_indices": [
+    2,
+    8
+  ],
+  "status": "draft_playable"
+}

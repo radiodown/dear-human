@@ -1,0 +1,41 @@
+{
+  "iteration": "before_dynamic_motion_001",
+  "started_epoch": 1794032380.309452,
+  "files": [
+    {
+      "path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/game/animation/gait.js",
+      "sha256": "d6369f7ba7eebb22c305fb62789f67d495fd77c539a9ef188806a0fe115dd406"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/game/animation/secondary-motion.js",
+      "sha256": "b66b1d0ec860a7502e95987dec93d0aa8764d7b6363758866a21932ca6ad6057"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/game/animation/cape.js",
+      "sha256": "8d0d7fe988ff16be973d84078034b0b59b075aab9c726e85b12df94e33f83224"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/game/animation/rig-core.js",
+      "sha256": "3962d2d99483af32849be323de6261bdf89e821cb97ce209ed30d6341b23c5c0"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/game/rig-lab.js",
+      "sha256": "5116057226006c11c14e80a3e932af053ecfbc12f4eeaf5d648324db7dbe36c7"
+    },
+    {
+      "path": "game/app.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/game/app.js",
+      "sha256": "4e3f93821ed73786234221651e79425027f3c965c29d3ef15cc6346ebb8b8355"
+    },
+    {
+      "path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/game/index.html",
+      "sha256": "ba397e151fef475b936289f86bc4aa2eb4600e1266a2f7f985ec42d8547a6f72"
+    }
+  ]
+}

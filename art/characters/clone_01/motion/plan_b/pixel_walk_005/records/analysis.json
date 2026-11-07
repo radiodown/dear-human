@@ -1,0 +1,36 @@
+{
+  "coordinate_space": "screen-space, fixed right-facing profile",
+  "foreground_leg_A": "lighter shin/boot with silver vertical shin highlight; always occludes B at overlap",
+  "background_leg_B": "dark charcoal shin/boot, no silver stripe; remains behind A at overlap",
+  "contact02": "A forward, B back",
+  "contact08": "B forward, A back",
+  "crossing05": "A planted, B swing/cross behind A",
+  "crossing11": "B planted, A swing/cross in front of B",
+  "intermediate04": "B crosses behind A",
+  "intermediate10": "A crosses in front of B",
+  "loop": "01..12,12->01 continues A forward swing; neutral00/13 reference-only",
+  "weapon_hands": "same rear screen-left grip and front screen-right handguard support",
+  "individual_leg_warp_or_mirror": false,
+  "input_boards": {
+    "keys": [
+      "baseline",
+      "baseline",
+      "baseline",
+      "baseline"
+    ],
+    "a": [
+      "key02",
+      "key02",
+      "key05",
+      "key05"
+    ],
+    "b": [
+      "key08",
+      "key08",
+      "key11",
+      "key02"
+    ]
+  },
+  "input_board_geometry": "2x2,512x512 cells,1024x1024 canvas",
+  "preexisting_rejected_keyposes_used_as_identity": false
+}

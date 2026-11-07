@@ -1,0 +1,56 @@
+{
+  "status": "passed_with_limitations",
+  "validator": "Unmodified2dimg2motion validate_14frame_pattern.py",
+  "upstream_delivery_passed": false,
+  "raw_issues": [
+    "unstable foot baseline: [438, 437, 439, 437, 439, 439, 439, 442, 440, 441, 442, 438, 441, 438]",
+    "missing file: /Users/jin/Desktop/dear-human/art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/preview.gif"
+  ],
+  "png_contract_errors": [],
+  "exported_frame_count": 14,
+  "moving_loop_range": [
+    1,
+    12
+  ],
+  "opaque_foot_bottoms": [
+    438,
+    437,
+    439,
+    436,
+    439,
+    439,
+    439,
+    441,
+    439,
+    440,
+    441,
+    438,
+    440,
+    438
+  ],
+  "moving_foot_bottom_range_px": 5,
+  "shot_indices": [
+    2,
+    8
+  ],
+  "frame_durations_ms": [
+    85,
+    85,
+    45,
+    100,
+    85,
+    105,
+    85,
+    80,
+    45,
+    100,
+    85,
+    105,
+    85,
+    85
+  ],
+  "loop_duration_ms": 1005,
+  "per_frame_fitting": false,
+  "gif_omission": "No automatic GIF generation per user instruction; browser PNG playback is the preview.",
+  "scope": "PNG count/canvas/RGBA/corners/endpoint/key identity only. Exact ground equality, motion quality and full upstream GIF delivery are not claimed."
+}

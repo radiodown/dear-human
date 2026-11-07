@@ -1,0 +1,32 @@
+{
+  "source_size": [
+    1254,
+    1254
+  ],
+  "whole_image_size": [
+    512,
+    512
+  ],
+  "scale": 0.4082934609250399,
+  "resampling": "nearest",
+  "offset": [
+    0,
+    2
+  ],
+  "alpha_noise_cutoff": 8,
+  "isolated_corner_component_bbox": [
+    0,
+    0,
+    17,
+    15
+  ],
+  "corner_cleanup_region": [
+    0,
+    0,
+    32,
+    32
+  ],
+  "raw_source_retained": true,
+  "done_before_key_generation": true,
+  "individual_pose_transform_or_fitting": false
+}

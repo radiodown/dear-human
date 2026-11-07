@@ -12,8 +12,17 @@ export const FIRING_FORM=Object.freeze({
   runningForward:{base:2,bendGain:8,crouchGain:1.5,crouchDrop:16,max:10,reachMargin:.5},
   arms:{primary:{upper:36,forearm:37.5,elbow:{x:4,y:34}},support:{upper:34,forearm:40,elbow:{x:30,y:16}}}
 });
+// Right-facing world Y points down, so positive rifle pitch lowers the muzzle.
+export const WEAPON_CARRY=Object.freeze({runPitch:35*Math.PI/180,restPitch:58*Math.PI/180,
+  runSeatOffset:{x:-4,y:0},restSeat:{x:-24,y:8},relaxTime:.18,raiseStart:.05,raiseEnd:.85});
 const mix=(a,b,t)=>a+(b-a)*t;
 const transform=(p,t)=>({x:t.x+Math.cos(t.a)*p.x-Math.sin(t.a)*p.y,y:t.y+Math.sin(t.a)*p.x+Math.cos(t.a)*p.y});
+export function weaponCarry({running=0,relaxed=0,aim=0,reload=0}){
+  const u=Math.max(0,Math.min(1,(aim-WEAPON_CARRY.raiseStart)/(WEAPON_CARRY.raiseEnd-WEAPON_CARRY.raiseStart)));
+  const raised=u*u*(3-2*u),available=(1-raised)*(1-reload);
+  const run=running*available,rest=relaxed*(1-running)*available;
+  return {run,rest,lowered:run+rest,raised,pitch:run*WEAPON_CARRY.runPitch+rest*WEAPON_CARRY.restPitch};
+}
 export function chestFrame(waist,eyeAim,running=0,kneeling=0){
   const load=eyeAim+(1-eyeAim)*running*.35;
   return {...transform({x:mix(FIRING_FORM.chestForward,KNEEL_ART.chestForward,kneeling)*load,y:-FIRING_FORM.chestAboveWaist+FIRING_FORM.chestDown*load},waist),a:waist.a+mix(FIRING_FORM.chestPitch,KNEEL_ART.chestPitch,kneeling)*eyeAim};

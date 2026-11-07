@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "evidence": "reviews/key-size-comparison.png",
+  "observations": [
+    "Four poses retain kneeling head/torso/rifle size close to accepted baseline.",
+    "Near knee stays ahead of low pelvis and front boot remains planted; rear shin folded back.",
+    "05/11 show shot flash, shoulder/chest response and hair/cape movement;02/08 recover without flash.",
+    "Cape stays pooled on ground; no standing/crouching topology substitution."
+  ],
+  "limitations": [
+    "A few pixels of knee/foot/cape registration drift remain and will be recorded from full sequence."
+  ],
+  "art_acceptance": "awaiting_user_review"
+}

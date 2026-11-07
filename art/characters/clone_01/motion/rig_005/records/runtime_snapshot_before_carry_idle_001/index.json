@@ -1,0 +1,31 @@
+{
+  "iteration": "before_carry_idle_001",
+  "started_epoch": 1794033822.1056662,
+  "files": [
+    {
+      "path": "game/animation/firing-form.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/game/animation/firing-form.js",
+      "sha256": "929fd44e70371f8294c07036cbacc1bd3825377ee0138d25efd9a830a5352bac"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/game/animation/rig-core.js",
+      "sha256": "b3a34647a4cf89e417629b6a97bc0007e4f50f154d1f46fee1ccc4b6031dee98"
+    },
+    {
+      "path": "game/animation/motion-controls.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/game/animation/motion-controls.js",
+      "sha256": "aa24a39560d7f61714d6bbaf19075cbb9187acfdadf2e91819b916f1142ebbe4"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/game/rig-lab.js",
+      "sha256": "3f2282d5b0dc6e2bbebf01dabad0a041c2d5900da96dadfeaefe84a75939b899"
+    },
+    {
+      "path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/game/index.html",
+      "sha256": "4c9f006e8518ca68417d926ea33d56cd24e97c9540f0aaa5304f5f948cb96acb"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "passed_for_key_generation",
+  "evidence": "reviews/baseline-identity-comparison.png",
+  "observations": [
+    "Revised baseline retains head/rifle proportions close to005 after one whole-canvas normalization.",
+    "Near knee is grounded slightly ahead of pelvis, far front boot planted, shin folded back and cape pooled.",
+    "Stock contacts shoulder and cheek, rifle nearly horizontal, no required elbow/front-knee contact."
+  ],
+  "art_acceptance": "awaiting_user_review",
+  "inbetween_generation": false
+}

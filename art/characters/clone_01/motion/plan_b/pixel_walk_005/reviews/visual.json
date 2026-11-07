@@ -1,0 +1,25 @@
+{
+  "status": "passed_for_leg_alternation_and_crossing",
+  "scope": "Corrected user-reported failure only; final naturalness and art selection still pending.",
+  "evidence": [
+    "reviews/key-leg-alternation.png",
+    "output/contact-sheet.png",
+    "reviews/browser-crossing-comparison.png"
+  ],
+  "observations": [
+    "Same silver foregroundA leads at02 and trails at08; dark backgroundB does the opposite.",
+    "At05 lightA is planted and darkB folds/crosses behind it; at11 darkB is planted and lightA folds/crosses in front.",
+    "Intermediate04/10 preserve opposite support and swing identities.",
+    "Actual browser screenshots show the two opposite crossing states; playback wraps01..12 without static reference frames.",
+    "Head/chest/shoulder-to-belt/rifle sizes remain close to the baseline; no per-frame fitting used."
+  ],
+  "remaining_issues": [
+    "Moving opaque foot-bottom range is3px.",
+    "Cape/armor/outline details still vary between generated poses.",
+    "Footfall timing and overall naturalness await user review; no claim of perfect physical foot fixation.",
+    "No fixed-palette/single-pixel-grid guarantee; weapon is baked into full-body PNG."
+  ],
+  "upstream_full_delivery_passed": false,
+  "gif_omitted_per_user_instruction": true,
+  "art_acceptance": "awaiting_user_review"
+}

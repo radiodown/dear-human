@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "Visual gate for scale and stable near/far leg identity before generating in-betweens, not final art acceptance.",
+  "evidence": [
+    "reviews/key-size-comparison.png",
+    "reviews/key-leg-alternation.png"
+  ],
+  "observations": [
+    "02: light foregroundA forward, dark backgroundB back.",
+    "08: light foregroundA back, dark backgroundB forward; ordering reversed from02.",
+    "05: lightA planted, darkB bent and crossing behindA.",
+    "11: darkB planted, lightA bent across in front ofB; support/swing roles reversed from05.",
+    "Head, chest, shoulder-to-belt distance and rifle remain close to new baseline without individual scale or registration changes."
+  ],
+  "inbetween_requirements": [
+    "04 continues darkB crossing behind planted lightA.",
+    "10 continues lightA crossing in front of planted darkB.",
+    "Near/far shading must remain attached to its same leg."
+  ],
+  "art_acceptance": "awaiting_user_review",
+  "per_frame_fitting": false
+}

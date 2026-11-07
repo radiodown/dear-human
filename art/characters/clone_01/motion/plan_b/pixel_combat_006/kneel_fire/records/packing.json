@@ -1,0 +1,62 @@
+[
+  {
+    "source": "source/keyposes.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "normalized_sheet_size": [
+      1024,
+      1024
+    ],
+    "shared_scale": 0.8165869218500797,
+    "alpha_noise_cutoff": 8,
+    "indices": [
+      2,
+      5,
+      8,
+      11
+    ],
+    "per_frame_fitting": false
+  },
+  {
+    "source": "source/inbetweens_a.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "normalized_sheet_size": [
+      1024,
+      1024
+    ],
+    "shared_scale": 0.8165869218500797,
+    "alpha_noise_cutoff": 8,
+    "indices": [
+      1,
+      3,
+      4,
+      6
+    ],
+    "per_frame_fitting": false
+  },
+  {
+    "source": "source/inbetweens_b.png",
+    "source_size": [
+      1254,
+      1254
+    ],
+    "normalized_sheet_size": [
+      1024,
+      1024
+    ],
+    "shared_scale": 0.8165869218500797,
+    "alpha_noise_cutoff": 8,
+    "indices": [
+      7,
+      9,
+      10,
+      12
+    ],
+    "per_frame_fitting": false
+  }
+]

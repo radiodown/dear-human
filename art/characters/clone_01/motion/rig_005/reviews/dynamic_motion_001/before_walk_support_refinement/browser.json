@@ -1,0 +1,62 @@
+{
+  "status": "passed",
+  "scope": "Short macOS Chrome playback and strength UI only; visual art acceptance awaits user review.",
+  "browser": "Local Google Chrome via Python Playwright",
+  "checks": [
+    "Paused 0/100 comparison changes pose immediately and reversibly without advancing time.",
+    "Run plays in Chrome with stable grip contacts.",
+    "Running fire enters, fires and retains grips.",
+    "Custom strength persists across full document reload; URL can override it.",
+    "Reset restores the new 100% default."
+  ],
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/run_100.png",
+      "sha256": "1f4a742d001efd9a7568c36e7f2b5d57fb2943101e726fe04909cc022421685b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/run_000.png",
+      "sha256": "0329953ce8c1f8d6e7bc84d582466025897b40a48d8212c533c861a150ae90b9"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/run_fire_100.png",
+      "sha256": "ec2c9c9fa52cf236f891c464c69ff0edaebae629fe52ee511c64b9d59870f9d7"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/walk_100.png",
+      "sha256": "576cf8c51626149b06910a94538cca8f2d3192b444675440ea9c5dba139392c6"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "3391ccebf9c6bf6a4c6b1445dd9dfc5680b28a26884fde3ae2fefff4c3f44b65"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "cde13fada500695e645f9739b9e90e031efd5211905b410b9e467230b50a2224"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "acc8ce7af67b0920e46fd103cacaf145d193399b09711780896cd79932af96f8"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "cd978b234176700599ccf9365bcf11ab1d7ed98e5dc86ed7fd12a7accbe9ff1b"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "c0832e6b9dabf55acea06696c8e9e5148166ea95d564898b6ebeb08b786bc3dc"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "460c6c2da3e96af7bf59061be2652c237cb07f0cbbf0224a0a49cdd3120f8680"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "274ce16f49cb7ee8f265e4ca2229ed1d9fb9f7878c1061243716c3239c5dc831"
+    }
+  ],
+  "gifs_generated": false
+}

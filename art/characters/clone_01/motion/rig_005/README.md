@@ -1,5 +1,13 @@
 # clone_01 · 파츠 모션 rig_005
 
+**머리·몸통 연결 head_body_sync_001:** [변경 내용](../../../../../docs/head-body-sync-001.md) · [레시피](records/head_body_sync_001/recipe.json) · [인계](records/head_body_sync_001/handoff.json). 지속적인 기본 숙임만 시선 보정하고 발걸음/몸통의 순간 회전은 머리에 전달한다. 흉곽의 별도 상하 바운스는 제거하고 느린 호흡·접지 움직임은 유지했다. 머리/눈/뒤 머리카락이 공통 `headFrame`을 쓰며 앉아쏴 조준과 총구/대기/조절 기능은 유지한다. 필요한 구문·짧은 동기화/접점·Chrome 확인 결과는 tests/reviews의 `head_body_sync_001`이다. 자연스러움과 목 실루엣은 사용자 검수 대기다.
+
+**달리기 총구·두 대기 carry_idle_001:** [변경 내용](../../../../../docs/carry-idle-001.md) · [레시피](records/carry_idle_001/recipe.json) · [인계](records/carry_idle_001/handoff.json). 비사격 달리기 총구를 아래 35°로 내리고 완전 대기(총구 아래 58°·상체 전경 해제)를 추가했다. 기존 견착 대기와 뛰며쏴의 전방 수평은 유지하며, 두 낮춘 자세에서 발사 입력은 총을 든 뒤 첫 발을 낸다. 완전 대기도 같은 조절·별도 저장·일시정지 비교를 사용한다. 필요한 짧은 구문·접점/전환·Chrome 확인 결과는 tests/reviews의 `carry_idle_001`이며 아트 검수는 대기다.
+
+**동작별 공통 조절 motion_controls_001:** [변경 내용](../../../../../docs/motion-controls-001.md) · [레시피](records/motion_controls_001/recipe.json) · [인계](records/motion_controls_001/handoff.json). 8개 동작의 동일 패널에서 기본 허리각·추가 숙임·흉갑·총 낮춤·활동감과 반응/조명을 동작별로 조절·저장한다. 이동 사격/앉기에도 같은 허리각·수직 총 높이를 적용하며 일시정지 비교와 개별/전체 초기화를 제공한다. 기존 기본 자세와 수평 총구는 유지한다. 새 결과는 tests/reviews의 `motion_controls_001`로 분리하며 큰 각도·총 높이 조합과 가림은 사용자 검수 대기다.
+
+**파츠 모션 활동감 dynamic_motion_001:** [변경 내용](../../../../../docs/dynamic-parts-motion-001.md) · [레시피](records/dynamic_motion_001/recipe.json) · [인계](records/dynamic_motion_001/handoff.json) · [달리기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run&energy=100). 착지 압축·발 회수·흉곽 시간차·출발/정지와 발사 후 상체 반응·망토/머리 끝/옷자락을 강조했다. 강도는 0~150%, 기본 100%이며 0%는 이전 움직임이다. 양쪽 다리의 도달 범위로 골반 상승을 제한하고 접지·수평 총구·017 앉아쏴를 유지한다. 필요한 구문·짧은 접점 검사와 Chrome 재생/UI 확인을 수행했으며 사용자 아트 검수는 대기다. 새 결과는 tests/reviews의 `dynamic_motion_001`에 분리했다.
+
 **전방 수평 총구 001:** [변경 내용](../../../../../docs/forward-muzzle-001.md) · [레시피](records/forward_muzzle_001.json) · [인계](records/development_handoff_forward_muzzle_001.json) · [서서쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=fire) · [이동 사격](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk_fire). 모든 자세에서 허리각과 독립적으로 총구 기본 방향을 전방 수평으로 맞췄다. 발사 반동·장전 기울임과 총 높이/전진 설정을 이어 쓰며 추가 검사 없이 `untested`·사용자 검수 대기다.
 
 **앉아쏴 총 높이 조절 001:** [변경 내용](../../../../../docs/kneeling-weapon-level-001.md) · [레시피](records/kneeling_weapon_level_001.json) · [인계](records/development_handoff_kneeling_weapon_level_001.json) · [앉아쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire). 앉아쏴 총 낮춤 0~18을 추가했다. 기본 0은 기존 높이이며 총구 수평을 유지한 채 총과 양손을 함께 내린다. 값은 브라우저와 주소에 저장하며 추가 검사 없이 `untested`·사용자 검수 대기다.

@@ -9,15 +9,20 @@ function follow(node,target,hz,dt){
 // pelvis/foot solution intact and move the rigid chest through its own frame.
 export const BODY_MOTION=Object.freeze({breathPeriod:3.8,breathWaist:.014,breathChest:.005,breathRise:.70,
   walkWaist:.012,runWaist:.018,recoilHz:3.8,recoilDamping:.72,recoilLimit:.030,recoilImpulse:-.65});
-export function bodyMotion({time,phase,amount=0,running=0,eyeAim=0,kneeling=0,recoil=0}){
+export function bodyMotion({time,phase,amount=0,running=0,eyeAim=0,kneeling=0,recoil=0,energy=0,drive=0}){
   const breath=Math.sin(time*Math.PI*2/BODY_MOTION.breathPeriod);
   const breathing=(1-.48*amount)*(1-.45*eyeAim);
   const stride=amount*(1-.42*eyeAim)*(1-.85*kneeling)*(
     (BODY_MOTION.walkWaist+(BODY_MOTION.runWaist-BODY_MOTION.walkWaist)*running)*Math.sin(phase-.28)
     +(.004+.002*running)*Math.sin(phase*2-.55));
-  const kick=recoil*(1-.45*kneeling);
-  return {breath,waist:breath*BODY_MOTION.breathWaist*breathing+stride+kick,
-    chestPitch:breath*BODY_MOTION.breathChest*breathing-stride*.20+kick*.22,
+  const mobile=amount*(1-.55*eyeAim)*(1-kneeling)*energy;
+  const followThrough=mobile*((.022+.014*running)*Math.sin(phase-.50)+.010*Math.sin(phase*2-.85));
+  const weightShift=drive*energy*(1-kneeling)*(1-.4*eyeAim);
+  const kick=recoil*(1-.45*kneeling)*(1+.45*energy*(1-kneeling));
+  return {breath,waist:breath*BODY_MOTION.breathWaist*breathing+stride+followThrough+weightShift+kick,
+    chestPitch:breath*BODY_MOTION.breathChest*breathing-stride*.20-followThrough*.40-weightShift*.25+kick*.22,
+    // Grounded pelvis motion already supplies the step's vertical movement.
+    // Keep slow breathing, without a second out-of-phase chest bounce.
     chestRise:breath*BODY_MOTION.breathRise*breathing,recoil:kick};
 }
 export class HairMotion {
@@ -39,9 +44,9 @@ export class HairMotion {
       node.angle=clamp(node.angle,-.18,0);
     });
   }
-  points(){
+  points(energy=0){
     const points=[{x:0,y:0}],length=this.length/this.segments;
-    for(const n of this.nodes){const p=points.at(-1);points.push({x:p.x+Math.sin(n.angle)*length,y:p.y+Math.cos(n.angle)*length});}
+    for(const n of this.nodes){const p=points.at(-1),angle=clamp(n.angle*(1+.5*energy),-.30,0);points.push({x:p.x+Math.sin(angle)*length,y:p.y+Math.cos(angle)*length});}
     return points;
   }
 }
@@ -55,7 +60,7 @@ export class OutfitMotion {
     follow(this.waist,amount*(.014+.008*running)*Math.sin(phase-.45)+breath*.004-waist*.20+impulse*.030,3.6,dt);
     follow(this.hem,amount*(.065+.035*running)*Math.sin(phase-.85)+breath*.022-waist*.60+impulse*.075,3.0,dt);
   }
-  pose(){return {waist:this.waist.angle,hem:this.hem.angle};}
+  pose(energy=0){return {waist:this.waist.angle*(1+.35*energy),hem:this.hem.angle*(1+.55*energy)};}
 }
 function rotateOffset(x,y,angle){const c=Math.cos(angle),s=Math.sin(angle);return {x:c*x-s*y-x,y:s*x+c*y-y};}
 export function outfitOffset(state,width,height,u,v){

@@ -1,0 +1,52 @@
+{
+  "status": "passed",
+  "scope": "Short macOS Chrome shared-controls and persistence check only; no art acceptance or exhaustive pose combinations.",
+  "browser": "Local Google Chrome via Python Playwright",
+  "base_url": "http://127.0.0.1:4174",
+  "checks": [
+    "Existing firing waist, kneeling height and energy preferences migrate into action profiles.",
+    "All eight actions expose the same live controls; paused edits do not advance time; switching restores independent values and reaction toggles.",
+    "Profiles survive a full reload and shared URLs encode the selected action.",
+    "Current-action reset preserves other actions.",
+    "URL overrides apply to walking fire through the common controls.",
+    "Legacy height URLs still work, firing plays, and full reset restores all action defaults."
+  ],
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/walk_fire_controls.png",
+      "sha256": "9514c5e1a815f613a4b40262fcbb95faf19772405b762da45bed7a4d5d912061"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/walk_fire_pose.png",
+      "sha256": "9d86707c168165dbdad734e167a8e0137c4dc93cdc65933e64164113cfd3253e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/kneel_fire_pose.png",
+      "sha256": "caa004beb3d47577c3c1af1ab7065d45156fc75a0279bce1bf65259ed07ee836"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/motion-controls.js",
+      "sha256": "aa24a39560d7f61714d6bbaf19075cbb9187acfdadf2e91819b916f1142ebbe4"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "b3a34647a4cf89e417629b6a97bc0007e4f50f154d1f46fee1ccc4b6031dee98"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "3f2282d5b0dc6e2bbebf01dabad0a041c2d5900da96dadfeaefe84a75939b899"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "7fde4e92ac5e0723c77f444bc36d46c2056e2e0934e99be7535b08f960916bfc"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "37819d490e46c7a9d0fd4a306645c1bab2f931b72fbd945d608eb9af4c76f59b"
+    }
+  ],
+  "gifs_generated": false
+}

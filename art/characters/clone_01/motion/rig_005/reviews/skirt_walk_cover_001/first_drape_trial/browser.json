@@ -1,0 +1,49 @@
+{
+  "status": "passed",
+  "scope": "Short Chrome playback and frozen-pose comparison captures; coverage/naturalness still requires visual review.",
+  "browser": "Local Google Chrome via Python Playwright",
+  "checks": [
+    "walk_front: same-pose before/after capture without advancing simulation.",
+    "walk_other: same-pose before/after capture without advancing simulation.",
+    "run: same-pose before/after capture without advancing simulation.",
+    "Short moving playback remains active; source artwork and original bones reused."
+  ],
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk_front_before.png",
+      "sha256": "a1da127f8902dcbb62b6b34f1ad730239cad7444c8a25a398a3d67845bb3da4e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk_front_after.png",
+      "sha256": "6425dd70010a7faab464119632676b59386c19fabf737608194a54f85f19f8ed"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk_other_before.png",
+      "sha256": "901463af12115bfc1a33e35c36ca6f75a7005ebcea341350abbfc3a046561d83"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/walk_other_after.png",
+      "sha256": "0ff9eb153f03ca37ebfc14ceefaea87b24848b746b4f81c354a8c290ac21bec1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/run_before.png",
+      "sha256": "9f5651034facec4f2a4898c10b6ef1a90bc7f910ab41d9a56f7d42e59446a4d7"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/skirt_walk_cover_001/run_after.png",
+      "sha256": "e5fcb839c88fbdeab9734eecd0f7bc42a347684a89221bd658d197753595cf60"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/waist.js",
+      "sha256": "bb4123e6037b5a3ffaff8ee5d5cb718086e14c558cc2fad5a653976d9edde0bf"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "cc16a6d62789fda5126be7bc5a2ec2ff3317a639bfcde879a72ea22689cb0dcf"
+    }
+  ],
+  "gifs_generated": false
+}

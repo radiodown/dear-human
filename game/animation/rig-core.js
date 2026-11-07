@@ -1,6 +1,6 @@
 // Shared simulation for the library and the future game scene. Units are logical pixels.
 import { WEAPONS } from './weapon-profiles.js';
-import { GAIT, RUN, KNEEL, kneelWeight, gaitProfile, gaitBody, footPose, RearBrace, RunFootContacts } from './gait.js';
+import { GAIT, RUN, KNEEL, MOTION_ENERGY, kneelWeight, gaitProfile, gaitBody, footPose, energeticFoot, RearBrace, RunFootContacts } from './gait.js';
 import { HUMAN, handOffset } from './proportions.js';
 import { CapeMotion } from './cape.js';
 import { HairMotion, OutfitMotion, BODY_MOTION, bodyMotion } from './secondary-motion.js';
@@ -8,7 +8,8 @@ import { reloadPose } from './reload-pose.js';
 import { WAIST, waistFrame, bustFrame } from './waist.js';
 import { kneelingHead } from './kneeling-pose.js';
 import { MUZZLE_LIGHT } from './muzzle-light.js';
-import { FIRING_FORM, chestFrame, shoulderFrame, weaponSeat, formArm, formArmLengths, runningWeaponAdvance } from './firing-form.js';
+import { MOTION_CONTROL_DEFAULTS, MOTION_REACTIONS, normalizeMotionControls } from './motion-controls.js';
+import { FIRING_FORM, WEAPON_CARRY, weaponCarry, chestFrame, shoulderFrame, weaponSeat, formArm, formArmLengths, runningWeaponAdvance } from './firing-form.js';
 export { WEAPONS } from './weapon-profiles.js';
 export const STEP = 1 / 120;
 export const FIRE_WAIST=Object.freeze({min:0,max:45,defaults:Object.freeze({standing:12,running:15})});
@@ -55,6 +56,7 @@ export class CharacterRig {
     this.cloth = new Spring(6,.9,.5); this.cape = new Spring(3,.9,3);
     this.recoil = new Spring(12,1,3);
     this.bodyRecoil = new Spring(BODY_MOTION.recoilHz,BODY_MOTION.recoilDamping,BODY_MOTION.recoilLimit);
+    this.moveDrive=new Spring(2.6,.78,.060);this.motionSpeed=0;this.motionEnergy=MOTION_ENERGY.default;
     this.enabled = { recoil:true, head:true, hair:true, cloth:true, cape:true };
     this.weapon = WEAPONS.m16_basic; this.ammo=30; this.time=0; this.shots=0; this.recoilEvents=0;
     this.cooldown=0; this.flash=0; this.phase=Math.PI*2*.36; this.facing=1; this.walk=false; this.trigger=false;
@@ -64,9 +66,12 @@ export class CharacterRig {
     this.rearBrace=new RearBrace();
     this.pendingShot=false;this.preFire=0;
     this.bendTarget=0;this.bendAngle=0;this.bustTarget=0;this.bustAngle=0;
+    this.controlMotion=null;this.motionControls=null;
+    this.poseWaistTarget=0;this.poseWaistOffset=0;this.weaponDropTarget=0;this.weaponDropOffset=0;
     this.fireWaistTarget=Object.fromEntries(Object.entries(FIRE_WAIST.defaults).map(([kind,degrees])=>[kind,degrees*Math.PI/180]));
     this.fireWaistAngle={...this.fireWaistTarget};
     this.run=false;this.runAmount=0;this.kneel=false;this.kneelAmount=0;
+    this.relaxed=false;this.relaxAmount=0;
     this.runCarryAmount=0;
     this.carryDropTarget=HUMAN.runCarry.drop;this.carryDrop=HUMAN.runCarry.drop;
     this.kneelDropTarget=KNEEL_CARRY.defaultDrop;this.kneelDrop=KNEEL_CARRY.defaultDrop;
@@ -91,10 +96,28 @@ export class CharacterRig {
     this.kneel=value;
     if(value)this.setWalking(false);
   }
+  setRelaxed(value){this.relaxed=!!value;}
   setBend(degrees,immediate=false){
     if(!Number.isFinite(degrees))return false;
     this.bendTarget=clamp(degrees,0,45)*Math.PI/180;
     if(immediate)this.bendAngle=this.bendTarget;
+    return true;
+  }
+  setMotionEnergy(value){
+    if(!Number.isFinite(value))return false;
+    this.motionEnergy=clamp(value,MOTION_ENERGY.min,MOTION_ENERGY.max);return true;
+  }
+  setMotionControls(mode,settings,immediate=false){
+    if(!MOTION_CONTROL_DEFAULTS[mode])return false;
+    const value=normalizeMotionControls(mode,settings),defaults=MOTION_CONTROL_DEFAULTS[mode];
+    this.controlMotion=mode;this.motionControls=value;
+    // Zero differences reproduce each authored default. Apply the same
+    // offsets to every action, including walking fire and kneeling.
+    this.poseWaistTarget=(value.waist-defaults.waist)*Math.PI/180;
+    this.weaponDropTarget=value.weaponDrop-defaults.weaponDrop;
+    if(immediate){this.poseWaistOffset=this.poseWaistTarget;this.weaponDropOffset=this.weaponDropTarget;}
+    this.setBend(value.bend,immediate);this.setBustPitch(value.bust,immediate);this.setMotionEnergy(value.energy/100);
+    for(const key of MOTION_REACTIONS)this.setReaction(key,value[key]);
     return true;
   }
   setBustPitch(degrees,immediate=false){
@@ -179,9 +202,14 @@ export class CharacterRig {
     const kneelTarget=this.kneel?1:0;
     this.kneelAmount+=(kneelTarget-this.kneelAmount)*(1-Math.exp(-STEP/.16));
     if(Math.abs(this.kneelAmount-kneelTarget)<1e-4)this.kneelAmount=kneelTarget;
+    const relaxTarget=this.relaxed&&!this.walk&&!this.kneel?1:0;
+    this.relaxAmount+=(relaxTarget-this.relaxAmount)*(1-Math.exp(-STEP/WEAPON_CARRY.relaxTime));
+    if(Math.abs(this.relaxAmount-relaxTarget)<1e-4)this.relaxAmount=relaxTarget;
     const articulationEase=1-Math.exp(-STEP/.10);
     this.bendAngle+=(this.bendTarget-this.bendAngle)*articulationEase;
     this.bustAngle+=(this.bustTarget-this.bustAngle)*articulationEase;
+    this.poseWaistOffset+=(this.poseWaistTarget-this.poseWaistOffset)*articulationEase;
+    this.weaponDropOffset+=(this.weaponDropTarget-this.weaponDropOffset)*articulationEase;
     this.carryDrop+=(this.carryDropTarget-this.carryDrop)*articulationEase;
     this.kneelDrop+=(this.kneelDropTarget-this.kneelDrop)*articulationEase;
     for(const kind of ['standing','running'])this.fireWaistAngle[kind]+=(this.fireWaistTarget[kind]-this.fireWaistAngle[kind])*articulationEase;
@@ -195,25 +223,49 @@ export class CharacterRig {
     }
     this.rearBrace.step(STEP,{aim:this.aimAmount,walking:this.walkAmount,enabled:this.enabled.recoil&&this.kneelAmount<.05});
     const profile=gaitProfile(this.runAmount),delta=STEP*profile.speed*this.walkAmount*(1-this.kneelAmount)*(this.reload ? .75 : 1);
+    const speed=delta/STEP;
+    // Acceleration leans into a start, deceleration settles back. Only the
+    // fixed simulation step changes this spring; pose() stays read-only.
+    this.moveDrive.impulse((speed-this.motionSpeed)*.008);this.moveDrive.step(STEP);this.motionSpeed=speed;
     this.distance+=delta;this.phase+=delta/(profile.speed*profile.period)*Math.PI*2;
     this.runFootContacts.step({phase:this.phase,amount:this.walkAmount,running:this.runAmount,kneeling:this.kneelAmount,distance:this.distance});
     for (const k of ['head','hair','cloth','cape','recoil']) { if (this.enabled[k]) this[k].step(STEP); else this[k].reset(); }
     if(this.enabled.recoil)this.bodyRecoil.step(STEP);else this.bodyRecoil.reset();
     this.capeMotion.step(STEP,{speed:delta/STEP,phase:this.phase,impulse:this.cape.x,enabled:this.enabled.cape});
     this.hairMotion.step(STEP,{speed:delta/STEP,phase:this.phase,impulse:this.hair.x,enabled:this.enabled.hair});
-    const motion=this.bodyMotion();
+    const motion=this.bodyMotion(0);
     // Keep the fabric state advancing while hidden. Mask it only in pose(),
     // so toggling either way also compares the same instant while paused.
     this.outfitMotion.step(STEP,{amount:this.walkAmount,phase:this.phase,running:this.runAmount,
       breath:motion.breath,waist:motion.waist,impulse:this.cloth.x+motion.recoil*4});
   }
-  bodyMotion(){return bodyMotion({time:this.time,phase:this.phase,amount:this.walkAmount,running:this.runAmount,
-    eyeAim:this.aimAmount*(1-this.runCarryAmount),kneeling:kneelWeight(this.kneelAmount),recoil:this.enabled.recoil?this.bodyRecoil.x:0});}
+  bodyMotion(energy=this.motionEnergy){return bodyMotion({time:this.time,phase:this.phase,amount:this.walkAmount,running:this.runAmount,
+    eyeAim:this.aimAmount*(1-this.runCarryAmount),kneeling:kneelWeight(this.kneelAmount),recoil:this.enabled.recoil?this.bodyRecoil.x:0,
+    energy,drive:this.moveDrive.x});}
   pose() {
     const eyeAim=this.aimAmount*(1-this.runCarryAmount);
     const kneeling=kneelWeight(this.kneelAmount),brace=lerp(1,.55,kneeling);
+    const r=this.reload,q=r?clamp(r.t/.25,0,1)*clamp((r.duration-r.t)/.25,0,1):0;
+    const carryState=weaponCarry({running:this.runCarryAmount,relaxed:this.relaxAmount*(1-this.walkAmount)*(1-kneeling),aim:this.aimAmount,reload:q});
     const runPosture=this.runAmount*this.walkAmount*(1-kneeling);
-    const pelvis=gaitBody(this.phase,this.walkAmount,this.time,this.aimAmount,this.runAmount,this.kneelAmount,eyeAim,this.recoil.x*.22*brace),bob=pelvis.y-HUMAN.hipY;
+    const pelvis=gaitBody(this.phase,this.walkAmount,this.time,this.aimAmount,this.runAmount,this.kneelAmount,eyeAim,this.recoil.x*.22*brace,this.motionEnergy);
+    const rearBrace=this.rearBrace.pose(this.walkAmount),legRoots=[{x:8,y:2},{x:KNEEL.rearRootX,y:0}];
+    const feet=this.runFootContacts.feet.map((contact,layer)=>{
+      let foot=energeticFoot(contact,this.walkAmount,this.runAmount,this.kneelAmount,this.motionEnergy);
+      if(layer===1&&(rearBrace.x||rearBrace.lift))foot={...foot,...footPose(foot.trackX+rearBrace.x,foot.clearance+rearBrace.lift,foot.a+rearBrace.angle),stance:foot.stance&&rearBrace.lift<.01};
+      return foot;
+    });
+    if(this.motionEnergy>0&&kneeling<.999){
+      // Bound the upward accent by BOTH rigid legs before building the torso
+      // and weapon frames. Lower the pelvis just enough to retain foot reach;
+      // never pull a planted boot off the floor or scale a limb to hide it.
+      const reach=GAIT.thigh+GAIT.shin-.001;
+      for(let i=0;i<feet.length;i++){
+        const root=transform(legRoots[i],{x:pelvis.x,y:0,a:pelvis.a}),dx=feet[i].x-root.x;
+        pelvis.y=Math.max(pelvis.y,feet[i].y-Math.sqrt(Math.max(0,reach*reach-dx*dx))-root.y);
+      }
+    }
+    const bob=pelvis.y-HUMAN.hipY;
     const motion=this.bodyMotion();
     // Per-action values replace the nominal firing waist angle. Existing load,
     // breathing, recoil and the common manual bend remain additive. Fade the
@@ -221,7 +273,7 @@ export class CharacterRig {
     const standingFire=this.aimAmount*(1-this.walkAmount)*(1-kneeling),runningFire=this.aimAmount*runPosture;
     const fireWaistOffset=standingFire*(this.fireWaistAngle.standing-(FIRING_FORM.standingLean-FIRING_FORM.pelvisTilt))
       +runningFire*(this.fireWaistAngle.running-RUN.lean);
-    const lean=pelvis.lean+fireWaistOffset+this.recoil.x*.003*brace+this.bendAngle+motion.waist;
+    const lean=lerp(pelvis.lean,pelvis.a,carryState.rest)+fireWaistOffset+this.poseWaistOffset+this.recoil.x*.003*brace+this.bendAngle+motion.waist;
     const waist=waistFrame(pelvis,lean);
     const chestBase=chestFrame(waist,eyeAim,this.runAmount,kneeling);
     const chest={...transform({x:0,y:-motion.chestRise},chestBase),a:chestBase.a+motion.chestPitch};
@@ -229,27 +281,29 @@ export class CharacterRig {
     const girdle=shoulderFrame(torso,eyeAim,this.runAmount,kneeling);
     const bust=bustFrame({waist,chest},HUMAN.heights.body_core*HUMAN.bodyAspect,HUMAN.heights.body_core,this.bustAngle);
     const bodyPoint=(x,y)=>transform({x,y},girdle),neckPoint=(x,y)=>transform({x,y},torso);
-    const r=this.reload, q=r?clamp(r.t/.25,0,1)*clamp((r.duration-r.t)/.25,0,1):0;
     const w=this.weapon;
     const carry=this.runCarryAmount;
     const seat=weaponSeat(eyeAim,carry,this.carryDrop,kneeling);
+    seat.x=lerp(seat.x+carryState.run*WEAPON_CARRY.runSeatOffset.x,WEAPON_CARRY.restSeat.x,carryState.rest);
+    seat.y=lerp(seat.y+carryState.run*WEAPON_CARRY.runSeatOffset.y,WEAPON_CARRY.restSeat.y,carryState.rest);
     const stockPocket=bodyPoint(seat.x,seat.y);
     const stockTarget=bodyPoint(seat.x,seat.y+q*7);
     // Kneeling rifle height is a world-vertical translation of the whole
     // weapon frame, independent of waist bend and horizontal muzzle pitch.
     const kneelWeaponDrop=this.kneelDrop*kneeling;
-    stockPocket.y+=kneelWeaponDrop;stockTarget.y+=kneelWeaponDrop;
-    // Every pose shares a forward-horizontal muzzle baseline. Torso/waist
-    // angles move the stock seat without pitching the barrel down, including
-    // during stance transitions. Shot kick and reload release remain authored.
-    const angle=clamp(this.recoil.x*.012*lerp(1,.7,kneeling),-lerp(.0349,.012,runPosture),0)+q*.13;
+    const weaponHeightOffset=kneelWeaponDrop+this.weaponDropOffset;
+    stockPocket.y+=weaponHeightOffset;stockTarget.y+=weaponHeightOffset;
+    // Non-firing run and relaxed idle carry the muzzle down. Preparation
+    // raises it fully before isFireReady() permits the first shot; firing,
+    // shouldered idle and the other existing actions keep their level base.
+    const angle=carryState.pitch+clamp(this.recoil.x*.012*lerp(1,.7,kneeling),-lerp(.0349,.012,runPosture),0)+q*.13;
     const stockOffset=transform({x:(w.stock.x-w.pivot.x)*w.width,y:(w.stock.y-w.pivot.y)*w.height},{x:0,y:0,a:angle});
     // Rotate about the selected body seat: shoulder when aiming, lower chest
     // while running. Arms, hands and muzzle sockets all follow this one frame.
     const weapon={x:stockTarget.x-stockOffset.x,y:stockTarget.y-stockOffset.y,a:angle};
     const socket=(p)=>transform({x:(p.x-w.pivot.x)*w.width,y:(p.y-w.pivot.y)*w.height},weapon);
     let weaponAdvance=0;
-    const forwardWeight=runPosture*carry*(1-q);
+    const forwardWeight=runPosture*carry*(1-q)*(1-carryState.lowered);
     if(forwardWeight>.001){
       const armGoals=[['primary',HUMAN.primaryShoulder,w.primary,false],['support',HUMAN.supportShoulder,w.support,true]].map(([side,shoulder,grip,supportHand])=>{
         const root=bodyPoint(shoulder.x,shoulder.y),palm=socket(grip);
@@ -277,42 +331,44 @@ export class CharacterRig {
     const armA=r?ik2(shoulderA,wristA,HUMAN.upperArm,HUMAN.forearm,1):formArm(ik2,shoulderA,wristA,girdle,'primary',eyeAim,carry,kneeling);
     const armB=r?ik2(shoulderB,wristB,HUMAN.upperArm,HUMAN.forearm-6*viewAmount,1):formArm(ik2,shoulderB,wristB,girdle,'support',eyeAim,carry,kneeling);
     const palmA={x:armA.hand.x+offsetA.x,y:armA.hand.y+offsetA.y},palmB={x:armB.hand.x+offsetB.x,y:armB.hand.y+offsetB.y};
-    const rearBrace=this.rearBrace.pose(this.walkAmount);
     const legs=[0,1].map(layer=>{
-      let foot=this.runFootContacts.feet[layer];
-      if(layer===1&&(rearBrace.x||rearBrace.lift))foot={...foot,...footPose(foot.trackX+rearBrace.x,foot.clearance+rearBrace.lift,foot.a+rearBrace.angle),stance:foot.stance&&rearBrace.lift<.01};
-      const root=transform({x:layer===0?8:KNEEL.rearRootX,y:layer===0?2:0},pelvis);
+      const foot=feet[layer],root=transform(legRoots[layer],pelvis);
       // Both human knees flex toward the direction of travel. Layer/depth is
       // represented by draw order, not by giving the rear knee a reverse hinge.
       return {...ik2(root,foot,GAIT.thigh,GAIT.shin,-1),foot};
     });
     const kneeSupport={amount:kneeling,target:KNEEL.rearKnee,actual:legs[1].elbow,
       error:Math.hypot(legs[1].elbow.x-KNEEL.rearKnee.x,legs[1].elbow.y-KNEEL.rearKnee.y)};
-    const cheek=(.25+.75*this.cheekAmount)*(1-carry);
+    const cheek=(.25+.75*this.cheekAmount)*(1-carry)*(1-carryState.rest);
     const h=HUMAN.headRegistration;
     const usualHeadPitch=cheek*HUMAN.headAim.a+carry*HUMAN.runCarry.headCounterPitch;
-    // Counter the actual current torso pitch, including manual bend. Preserve
-    // the source's forward-facing registration and only 15% of the shot nod.
-    const forwardHeadPitch=-torso.a*h.rotationMix-this.head.x*.015*.85;
-    let headAim={x:cheek*HUMAN.headAim.x,y:cheek*HUMAN.headAim.y,a:lerp(usualHeadPitch,forwardHeadPitch,runPosture)};
+    const headBodyMotion=lerp(pelvis.leanMotion,pelvis.angleMotion,carryState.rest)
+      +this.recoil.x*.003*brace+motion.waist+motion.chestPitch;
+    const steadyTorsoPitch=torso.a-headBodyMotion;
+    // Counter only sustained running/manual lean. Current-step body pitch
+    // reaches the head in full, with no lag or opposite bounce compensation.
+    const forwardHeadPitch=-steadyTorsoPitch*h.rotationMix-this.head.x*.015*.85;
+    let headAim={x:cheek*HUMAN.headAim.x,y:cheek*HUMAN.headAim.y,
+      a:lerp(usualHeadPitch,forwardHeadPitch,runPosture)+(1-h.rotationMix)*headBodyMotion};
     let headAngle=torso.a*h.rotationMix+h.restAngle+this.head.x*.015+headAim.a;
     const sightLine=w.rearSight?{rear:socket(w.rearSight),front:socket(w.frontSight)}:null;
     ({headAim,headAngle}=kneelingHead(torso,headAim,headAngle,sightLine,kneeling*eyeAim*(1-q)));
-    const eye=transform({x:(h.eye[0]-h.pivot[0])*HUMAN.headHeight*h.aspect,y:(h.eye[1]-h.pivot[1])*HUMAN.headHeight},
-      {...neckPoint(h.anchor.x+headAim.x,h.anchor.y+headAim.y),a:headAngle});
+    const headFrame={...neckPoint(h.anchor.x+headAim.x,h.anchor.y+headAim.y),a:headAngle};
+    const eye=transform({x:(h.eye[0]-h.pivot[0])*HUMAN.headHeight*h.aspect,y:(h.eye[1]-h.pivot[1])*HUMAN.headHeight},headFrame);
     const eyeSightError=sightLine?(eye.y-sightLine.rear.y)*Math.cos(weapon.a)-(eye.x-sightLine.rear.x)*Math.sin(weapon.a):null;
     return { torso,pelvis,waist,chest,girdle,bust,bustPitch:this.bustAngle,bendAngle:this.bendAngle,bob,walkAmount:this.walkAmount, weapon, stockPocket,stockTarget, sockets:{stock:socket(w.stock),primary,support,mag,muzzle:socket(w.muzzle)}, armA,armB,palmA,palmB,handAngleA,handAngleB,supportTarget,legs,magazine,magazineVisible,reloadContact,supportArmBehind:!!r,rearBrace,
       supportHandKey:r?'support_hand':'support_hand_closed_grip',supportForearmKey:viewAmount>.15?'far_forearm_reload':'far_forearm',
-      head:this.head.x,hair:this.hair.x,cloth:this.cloth.x,cape:this.cape.x,capePoints:this.capeMotion.points(),aimAmount:this.aimAmount,
-      bodyMotion:motion,hairPoints:this.hairMotion.points(),outfit:{...(this.enabled.cloth?this.outfitMotion.pose():{waist:0,hem:0}),enabled:this.enabled.cloth,pelvisRelativeAngle:pelvis.a-torso.a},
-      headAim,headAngle,eye,sightLine,eyeSightError,eyeAim,fireWaistOffset,runPosture,weaponAdvance,kneelWeaponDrop,runCarryAmount:carry,carryDrop:this.carryDrop,runAmount:this.runAmount,kneelAmount:this.kneelAmount,kneeSupport,
+      head:this.head.x,hair:this.hair.x,cloth:this.cloth.x,cape:this.cape.x,capePoints:this.capeMotion.points(this.motionEnergy*(1-kneeling)),aimAmount:this.aimAmount,
+      bodyMotion:motion,hairPoints:this.hairMotion.points(this.motionEnergy*(1-kneeling)),outfit:{...(this.enabled.cloth?this.outfitMotion.pose(this.motionEnergy*(1-kneeling)):{waist:0,hem:0}),enabled:this.enabled.cloth,pelvisRelativeAngle:pelvis.a-torso.a},
+      headAim,headAngle,headFrame,headBodyMotion,steadyTorsoPitch,eye,sightLine,eyeSightError,eyeAim,fireWaistOffset,runPosture,weaponAdvance,kneelWeaponDrop,weaponHeightOffset,carryState,runCarryAmount:carry,carryDrop:this.carryDrop,runAmount:this.runAmount,kneelAmount:this.kneelAmount,kneeSupport,
       gripError:Math.max(Math.hypot(palmA.x-primary.x,palmA.y-primary.y),Math.hypot(palmB.x-supportTarget.x,palmB.y-supportTarget.y)) };
   }
   snapshot() {
     const p=this.pose();return {seconds:this.time,shots:this.shots,recoilEvents:this.recoilEvents,ammo:this.ammo,reload:this.reload,reloadCompletions:this.reloadCompletions,weapon:this.weapon.id,gripError:p.gripError,facing:this.facing,pendingShot:this.pendingShot,preFire:this.preFire,
       articulation:{bend:this.bendAngle,bendTarget:this.bendTarget,bustPitch:this.bustAngle,bustTarget:this.bustTarget,carryDrop:this.carryDrop,carryDropTarget:this.carryDropTarget,kneelDrop:this.kneelDrop,kneelDropTarget:this.kneelDropTarget,fireWaist:{...this.fireWaistAngle},fireWaistTarget:{...this.fireWaistTarget}},
-      stance:{running:this.runAmount,kneeling:this.kneelAmount,runCarry:this.runCarryAmount,eyeAim:p.eyeAim},
-      secondary:{body:p.bodyMotion,outfit:p.outfit},
+      stance:{running:this.runAmount,kneeling:this.kneelAmount,runCarry:this.runCarryAmount,relaxed:this.relaxAmount,eyeAim:p.eyeAim,weaponCarry:p.carryState},
+      motionControls:{mode:this.controlMotion,settings:this.motionControls?{...this.motionControls}:null,waistOffset:this.poseWaistOffset,weaponDropOffset:this.weaponDropOffset},
+      secondary:{body:p.bodyMotion,outfit:p.outfit,motionEnergy:this.motionEnergy,moveDrive:this.moveDrive.x},
       springs:Object.fromEntries(['head','hair','cloth','cape','recoil'].map(k=>[k,this[k].x]))};
   }
 }

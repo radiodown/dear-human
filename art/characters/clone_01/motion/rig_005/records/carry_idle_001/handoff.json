@@ -1,0 +1,83 @@
+{
+  "iteration": "carry_idle_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/recipe.json",
+    "sha256": "1a22a80ce33912fd22b334d0a48f5cb5635e831d049fa67871357a5cbe41c2f0"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "short_numeric_check": {
+      "path": "art/characters/clone_01/motion/rig_005/tests/carry_idle_001/carry-smoke.json",
+      "sha256": "c617200673128168f9be08dc8f13750eb1962227bb8c45c6811e39115a47fc53"
+    },
+    "short_chrome_check": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/browser.json",
+      "sha256": "de5e3a7aa04eb24487fb7f73fb97033b4dec001f5c32ec4b3d2b7600b0f0fc9e"
+    },
+    "states": {
+      "idle": {
+        "maxGripError": 1.4210854715202004e-14,
+        "maxLegError": 5.0242958677880804e-14,
+        "maxStockError": 1.7763568394002505e-15,
+        "pitchDegrees": 0,
+        "shots": 0
+      },
+      "relaxed": {
+        "maxGripError": 3.1776437161565096e-14,
+        "maxLegError": 5.0242958677880804e-14,
+        "maxStockError": 2.864289338439558e-14,
+        "pitchDegrees": 58,
+        "shots": 0
+      },
+      "run": {
+        "maxGripError": 3.1776437161565096e-14,
+        "maxLegError": 6.404745667978755e-14,
+        "maxStockError": 2.864289338439558e-14,
+        "pitchDegrees": 35,
+        "shots": 0
+      },
+      "run_fire": {
+        "maxGripError": 2.842170943040401e-14,
+        "maxLegError": 4.9387831689024055e-14,
+        "maxStockError": 2.909377512977897e-14,
+        "pitchDegrees": -0.03213653972369829,
+        "shots": 19
+      }
+    },
+    "raise_fire_return": {
+      "relaxed": {
+        "firstShot": {
+          "afterSeconds": 0.12499999999999956,
+          "pitchDegrees": -0.916998481200331,
+          "lowered": 0
+        },
+        "maxGripError": 3.1776437161565096e-14,
+        "returnedPitchDegrees": 58
+      },
+      "run": {
+        "firstShot": {
+          "afterSeconds": 0.12499999999999956,
+          "pitchDegrees": -0.6877068409147148,
+          "lowered": 0
+        },
+        "maxGripError": 2.842170943040401e-14,
+        "returnedPitchDegrees": 35
+      }
+    },
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_results": "unchanged"
+  },
+  "entry_points": {
+    "idle": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle",
+    "relaxed": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=relaxed",
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire"
+  },
+  "remaining": [
+    "User visual review of lowered rifle/arm overlap and off-shoulder carry silhouette.",
+    "Extreme combined waist/height settings and reload transitions were not exhaustively reviewed.",
+    "No new relaxed-hand artwork, sling simulation or 3D cloth/collision was created."
+  ]
+}

@@ -1,0 +1,174 @@
+{
+  "scope": "Short simulation of changed motion: foot reach/floor, grips, stock, finite output, and zero-energy comparison. No full test suite.",
+  "energies": [
+    0,
+    1,
+    1.5
+  ],
+  "modes": {
+    "walk:0": {
+      "maxLegError": 5.1237965343830035e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -165.29989257288636,
+      "hipMax": -161.50211962857028,
+      "maxClearance": 6.49677425840103
+    },
+    "run:0": {
+      "maxLegError": 5.17282919736354e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 5.329070518200751e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -163.34905516067587,
+      "hipMax": -159.00028965142806,
+      "maxClearance": 31.997087207105476
+    },
+    "fire:0": {
+      "maxLegError": 4.779687418147813e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.8546336281444334e-14,
+      "minFloor": 0,
+      "hipMin": -159.72,
+      "hipMax": -159.28133525099236,
+      "maxClearance": 0
+    },
+    "walk_fire:0": {
+      "maxLegError": 5.281488578858708e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.876656200481457e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -162.69989257288637,
+      "hipMax": -158.9021196285703,
+      "maxClearance": 6.49677425840103
+    },
+    "run_fire:0": {
+      "maxLegError": 5.728578676879116e-14,
+      "maxGripError": 4.263256414560601e-14,
+      "maxStockError": 2.9191899439142324e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -160.74905516067588,
+      "hipMax": -156.40028965142807,
+      "maxClearance": 31.997087207105476
+    },
+    "kneel_fire:0": {
+      "maxLegError": 3.776586443654626e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "minFloor": 0,
+      "hipMin": -83.81722305375553,
+      "hipMax": -83.74527988317351,
+      "maxClearance": 1.0498318478633003e-31
+    },
+    "walk:1": {
+      "maxLegError": 5.281488578858708e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -165.27334892754422,
+      "hipMax": -159.37669491661353,
+      "maxClearance": 10.774526491661582
+    },
+    "run:1": {
+      "maxLegError": 1.3511345358729767,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 7.105427357601002e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -165.8488691996601,
+      "hipMax": -156.34629966939212,
+      "maxClearance": 43.99601703486374
+    },
+    "fire:1": {
+      "maxLegError": 4.779687418147813e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.8546336281444334e-14,
+      "minFloor": 0,
+      "hipMin": -159.72,
+      "hipMax": -159.28133525099236,
+      "maxClearance": 0
+    },
+    "walk_fire:1": {
+      "maxLegError": 4.7664655742347644e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.876656200481457e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -162.52154960615567,
+      "hipMax": -157.60722209009506,
+      "maxClearance": 10.774526491661582
+    },
+    "run_fire:1": {
+      "maxLegError": 6.029155041345697e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.909377512977897e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -163.2488691996601,
+      "hipMax": -153.74629966939213,
+      "maxClearance": 43.99601703486374
+    },
+    "kneel_fire:1": {
+      "maxLegError": 3.776586443654626e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "minFloor": 0,
+      "hipMin": -83.81722305375553,
+      "hipMax": -83.74527988317351,
+      "maxClearance": 1.0498318478633003e-31
+    },
+    "walk:1.5": {
+      "maxLegError": 0.4702474651765332,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -165.90847898860952,
+      "hipMax": -158.13641829806016,
+      "maxClearance": 12.976517154741682
+    },
+    "run:1.5": {
+      "maxLegError": 2.627976031882495,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 7.105427357601002e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -167.0987762191522,
+      "hipMax": -154.6701197127813,
+      "maxClearance": 49.99548194874288
+    },
+    "fire:1.5": {
+      "maxLegError": 4.779687418147813e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.8546336281444334e-14,
+      "minFloor": 0,
+      "hipMin": -159.72,
+      "hipMax": -159.28133525099236,
+      "maxClearance": 0
+    },
+    "walk_fire:1.5": {
+      "maxLegError": 5.1237965343830035e-14,
+      "maxGripError": 4.263256414560601e-14,
+      "maxStockError": 2.876656200481457e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -162.64159242449097,
+      "hipMax": -156.83687243189814,
+      "maxClearance": 12.976517154741682
+    },
+    "run_fire:1.5": {
+      "maxLegError": 0.255955408046755,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.929642751054232e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -164.4987762191522,
+      "hipMax": -152.0701197127813,
+      "maxClearance": 49.99548194874288
+    },
+    "kneel_fire:1.5": {
+      "maxLegError": 3.776586443654626e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "minFloor": 0,
+      "hipMin": -83.81722305375553,
+      "hipMax": -83.74527988317351,
+      "maxClearance": 1.0498318478633003e-31
+    }
+  },
+  "baselineMaxDifference": 0,
+  "status": "needs_adjustment"
+}

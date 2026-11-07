@@ -4,9 +4,38 @@ import { FIRING_FORM } from './firing-form.js';
 import { KNEEL_ART } from './kneeling-pose.js';
 export const WAIST=Object.freeze({aboveHip:34,upper:.485,lower:.56,pivotU:.46,pivotV:.88});
 export const BUST=Object.freeze({pivotU:(650-194)/637,pivotV:(490-78)/1315});
+export const SKIRT_WALK=Object.freeze({frontGain:.80,rearGain:.65,maxAngle:.70,thighPinEnd:.28,verticalFollow:.25,hemDrop:5});
 const clamp=t=>Math.max(0,Math.min(1,t));
 const transform=(p,t)=>({x:t.x+Math.cos(t.a)*p.x-Math.sin(t.a)*p.y,y:t.y+Math.sin(t.a)*p.x+Math.cos(t.a)*p.y});
 const hermite=(a,b,ma,mb,t)=>(2*t*t*t-3*t*t+1)*a+(t*t*t-2*t*t+t)*ma+(-2*t*t*t+3*t*t)*b+(t*t*t-t*t)*mb;
+const smooth=t=>{t=clamp(t);return t*t*(3-2*t);};
+const movingSkirt=p=>(p.walkAmount??0)*(1-(p.kneeSupport?.amount??0));
+export function thighRootOffset(p,width,height,pivot,angle,u,v){
+  // Keep the skin's upper cap inside the pelvis/skirt. Blend to the solved
+  // thigh below it without moving either bone joint or scaling the sprite.
+  const weight=movingSkirt(p)*(1-smooth((v-pivot[1])/(SKIRT_WALK.thighPinEnd-pivot[1])));
+  const delta=Math.atan2(Math.sin(p.pelvis.a-angle),Math.cos(p.pelvis.a-angle))*weight;
+  const x=(u-pivot[0])*width,y=(v-pivot[1])*height,c=Math.cos(delta),s=Math.sin(delta);
+  return {x:c*x-s*y-x,y:s*x+c*y-y};
+}
+function walkingSkirtPoint(p,width,height,u,v,front){
+  const base=outfitPoint(p,width,height,u,v),amount=movingSkirt(p);
+  if(amount<=0)return base;
+  // Both legs push the same outer garment. Pick the forward/back envelope,
+  // rather than assigning a fixed panel to a leg that later changes sides.
+  const flex=p.legs.map(leg=>Math.PI/2-(Math.atan2(leg.elbow.y-leg.root.y,leg.elbow.x-leg.root.x)-p.pelvis.a));
+  const swing=front?Math.max(0,...flex):Math.min(0,...flex);
+  const side=front?(u-KNEEL_ART.skirtSplit)/(1-KNEEL_ART.skirtSplit):(KNEEL_ART.skirtSplit-u)/KNEEL_ART.skirtSplit;
+  const pin=smooth((v-KNEEL_ART.skirtHinge)/(1-KNEEL_ART.skirtHinge));
+  const angle=-Math.max(-SKIRT_WALK.maxAngle,Math.min(SKIRT_WALK.maxAngle,swing*(front?SKIRT_WALK.frontGain:SKIRT_WALK.rearGain)))*amount*pin*smooth(side);
+  const hinge=transform({x:((front ? .72 : .30)-WAIST.pivotU)*width,y:(KNEEL_ART.skirtHinge-WAIST.pivotV)*height},p.pelvis);
+  const dx=base.x-hinge.x,dy=base.y-hinge.y,c=Math.cos(angle),s=Math.sin(angle);
+  const drop=SKIRT_WALK.hemDrop*amount*pin*smooth(side),drapedY=hinge.y+s*dx+c*dy;
+  // Let the leg open the skirt forward without lifting its whole hem like a
+  // rigid plate. Gravity keeps an overlap below the thigh's pinned upper cap.
+  return {x:hinge.x+c*dx-s*dy-Math.sin(p.pelvis.a)*drop,
+    y:base.y+(drapedY-base.y)*SKIRT_WALK.verticalFollow+Math.cos(p.pelvis.a)*drop};
+}
 export function waistFrame(pelvis,angle){return {...transform({x:0,y:-WAIST.aboveHip},pelvis),a:angle};}
 export function upperPoint(p,width,height,u,v){
   const point={x:(u-WAIST.pivotU)*width,y:(v-WAIST.pivotV)*height+WAIST.aboveHip},lower=transform(point,p.waist);
@@ -54,7 +83,7 @@ export function outfitPoint(p,width,height,u,v){
 // The belt/pouches remain on the pelvis. Two lower cloth panels drape over
 // their own thigh, with a pinned upper row and a compressed interior fold.
 export function skirtPanelPoint(p,width,height,u,v,front){
-  const base=outfitPoint(p,width,height,u,v),amount=p.kneeSupport?.amount??0;
+  const base=walkingSkirtPoint(p,width,height,u,v,front),amount=p.kneeSupport?.amount??0;
   if(amount<=0)return base;
   const leg=p.legs[front?0:1],thigh=Math.atan2(leg.elbow.y-leg.root.y,leg.elbow.x-leg.root.x)-p.pelvis.a;
   const t=clamp((v-KNEEL_ART.skirtHinge)/(1-KNEEL_ART.skirtHinge)),pin=t*t*(3-2*t);

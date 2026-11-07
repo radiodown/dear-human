@@ -1,0 +1,148 @@
+{
+  "action": "walk_fire",
+  "tool": "built-in image_gen",
+  "image_calls_including_rejected": 4,
+  "calls": [
+    {
+      "action": "walk_fire",
+      "stage": "keyposes_attempt01",
+      "prompt": "walk_fire/records/keyposes_prompt.json",
+      "prompt_document": "walk_fire/records/keyposes_prompt.md",
+      "observed_tool_time_ms": 84300,
+      "inputs": [
+        {
+          "path": "walk_fire/source/keypose_edit_board.png",
+          "sha256": "ee1356915f8105d2bbab03b919a369c99f421543a48853fe67c0509f07cc7cb8"
+        },
+        {
+          "path": "source/identity_005.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        }
+      ],
+      "output": "walk_fire/source/keyposes_attempt01.png",
+      "output_sha256": "f4dad3232fbde841aa3f625c1d18bfcdbc9488d8751305794efb15ab905bd9ee",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "rejected_scale_ground_drift"
+    },
+    {
+      "action": "walk_fire",
+      "stage": "keyposes_retry02",
+      "prompt": "walk_fire/records/keyposes_retry02_prompt.json",
+      "prompt_document": "walk_fire/records/keyposes_retry02_prompt.md",
+      "observed_tool_time_ms": 45182,
+      "inputs": [
+        {
+          "path": "walk_fire/source/keypose_edit_board.png",
+          "sha256": "ee1356915f8105d2bbab03b919a369c99f421543a48853fe67c0509f07cc7cb8"
+        },
+        {
+          "path": "source/identity_005.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        }
+      ],
+      "output": "walk_fire/source/keyposes.png",
+      "output_sha256": "1f27fed2d0e792a64701228cd33935012ee28e4d27a605429d3ce74d6fb059df",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "accepted_for_inbetweens"
+    },
+    {
+      "action": "walk_fire",
+      "stage": "inbetweens_a",
+      "prompt": "walk_fire/records/inbetweens_a_prompt.json",
+      "prompt_document": "walk_fire/records/inbetweens_a_prompt.md",
+      "observed_tool_time_ms": 81722,
+      "inputs": [
+        {
+          "path": "walk_fire/source/inbetweens_a_edit_board.png",
+          "sha256": "486cb7666e1b91af5456dd2cdb1f869e16df65876e73b5450f9e3b748191ea11"
+        },
+        {
+          "path": "walk_fire/source/baseline.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        },
+        {
+          "path": "walk_fire/source/keyposes_normalized.png",
+          "sha256": "3dd877257981d624e4cd32205fb74566a36353893185de64e512839c5e9fc4a6"
+        }
+      ],
+      "output": "walk_fire/source/inbetweens_a.png",
+      "output_sha256": "0a59ff329a8297747f5422e0712f202f9d9e382ec85f357a6278f9bdf1b1a0e4",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "packed"
+    },
+    {
+      "action": "walk_fire",
+      "stage": "inbetweens_b",
+      "prompt": "walk_fire/records/inbetweens_b_prompt.json",
+      "prompt_document": "walk_fire/records/inbetweens_b_prompt.md",
+      "observed_tool_time_ms": 129325,
+      "inputs": [
+        {
+          "path": "walk_fire/source/inbetweens_b_edit_board.png",
+          "sha256": "e9f700930e49a21dc2473d7a6f9d34e43f5e37430d311a18aa5edf7090363889"
+        },
+        {
+          "path": "walk_fire/source/baseline.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        },
+        {
+          "path": "walk_fire/source/keyposes_normalized.png",
+          "sha256": "3dd877257981d624e4cd32205fb74566a36353893185de64e512839c5e9fc4a6"
+        }
+      ],
+      "output": "walk_fire/source/inbetweens_b.png",
+      "output_sha256": "5507075fdf2ab8aa9afcdc80de746722c28ef06b60991245e1aeec8dad11b798",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "packed"
+    }
+  ],
+  "source_dependency": "plan_b_pixel_walk_005",
+  "exported_frame_count": 14,
+  "moving_loop_range": [
+    1,
+    12
+  ],
+  "frame_durations_ms": [
+    85,
+    85,
+    45,
+    100,
+    85,
+    105,
+    85,
+    80,
+    45,
+    100,
+    85,
+    105,
+    85,
+    85
+  ],
+  "shot_indices": [
+    2,
+    8
+  ],
+  "per_frame_fitting": false,
+  "gif_generated": false,
+  "actual_cost": null,
+  "model_id": null,
+  "seed": null,
+  "status": "draft_playable",
+  "art_acceptance": "awaiting_user_review"
+}

@@ -1,0 +1,41 @@
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human Plan B pixel_combat006 four dynamic WALKING-WHILE-FIRING key poses02/05/08/11",
+  "input_images": {
+    "image_1": "EDIT TARGET: the four accepted005 walk anchors, exactly2x2 with512x512 cells. Preserve their fixed foreground/background leg assignments and forward/backward placement.",
+    "image_2": "Exact512x512 character identity and head/torso/M16 scale."
+  },
+  "primary_request": "Edit the FIRST input board into an energetic but controlled WALKING-WHILE-FIRING animation key sheet. The legs MUST keep the accepted alternating cycle from the edit target. Add a combat forward lean, clear shoulder/torso recoil on firing contacts, recovery on passing poses, delayed hair tips and lower-cape movement. Do not merely add a muzzle flash to four frozen bodies; draw the whole-body weight response. Preserve one coherent adult character, same proportions and scale.",
+  "leg_identity_lock": "LegA is the LIGHTER camera-near foreground shin/boot with silver vertical highlight. LegB is DARK CHARCOAL background shin/boot with NO silver stripe. A always occludes B at crossing, regardless of which foot leads along screenx. The same hip-knee-ankle chains stay intact. The silver stripe NEVER transfers to the dark leading leg. Top-left02 has lightA forward/darkB back; bottom-left08 darkB forward/lightA back. Top-right05 has lightA planted/darkB crossing behind; bottom-right11 darkB planted/lightA crossing in front.",
+  "identity_source": "Use the provided baseline image as the exact visual identity source, not loose inspiration. Only change pose and animation timing. Preserve head/face, long black straight hair, pale cool skin, simplified black/gunmetal armor, skirt/stockings, long plain gold-hem cape and classic M16. Do not redesign, simplify, beautify, add/remove costume details, change proportions or reinterpret the character.",
+  "body_mechanics": "A purposeful low combat walk: knees absorb weight, pelvis lowers a few pixels on contact, chest leans about10degrees forward from the hips, cheek stays near stock, shoulders brace the rifle. On shots the stock, shoulder and upper torso move slightly BACK toward screen-left together by3..5px, chest rocks back a few degrees, forearms compress; recovery then returns weight forward. Slight rifle muzzle rise only1..2degrees during recoil, otherwise horizontal. Head follows torso slightly, never detaches from the aiming line. Hair tips and cape hem lag in the opposite direction. No run or exaggerated high knee.",
+  "keyposes": [
+    {
+      "frame": 2,
+      "cell": "TOP-LEFT",
+      "phase": "LightA forward contact plus first shot",
+      "pose": "Keep lightA heel forward, darkB behind. Torso compressed into the forward step and just hit by recoil: shoulder/stock driven a little back while hips remain over planted lightA. A small sharp orange/cream PIXEL muzzle flash at the actual barrel tip toward screen-right. A little warm light on glove/face/upper armor. Not a giant explosion."
+    },
+    {
+      "frame": 5,
+      "cell": "TOP-RIGHT",
+      "phase": "LightA stance, darkB crossing, recover and re-aim",
+      "pose": "LightA planted vertical, darkB bends and crosses BEHIND the silver support shin under the hips exactly as source. Body returns forward over support, rifle nearly horizontal, forearms lengthen back into aim. Cape hem/hair tips still lag. NO muzzle flash here."
+    },
+    {
+      "frame": 8,
+      "cell": "BOTTOM-LEFT",
+      "phase": "DarkB forward contact plus opposite-step shot",
+      "pose": "DarkB heel FORWARD, silverA leg BACK, exactly opposite to02. Another visible shoulder/chest recoil with weight absorbed on darkB. Same small cream/orange pixel muzzle flash at the real muzzle, slight warm local light. Never brighten the dark front leg or move silver stripe to it."
+    },
+    {
+      "frame": 11,
+      "cell": "BOTTOM-RIGHT",
+      "phase": "DarkB stance, lightA crossing, recover and re-aim",
+      "pose": "DarkB planted vertical, silverA folds across IN FRONT of dark support shin, exact opposite support/swing to05. Torso returning forward to aim, cape/hair still trailing. NO muzzle flash. The two projected shins visibly overlap, not same leading leg twice."
+    }
+  ],
+  "layout_and_scale": "Precise existing2columns by2rows,1024x1024 square, each invisible cell512x512. Same apparent head, chest, shoulder-to-belt and M16 dimensions as reference; body about364px high. Ground near localy438. Allow only a few pixels of purposeful torso/hip recoil, NEVER zoom or fit each sprite. Complete boots, cape and rifle/flash in each cell. Keep generous empty gutters.",
+  "weapon_and_topology": "One head, two arms/hands, two legs/boots. Near hand on the rear screen-left pistol grip, far support hand under screen-right fore-end; same original shoulders. The weapon always remains in the same screen-space hands. Fixed right-facing profile, no mirroring or perspective turn. One M16 with unchanged length. No detached gun, duplicate barrel, thrown magazine or extra objects.",
+  "background": "Actual transparent alpha, no floor, cast shadows, checkerboard image, text, labels, borders or watermark. Only02 and08 have a small integrated muzzle flash;05/11 do not."
+}

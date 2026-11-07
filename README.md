@@ -1,5 +1,19 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**플랜 B · 경계 보행007:** [경계 걷기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk) · [경계 이동 사격](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk_fire) · [기록](docs/plan-b-guard-007.md). 골반부터 상체를 앞으로 숙이고 무릎을 낮춘 경계 보행을 새로 생성했다. 전방 시선·수평 M16·양발 교차를 유지하며 기본 선택도007 걷기다. 필요한 PNG/Chrome만 확인했고 발 높이4~5px·망토/윤곽은 아트 검수 대기다.
+
+**머리·몸통 연결 001:** [달리기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run) · [기록](docs/head-body-sync-001.md). 머리가 발걸음/몸통 회전을 같은 순간에 따라가게 하고, 흉곽에 따로 더하던 상하 바운스를 제거했다. 지속적인 달리기 숙임의 정면 시선 보정과 앉아쏴 조준은 유지하며 머리·눈·뒤 머리카락이 같은 프레임을 사용한다. 필요한 짧은 수치/Chrome 확인을 마쳤으며 자연스러움은 사용자 검수 대기다.
+
+**달리기 총구·두 대기 001:** [완전 대기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=relaxed) · [견착 대기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=idle) · [달리기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run) · [기록](docs/carry-idle-001.md). 비사격 달리기는 총구를 아래로 내리고, 발사 입력 시 총을 전방으로 든 뒤 쏜다. 완전 대기는 총과 팔을 내리고 상체 전경을 푼다. 9개 동작에서 같은 조절·별도 저장을 사용하며 필요한 짧은 수치/Chrome 확인을 마쳤다. 팔/총의 가림과 극단 설정 조합은 사용자 검수 대기다.
+
+**플랜 B · 전투 모션006:** [이동 사격](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=combat_006&motion=walk_fire) · [앉아쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=combat_006&motion=kneel_fire) · [기록](docs/plan-b-combat-006.md). 양발 교차/무릎 지지에 어깨·흉곽 반동·복귀·발사광과 머리/망토 반응을 추가했다. 각12개 움직이는 포즈를 같은 페이지에서 재생하며 발사 자세 비교·속도 조절을 지원한다. Chrome 표시 확인·최종 아트 검수 대기다.
+
+**동작별 공통 조절 001:** [파츠 모션](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk_fire) · [기록](docs/motion-controls-001.md). 8개 동작에서 같은 기본 허리각·추가 숙임·흉갑 각도·총 낮춤·동작 강도와 반응/조명을 조절한다. 값은 동작마다 따로 기억하고, 현재 동작 기본값과 전체 초기화를 구분한다. 이전 저장값/주소도 읽으며 기본 자세를 유지한다. 필요한 짧은 확인 범위를 넘는 조합은 사용자 검수 대기다.
+
+**파츠 모션 활동감 001:** [달리기](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run&energy=100) · [뛰며쏴](http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire&energy=100) · [기록](docs/dynamic-parts-motion-001.md). 착지 압축·발 회수·상체 시간차·출발/정지 무게 이동과 망토/옷자락 반응을 강화했다. 같은 페이지의 동작 강도 0~150%(기본 100%)에서 이전 움직임 0%와 비교한다. 필요한 짧은 수치·Chrome 확인만 수행했으며 자연스러움과 의상 겹침은 사용자 검수 대기다.
+
+**플랜 B · 다리 교차 005:** [재생](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=pixel_005&motion=walk) · [기록](docs/plan-b-pixel-walk-005.md). 004의 같은 다리 반복을 보정해 밝은 전경/어두운 후경 다리의 전후 순서와 지지 역할이 두 반주기에서 바뀐다. 정지 기준 두 장은 실제 반복에서 제외하고, 12개 걷기 포즈를 연결했다. 05/11 교차 비교 버튼과 실제 Chrome 표시를 확인했으며 최종 아트 검수 대기다. 004는 사용자 반려 기록으로 보존한다.
+
 **플랜 B · 도트 걷기 004:** [재생](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=pixel_004&motion=walk) · [기록](docs/plan-b-pixel-walk-004.md). 도트 003 캐릭터의 14프레임 제자리 걷기를 연결했다. `./run.sh` 실행 후 ‘플랜 B · 도트 걷기’에서 확인한다. 크기 확대를 줄였으며 발 높이 약 3px·망토 세부·루프 연결은 검수 대기다.
 
 **플랜 B · 도트 단순화 003:** [새 시도](docs/plan-b-pixel-003.md) · [미리보기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=pixel_003). 장식·재질 묘사를 줄인 도트풍 기준 외형과 걷기 키포즈 4개를 만들었다. 키포즈는 머리·상체·총의 크기 변화로 반려했으며 완성 보행은 미제작이다. 기준 외형의 아트 채택은 사용자 검수 대기다.

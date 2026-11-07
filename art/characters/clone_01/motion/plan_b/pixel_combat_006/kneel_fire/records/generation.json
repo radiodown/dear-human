@@ -1,0 +1,173 @@
+{
+  "action": "kneel_fire",
+  "tool": "built-in image_gen",
+  "image_calls_including_rejected": 5,
+  "calls": [
+    {
+      "action": "kneel_fire",
+      "stage": "baseline_attempt01",
+      "prompt": "kneel_fire/records/baseline_prompt.json",
+      "prompt_document": "kneel_fire/records/baseline_prompt.md",
+      "observed_tool_time_ms": 41838,
+      "inputs": [
+        {
+          "path": "source/identity_005.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        },
+        {
+          "path": "art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png",
+          "sha256": "8895f62a9e7c2ab91f1389639be30ac73309c3d889824e5cdb0ca695b0c77564"
+        }
+      ],
+      "output": "kneel_fire/source/baseline_generated_attempt01.png",
+      "output_sha256": "a4ecf1b86dcb3ecb4f67ca5d64bf9d5ab30745729559bfe10815d74a6112175d",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "rejected_head_rifle_ratio"
+    },
+    {
+      "action": "kneel_fire",
+      "stage": "baseline_retry02",
+      "prompt": "kneel_fire/records/baseline_retry02_prompt.json",
+      "prompt_document": "kneel_fire/records/baseline_retry02_prompt.md",
+      "observed_tool_time_ms": 81331,
+      "inputs": [
+        {
+          "path": "source/identity_005.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        },
+        {
+          "path": "art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png",
+          "sha256": "8895f62a9e7c2ab91f1389639be30ac73309c3d889824e5cdb0ca695b0c77564"
+        }
+      ],
+      "output": "kneel_fire/source/baseline_generated.png",
+      "output_sha256": "32f01eb2c5151aea7af0055f9daec36534efd7a87cce1b31d351a4d042844f82",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "accepted_for_key_generation"
+    },
+    {
+      "action": "kneel_fire",
+      "stage": "keyposes",
+      "prompt": "kneel_fire/records/keyposes_prompt.json",
+      "prompt_document": "kneel_fire/records/keyposes_prompt.md",
+      "observed_tool_time_ms": 45577,
+      "inputs": [
+        {
+          "path": "kneel_fire/source/keypose_edit_board.png",
+          "sha256": "82ab34b53c954119d8e99d38396cab82ca2cfa7d80c03f5d3e7572bf2d91d4dd"
+        },
+        {
+          "path": "kneel_fire/source/baseline.png",
+          "sha256": "29c38a76e08e1162154ce4f1f6a40b0b2a2c156e5a048d1d83f5ecbe07f48daf"
+        }
+      ],
+      "output": "kneel_fire/source/keyposes.png",
+      "output_sha256": "f1c917cd21f9bc25d7c9ceb47d9774d399e6bc2468a9163ec0425a5535c06b33",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "accepted_for_inbetweens"
+    },
+    {
+      "action": "kneel_fire",
+      "stage": "inbetweens_a",
+      "prompt": "kneel_fire/records/inbetweens_a_prompt.json",
+      "prompt_document": "kneel_fire/records/inbetweens_a_prompt.md",
+      "observed_tool_time_ms": 37242,
+      "inputs": [
+        {
+          "path": "kneel_fire/source/inbetweens_a_edit_board.png",
+          "sha256": "7b750577626b3c6c2588968b5af47188fe2a9c21744018534b8de1fa82231b6c"
+        },
+        {
+          "path": "kneel_fire/source/baseline.png",
+          "sha256": "29c38a76e08e1162154ce4f1f6a40b0b2a2c156e5a048d1d83f5ecbe07f48daf"
+        },
+        {
+          "path": "kneel_fire/source/keyposes_normalized.png",
+          "sha256": "e1afb42cfb8f5f9829e42a1601170251b0fac137ca38f915225e1bc30a2e1aa8"
+        }
+      ],
+      "output": "kneel_fire/source/inbetweens_a.png",
+      "output_sha256": "642deb2268de5d8a4aa4e39b092617d33548436b1bd75220e54e928df50176d9",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "packed"
+    },
+    {
+      "action": "kneel_fire",
+      "stage": "inbetweens_b",
+      "prompt": "kneel_fire/records/inbetweens_b_prompt.json",
+      "prompt_document": "kneel_fire/records/inbetweens_b_prompt.md",
+      "observed_tool_time_ms": 86670,
+      "inputs": [
+        {
+          "path": "kneel_fire/source/inbetweens_b_edit_board.png",
+          "sha256": "703bb4c6e76e058c36fde14bccff5735f2b54e250b82028b44d95c02a62513e2"
+        },
+        {
+          "path": "kneel_fire/source/baseline.png",
+          "sha256": "29c38a76e08e1162154ce4f1f6a40b0b2a2c156e5a048d1d83f5ecbe07f48daf"
+        },
+        {
+          "path": "kneel_fire/source/keyposes_normalized.png",
+          "sha256": "e1afb42cfb8f5f9829e42a1601170251b0fac137ca38f915225e1bc30a2e1aa8"
+        }
+      ],
+      "output": "kneel_fire/source/inbetweens_b.png",
+      "output_sha256": "91fda64a0cef3e2462e28453acdccbc39e0b4464201aa9a7bd45cdee984d257a",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true,
+      "outcome": "packed"
+    }
+  ],
+  "source_dependency": "plan_b_pixel_walk_005",
+  "exported_frame_count": 14,
+  "moving_loop_range": [
+    1,
+    12
+  ],
+  "frame_durations_ms": [
+    100,
+    105,
+    100,
+    90,
+    70,
+    45,
+    115,
+    125,
+    100,
+    105,
+    70,
+    45,
+    115,
+    100
+  ],
+  "shot_indices": [
+    5,
+    11
+  ],
+  "per_frame_fitting": false,
+  "gif_generated": false,
+  "actual_cost": null,
+  "model_id": null,
+  "seed": null,
+  "status": "draft_playable",
+  "art_acceptance": "awaiting_user_review"
+}

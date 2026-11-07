@@ -8,6 +8,8 @@ export const GAIT = Object.freeze({ period:1.40, speed:108, stance:.68, lift:6.5
 // Contact travel and cadence remain coupled through gaitProfile.
 export const RUN = Object.freeze({period:.84,speed:245,stance:.45,lift:32,
   contactDrop:8.5,compression:4,lean:15*Math.PI/180,sway:1.1,roll:.008});
+// An additive performance layer; zero retains the previous gait and cadence.
+export const MOTION_ENERGY=Object.freeze({min:0,max:1.5,default:1});
 // Reference kneel: rear knee pad + tucked rear toes + flat forward sole.
 // The knee center sits one pad radius above the floor; bones retain their length.
 export const KNEEL = KNEEL_ART;
@@ -69,6 +71,26 @@ export function footPose(trackX,clearance,angle){
   const point=p=>({x:ankle.x+c*p.x-s*p.y,y:ankle.y+s*p.x+c*p.y});
   return {...ankle,a:angle,heel:point(BOOT.heel),toe:point(BOOT.toe),trackX,clearance,
     contact:angle>0?'toe':'heel',pivot:point(q)};
+}
+export function energeticFoot(foot,amount,running,kneeling,energy){
+  if(energy===0||foot.stance||foot.phase<foot.support)return foot;
+  const u=(foot.phase-foot.support)/(1-foot.support);
+  const weight=amount*(1-kneelWeight(kneeling))*energy;
+  // Recover the heel higher without changing planted tracks, stride, bone
+  // lengths or touchdown. Rebuild the boot around its heel/toe pivot.
+  const bell=(u/.4)**2*((1-u)/.6)**3;
+  return {...foot,...footPose(foot.trackX,foot.clearance+lerp(4.5,12,running)*bell*weight,
+    foot.a+lerp(.035,.10,running)*Math.sin(Math.PI*u)**2*weight)};
+}
+function landingLoad(phase,running){
+  const p=cycle(phase/Math.PI),support=Math.min(1,2*gaitProfile(running).stance);
+  // Walking has overlapping support, so only a running profile has flight.
+  // Grow its amplitude with the flight window during walk/run transitions.
+  if(p>=support)return -2.5*Math.min(1,(1-support)/.10)*Math.sin(Math.PI*(p-support)/(1-support))**2;
+  const u=p/support;
+  // A quick compression after landing, followed by a longer push-off. Both
+  // ends have zero velocity so the accent joins smoothly between contacts.
+  return lerp(2.6,3.5,running)*(u/.26)**2*((1-u)/.74)**(2*.74/.26);
 }
 export function kneelRearFoot(){
   // Solve the ankle from the knee and toe contact, rather than hoping that
@@ -147,7 +169,7 @@ export class RunFootContacts {
     if((amount<.001&&running<.001)||kneelWeight(kneeling)>.999){this.active=false;this.contacts=[];}
   }
 }
-export function gaitBody(phase,amount,time,aim=0,running=0,kneeling=0,eyeAim=aim,recoilShift=0){
+export function gaitBody(phase,amount,time,aim=0,running=0,kneeling=0,eyeAim=aim,recoilShift=0,energy=0){
   const p=cycle(phase/Math.PI),bob=curve([[0,.5],[.12,3],[.34,2],[.60,-.8],[.87,-.2],[1,.5]],p);
   // Stationary fire needs its own brace. Fade it out as the lower combat gait
   // takes over, keeping planted feet and the existing moving-fire posture.
@@ -156,17 +178,27 @@ export function gaitBody(phase,amount,time,aim=0,running=0,kneeling=0,eyeAim=aim
   const run=running*amount,runOffset=runPelvisOffset(phase,running);
   // A low, longer combat step: absorb the landing instead of bobbing upwards.
   // Pelvis shift is modest; the torso leans ahead of it while the gun stays level.
-  const x=Math.sin(phase*2-.8)*lerp(3.2,RUN.sway,running)*amount+standingBrace*FIRING_FORM.pelvisBack+rest*.8;
-  const y=HUMAN.hipY+amount*(7+bob)+run*(runOffset-7-bob)+aim*(1.8+.8*amount)+standingBrace*FIRING_FORM.pelvisDrop+rest*2.6+breath*.22*(1-amount);
+  const accent=energy*amount*(1-.35*eyeAim);
+  const x=Math.sin(phase*2-.8)*lerp(3.2,RUN.sway,running)*amount+standingBrace*FIRING_FORM.pelvisBack+rest*.8
+    +Math.sin(phase*2-.65)*lerp(.6,1.7,running)*accent;
+  const y=HUMAN.hipY+amount*(7+bob)+run*(runOffset-7-bob)+aim*(1.8+.8*amount)+standingBrace*FIRING_FORM.pelvisDrop+rest*2.6+breath*.22*(1-amount)
+    +landingLoad(phase,running)*accent;
   const sightRest=(1-eyeAim)*(1-amount),sightBrace=eyeAim*(1-amount);
-  const pelvisAngle=Math.sin(phase)*lerp(.020,RUN.roll,running)*amount+standingBrace*FIRING_FORM.pelvisTilt;
+  const pelvisAngle=Math.sin(phase)*lerp(.020,RUN.roll,running)*amount+standingBrace*FIRING_FORM.pelvisTilt
+    +Math.sin(phase-.12)*lerp(.010,.018,running)*accent;
+  const angleMotion=pelvisAngle-standingBrace*FIRING_FORM.pelvisTilt;
   const ordinaryLean=sightRest*(.070+breath*.002)+eyeAim*.024+sightBrace*(FIRING_FORM.standingLean-.024)+amount*(.105+eyeAim*FIRING_FORM.walkingAimLean+Math.sin(phase*2)*.008);
   const lean=lerp(ordinaryLean,pelvisAngle+RUN.lean+Math.sin(phase*2)*.003,run);
+  // Keep animated pitch separate from sustained pose lean. The head may
+  // counter a running lean while still following the same current-step load.
+  const leanMotion=lerp(sightRest*breath*.002+amount*Math.sin(phase*2)*.008,
+    angleMotion+Math.sin(phase*2)*.003,run);
   const k=kneelWeight(kneeling),hipX=lerp(x,KNEEL.hipX+eyeAim*KNEEL.aimForward,k)+recoilShift;
   // Pelvis height follows the grounded thigh arc, including the small recoil
   // shift. Breathing stays in the upper body instead of lifting the knee pad.
   return {x:hipX,y:lerp(y,kneelHipY(hipX),k),
-    a:pelvisAngle*(1-k),lean:lerp(lean,KNEEL.lean+eyeAim*KNEEL.aimLean+breath*.001,k)};
+    a:pelvisAngle*(1-k),lean:lerp(lean,KNEEL.lean+eyeAim*KNEEL.aimLean+breath*.001,k),
+    angleMotion:angleMotion*(1-k),leanMotion:lerp(leanMotion,breath*.001,k)};
 }
 
 // One small support step per standing burst, followed by a quiet recovery step.

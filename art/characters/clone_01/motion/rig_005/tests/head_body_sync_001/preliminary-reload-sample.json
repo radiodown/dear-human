@@ -1,0 +1,13 @@
+{
+  "scope": "Preliminary long sample reached automatic reload, outside the intended firing-only comparison.",
+  "values": {
+    "previous": {
+      "maxGripError": 0.6988393614339725,
+      "reloading": true
+    },
+    "current": {
+      "maxGripError": 0.6988393614339486,
+      "reloading": true
+    }
+  }
+}

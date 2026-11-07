@@ -1,0 +1,31 @@
+{
+  "iteration": "before_head_body_sync_001",
+  "started_epoch": 1794034225.768033,
+  "files": [
+    {
+      "path": "game/animation/gait.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/game/animation/gait.js",
+      "sha256": "3fb90a7a2a9130f34c7005eb1355e619921ecf3406efadcf12ed7c74de8669bd"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/game/animation/secondary-motion.js",
+      "sha256": "cde13fada500695e645f9739b9e90e031efd5211905b410b9e467230b50a2224"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/game/animation/rig-core.js",
+      "sha256": "2fae0fdc764b81416575779aed7b9a45e774ae94431a7a765349d692634edc7e"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/game/animation/webgl-character.js",
+      "sha256": "02d99ad53f1dbb9efaeff9c3412cab7ff6739b3403cad7e32e00cfeab6abeafa"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/game/animation/side-camera.js",
+      "sha256": "195a38c2ac2526e5a9e5c3627e616b080eb83a006b045c30e9bddcbf06652896"
+    }
+  ]
+}

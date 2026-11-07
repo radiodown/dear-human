@@ -1,0 +1,141 @@
+{
+  "revision_id": "plan_b_pixel_walk_005",
+  "recorded_at": "2026-11-07T15:25:58.033496+09:00",
+  "request": "다리가 전혀 교차하질않아서 엄청어색해",
+  "tool": "built-in image_gen",
+  "model_id": null,
+  "seed": null,
+  "actual_cost": null,
+  "metadata_note": "Model ID, seed and actual billing were not provided by the built-in tool.",
+  "image_calls": 4,
+  "sum_observed_tool_time_ms": 189363,
+  "timing_note": "Two independent intermediate calls ran concurrently. Sum of call latency is not wall-clock elapsed time.",
+  "calls": [
+    {
+      "stage": "baseline",
+      "observed_tool_time_ms": 29739,
+      "prompt": "records/baseline_prompt.json",
+      "prompt_document": "records/baseline_prompt.md",
+      "inputs": [
+        {
+          "path": "source/identity_003.png",
+          "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+        }
+      ],
+      "output": "source/baseline_generated.png",
+      "output_sha256": "d3ae996cc2a42010ae3e876bc390cef5c4a219f3837e41aa31340c80ece60330",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true
+    },
+    {
+      "stage": "keyposes",
+      "observed_tool_time_ms": 43438,
+      "prompt": "records/keyposes_prompt.json",
+      "prompt_document": "records/keyposes_prompt.md",
+      "inputs": [
+        {
+          "path": "source/keypose_edit_board.png",
+          "sha256": "b4c5855ab641ad756c6e71460c7d48ea0a29ef71417a3a463072b8810891d913"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        }
+      ],
+      "output": "source/keyposes.png",
+      "output_sha256": "58aad8338c8cc7c64c7b1fca54875334d37776d43db8ab9e95cc588d57dba2aa",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true
+    },
+    {
+      "stage": "inbetweens_a",
+      "observed_tool_time_ms": 80019,
+      "prompt": "records/inbetweens_a_prompt.json",
+      "prompt_document": "records/inbetweens_a_prompt.md",
+      "inputs": [
+        {
+          "path": "source/inbetweens_a_edit_board.png",
+          "sha256": "ffa40741082b8f2b9658c1ed9afeeeaf1fd4b41cbff1994e207b872843c39959"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        },
+        {
+          "path": "source/keyposes_normalized.png",
+          "sha256": "9e3f3d3deb35c8131f224ada7cb12ad52c9807e8b9fc65815b7bed12269c201d"
+        }
+      ],
+      "output": "source/inbetweens_a.png",
+      "output_sha256": "03907df21624bd7582b91bbccf48d2a0f935e2c45f8df0d2f17edbc724974f96",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true
+    },
+    {
+      "stage": "inbetweens_b",
+      "observed_tool_time_ms": 36167,
+      "prompt": "records/inbetweens_b_prompt.json",
+      "prompt_document": "records/inbetweens_b_prompt.md",
+      "inputs": [
+        {
+          "path": "source/inbetweens_b_edit_board.png",
+          "sha256": "3ef0394788841c081af137f03aa62c25e0de64f945a70cfd255c3f4da8c9a105"
+        },
+        {
+          "path": "source/baseline.png",
+          "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+        },
+        {
+          "path": "source/keyposes_normalized.png",
+          "sha256": "9e3f3d3deb35c8131f224ada7cb12ad52c9807e8b9fc65815b7bed12269c201d"
+        }
+      ],
+      "output": "source/inbetweens_b.png",
+      "output_sha256": "05646a8419780cbb94ff74b79ac1d4b7f1398d72214e035ca2382666641d214f",
+      "output_size": [
+        1254,
+        1254
+      ],
+      "transparent_background": true
+    }
+  ],
+  "identity_dependency": "plan_b_pixel_003",
+  "baseline_change": "Only foreground/background leg value separation requested; original appearance retained separately.",
+  "new_key_gate": "reviews/key-gate.json",
+  "rejected_previous_motion": "reviews/rejection-of-004.json",
+  "local_tool": "Pillow 11.3.0",
+  "local_operations": [
+    "whole-image baseline normalization BEFORE key generation",
+    "whole baseline/key copies to fixed input-board cells",
+    "one common whole-sheet normalization to1024x1024, equal512x512 cells",
+    "uniform alpha<=8 noise cleanup on generated pose sheets",
+    "PNG packing, screenshot/contact comparisons"
+  ],
+  "per_frame_fitting": false,
+  "pose_transforms_or_interpolation": false,
+  "exported_frame_count": 14,
+  "generated_moving_pose_count": 12,
+  "reference_frames": [
+    0,
+    13
+  ],
+  "playback_loop_range": [
+    1,
+    12
+  ],
+  "duration_ms_per_pose": 90,
+  "loop_duration_ms": 1080,
+  "loop_deviation": "Unlike the earlier14-frame presentation, neutral00/13 are reference-only. New01/12 were generated as cyclic moving phases; loop does not return to standing.",
+  "gif_generated": false,
+  "status": "draft_playable",
+  "art_acceptance": "awaiting_user_review"
+}

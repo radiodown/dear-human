@@ -1026,13 +1026,21 @@
         },
         {
           "revision_id": "rig_005",
-          "display_name": "파츠 모션 · 정답 이미지 앉아쏴 017",
+          "display_name": "파츠 모션 · 머리/몸통 연결 001",
           "status": "draft",
           "verification": "untested",
-          "verification_scope": "Development handoff only; no runtime, syntax/document/catalog or browser checks executed.",
+          "verification_scope": "Latest head_body_sync_001 has scoped syntax, motion coherence/contacts and Chrome common-head-frame checks. Overall inherited art/combinations await user review; historical results unchanged.",
           "art_direction_status": "awaiting_user_review",
           "recipe_key": "4fa3feb51a2775f096352f7da2ff63f5e1599affa9a7405100a01a8474a68e20",
           "artifacts": [
+            {
+              "path": "AGENTS.md",
+              "sha256": "657e3f332a2c575d31ae4a6257d1e678006f3dc623ba87f680045049bc3ce049"
+            },
+            {
+              "path": "README.md",
+              "sha256": "920a3a17dca496e5f9b70cb22d5f8a24f1118e1120adafa7de5f0e517184dc11"
+            },
             {
               "path": "art/characters/clone_01/concepts/kneeling_fire_001/records/runtime_application_017.json",
               "sha256": "59b03c263108b9195fc7972938130d9ac07aa775c29e5e3a056c395c411358a8"
@@ -1051,7 +1059,7 @@
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/README.md",
-              "sha256": "1cc3e5ccb346289b2053b2e12b00075d8369bbe8724a2f66a29a71d5bebfc072"
+              "sha256": "71c351b7896114989086966bd106b5e4cb98ac3b32647427c5c678632f6e80cc"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/articulation_combat_011.json",
@@ -1076,6 +1084,26 @@
             {
               "path": "art/characters/clone_01/motion/rig_005/records/camera_pitch_001/recipe.json",
               "sha256": "24137ed11be3caebd1ab0eb1f2c4aae5eeb3be33d2f57b73d9d6a3907675434b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/check.mjs",
+              "sha256": "5893499cd73fc4dfb6b12b9532e41a38b0d3abedbc7829fcc983997562f73365"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/handoff.json",
+              "sha256": "fa2a7c325733489bd3bd8e340af7b6706ad51826d22c334b8cfece843f09fc53"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/recipe.json",
+              "sha256": "1a22a80ce33912fd22b334d0a48f5cb5635e831d049fa67871357a5cbe41c2f0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/record.py",
+              "sha256": "ef2ca7569093c137791050afdbbc6059249d9117d18fe4c71e1d8c7d1d91bebe"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/review.py",
+              "sha256": "f75d168b1c29dbd1caaf802324c957e37a92ed66d506fc8b39a24a89b8e390c7"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/closed_grip_014.json",
@@ -1130,6 +1158,26 @@
               "sha256": "c3e4ecb00bb160166ee6af1c8dc31bc62194d299e0398c84667cd84197ec51f6"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/check.mjs",
+              "sha256": "97c6ee33f0480b8adb0c2415e24cb55e539ba21327c92597d951a5addcf98bae"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/handoff.json",
+              "sha256": "70c69af3126cf0517c4269927509557d175bb2c75001603aef0974ae01464dc7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/recipe.json",
+              "sha256": "af431a99c05168ff5d326a961dedd93722f030551f604eb0ba570a5c7fbf8e52"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/record.py",
+              "sha256": "ba8b385e7dbd5e191be04be2e886713707ab166d5dd2bca14efe3bca98fa5bc4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/review.py",
+              "sha256": "b9856fe7485cff4fee848acea75c524ac96383c5f70a0a4e6d512e806d251c2b"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/records/fire_waist_controls_001.json",
               "sha256": "63efc6ad883a98ab92b92473523214d6a6f1027b5bd3597ff82aedae4ed436cb"
             },
@@ -1140,6 +1188,26 @@
             {
               "path": "art/characters/clone_01/motion/rig_005/records/forward_muzzle_001.json",
               "sha256": "07e137c468517ed416b1cbd1f97c56aee268a4caa453c5f4cdf525f624f9457a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/check.mjs",
+              "sha256": "d92b1866c006cbefb9a9c6171afb04a959cb2f8ecbfac135516fbb9f375d4f5a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+              "sha256": "410a6a60c3b8a8697ead957cbfc47ad475e18b9d66a980cf87f0b94d9b6e5f03"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+              "sha256": "64a9ebdd7ccd957dca9daa77b8fbd322b4af3189286dd527a02b471d317156a3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/record.py",
+              "sha256": "db41b3d5df752d782c62303f946618089b4d471e49b2a34f765931d19ad477b7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/review.py",
+              "sha256": "b80284ea593b34850dcb8af63843597be2e1a3f467c6ab89cc6147506e079b08"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/kneeling_image_017/handoff.json",
@@ -1164,6 +1232,26 @@
             {
               "path": "art/characters/clone_01/motion/rig_005/records/kneeling_weapon_level_001.json",
               "sha256": "cabe4214a404ed226a582b0b5dd0e89d043ee8e47225d3aade1ec800f05b828f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/check.mjs",
+              "sha256": "07d549b92ec9e1967b49fb79f624b66fefcb0f407c77cd15d37de10985a91d8c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/handoff.json",
+              "sha256": "ebb3806d850e8399e61623da309b76e1d26f7575770bee212732f8c4ef3aa386"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/recipe.json",
+              "sha256": "0daaa9ff2327f5c31236182b9f3986844facb5aeee967cba2e3a34492738609f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/record.py",
+              "sha256": "7c0a60641e67e0ab68b8a911bf7bd90c3400f1cc05d294cfb8eda2c7dd2ff77a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/review.py",
+              "sha256": "fc6bbc042ed3352c756a1eb3cb9b368b79a295d603c48e2aeba393c8875144b1"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/muzzle_light_012.json",
@@ -1930,6 +2018,14 @@
               "sha256": "4912ffd9891bc150f964c08f046da104eb8523b86c1d1d80b5091a0dc1a4c691"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/index.json",
+              "sha256": "176ca4dbee9aa2c1d68cc8c804e0b01d16c57e744e21b4bec11f4889af378ed4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/index.json",
+              "sha256": "bfb6f4d4594ba173f0cf490eabffe359f03ffb428c331688e498b9187da124cb"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_fire_waist_controls_001/game/animation/rig-core.js",
               "sha256": "ff49ae794e88cfa6aaaae3ca989eb3bbbe7973734329051041f102ebb3d81c25"
             },
@@ -2050,6 +2146,10 @@
               "sha256": "3ef951c6f73dd7edefe93980455d5974ac2bcbed0791fa40cfe8f2c0ebee18c6"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/index.json",
+              "sha256": "1063201f2b3bb696e11a7a0582d6f8436098b6305c4d1974596639c1785e3ce8"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_image_017/index.json",
               "sha256": "a77b7cda4d72f693477b9a79df5530c5e95206e0c5c22014f3592501134830b5"
             },
@@ -2076,6 +2176,10 @@
             {
               "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_kneeling_weapon_level_001/index.json",
               "sha256": "46259c57133c85b19158d478f5aa29ab488183813b78a4ce46a9c51fc181e43c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_motion_controls_001/index.json",
+              "sha256": "7661685dd0ef29785b32a164230550a056087c7b4e22b2b73931ba8c9045545a"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_running_mechanics_001/game/animation/gait.js",
@@ -2214,8 +2318,116 @@
               "sha256": "96e918be3203720aa06aa21c764e4692ff3e57388d5615a1e50cf47f0cfc99dc"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/browser.json",
+              "sha256": "de5e3a7aa04eb24487fb7f73fb97033b4dec001f5c32ec4b3d2b7600b0f0fc9e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/idle.png",
+              "sha256": "ed05f1b0fce96836b374558888680176659ade322cf660f22ed1d86b891cd288"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/relaxed.png",
+              "sha256": "dfe787aacb5726eb3db93c5df20185cf28b4429afe6dee187ca2589f76efcbdb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/run.png",
+              "sha256": "885b5d1e54ac2f41d05cdd782fdd644531cd30c40273f8001238365768491275"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/carry_idle_001/run_fire.png",
+              "sha256": "d6b62deeb9945b562d12079f892c6b1ba842d48525a035b30747d7fe3a9076b3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/before_walk_support_refinement/browser.json",
+              "sha256": "2f069509a13cef87d750c2fbdbbaf3c8db68558063b0567185db25613e5677a2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/before_walk_support_refinement/run_000.png",
+              "sha256": "0329953ce8c1f8d6e7bc84d582466025897b40a48d8212c533c861a150ae90b9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/before_walk_support_refinement/run_100.png",
+              "sha256": "1f4a742d001efd9a7568c36e7f2b5d57fb2943101e726fe04909cc022421685b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/before_walk_support_refinement/run_fire_100.png",
+              "sha256": "ec2c9c9fa52cf236f891c464c69ff0edaebae629fe52ee511c64b9d59870f9d7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/before_walk_support_refinement/walk_100.png",
+              "sha256": "576cf8c51626149b06910a94538cca8f2d3192b444675440ea9c5dba139392c6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/browser.json",
+              "sha256": "c710dff8b60c32f4aa7fceeb47bb014f0bad9d76d951ed387f21a8bd1fa47e9f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/run_000.png",
+              "sha256": "0329953ce8c1f8d6e7bc84d582466025897b40a48d8212c533c861a150ae90b9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/run_100.png",
+              "sha256": "1f4a742d001efd9a7568c36e7f2b5d57fb2943101e726fe04909cc022421685b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/run_fire_100.png",
+              "sha256": "5f3db2fc616ceb6c9a405fd51658934d5883b74871632a92302b55a4a8e89d68"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/walk_100.png",
+              "sha256": "e32ae3c5c3cf67899cfdcd3021555f990e9d43f846cfb39e26882ff7ffe8459b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/browser.json",
+              "sha256": "b6b54d1a07250f81e8fac5ad40e71bf5dda36294a9d8f63c9932418f6f5fbbda"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/kneel_fire.png",
+              "sha256": "00a693126866ad8a1cb5e5e552b3b800c47776d5ff93eb54f64f9cc78edb9348"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/run.png",
+              "sha256": "97b40ada337350b17f6cb67adefb5346e25fd34413d34fc9e96cb32f695af440"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/run_fire.png",
+              "sha256": "aeb88e7e4b8c66c0e3d0ed475292fd9449ad465bfa1db487e9e4198bd7283048"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/walk.png",
+              "sha256": "ea64bd68170288b156e4d50131a15029ad1ca3f41a8c040a2055d09ce71bfbdc"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/reviews/left_stopped.png",
               "sha256": "77de47f520f23d78a93f1f3c157ee21c854af4b587a0639b9c345e2ee656e64f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/before_review_origin_fix/kneel_fire_pose.png",
+              "sha256": "caa004beb3d47577c3c1af1ab7065d45156fc75a0279bce1bf65259ed07ee836"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/before_review_origin_fix/walk_fire_controls.png",
+              "sha256": "9514c5e1a815f613a4b40262fcbb95faf19772405b762da45bed7a4d5d912061"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/before_review_origin_fix/walk_fire_pose.png",
+              "sha256": "9d86707c168165dbdad734e167a8e0137c4dc93cdc65933e64164113cfd3253e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/browser.json",
+              "sha256": "91774db45e1d5eb2e120e178ac713bc35b887b7d9f31a765767c2175633cf050"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/kneel_fire_pose.png",
+              "sha256": "caa004beb3d47577c3c1af1ab7065d45156fc75a0279bce1bf65259ed07ee836"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/walk_fire_controls.png",
+              "sha256": "9514c5e1a815f613a4b40262fcbb95faf19772405b762da45bed7a4d5d912061"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/walk_fire_pose.png",
+              "sha256": "9d86707c168165dbdad734e167a8e0137c4dc93cdc65933e64164113cfd3253e"
             },
             {
               "path": "art/characters/clone_01/motion/rig_005/reviews/narrow_left.png",
@@ -2390,6 +2602,34 @@
               "sha256": "338fce1db29824a6527ae079ec6cfc31ba1766da18950305544edbf58e3c33db"
             },
             {
+              "path": "art/characters/clone_01/motion/rig_005/tests/carry_idle_001/carry-smoke.json",
+              "sha256": "c617200673128168f9be08dc8f13750eb1962227bb8c45c6811e39115a47fc53"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/tests/dynamic_motion_001/motion-smoke-before-walk-support.json",
+              "sha256": "5421e60106fa3f0d923c1bcd7fa3c6b46ac9327bdb48785555aebc51aa5a7137"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/tests/dynamic_motion_001/motion-smoke-first.json",
+              "sha256": "7a40dede92db333136080377d243245f920d410bef8f8ce69341802920fb7ecf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/tests/dynamic_motion_001/motion-smoke.json",
+              "sha256": "6bcfcf08be628043de7d4df6df7d6c9bd47ddeb706fa24748a608fdaddab77a0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/tests/head_body_sync_001/preliminary-reload-sample.json",
+              "sha256": "4c69ef09bdbfefc55bb51f1f48d0a229c8bde319defd55655f52e3310c191c42"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/tests/head_body_sync_001/sync-smoke.json",
+              "sha256": "bc1c1d405d8586400ef4fe3d3dedd409a8321f94cc916bef34c79f2dfd7a5749"
+            },
+            {
+              "path": "art/characters/clone_01/motion/rig_005/tests/motion_controls_001/controls-smoke.json",
+              "sha256": "ec71f420c23cbc52bdbbb0205ec331c3fcb6af45a06d50b085d8e1afc2973ede"
+            },
+            {
               "path": "art/characters/clone_01/motion/rig_005/tests/shoulder_height_008/simulation-metrics.json",
               "sha256": "dd3dbef51a012fca3ca7f30c4760cf4d999e48f6016985998c151ce979e8b413"
             },
@@ -2478,6 +2718,14 @@
               "sha256": "68109288fad5ba366abfbe554107b6f31ba87be1621e778b3f94a0ac75e2595c"
             },
             {
+              "path": "docs/carry-idle-001.md",
+              "sha256": "6bcd15100d2f2c6bfe601d326ea4d650dcf0604cd4d1b11ae0f1350f7accb048"
+            },
+            {
+              "path": "docs/dynamic-parts-motion-001.md",
+              "sha256": "02c4e16953ddbaf77f971918688b8f65d127f5ffa43114fd44f309518efa02ca"
+            },
+            {
               "path": "docs/fire-waist-controls-001.md",
               "sha256": "9742fa1a2df7efd71d64ec5d98216fe3a522acaba35bdb1cd65f8f8c5e32af70"
             },
@@ -2488,6 +2736,10 @@
             {
               "path": "docs/forward-muzzle-001.md",
               "sha256": "f220ffbda1e5e20ba14b5e156fdcbdf02ca0a2556c515b1494474c0b58301321"
+            },
+            {
+              "path": "docs/head-body-sync-001.md",
+              "sha256": "dd2a71d30e10b649c49f84d0a9754e21aa4e09da25b87d86a321395c86a78716"
             },
             {
               "path": "docs/kneeling-image-application-017.md",
@@ -2502,6 +2754,10 @@
               "sha256": "eaca8a71cf4db0a84a7653846ba18930fe1ab9bca15ac067d84bec0bfe74c1bc"
             },
             {
+              "path": "docs/motion-controls-001.md",
+              "sha256": "e74b69aa0b892992fe05f68ec8f616837cffde07147689c721de8c185c4dcef9"
+            },
+            {
               "path": "docs/running-mechanics-002.md",
               "sha256": "cc175f474adfafefc77544b36ce26921e1fd787089423003b88d18b8e1119b30"
             },
@@ -2511,19 +2767,23 @@
             },
             {
               "path": "game/animation/cape.js",
-              "sha256": "8d0d7fe988ff16be973d84078034b0b59b075aab9c726e85b12df94e33f83224"
+              "sha256": "acc8ce7af67b0920e46fd103cacaf145d193399b09711780896cd79932af96f8"
             },
             {
               "path": "game/animation/firing-form.js",
-              "sha256": "929fd44e70371f8294c07036cbacc1bd3825377ee0138d25efd9a830a5352bac"
+              "sha256": "d5ea761d6c29adf652aed104b4f1dbe8aec387794f03f8f7c4bc4ae94e32057c"
             },
             {
               "path": "game/animation/gait.js",
-              "sha256": "d6369f7ba7eebb22c305fb62789f67d495fd77c539a9ef188806a0fe115dd406"
+              "sha256": "61fe3501cdfe972ae7d46d904b85bafa5b0c6253c5c3a5e788e5cef96ce6ca22"
             },
             {
               "path": "game/animation/kneeling-pose.js",
               "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+            },
+            {
+              "path": "game/animation/motion-controls.js",
+              "sha256": "42805b0005b9d7dd2e1bd36a80f0f1e78b727425571a11daa1062317be16c59d"
             },
             {
               "path": "game/animation/muzzle-light.js",
@@ -2539,15 +2799,15 @@
             },
             {
               "path": "game/animation/rig-core.js",
-              "sha256": "3962d2d99483af32849be323de6261bdf89e821cb97ce209ed30d6341b23c5c0"
+              "sha256": "9e4079acaacd34dc8f1b675d7ca2a584088ced01417e7db1b5ca6a55748e2520"
             },
             {
               "path": "game/animation/secondary-motion.js",
-              "sha256": "b66b1d0ec860a7502e95987dec93d0aa8764d7b6363758866a21932ca6ad6057"
+              "sha256": "156cba76437ceb54c8659809383ab7fd7e4346c5e343ecab264529a0d6e192f8"
             },
             {
               "path": "game/animation/side-camera.js",
-              "sha256": "195a38c2ac2526e5a9e5c3627e616b080eb83a006b045c30e9bddcbf06652896"
+              "sha256": "c3bc5db39d40b3e7a3a7e0b7d1f935519f18b162880b375de835953f235f0c25"
             },
             {
               "path": "game/animation/waist.js",
@@ -2559,15 +2819,15 @@
             },
             {
               "path": "game/animation/webgl-character.js",
-              "sha256": "02d99ad53f1dbb9efaeff9c3412cab7ff6739b3403cad7e32e00cfeab6abeafa"
+              "sha256": "b5b9cf491e256e91552734ba56c7d5cc63156fe7f592d190b132466f52c7d896"
             },
             {
               "path": "game/app.js",
-              "sha256": "2ffadff819ca073526cb2fda68ef6049a17a3b9e67d4fee87d2a8bae0646fd6d"
+              "sha256": "7fde4e92ac5e0723c77f444bc36d46c2056e2e0934e99be7535b08f960916bfc"
             },
             {
               "path": "game/index.html",
-              "sha256": "f8adf28cc8ff3424a200dd152a16eb9b3d1879f4c2a8966f566bcf23b2cf5f4a"
+              "sha256": "07d602c9113ebf79b8268d42f957d1eecbbccfbd3616dd52c735e8c066bf7d42"
             },
             {
               "path": "game/package.json",
@@ -2575,7 +2835,7 @@
             },
             {
               "path": "game/rig-lab.js",
-              "sha256": "5116057226006c11c14e80a3e932af053ecfbc12f4eeaf5d648324db7dbe36c7"
+              "sha256": "383b2ca03c70c2c4b144b79f8435f4701227ed013d7d6531dbd3e2df90f9f983"
             },
             {
               "path": "game/styles.css",
@@ -2583,7 +2843,7 @@
             },
             {
               "path": "skills/dear-human-pipeline/SKILL.md",
-              "sha256": "643f296f3080e930347970421312301cc04a91dcf14c7ac3e050c6e24af11a96"
+              "sha256": "84bac84d45606ef11ac4d649069cad2c564b773cc8e7d836131eb9ad0529dbf4"
             },
             {
               "path": "tools/review_parts_motion.py",
@@ -2643,6 +2903,7 @@
           },
           "motions": [
             "idle",
+            "relaxed",
             "walk",
             "fire",
             "walk_fire",
@@ -2663,33 +2924,62 @@
             "User playback review of rear-sight/eye separation during running fire and added manual bend.",
             "User review of arm/grip contact at deep bend and alternate carry heights; forward travel is limited by available arm reach.",
             "User review of reload and run entry/exit transitions.",
-            "No runtime, syntax, document/catalog or browser validation was run.",
+            "Historical iterations before dynamic_motion_001: No runtime, syntax, document/catalog or browser validation was run.",
             "User review of the full kneeling silhouette, shoulder/cheek fit and both arms.",
             "User review of knee-pad alpha edges, folded knee/ankle overlap and front/rear skirt panel boundaries.",
             "User review of grounded cape projection, source emblem distortion and entry/exit transitions.",
             "Source side textures remain in use; no new oblique face/shoulder surfaces or deeply compressed-fold raster artwork.",
             "Existing temporary reload hand artwork remains unchanged.",
-            "No tests, syntax/document/catalog checks or browser review have run.",
+            "Historical iterations before dynamic_motion_001: No tests, syntax/document/catalog checks or browser review have run.",
             "User interaction review of both firing waist sliders during playback and while paused in an existing firing pose.",
             "User review of saved values, shared URL overrides, mode changes and reset behavior.",
             "User review of cloth, grips, shoulder contact and reach at large combined firing/common bend angles.",
             "Walking-fire and kneeling-fire do not get independent sliders in this change; existing common added bend remains available.",
-            "No tests, syntax/document/catalog checks or browser review were run.",
+            "Historical iterations before dynamic_motion_001: No tests, syntax/document/catalog checks or browser review were run.",
             "User playback review of the lowered kneeling rifle, hands and gaze relationship.",
             "User review of reach and occlusion at maximum lowering combined with large common waist bend.",
             "User review of reload/stance transitions, paused input, storage, URL overrides and full reset.",
             "Existing bounded head alignment is retained; numerical gun support contact is not physical shoulder seating or art acceptance.",
             "User playback review of horizontal forward muzzle across standing, walking, running, kneeling and their transitions.",
             "User review of hand reach, stock/shoulder relationship and occlusion with large combined waist angles and rifle height changes.",
-            "Existing shot kick and deliberate reload rotation remain; horizontal describes the baseline pose."
+            "Existing shot kick and deliberate reload rotation remain; horizontal describes the baseline pose.",
+            "User review of repeated walking/running rhythm and start/stop weight shift.",
+            "User review of high-strength knee/boot/skirt overlap, cape texture distortion and cloth boundaries.",
+            "Large combined manual bends, alternate weapon heights and reload/stance transitions were not exhaustively reviewed.",
+            "Existing temporary reload hands and lack of new oblique art/3D cloth collision remain.",
+            "User visual review of large combined base/additional waist angles and rifle height with arm/clothing occlusion.",
+            "Reload and stance transitions at extreme settings were not exhaustively reviewed.",
+            "Configured nominal waist includes authored breathing/load/recoil; displayed values do not promise an exact instantaneous body angle.",
+            "Existing temporary reload hands, source-view limitations and 2D cloth behavior remain.",
+            "User visual review of lowered rifle/arm overlap and off-shoulder carry silhouette.",
+            "Extreme combined waist/height settings and reload transitions were not exhaustively reviewed.",
+            "No new relaxed-hand artwork, sling simulation or 3D cloth/collision was created.",
+            "User visual review of coherent head/neck silhouette and naturalness during repeated body load cycles.",
+            "Extreme combined manual settings and occlusion were not exhaustively reviewed.",
+            "Existing temporary reload hand reach/occlusion remains outside this correction.",
+            "No new art, Plan B/C work, GIF or 3D collision was created."
           ],
           "motion_recipes": {
-            "kneel": "art/characters/clone_01/motion/rig_005/records/kneeling_image_017/recipe.json",
-            "kneel_fire": "art/characters/clone_01/motion/rig_005/records/kneeling_image_017/recipe.json"
+            "kneel": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "kneel_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "idle": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "walk": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "run": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "walk_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "run_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "relaxed": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json"
           },
           "motion_review_reports": {
-            "kneel": "art/characters/clone_01/motion/rig_005/records/kneeling_image_017/handoff.json",
-            "kneel_fire": "art/characters/clone_01/motion/rig_005/records/kneeling_image_017/handoff.json"
+            "kneel": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "kneel_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "idle": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "walk": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "run": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "walk_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "run_fire": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "relaxed": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json"
           },
           "motion_iterations": {
             "kneeling_reference_001": {
@@ -2735,6 +3025,46 @@
                 "kneel_fire"
               ],
               "preview": "#/samples/characters/clone_01?motion=kneel_fire"
+            },
+            "dynamic_motion_001": {
+              "iteration": "dynamic_motion_001",
+              "verification": "passed",
+              "verification_scope": "Changed-JS syntax, short motion constraints/zero baseline comparison and Chrome playback/strength UI only. No art acceptance or full QA.",
+              "art_direction_status": "awaiting_user_review",
+              "recipe_path": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/recipe.json",
+              "review_report": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/handoff.json",
+              "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/index.json",
+              "sample_url": "#/samples/characters/clone_01?motion=run&energy=100"
+            },
+            "motion_controls_001": {
+              "iteration": "motion_controls_001",
+              "verification": "passed",
+              "verification_scope": "Changed JS syntax, eight-action short numeric/default comparison, and Chrome common controls/persistence/pause/URL/reset. No full QA or art acceptance.",
+              "art_direction_status": "awaiting_user_review",
+              "recipe_path": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/recipe.json",
+              "review_report": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/handoff.json",
+              "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_motion_controls_001/index.json",
+              "sample_url": "#/samples/characters/clone_01?motion=walk_fire"
+            },
+            "carry_idle_001": {
+              "iteration": "carry_idle_001",
+              "verification": "passed",
+              "verification_scope": "Changed JS syntax, short carry/grip/first-shot/return checks and Chrome idle/run display, controls and shot input. No art acceptance or full QA.",
+              "art_direction_status": "awaiting_user_review",
+              "recipe_path": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/recipe.json",
+              "review_report": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/handoff.json",
+              "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/index.json",
+              "sample_url": "#/samples/characters/clone_01?motion=relaxed"
+            },
+            "head_body_sync_001": {
+              "iteration": "head_body_sync_001",
+              "verification": "passed",
+              "verification_scope": "Changed JS syntax, short relative-pitch/neck/contacts/pose-purity comparison and Chrome common-head-frame/playback checks. No full QA or art acceptance.",
+              "art_direction_status": "awaiting_user_review",
+              "recipe_path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+              "review_report": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+              "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/index.json",
+              "sample_url": "#/samples/characters/clone_01?motion=run"
             }
           },
           "running_mechanics": {
@@ -2819,6 +3149,46 @@
             "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_forward_muzzle_001/index.json",
             "sample_url": "#/samples/characters/clone_01?motion=fire",
             "additional_validation": "not_run"
+          },
+          "dynamic_motion": {
+            "iteration": "dynamic_motion_001",
+            "verification": "passed",
+            "verification_scope": "Changed-JS syntax, short motion constraints/zero baseline comparison and Chrome playback/strength UI only. No art acceptance or full QA.",
+            "art_direction_status": "awaiting_user_review",
+            "recipe_path": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/recipe.json",
+            "review_report": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/handoff.json",
+            "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/index.json",
+            "sample_url": "#/samples/characters/clone_01?motion=run&energy=100"
+          },
+          "motion_controls": {
+            "iteration": "motion_controls_001",
+            "verification": "passed",
+            "verification_scope": "Changed JS syntax, eight-action short numeric/default comparison, and Chrome common controls/persistence/pause/URL/reset. No full QA or art acceptance.",
+            "art_direction_status": "awaiting_user_review",
+            "recipe_path": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/recipe.json",
+            "review_report": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/handoff.json",
+            "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_motion_controls_001/index.json",
+            "sample_url": "#/samples/characters/clone_01?motion=walk_fire"
+          },
+          "carry_idle": {
+            "iteration": "carry_idle_001",
+            "verification": "passed",
+            "verification_scope": "Changed JS syntax, short carry/grip/first-shot/return checks and Chrome idle/run display, controls and shot input. No art acceptance or full QA.",
+            "art_direction_status": "awaiting_user_review",
+            "recipe_path": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/recipe.json",
+            "review_report": "art/characters/clone_01/motion/rig_005/records/carry_idle_001/handoff.json",
+            "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/index.json",
+            "sample_url": "#/samples/characters/clone_01?motion=relaxed"
+          },
+          "head_body_sync": {
+            "iteration": "head_body_sync_001",
+            "verification": "passed",
+            "verification_scope": "Changed JS syntax, short relative-pitch/neck/contacts/pose-purity comparison and Chrome common-head-frame/playback checks. No full QA or art acceptance.",
+            "art_direction_status": "awaiting_user_review",
+            "recipe_path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+            "review_report": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/handoff.json",
+            "previous_runtime": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_head_body_sync_001/index.json",
+            "sample_url": "#/samples/characters/clone_01?motion=run"
           }
         },
         {
@@ -3373,10 +3743,10 @@
         {
           "revision_id": "plan_b_pixel_walk_004",
           "display_name": "플랜 B 도트 004 · 걷기 14프레임",
-          "status": "draft",
-          "verification": "passed",
-          "verification_scope": "PNG count/canvas/RGBA/corners/endpoint and keyframe identity plus short macOS Chrome playback/source switching. Strict upstream foot-line equality and GIF delivery are NOT passed; visual polish awaits review.",
-          "art_direction_status": "awaiting_user_review",
+          "status": "failed",
+          "verification": "failed",
+          "verification_scope": "User rejected leg alternation/crossing:02/08 and05/11 repeat nearly identical leg roles. Historical PNG/browser checks remain preserved and do not establish motion quality.",
+          "art_direction_status": "rejected",
           "recipe_key": "a94236d40e2f541f7a82212e8cfa3d611c6ecfcd51bab2ca5e489c3d47f8b6dd",
           "artifacts": [
             {
@@ -3614,6 +3984,10 @@
             {
               "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/keyposes_normalized.png",
               "sha256": "5d565a9d6bf8420600a2ddb3a70e195d67e9a6a5433c9f456915b26f7dac0b86"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/rejection-of-004.json",
+              "sha256": "fd326652df96f7b76eebb06a9a97ed6a8216a62a3e767b3d8e52da037c0b5d4e"
             }
           ],
           "dependencies": [
@@ -3644,10 +4018,1558 @@
             "자동 걷기·정지·한 프레임·속도·이전/새 atlas 전환 확인",
             "머리·흉갑·어깨~벨트·M16을 기준과 비교한 후 중간 프레임 생성",
             "개별 크기/중심/발 기준선 정렬과 포즈 보간 없음",
-            "공식 발 기준선 완전 일치·GIF 납품 통과가 아님 · 최종 모션 채택 대기"
+            "공식 발 기준선 완전 일치·GIF 납품 통과가 아님 · 최종 모션 채택 대기",
+            "사용자 반려: 다리가 교차하지 않아 어색함. 새005에서 다리 명암·반대 지지·교차를 다시 생성함."
           ],
           "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/keyposes_prompt.json",
           "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/keyposes_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_pixel_walk_005",
+          "display_name": "플랜 B 도트005 · 양발 교차/역할 교대",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Visual near/far identity, reversed contacts and opposite support/crossing at05/11; PNG identity contracts; short macOS Chrome01..12 playback and comparison buttons. About3px foot jitter remains; full upstream foot-line/GIF delivery not passed. Final naturalness/art acceptance pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "035116d39e031ae924e4cead3118a48d5d02517ef6000f38167e3595a3f55a4b",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/README.md",
+              "sha256": "143283b96864639930aae8cf33589221fc31dc80a79bdcc2e69e6952a0d6f764"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/contact-sheet.png",
+              "sha256": "c903d081f66bb9efe244afa9375fc71b3cd0e694c38b382676d0128d22b04fc4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_00.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_01.png",
+              "sha256": "387e2d038c5afbe6b3933ace40c0caebd9cab47671ac13422cc33de9126f2466"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_02.png",
+              "sha256": "294a321c74d21997395e17d9d09a8f13ebf011cef14c330d5d7354be23ee4dd9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_03.png",
+              "sha256": "88d99b84805cbf0adf7f96bee85a6832bedc709b71d48829f4f81a077f8ffaf4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_04.png",
+              "sha256": "5468e249a5c4197d519993cadf380e57b83f945808891d4d282c427b5cfb16d3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_05.png",
+              "sha256": "7ee96250a842b31a3e91a4a9614c002d19f1f18edcdf9fcb36771da90f114dc7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_06.png",
+              "sha256": "f7a9a313f46f6c135363814b365743aa17e1d6b152bbe44ac2ecca1d01ba80f4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_07.png",
+              "sha256": "0178b10c3266d1f525a0564f3c06cee9441aadc1c4930e5e4e64ed2d91e315e7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_08.png",
+              "sha256": "b55cf3f58d059472309d4ac79163f746280c5063c70962a6d7065c61992bc9b2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_09.png",
+              "sha256": "c5032d53aa0777c276aadef2ce79197fac1901f654267eac0dc76701ddb339c9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_10.png",
+              "sha256": "c2ce2424db76453cc4b9d90c32437b8713c9a66a98f0832a48e3098cac4782ff"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_11.png",
+              "sha256": "8e3cbbf96437b2c4750e9e90159f1e1a2590ce2415022b868670ba689863decb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_12.png",
+              "sha256": "f63f1b7f860f036242299f9f3f452802bf74b495934cfdf8694712fdf28d75b4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_13.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/keyframe/clone_01-pixel-walk_02.png",
+              "sha256": "294a321c74d21997395e17d9d09a8f13ebf011cef14c330d5d7354be23ee4dd9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/keyframe/clone_01-pixel-walk_05.png",
+              "sha256": "7ee96250a842b31a3e91a4a9614c002d19f1f18edcdf9fcb36771da90f114dc7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/keyframe/clone_01-pixel-walk_08.png",
+              "sha256": "b55cf3f58d059472309d4ac79163f746280c5063c70962a6d7065c61992bc9b2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/keyframe/clone_01-pixel-walk_11.png",
+              "sha256": "8e3cbbf96437b2c4750e9e90159f1e1a2590ce2415022b868670ba689863decb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/keyframe-prompts.md",
+              "sha256": "b1ef780017393d0c98e179e49bda0d2e6c6bac8bd2feb7e22fc276e59f02a707"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/manifest.json",
+              "sha256": "ef02c9d98eeac4c6e2bead36cb99cf4e4e17eaa282f87d5107a411912ff81edf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/spritesheet.png",
+              "sha256": "ebdf38497f5656c27035412f391f08337f64d135756634b719a09044de44818d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/recipe/pack.py",
+              "sha256": "8e4332b6778bbf09ae2427dab9c990d9af451c65ceed57455716df829e249c78"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/recipe/record.py",
+              "sha256": "6f6eab0aaba934a9a964593cdb3cba7c9c3d1c5a429154ca152d26089a3dff24"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/analysis.json",
+              "sha256": "65dc592f2a5b155c571299d788fa0f86ff8d1cbdc242ad0e1993e9f496f50d75"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/baseline-normalization.json",
+              "sha256": "b44b8abaab39201baae71d9f3da960b6f4288b14f4c55cd90218d6bc91dfb1a8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/baseline_prompt.json",
+              "sha256": "dafc11944d5cbe2a36581a3ddc227160b0338bee62ee576da36d842f014e3af8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/baseline_prompt.md",
+              "sha256": "5c27bd9fa121753db6c9bead185e2a46eccb36c119c736aa91a099e0985af8c9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/generation.json",
+              "sha256": "320e29a8f684c16ac278e7dc4194350112bbad12a73ecaad4bf211100dd83bd4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/inbetweens_a_prompt.json",
+              "sha256": "7a9436a37f7470b76ae6dd5395790be37882895115fec823cf23f97661569707"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/inbetweens_a_prompt.md",
+              "sha256": "378416846f7d17cb92560916850dac3e0423b4dd51df99f7f104408e94a3fffa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/inbetweens_b_prompt.json",
+              "sha256": "7dd3bbc9940a7671fbc35562dad6e6b80eb78c5b0df65a230d7422473a80bcaa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/inbetweens_b_prompt.md",
+              "sha256": "5ca4ab48c73f127acad3e2855f32e0cc4cc47eafa174dac8b7da35e425cca8ed"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/key-split.json",
+              "sha256": "bd36f465e9db02c45907915c6334ffdbdd12f1746760156c2294c6f33c05883d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/keyposes_prompt.json",
+              "sha256": "035116d39e031ae924e4cead3118a48d5d02517ef6000f38167e3595a3f55a4b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/keyposes_prompt.md",
+              "sha256": "b1ef780017393d0c98e179e49bda0d2e6c6bac8bd2feb7e22fc276e59f02a707"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/packing.json",
+              "sha256": "e52f692a4ea96eff5dd4f4292279ea0fe8fa10a9b6051b98a0058a9d1f24696e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/revision004-before-rejection.json",
+              "sha256": "6b0f42d9453675b3386ffc2b51b0214306c83d2bb93e74dc05d484511f342a7c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/runtime_snapshot_pixel_walk_005/game/animation/frame-sequence.js",
+              "sha256": "d72e04848066b16a72b98499a0219dd9ef9cf77ed5cddc0b5c6825b3dded35c9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/runtime_snapshot_pixel_walk_005/game/index.html",
+              "sha256": "274ce16f49cb7ee8f265e4ca2229ed1d9fb9f7878c1061243716c3239c5dc831"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/runtime_snapshot_pixel_walk_005/game/plan-b-lab.js",
+              "sha256": "2ee7878cbf581056ff0b15a44ddb25c3d94181ca6f531ab73b9a5573234a62ff"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/browser-crossing-05.png",
+              "sha256": "649afa62f2a2cfa304b18deda393e45e6f6967f1a253e109ee16722a6423bab9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/browser-crossing-11.png",
+              "sha256": "7fe59121245e0d39b9385c7ea0729ac77ae96f32555da8d847c94540826d683c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/browser-crossing-comparison.png",
+              "sha256": "9f653b32b019d6b516c6dc7d9c04d5b19fe94624eb15b81fb8eb5e5189041b90"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/browser-narrow.png",
+              "sha256": "a9a438ecbd8ef3d905e5c0721157802298f64c24ce7d4c1a7c60874e10d68127"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/browser-walk.png",
+              "sha256": "f0ebfb3443871b923ac668f4fe246d684abe1c4a65cc67173ada9e34f3dc72b3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/browser.json",
+              "sha256": "d404606fd9869476729d1684d9707d5d1c319cb2c9026b3a552c36b6cd53e7ef"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/key-gate.json",
+              "sha256": "40f5c460610eacb50944079452835704786c86b3609c9f63d8c56e2a15aa696b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/key-leg-alternation.png",
+              "sha256": "598e3aa4020772ae909d6bf1712f3d5681515cd2700768286893e83874a9657a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/key-size-comparison.png",
+              "sha256": "ae3ff1e3d224e8aa2dca9414bbbfb193e80466dbbb937d0797eb6cd017db1570"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/rejection-of-004.json",
+              "sha256": "fd326652df96f7b76eebb06a9a97ed6a8216a62a3e767b3d8e52da037c0b5d4e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/structure.json",
+              "sha256": "6bdb69cfb020b1c2cf44c2d76a083b9e242874475d97775b982146fd3e65a048"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/reviews/visual.json",
+              "sha256": "5537cd903563c3bd6c5303bc14d7ff655414f9721e27268fa12d0db13752def1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/baseline.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/baseline_generated.png",
+              "sha256": "d3ae996cc2a42010ae3e876bc390cef5c4a219f3837e41aa31340c80ece60330"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/identity_003.png",
+              "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/inbetweens_a.png",
+              "sha256": "03907df21624bd7582b91bbccf48d2a0f935e2c45f8df0d2f17edbc724974f96"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/inbetweens_a_edit_board.png",
+              "sha256": "ffa40741082b8f2b9658c1ed9afeeeaf1fd4b41cbff1994e207b872843c39959"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/inbetweens_b.png",
+              "sha256": "05646a8419780cbb94ff74b79ac1d4b7f1398d72214e035ca2382666641d214f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/inbetweens_b_edit_board.png",
+              "sha256": "3ef0394788841c081af137f03aa62c25e0de64f945a70cfd255c3f4da8c9a105"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/keypose_edit_board.png",
+              "sha256": "b4c5855ab641ad756c6e71460c7d48ea0a29ef71417a3a463072b8810891d913"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/keyposes.png",
+              "sha256": "58aad8338c8cc7c64c7b1fca54875334d37776d43db8ab9e95cc588d57dba2aa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/source/keyposes_normalized.png",
+              "sha256": "9e3f3d3deb35c8131f224ada7cb12ad52c9807e8b9fc65815b7bed12269c201d"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_pixel_003"
+            }
+          ],
+          "preview": {
+            "type": "frame_sequence",
+            "image_path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/fullframe/clone_01-pixel-walk_11.png",
+            "width": 512,
+            "height": 512,
+            "manifest_path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/output/manifest.json",
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=pixel_005&motion=walk"
+          },
+          "motions": [
+            "walk"
+          ],
+          "capabilities": [
+            "png_sequence",
+            "spritesheet",
+            "browser_playback"
+          ],
+          "description": "밝은 전경 다리와 어두운 후경 다리의 명암을 유지하며 발 앞뒤 순서·지지·회수·교차를 반전하는 보행. 14장 PNG 중 정지 기준00/13을 제외한12개 움직이는 포즈를 반복합니다.",
+          "review_notes": [
+            "004 사용자 반려 기록 보존 · 같은 다리 반복을 새로 생성",
+            "02/08의 밝은 다리 전후 순서 반전 ·05/11 반대 지지와 교차 확인",
+            "움직이는01..12만 반복 · 교차 비교 버튼 제공",
+            "발 높이 약3px·망토/윤곽 세부는 검수 대기"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/keyposes_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_walk_005/records/keyposes_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_combat_006_walk_fire",
+          "display_name": "플랜 B 도트006 · 이동 사격",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "PNG count/canvas/RGBA/corners/endpoint/key identity; scoped key-pose visual gate and short macOS Chrome playback/action switches. Ground/cloth/shape drift remains; full upstream ground equality and GIF delivery NOT passed; final art acceptance pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "8815a66daeddb57ef33552799080f41a5f0037c7c7e29290b8a45c1aac6d4953",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/README.md",
+              "sha256": "f575cad783b14a77e693b56a3395ae2e37516aa957b7094e12837fef45dd1ef2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/recipe/pack.py",
+              "sha256": "b638f59990f24fd3ec6137e4b58b7a5d2ace5b9ac6d0a8ed7ec1c96aa7764ed5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/recipe/record.py",
+              "sha256": "e752402d376d0f077724ff99cd4c7327a2bb34e800e28d7806a2a2aced8dde21"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/recipe/review_png.py",
+              "sha256": "1e6cd7cf6a09a317a1b299fd2b103a45570d7820b950bc40f6445b694f429e6e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/records/generation.json",
+              "sha256": "03cecf21b02e4d12ee48f90904090fbd80dfd874cf523ff6ffa1353b6230a11e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/records/runtime_snapshot_combat_006/game/animation/frame-sequence.js",
+              "sha256": "a30c8555c98e8f2f6ab76fce7f0a052f55827233b6a98533b4d28d3de57aeb96"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/records/runtime_snapshot_combat_006/game/index.html",
+              "sha256": "07d602c9113ebf79b8268d42f957d1eecbbccfbd3616dd52c735e8c066bf7d42"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/records/runtime_snapshot_combat_006/game/plan-b-lab.js",
+              "sha256": "0780c29d079a9ba440c5af0aee48a92c3f7717be51ea33a2457c304966b86cc6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/reviews/browser-combat-comparison.png",
+              "sha256": "808b2a204dcb90db759f045ed1d1c9cc1fbb90e89093f7db8f3fea8fb4ed912d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/reviews/browser.json",
+              "sha256": "32b8b55501c7375ff535eabf1c131acca905b064cfbde781f573ac8ee6a2ea0b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/source/identity_005.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/contact-sheet.png",
+              "sha256": "f511eee2d574f4e78731124b31daed8a1df52703dfb1637d9dfe76f1db536327"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_00.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_01.png",
+              "sha256": "2a340065c1891ac8a13fdd5f52bd79763b4857c0702dcc467d3a5b7190a3395e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_02.png",
+              "sha256": "cab6b25417cad4ab983bc4289c99798aa87dbe2c24d576e2905ce18643d7ee04"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_03.png",
+              "sha256": "013ac99c0de4db30b5e93aaf96d178a3dcb9b4411c0c9ab1c73a9d042db70dbe"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_04.png",
+              "sha256": "24610de506b52ad715a8524ace970900cbb20c724c626f48ebf5422230583287"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_05.png",
+              "sha256": "390476794fe6876950c9215d097e6a3f634a2c55b968edcf86539f7bf350f702"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_06.png",
+              "sha256": "032e697acf28ae21ed071d88d6cfb79ee37f26830ee769c647fec06842f899fe"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_07.png",
+              "sha256": "96fccb156df6fcafa20c532174389d274ea3ca62fcd05d5011a33c0468427451"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_08.png",
+              "sha256": "210b059f58332fc4c13b5f73c9f5e10eebd74752a6c817526061893027581e01"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_09.png",
+              "sha256": "c410d3b8d673b57cd003001024f1007353b39760bf4615f614f5b65e2102cc25"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_10.png",
+              "sha256": "26b786a53ff7d890f67f9bdb9c4a0597e06a8ff7b7eb53c06bacb5e1c2e4ca59"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_11.png",
+              "sha256": "4397f32940ab550ab2e8afcb682f9504413da8197d84bdb387c186bae985d3d6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_12.png",
+              "sha256": "159090d18e5fca0f95e7f694e3e82331d4a73276136214b5162370df87a29097"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_13.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/keyframe/clone_01-walk-fire_02.png",
+              "sha256": "cab6b25417cad4ab983bc4289c99798aa87dbe2c24d576e2905ce18643d7ee04"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/keyframe/clone_01-walk-fire_05.png",
+              "sha256": "390476794fe6876950c9215d097e6a3f634a2c55b968edcf86539f7bf350f702"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/keyframe/clone_01-walk-fire_08.png",
+              "sha256": "210b059f58332fc4c13b5f73c9f5e10eebd74752a6c817526061893027581e01"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/keyframe/clone_01-walk-fire_11.png",
+              "sha256": "4397f32940ab550ab2e8afcb682f9504413da8197d84bdb387c186bae985d3d6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/keyframe-prompts.md",
+              "sha256": "c30077a6d8651b15a8ebecfc83e19fb3586998eef858b16d513fb16e2c5b3fa3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/manifest.json",
+              "sha256": "51d27da221a1eff6cfd6e8f10665633bbbee61ba9c90a9acd3d2781d2dc2dd02"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/spritesheet.png",
+              "sha256": "101c277ef140e6dfd797317ed60430e012d55906626a736ce696d55127e13bec"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/generation.json",
+              "sha256": "08c15727febe0c60b6dc26d6ffa9a4ceadd482fed562e048e28bf28fec9d38d0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/inbetweens_a_prompt.json",
+              "sha256": "f14f569b86c566f3b9162114320a7eb3dadc70bc5c37dd81f750a8999c6a29ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/inbetweens_a_prompt.md",
+              "sha256": "4d7b0921da73f00a9d7c97724a2a5f77146a39509c32a65250a12825e52c0e2b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/inbetweens_b_prompt.json",
+              "sha256": "ec98d748b68cb859708402fdb42a66e5c27ad8803c01f0073007af991ff6708f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/inbetweens_b_prompt.md",
+              "sha256": "05a8d3eb20064e9addef001260f96531843d9db2a4eafb39a36b4d90cef3c3f9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/key-split.json",
+              "sha256": "0aa99a4828e1bbc29d6a8c93566c81b9429f0f989230c5e76f90e6918cf2ff7e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/keyposes_prompt.json",
+              "sha256": "9c7ab7afdcc771de9cd7af06a3af239115fd19d6baa7b50c8d173d94b3c71ff8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/keyposes_prompt.md",
+              "sha256": "d4db8b2a4cafc43517e0704ec0a828367e0ebf77d72220b0c1ae78df912ae2a4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/keyposes_retry02_prompt.json",
+              "sha256": "8815a66daeddb57ef33552799080f41a5f0037c7c7e29290b8a45c1aac6d4953"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/keyposes_retry02_prompt.md",
+              "sha256": "c30077a6d8651b15a8ebecfc83e19fb3586998eef858b16d513fb16e2c5b3fa3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/packing.json",
+              "sha256": "4f6d8ed1bde5b21b7cb047030f4c3f472130a10d229b297625ff3d7de71334ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/browser-action.png",
+              "sha256": "713ef66dd7be8ee193db76e918b600f78c868e7b1e1ee7716d589ce00af52717"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/browser-narrow.png",
+              "sha256": "089d312230e523f950aa322bd1d50c748760948e81a846811da0e271f70d14fe"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/browser-recoil-03.png",
+              "sha256": "1eb1a0404a82b2dad02acb09fde9a9e9d7e245b8b79ae760a24374d55c570e06"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/browser-recoil-09.png",
+              "sha256": "c6b083e72e23143d6a72b2b171addf3974cf86fa456ddab0675e8e1eed152c49"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/browser-shot-02.png",
+              "sha256": "088a248f1a39ffaddf63de7fd3befaba18b266841d163441091e38b49e26c3a3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/browser-shot-08.png",
+              "sha256": "d82ef6ceb5f0aa8bad4aca300d32e5dc071502198eec8bde20f08019b1eb842a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/key-gate-attempt01.json",
+              "sha256": "d8f2869c5591766c81861299fe9bfc0d04b282c8cda104237aa9d9443dc95937"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/key-gate.json",
+              "sha256": "989ee92cf0132bb1b20c540b9186fd649790bf5fb3f810cd0797930aca2bc666"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/key-size-comparison-attempt01.png",
+              "sha256": "63e1139d205cbe015041efd8b5fc188bc18cf12369522b61c24648ddaf457371"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/key-size-comparison.png",
+              "sha256": "aee1348963933b971f6de0a3d9fe9df3d0fb1099e7fbf4788a8f86f44687de2b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/structure.json",
+              "sha256": "5b5dda5f96d393c7ec070a827457a14f319c027de2e4304ef1d96f1678c1c7f7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/reviews/visual.json",
+              "sha256": "a044fa3ee7613a8fffb60ec75d8b1fb3f5f6ca05504f4110d059b0de863b43ac"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/baseline.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/inbetweens_a.png",
+              "sha256": "0a59ff329a8297747f5422e0712f202f9d9e382ec85f357a6278f9bdf1b1a0e4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/inbetweens_a_edit_board.png",
+              "sha256": "486cb7666e1b91af5456dd2cdb1f869e16df65876e73b5450f9e3b748191ea11"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/inbetweens_b.png",
+              "sha256": "5507075fdf2ab8aa9afcdc80de746722c28ef06b60991245e1aeec8dad11b798"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/inbetweens_b_edit_board.png",
+              "sha256": "e9f700930e49a21dc2473d7a6f9d34e43f5e37430d311a18aa5edf7090363889"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/keypose_edit_board.png",
+              "sha256": "ee1356915f8105d2bbab03b919a369c99f421543a48853fe67c0509f07cc7cb8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/keyposes.png",
+              "sha256": "1f27fed2d0e792a64701228cd33935012ee28e4d27a605429d3ce74d6fb059df"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/keyposes_attempt01.png",
+              "sha256": "f4dad3232fbde841aa3f625c1d18bfcdbc9488d8751305794efb15ab905bd9ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/source/keyposes_normalized.png",
+              "sha256": "3dd877257981d624e4cd32205fb74566a36353893185de64e512839c5e9fc4a6"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_pixel_walk_005"
+            }
+          ],
+          "preview": {
+            "type": "frame_sequence",
+            "image_path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/fullframe/clone_01-walk-fire_02.png",
+            "width": 512,
+            "height": 512,
+            "manifest_path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/output/manifest.json",
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=combat_006&motion=walk_fire"
+          },
+          "motions": [
+            "walk_fire"
+          ],
+          "capabilities": [
+            "png_sequence",
+            "spritesheet",
+            "browser_playback"
+          ],
+          "description": "도트 캐릭터의 이동 사격 루프. 어깨/흉곽 반동·견착 복귀·머리/망토 반응과 발사광을 모델로 새로 생성했다.14장 중01~12의 움직이는 포즈를 반복하며 최종 아트 검수 대기다.",
+          "review_notes": [
+            "첫 시도의 크기/비례 실패를 보존하고 재생성",
+            "발사45ms와 반동/복귀 시간차 · 공통 PNG 재생기",
+            "개별 프레임/다리 변형·크기/중심/발 정렬 없음",
+            "실제 전투 판정/탄약 로직은 연결하지 않은 모션 검토본"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/keyposes_retry02_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_combat_006/walk_fire/records/keyposes_retry02_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_combat_006_kneel_fire",
+          "display_name": "플랜 B 도트006 · 앉아쏴",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "PNG count/canvas/RGBA/corners/endpoint/key identity; scoped key-pose visual gate and short macOS Chrome playback/action switches. Ground/cloth/shape drift remains; full upstream ground equality and GIF delivery NOT passed; final art acceptance pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ae7eb74b0dea6bfbe890dec00059252bc69dfd499610016ad5c4a4a93c5652fd",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/README.md",
+              "sha256": "f575cad783b14a77e693b56a3395ae2e37516aa957b7094e12837fef45dd1ef2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/contact-sheet.png",
+              "sha256": "637beab0b927ca62f57bdbc662efb5276e2560ad7e05fa6c3ca21f71c10cfa21"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_00.png",
+              "sha256": "29c38a76e08e1162154ce4f1f6a40b0b2a2c156e5a048d1d83f5ecbe07f48daf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_01.png",
+              "sha256": "13d3c24ee7b31b064853de06d8bfc1cc28e12f67f181797d900dd0c9a6d4929b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_02.png",
+              "sha256": "c406b0434410abe695e932c5d9727245c998898c94cc3bbd1e167fa86dcb8524"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_03.png",
+              "sha256": "f5efbbea7bcc1a7faf9790bdfbe83d10f4c16537a720b765d4cee72c03277acd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_04.png",
+              "sha256": "209735116af695254fc6bdc091399e33abc44167c4874dd8d6119f83dfab6b56"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_05.png",
+              "sha256": "32ae30a56dbd251047ae9c39162be55d90d18aea3f168c8dd361c04fba9e297d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_06.png",
+              "sha256": "795a5e508f66ed2b1b3824cf3b2f3948758b69ed0623a115dc6ada2a75ffda68"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_07.png",
+              "sha256": "21e95e3a5554993fa19c2e8c1b9d6666e51f6ef8fdd007d458c8b57b74dbee29"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_08.png",
+              "sha256": "14a7979d0dfffc20b2415301ef535bb02cda262583080b41d7b1bf3d5ec21adb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_09.png",
+              "sha256": "5341a1dcbb961018e8cf2badd18bb23747d8cd8597b93bb29b472128efd252ca"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_10.png",
+              "sha256": "923455ee14db7a882fe92c4ba84b188a3f5de754c28fbaa27cc7539e0ad631aa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_11.png",
+              "sha256": "6fd853458817ff6c45a320f465d1a09f7c11a3162bccf0d14f9b1073bbfabc9b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_12.png",
+              "sha256": "1c2b9ff135e15a5695f15c562ad7b02c00f130d13f4768e7bdd13ce8647a66e3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_13.png",
+              "sha256": "29c38a76e08e1162154ce4f1f6a40b0b2a2c156e5a048d1d83f5ecbe07f48daf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/keyframe/clone_01-kneel-fire_02.png",
+              "sha256": "c406b0434410abe695e932c5d9727245c998898c94cc3bbd1e167fa86dcb8524"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/keyframe/clone_01-kneel-fire_05.png",
+              "sha256": "32ae30a56dbd251047ae9c39162be55d90d18aea3f168c8dd361c04fba9e297d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/keyframe/clone_01-kneel-fire_08.png",
+              "sha256": "14a7979d0dfffc20b2415301ef535bb02cda262583080b41d7b1bf3d5ec21adb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/keyframe/clone_01-kneel-fire_11.png",
+              "sha256": "6fd853458817ff6c45a320f465d1a09f7c11a3162bccf0d14f9b1073bbfabc9b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/keyframe-prompts.md",
+              "sha256": "fe7539f35d81725bf6feb99aad2b90eeaf197b9b32de575f3622e8834a3a7017"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/manifest.json",
+              "sha256": "8fcf291aaa41c1e722f79613163116127f3a4ac17d6b99b937e5dbf4e2dd3ccd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/spritesheet.png",
+              "sha256": "64e91df95d01526b78927187dd64f2cd08289b52bcc852625d027d9a32018436"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/baseline-normalization-attempt01.json",
+              "sha256": "d4e60c044d3fca699090e28ab6ba5900ab21ffa295ae2a237bc9eaa53e038cba"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/baseline-normalization.json",
+              "sha256": "0c1350e858431e4057b7c052904fd195a101c617ed90a039eb9ddc9c4da97e2b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/baseline_prompt.json",
+              "sha256": "cae0cd705d8f19bf84293c4517837b80ee57c5c81bbdf1a5134243ecf1656a1f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/baseline_prompt.md",
+              "sha256": "0083a9a80e846bba70c0643e522b34105654700b880a29ac839b176a4ce8c945"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/baseline_retry02_prompt.json",
+              "sha256": "eb2ad839da465c41e17cf7434433a8e34b8cb84bb9f1749caa177328acf37baa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/baseline_retry02_prompt.md",
+              "sha256": "015a9d60fd9fcc464b978db3d673b0e7e0b6704ac16ae3e97d72ea69fb1a8a09"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/generation.json",
+              "sha256": "4e5c2efb832821c7ef8b45f5454e2bc23e38d3ec5096caec487148ef7e35ab18"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/inbetweens_a_prompt.json",
+              "sha256": "2714d21edbfe3bbeac48f987b6e134cce1d13dd166d6fbfeaaf1822267e4ef56"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/inbetweens_a_prompt.md",
+              "sha256": "570822b7506acf4ed63896915682e6fd59a8701e8f51a0d35ac13a3a4417304a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/inbetweens_b_prompt.json",
+              "sha256": "1151c8331367b8f96a0d1766053b4be25be3536b2adbba217a750c5fb78f0bb0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/inbetweens_b_prompt.md",
+              "sha256": "6e5f955d40734175b7f6a74bd4e569def4a69c28c0ad14f1ff43072766da4c8e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/key-split.json",
+              "sha256": "0aa99a4828e1bbc29d6a8c93566c81b9429f0f989230c5e76f90e6918cf2ff7e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/keyposes_prompt.json",
+              "sha256": "ae7eb74b0dea6bfbe890dec00059252bc69dfd499610016ad5c4a4a93c5652fd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/keyposes_prompt.md",
+              "sha256": "fe7539f35d81725bf6feb99aad2b90eeaf197b9b32de575f3622e8834a3a7017"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/packing.json",
+              "sha256": "4f6d8ed1bde5b21b7cb047030f4c3f472130a10d229b297625ff3d7de71334ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/baseline-gate-attempt01.json",
+              "sha256": "cb5488d8fc1983e73007c03615d798e092ad121d18713b395f42a0190b03cd8b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/baseline-gate.json",
+              "sha256": "a5d634c3602fb12961ee014ccd4606a50e875ebecc4d8a31ba5f033e5380d842"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/baseline-identity-comparison-attempt01.png",
+              "sha256": "cd6ac2bc92309050e314cbed43b2da82444f859b029a8d80d997e2962620649f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/baseline-identity-comparison.png",
+              "sha256": "e81b79bce2ebf13815c9f31b58325cec7f1d9ba121435e18259c2ff2bf38c619"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/browser-action.png",
+              "sha256": "e7f33d577743d81e0cc3b53903705069e09db30f9273d2bb62032d841d0969bb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/browser-narrow.png",
+              "sha256": "e2a254cbaeb42c0d5e35529c10a9915b44af2a4df6a96c24657748218696519f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/browser-recoil-06.png",
+              "sha256": "f81409dae8b7d6ba068394efba5ebd8fd6752dc2a26ee86af28cec76c341b20e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/browser-recoil-12.png",
+              "sha256": "bd500410b8a6079207e6a49e43db1fa4e87a3fc043bc7cc603f2c39e7608bdc7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/browser-shot-05.png",
+              "sha256": "168b2ec1aa6fca3b80f7da1982c1e7424b6d9280a9859360999daaf124bb86fc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/browser-shot-11.png",
+              "sha256": "c3042d22c9964b056ae76bd6f3b666393c1c339aaed504a277e22df7b2f44acf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/key-gate.json",
+              "sha256": "706c6259a50b56f22beb13a6638818d9e41c2573d32065f479ce6b3193c35f8b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/key-size-comparison.png",
+              "sha256": "d33a628c1b15e6214f000a7e424534f21064177c90f0e370d394f5e7aa47e84b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/structure.json",
+              "sha256": "64c83522d8e80b063b09c1ac448690044a8d014f0ead5bdde26a64064f03099b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/reviews/visual.json",
+              "sha256": "8cdb8c7369359a18a6e4bc607cf972756f7cdd294b9983edf70b7cf836fdd7ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/baseline.png",
+              "sha256": "29c38a76e08e1162154ce4f1f6a40b0b2a2c156e5a048d1d83f5ecbe07f48daf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/baseline_attempt01.png",
+              "sha256": "736456efcc32ad755f5809e012685a125caef0f9d8bdfe7677230c257373a21e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/baseline_generated.png",
+              "sha256": "32f01eb2c5151aea7af0055f9daec36534efd7a87cce1b31d351a4d042844f82"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/baseline_generated_attempt01.png",
+              "sha256": "a4ecf1b86dcb3ecb4f67ca5d64bf9d5ab30745729559bfe10815d74a6112175d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/inbetweens_a.png",
+              "sha256": "642deb2268de5d8a4aa4e39b092617d33548436b1bd75220e54e928df50176d9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/inbetweens_a_edit_board.png",
+              "sha256": "7b750577626b3c6c2588968b5af47188fe2a9c21744018534b8de1fa82231b6c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/inbetweens_b.png",
+              "sha256": "91fda64a0cef3e2462e28453acdccbc39e0b4464201aa9a7bd45cdee984d257a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/inbetweens_b_edit_board.png",
+              "sha256": "703bb4c6e76e058c36fde14bccff5735f2b54e250b82028b44d95c02a62513e2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/keypose_edit_board.png",
+              "sha256": "82ab34b53c954119d8e99d38396cab82ca2cfa7d80c03f5d3e7572bf2d91d4dd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/keypose_edit_board_attempt01.png",
+              "sha256": "c515f58b0ff754b40e1cfb5afc8ad4f4196a5598aa4b0792db8db77473db5feb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/keyposes.png",
+              "sha256": "f1c917cd21f9bc25d7c9ceb47d9774d399e6bc2468a9163ec0425a5535c06b33"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/source/keyposes_normalized.png",
+              "sha256": "e1afb42cfb8f5f9829e42a1601170251b0fac137ca38f915225e1bc30a2e1aa8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/recipe/pack.py",
+              "sha256": "b638f59990f24fd3ec6137e4b58b7a5d2ace5b9ac6d0a8ed7ec1c96aa7764ed5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/recipe/record.py",
+              "sha256": "e752402d376d0f077724ff99cd4c7327a2bb34e800e28d7806a2a2aced8dde21"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/recipe/review_png.py",
+              "sha256": "1e6cd7cf6a09a317a1b299fd2b103a45570d7820b950bc40f6445b694f429e6e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/records/generation.json",
+              "sha256": "03cecf21b02e4d12ee48f90904090fbd80dfd874cf523ff6ffa1353b6230a11e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/records/runtime_snapshot_combat_006/game/animation/frame-sequence.js",
+              "sha256": "a30c8555c98e8f2f6ab76fce7f0a052f55827233b6a98533b4d28d3de57aeb96"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/records/runtime_snapshot_combat_006/game/index.html",
+              "sha256": "07d602c9113ebf79b8268d42f957d1eecbbccfbd3616dd52c735e8c066bf7d42"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/records/runtime_snapshot_combat_006/game/plan-b-lab.js",
+              "sha256": "0780c29d079a9ba440c5af0aee48a92c3f7717be51ea33a2457c304966b86cc6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/reviews/browser-combat-comparison.png",
+              "sha256": "808b2a204dcb90db759f045ed1d1c9cc1fbb90e89093f7db8f3fea8fb4ed912d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/reviews/browser.json",
+              "sha256": "32b8b55501c7375ff535eabf1c131acca905b064cfbde781f573ac8ee6a2ea0b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/source/identity_005.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_pixel_walk_005"
+            }
+          ],
+          "preview": {
+            "type": "frame_sequence",
+            "image_path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/fullframe/clone_01-kneel-fire_05.png",
+            "width": 512,
+            "height": 512,
+            "manifest_path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/manifest.json",
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=combat_006&motion=kneel_fire"
+          },
+          "motions": [
+            "kneel_fire"
+          ],
+          "capabilities": [
+            "png_sequence",
+            "spritesheet",
+            "browser_playback"
+          ],
+          "description": "도트 캐릭터의 앉아쏴 루프. 어깨/흉곽 반동·견착 복귀·머리/망토 반응과 발사광을 모델로 새로 생성했다.14장 중01~12의 움직이는 포즈를 반복하며 최종 아트 검수 대기다.",
+          "review_notes": [
+            "첫 시도의 크기/비례 실패를 보존하고 재생성",
+            "발사45ms와 반동/복귀 시간차 · 공통 PNG 재생기",
+            "개별 프레임/다리 변형·크기/중심/발 정렬 없음",
+            "실제 전투 판정/탄약 로직은 연결하지 않은 모션 검토본"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/keyposes_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/records/keyposes_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_guard_007_walk",
+          "display_name": "플랜 B 도트007 · 경계 걷기",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "PNG count/canvas/RGBA/corners/endpoint/key identity; scoped key-pose visual gate and short macOS Chrome playback/action switches. Ground/cloth/shape drift remains; full upstream ground equality and GIF delivery NOT passed; final art acceptance pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ef06b144504f0f4dc89b42c3a63959539359bb8aaeb36459cc1aef261d6c3dcc",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/README.md",
+              "sha256": "81a3718a15f663f1bdd37557c9e336a3339613ea728e366c3f4c4bdd4b5e7445"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/recipe/pack.py",
+              "sha256": "7c90bc92498e91de845b04926a1338502d30f47acfb0230f646f6234fba6e119"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/recipe/prepare.py",
+              "sha256": "88574286a4a609d7b89bc50c59468c7ca0afef6ef736cff440da4907a0972403"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/recipe/record.py",
+              "sha256": "72f4d1bcdaa67fa3e0039b88b833976b08e1299bc23256853e04fd10ccc6ece6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/recipe/review_png.py",
+              "sha256": "3dcb9c5ad55030d5ee82daeb12407523e787aa5d2e8b1b21b4f37835b60566c0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/baseline-normalization.json",
+              "sha256": "c8bfc8e517c750196f83d44409294b778a82848ad3588ab4dd9b6be73e987213"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/baseline_prompt.json",
+              "sha256": "ea12ca9fe1fbb7768ae33adcf4b5ba5f259c21b18dab4468d6fbf89437061a4e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/baseline_prompt.md",
+              "sha256": "ed5d3ec249ab3431e2e843a7173ee576f81063fa2c4a8fa28dc020a371b96dcb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/generation.json",
+              "sha256": "540df9e48db533922008b81cfe63f2bbcc0bf672ebf1fd89c4a43e2fb474e814"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/runtime_snapshot_guard_007/game/animation/frame-sequence.js",
+              "sha256": "a30c8555c98e8f2f6ab76fce7f0a052f55827233b6a98533b4d28d3de57aeb96"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/runtime_snapshot_guard_007/game/index.html",
+              "sha256": "2fe04f946efa843ac6cf4e616248a54c4af584e76488293f39fed6df8402c044"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/runtime_snapshot_guard_007/game/plan-b-lab.js",
+              "sha256": "bbaf57bc7efc8cd4aaa1cadf96b65dabe8dedcff2d3942ff80a7ddb7e5e0e819"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/reviews/browser-narrow.png",
+              "sha256": "1ee13326144ab81281f3dca27bf3742e8ab7b9ee05ca4fdff753d3bfb8cb459b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/reviews/browser.json",
+              "sha256": "274a50ec15e048e9c5998104c12e0472b231ab3c188be662a6932c43e22969d6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/reviews/posture-before-after.png",
+              "sha256": "1e2daa2ac91ff9b8d452ae1dbef510f29a2a5f16eca30be41908b9d834f3f8f5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/source/baseline.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/source/baseline_generated.png",
+              "sha256": "0c764432bb65bdef604705afa99a5257340c2aac05c186a2371aeca0700469c6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/source/identity_005.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/source/leg_guide_005.png",
+              "sha256": "9e3f3d3deb35c8131f224ada7cb12ad52c9807e8b9fc65815b7bed12269c201d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/contact-sheet.png",
+              "sha256": "4602b3754eaecdbbfcd3f3e65ff90bcbe2ceb08ff83f916651a6ee7ef6824286"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_00.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_01.png",
+              "sha256": "a95da33f308cad797c396401853e1e8e92ec7bd2b0be3a9e63593c5e63ef7a2b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_02.png",
+              "sha256": "465aced1aa5176302521a2084b51710a6f8946d535c54aec2dbb24efb6f8aaa0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_03.png",
+              "sha256": "9e75a6a4e4fb166274127bc2a08ba32c2c556296690174ba103d34d8053488dc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_04.png",
+              "sha256": "73ba48d6896f9dd0df65904af2caca788f8458e7198599c92763a47ba068b3e7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_05.png",
+              "sha256": "33adc5a2054f1034cd65ddeb3d526e4764a61309a6f40c3a7b49a065aa11467a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_06.png",
+              "sha256": "7dcfb4edf28aa873d55c4943629c85fa423b720f342f133b43838fb4d3820f88"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_07.png",
+              "sha256": "163a4d8cc016e0ee623ffed513ef72fd3ed8a3398dae40fb99b92f1ab7d0aff3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_08.png",
+              "sha256": "281151baf497cfad399a92d805923cfac155cff9258a540fdba02925b6727b79"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_09.png",
+              "sha256": "a14026c34cb4ac8d331d05abcf99839ee70c74dabbb572367248dfea20e3e74c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_10.png",
+              "sha256": "411d280f8cbceebc470f7c3a99848b889f39ab67c791a8cbfff8fbf951c326a2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_11.png",
+              "sha256": "dfc46aced0f5815ca47fc5157759105dd0e693abc331657c1b9a0978e0d3b456"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_12.png",
+              "sha256": "7b6218321f4af1ceca89fe532723849d9b40c2bd0750213558a92f4613553333"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_13.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/keyframe/clone_01-walk_02.png",
+              "sha256": "465aced1aa5176302521a2084b51710a6f8946d535c54aec2dbb24efb6f8aaa0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/keyframe/clone_01-walk_05.png",
+              "sha256": "33adc5a2054f1034cd65ddeb3d526e4764a61309a6f40c3a7b49a065aa11467a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/keyframe/clone_01-walk_08.png",
+              "sha256": "281151baf497cfad399a92d805923cfac155cff9258a540fdba02925b6727b79"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/keyframe/clone_01-walk_11.png",
+              "sha256": "dfc46aced0f5815ca47fc5157759105dd0e693abc331657c1b9a0978e0d3b456"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/keyframe-prompts.md",
+              "sha256": "9e58cfe496a75acfdbb6cc3fa2b6ee5e6ec17dd75dd8a354ec15b91c53761bdd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/manifest.json",
+              "sha256": "3ab084f7490bec4802761e09494a092b8a7c8dc70548f52221bee500c748cc95"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/spritesheet.png",
+              "sha256": "223f283a565ed34305047912e7da199a2d8cbb99d39dec1096f953b404db1f22"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/generation.json",
+              "sha256": "1a12b853ae6625e5f2863b328edb25ad25ffdba359465b5000d47c6b15ba812c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/inbetweens_a_prompt.json",
+              "sha256": "b4eb2d4d94a5344f23caa554e7ff60142b9a5e6aa0d416ebcae42e3178f4c7f8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/inbetweens_a_prompt.md",
+              "sha256": "f337549bf45b44516bddb38cba4c1716e5de86a4b596c34ed47b08adafa5a5cc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/inbetweens_b_prompt.json",
+              "sha256": "970bae807ab79376b0d11de1b38f0db6d2bb7d7275b20294a817a08b57109d3d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/inbetweens_b_prompt.md",
+              "sha256": "ec87d349b63d16f8aa5e864fa114e3b3fc781855e0273aba94c5f4329aadc7e4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/key-split.json",
+              "sha256": "0aa99a4828e1bbc29d6a8c93566c81b9429f0f989230c5e76f90e6918cf2ff7e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/keyposes_prompt.json",
+              "sha256": "ef06b144504f0f4dc89b42c3a63959539359bb8aaeb36459cc1aef261d6c3dcc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/keyposes_prompt.md",
+              "sha256": "9e58cfe496a75acfdbb6cc3fa2b6ee5e6ec17dd75dd8a354ec15b91c53761bdd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/packing.json",
+              "sha256": "4f6d8ed1bde5b21b7cb047030f4c3f472130a10d229b297625ff3d7de71334ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/reviews/browser-action.png",
+              "sha256": "326a448af5062116c09df2f6b6a3fcb53a87977787360529a985549bc91b7f6d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/reviews/browser-pose-05.png",
+              "sha256": "c13b2e9243b5605fa24566a173616aaad79867e06d6344e818540e1a173b2f60"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/reviews/browser-pose-11.png",
+              "sha256": "f0dfaa7d6fe3fc889bb9178e7ad8d8a11ae4adb1f05224c66ea05a18b8af70a8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/reviews/key-gate.json",
+              "sha256": "d8e323ba05e33531d3e01254f4ca321fe2d8ed7f036ecb9231cf8595dd8f1932"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/reviews/key-size-comparison.png",
+              "sha256": "72bdcfc43a05d998a2ecc414e536df8f1d9dde01d7a21b540d0eda4842db04b5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/reviews/structure.json",
+              "sha256": "cc31867c812dfb07ef136f9a9cfdc8d6a81f5741c1cebb0e431e4356dc9fc932"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/reviews/visual.json",
+              "sha256": "5e5f59716ad5ea1cf39146d4b59efa36c25ae1e6a620fec07ac30b8757793503"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/source/baseline.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/source/inbetweens_a.png",
+              "sha256": "01a598382214ec850b3e240704066c0199c8cac963c9e7d135dc8045c93bfacf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/source/inbetweens_a_edit_board.png",
+              "sha256": "d0d3ee6889b04157674e306ba6ce8e7d364edd392568f00770d5de2dda7dd83b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/source/inbetweens_b.png",
+              "sha256": "7f8b28c3699e1082d30bd2726f229514b7a834c2f88168c431d358dced9a7c96"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/source/inbetweens_b_edit_board.png",
+              "sha256": "9960c773b085b0c2df1b5a4114d3d1ffbc9c2f08395803ddf75dfbbb043f75a0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/source/keypose_edit_board.png",
+              "sha256": "ad20c7d4ca687b7caedc308aa32f2cdb35184667e09391fa81f8b3497df386d2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/source/keyposes.png",
+              "sha256": "7d7aa47c92c055431285ac75299dd232ce62840107f58be7c7388dcc3128a113"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/source/keyposes_normalized.png",
+              "sha256": "1ae6d3c15b402e19dd42ea3678c9958444eb1a3b28f1c8a3baf205ab62bc96bc"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_pixel_walk_005"
+            }
+          ],
+          "preview": {
+            "type": "frame_sequence",
+            "image_path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/fullframe/clone_01-walk_02.png",
+            "width": 512,
+            "height": 512,
+            "manifest_path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/output/manifest.json",
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk"
+          },
+          "motions": [
+            "walk"
+          ],
+          "capabilities": [
+            "png_sequence",
+            "spritesheet",
+            "browser_playback"
+          ],
+          "description": "도트 캐릭터의 경계 걷기. 골반에서 상체를 앞으로 기울이고 무릎을 낮춘 채 양발 교차와 전방 시선/수평 총신을 유지하는 12포즈 반복이다. 최종 아트 검수 대기다.",
+          "review_notes": [
+            "허리/흉곽부터 앞을 숙이는 낮은 경계 자세 · 목만 숙이지 않음",
+            "접촉/교차 양쪽 반주기에서도 전경과 양발 지지 교대 유지",
+            "정확한 관절 각도/물리 접촉이나 최종 아트 채택은 아님",
+            "개별 포즈 변형·크기/중심/발 정렬 없음"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/keyposes_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk/records/keyposes_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_guard_007_walk_fire",
+          "display_name": "플랜 B 도트007 · 경계 이동 사격",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "PNG count/canvas/RGBA/corners/endpoint/key identity; scoped key-pose visual gate and short macOS Chrome playback/action switches. Ground/cloth/shape drift remains; full upstream ground equality and GIF delivery NOT passed; final art acceptance pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ac8c84a41e14e254ef7bd50a4f93c38e320ff82afc068771c2f96027b308ca16",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/README.md",
+              "sha256": "81a3718a15f663f1bdd37557c9e336a3339613ea728e366c3f4c4bdd4b5e7445"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/recipe/pack.py",
+              "sha256": "7c90bc92498e91de845b04926a1338502d30f47acfb0230f646f6234fba6e119"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/recipe/prepare.py",
+              "sha256": "88574286a4a609d7b89bc50c59468c7ca0afef6ef736cff440da4907a0972403"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/recipe/record.py",
+              "sha256": "72f4d1bcdaa67fa3e0039b88b833976b08e1299bc23256853e04fd10ccc6ece6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/recipe/review_png.py",
+              "sha256": "3dcb9c5ad55030d5ee82daeb12407523e787aa5d2e8b1b21b4f37835b60566c0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/baseline-normalization.json",
+              "sha256": "c8bfc8e517c750196f83d44409294b778a82848ad3588ab4dd9b6be73e987213"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/baseline_prompt.json",
+              "sha256": "ea12ca9fe1fbb7768ae33adcf4b5ba5f259c21b18dab4468d6fbf89437061a4e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/baseline_prompt.md",
+              "sha256": "ed5d3ec249ab3431e2e843a7173ee576f81063fa2c4a8fa28dc020a371b96dcb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/generation.json",
+              "sha256": "540df9e48db533922008b81cfe63f2bbcc0bf672ebf1fd89c4a43e2fb474e814"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/runtime_snapshot_guard_007/game/animation/frame-sequence.js",
+              "sha256": "a30c8555c98e8f2f6ab76fce7f0a052f55827233b6a98533b4d28d3de57aeb96"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/runtime_snapshot_guard_007/game/index.html",
+              "sha256": "2fe04f946efa843ac6cf4e616248a54c4af584e76488293f39fed6df8402c044"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/records/runtime_snapshot_guard_007/game/plan-b-lab.js",
+              "sha256": "bbaf57bc7efc8cd4aaa1cadf96b65dabe8dedcff2d3942ff80a7ddb7e5e0e819"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/reviews/browser-narrow.png",
+              "sha256": "1ee13326144ab81281f3dca27bf3742e8ab7b9ee05ca4fdff753d3bfb8cb459b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/reviews/browser.json",
+              "sha256": "274a50ec15e048e9c5998104c12e0472b231ab3c188be662a6932c43e22969d6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/reviews/posture-before-after.png",
+              "sha256": "1e2daa2ac91ff9b8d452ae1dbef510f29a2a5f16eca30be41908b9d834f3f8f5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/source/baseline.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/source/baseline_generated.png",
+              "sha256": "0c764432bb65bdef604705afa99a5257340c2aac05c186a2371aeca0700469c6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/source/identity_005.png",
+              "sha256": "4a13190b4c85f96ad1196addf3481fd78e16102c4fdf288f3cbe44646953959f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/source/leg_guide_005.png",
+              "sha256": "9e3f3d3deb35c8131f224ada7cb12ad52c9807e8b9fc65815b7bed12269c201d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/contact-sheet.png",
+              "sha256": "696751dcafd7ef927dacb4fb786e0d90b0c98e799e3082ed1411bd930317e39a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_00.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_01.png",
+              "sha256": "40d5c3cc66c225e33e5854cccdec80e1440d725e7eeb11f7d2fc12258611e4a9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_02.png",
+              "sha256": "4c66cd954b3c8f555305d7ce8d1a9c04edc7525ab8ca5d2623561ed2a4420abd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_03.png",
+              "sha256": "00072e56c8f036e4022081b5dc1313764cfd3ac84b790baacbff48d140170be6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_04.png",
+              "sha256": "9d4aaa0ac20153d633189f54b9592da969b268a0329cfb3ba5b1dd5284492a96"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_05.png",
+              "sha256": "740ca87a0393ef843b1c02656135e87d740414e58fd8769b15fb44de7d9c29a5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_06.png",
+              "sha256": "86390dd69230eec8b0b0f7b75f00487c49ea5f1880d0f25a88a29841741f2ea8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_07.png",
+              "sha256": "9afaf4868bf03f93a6d601155e41f6697d767f397fdc77183bc6a10d47318212"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_08.png",
+              "sha256": "8bd325de7e77c751c139375ff837d5f3338488166369dfc7e3c8620ba30c87ab"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_09.png",
+              "sha256": "3be5978583d791cac9d57a3feb89978b398611474ec21c3904163744b4621432"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_10.png",
+              "sha256": "382f387849c9c63c02fa32d77fedb0f1072a7fb19d3ad6e4c3eb3b226c0c1756"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_11.png",
+              "sha256": "d0719c9bef019882fa810b70a0be1d44282e2811265f05e38c135e7870b07ab0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_12.png",
+              "sha256": "884d226c1c180549d5005b4be3259a1d53050724be6036b2683b015273444ed0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_13.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/keyframe/clone_01-walk-fire_02.png",
+              "sha256": "4c66cd954b3c8f555305d7ce8d1a9c04edc7525ab8ca5d2623561ed2a4420abd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/keyframe/clone_01-walk-fire_05.png",
+              "sha256": "740ca87a0393ef843b1c02656135e87d740414e58fd8769b15fb44de7d9c29a5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/keyframe/clone_01-walk-fire_08.png",
+              "sha256": "8bd325de7e77c751c139375ff837d5f3338488166369dfc7e3c8620ba30c87ab"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/keyframe/clone_01-walk-fire_11.png",
+              "sha256": "d0719c9bef019882fa810b70a0be1d44282e2811265f05e38c135e7870b07ab0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/keyframe-prompts.md",
+              "sha256": "eab32a7b5f327e5d5ff24243ff18999b4598e9f41b2edf0388ce90368933915b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/manifest.json",
+              "sha256": "828301b9d4afdf840344c7b3c5881c963568c797749a3a7d937846c614d96cca"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/spritesheet.png",
+              "sha256": "1fb072b43da87eb0176cd7598f2cfaa8b95acf491222c74a4c61c12252f91c1a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/generation.json",
+              "sha256": "32aab5a1d5ff0f944270cdfea7c14f18fd2ec9a5381f21bb281b1748235185f6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/inbetweens_a_prompt.json",
+              "sha256": "a200df28a8938256517aa146d5c699827f663765ae0aa950ccbe304f5509786c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/inbetweens_a_prompt.md",
+              "sha256": "8c2fcc1e7ea80694428aa16d9372eb48d80d6057ff6606e9656360a532e7332e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/inbetweens_b_prompt.json",
+              "sha256": "586227eb0c6c50480fa98b7bf1b895c930a53ab5016c23f74bdebfb3e7a29a10"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/inbetweens_b_prompt.md",
+              "sha256": "4b8216929b54104dfa5af48c53ecc3987cdbe108f7380cb3e8ad1db5a3dba9d1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/key-split.json",
+              "sha256": "0aa99a4828e1bbc29d6a8c93566c81b9429f0f989230c5e76f90e6918cf2ff7e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/keyposes_prompt.json",
+              "sha256": "ac8c84a41e14e254ef7bd50a4f93c38e320ff82afc068771c2f96027b308ca16"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/keyposes_prompt.md",
+              "sha256": "eab32a7b5f327e5d5ff24243ff18999b4598e9f41b2edf0388ce90368933915b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/packing.json",
+              "sha256": "4f6d8ed1bde5b21b7cb047030f4c3f472130a10d229b297625ff3d7de71334ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/reviews/browser-action.png",
+              "sha256": "b0fad7019d85124a4cc4231d6212c83ae5fa2f4d1423d5c830374115aa8e5b57"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/reviews/browser-pose-02.png",
+              "sha256": "820ff567d8b3262628e78f7b6deef4680e61b446803903a64be7226251d8f497"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/reviews/browser-pose-08.png",
+              "sha256": "ddc46e2e4a35f455e1ce6a1c77d156a5210c394549e160fb3fb9302a71531bbc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/reviews/key-gate.json",
+              "sha256": "f089356a30503913450da4163fa2b5942cfd5dfc669d21f5f3d834bd605d244d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/reviews/key-size-comparison.png",
+              "sha256": "a49faca0b04b29b33feff63cf17df8d99b9caa2587184089c11035e48eb9d765"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/reviews/structure.json",
+              "sha256": "b8d2c702d3ac038a6ac98be35013d18e0b163f524858a30ed114d021d2867fa3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/reviews/visual.json",
+              "sha256": "9cf374c432cfaf7ad190f67fc21bb7c4b9bbbdd07aefd303df8dee8c19565db5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/source/baseline.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/source/inbetweens_a.png",
+              "sha256": "69e7d717c77728fda3e98fd58c26ae9d09b184aab2273f95ef237bf89f6f46a4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/source/inbetweens_a_edit_board.png",
+              "sha256": "f2b35ba8580130a8e1794961625fb915ea48e5a3901788246cecc7eb1279e37d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/source/inbetweens_b.png",
+              "sha256": "377868ca8a02441f038a09db08590b31cc7ee822fec68c209eec8d676943898b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/source/inbetweens_b_edit_board.png",
+              "sha256": "525e1bfba3981d0ad180dbac323c08101115088ef7e95d54505cd1bf2b3e1cf2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/source/keypose_edit_board.png",
+              "sha256": "ad20c7d4ca687b7caedc308aa32f2cdb35184667e09391fa81f8b3497df386d2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/source/keyposes.png",
+              "sha256": "99176a2e1ca5a6caf9af4423f42d9dfb8b18b1ccbef50abdc1eecaa14966db50"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/source/keyposes_normalized.png",
+              "sha256": "5d0b67ecc4da2d805edda4b6bbf100f6ce233b8603d7caf8ba0f6eeac36171f7"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_pixel_walk_005"
+            }
+          ],
+          "preview": {
+            "type": "frame_sequence",
+            "image_path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/fullframe/clone_01-walk-fire_02.png",
+            "width": 512,
+            "height": 512,
+            "manifest_path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/output/manifest.json",
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk_fire"
+          },
+          "motions": [
+            "walk_fire"
+          ],
+          "capabilities": [
+            "png_sequence",
+            "spritesheet",
+            "browser_playback"
+          ],
+          "description": "도트 캐릭터의 경계 이동 사격. 골반에서 상체를 앞으로 기울이고 무릎을 낮춘 채 양발 교차와 전방 시선/수평 총신을 유지하는 12포즈 반복이다. 최종 아트 검수 대기다.",
+          "review_notes": [
+            "허리/흉곽부터 앞을 숙이는 낮은 경계 자세 · 목만 숙이지 않음",
+            "접촉/교차 양쪽 반주기에서도 전경과 양발 지지 교대 유지",
+            "정확한 관절 각도/물리 접촉이나 최종 아트 채택은 아님",
+            "개별 포즈 변형·크기/중심/발 정렬 없음"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/keyposes_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_guard_007/walk_fire/records/keyposes_prompt.md"
         }
       ],
       "capabilities": [
@@ -3657,6 +5579,7 @@
       ],
       "motions": [
         "idle",
+        "relaxed",
         "walk",
         "fire",
         "walk_fire",

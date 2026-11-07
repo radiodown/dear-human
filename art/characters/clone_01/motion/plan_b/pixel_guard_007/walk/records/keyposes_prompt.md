@@ -1,0 +1,49 @@
+# Exact submitted key-pose prompt
+
+```json
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human Plan B007 four FORWARD-LEANING GUARDED walking anchors02/05/08/11",
+  "input_images": {
+    "image_1": "EDIT TARGET: four identical NEW007 low forward-leaning guard baselines in a1024x1024 board. Preserve its upper-body lean, rigid-part size and placement.",
+    "image_2": "Exact NEW007 guarded character baseline: shoulders/head clearly ahead of hips, soft low knees, head looks forward, rifle horizontal.",
+    "image_3": "OLD005 leg-motion reference ONLY:02lightA forward,05lightA support/darkB cross,08darkB forward,11darkB support/lightA cross. Ignore its OLD UPRIGHT torso; do not restore that posture."
+  },
+  "primary_request": "Edit the FIRST board into four cautious armed-walking poses while retaining the NEW visibly forward-leaned torso from image2 in EVERY cell. This is a low vigilant crouch-walk, not the old upright parade walk. Keep the hips low and shoulders/head well forward. The torso bends about20..25degrees from the HIPS; never replace this with a neck-only nod. Low deliberate steps and slight weight compression; no run, high knees or bouncing back upright.",
+  "upper_body_lean_lock": "The baseline body centerline from pelvis/belt to sternum/shoulders must stay diagonally FORWARD toward screen-right. Shoulders stay roughly30px ahead of the pelvis and head even farther ahead, just like the new007 baseline. Throughout contact AND passing poses, maintain this clear hip-led lean, allowing only2..3degree gait/recoil changes. Do not stand the torso up during passing. Eyes still look straight forward; neck gently counter-rotates, not looking at feet. Rifle remains almost horizontal at shoulder, stock and cheek connected.",
+  "identity_source": "Use the provided NEW007 baseline as the exact visual identity source, not loose inspiration. Only change pose and animation timing. Preserve same adult woman, head/face/proportions, long black hair, pale skin, simplified black/gunmetal armor/skirt/stockings/boots, plain gold-hem cape and classic M16. Do not redesign, simplify, beautify, add/remove gear, change proportions, resize head/rifle or reinterpret character.",
+  "leg_identity_lock": "A is LIGHT camera-near foreground shin/boot with the silver stripe; B is DARK camera-far background shin/boot with NO silver stripe. A always occludes B at overlap. Each remains attached to its same hip/knee/ankle chain. Keep the hips about10px lower and knees softer than old005, following new007 baseline. Short cautious stride, low swing arc about10px, both half-cycles clearly alternate. Keep planted foot on local groundy438 and retain head/chest/rifle size; do not enlarge a bent pose to match standing height.",
+  "keyposes": [
+    {
+      "frame": 2,
+      "cell": "TOP-LEFT",
+      "phase": "lightA forward contact / darkB back",
+      "pose": "LightA boot forward toward screen-right, heel/sole accepts weight with soft knee; darkB boot trails left on toe. Silver shin stripe on the FORWARD leg. Hips low, chest clearly leaning forward as007. Upper body steady and alert."
+    },
+    {
+      "frame": 5,
+      "cell": "TOP-RIGHT",
+      "phase": "lightA stance / darkB crossing behind",
+      "pose": "LightA planted beneath pelvis with soft supporting knee. DarkB bends and passes its calf/boot diagonally BEHIND lightA under the hips, narrow projected X. Keep the same LOW hip and FORWARD torso lean as contact02; do not straighten torso or rise into an upright marching pose."
+    },
+    {
+      "frame": 8,
+      "cell": "BOTTOM-LEFT",
+      "phase": "darkB forward contact / lightA back",
+      "pose": "DarkB boot leads screen-right and accepts weight with soft knee. LightA boot trails left; silver stripe is now on the BACK leg. Opposite leg order to02. Same low hip and hip-led forward lean, head looks forward, gun nearly horizontal."
+    },
+    {
+      "frame": 11,
+      "cell": "BOTTOM-RIGHT",
+      "phase": "darkB stance / lightA crossing in front",
+      "pose": "DarkB planted beneath pelvis with soft supporting knee. LightA bends and passes its silver calf/boot IN FRONT of darkB under hips, narrow projected X. Opposite support/swing to05. Remain in low forward guard, never straighten body at the passing phase."
+    }
+  ],
+  "scale_and_layout": "Precise existing2columns by2rows1024x1024 board,512x512 cells. Same actual head/chest/shoulder-to-belt/rifle dimensions and placement as new007 baseline. Its lower head crown and forward head/weapon are intentional posture changes, NOT a reason to zoom or move the body back upright. Complete rifle, boots and long cape in each cell, generous gutters. One common ground liney438, no per-cell fitting.",
+  "arms_weapon_and_camera": "Exactly one head, two arms/hands, two legs/boots. Same rear screen-left pistol-grip hand and front screen-right handguard support, same shoulders. The weapon always remains in the same screen-space hands. One classic M16 of unchanged length, nearly horizontal. Orthographic right-facing profile, no mirror, camera turn, detached stock, swapped hands or extra objects.",
+  "hair_cape": "Hair roots/cape shoulders follow leaned chest; long ends lag slightly behind movement. Small hem response and folds, not a giant wind fan. Same cape length and gold hem, no flying horizontal flag.",
+  "background": "Actual transparent alpha including gutters. No floor, shadows, checkerboard image, text, guides, borders, labels or watermark.",
+  "critical": "All four poses must keep the NEW007 clearly forward-leaning upper body, especially passing05/11. OLD005 image is only a leg-order guide; its upright upper body must NOT be copied.",
+  "firing": "Cautious ready walk only: no muzzle flash, firing, recoil, warm flash light, smoke or shell casings. Maintain two-handed forward ready aim."
+}
+```

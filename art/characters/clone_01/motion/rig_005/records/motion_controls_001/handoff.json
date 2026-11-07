@@ -1,0 +1,36 @@
+{
+  "iteration": "motion_controls_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/motion_controls_001/recipe.json",
+    "sha256": "0daaa9ff2327f5c31236182b9f3986844facb5aeee967cba2e3a34492738609f"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "short_numeric_check": {
+      "path": "art/characters/clone_01/motion/rig_005/tests/motion_controls_001/controls-smoke.json",
+      "sha256": "ec71f420c23cbc52bdbbb0205ec331c3fcb6af45a06d50b085d8e1afc2973ede"
+    },
+    "short_chrome_check": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/motion_controls_001/browser.json",
+      "sha256": "91774db45e1d5eb2e120e178ac713bc35b887b7d9f31a765767c2175633cf050"
+    },
+    "baseline_max_coordinate_difference": 0,
+    "all_eight_motion_controls": "passed",
+    "paused_waist_height_and_read_only_contacts": "passed",
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_results": "unchanged"
+  },
+  "entry_point": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk_fire",
+  "development_findings": [
+    "The first review harness passed noncanonical 0.0 to a range input; corrected numeric serialization.",
+    "Later harness navigation exposed denied localStorage on about:blank. Fixture seeding now runs only on the preview origin, and each fresh document uses a unique search parameter. Final Chrome check passed without page errors."
+  ],
+  "remaining": [
+    "User visual review of large combined base/additional waist angles and rifle height with arm/clothing occlusion.",
+    "Reload and stance transitions at extreme settings were not exhaustively reviewed.",
+    "Configured nominal waist includes authored breathing/load/recoil; displayed values do not promise an exact instantaneous body angle.",
+    "Existing temporary reload hands, source-view limitations and 2D cloth behavior remain."
+  ]
+}

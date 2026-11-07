@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "reason": "Visible upper-body/rifle size and row ground-registration drift relative to005 baseline, despite readable alternating legs and firing effects.",
+  "evidence": "reviews/key-size-comparison.png",
+  "action": "Regenerate from original005 input board with tighter upper-body/pixel-position constraints. No in-betweens generated from this rejected attempt."
+}

@@ -1,0 +1,94 @@
+{
+  "iteration": "head_body_sync_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/head_body_sync_001/recipe.json",
+    "sha256": "64a9ebdd7ccd957dca9daa77b8fbd322b4af3189286dd527a02b471d317156a3"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "short_numeric_check": {
+      "path": "art/characters/clone_01/motion/rig_005/tests/head_body_sync_001/sync-smoke.json",
+      "sha256": "bc1c1d405d8586400ef4fe3d3dedd409a8321f94cc916bef34c79f2dfd7a5749"
+    },
+    "short_chrome_check": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/browser.json",
+      "sha256": "b6b54d1a07250f81e8fac5ad40e71bf5dda36294a9d8f63c9932418f6f5fbbda"
+    },
+    "head_body_metrics": {
+      "relaxed": {
+        "headBodyRelativeRangeDegrees": 0.003473924743610925,
+        "previousRelativeRangeDegrees": 1.500753988963817,
+        "bodyRangeDegrees": 2.0844288858735878,
+        "headRangeDegrees": 2.080954961129977,
+        "maxGripError": 3.1776437161565096e-14,
+        "maxLegError": 4.779687418147813e-14,
+        "maxStockError": 2.842170943040401e-14,
+        "maxHeadLocalError": 2.4872119192760153e-14
+      },
+      "walk": {
+        "headBodyRelativeRangeDegrees": 2.3854160110976376e-15,
+        "previousRelativeRangeDegrees": 3.314814851753295,
+        "bodyRangeDegrees": 4.6039095163240225,
+        "headRangeDegrees": 4.603909516324024,
+        "maxGripError": 1.4210854715202004e-14,
+        "maxLegError": 5.3290705182007514e-14,
+        "maxStockError": 1.7763568394002505e-15,
+        "maxHeadLocalError": 2.858522464276169e-14
+      },
+      "run": {
+        "headBodyRelativeRangeDegrees": 0.013926799883620722,
+        "previousRelativeRangeDegrees": 8.177011757778272,
+        "bodyRangeDegrees": 8.177226037195332,
+        "headRangeDegrees": 8.177912826078138,
+        "maxGripError": 3.1776437161565096e-14,
+        "maxLegError": 6.404745667978755e-14,
+        "maxStockError": 3.552713678800501e-15,
+        "maxHeadLocalError": 1.6140672660990282e-14
+      },
+      "run_fire": {
+        "headBodyRelativeRangeDegrees": 0.020648975060720293,
+        "previousRelativeRangeDegrees": 8.664339027224454,
+        "bodyRangeDegrees": 8.671766359500372,
+        "headRangeDegrees": 8.679740604420891,
+        "maxGripError": 2.842170943040401e-14,
+        "maxLegError": 6.029155041345697e-14,
+        "maxStockError": 2.929642751054232e-14,
+        "maxHeadLocalError": 1.464821375527116e-14
+      },
+      "kneel_fire": {
+        "headBodyRelativeRangeDegrees": 1.7092054667335659,
+        "previousRelativeRangeDegrees": 1.709205466733568,
+        "bodyRangeDegrees": 1.5831052284030986,
+        "headRangeDegrees": 0.6797593615597919,
+        "maxGripError": 3.1776437161565096e-14,
+        "maxLegError": 2.0097183471152322e-14,
+        "maxStockError": 2.864289338439558e-14,
+        "maxHeadLocalError": 2.694344536301243e-14
+      }
+    },
+    "mean_bent_run_head_degrees": 2.5647738157038753,
+    "rendered_head_matches_solved_frame": "passed",
+    "paused_pose_and_display": "passed",
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_results": "unchanged"
+  },
+  "preliminary_reload_sample": {
+    "path": "art/characters/clone_01/motion/rig_005/tests/head_body_sync_001/preliminary-reload-sample.json",
+    "sha256": "4c69ef09bdbfefc55bb51f1f48d0a229c8bde319defd55655f52e3310c191c42"
+  },
+  "preliminary_scope": "An initial long firing sample included automatic reload. Existing temporary-reload hand error was equal before/after; final firing coherence samples end before ammo depletion.",
+  "entry_points": {
+    "walk": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=walk",
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire",
+    "kneel_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=kneel_fire"
+  },
+  "remaining": [
+    "User visual review of coherent head/neck silhouette and naturalness during repeated body load cycles.",
+    "Extreme combined manual settings and occlusion were not exhaustively reviewed.",
+    "Existing temporary reload hand reach/occlusion remains outside this correction.",
+    "No new art, Plan B/C work, GIF or 3D collision was created."
+  ]
+}

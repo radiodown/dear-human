@@ -1,0 +1,6 @@
+{
+  "status": "failed",
+  "reason": "After rigid rifle normalization, head-to-rifle proportion was visibly smaller than005. Original prompt estimated the source head too small. Regenerate with correct source head/rifle ratio before animation.",
+  "evidence": "reviews/baseline-identity-comparison-attempt01.png",
+  "inbetweens_generated": false
+}

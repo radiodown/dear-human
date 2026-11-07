@@ -1,0 +1,41 @@
+{
+  "status": "passed_with_limitations",
+  "validator": "Unmodified2dimg2motion validate_14frame_pattern.py",
+  "upstream_delivery_passed": false,
+  "raw_issues": [
+    "unstable foot baseline: [469, 437, 439, 438, 437, 439, 437, 437, 436, 437, 440, 436, 440, 469]",
+    "missing file: art/characters/clone_01/motion/plan_b/pixel_walk_005/output/preview.gif"
+  ],
+  "png_contract_errors": [],
+  "opaque_foot_bottoms": [
+    438,
+    436,
+    437,
+    437,
+    436,
+    437,
+    437,
+    437,
+    436,
+    436,
+    439,
+    436,
+    439,
+    438
+  ],
+  "opaque_foot_range_px": 3,
+  "exported_frame_count": 14,
+  "playback_moving_range": [
+    1,
+    12
+  ],
+  "playback_frame_count": 12,
+  "reference_only_frames": [
+    0,
+    13
+  ],
+  "reason": "Keep the existing baseline PNG identity contract, but exclude neutral00/13 from the active walk loop; new01/12 are generated moving phases for12->01 continuity.",
+  "per_frame_fitting": false,
+  "gif_omission": "User instructed no automatic GIF generation; browser PNG playback used.",
+  "scope": "Count/canvas/RGBA/corners/endpoint/key identity are separate from leg-crossing visual review. Strict identical foot baseline and upstream GIF delivery are not claimed."
+}

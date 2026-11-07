@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "Visual gate for forward guarded posture, identity/scale and opposite leg roles before in-betweens; not final art approval.",
+  "evidence": [
+    "reviews/key-size-comparison.png",
+    "../reviews/posture-before-after.png"
+  ],
+  "observations": [
+    "All four key poses keep shoulders/head ahead of pelvis and the hip-led forward torso lean.",
+    "Passing05/11 retain bent supporting knees and low hips rather than becoming upright.",
+    "02 lightA forward/08 darkB forward;05 lightA support/darkB crosses behind,11 darkB support/lightA crosses in front.",
+    "Head/chest/M16 dimensions remain close to007 baseline; no per-frame scale/center fitting.",
+    "All four poses are non-firing, guarded forward ready aim."
+  ],
+  "target_torso_pitch_degrees": [
+    20,
+    25
+  ],
+  "actual_joint_angle_measurement": null,
+  "art_acceptance": "awaiting_user_review",
+  "evidence_base": "Action directory; ../reviews is the common version review directory."
+}

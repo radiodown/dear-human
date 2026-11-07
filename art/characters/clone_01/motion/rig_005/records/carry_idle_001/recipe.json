@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "iteration": "carry_idle_001",
+  "user_request": "총을 쏘지 않고 달릴대는 총구가 아래를 보고 달리게. 대기 두가지, 견착자세랑 완전대기",
+  "status": "development_connected_with_scoped_checks",
+  "art_direction_status": "awaiting_user_review",
+  "scope": "Downward non-firing run, preserved shouldered idle and new relaxed idle; shared per-action controls retained.",
+  "profiles": {
+    "run": {
+      "down_pitch_degrees": 35,
+      "seat_delta": [
+        -4,
+        0
+      ]
+    },
+    "relaxed": {
+      "down_pitch_degrees": 58,
+      "seat_local": [
+        -24,
+        8
+      ],
+      "waist_default_degrees": 0
+    },
+    "idle": "Existing shouldered/forward-horizontal pose.",
+    "run_fire": "Existing forward-horizontal firing baseline and forward gaze."
+  },
+  "api": [
+    "weaponCarry()",
+    "WEAPON_CARRY",
+    "CharacterRig.setRelaxed(bool)",
+    "Existing requestFire/trigger inputs"
+  ],
+  "transition": {
+    "relax_time_seconds": 0.18,
+    "raise_aim_range": [
+      0.05,
+      0.85
+    ],
+    "first_shot_gate": "Existing >.9 aim readiness and at least .12 seconds preparation; full raise precedes first shot.",
+    "release": "Existing aim hold/decay returns to lowered carry.",
+    "reload": "Blend lowered pitch out during authored reload manipulation."
+  },
+  "transform_order": "Select carry seat and pitch, calculate the complete weapon frame, then solve grips, magazine, sights and muzzle.",
+  "storage": "New relaxed profile in dear-human:motion-controls:v1; missing saved mode gets defaults without changing older profiles.",
+  "runtime_sources": [
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "d5ea761d6c29adf652aed104b4f1dbe8aec387794f03f8f7c4bc4ae94e32057c"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "2fae0fdc764b81416575779aed7b9a45e774ae94431a7a765349d692634edc7e"
+    },
+    {
+      "path": "game/animation/motion-controls.js",
+      "sha256": "42805b0005b9d7dd2e1bd36a80f0f1e78b727425571a11daa1062317be16c59d"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "383b2ca03c70c2c4b144b79f8435f4701227ed013d7d6531dbd3e2df90f9f983"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "07d602c9113ebf79b8268d42f957d1eecbbccfbd3616dd52c735e8c066bf7d42"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_carry_idle_001/index.json",
+    "sha256": "176ca4dbee9aa2c1d68cc8c804e0b01d16c57e744e21b4bec11f4889af378ed4"
+  },
+  "dependencies": [
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "3fb90a7a2a9130f34c7005eb1355e619921ecf3406efadcf12ed7c74de8669bd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ],
+  "unchanged": [
+    "Source raster artwork",
+    "Plan B/C",
+    "gait contacts/bone lengths",
+    "kneeling 017",
+    "Existing shared controls and reaction toggles"
+  ],
+  "new_art_rasters": 0,
+  "external_model_calls": 0,
+  "gifs_generated": false,
+  "recorded_at": "2026-11-07T15:47:50.514681+09:00",
+  "elapsed_since_snapshot_seconds": 248.4,
+  "time_scope": "Wall time since source snapshot; initial source reading not measured.",
+  "development_cost": null
+}

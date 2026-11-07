@@ -1,0 +1,19 @@
+{
+  "status": "draft_playable",
+  "method": "Direct inspection of guarded baseline, key comparison, generated source sheets and full contact sheet; short browser playback evidence in common reviews/browser.json.",
+  "art_acceptance": "awaiting_user_review",
+  "observations": [
+    "Head and shoulders visibly ahead of pelvis; full torso remains leaning in contacts and both passing poses.",
+    "Gaze remains forward and M16 stays almost horizontal; no neck-only nod.",
+    "Near silver legA and far dark legB alternate forward/back placement and supporting/crossing roles.",
+    "Shorter soft-knee guarded steps; no high-knee running."
+  ],
+  "limitations": [
+    "Moving opaque sole bottom varies by 4px across the loop.",
+    "Cape/hair outline and fine armor edges still change; exact anatomical angles and physical contacts were not measured.",
+    "Final art/naturalness and single pixel grid/palette remain awaiting user review."
+  ],
+  "upstream_delivery_passed": false,
+  "per_frame_fitting": false,
+  "gif_generated": false
+}

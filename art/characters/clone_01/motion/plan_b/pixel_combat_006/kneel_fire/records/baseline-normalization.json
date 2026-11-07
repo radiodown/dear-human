@@ -1,0 +1,19 @@
+{
+  "source_size": [
+    1254,
+    1254
+  ],
+  "whole_image_size": [
+    512,
+    512
+  ],
+  "scale": 0.4082934609250399,
+  "offset": [
+    0,
+    22
+  ],
+  "ground_from_alpha64_bbox": true,
+  "alpha_noise_cutoff": 8,
+  "done_before_animation_generation": true,
+  "reason": "Revised baseline preserves the005 head/rifle ratio directly; only whole-canvas normalization and fixed ground translation before generating any motion."
+}

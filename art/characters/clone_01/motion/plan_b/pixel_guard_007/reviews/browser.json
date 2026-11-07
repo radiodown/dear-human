@@ -1,0 +1,87 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=guard_007&motion=walk",
+  "browser": "Local macOS Chrome via Playwright",
+  "scope": "Short actual-canvas playback and pose comparison for guarded walk/walking fire; no whole-game test.",
+  "actions": {
+    "walk": {
+      "status": "passed",
+      "sampled_indices": [
+        6,
+        7,
+        8,
+        9,
+        10,
+        10,
+        11,
+        12,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        7,
+        8,
+        9,
+        10,
+        11
+      ],
+      "distinct_canvas_samples": 12,
+      "review_frames": [
+        5,
+        11
+      ],
+      "loop_range": [
+        1,
+        12
+      ]
+    },
+    "walk_fire": {
+      "status": "passed",
+      "sampled_indices": [
+        1,
+        1,
+        3,
+        3,
+        4,
+        5,
+        6,
+        7,
+        9,
+        10,
+        11,
+        11,
+        12,
+        1,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8
+      ],
+      "distinct_canvas_samples": 11,
+      "review_frames": [
+        2,
+        8
+      ],
+      "loop_range": [
+        1,
+        12
+      ]
+    }
+  },
+  "checks": [
+    "both new atlases decode and actual canvas changes",
+    "only01..12 loop",
+    "opposite support/crossing and firing pose buttons",
+    "pause and single step",
+    "500px guarded walk display",
+    "006 kneeling and005 walk retained",
+    "Plan B defaults to007 guarded walk"
+  ],
+  "page_errors": [],
+  "art_acceptance": "awaiting_user_review"
+}

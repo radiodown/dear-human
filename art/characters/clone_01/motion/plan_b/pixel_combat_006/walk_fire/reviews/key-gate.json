@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "accepted_attempt": 2,
+  "prompt": "records/keyposes_retry02_prompt.json",
+  "evidence": "reviews/key-size-comparison.png",
+  "observations": [
+    "Retry keeps head/chest/rifle close to005 dimensions and feet near original ground line.",
+    "02 lightA forward,08 darkB forward;05 lightA stance/darkB crossing,11 darkB stance/lightA crossing.",
+    "02/08 contain actual muzzle flash/light;05/11 recover with no flash.",
+    "Small shoulder/chest offset is present; peak post-shot recoil will be developed in03/09."
+  ],
+  "rejected_attempt": "reviews/key-gate-attempt01.json",
+  "art_acceptance": "awaiting_user_review"
+}

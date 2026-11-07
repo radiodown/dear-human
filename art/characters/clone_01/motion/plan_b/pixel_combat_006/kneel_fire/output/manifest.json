@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "plan": "Plan B",
+  "revision_id": "plan_b_combat_006_kneel_fire",
+  "tool": "2dimg2motion / built-in image_gen",
+  "action": "kneel_fire",
+  "facing": "right",
+  "frameCount": 14,
+  "keyframeIndices": [
+    2,
+    5,
+    8,
+    11
+  ],
+  "anchorIndices": [
+    0,
+    2,
+    5,
+    8,
+    11,
+    13
+  ],
+  "segmentInsertions": [
+    1,
+    2,
+    2,
+    2,
+    1
+  ],
+  "canvas": {
+    "width": 512,
+    "height": 512
+  },
+  "durationMs": 100,
+  "frameDurationsMs": [
+    100,
+    105,
+    100,
+    90,
+    70,
+    45,
+    115,
+    125,
+    100,
+    105,
+    70,
+    45,
+    115,
+    100
+  ],
+  "pixelArt": true,
+  "footBaseline": 438,
+  "loopRange": [
+    1,
+    12
+  ],
+  "playbackFrameCount": 12,
+  "referenceFrameIndices": [
+    0,
+    13
+  ],
+  "shotIndices": [
+    5,
+    11
+  ],
+  "coordinateSpace": "screen-space",
+  "activeLimb": "near lighter foreground leg A; same hip/knee/ankle chain",
+  "activeShoulder": "near shoulder; rear grip hand at screen-left",
+  "anchorLimb": "far dark background leg B; front support hand at screen-right",
+  "weaponHand": "near hand on rear pistol grip, far hand beneath front handguard",
+  "weapon": "Classic M16 baked into whole-body PNG",
+  "frames": [
+    "fullframe/clone_01-kneel-fire_00.png",
+    "fullframe/clone_01-kneel-fire_01.png",
+    "fullframe/clone_01-kneel-fire_02.png",
+    "fullframe/clone_01-kneel-fire_03.png",
+    "fullframe/clone_01-kneel-fire_04.png",
+    "fullframe/clone_01-kneel-fire_05.png",
+    "fullframe/clone_01-kneel-fire_06.png",
+    "fullframe/clone_01-kneel-fire_07.png",
+    "fullframe/clone_01-kneel-fire_08.png",
+    "fullframe/clone_01-kneel-fire_09.png",
+    "fullframe/clone_01-kneel-fire_10.png",
+    "fullframe/clone_01-kneel-fire_11.png",
+    "fullframe/clone_01-kneel-fire_12.png",
+    "fullframe/clone_01-kneel-fire_13.png"
+  ],
+  "spritesheet": "spritesheet.png",
+  "contactSheet": "contact-sheet.png",
+  "baseline": "../source/baseline.png",
+  "previewType": "browser PNG sequence",
+  "previewBackground": "#FFFFFF",
+  "gifGenerated": false,
+  "keyPosePrompt": "../records/keyposes_prompt.json",
+  "status": "draft",
+  "art_direction_status": "awaiting_user_review",
+  "processing": "Model-generated poses and firing visuals. Whole-sheet common normalization, equal-cell split, uniform alpha<=8 noise cleanup and PNG packing only. No pose synthesis, per-frame fitting or limb transforms.",
+  "limitations": [
+    "Character, weapon, flash and lighting are baked into these PNGs.",
+    "This is an animation preview; no combat hit/ammo logic is connected.",
+    "Palette/grid, detailed continuity and final art acceptance remain under review."
+  ]
+}

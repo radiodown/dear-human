@@ -1,0 +1,44 @@
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human pixel_walk005 cyclic walking in-betweens with stable leg identity and crossing",
+  "input_images": {
+    "image_1": "EDIT TARGET:1024x1024 2x2 board, exact sprite size and coordinates. Change lower-body phase to requested intermediate instants.",
+    "image_2": "Same512x512 identity baseline. Foreground legA is LIGHT silver gunmetal; background legB is DARK charcoal.",
+    "image_3": "Approved walking keys:02 top-left lightA forward;05 top-right lightA planted/darkB crosses;08 bottom-left darkB forward/lightA back;11 bottom-right darkB planted/lightA crosses. Preserve these anchors."
+  },
+  "primary_request": "Edit the FIRST input board in place to make exactly FOUR NEW intermediate walk poses. Preserve the fixed1024x1024 board and512x512 cells. The essential requirement is a real two-leg cycle: the SAME silver foreground legA moves from front to back, then swings through in front of dark legB; the SAME dark background legB does the opposite and passes behind lightA. Do not repeat the same leading leg or the same lifted leg in both half-cycles.",
+  "leg_identity_lock": "A always stays the LIGHTER FOREGROUND shin and boot with a long silver vertical highlight. B always stays the DARK CHARCOAL BACKGROUND shin and boot, with no silver stripe. Never transfer lightness from A to B when B moves forward. A occludes B where they overlap, independent of which foot leads in screen x. Preserve each hip-knee-ankle chain and anatomical leg lengths. Passing means the swing foot goes from behind the support shin to ahead through narrow overlapping/X silhouettes under the pelvis. It is normal side-view walking, not a sideways crossed-leg catwalk.",
+  "identity_source": "Use the provided baseline image as the exact visual identity source, not loose inspiration. Only change pose and animation timing. Preserve the adult woman, face, long black straight hair, pale skin, simplified black/gunmetal armor, short skirt, long dark cape/gold hem and classic M16. Do not redesign, simplify, beautify, add details, remove details, change proportions or reinterpret the character.",
+  "upper_body_lock": "Keep head, hair crown, chest, arms and level rifle at their exact size and coordinates in the input board. No zoom, fit, recentering or camera change. Crown near localy74, ground near y438, muzzle near x371/y144. Body about364px tall. Only lower-body walking phases and small lower-cape follow-through change.",
+  "layout": "Exactly FOUR whole-body sprites in the EXISTING two columns by two rows arrangement, reading order top-left/top-right/bottom-left/bottom-right. Equal512x512 invisible cells. All boots, cape and rifle fully contained with broad transparent gutters. No labels, borders or guide lines.",
+  "limbs_and_weapon": "One head, two arms, two hands, two legs and two boots per cell. Foreground hand remains at the rear screen-left M16 grip; background support hand remains beneath the screen-right fore-end, attached to original shoulders. The weapon always remains in the same screen-space hands. Fixed right-facing profile, no mirror, turn, swapped hands or extra limbs. No firing or effects.",
+  "motion": "Small-stride steady walk. Hips and rifle stable, low swing foot arc. Natural knee bend rather than high-knee marching. For the cyclic sequence, frame12 then frame01 lead back into first contact02; do NOT stop, bring both feet together, or return to the neutral standing baseline in those frames. The neutral00/13 are separate reference images, not part of this moving loop.",
+  "background": "Actual transparent alpha background including gutters. No checkerboard image, ground shadow, floor, text or watermark.",
+  "ordered_inbetweens": [
+    {
+      "frame": 1,
+      "cell": "TOP-LEFT",
+      "segment": "late lightA swing ->02 lightA contact",
+      "pose": "Silver foregroundA leg is reaching toward screen-RIGHT for its imminent heel contact. Light boot forward, heel just touching or about to touch ground, less extended than02. Dark backgroundB leg is the support leg trailing toward screen-LEFT. This continues12 smoothly into02, not neutral standing. Silver stripe on the forward reaching leg."
+    },
+    {
+      "frame": 3,
+      "cell": "TOP-RIGHT",
+      "segment": "02 ->05, first recovery",
+      "pose": "SilverA remains the PLANTED forward support leg, knee softens and planted light foot begins moving back relative to pelvis. DarkB trailing heel lifts; dark knee bends and its dark boot recovers from behind, still screen-LEFT of planted lightA. No silver stripe on the recovering dark leg."
+    },
+    {
+      "frame": 4,
+      "cell": "BOTTOM-LEFT",
+      "segment": "02 ->05, darkB crossing behindA",
+      "pose": "SilverA planted nearly under the pelvis. DarkB swing knee moves toward screen-RIGHT while its dark calf folds diagonally BACK across the light planted shin; dark lifted boot passes close behind that support shin below pelvis. Make a narrow visible projected X/overlap, with lightA occluding darkB at the intersection. The dark foot is in recovery rather than another planted foot. One moment before05."
+    },
+    {
+      "frame": 6,
+      "cell": "BOTTOM-RIGHT",
+      "segment": "05 ->08, darkB emerges forward",
+      "pose": "DarkB has passed the silver support shin and now extends toward screen-RIGHT, dark boot ahead of planted lightA, knee unfolding and heel lowered toward ground. LightA planted foot has moved behind pelvis toward screen-LEFT. The silver stripe must remain on the BACK planted leg, never move to the dark forward swing leg."
+    }
+  ],
+  "critical": "Track the SAME bright foregroundA and dark backgroundB across the sequence.04 must have light planted/dark crossed swing.10 must have dark planted/light crossed swing. Opposite-colored legs exchange foreground x order over the cycle, while depth order stays A in front of B. All four must be new intermediate poses, not copied key poses."
+}

@@ -1,0 +1,26 @@
+{
+  "iteration": "before_motion_controls_001",
+  "started_epoch": 1794033075.881078,
+  "files": [
+    {
+      "path": "game/animation/rig-core.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_motion_controls_001/game/animation/rig-core.js",
+      "sha256": "cd978b234176700599ccf9365bcf11ab1d7ed98e5dc86ed7fd12a7accbe9ff1b"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_motion_controls_001/game/rig-lab.js",
+      "sha256": "c0832e6b9dabf55acea06696c8e9e5148166ea95d564898b6ebeb08b786bc3dc"
+    },
+    {
+      "path": "game/app.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_motion_controls_001/game/app.js",
+      "sha256": "460c6c2da3e96af7bf59061be2652c237cb07f0cbbf0224a0a49cdd3120f8680"
+    },
+    {
+      "path": "game/index.html",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_motion_controls_001/game/index.html",
+      "sha256": "274ce16f49cb7ee8f265e4ca2229ed1d9fb9f7878c1061243716c3239c5dc831"
+    }
+  ]
+}

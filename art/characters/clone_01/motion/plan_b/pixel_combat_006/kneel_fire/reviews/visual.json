@@ -1,0 +1,31 @@
+{
+  "status": "draft_playable",
+  "scope": "Key-pose/sequence visual inspection and actual Chrome screenshot review; final naturalness/art acceptance pending.",
+  "evidence": [
+    "reviews/key-size-comparison.png",
+    "output/contact-sheet.png",
+    "reviews/browser-action.png",
+    "../../reviews/browser-combat-comparison.png"
+  ],
+  "observations": [
+    "Grounded near knee slightly ahead of low pelvis and far front boot support the one-knee stance.",
+    "Cheek/shoulder stock contact and both hands remain together through shot05/11 and post-shot06/12.",
+    "Shot flashes/light, upper-body response, hair and pooled-cape changes are visible; ready/recovery frames do not flash."
+  ],
+  "moving_opaque_foot_bottom_range_px": 3,
+  "remaining_issues": [
+    "Several pixels of ground/contact registration variation remain; no per-frame ground fitting used.",
+    "Cape/hair/outline and some armor/face details vary between generated poses.",
+    "No claim of exact physical contact, collision, or final art polish."
+  ],
+  "baked_elements": [
+    "character",
+    "weapon",
+    "muzzle flash",
+    "local warm lighting"
+  ],
+  "independent_weapon_or_game_hit_logic": false,
+  "upstream_full_delivery_passed": false,
+  "gif_omitted_per_user_instruction": true,
+  "art_acceptance": "awaiting_user_review"
+}

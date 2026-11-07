@@ -1,0 +1,27 @@
+{
+  "record_type": "Parameters retained from the earlier normalization execution; this candidate was rejected.",
+  "source": "source/baseline_generated_attempt01.png",
+  "output": "source/baseline_attempt01.png",
+  "source_size": [
+    1254,
+    1254
+  ],
+  "whole_image_size": [
+    364,
+    364
+  ],
+  "scale": 0.29,
+  "offset": [
+    50,
+    118
+  ],
+  "raw_rifle_landmarks_approx": {
+    "stock_butt_x": 535,
+    "muzzle_x": 1135,
+    "length": 600
+  },
+  "target_rifle_length": 174,
+  "resampling": "nearest",
+  "alpha_noise_cutoff": 8,
+  "outcome": "Head-to-rifle ratio smaller than005; new baseline generated instead."
+}

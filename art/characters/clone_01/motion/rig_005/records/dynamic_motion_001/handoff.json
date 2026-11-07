@@ -1,0 +1,47 @@
+{
+  "iteration": "dynamic_motion_001",
+  "status": "scoped_checks_passed_awaiting_user_art_review",
+  "recipe": {
+    "path": "art/characters/clone_01/motion/rig_005/records/dynamic_motion_001/recipe.json",
+    "sha256": "af431a99c05168ff5d326a961dedd93722f030551f604eb0ba570a5c7fbf8e52"
+  },
+  "validation": {
+    "changed_js_syntax": "passed",
+    "motion_constraints": {
+      "path": "art/characters/clone_01/motion/rig_005/tests/dynamic_motion_001/motion-smoke.json",
+      "sha256": "6bcfcf08be628043de7d4df6df7d6c9bd47ddeb706fa24748a608fdaddab77a0"
+    },
+    "short_chrome_playback_ui": {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/dynamic_motion_001/browser.json",
+      "sha256": "c710dff8b60c32f4aa7fceeb47bb014f0bad9d76d951ed387f21a8bd1fa47e9f"
+    },
+    "baseline_max_coordinate_difference": 0,
+    "max_sampled_leg_error": 6.787449953031483e-14,
+    "paused_pose_read_only": true,
+    "browser_errors": [],
+    "full_test_suite": "not_run",
+    "document_catalog_checks": "not_run",
+    "historical_untested_records": "unchanged"
+  },
+  "development_findings": [
+    "Initial stronger flight caused leg reach failures; preserve the first failed report and constrain pelvis ascent by both legs.",
+    "Refined walking overlap to avoid a narrow artificial flight accent. Pre-refinement passing results are retained separately.",
+    "First shared-port browser attempt failed loading an existing atlas; server PID changed during the session. Another shared-port attempt did not render metrics. Final scoped review passed on the identical source at isolated port 4174."
+  ],
+  "entry_points": {
+    "run": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run&energy=100",
+    "run_fire": "http://127.0.0.1:4173/#/samples/characters/clone_01?motion=run_fire&energy=100"
+  },
+  "remaining": [
+    "User review of repeated walking/running rhythm and start/stop weight shift.",
+    "User review of high-strength knee/boot/skirt overlap, cape texture distortion and cloth boundaries.",
+    "Large combined manual bends, alternate weapon heights and reload/stance transitions were not exhaustively reviewed.",
+    "Existing temporary reload hands and lack of new oblique art/3D cloth collision remain."
+  ],
+  "scope_exclusions": [
+    "Plan B/C",
+    "new raster artwork",
+    "GIF",
+    "full QA or art acceptance"
+  ]
+}

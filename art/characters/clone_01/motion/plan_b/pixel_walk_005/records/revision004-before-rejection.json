@@ -1,0 +1,279 @@
+{
+  "revision_id": "plan_b_pixel_walk_004",
+  "display_name": "플랜 B 도트 004 · 걷기 14프레임",
+  "status": "draft",
+  "verification": "passed",
+  "verification_scope": "PNG count/canvas/RGBA/corners/endpoint and keyframe identity plus short macOS Chrome playback/source switching. Strict upstream foot-line equality and GIF delivery are NOT passed; visual polish awaits review.",
+  "art_direction_status": "awaiting_user_review",
+  "recipe_key": "a94236d40e2f541f7a82212e8cfa3d611c6ecfcd51bab2ca5e489c3d47f8b6dd",
+  "artifacts": [
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/README.md",
+      "sha256": "3d7d613c4bba3e1669002e50a8de27dc5cdd66b6255e0b613fe9a3718b49faea"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/contact-sheet.png",
+      "sha256": "d2f59674df57cf80f70230132d3a1be6c143b95a9afa073b4c129396d997efa8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_00.png",
+      "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_01.png",
+      "sha256": "6e5139c671f9273f93df3ffe9db4ba06efa4f7fd3b3816883c75860a3325f375"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_02.png",
+      "sha256": "f39f334abf31c0e5cea60c09e9556f62b6369ed334f942c94c6f50592bd7f342"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_03.png",
+      "sha256": "0e12ead57c0c6e1a8b43a64b1e802ec395098f7c770a993093de8de0e9a15c88"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_04.png",
+      "sha256": "05600ddc7364e438a2b999dea6eaeaa784cab03afd5ce6643d20706a6a4761b0"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_05.png",
+      "sha256": "8c5a0290758742352fd0375152bbb74e169cfe47fe81f3f947b2ad2a59832fe0"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_06.png",
+      "sha256": "23a8e1efe396d564371f45d39ee7f8da0dce7b6e88c96ca2c7905ab01cfd1bdf"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_07.png",
+      "sha256": "69def7c396ca83b397901cb29e7942799b0cf5e7f4721e18b83f268fc6023c20"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_08.png",
+      "sha256": "5b82571091e93c41d0630c87b63376ab45df560c2bcfb4642e50f7b2bcd228ff"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_09.png",
+      "sha256": "c916d4636524dea8c0eb85e6ba5a12a4fac44a62043c3fe7ec4f8a6ccf9f7e71"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_10.png",
+      "sha256": "703005d8c706b719256964b7c4d85d53b55ac56da87b5876b3c031f06ccbe822"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_11.png",
+      "sha256": "83ee41bc5fc9847b27b7c8ec23cc470aee7da6c65dbf047eec2bc75d5cb2d940"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_12.png",
+      "sha256": "920cbc6e7b0aeb80d715939b27ca0a28020d5744ece469d228ee3f74a5f86637"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_13.png",
+      "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/keyframe/clone_01-pixel-walk_02.png",
+      "sha256": "f39f334abf31c0e5cea60c09e9556f62b6369ed334f942c94c6f50592bd7f342"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/keyframe/clone_01-pixel-walk_05.png",
+      "sha256": "8c5a0290758742352fd0375152bbb74e169cfe47fe81f3f947b2ad2a59832fe0"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/keyframe/clone_01-pixel-walk_08.png",
+      "sha256": "5b82571091e93c41d0630c87b63376ab45df560c2bcfb4642e50f7b2bcd228ff"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/keyframe/clone_01-pixel-walk_11.png",
+      "sha256": "83ee41bc5fc9847b27b7c8ec23cc470aee7da6c65dbf047eec2bc75d5cb2d940"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/keyframe-prompts.md",
+      "sha256": "e9c69a5e137e05f3283dcba902523c52adbbc3ee82fc8ae18a4dc758f670558f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/manifest.json",
+      "sha256": "9021c9fc44db39905864e767ef4d42265ae54aa4e5207cc2d79f9b7947db5049"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/spritesheet.png",
+      "sha256": "d55e3bd672f7ebaa081ad76e13f6cfaa5384677a44d11f799c897f01ffd28139"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/recipe/pack.py",
+      "sha256": "4006ecd5e0f0cba38f86430808ebdb7c841e7cbfdbe36d1c87bb9970b320337c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/recipe/record.py",
+      "sha256": "9130e32f3b8c4841f5bb71c73af51b2b8a2057349b474e61675157cac4d24b1f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/analysis.json",
+      "sha256": "7266c60f0f4de2db939dff84f9b8023cfe57af50a139a28aa1d958bd57ffb55b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/generation.json",
+      "sha256": "4bbcb17c0ea10aa9c4ca2d26ac453af78c71affa7f01e1f1dead8ac4c9b3db62"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/inbetweens_a_prompt.json",
+      "sha256": "e32514baf2d04d1d5f2a6285af6a1b03ac771be79c0210eeceec61e26f51bd48"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/inbetweens_a_prompt.md",
+      "sha256": "868a4f6d8717e4da3ab7118542b090823b72c3773619037ac963d2c2cb5c4107"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/inbetweens_b_prompt.json",
+      "sha256": "3c76d02b804136037fa52c6333eee9871f08171b06c3ce9afa388282c6f2a17f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/inbetweens_b_prompt.md",
+      "sha256": "88d9af59ad2507797958f70e41348b9122d734e83cf5fe505e0e4445cb619b31"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/key-split.json",
+      "sha256": "ccff23c83d30eea8bb751c13c4857aacd76366840af7f4b62ce8267856acb865"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/keyposes_prompt.json",
+      "sha256": "a94236d40e2f541f7a82212e8cfa3d611c6ecfcd51bab2ca5e489c3d47f8b6dd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/keyposes_prompt.md",
+      "sha256": "e9c69a5e137e05f3283dcba902523c52adbbc3ee82fc8ae18a4dc758f670558f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/packing.json",
+      "sha256": "e52f692a4ea96eff5dd4f4292279ea0fe8fa10a9b6051b98a0058a9d1f24696e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/runtime_snapshot_pixel_walk_004/game/animation/frame-sequence.js",
+      "sha256": "98a53cb8e3af85554df0a6016f0b8ff6140545ffe635f2243d5104eecc4b24fb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/runtime_snapshot_pixel_walk_004/game/app.js",
+      "sha256": "4e3f93821ed73786234221651e79425027f3c965c29d3ef15cc6346ebb8b8355"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/runtime_snapshot_pixel_walk_004/game/index.html",
+      "sha256": "ba397e151fef475b936289f86bc4aa2eb4600e1266a2f7f985ec42d8547a6f72"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/runtime_snapshot_pixel_walk_004/game/plan-b-lab.js",
+      "sha256": "457af2f8d88038cbc40e7f5a3ff99b1dc8c5770974d6ad0dc82106f3b75c0658"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/runtime_snapshot_pixel_walk_004/game/styles.css",
+      "sha256": "d9f3eeb90d7976c1f039de7b90d30c1d213d4939a0fe4fb851c5fd908b2f3513"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/browser-frame-02.png",
+      "sha256": "0bd5188b6a014e812d01f1ec0fe30ca1431a31d8bd1827e3980ae7aafaee43ae"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/browser-frame-05.png",
+      "sha256": "6ed09505297ad82b7319d71df8564640594915aadbe3540e1585a3c9c79b011c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/browser-frame-08.png",
+      "sha256": "26d41354858b38f0810c099314aa2cec12224d61ced4a4b77959392da19ebd79"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/browser-frame-11.png",
+      "sha256": "a7d67c192fe1f91771d289606ccb090dd18f03c4e8fbeff45c107741709da238"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/browser-narrow.png",
+      "sha256": "efcf8a61a13f44aaa668d46e079f2eb59183c09cc197f9d3b1f60ad1445d0352"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/browser-walk.png",
+      "sha256": "4df3267436ecd06e7f3efe7b26a1ade4151fd2f2ef32ef345215462683613263"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/browser.json",
+      "sha256": "ca60a5ed65f775472a9c7168ed84c9b3867f523c9ab094f3f8af332c6ea5ddb4"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/key-gate.json",
+      "sha256": "c96d130bb7ebc436752f070e8992549d596c4d1946bb76f20c0c5c3c084c6a3d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/key-size-comparison.png",
+      "sha256": "41517d68274c6e814d5cb8f988273d56ab31f7e01862b4fabb6f712381b4d354"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/structure.json",
+      "sha256": "b4278079ed74d478ca8a349df6780464ec1a785fad5e290ce1a717c11e5acf2d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/visual.json",
+      "sha256": "fef695f2dcaae137e15bdda221871b508df0dce9dcf29fa2610c6f330fa4eea8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/baseline.png",
+      "sha256": "1d5eb88a45c8e856b6b37b67ab0d6d70c0e986f51c3600c6a7a7038b198c7c1f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/inbetweens_a.png",
+      "sha256": "3f5393e46e4634ce1d3bd4214aa9441cc1027d723ed60e057a7b03ce547fb01f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/inbetweens_a_edit_board.png",
+      "sha256": "788595ce399856095601fcb30c5d2b1a71f8435aa9922c3a68f2192e0c99958d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/inbetweens_b.png",
+      "sha256": "ece7bb6d1152e165d94b4db377de700a6b5fd18b8f1eb928201f37395cec5838"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/inbetweens_b_edit_board.png",
+      "sha256": "61a5075534adf41cb75c9ec681806f0d1ccb708993bcc634dab20805be0541cf"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/keypose_edit_board.png",
+      "sha256": "2249dc47fe08dc3a5d362ccce06b4f7909694c4dd41b873d8a62e0b222a3e177"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/keyposes.png",
+      "sha256": "b5ee30de182266cdc2855759844db077a6f19906351667b1add3dc3673662707"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/source/keyposes_normalized.png",
+      "sha256": "5d565a9d6bf8420600a2ddb3a70e195d67e9a6a5433c9f456915b26f7dac0b86"
+    }
+  ],
+  "dependencies": [
+    {
+      "kind": "character",
+      "entity_id": "clone_01",
+      "revision_id": "plan_b_pixel_003"
+    }
+  ],
+  "preview": {
+    "type": "frame_sequence",
+    "image_path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/fullframe/clone_01-pixel-walk_02.png",
+    "width": 512,
+    "height": 512,
+    "manifest_path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/output/manifest.json",
+    "sample_url": "#/samples/characters/clone_01?plan=b&study=pixel_004&motion=walk"
+  },
+  "motions": [
+    "walk"
+  ],
+  "capabilities": [
+    "png_sequence",
+    "spritesheet",
+    "browser_playback"
+  ],
+  "description": "도트003 캐릭터의 14프레임 제자리 걷기 초안. 모델 키포즈·중간 프레임을 같은 페이지에 연결했으며 크기 확대를 줄였습니다. 약3px 발 높이 변화·망토/다리 세부·루프 연결은 검토 대기입니다.",
+  "review_notes": [
+    "자동 걷기·정지·한 프레임·속도·이전/새 atlas 전환 확인",
+    "머리·흉갑·어깨~벨트·M16을 기준과 비교한 후 중간 프레임 생성",
+    "개별 크기/중심/발 기준선 정렬과 포즈 보간 없음",
+    "공식 발 기준선 완전 일치·GIF 납품 통과가 아님 · 최종 모션 채택 대기"
+  ],
+  "prompt_path": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/keyposes_prompt.json",
+  "prompt_document": "art/characters/clone_01/motion/plan_b/pixel_walk_004/records/keyposes_prompt.md"
+}

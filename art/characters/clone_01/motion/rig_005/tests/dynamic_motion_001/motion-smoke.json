@@ -1,0 +1,247 @@
+{
+  "scope": "Short motion constraints and snapshot comparison; no full suite or art acceptance.",
+  "energies": [
+    0,
+    1,
+    1.5
+  ],
+  "modes": {
+    "idle:0": {
+      "maxLegError": 5.0242958677880804e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": 0,
+      "hipMin": -169.12,
+      "hipMax": -168.68133525099006,
+      "maxClearance": 0
+    },
+    "walk:0": {
+      "maxLegError": 5.1237965343830035e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -165.29989257288636,
+      "hipMax": -161.50211962857028,
+      "maxClearance": 6.49677425840103
+    },
+    "run:0": {
+      "maxLegError": 5.17282919736354e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 5.329070518200751e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -163.34905516067587,
+      "hipMax": -159.00028965142806,
+      "maxClearance": 31.997087207105476
+    },
+    "fire:0": {
+      "maxLegError": 4.779687418147813e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.8546336281444334e-14,
+      "minFloor": 0,
+      "hipMin": -159.72,
+      "hipMax": -159.28133525099236,
+      "maxClearance": 0
+    },
+    "walk_fire:0": {
+      "maxLegError": 5.281488578858708e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.876656200481457e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -162.69989257288637,
+      "hipMax": -158.9021196285703,
+      "maxClearance": 6.49677425840103
+    },
+    "run_fire:0": {
+      "maxLegError": 5.728578676879116e-14,
+      "maxGripError": 4.263256414560601e-14,
+      "maxStockError": 2.9191899439142324e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -160.74905516067588,
+      "hipMax": -156.40028965142807,
+      "maxClearance": 31.997087207105476
+    },
+    "kneel:0": {
+      "maxLegError": 4.451537480371452e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": 0,
+      "hipMin": -83.56330075942051,
+      "hipMax": -83.56330075942051,
+      "maxClearance": 1.0498318478633003e-31
+    },
+    "kneel_fire:0": {
+      "maxLegError": 3.776586443654626e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "minFloor": 0,
+      "hipMin": -83.81722305375553,
+      "hipMax": -83.74527988317351,
+      "maxClearance": 1.0498318478633003e-31
+    },
+    "idle:1": {
+      "maxLegError": 5.0242958677880804e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": 0,
+      "hipMin": -169.12,
+      "hipMax": -168.68133525099006,
+      "maxClearance": 0
+    },
+    "walk:1": {
+      "maxLegError": 6.787449953031483e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -165.0252563964455,
+      "hipMax": -159.4035647996997,
+      "maxClearance": 10.774526491661582
+    },
+    "run:1": {
+      "maxLegError": 6.404745667978755e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 7.105427357601002e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -165.8488670857826,
+      "hipMax": -156.34629966939212,
+      "maxClearance": 43.99601703486374
+    },
+    "fire:1": {
+      "maxLegError": 4.779687418147813e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.8546336281444334e-14,
+      "minFloor": 0,
+      "hipMin": -159.72,
+      "hipMax": -159.28133525099236,
+      "maxClearance": 0
+    },
+    "walk_fire:1": {
+      "maxLegError": 4.832213032818602e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.876656200481457e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -162.49702486806453,
+      "hipMax": -157.62800323904534,
+      "maxClearance": 10.774526491661582
+    },
+    "run_fire:1": {
+      "maxLegError": 6.029155041345697e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.909377512977897e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -163.2488670857826,
+      "hipMax": -153.74629966939213,
+      "maxClearance": 43.99601703486374
+    },
+    "kneel:1": {
+      "maxLegError": 4.451537480371452e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": 0,
+      "hipMin": -83.56330075942051,
+      "hipMax": -83.56330075942051,
+      "maxClearance": 1.0498318478633003e-31
+    },
+    "kneel_fire:1": {
+      "maxLegError": 3.776586443654626e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "minFloor": 0,
+      "hipMin": -83.81722305375553,
+      "hipMax": -83.74527988317351,
+      "maxClearance": 1.0498318478633003e-31
+    },
+    "idle:1.5": {
+      "maxLegError": 5.0242958677880804e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": 0,
+      "hipMin": -169.12,
+      "hipMax": -168.68133525099006,
+      "maxClearance": 0
+    },
+    "walk:1.5": {
+      "maxLegError": 5.1237965343830035e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -164.94970710509077,
+      "hipMax": -158.1641791858762,
+      "maxClearance": 12.976517154741682
+    },
+    "run:1.5": {
+      "maxLegError": 5.549516171688151e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 7.105427357601002e-15,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -167.09877304833591,
+      "hipMax": -154.6701197127813,
+      "maxClearance": 49.99548194874288
+    },
+    "fire:1.5": {
+      "maxLegError": 4.779687418147813e-14,
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.8546336281444334e-14,
+      "minFloor": 0,
+      "hipMin": -159.72,
+      "hipMax": -159.28133525099236,
+      "maxClearance": 0
+    },
+    "walk_fire:1.5": {
+      "maxLegError": 4.7664655742347644e-14,
+      "maxGripError": 4.263256414560601e-14,
+      "maxStockError": 2.876656200481457e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -162.4295906459838,
+      "hipMax": -156.86434374743135,
+      "maxClearance": 12.976517154741682
+    },
+    "run_fire:1.5": {
+      "maxLegError": 4.618527782440651e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.929642751054232e-14,
+      "minFloor": -3.552713678800501e-15,
+      "hipMin": -164.49877304833592,
+      "hipMax": -152.0701197127813,
+      "maxClearance": 49.99548194874288
+    },
+    "kneel:1.5": {
+      "maxLegError": 4.451537480371452e-14,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "minFloor": 0,
+      "hipMin": -83.56330075942051,
+      "hipMax": -83.56330075942051,
+      "maxClearance": 1.0498318478633003e-31
+    },
+    "kneel_fire:1.5": {
+      "maxLegError": 3.776586443654626e-14,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "minFloor": 0,
+      "hipMin": -83.81722305375553,
+      "hipMax": -83.74527988317351,
+      "maxClearance": 1.0498318478633003e-31
+    }
+  },
+  "baselineMaxDifference": 0,
+  "pausedPoseReadOnly": true,
+  "status": "passed",
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "3fb90a7a2a9130f34c7005eb1355e619921ecf3406efadcf12ed7c74de8669bd"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "cde13fada500695e645f9739b9e90e031efd5211905b410b9e467230b50a2224"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "acc8ce7af67b0920e46fd103cacaf145d193399b09711780896cd79932af96f8"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "cd978b234176700599ccf9365bcf11ab1d7ed98e5dc86ed7fd12a7accbe9ff1b"
+    }
+  ]
+}

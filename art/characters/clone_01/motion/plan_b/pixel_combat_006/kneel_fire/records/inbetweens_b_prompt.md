@@ -1,0 +1,42 @@
+# Exact submitted image prompt
+
+```json
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human Plan B combat006 kneeling-fire intermediate animation poses",
+  "input_images": {
+    "image_1": "EDIT TARGET:1024x1024 exact2x2 board with accepted kneeling-fire poses,512x512 cells.",
+    "image_2": "Accepted512x512 kneeling baseline and immutable identity/scale source.",
+    "image_3": "Approved keys02ready/05shot/08recover/11shot. Keep these keys immutable; generate only requested NEW intermediate instants."
+  },
+  "primary_request": "Edit the FIRST input board in place into exactly FOUR NEW intermediate KNEELING-FIRE poses. Keep the same low one-knee stance and contact points. Animate a coherent shoulder/chest recoil pulse, recovery/forward re-aim, subtle hip compression and delayed hair/cape response. It is a whole-body animation, not the identical drawing with a flash. All requested intermediate frames have NO muzzle flash; muzzle flashes exist only in approved keys05/11.",
+  "identity_source": "Use the provided baseline image as the exact visual identity source, not loose inspiration. Only change pose and animation timing. Same adult woman, exact head/face/long black hair, pale cool skin, simplified dark armor/skirt/stockings/boots and long gold-hem cape, same classic M16. Do not redesign, simplify, beautify, add/remove details, change proportions or reinterpret the character.",
+  "kneeling_contacts": "Near lighterA knee remains on the same ground contact slightly ahead of the low pelvis, light shin folded back to rear boot. Far darkB front boot remains flat on the same ground, dark front knee raised and shin almost vertical. Preserve those existing exact x/y support positions. Never stand up, swap knees, slide front foot, float pelvis or add a third foot. Small hip settling2..3px is allowed. Skirt follows raised thigh; long cape stays pooled behind on the ground, with small delayed hem ripples only.",
+  "body_pulse": "After each shot, stock/shoulder/chest move BACK toward screen-left about7px at maximum, head follows3..4px and elbows flex to absorb it while cheek stays close to stock. The torso rocks back about6degrees rather than being enlarged. Then shoulder/chest/stock progressively return forward to re-aim. Hips settle lower2px on recovery. Hair tips and cape hem lag behind the upper-body movement by6..10px with scalp/shoulder roots fixed. Preserve head, chest and rifle dimensions.",
+  "hands_and_rifle": "One head, two arms/hands, two legs/boots, exactly one M16. Same rear screen-left grip hand and front screen-right handguard support, original shoulders. The weapon always remains in the same screen-space hands. Stock remains against shoulder, cheek near stock, barrel nearly horizontal with at most1..2degree recoil rise. No mirrored view, camera turn, detached gun, loose magazine or reload.",
+  "layout": "Edit the exact1024x1024 source board,2columns by2rows with512x512 cells, same original kneeling positions and empty margins. Keep all boots, pooled cape and complete M16 inside each cell. No per-cell zoom, fit or recenter. Preserve coarse square pixel clusters.",
+  "background": "Actual transparent alpha including gutters. No floor drawing, shadows, checkerboard image, text, labels, borders, watermark, muzzle flash, smoke or other objects in any of these four intermediate cells.",
+  "ordered_inbetweens": [
+    {
+      "frame": 7,
+      "cell": "TOP-LEFT",
+      "pose": "Recover about halfway from peak06 to re-aim08. Shoulder/stock/chest move progressively forward; head follows and elbows extend. Hips settle slightly. Hair tips/cape hem continue their delayed response. No flash."
+    },
+    {
+      "frame": 9,
+      "cell": "TOP-RIGHT",
+      "pose": "After re-aim08, a small purposeful forward/down compression into the low firing stance. Both hands maintain grip/stock connection, knee/front boot stay fixed. Cape ripple tapers. No flash."
+    },
+    {
+      "frame": 10,
+      "cell": "BOTTOM-LEFT",
+      "pose": "Immediately before next shot11: chest/shoulder brace a few pixels forward, cheek presses close to stock, same grounded support and raised front knee. Elbows ready. No flash or oversized body shift."
+    },
+    {
+      "frame": 12,
+      "cell": "BOTTOM-RIGHT",
+      "pose": "Immediately AFTER next flash11, flash gone. Maximum shoulder/stock/chest recoil7px BACK, head follows3..4px, elbows flex and upper torso rocks back. Hair/cape lag in a later phase than06. Ground supports remain fixed. Continue into01recovery, then02ready, without standing up or resetting cape."
+    }
+  ]
+}
+```

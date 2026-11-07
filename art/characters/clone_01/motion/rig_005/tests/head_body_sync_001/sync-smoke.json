@@ -1,0 +1,79 @@
+{
+  "scope": "Short head/body motion coherence and contact check; no full suite or art acceptance.",
+  "modes": {
+    "relaxed": {
+      "headBodyRelativeRangeDegrees": 0.003473924743610925,
+      "previousRelativeRangeDegrees": 1.500753988963817,
+      "bodyRangeDegrees": 2.0844288858735878,
+      "headRangeDegrees": 2.080954961129977,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxLegError": 4.779687418147813e-14,
+      "maxStockError": 2.842170943040401e-14,
+      "maxHeadLocalError": 2.4872119192760153e-14
+    },
+    "walk": {
+      "headBodyRelativeRangeDegrees": 2.3854160110976376e-15,
+      "previousRelativeRangeDegrees": 3.314814851753295,
+      "bodyRangeDegrees": 4.6039095163240225,
+      "headRangeDegrees": 4.603909516324024,
+      "maxGripError": 1.4210854715202004e-14,
+      "maxLegError": 5.3290705182007514e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "maxHeadLocalError": 2.858522464276169e-14
+    },
+    "run": {
+      "headBodyRelativeRangeDegrees": 0.013926799883620722,
+      "previousRelativeRangeDegrees": 8.177011757778272,
+      "bodyRangeDegrees": 8.177226037195332,
+      "headRangeDegrees": 8.177912826078138,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxLegError": 6.404745667978755e-14,
+      "maxStockError": 3.552713678800501e-15,
+      "maxHeadLocalError": 1.6140672660990282e-14
+    },
+    "run_fire": {
+      "headBodyRelativeRangeDegrees": 0.020648975060720293,
+      "previousRelativeRangeDegrees": 8.664339027224454,
+      "bodyRangeDegrees": 8.671766359500372,
+      "headRangeDegrees": 8.679740604420891,
+      "maxGripError": 2.842170943040401e-14,
+      "maxLegError": 6.029155041345697e-14,
+      "maxStockError": 2.929642751054232e-14,
+      "maxHeadLocalError": 1.464821375527116e-14
+    },
+    "kneel_fire": {
+      "headBodyRelativeRangeDegrees": 1.7092054667335659,
+      "previousRelativeRangeDegrees": 1.709205466733568,
+      "bodyRangeDegrees": 1.5831052284030986,
+      "headRangeDegrees": 0.6797593615597919,
+      "maxGripError": 3.1776437161565096e-14,
+      "maxLegError": 2.0097183471152322e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "maxHeadLocalError": 2.694344536301243e-14
+    }
+  },
+  "meanBentRunHeadDegrees": 2.5647738157038753,
+  "status": "passed",
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "61fe3501cdfe972ae7d46d904b85bafa5b0c6253c5c3a5e788e5cef96ce6ca22"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "156cba76437ceb54c8659809383ab7fd7e4346c5e343ecab264529a0d6e192f8"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "9e4079acaacd34dc8f1b675d7ca2a584088ced01417e7db1b5ca6a55748e2520"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "b5b9cf491e256e91552734ba56c7d5cc63156fe7f592d190b132466f52c7d896"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "c3bc5db39d40b3e7a3a7e0b7d1f935519f18b162880b375de835953f235f0c25"
+    }
+  ]
+}

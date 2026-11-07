@@ -1,5 +1,11 @@
 # Dear Human 아트 보관함
 
+[플랜 B · 경계 보행007](characters/clone_01/motion/plan_b/pixel_guard_007/README.md): 상체 전경·낮춘 무릎·양발 교차의 경계 걷기와 같은 자세의 이동 사격. 기준/키포즈/중간 원본·정확한 프롬프트·시간/해시·필요한 PNG/Chrome 기록을 보존하며 최종 아트 검수 대기다.
+
+[플랜 B · 전투 모션006](characters/clone_01/motion/plan_b/pixel_combat_006/README.md): 이동 사격과 앉아쏴의 모델 생성 PNG·발사광·반동·머리/망토 반응, 채택/반려 시트와 정확한 프롬프트·실제 Chrome 캡처를 보존한다.
+
+[플랜 B · 다리 교차 005](characters/clone_01/motion/plan_b/pixel_walk_005/README.md): 밝은 전경/어두운 후경 다리가 지지·회수 역할을 바꾸고 몸 아래에서 교차하는 새 보행. 14장 PNG 중 움직이는 12개를 반복하며 004 반려·새 교차 대조·실제 페이지 캡처를 보존한다.
+
 [플랜 B · 도트 걷기 004](characters/clone_01/motion/plan_b/pixel_walk_004/README.md): 도트 003 외형 기반 14프레임·네 키포즈·PNG atlas와 실제 페이지 재생. 발 높이/망토/루프의 추가 아트 검토가 남으며 사용자 채택 대기다.
 
 [플랜 B · 도트 단순화 003](characters/clone_01/motion/plan_b/pixel_walk_003/README.md): 장식과 명암을 줄인 기준 외형 1장·걷기 키포즈 4개. 기준 외형 채택 대기, 키포즈는 크기 일관성 실패로 보존하며 완성 보행은 없다.

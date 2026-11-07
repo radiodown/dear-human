@@ -1,0 +1,84 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=combat_006&motion=walk_fire",
+  "browser": "Local macOS Chrome via Playwright",
+  "scope": "One focused review of two new combat animations and their shared controls, not whole-game testing.",
+  "actions": {
+    "walk_fire": {
+      "status": "passed",
+      "sampled_indices": [
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6
+      ],
+      "distinct_canvas_samples": 12,
+      "review_shots": [
+        2,
+        8
+      ],
+      "loop_range": [
+        1,
+        12
+      ]
+    },
+    "kneel_fire": {
+      "status": "passed",
+      "sampled_indices": [
+        1,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        7,
+        8,
+        9,
+        10,
+        12,
+        12,
+        1,
+        2,
+        3,
+        4
+      ],
+      "distinct_canvas_samples": 11,
+      "review_shots": [
+        5,
+        11
+      ],
+      "loop_range": [
+        1,
+        12
+      ]
+    }
+  },
+  "checks": [
+    "both512px atlases decode and actual canvas changes",
+    "only01..12 repeat",
+    "per-action shot/recoil comparison buttons",
+    "pause and step",
+    "half-speed playback and backgrounds",
+    "500px layout for both actions",
+    "005 walking retained",
+    "Plan B defaults to new walk-fire"
+  ],
+  "page_errors": [],
+  "art_acceptance": "awaiting_user_review"
+}

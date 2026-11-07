@@ -1,0 +1,56 @@
+{
+  "status": "passed_with_limitations",
+  "validator": "Unmodified2dimg2motion validate_14frame_pattern.py",
+  "upstream_delivery_passed": false,
+  "raw_issues": [
+    "unstable foot baseline: [438, 440, 440, 440, 441, 439, 443, 442, 439, 442, 442, 439, 442, 438]",
+    "missing file: /Users/jin/Desktop/dear-human/art/characters/clone_01/motion/plan_b/pixel_combat_006/kneel_fire/output/preview.gif"
+  ],
+  "png_contract_errors": [],
+  "exported_frame_count": 14,
+  "moving_loop_range": [
+    1,
+    12
+  ],
+  "opaque_foot_bottoms": [
+    438,
+    440,
+    439,
+    440,
+    441,
+    439,
+    441,
+    442,
+    439,
+    442,
+    442,
+    439,
+    442,
+    438
+  ],
+  "moving_foot_bottom_range_px": 3,
+  "shot_indices": [
+    5,
+    11
+  ],
+  "frame_durations_ms": [
+    100,
+    105,
+    100,
+    90,
+    70,
+    45,
+    115,
+    125,
+    100,
+    105,
+    70,
+    45,
+    115,
+    100
+  ],
+  "loop_duration_ms": 1085,
+  "per_frame_fitting": false,
+  "gif_omission": "No automatic GIF generation per user instruction; browser PNG playback is the preview.",
+  "scope": "PNG count/canvas/RGBA/corners/endpoint/key identity only. Exact ground equality, motion quality and full upstream GIF delivery are not claimed."
+}

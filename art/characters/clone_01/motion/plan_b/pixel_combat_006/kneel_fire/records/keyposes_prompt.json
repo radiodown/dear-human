@@ -1,0 +1,41 @@
+{
+  "use_case": "identity-preserve",
+  "asset_type": "Dear Human Plan B combat006 four KNEELING-FIRE animation anchors02/05/08/11",
+  "input_images": {
+    "image_1": "EDIT TARGET: four identical accepted kneeling baselines in an exact1024x1024 board,512x512 cells.",
+    "image_2": "Exact kneeling baseline and identity/scale source; do not redesign or enlarge it."
+  },
+  "primary_request": "Edit the FIRST image in place into four whole-body KNEELING-FIRE key poses. Keep the near knee and front boot supporting the same low stance. Animate the chest, shoulders, forearms, cheek/stock contact, hair tips and pooled cape through ready -> gunshot recoil -> recovery -> next gunshot recoil. Make visible whole-body weight/shoulder response, not just a flash on an unchanged drawing. It remains the same character at the same scale and cell placement.",
+  "identity_source": "Use the provided baseline image as the exact visual identity source, not loose inspiration. Only change pose and animation timing. Preserve face, head size relative to rifle, long straight black hair, pale cool skin, simplified black/gunmetal armor, skirt/stockings, boots, cape/gold hem and classic M16. Do not redesign, simplify, beautify, add/remove costume details, change proportions or reinterpret the character.",
+  "lower_body_lock": "Near lighter legA remains kneeling, padded knee on the ground slightly ahead of pelvis, shin folded back to rear boot. Far dark legB remains the raised front knee with its dark front boot flat on the ground. The SAME near knee and front boot stay at their existing exact contact points in every cell. Small hip compression2..3px allowed; never slide, swap knees, float, stand up or turn into a two-foot squat. Preserve the exact two-leg/boot topology. Skirt folds over raised thigh. Cape stays LONG, pooled behind on the ground.",
+  "body_dynamics": "Ready body leans into the stock; at a shot, shoulder and stock kick BACK toward screen-left about6px, chest rocks back by roughly6degrees, elbows absorb the force and head follows by3px while cheek stays near stock. Recover by moving shoulder/chest forward again with a small hip settle. Hair tips and lower cape lag by6..10px after the chest, keeping scalp/shoulder attachments. This is a restrained but clearly visible shooting pulse; no gigantic recoil, detached stock or floating hair.",
+  "keyposes": [
+    {
+      "frame": 2,
+      "cell": "TOP-LEFT",
+      "phase": "low ready, aiming/settling",
+      "pose": "Keep the exact kneel contacts. Chest shifts a few pixels forward/down, cheek firmly to stock, shoulders braced, forearms ready. Rifle nearly horizontal. Hair/cape settle behind. NO flash."
+    },
+    {
+      "frame": 5,
+      "cell": "TOP-RIGHT",
+      "phase": "first shot and recoil",
+      "pose": "Knee/front foot remain anchored. Stock/near shoulder and chest move6px BACK toward screen-left, torso slightly rocks back, elbows compress, head follows3px without losing cheek contact. Small sharp cream/orange PIXEL flash at the actual muzzle tip and subtle warm face/glove/armor light. Rifle may rise only1..2degrees. Cape/hair tips initially lag behind chest motion."
+    },
+    {
+      "frame": 8,
+      "cell": "BOTTOM-LEFT",
+      "phase": "recovery and re-aim",
+      "pose": "Stock/shoulder/chest return forward to aimed baseline after shot; pelvis settles slightly lower over grounded knee. Rifle horizontal, both hands still gripping same places. Lower cape and hair tips continue delayed movement, visibly different from02. NO flash."
+    },
+    {
+      "frame": 11,
+      "cell": "BOTTOM-RIGHT",
+      "phase": "next shot and recoil",
+      "pose": "Same knee/front-foot support, second clear shoulder/chest recoil toward screen-left. Arms flex, head follows body while cheek stays near stock. Another compact cream/orange pixel muzzle flash and localized warm highlights. Hair/cape phase follows the previous recovery, not a duplicated unrelated pose."
+    }
+  ],
+  "scale_and_layout": "Preserve the precise existing1024x1024 board,2columns by2rows,512x512 invisible cells. Keep baseline head/chest/M16 dimensions and its exact low body placement; no zoom, cell fitting or larger kneeling figure. Ground and contacts near localy438, preserve the full cape and rifle/flash inside each cell. Only a few pixels of body recoil/settle, never scale the character.",
+  "weapon_hands": "One head, two arms/hands, two legs/boots. Rear screen-left firing hand stays on pistol grip, front screen-right support hand beneath handguard, same original shoulders. The weapon always remains in the same screen-space hands. Classic M16 length and parts unchanged. Orthographic right-facing profile, no mirror or camera turn, no duplicated gun or loose magazine.",
+  "background": "Actual transparent alpha, generous gutters. No floor drawing, cast shadow, checkerboard image, text, labels, borders or watermark. Only05 and11 flash;02 and08 do not."
+}

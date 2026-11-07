@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "iteration": "dynamic_motion_001",
+  "user_request": "파츠모션에서 더 역동적이었으면 함",
+  "status": "development_connected_with_scoped_checks",
+  "art_direction_status": "awaiting_user_review",
+  "scope": "Additive parts-rig performance; original art, Plan B/C, kneeling targets, horizontal muzzle, stride and planted tracks retained.",
+  "control": {
+    "api": "CharacterRig.setMotionEnergy(0..1.5)",
+    "ui_percent": [
+      0,
+      150
+    ],
+    "default_percent": 100,
+    "zero": "Saved-source gait/body/weapon/feet/cloth/cape/hair coordinates reproduced exactly in the short baseline comparison.",
+    "storage_key": "dear-human:motion-energy:v1",
+    "url_parameter": "energy",
+    "paused_comparison": "No simulation or contact-history advancement"
+  },
+  "performance": {
+    "extra_swing_clearance": {
+      "walk": 4.5,
+      "run": 12
+    },
+    "landing_compression": {
+      "walk": 2.6,
+      "run": 3.5,
+      "peak_fraction": 0.26
+    },
+    "flight_accent": "Run-only; amplitude grows with the flight window. Walking overlapping support has no extra flight.",
+    "reach_limit": "Raise pelvis no further than BOTH rigid legs can reach, before solving torso and weapon.",
+    "move_drive": {
+      "hz": 2.6,
+      "damping": 0.78,
+      "limit_radians": 0.06,
+      "delta_speed_impulse": 0.008
+    },
+    "chest": "Phase-lagged waist, counter pitch and small vertical absorption; reduced while eye-aiming.",
+    "secondary": "Pinned scalp/shoulder segments and length-preserving cape/hair remain; only local free-end angles and fabric response gain increase.",
+    "kneeling": "Additional strength fades out at the completed 017 kneeling pose."
+  },
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "3fb90a7a2a9130f34c7005eb1355e619921ecf3406efadcf12ed7c74de8669bd"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "cde13fada500695e645f9739b9e90e031efd5211905b410b9e467230b50a2224"
+    },
+    {
+      "path": "game/animation/cape.js",
+      "sha256": "acc8ce7af67b0920e46fd103cacaf145d193399b09711780896cd79932af96f8"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "cd978b234176700599ccf9365bcf11ab1d7ed98e5dc86ed7fd12a7accbe9ff1b"
+    },
+    {
+      "path": "game/rig-lab.js",
+      "sha256": "c0832e6b9dabf55acea06696c8e9e5148166ea95d564898b6ebeb08b786bc3dc"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "460c6c2da3e96af7bf59061be2652c237cb07f0cbbf0224a0a49cdd3120f8680"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "274ce16f49cb7ee8f265e4ca2229ed1d9fb9f7878c1061243716c3239c5dc831"
+    }
+  ],
+  "dependencies": [
+    {
+      "path": "game/animation/firing-form.js",
+      "sha256": "929fd44e70371f8294c07036cbacc1bd3825377ee0138d25efd9a830a5352bac"
+    },
+    {
+      "path": "game/animation/kneeling-pose.js",
+      "sha256": "0929b51eb45cf4bc7f1032c606506163f491e3cb3beee5054ae32f2b3cf1f034"
+    },
+    {
+      "path": "game/animation/proportions.js",
+      "sha256": "69fa651b117f5ddb81767d08e32f81f00323678e4b20aed0fc3967397d6112ea"
+    },
+    {
+      "path": "game/animation/weapon-profiles.js",
+      "sha256": "1ff38b8ed74f7aee5f67c46c6b23a21d4e47dd4ce91f25a9601a64b544c693eb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/rig/parts.json",
+      "sha256": "84614078e0d6593410966c32f714e6e43362a7f9353793a0eb86da56ceff2fed"
+    }
+  ],
+  "previous_runtime": {
+    "path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_dynamic_motion_001/index.json",
+    "sha256": "bfb6f4d4594ba173f0cf490eabffe359f03ffb428c331688e498b9187da124cb"
+  },
+  "tools": {
+    "implementation": "Shared local JavaScript parts rig",
+    "browser": "Local Google Chrome via Python Playwright",
+    "external_model_calls": 0,
+    "new_art_rasters": 0,
+    "gifs_generated": false
+  },
+  "recorded_at": "2026-11-07T15:28:20.979558+09:00",
+  "elapsed_since_snapshot_seconds": 520.7,
+  "time_scope": "Elapsed wall time from source snapshot through implementation/review; earlier source reading not measured.",
+  "development_cost": null
+}

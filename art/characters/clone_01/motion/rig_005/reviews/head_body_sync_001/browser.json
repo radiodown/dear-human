@@ -1,0 +1,78 @@
+{
+  "status": "passed",
+  "scope": "Short Chrome coherence/render-frame check and visual capture; naturalness awaits user art review.",
+  "browser": "Local Google Chrome via Python Playwright",
+  "checks": [
+    "Live walking, running and running fire keep head/body pitch changes in the same rendered frames.",
+    "Rendered head matches the simulation head frame exactly; grips remain connected in all four samples.",
+    "Paused canvas is stable; kneeling fire remains visible with its authored aiming fit."
+  ],
+  "metrics": {
+    "walk": {
+      "samples": 58,
+      "maxRenderError": 0,
+      "maxGripError": 1.4210854715202004e-14,
+      "relativeRangeDegrees": 1.5902773407317584e-15
+    },
+    "run": {
+      "samples": 58,
+      "maxRenderError": 0,
+      "maxGripError": 1.4210854715202004e-14,
+      "relativeRangeDegrees": 0.008323329129523407
+    },
+    "run_fire": {
+      "samples": 58,
+      "maxRenderError": 0,
+      "maxGripError": 2.842170943040401e-14,
+      "relativeRangeDegrees": 0.01465934659453213
+    },
+    "kneel_fire": {
+      "samples": 58,
+      "maxRenderError": 0,
+      "maxGripError": 2.842170943040401e-14,
+      "relativeRangeDegrees": 1.3071833227856688
+    }
+  },
+  "page_errors": [],
+  "captures": [
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/walk.png",
+      "sha256": "ea64bd68170288b156e4d50131a15029ad1ca3f41a8c040a2055d09ce71bfbdc"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/run.png",
+      "sha256": "97b40ada337350b17f6cb67adefb5346e25fd34413d34fc9e96cb32f695af440"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/run_fire.png",
+      "sha256": "aeb88e7e4b8c66c0e3d0ed475292fd9449ad465bfa1db487e9e4198bd7283048"
+    },
+    {
+      "path": "art/characters/clone_01/motion/rig_005/reviews/head_body_sync_001/kneel_fire.png",
+      "sha256": "00a693126866ad8a1cb5e5e552b3b800c47776d5ff93eb54f64f9cc78edb9348"
+    }
+  ],
+  "runtime_sources": [
+    {
+      "path": "game/animation/gait.js",
+      "sha256": "61fe3501cdfe972ae7d46d904b85bafa5b0c6253c5c3a5e788e5cef96ce6ca22"
+    },
+    {
+      "path": "game/animation/secondary-motion.js",
+      "sha256": "156cba76437ceb54c8659809383ab7fd7e4346c5e343ecab264529a0d6e192f8"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "9e4079acaacd34dc8f1b675d7ca2a584088ced01417e7db1b5ca6a55748e2520"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "sha256": "b5b9cf491e256e91552734ba56c7d5cc63156fe7f592d190b132466f52c7d896"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "sha256": "c3bc5db39d40b3e7a3a7e0b7d1f935519f18b162880b375de835953f235f0c25"
+    }
+  ],
+  "gifs_generated": false
+}

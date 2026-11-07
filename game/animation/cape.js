@@ -23,9 +23,9 @@ export class CapeMotion {
       node.velocity=(node.velocity-w*c*dt)*e;
     });
   }
-  points(){
+  points(energy=0){
     const points=[{x:0,y:0}],length=this.length/this.segments;
-    for(const node of this.nodes){const p=points.at(-1);points.push({x:p.x+Math.sin(node.angle)*length,y:p.y+Math.cos(node.angle)*length});}
+    for(const node of this.nodes){const p=points.at(-1),angle=node.angle*(1+.32*energy);points.push({x:p.x+Math.sin(angle)*length,y:p.y+Math.cos(angle)*length});}
     return points;
   }
 }

@@ -2,7 +2,7 @@ import { transform } from './rig-core.js';
 import { partDimensions } from './proportions.js';
 import { capeOffset, groundedCapeSurface } from './cape.js';
 import { sleeveOffset } from './secondary-motion.js';
-import { outfitPoint, skirtPanelPoint, torsoPoint, bustPoint, waistStrain } from './waist.js';
+import { outfitPoint, skirtPanelPoint, thighRootOffset, torsoPoint, bustPoint, waistStrain } from './waist.js';
 import { KNEEL_ART, kneelingKneeAngle } from './kneeling-pose.js';
 import { MUZZLE_LIGHT, muzzleLightState, lightSurface, CHARACTER_VERTEX_SHADER, CHARACTER_FRAGMENT_SHADER } from './muzzle-light.js';
 import { SIDE_CAMERA, sideCamera, sideDepthPose } from './side-camera.js';
@@ -93,25 +93,27 @@ export class WebGLCharacter {
     const {width}=partDimensions(this.definition.parts[key].rect,height);
     this.mesh(key,x,y,width,height,options);
   }
-  limb(key,start,end,tint,jointBend=null,upper=false) {
+  limb(key,start,end,tint,jointBend=null,upper=false,hipPose=null) {
     const dx=end.x-start.x,dy=end.y-start.y;
     const part=this.definition.parts[key],rect=part.rect;
     const [a,b]=part.joints??[0,1],joints=part.joint_points??[[.5,a],[.5,b]];
     const sx=(joints[1][0]-joints[0][0])*rect[2],sy=(joints[1][1]-joints[0][1])*rect[3];
     const height=Math.hypot(dx,dy)*rect[3]/Math.hypot(sx,sy);
     const {width}=partDimensions(this.definition.parts[key].rect,height);
-    const warp=jointBend===null||part.joint_points?undefined:(u,v)=>sleeveOffset(width,height,[a,b],jointBend,upper,u,v);
+    const angle=Math.atan2(dy,dx)-Math.atan2(sy,sx);
+    const warp=hipPose?(u,v)=>thighRootOffset(hipPose,width,height,joints[0],angle,u,v)
+      :jointBend===null||part.joint_points?undefined:(u,v)=>sleeveOffset(width,height,[a,b],jointBend,upper,u,v);
     const depth=p=>{const t=Math.max(0,Math.min(1,((p.x-start.x)*dx+(p.y-start.y)*dy)/(dx*dx+dy*dy||1)));
       return (start.z??0)+((end.z??0)-(start.z??0))*t;};
-    this.sprite(key,start.x,start.y,height,{angle:Math.atan2(dy,dx)-Math.atan2(sy,sx),pivot:joints[0],tint,warp,depth,rows:18});
+    this.sprite(key,start.x,start.y,height,{angle,pivot:joints[0],tint,warp,depth,rows:18});
   }
   armSegment(prefix,arm,upper,key=null){
     const a=Math.atan2(arm.elbow.y-arm.root.y,arm.elbow.x-arm.root.x),b=Math.atan2(arm.hand.y-arm.elbow.y,arm.hand.x-arm.elbow.x);
     const difference=upper?b-a:a-b,bend=Math.atan2(Math.sin(difference),Math.cos(difference));
     this.limb(key??prefix+(upper?'_upper_arm':'_forearm'),upper?arm.root:arm.elbow,upper?arm.elbow:arm.hand,undefined,bend,upper);
   }
-  legSegments(prefix,leg,amount){
-    this.limb(prefix+'_thigh',leg.root,leg.elbow);
+  legSegments(prefix,leg,amount,pose){
+    this.limb(prefix+'_thigh',leg.root,leg.elbow,undefined,null,false,pose);
     if(amount<=.001){this.limb(prefix+'_shin',leg.elbow,leg.hand);return null;}
     const thigh=this.definition.parts[prefix+'_thigh'],fold=this.definition.parts[prefix+'_knee_fold'];
     const [j0,j1]=thigh.joints;
@@ -182,14 +184,14 @@ export class WebGLCharacter {
       });return;
     }
     const body=(key,extra={})=>{
-      const {offset={x:0,y:0},...options}=extra,s=b[key],at=transform({x:s.x+offset.x,y:s.y+offset.y},t);
+      const {offset={x:0,y:0},frame,...options}=extra,s=b[key],at=frame??transform({x:s.x+offset.x,y:s.y+offset.y},t);
       const softDepth=key==='cape'?SIDE_CAMERA.cape:key==='hair_back'?SIDE_CAMERA.hair:0;
       const rootDepth=key==='head'||key==='hair_back'?(p.headDepth??0):SIDE_CAMERA.body;
       const depth=softDepth?(_p,_u,v)=>{
         const pinned=key==='cape'?.2:.625,q=Math.max(0,Math.min(1,(v-pinned)/(1-pinned)));
         return rootDepth+(softDepth-rootDepth)*q*q*(3-2*q);
       }:rootDepth;
-      this.sprite(key,at.x,at.y,s.height,{pivot:s.pivot,depth,...options,angle:t.a*(s.rotationMix??1)+(s.angle||0)+(options.angle||0)});
+      this.sprite(key,at.x,at.y,s.height,{pivot:s.pivot,depth,...options,angle:(frame?frame.a:t.a*(s.rotationMix??1)+(s.angle||0))+(options.angle||0)});
     };
     if(showCape){
       if(p.kneeSupport.amount>.001){
@@ -199,14 +201,15 @@ export class WebGLCharacter {
         });
       }else body('cape',{warp:(u,v)=>capeOffset(p.capePoints,b.cape.height,u,v)});
     }
-    const headAim=p.headAim,headRotation=p.head*.015+headAim.a;
-    const hairRoot=transform({x:b.hair_back.x-b.head.x,y:b.hair_back.y-b.head.y},
-      {x:b.head.x+headAim.x,y:b.head.y+headAim.y,a:((b.head.rotationMix??1)-1)*t.a+headRotation});
-    body('hair_back',{offset:{x:hairRoot.x-b.hair_back.x,y:hairRoot.y-b.hair_back.y},angle:((b.head.rotationMix??1)-(b.hair_back.rotationMix??1))*t.a+headRotation,
+    // Head, eye and scalp share the solved frame. Retain the source artwork's
+    // head-only registration angle when attaching the separate back hair.
+    const hairAngle=p.headFrame.a-(b.head.angle||0),hairRoot=transform(
+      {x:b.hair_back.x-b.head.x,y:b.hair_back.y-b.head.y},{...p.headFrame,a:hairAngle});
+    body('hair_back',{frame:{...hairRoot,a:hairAngle+(b.hair_back.angle||0)},
       warp:(u,v)=>capeOffset(p.hairPoints,b.hair_back.height,u,v),rows:16});
     for(const [index,prefix]of [[0,'far'],[1,'near']]){
       const leg=p.legs[index];
-      const knee=this.legSegments(prefix,leg,p.kneeSupport.amount);
+      const knee=this.legSegments(prefix,leg,p.kneeSupport.amount,p);
       const boot=b[prefix+'_boot'];
       this.sprite(prefix+'_boot',leg.foot.x,leg.foot.y,boot.height,{pivot:boot.pivot,angle:leg.foot.a,depth:leg.foot.z});
       knee?.();
@@ -222,7 +225,7 @@ export class WebGLCharacter {
     }
     // Four independent attachments reuse the source. The torso mesh has a hole
     // for the rigid breastplate, so its old image cannot remain underneath it.
-    body('head',{offset:headAim,angle:p.head*.015+headAim.a});
+    body('head',{frame:p.headFrame});
     const bodySize=partDimensions(definition.parts.body_core.rect,b.body_core.height);
     const {width,height}=bodySize;
     for(const key of ['waist_cloth','skirt_core','skirt_rear_panel','skirt_front_panel','torso_shell','bust_armor'])this.mesh(key,0,0,width,height,{

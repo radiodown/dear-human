@@ -1,0 +1,65 @@
+{
+  "scope": "Short shared-control constraints and authored-default comparison; no full test suite or art acceptance.",
+  "modes": {
+    "idle": {
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 1.7763568394002505e-15,
+      "maxLegError": 4.779687418147813e-14,
+      "pausedWaistAndHeight": true
+    },
+    "walk": {
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.220446049250313e-15,
+      "maxLegError": 4.832213032818602e-14,
+      "pausedWaistAndHeight": true
+    },
+    "fire": {
+      "maxGripError": 4.263256414560601e-14,
+      "maxStockError": 2.8556913116159195e-14,
+      "maxLegError": 4.779687418147813e-14,
+      "pausedWaistAndHeight": true
+    },
+    "walk_fire": {
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 2.8916994303251375e-14,
+      "maxLegError": 4.451537480371452e-14,
+      "pausedWaistAndHeight": true
+    },
+    "run": {
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 7.105427357601002e-15,
+      "maxLegError": 5.1237965343830035e-14,
+      "pausedWaistAndHeight": true
+    },
+    "run_fire": {
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.8916994303251375e-14,
+      "maxLegError": 5.17282919736354e-14,
+      "pausedWaistAndHeight": true
+    },
+    "kneel": {
+      "maxGripError": 2.842170943040401e-14,
+      "maxStockError": 0,
+      "maxLegError": 7.105427357601002e-15,
+      "pausedWaistAndHeight": true
+    },
+    "kneel_fire": {
+      "maxGripError": 3.1776437161565096e-14,
+      "maxStockError": 2.864289338439558e-14,
+      "maxLegError": 2.0097183471152322e-14,
+      "pausedWaistAndHeight": true
+    }
+  },
+  "baselineMaxDifference": 0,
+  "status": "passed",
+  "runtime_sources": [
+    {
+      "path": "game/animation/motion-controls.js",
+      "sha256": "aa24a39560d7f61714d6bbaf19075cbb9187acfdadf2e91819b916f1142ebbe4"
+    },
+    {
+      "path": "game/animation/rig-core.js",
+      "sha256": "b3a34647a4cf89e417629b6a97bc0007e4f50f154d1f46fee1ccc4b6031dee98"
+    }
+  ]
+}

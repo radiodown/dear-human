@@ -1,0 +1,21 @@
+{
+  "iteration": "before_skirt_walk_cover_001",
+  "started_epoch": 1794034775.113599,
+  "files": [
+    {
+      "path": "game/animation/waist.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_skirt_walk_cover_001/game/animation/waist.js",
+      "sha256": "532c60fce657b7f274cf4b45864a383e833cadab375511295161fc0c753cef1e"
+    },
+    {
+      "path": "game/animation/webgl-character.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_skirt_walk_cover_001/game/animation/webgl-character.js",
+      "sha256": "b5b9cf491e256e91552734ba56c7d5cc63156fe7f592d190b132466f52c7d896"
+    },
+    {
+      "path": "game/animation/side-camera.js",
+      "snapshot_path": "art/characters/clone_01/motion/rig_005/records/runtime_snapshot_before_skirt_walk_cover_001/game/animation/side-camera.js",
+      "sha256": "c3bc5db39d40b3e7a3a7e0b7d1f935519f18b162880b375de835953f235f0c25"
+    }
+  ]
+}

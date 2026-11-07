@@ -40,6 +40,15 @@ def keys_review():
         draw.text((x + 14, y + 8), label, fill='#292e32')
         draw.line((x, y + 466, x + 512, y + 466), fill='#bbb7ac')
     board.save(ROOT / 'reviews/key-size-comparison.png')
+    leg_board = Image.new('RGB', (920, 848), '#eceee4')
+    leg_labels = ImageDraw.Draw(leg_board)
+    captions = ['02 A FRONT / B BACK', '05 A SUPPORT / B CROSS', '08 A BACK / B FRONT', '11 B SUPPORT / A CROSS']
+    for slot, index in enumerate(KEYS):
+        image = cells[index].crop((100, 252, 330, 448)).resize((460, 392), Image.Resampling.NEAREST)
+        x, y = (slot % 2) * 460, (slot // 2) * 424
+        leg_board.paste(image, (x, y + 32), image)
+        leg_labels.text((x + 12, y + 10), captions[slot], fill='#805522')
+    leg_board.save(ROOT / 'reviews/key-leg-alternation.png')
     (ROOT / 'records/key-split.json').write_text(json.dumps(report, indent=2) + '\n')
 
 
@@ -76,7 +85,9 @@ def pack():
         'tool': '2dimg2motion / built-in image_gen', 'action': 'walk', 'facing': 'right',
         'frameCount': 14, 'keyframeIndices': KEYS, 'anchorIndices': [0, 2, 5, 8, 11, 13],
         'segmentInsertions': [1, 2, 2, 2, 1], 'canvas': {'width': 512, 'height': 512},
-        'durationMs': 75, 'pixelArt': True, 'footBaseline': 438,
+        'durationMs': 90, 'pixelArt': True, 'footBaseline': 438,
+        'loopRange': [1, 12], 'playbackFrameCount': 12, 'referenceFrameIndices': [0, 13],
+        'playbackNote': 'Twelve moving poses form the continuous alternating-leg loop. Neutral reference00/13 remain available for inspection but do not interrupt walking playback.',
         'coordinateSpace': 'screen-space', 'activeLimb': 'near lighter foreground leg A; fixed depth identity',
         'activeShoulder': 'near shoulder, rear grip hand at screen-left',
         'anchorLimb': 'far dark background leg B; front support hand at screen-right',
