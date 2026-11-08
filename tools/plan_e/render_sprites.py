@@ -488,16 +488,14 @@ def lerp(a, b, t):
 FINGER_CURL = 70.0
 
 
-def pose_body(lean, twist, head_pitch, pelvis_drop, feet=None, hip_lean=0.0, pelvis_forward=0.0):
-    """lean: forward degrees spread on the spine; twist: chest yaw toward camera.
-    hip_lean tips the whole trunk from the hips (cape anchor included);
-    pelvis_forward moves the hips over the front foot (m)."""
+def pose_body(lean, twist, head_pitch, pelvis_drop, feet=None):
+    """lean: forward degrees spread on the spine; twist: chest yaw toward camera."""
     twist *= args.twist
-    pelvis_head = REST['pelvis'] + Vector((pelvis_forward, 0, -pelvis_drop))
-    set_abs('pelvis', rot_ypz(yaw=twist * 0.25, pitch=lean * 0.2 + hip_lean), head=pelvis_head)
-    set_abs('waist', rot_ypz(yaw=twist * 0.55, pitch=lean * 0.55 + hip_lean))
-    set_abs('chest', rot_ypz(yaw=twist, pitch=lean + hip_lean))
-    set_abs('neck', rot_ypz(yaw=twist * 0.4, pitch=(lean + hip_lean) * 0.5 + head_pitch * 0.4))
+    pelvis_head = REST['pelvis'] + Vector((0, 0, -pelvis_drop))
+    set_abs('pelvis', rot_ypz(yaw=twist * 0.25, pitch=lean * 0.2), head=pelvis_head)
+    set_abs('waist', rot_ypz(yaw=twist * 0.55, pitch=lean * 0.55))
+    set_abs('chest', rot_ypz(yaw=twist, pitch=lean))
+    set_abs('neck', rot_ypz(yaw=twist * 0.4, pitch=lean * 0.5 + head_pitch * 0.4))
     set_abs('head', rot_ypz(yaw=0, pitch=head_pitch))
     # Offsets from the rest ankles; with the Plan D rig stance=1 gives the original
     # targets (0.17, 0.14) and (-0.13, -0.15).
@@ -777,7 +775,7 @@ def to_linear_safe(rgb):
 
 
 def collect_reload():
-    w, h = frame_camera(-0.75, 1.55, -0.04, 2.10)
+    w, h = frame_camera(-0.75, 1.39, -0.04, 2.10)
     frames, falling = [], {}
     for f in range(RELOAD_FRAMES):
         label = pose_reload_frame(f, falling)
@@ -893,11 +891,6 @@ IDLE_BODY = dict(AIM_BODY)
 READY_BODY = dict(lean=5.0, twist=-14.0, head_pitch=4.0, pelvis_drop=0.03)        # low-ready walk
 RELAXED_BODY = dict(lean=2.0, twist=-8.0, head_pitch=2.0, pelvis_drop=0.015)
 RUN_BODY = dict(lean=15.0, twist=-10.0, head_pitch=0.0, pelvis_drop=0.05)          # head stays level
-# Firing on the run: lean further into the run so it does not read as standing;
-# head and barrel stay level. RUN_FIRE_LEAN can be overridden for comparisons.
-RUN_FIRE_LEAN = float(os.environ.get('PLAN_E_RUN_FIRE_LEAN', 20.0))
-RUN_FIRE_HIP = float(os.environ.get('PLAN_E_RUN_FIRE_HIP', 16.0))       # whole trunk tipped from the hips
-RUN_FIRE_FORWARD = 0.06                                                  # hips over the front foot
 KNEEL_DROP = 0.595                         # rear knee on the floor with the thigh upright
 KNEEL_BODY = dict(lean=7.0, twist=-20.0, head_pitch=17.0, pelvis_drop=KNEEL_DROP)
 
@@ -976,8 +969,7 @@ def m_run(i, n):
 def m_run_fire(i, n):
     p = i / n
     kick, firing = shot(i, 3)
-    body = gait_body('run', p, dict(RUN_BODY, lean=RUN_FIRE_LEAN))
-    body.update(hip_lean=RUN_FIRE_HIP, pelvis_forward=RUN_FIRE_FORWARD)
+    body = gait_body('run', p, RUN_BODY)
     body['lean'] -= 1.0 * kick
     pose_body(**body, feet=gait_feet('run', p))
     hold(*gun_shouldered(pocket_drop=0.10, kick=kick), firing=firing)      # chest height, no eye aim
@@ -1006,7 +998,7 @@ MOTIONS = {
     'fire': ('서서쏴', m_fire, 4, 20, True, 2, None),
     'walk_fire': ('걸으며쏴', m_walk_fire, GAITS['walk']['frames'], GAITS['walk']['fps'], True, 2, gait_drag(1.2)),
     'run': ('달리기', m_run, GAITS['run']['frames'], GAITS['run']['fps'], True, 3, gait_drag(2.4)),
-    'run_fire': ('뛰며쏴', m_run_fire, GAITS['run']['frames'], GAITS['run']['fps'], True, 3, gait_drag(3.6)),   # cape streams back
+    'run_fire': ('뛰며쏴', m_run_fire, GAITS['run']['frames'], GAITS['run']['fps'], True, 3, gait_drag(2.4)),
     'kneel': ('앉기', m_kneel, 12, 12, False, 0, None),
     'kneel_fire': ('앉아쏴', m_kneel_fire, 4, 20, True, 2, None),
 }
@@ -1015,7 +1007,7 @@ MOTIONS = {
 def collect_motion(cid):
     global DRAG
     title, fn, n, fps, loop, warm, drag = MOTIONS[cid]
-    w, h = frame_camera(-0.75, 1.55, -0.04, 2.10)
+    w, h = frame_camera(-0.75, 1.39, -0.04, 2.10)
     dt = 1.0 / fps
     DRAG = Vector((0, 0, 0))
     fn(0, n)
