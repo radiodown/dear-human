@@ -8,3 +8,6 @@ node_modules/
 
 # One-off local review export requested for viewing only.
 art/characters/clone_01/motion/rig_002/exports/gif_001/
+
+# Plan E hull models are rebuilt by tools/plan_e/build_hull_model.py in ~15 s (see each README).
+art/characters/clone_01/motion/plan_e/model_hull_*/source/

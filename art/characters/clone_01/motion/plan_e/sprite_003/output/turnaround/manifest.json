@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "plan": "Plan E",
+  "clip": "turnaround",
+  "title": "같은 자세 8방향",
+  "frameCount": 8,
+  "fps": 4,
+  "loop": true,
+  "canvas": {
+    "width": 205,
+    "height": 205
+  },
+  "pixelsPerMeter": 96.0,
+  "spritesheet": "spritesheet.png",
+  "frames": [
+    {
+      "label": "측면 · 오른쪽"
+    },
+    {
+      "label": "3/4 · 정면 쪽"
+    },
+    {
+      "label": "정면"
+    },
+    {
+      "label": "3/4 · 정면 왼쪽"
+    },
+    {
+      "label": "측면 · 왼쪽"
+    },
+    {
+      "label": "3/4 · 뒤 왼쪽"
+    },
+    {
+      "label": "후면"
+    },
+    {
+      "label": "3/4 · 뒤 오른쪽"
+    }
+  ]
+}

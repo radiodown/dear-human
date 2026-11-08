@@ -26,7 +26,10 @@ from mathutils import Euler, Matrix, Quaternion, Vector
 
 argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
 parser = argparse.ArgumentParser()
-parser.add_argument('--glb', required=True)
+parser.add_argument('--glb', required=True, help='rigged model: .glb (Plan D) or .blend (build_hull_model.py)')
+parser.add_argument('--exposure', type=float, default=0.6, help='0 keeps painted (emission) models at their painted values')
+parser.add_argument('--twist', type=float, default=1.0, help='scale of the chest yaw toward the camera')
+parser.add_argument('--stance', type=float, default=1.0, help='foot spread of the shooting stance, 0 = rest pose')
 parser.add_argument('--out', required=True)
 parser.add_argument('--clips', default='reload,turnaround')
 parser.add_argument('--ppm', type=float, default=64.0, help='output pixels per meter')
@@ -48,7 +51,18 @@ SUPPORT = 'right'
 # Scene
 
 bpy.ops.wm.read_factory_settings(use_empty=True)
-bpy.ops.import_scene.gltf(filepath=os.path.abspath(args.glb))
+if args.glb.lower().endswith('.blend'):
+    with bpy.data.libraries.load(os.path.abspath(args.glb), link=False) as (src, dst):
+        dst.objects = list(src.objects)
+    for obj in dst.objects:
+        bpy.context.scene.collection.objects.link(obj)
+    base = os.path.dirname(os.path.abspath(args.glb))
+    for img in bpy.data.images:          # '//' paths were relative to the source .blend
+        if img.filepath.startswith('//'):
+            img.filepath = os.path.normpath(os.path.join(base, img.filepath[2:]))
+            img.reload()
+else:
+    bpy.ops.import_scene.gltf(filepath=os.path.abspath(args.glb))
 for obj in list(bpy.data.objects):
     if obj.type == 'MESH' and obj.name.startswith('Icosphere'):
         bpy.data.objects.remove(obj, do_unlink=True)
@@ -434,14 +448,17 @@ def lerp(a, b, t):
 
 def pose_body(lean, twist, head_pitch, pelvis_drop):
     """lean: forward degrees spread on the spine; twist: chest yaw toward camera."""
+    twist *= args.twist
     pelvis_head = REST['pelvis'] + Vector((0, 0, -pelvis_drop))
     set_abs('pelvis', rot_ypz(yaw=twist * 0.25, pitch=lean * 0.2), head=pelvis_head)
     set_abs('waist', rot_ypz(yaw=twist * 0.55, pitch=lean * 0.55))
     set_abs('chest', rot_ypz(yaw=twist, pitch=lean))
     set_abs('neck', rot_ypz(yaw=twist * 0.4, pitch=lean * 0.5 + head_pitch * 0.4))
     set_abs('head', rot_ypz(yaw=0, pitch=head_pitch))
-    pose_leg(SUPPORT, Vector((0.17, 0.14, REST[f'{SUPPORT}_ankle'].z)))
-    pose_leg(TRIGGER, Vector((-0.13, -0.15, REST[f'{TRIGGER}_ankle'].z)))
+    # Offsets from the rest ankles; with the Plan D rig stance=1 gives the original
+    # targets (0.17, 0.14) and (-0.13, -0.15).
+    pose_leg(SUPPORT, REST[f'{SUPPORT}_ankle'] + Vector((0.185, 0.01, 0.0)) * args.stance)
+    pose_leg(TRIGGER, REST[f'{TRIGGER}_ankle'] + Vector((-0.115, -0.02, 0.0)) * args.stance)
 
 
 def aim_gun_matrix():
@@ -455,7 +472,8 @@ def aim_gun_matrix():
 # Key poses. gun: 'aim' or (origin, yaw, pitch, roll). support: (space, point, hand_dir_in_space)
 AIM_BODY = dict(lean=9.0, twist=-28.0, head_pitch=17.0, pelvis_drop=0.035)
 RELOAD_BODY = dict(lean=13.0, twist=-22.0, head_pitch=30.0, pelvis_drop=0.05)
-RELOAD_GUN = ((0.25, -0.07, 1.25), 6.0, -22.0, 32.0)
+# Origin relative to the rest chest joint (Plan D chest = (0, 0, 1.34) -> (0.25, -0.07, 1.25)).
+RELOAD_GUN = ((0.25, -0.07, -0.09), 6.0, -22.0, 32.0)
 HANDGUARD = ('gun', Vector((0.31, 0.05, -0.03)), Vector((0.25, 0.15, 1.0)))
 MAG_GRIP = ('gun', MAG_WELL + Vector((0.0, -0.045, -0.13)), Vector((0.15, 0.2, 1.0)))
 MAG_OUT = ('gun', MAG_WELL + Vector((-0.02, -0.06, -0.34)), Vector((0.15, 0.2, 1.0)))
@@ -499,7 +517,8 @@ def gun_pose(spec):
     if spec == 'aim':
         return aim_gun_matrix()
     origin, yaw, pitch, roll = spec
-    return Vector(origin), rot_ypz(yaw, pitch, roll)
+    origin = REST['chest'] + Vector(origin)
+    return origin, rot_ypz(yaw, pitch, roll)
 
 
 def resolve(target, g_origin, g_rot):
@@ -586,7 +605,7 @@ scene.render.film_transparent = True
 scene.render.image_settings.file_format = 'PNG'
 scene.render.image_settings.color_mode = 'RGBA'
 scene.view_settings.view_transform = 'Standard'
-scene.view_settings.exposure = 0.6
+scene.view_settings.exposure = args.exposure
 scene.render.filter_size = 0.5
 
 world = bpy.data.worlds.new('plan_e_world')
