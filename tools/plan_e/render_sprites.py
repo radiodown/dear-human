@@ -73,7 +73,88 @@ arm.matrix_parent_inverse = Matrix.Identity(4)
 ARM_BASIS = arm.matrix_basis.copy()
 ARM_BASIS_INV = ARM_BASIS.inverted()
 
+# ----------------------------------------------------------------------------
+# Secondary-motion chains. The GLB skins the whole cape to `chest` and the long
+# hair to `head`, so they cannot sway. Add bone chains along their centerlines
+# and move those vertices onto the chains (the GLB file itself is unchanged).
+
+body_mesh = next(o for o in bpy.data.objects if o.type == 'MESH' and o.parent == arm)
+_mats = [m.name for m in body_mesh.data.materials]
+_vert_mats = {}
+for poly in body_mesh.data.polygons:
+    for v in poly.vertices:
+        _vert_mats.setdefault(v, set()).add(_mats[poly.material_index])
+_world = body_mesh.matrix_world
+
+
+def _verts(materials, test=lambda co: True):
+    out = []
+    for v in body_mesh.data.vertices:
+        co = _world @ v.co
+        if _vert_mats.get(v.index, set()) & materials and test(co):
+            out.append((v.index, co))
+    return out
+
+
+def _centerline(verts, zs, x_pick=lambda xs: sum(xs) / len(xs)):
+    knots = []
+    for z in zs:
+        xs = [co.x for _, co in verts if abs(co.z - z) < 0.06]
+        knots.append(Vector((x_pick(xs) if xs else 0.0, 0.0, z)))
+    return knots
+
+
+CAPE_MATS = {'black cape', 'burgundy cape lining'}
+HAIR_MATS = {'hair cards coverage atlas'}
+CAPE_TOP, CAPE_BOTTOM = 1.47, 0.15
+HAIR_TOP, HAIR_BOTTOM = 1.64, 1.24
+# The cape's gold edge trim shares 'muted gold' with the armor; take only the
+# trim strands that sit behind the back, below the shoulders.
+cape_verts = _verts(CAPE_MATS) + _verts({'muted gold'}, lambda co: co.x < -0.12 and co.z < CAPE_TOP)
+hair_verts = _verts(HAIR_MATS, lambda co: co.z < HAIR_TOP + 0.02 and co.x < -0.03)
+CHAINS = {
+    'cape': dict(parent='chest', bones=['cape_0', 'cape_1', 'cape_2'],
+                 knots=_centerline(cape_verts, [CAPE_TOP, 1.03, 0.59, CAPE_BOTTOM]),
+                 verts=cape_verts, top=CAPE_TOP, bottom=CAPE_BOTTOM, split=[0.05, 0.36, 0.69],
+                 stiffness=30.0, damping=4.0, forward_slack=0.015),
+    'hair': dict(parent='head', bones=['hair_0', 'hair_1'],
+                 knots=_centerline(hair_verts, [HAIR_TOP, 1.44, HAIR_BOTTOM]),
+                 verts=hair_verts, top=HAIR_TOP, bottom=HAIR_BOTTOM, split=[0.08, 0.52],
+                 stiffness=45.0, damping=5.0, forward_slack=0.01),
+}
+
+bpy.context.view_layer.objects.active = arm
+bpy.ops.object.mode_set(mode='EDIT')
+for chain in CHAINS.values():
+    parent = arm.data.edit_bones[chain['parent']]
+    for name, head, tail in zip(chain['bones'], chain['knots'], chain['knots'][1:]):
+        bone = arm.data.edit_bones.new(name)
+        bone.head, bone.tail = ARM_BASIS_INV @ head, ARM_BASIS_INV @ tail
+        bone.parent = parent
+        parent = bone
+bpy.ops.object.mode_set(mode='OBJECT')
+
+
+def _chain_weights(s, split, owners, blend=0.06):
+    for j, k in enumerate(split):
+        if abs(s - k) < blend:
+            t = (s - k + blend) / (2 * blend)
+            return {owners[j]: 1 - t, owners[j + 1]: t}
+    return {owners[sum(1 for k in split if s >= k)]: 1.0}
+
+
+for chain in CHAINS.values():
+    owners = [chain['parent'], *chain['bones']]
+    groups = {name: body_mesh.vertex_groups.get(name) or body_mesh.vertex_groups.new(name=name) for name in owners}
+    ids = [i for i, _ in chain['verts']]
+    groups[chain['parent']].remove(ids)
+    for i, co in chain['verts']:
+        s = max(0.0, min(1.0, (chain['top'] - co.z) / (chain['top'] - chain['bottom'])))
+        for name, w in _chain_weights(s, chain['split'], owners).items():
+            groups[name].add([i], w, 'REPLACE')
+
 REST = {b.name: (ARM_BASIS @ b.head_local).copy() for b in arm.data.bones}
+REST_TAIL = {b.name: (ARM_BASIS @ b.tail_local).copy() for b in arm.data.bones}
 
 
 def joint(name):
@@ -138,6 +219,96 @@ def rot_ypz(yaw=0.0, pitch=0.0, roll=0.0):
             @ Euler((0, math.radians(pitch), 0)).to_quaternion()
             @ Euler((math.radians(roll), 0, 0)).to_quaternion())
 
+
+def deform_matrix(name):
+    """Root-space matrix that moves a bone's rest geometry to its current pose."""
+    pb = arm.pose.bones[name]
+    return ARM_BASIS @ pb.matrix @ pb.bone.matrix_local.inverted() @ ARM_BASIS_INV
+
+
+class ChainSim:
+    """Spring chain that follows its rest shape hung from the parent, with lag.
+
+    Targets keep the rest offsets in a frame that turns with the parent's yaw
+    only, so the chain hangs with gravity instead of tilting rigidly with the
+    torso; inertia and damping give the delay and sway.
+    """
+
+    def __init__(self, cfg):
+        self.cfg = cfg
+        self.rest = [REST[b] for b in cfg['bones']] + [REST_TAIL[cfg['bones'][-1]]]
+        self.lengths = [(b - a).length for a, b in zip(self.rest, self.rest[1:])]
+        self.p = None
+
+    def frame(self):
+        m = deform_matrix(self.cfg['parent'])
+        root = m @ self.rest[0]
+        forward = m.to_3x3() @ Vector((1, 0, 0))
+        yaw = Euler((0, 0, math.atan2(forward.y, forward.x))).to_quaternion()
+        return root, yaw
+
+    def targets(self):
+        root, yaw = self.frame()
+        return [root + yaw @ (r - self.rest[0]) for r in self.rest], root, yaw
+
+    def step(self, dt, substeps=8):
+        targets, root, yaw = self.targets()
+        if self.p is None:
+            self.p = [t.copy() for t in targets]
+            self.v = [Vector() for _ in targets]
+        self.yaw = yaw
+        k, c, h = self.cfg['stiffness'], self.cfg['damping'], dt / substeps
+        inv = yaw.inverted()
+        for _ in range(substeps):
+            prev = [p.copy() for p in self.p]
+            self.p[0] = targets[0].copy()
+            for i in range(1, len(self.p)):
+                self.v[i] += (k * (targets[i] - self.p[i]) - c * self.v[i]) * h
+                self.p[i] += self.v[i] * h
+            for i in range(1, len(self.p)):
+                d = self.p[i] - self.p[i - 1]
+                self.p[i] = self.p[i - 1] + d.normalized() * self.lengths[i - 1]
+                # Stay behind the body: no knot moves forward of its rest offset.
+                local = inv @ (self.p[i] - root)
+                limit = (self.rest[i] - self.rest[0]).x + self.cfg['forward_slack']
+                if local.x > limit:
+                    local.x = limit
+                    self.p[i] = root + yaw @ local
+            for i in range(1, len(self.p)):
+                self.v[i] = (self.p[i] - prev[i]) / h
+
+    def settle(self, steps=40, dt=1 / 30):
+        self.p = None
+        for _ in range(steps):
+            self.step(dt)
+        self.apply()
+
+    def apply(self):
+        for i, name in enumerate(self.cfg['bones']):
+            # Turn the sheet with the body's yaw first, then swing it to the simulated knot.
+            turned = self.yaw @ (self.rest[i + 1] - self.rest[i])
+            swing = turned.normalized().rotation_difference((self.p[i + 1] - self.p[i]).normalized())
+            set_abs(name, swing @ self.yaw)
+
+
+SIMS = {name: ChainSim(cfg) for name, cfg in CHAINS.items()}
+
+
+def reset_chains():
+    for sim in SIMS.values():
+        sim.p = None
+
+
+def advance_chains(dt):
+    for sim in SIMS.values():
+        sim.step(dt)
+        sim.apply()
+
+
+def settle_chains():
+    for sim in SIMS.values():
+        sim.settle()
+
 # ----------------------------------------------------------------------------
 # M16 built from boxes (gun frame: +X muzzle, +Z top, origin above the grip)
 
@@ -152,23 +323,41 @@ def material(name, rgb, rough=0.55, metal=0.4):
     return m
 
 
-GUN_MAT = material('plan_e_m16_black', (0.045, 0.047, 0.052))
-GUN_EDGE = material('plan_e_m16_edge', (0.16, 0.165, 0.175), rough=0.4, metal=0.7)
+# Low metallic keeps the rifle near-black instead of mirroring the gray sky.
+GUN_MAT = material('plan_e_m16_black', (0.028, 0.029, 0.032), rough=0.6, metal=0.2)
+GUN_EDGE = material('plan_e_m16_edge', (0.10, 0.104, 0.112), rough=0.45, metal=0.45)
 
 
-def box_object(name, parts):
+def shape_object(name, parts):
+    """parts: ('box', center, size, rot_deg, mat) | ('cyl', x0, x1, r0, r1, (y, z), mat)
+    | ('hexa', eight corner points, mat). Built in the gun frame."""
     import bmesh
     mesh = bpy.data.meshes.new(name)
     bm = bmesh.new()
-    for center, size, rot, mat_index in parts:
-        geom = bmesh.ops.create_cube(bm, size=1.0)
-        verts = geom['verts']
-        m = (Matrix.Translation(Vector(center))
-             @ Euler([math.radians(v) for v in rot]).to_matrix().to_4x4()
-             @ Matrix.Diagonal((*size, 1)))
+    for part in parts:
+        kind = part[0]
+        if kind == 'box':
+            _, center, size, rot, mat_index = part
+            verts = bmesh.ops.create_cube(bm, size=1.0)['verts']
+            m = (Matrix.Translation(Vector(center))
+                 @ Euler([math.radians(v) for v in rot]).to_matrix().to_4x4()
+                 @ Matrix.Diagonal((*size, 1)))
+        elif kind == 'cyl':
+            _, x0, x1, r0, r1, (y, z), mat_index = part
+            verts = bmesh.ops.create_cone(bm, cap_ends=True, segments=14, radius1=r0, radius2=r1,
+                                          depth=x1 - x0)['verts']
+            m = (Matrix.Translation(Vector(((x0 + x1) / 2, y, z)))
+                 @ Euler((0, math.radians(90), 0)).to_matrix().to_4x4())
+        else:
+            _, corners, mat_index = part
+            verts = [bm.verts.new(c) for c in corners]
+            for face in ((0, 1, 2, 3), (4, 7, 6, 5), (0, 4, 5, 1), (1, 5, 6, 2), (2, 6, 7, 3), (3, 7, 4, 0)):
+                bm.faces.new([verts[i] for i in face])
+            m = Matrix.Identity(4)
         bmesh.ops.transform(bm, matrix=m, verts=verts)
         for f in {f for v in verts for f in v.link_faces}:
             f.material_index = mat_index
+    bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
     bm.to_mesh(mesh)
     bm.free()
     mesh.materials.append(GUN_MAT)
@@ -179,31 +368,51 @@ def box_object(name, parts):
     return obj
 
 
-gun = box_object('plan_e_m16', [
-    ((0.06, 0, 0.035), (0.34, 0.05, 0.075), (0, 0, 0), 0),     # receiver
-    ((0.10, 0, 0.10), (0.15, 0.022, 0.035), (0, 0, 0), 1),     # carry handle
-    ((0.03, 0, 0.085), (0.02, 0.022, 0.03), (0, 0, 0), 1),     # rear sight
-    ((0.36, 0, 0.035), (0.26, 0.064, 0.064), (0, 0, 0), 0),    # handguard
-    ((0.58, 0, 0.04), (0.22, 0.016, 0.016), (0, 0, 0), 1),     # barrel
-    ((0.47, 0, 0.085), (0.02, 0.014, 0.08), (0, 0, 0), 1),     # front sight
-    ((0.70, 0, 0.04), (0.04, 0.024, 0.024), (0, 0, 0), 1),     # flash hider
-    ((-0.22, 0, 0.005), (0.24, 0.042, 0.085), (0, -4, 0), 0),  # stock
-    ((-0.335, 0, -0.002), (0.012, 0.046, 0.105), (0, -4, 0), 1),  # butt plate
-    ((-0.005, 0, -0.045), (0.034, 0.03, 0.09), (0, -18, 0), 0),  # pistol grip
-    ((0.045, 0, -0.02), (0.06, 0.012, 0.012), (0, 0, 0), 1),   # trigger guard
-    ((0.12, 0, -0.012), (0.075, 0.046, 0.03), (0, 0, 0), 0),   # magazine well
+def hexa(x0, x1, y_half, z0_bottom, z0_top, z1_bottom, z1_top, y1_half=None):
+    """A side-profile slab from x0 to x1 whose top and bottom edges may slope."""
+    y1 = y_half if y1_half is None else y1_half
+    return [(x0, -y_half, z0_bottom), (x1, -y1, z1_bottom), (x1, y1, z1_bottom), (x0, y_half, z0_bottom),
+            (x0, -y_half, z0_top), (x1, -y1, z1_top), (x1, y1, z1_top), (x0, y_half, z0_top)]
+
+
+# M16A1 proportions (meters): 0.99 m overall, 20-inch barrel, fixed A1 stock,
+# triangular handguard, carry handle with rear sight, A-frame front sight.
+gun = shape_object('plan_e_m16', [
+    ('hexa', hexa(-0.10, 0.20, 0.024, 0.0, 0.07, 0.0, 0.07), 0),             # upper receiver
+    ('hexa', hexa(-0.06, 0.16, 0.022, -0.035, 0.0, -0.035, 0.0), 0),         # lower receiver
+    ('box', (0.075, 0, 0.115), (0.13, 0.016, 0.014), (0, 0, 0), 0),          # carry handle bar
+    ('box', (0.015, 0, 0.088), (0.03, 0.02, 0.04), (0, 0, 0), 0),            # rear handle post
+    ('box', (0.135, 0, 0.088), (0.018, 0.02, 0.04), (0, 0, 0), 0),           # front handle post
+    ('box', (0.012, 0, 0.128), (0.012, 0.012, 0.016), (0, 0, 0), 1),         # rear sight aperture
+    ('cyl', 0.195, 0.205, 0.041, 0.041, (0, 0.035), 1),                      # delta ring
+    ('cyl', 0.205, 0.46, 0.036, 0.031, (0, 0.035), 0),                       # handguard
+    ('cyl', 0.455, 0.47, 0.022, 0.022, (0, 0.035), 1),                       # handguard cap
+    ('cyl', 0.47, 0.68, 0.0095, 0.0085, (0, 0.035), 1),                      # barrel
+    ('hexa', hexa(0.475, 0.50, 0.01, 0.025, 0.05, 0.025, 0.13), 0),          # front sight base (sloped)
+    ('box', (0.497, 0, 0.142), (0.006, 0.006, 0.026), (0, 0, 0), 1),         # front sight post
+    ('cyl', 0.68, 0.735, 0.012, 0.011, (0, 0.035), 1),                       # flash hider
+    ('hexa', hexa(-0.355, -0.10, 0.022, -0.075, 0.055, -0.01, 0.06, 0.02), 0),  # A1 stock
+    ('box', (-0.36, 0, -0.01), (0.012, 0.024, 0.132), (0, 0, 0), 1),         # butt plate
+    ('hexa', hexa(-0.03, 0.02, 0.015, -0.12, -0.035, -0.115, -0.035), 0),    # pistol grip (raked)
+    ('box', (0.045, 0, -0.048), (0.07, 0.01, 0.006), (0, 0, 0), 1),          # trigger guard
+    ('box', (0.04, 0, -0.04), (0.006, 0.006, 0.02), (0, 0, 0), 1),           # trigger
+    ('hexa', hexa(0.085, 0.16, 0.026, -0.05, 0.0, -0.05, 0.0), 0),           # magazine well
+    ('box', (-0.06, -0.014, 0.05), (0.03, 0.006, 0.012), (0, 0, 0), 1),      # charging handle side
 ])
 gun.name = 'plan_e_m16'
 
-MAG_WELL = Vector((0.12, 0, -0.025))          # magazine top in gun frame
+MAG_WELL = Vector((0.122, 0, -0.04))          # magazine top in gun frame
 MAG_HOLD = Vector((0.0, 0.045, 0.13))         # magazine top relative to the support wrist (mag frame)
 
 
 def make_mag(name):
-    return box_object(name, [
-        ((0.0, 0, -0.045), (0.066, 0.024, 0.09), (0, 0, 0), 0),
-        ((0.008, 0, -0.125), (0.066, 0.024, 0.08), (0, 8, 0), 0),
-        ((0.014, 0, -0.17), (0.07, 0.028, 0.012), (0, 8, 0), 1),
+    # 30-round curved magazine: three slabs bending forward toward the bottom.
+    return shape_object(name, [
+        ('hexa', hexa(-0.032, 0.032, 0.012, -0.08, 0.0, -0.08, 0.0), 0),
+        ('hexa', [(-0.026, -0.012, -0.16), (0.04, -0.012, -0.152), (0.04, 0.012, -0.152), (-0.026, 0.012, -0.16),
+                  (-0.032, -0.012, -0.08), (0.032, -0.012, -0.08), (0.032, 0.012, -0.08), (-0.032, 0.012, -0.08)], 0),
+        ('hexa', [(-0.018, -0.014, -0.172), (0.05, -0.014, -0.162), (0.05, 0.014, -0.162), (-0.018, 0.014, -0.172),
+                  (-0.026, -0.014, -0.158), (0.04, -0.014, -0.15), (0.04, 0.014, -0.15), (-0.026, 0.014, -0.158)], 1),
     ])
 
 
@@ -349,6 +558,10 @@ def pose_reload_frame(f, falling):
         mag_new.matrix_basis = seated
     else:
         mag_new.matrix_basis = held
+    if f == 0:
+        settle_chains()
+    else:
+        advance_chains(1.0 / RELOAD_FPS)
     return next((k[4] for k in KEYS if k[0] == f), '')
 
 
@@ -363,6 +576,7 @@ def pose_ready():
     mag_old.matrix_basis = matrix(g_origin, g_rot) @ Matrix.Translation(MAG_WELL)
     mag_old.hide_render = False
     mag_new.hide_render = True
+    settle_chains()
 
 # ----------------------------------------------------------------------------
 # Camera, light, render settings

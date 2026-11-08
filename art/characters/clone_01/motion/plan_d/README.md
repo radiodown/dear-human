@@ -1,5 +1,7 @@
 # 플랜 D · 로컬 3D
 
+> 2026-11-08 팀 지시(“3D → 2D까지만”)로 네이티브 3D 런타임은 추가 개발하지 않는다. 아래 기록과 코드는 보존하며, 모델은 플랜 E(3D → 2D 스프라이트)의 입력 후보로만 사용한다.
+
 - [hair_006](hair_006/README.md): current. Face/skull/fringe update; original body; no scenery; body-only hair contact; user review pending.
 
 - [samples_005](samples_005/README.md): 현재. 기존 몸 유지, 무료 외부 헤어 5개/소품 6개, glTF 로더·가이드 반응·근사 접촉. 기본 전신. Mac 확인·Windows/사용자 검수 대기.

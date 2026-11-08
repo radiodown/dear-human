@@ -1,0 +1,164 @@
+{
+  "tool": "Blender headless + tools/plan_e/render_sprites.py",
+  "blender_version": "5.2.3 LTS",
+  "source_glb": "art/characters/clone_01/motion/plan_d/hair_006/source/clone_01.glb",
+  "source_glb_sha256": "76405cdf419d57be1994825653327e0560329a56fa5d0623c82547fd46cefe09",
+  "script_sha256": "5dc22672cb7c644c1a71ad92fd105b6a9b7dc241db214fb200e4f9a6a9884837",
+  "params": {
+    "glb": "art/characters/clone_01/motion/plan_d/hair_006/source/clone_01.glb",
+    "out": "art/characters/clone_01/motion/plan_e/sprite_002",
+    "clips": "reload,turnaround",
+    "ppm": 64.0,
+    "supersample": 4,
+    "colors": 24,
+    "pitch": 8.0,
+    "raw": false
+  },
+  "palette_rgb": [
+    [
+      33,
+      32,
+      35
+    ],
+    [
+      39,
+      38,
+      41
+    ],
+    [
+      43,
+      41,
+      44
+    ],
+    [
+      47,
+      45,
+      48
+    ],
+    [
+      49,
+      49,
+      52
+    ],
+    [
+      52,
+      52,
+      56
+    ],
+    [
+      55,
+      55,
+      59
+    ],
+    [
+      58,
+      59,
+      64
+    ],
+    [
+      63,
+      63,
+      66
+    ],
+    [
+      63,
+      65,
+      72
+    ],
+    [
+      68,
+      69,
+      74
+    ],
+    [
+      71,
+      73,
+      80
+    ],
+    [
+      79,
+      79,
+      83
+    ],
+    [
+      75,
+      81,
+      92
+    ],
+    [
+      85,
+      84,
+      89
+    ],
+    [
+      102,
+      90,
+      73
+    ],
+    [
+      86,
+      92,
+      101
+    ],
+    [
+      101,
+      103,
+      108
+    ],
+    [
+      131,
+      114,
+      87
+    ],
+    [
+      116,
+      119,
+      126
+    ],
+    [
+      161,
+      138,
+      99
+    ],
+    [
+      143,
+      148,
+      157
+    ],
+    [
+      187,
+      188,
+      199
+    ],
+    [
+      249,
+      245,
+      248
+    ]
+  ],
+  "outline_rgb": [
+    10,
+    10,
+    14
+  ],
+  "render_engine": "BLENDER_EEVEE",
+  "elapsed_seconds": 52.4,
+  "clips": [
+    {
+      "id": "reload",
+      "frames": 54,
+      "canvas": [
+        137,
+        137
+      ]
+    },
+    {
+      "id": "turnaround",
+      "frames": 8,
+      "canvas": [
+        137,
+        137
+      ]
+    }
+  ]
+}

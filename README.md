@@ -1,5 +1,7 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**플랜 E · 3D→도트 스프라이트 002:** [장전](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=e&clip=reload) · [기록](art/characters/clone_01/motion/plan_e/sprite_002/README.md). M16을 실제 M16A1 측면 실루엣으로 다시 만들고, 망토와 긴 머리카락이 중력 방향으로 늘어지며 몸을 따라 늦게 흔들리도록 했다. 손가락 동작과 플랜 B 비교는 아직 남아 있다.
+
 **플랜 E · 3D→도트 스프라이트 001:** [장전](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=e&clip=reload) · [8방향](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=e&clip=turnaround) · [기록](art/characters/clone_01/motion/plan_e/sprite_001/README.md). 팀 결정에 따라 복구한 플랜 D의 3D 모델로 장전 동작을 만들고, Blender에서 저해상도 도트 스프라이트로 렌더링했다. 같은 모델에서 렌더링하므로 회전해도 크기와 비례가 유지되고, 픽셀 격자가 균일하다. 임시 M16과 고정된 망토는 한계이며 동작·외형은 검수 대기다.
 
 **플랜 D 복구:** 2026-11-08 팀 결정으로 삭제 커밋 `8a61cfc` 직전 상태에서 [native/plan-d](native/plan-d/README.md)와 [기록](art/characters/clone_01/motion/plan_d/README.md)을 되살렸다. 웹 우선·이후 확장 방침에 따라 플랜 D와 E를 병행한다.

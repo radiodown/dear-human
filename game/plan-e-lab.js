@@ -1,7 +1,9 @@
 // Plan E: sprites rendered offline from the 3D model (tools/plan_e/render_sprites.py).
 // The page only plays the saved PNG sheets; it never renders or regenerates them.
 const $ = id => document.getElementById(id);
-const root = '/art/characters/clone_01/motion/plan_e/sprite_001/';
+const base = '/art/characters/clone_01/motion/plan_e/';
+const versions = {sprite_002: '002 · M16·망토/머리 흔들림', sprite_001: '001 · 임시 상자 M16'};
+const latest = 'sprite_002';
 const scales = [2, 3, 4];
 const fpsChoices = [6, 12, 15, 24];
 
@@ -15,6 +17,7 @@ export class PlanELab {
   constructor() {
     this.active = false; this.status = 'idle'; this.clipId = 'reload'; this.index = 0;
     this.paused = false; this.loop = true; this.fps = null; this.scale = 3; this.background = 'light';
+    this.version = latest;
     this.cache = new Map(); this.request = 0; this.raf = 0; this.last = null; this.elapsed = 0;
     this.context = $('plan-e-canvas').getContext('2d');
     this.tick = this.tick.bind(this);
@@ -25,6 +28,8 @@ export class PlanELab {
     $('plan-e-fps').addEventListener('change', event => { this.fps = Number(event.target.value) || null; this.elapsed = 0; this.sync(); this.writeUrl(); });
     $('plan-e-loop').addEventListener('change', event => { this.loop = event.target.checked; this.writeUrl(); });
     $('plan-e-scale').addEventListener('change', event => { this.scale = Number(event.target.value); this.render(); this.writeUrl(); });
+    $('plan-e-version').replaceChildren(...Object.entries(versions).map(([value, label]) => Object.assign(document.createElement('option'), {value, textContent: label})));
+    $('plan-e-version').addEventListener('change', event => this.setVersion(event.target.value));
     $('plan-e-background').addEventListener('change', event => { this.background = event.target.value; this.render(); });
     $('plan-e-stage').addEventListener('keydown', event => {
       if (!this.active || /INPUT|SELECT|TEXTAREA|BUTTON/.test(event.target.tagName)) return;
@@ -34,13 +39,30 @@ export class PlanELab {
     document.addEventListener('visibilitychange', () => { this.last = null; this.schedule(); });
   }
 
+  get root() { return `${base}${this.version}/`; }
+
+  setVersion(version, update = true) {
+    if (!Object.hasOwn(versions, version) || version === this.version) return;
+    this.version = version; this.clipIndex = null; this.initializing = null; this.pendingFrame = this.index;
+    this.syncLinks();
+    if (this.active) this.init();
+    if (update) this.writeUrl();
+  }
+
+  syncLinks() {
+    $('plan-e-version').value = this.version;
+    $('plan-e-readme').href = `${this.root}README.md`;
+    $('plan-e-reload-sheet').href = `${this.root}output/reload/spritesheet.png`;
+    $('plan-e-turn-sheet').href = `${this.root}output/turnaround/spritesheet.png`;
+  }
+
   get clip() { return this.loaded?.manifest ?? null; }
   get frameFps() { return this.fps ?? this.clip?.fps ?? 12; }
 
   async init() {
     if (this.initializing) return this.initializing;
     this.initializing = (async () => {
-      this.clipIndex = await json(root + 'output/clips.json');
+      this.clipIndex = await json(this.root + 'output/clips.json');
       $('plan-e-clips').replaceChildren(...this.clipIndex.clips.map(clip => {
         const button = document.createElement('button');
         button.type = 'button'; button.textContent = clip.title; button.dataset.planEClip = clip.id;
@@ -60,9 +82,10 @@ export class PlanELab {
     try {
       const entry = this.clipIndex.clips.find(clip => clip.id === id);
       if (!entry) throw new Error('준비되지 않은 동작입니다.');
-      if (!this.cache.has(id)) {
+      const key = `${this.version}/${id}`;
+      if (!this.cache.has(key)) {
         const pending = (async () => {
-          const url = root + entry.path, manifest = await json(url);
+          const url = this.root + entry.path, manifest = await json(url);
           const sheet = new Image();
           sheet.src = new URL(manifest.spritesheet, new URL(url, location.href)).href;
           await sheet.decode();
@@ -70,10 +93,10 @@ export class PlanELab {
           if (sheet.naturalWidth !== width * manifest.frameCount || sheet.naturalHeight !== height) throw new Error('플랜 E 시트 크기가 목록과 다릅니다.');
           return {manifest, sheet};
         })();
-        this.cache.set(id, pending);
-        pending.catch(() => { if (this.cache.get(id) === pending) this.cache.delete(id); });
+        this.cache.set(key, pending);
+        pending.catch(() => { if (this.cache.get(key) === pending) this.cache.delete(key); });
       }
-      const loaded = await this.cache.get(id);
+      const loaded = await this.cache.get(key);
       if (request !== this.request || id !== this.clipId) return;
       this.loaded = loaded; this.status = 'ready'; this.pendingFrame = null;
       this.index = Math.min(Math.max(0, index), loaded.manifest.frameCount - 1);
@@ -93,6 +116,9 @@ export class PlanELab {
 
   restoreParams(params) {
     this.clipId = params.get('clip') || 'reload';
+    const version = params.get('version');
+    if (Object.hasOwn(versions, version) && version !== this.version) { this.version = version; this.clipIndex = null; this.initializing = null; }
+    this.syncLinks();
     const frame = Number(params.get('frame'));
     this.pendingFrame = Number.isFinite(frame) ? Math.max(0, Math.trunc(frame)) : 0;
     this.paused = params.get('paused') === '1';
@@ -106,6 +132,7 @@ export class PlanELab {
   writeParams(params) {
     for (const key of ['study', 'pixelView', 'motion', 'face', 'viewPitch', 'time', 'weapon', 'debug', 'mesh'])params.delete(key);
     params.set('plan', 'e'); params.set('clip', this.clipId);
+    if (this.version !== latest) params.set('version', this.version); else params.delete('version');
     const frame = this.pendingFrame ?? this.index;
     if (frame) params.set('frame', String(frame)); else params.delete('frame');
     if (this.paused) params.set('paused', '1'); else params.delete('paused');

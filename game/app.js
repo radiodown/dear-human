@@ -33,7 +33,7 @@ function setPreviewMode(mode, updateUrl=true) {
     if (planEMode) planE.writeParams(params);
     else if (v2Mode) partsV2.writeParams(params);
     else {
-    if(['parts-v2','e'].includes(params.get('plan')))for(const key of ['frame','fps','loop','paused','face','viewPitch','clip','scale'])params.delete(key);
+    if(['parts-v2','e'].includes(params.get('plan')))for(const key of ['frame','fps','loop','paused','face','viewPitch','clip','scale','version'])params.delete(key);
     if (planBMode) planB.writeParams(params);
     else { params.delete('plan'); params.delete('study'); params.delete('pixelView'); if(rigMode)params.set('motion',lab.mode);else params.delete('motion'); }
     }
