@@ -1,0 +1,175 @@
+{
+  "tool": "Blender headless + tools/plan_e/build_hull_model.py",
+  "blender_version": "5.2.3 LTS",
+  "views": "art/characters/clone_01/concepts/turnaround_001/source",
+  "params": {
+    "views": "art/characters/clone_01/concepts/turnaround_001/source",
+    "out": "art/characters/clone_01/motion/plan_e/model_hull_004",
+    "height": 1.75,
+    "voxel": 0.007
+  },
+  "painting_params": {
+    "right": {
+      "top": 17,
+      "bot": 1506,
+      "origin": 527.0,
+      "scale": 0.0011752854264607119,
+      "w": 1024,
+      "h": 1536
+    },
+    "left": {
+      "top": 18,
+      "bot": 1506,
+      "origin": 486.0,
+      "scale": 0.0011760752688172043,
+      "w": 1024,
+      "h": 1536
+    },
+    "front": {
+      "top": 18,
+      "bot": 1518,
+      "origin": 506.0,
+      "scale": 0.0011666666666666668,
+      "w": 1024,
+      "h": 1536
+    },
+    "back": {
+      "top": 14,
+      "bot": 1524,
+      "origin": 511.5,
+      "scale": 0.0011589403973509935,
+      "w": 1024,
+      "h": 1536
+    }
+  },
+  "joints": {
+    "pelvis": [
+      0.02,
+      0.0,
+      0.97
+    ],
+    "waist": [
+      0.02,
+      0.0,
+      1.07
+    ],
+    "chest": [
+      0.02,
+      0.0,
+      1.24
+    ],
+    "neck": [
+      0.015,
+      0.0,
+      1.44
+    ],
+    "head": [
+      0.01,
+      0.0,
+      1.51
+    ],
+    "head_top": [
+      0.01,
+      0.0,
+      1.73
+    ],
+    "left_shoulder": [
+      -0.02,
+      -0.175,
+      1.37
+    ],
+    "left_elbow": [
+      -0.01,
+      -0.24,
+      1.17
+    ],
+    "left_wrist": [
+      0.01,
+      -0.255,
+      0.96
+    ],
+    "left_hand": [
+      0.015,
+      -0.258,
+      0.83
+    ],
+    "right_shoulder": [
+      -0.02,
+      0.185,
+      1.37
+    ],
+    "right_elbow": [
+      -0.01,
+      0.25,
+      1.17
+    ],
+    "right_wrist": [
+      0.01,
+      0.262,
+      0.96
+    ],
+    "right_hand": [
+      0.015,
+      0.265,
+      0.83
+    ],
+    "left_hip": [
+      0.04,
+      -0.075,
+      0.93
+    ],
+    "left_knee": [
+      0.06,
+      -0.095,
+      0.645
+    ],
+    "left_ankle": [
+      0.03,
+      -0.098,
+      0.12
+    ],
+    "left_toe": [
+      0.15,
+      -0.098,
+      0.03
+    ],
+    "right_hip": [
+      0.04,
+      0.085,
+      0.93
+    ],
+    "right_knee": [
+      0.06,
+      0.105,
+      0.645
+    ],
+    "right_ankle": [
+      0.03,
+      0.105,
+      0.12
+    ],
+    "right_toe": [
+      0.15,
+      0.105,
+      0.03
+    ],
+    "left_fingers": [
+      0.012,
+      -0.256,
+      0.901
+    ],
+    "right_fingers": [
+      0.012,
+      0.263,
+      0.901
+    ]
+  },
+  "faces": {
+    "clone_01_body": 217690,
+    "clone_01_arm_left": 31924,
+    "clone_01_arm_right": 30223,
+    "clone_01_leg_left": 55525,
+    "clone_01_leg_right": 58084
+  },
+  "elapsed_seconds": 21.6
+}

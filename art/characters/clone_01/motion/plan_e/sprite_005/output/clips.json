@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "plan": "Plan E",
+  "clips": [
+    {
+      "id": "reload",
+      "title": "장전",
+      "path": "output/reload/manifest.json"
+    },
+    {
+      "id": "walk_aim",
+      "title": "조준 걷기",
+      "path": "output/walk_aim/manifest.json"
+    },
+    {
+      "id": "turnaround",
+      "title": "같은 자세 8방향",
+      "path": "output/turnaround/manifest.json"
+    }
+  ]
+}

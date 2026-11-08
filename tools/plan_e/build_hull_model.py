@@ -73,6 +73,9 @@ J = {
     'right_ankle': (0.03, 0.105, 0.12), 'right_toe': (0.15, 0.105, 0.03),
 }
 J = {k: np.array(v, dtype=np.float64) for k, v in J.items()}
+KNUCKLE_T = 0.45                     # knuckles sit 45 % of the way from wrist to fingertip
+for _s in ('left', 'right'):
+    J[f'{_s}_fingers'] = J[f'{_s}_wrist'] + KNUCKLE_T * (J[f'{_s}_hand'] - J[f'{_s}_wrist'])
 ARM_SEGS = [('shoulder', 'elbow', 0.072), ('elbow', 'wrist', 0.058), ('wrist', 'hand', 0.052)]
 LEG_SEGS = [('hip', 'knee', 0.095), ('knee', 'ankle', 0.078), ('ankle', 'toe', 0.075)]
 
@@ -198,7 +201,7 @@ def capsule_mask(side, segs, grow=0.0):
 
 
 # the paintings' floor shadow survives as a thin disc: near the floor keep only the feet
-near_floor = zs < 0.035
+near_floor = zs < 0.08            # the shadow also bridges the gap between the feet in the front view
 feet = capsule_mask('left', LEG_SEGS[2:]) | capsule_mask('right', LEG_SEGS[2:])
 occ[:, :, near_floor] &= feet[:, :, near_floor]
 ARM = {s: occ & capsule_mask(s, ARM_SEGS) for s in ('left', 'right')}
@@ -212,6 +215,8 @@ body_occ = occ.copy()
 for s in ('left', 'right'):
     body_occ &= ~capsule_mask(s, ARM_SEGS, 0.006)
     body_occ &= ~(capsule_mask(s, LEG_SEGS, 0.006) & leg_zone)
+# nothing of the body belongs between the shins in front of the cape
+body_occ &= ~((np.abs(GRID[..., 1] - MID_Y) < 0.05) & (GRID[..., 2] < 0.6) & (GRID[..., 0] > -0.10))
 
 
 def smooth(o, passes=2):
@@ -281,12 +286,26 @@ def save_png(px, path):
     bpy.data.images.remove(im)
 
 
-BODY_PAINT = {}
+def floor_shadow_mask(v):
+    """Figure pixels below 6 cm that no foot voxel projects to: the painted floor shadow."""
+    feet = np.zeros((P[v]['h'], P[v]['w']), bool)
+    for part in LEG.values():
+        pts = GRID[part & (GRID[..., 2] < 0.16)]
+        r, c = to_pixel(v, pts)
+        feet[np.clip(np.round(r).astype(int), 0, P[v]['h'] - 1), np.clip(np.round(c).astype(int), 0, P[v]['w'] - 1)] = True
+    for _ in range(5):
+        g = feet.copy(); g[1:] |= feet[:-1]; g[:-1] |= feet[1:]; g[:, 1:] |= feet[:, :-1]; g[:, :-1] |= feet[:, 1:]; feet = g
+    low = np.arange(P[v]['h'])[:, None] > P[v]['bot'] - (0.06 + FLOOR_CUT) / P[v]['scale']
+    return MASK[v] & low & ~feet
+
+
+BODY_PAINT, LIMB_PAINT = {}, {}
 for v in CAMS:
-    hole = arm_pixel_mask(v)
-    path = os.path.join(SRC_DIR, f'body_{v}.png')
-    save_png(inpaint(IMG[v], hole, MASK[v]), path)
-    BODY_PAINT[v] = path
+    shadow = floor_shadow_mask(v)
+    body_path, limb_path = os.path.join(SRC_DIR, f'body_{v}.png'), os.path.join(SRC_DIR, f'limb_{v}.png')
+    save_png(inpaint(IMG[v], arm_pixel_mask(v) | shadow, MASK[v] & ~shadow), body_path)
+    save_png(inpaint(IMG[v], shadow, MASK[v] & ~shadow), limb_path)
+    BODY_PAINT[v], LIMB_PAINT[v] = body_path, limb_path
 
 # ----------------------------------------------------------------------------
 # 4. meshes
@@ -411,7 +430,7 @@ LIMBS = [*arms.values(), *legs.values()]
 for ob in [body, *LIMBS]:
     ob.data.materials.clear()          # new_from_object leaves an empty slot 0
 body.data.materials.append(projection_material('clone_01_body_paint', BODY_PAINT))
-arm_mat = projection_material('clone_01_arm_paint', ORIG)
+arm_mat = projection_material('clone_01_arm_paint', LIMB_PAINT)
 for ob in LIMBS:
     ob.data.materials.append(arm_mat)
 
@@ -423,6 +442,7 @@ CHILD = {
     **{f'{s}_shoulder': f'{s}_elbow' for s in ('left', 'right')},
     **{f'{s}_elbow': f'{s}_wrist' for s in ('left', 'right')},
     **{f'{s}_wrist': f'{s}_hand' for s in ('left', 'right')},
+    **{f'{s}_fingers': f'{s}_hand' for s in ('left', 'right')},
     **{f'{s}_hip': f'{s}_knee' for s in ('left', 'right')},
     **{f'{s}_knee': f'{s}_ankle' for s in ('left', 'right')},
     **{f'{s}_ankle': f'{s}_toe' for s in ('left', 'right')},
@@ -430,7 +450,7 @@ CHILD = {
 PARENT = {'waist': 'pelvis', 'chest': 'waist', 'neck': 'chest', 'head': 'neck'}
 for s in ('left', 'right'):
     PARENT.update({f'{s}_shoulder': 'chest', f'{s}_elbow': f'{s}_shoulder', f'{s}_wrist': f'{s}_elbow',
-                   f'{s}_hand': f'{s}_wrist', f'{s}_hip': 'pelvis', f'{s}_knee': f'{s}_hip',
+                   f'{s}_hand': f'{s}_wrist', f'{s}_fingers': f'{s}_wrist', f'{s}_hip': 'pelvis', f'{s}_knee': f'{s}_hip',
                    f'{s}_ankle': f'{s}_knee', f'{s}_toe': f'{s}_ankle'})
 
 arm_data = bpy.data.armatures.new('clone_01_rig')
@@ -439,7 +459,7 @@ scene.collection.objects.link(rig)
 bpy.context.view_layer.objects.active = rig
 bpy.ops.object.mode_set(mode='EDIT')
 for name in ['pelvis', 'waist', 'chest', 'neck', 'head'] + [f'{s}_{j}' for s in ('left', 'right')
-                                                            for j in ('shoulder', 'elbow', 'wrist', 'hand', 'hip', 'knee', 'ankle', 'toe')]:
+                                                            for j in ('shoulder', 'elbow', 'wrist', 'hand', 'fingers', 'hip', 'knee', 'ankle', 'toe')]:
     b = arm_data.edit_bones.new(name)
     b.head = Vector(J[name])
     tail = J[CHILD[name]] if name in CHILD else J[name] + np.array([0.05, 0, 0]) if name.endswith('toe') else J[name] + np.array([0, 0, -0.06])
@@ -493,10 +513,21 @@ W = {name: np.interp(z, knots, [1.0 if j == i else 0.0 for j in range(len(SPINE)
 add_weights(body, W)
 # Cape region for render_sprites.py's spring chain: behind the back or out at the
 # sides, below the shoulders. Membership only; the chain sets the real weights.
-cape = (z < 1.42) & ((pts[:, 0] < -0.075) | (np.abs(pts[:, 1]) > 0.19))
-add_weights(body, {'plan_e_cape': cape.astype(float)})
+# Long hair lies on the cape's back between the shoulder blades; it gets its own
+# chain from the head so it follows head turns instead of the cape.
+hair = (pts[:, 0] < -0.035) & (np.abs(pts[:, 1]) < 0.13) & (z > 1.02) & (z < 1.56)
+cape = (z < 1.42) & ((pts[:, 0] < -0.075) | (np.abs(pts[:, 1]) > 0.19)) & ~hair
+add_weights(body, {'plan_e_cape': cape.astype(float), 'plan_e_hair': hair.astype(float)})
 for s, ob in arms.items():
-    add_weights(ob, chain_weights(verts(ob), s, ARM_SEGS, [f'{s}_shoulder', f'{s}_elbow', f'{s}_wrist']))
+    av = verts(ob)
+    AW = chain_weights(av, s, ARM_SEGS, [f'{s}_shoulder', f'{s}_elbow', f'{s}_wrist'])
+    # fingers: the hand beyond the knuckles, blended over 3 cm
+    _, t = seg_dist(av, J[f'{s}_wrist'], J[f'{s}_hand'])
+    hand_len = np.linalg.norm(J[f'{s}_hand'] - J[f'{s}_wrist'])
+    f = np.clip(((t - KNUCKLE_T) * hand_len + 0.015) / 0.03, 0, 1) * AW[f'{s}_wrist']
+    AW[f'{s}_fingers'] = f
+    AW[f'{s}_wrist'] = AW[f'{s}_wrist'] - f
+    add_weights(ob, AW)
 for s, ob in legs.items():
     add_weights(ob, chain_weights(verts(ob), s, LEG_SEGS, [f'{s}_hip', f'{s}_knee', f'{s}_ankle']))
 

@@ -31,7 +31,7 @@ parser.add_argument('--exposure', type=float, default=0.6, help='0 keeps painted
 parser.add_argument('--twist', type=float, default=1.0, help='scale of the chest yaw toward the camera')
 parser.add_argument('--stance', type=float, default=1.0, help='foot spread of the shooting stance, 0 = rest pose')
 parser.add_argument('--out', required=True)
-parser.add_argument('--clips', default='reload,turnaround')
+parser.add_argument('--clips', default='reload,walk_aim,turnaround')
 parser.add_argument('--ppm', type=float, default=64.0, help='output pixels per meter')
 parser.add_argument('--supersample', type=int, default=4)
 parser.add_argument('--colors', type=int, default=24)
@@ -135,14 +135,22 @@ if _cape_group is not None:
     CAPE_TOP, CAPE_BOTTOM = max(_zs) - 0.02, min(_zs) + 0.05
 else:
     cape_verts = _verts(CAPE_MATS) + _verts({'muted gold'}, lambda co: co.x < -0.12 and co.z < CAPE_TOP)
-hair_verts = _verts(HAIR_MATS, lambda co: co.z < HAIR_TOP + 0.02 and co.x < -0.03)
+_hair_group = body_mesh.vertex_groups.get('plan_e_hair')
+if _hair_group is not None:
+    _gi = _hair_group.index
+    hair_verts = [(v.index, _world @ v.co) for v in body_mesh.data.vertices
+                  if any(g.group == _gi and g.weight > 0.5 for g in v.groups)]
+    _zs = [co.z for _, co in hair_verts]
+    HAIR_TOP, HAIR_BOTTOM = max(_zs) - 0.01, min(_zs) + 0.03
+else:
+    hair_verts = _verts(HAIR_MATS, lambda co: co.z < HAIR_TOP + 0.02 and co.x < -0.03)
 CHAINS = {
     'cape': dict(parent='chest', bones=['cape_0', 'cape_1', 'cape_2'],
                  knots=_centerline(cape_verts, [CAPE_TOP, 1.03, 0.59, CAPE_BOTTOM]),
                  verts=cape_verts, top=CAPE_TOP, bottom=CAPE_BOTTOM, split=[0.05, 0.36, 0.69],
                  stiffness=30.0, damping=4.0, forward_slack=0.015),
     'hair': dict(parent='head', bones=['hair_0', 'hair_1'],
-                 knots=_centerline(hair_verts, [HAIR_TOP, 1.44, HAIR_BOTTOM]),
+                 knots=_centerline(hair_verts, [HAIR_TOP, (HAIR_TOP + HAIR_BOTTOM) / 2 if _hair_group else 1.44, HAIR_BOTTOM]),
                  verts=hair_verts, top=HAIR_TOP, bottom=HAIR_BOTTOM, split=[0.08, 0.52],
                  stiffness=45.0, damping=5.0, forward_slack=0.01),
 }
@@ -230,6 +238,13 @@ def pose_arm(side, wrist_target, hand_dir, pole):
     q = aim(w, h, hand_dir)
     set_abs(w, q)
     set_abs(h, q)
+    fingers = f'{side}_fingers'
+    if fingers in REST:
+        # Hull models have a finger bone: curl it toward the palm to grip. At rest
+        # the palms face the body midline (left_* is the -Y side).
+        palm = Vector((0, 1 if side == 'left' else -1, 0))
+        axis = rest_dir(w, h).normalized().cross(palm).normalized()
+        set_abs(fingers, q @ Quaternion(axis, math.radians(FINGER_CURL)))
 
 
 def pose_leg(side, ankle_target):
@@ -292,7 +307,7 @@ class ChainSim:
             prev = [p.copy() for p in self.p]
             self.p[0] = targets[0].copy()
             for i in range(1, len(self.p)):
-                self.v[i] += (k * (targets[i] - self.p[i]) - c * self.v[i]) * h
+                self.v[i] += (k * (targets[i] - self.p[i]) - c * self.v[i] + DRAG) * h
                 self.p[i] += self.v[i] * h
             for i in range(1, len(self.p)):
                 d = self.p[i] - self.p[i - 1]
@@ -321,6 +336,9 @@ class ChainSim:
 
 
 SIMS = {name: ChainSim(cfg) for name, cfg in CHAINS.items()}
+# Extra acceleration on chain knots. In-place clips of forward motion use it for
+# the air drag the sprite would feel while the game moves it forward.
+DRAG = Vector((0, 0, 0))
 
 
 def reset_chains():
@@ -461,7 +479,10 @@ def lerp(a, b, t):
     return a + (b - a) * t
 
 
-def pose_body(lean, twist, head_pitch, pelvis_drop):
+FINGER_CURL = 70.0
+
+
+def pose_body(lean, twist, head_pitch, pelvis_drop, feet=None):
     """lean: forward degrees spread on the spine; twist: chest yaw toward camera."""
     twist *= args.twist
     pelvis_head = REST['pelvis'] + Vector((0, 0, -pelvis_drop))
@@ -472,6 +493,10 @@ def pose_body(lean, twist, head_pitch, pelvis_drop):
     set_abs('head', rot_ypz(yaw=0, pitch=head_pitch))
     # Offsets from the rest ankles; with the Plan D rig stance=1 gives the original
     # targets (0.17, 0.14) and (-0.13, -0.15).
+    if feet is not None:
+        pose_leg(SUPPORT, feet[0])
+        pose_leg(TRIGGER, feet[1])
+        return
     pose_leg(SUPPORT, REST[f'{SUPPORT}_ankle'] + Vector((0.185, 0.01, 0.0)) * args.stance)
     pose_leg(TRIGGER, REST[f'{TRIGGER}_ankle'] + Vector((-0.115, -0.02, 0.0)) * args.stance)
 
@@ -702,14 +727,16 @@ def kmeans(samples, k, iters=24):
     return centers
 
 
-def quantize(rgb, a, palette, outline):
+def quantize(rgb, a, palette, outline, shown=None):
+    """Match against `palette`, write `shown` (same order; defaults to palette)."""
+    shown = palette if shown is None else shown
     h, w, _ = rgb.shape
     mask = a >= 0.5
     out = np.zeros((h, w, 4), dtype=np.uint8)
     flat = rgb[mask]
     if len(flat):
         idx = ((flat[:, None, :] - palette[None]) ** 2).sum(-1).argmin(1)
-        out[mask, :3] = np.clip(palette[idx] * 255 + 0.5, 0, 255).astype(np.uint8)
+        out[mask, :3] = np.clip(shown[idx] * 255 + 0.5, 0, 255).astype(np.uint8)
         out[mask, 3] = 255
     if outline is not None:
         grown = np.zeros_like(mask)
@@ -748,6 +775,66 @@ def collect_reload():
     return dict(id='reload', title='장전', fps=RELOAD_FPS, loop=False, w=w, h=h, frames=frames)
 
 
+# Aimed walk, in place (the game moves the sprite). One stride per leg per cycle.
+WALK_FRAMES, WALK_FPS = 16, 12
+WALK_STRIDE, WALK_LIFT, WALK_DUTY = 0.34, 0.07, 0.6
+
+
+def foot_cycle(p):
+    """Foot offset (forward, up) over one cycle: planted and sliding back, then a swing."""
+    if p < WALK_DUTY:
+        return WALK_STRIDE * (0.5 - p / WALK_DUTY), 0.0
+    t = (p - WALK_DUTY) / (1 - WALK_DUTY)
+    return WALK_STRIDE * (-0.5 + smooth(t)), WALK_LIFT * math.sin(math.pi * t)
+
+
+def pose_walk(p):
+    body = dict(AIM_BODY)
+    body['pelvis_drop'] = 0.045 + 0.014 * math.cos(4 * math.pi * p)    # lowest just after each contact
+    body['lean'] = AIM_BODY['lean'] + 1.5 * math.cos(4 * math.pi * p)    # chest dips with each step
+    feet = []
+    for side, phase, centre in ((SUPPORT, p, Vector((0.035, 0.01, 0))), (TRIGGER, (p + 0.5) % 1, Vector((-0.02, -0.01, 0)))):
+        dx, dz = foot_cycle(phase)
+        feet.append(REST[f'{side}_ankle'] + centre * args.stance + Vector((dx, 0, dz)))
+    pose_body(**body, feet=feet)
+    g_origin, g_rot = aim_gun_matrix()
+    gun.matrix_basis = matrix(g_origin, g_rot)
+    trigger_wrist = g_origin + g_rot @ Vector((-0.045, -0.035, -0.075))
+    pose_arm(TRIGGER, trigger_wrist, g_rot @ Vector((0.55, 0.15, 0.8)), Vector((-0.3, -0.9, -0.8)))
+    w, h = resolve(HANDGUARD, g_origin, g_rot)
+    pose_arm(SUPPORT, w, h, Vector((0.1, 0.6, -1.0)))
+    mag_old.matrix_basis = matrix(g_origin, g_rot) @ Matrix.Translation(MAG_WELL)
+    mag_old.hide_render = False
+    mag_new.hide_render = True
+
+
+def walk_drag(p):
+    """Air drag of walking ~1.2 m/s, surging twice per cycle as each push-off speeds the body up."""
+    return Vector((-(1.6 + 1.0 * math.cos(4 * math.pi * (p - 0.15))), 0, 0))
+
+
+def collect_walk():
+    w, h = frame_camera(-0.75, 1.39, -0.04, 2.10)
+    global DRAG
+    reset_chains()
+    dt = 1.0 / WALK_FPS
+    for i in range(WALK_FRAMES * 2):          # two silent cycles so the cape swing is steady and loops
+        DRAG = walk_drag(i / WALK_FRAMES % 1.0)
+        pose_walk(i / WALK_FRAMES % 1.0)
+        advance_chains(dt)
+    frames = []
+    for i in range(WALK_FRAMES):
+        p = i / WALK_FRAMES
+        DRAG = walk_drag(p)
+        pose_walk(p)
+        advance_chains(dt)
+        bpy.context.view_layer.update()
+        label = '앞발 디딤' if i == 0 else '뒷발 디딤' if i == WALK_FRAMES // 2 else ''
+        frames.append((render_rgba(), label))
+    DRAG = Vector((0, 0, 0))
+    return dict(id='walk_aim', title='조준 걷기', fps=WALK_FPS, loop=True, w=w, h=h, frames=frames)
+
+
 TURN_YAWS = [0, 45, 90, 135, 180, 225, 270, 315]
 TURN_LABELS = ['측면 · 오른쪽', '3/4 · 정면 쪽', '정면', '3/4 · 정면 왼쪽', '측면 · 왼쪽', '3/4 · 뒤 왼쪽', '후면', '3/4 · 뒤 오른쪽']
 
@@ -775,7 +862,7 @@ def sha256(path):
 def main():
     os.makedirs(OUT, exist_ok=True)
     wanted = [c.strip() for c in args.clips.split(',') if c.strip()]
-    builders = {'reload': collect_reload, 'turnaround': collect_turnaround}
+    builders = {'reload': collect_reload, 'walk_aim': collect_walk, 'turnaround': collect_turnaround}
     clips = [builders[c]() for c in wanted]
 
     # One palette for every clip, so the character keeps the same colors.
@@ -798,9 +885,14 @@ def main():
     palette = kmeans(to_linear_safe(samples).astype(np.float64), args.colors)
     # Cluster centres average away chroma; give warm (gold/skin) entries it back.
     gray = palette.mean(1, keepdims=True)
-    warm = (palette[:, 0] - palette[:, 2]) > 0.1
-    palette[warm] = np.clip(gray[warm] + (palette[warm] - gray[warm]) * 1.6, 0, 1)
-    palette = palette[np.argsort(palette.sum(1))]
+    # Only clearly warm entries (gold trim, skin); near-gray entries stay put so
+    # gray metal never turns orange. Pixels still match against the original
+    # centres, the boost only changes the colour written out.
+    warm = ((palette[:, 0] - palette[:, 2]) > 0.12) & ((palette.max(1) - palette.min(1)) > 0.12)
+    shown = palette.copy()
+    shown[warm] = np.clip(gray[warm] + (palette[warm] - gray[warm]) * 1.6, 0, 1)
+    order = np.argsort(palette.sum(1))
+    palette, shown = palette[order], shown[order]
     outline = np.array([10, 10, 14], dtype=np.uint8)
 
     index = []
@@ -808,7 +900,7 @@ def main():
         clip_dir = os.path.join(OUT, 'output', clip['id'])
         frame_dir = os.path.join(clip_dir, 'frames')
         os.makedirs(frame_dir, exist_ok=True)
-        pixel_frames = [quantize(rgb, a, palette, outline) for rgb, a in clip['reduced']]
+        pixel_frames = [quantize(rgb, a, palette, outline, shown) for rgb, a in clip['reduced']]
         w, h = clip['w'], clip['h']
         for i, arr in enumerate(pixel_frames):
             save_png(arr, os.path.join(frame_dir, f'{i:02d}.png'))
@@ -848,7 +940,7 @@ def main():
         'source_glb_sha256': sha256(args.glb),
         'script_sha256': sha256(os.path.abspath(__file__)) if '__file__' in globals() else None,
         'params': vars(args),
-        'palette_rgb': [[int(round(c * 255)) for c in p] for p in palette],
+        'palette_rgb': [[int(round(c * 255)) for c in p] for p in shown],
         'outline_rgb': outline.tolist(),
         'render_engine': scene.render.engine,
         'elapsed_seconds': round(time.time() - STARTED, 1),
