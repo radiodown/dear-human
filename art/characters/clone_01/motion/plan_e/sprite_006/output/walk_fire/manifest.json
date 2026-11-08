@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "plan": "Plan E",
+  "clip": "walk_fire",
+  "title": "걸으며쏴",
+  "frameCount": 16,
+  "fps": 12,
+  "loop": true,
+  "canvas": {
+    "width": 205,
+    "height": 205
+  },
+  "pixelsPerMeter": 96.0,
+  "spritesheet": "spritesheet.png",
+  "frames": [
+    {
+      "label": "발사"
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": "발사"
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": "발사"
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": "발사"
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    }
+  ]
+}

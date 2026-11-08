@@ -209,14 +209,20 @@ ARM = {s: occ & capsule_mask(s, ARM_SEGS) for s in ('left', 'right')}
 # two thigh capsules never claim the same voxels.
 MID_Y = (J['left_hip'][1] + J['right_hip'][1]) / 2
 leg_zone = (GRID[..., 0] > -0.10) & (GRID[..., 2] < 0.93)
-LEG = {s: occ & capsule_mask(s, LEG_SEGS) & leg_zone & ((GRID[..., 1] < MID_Y) if s == 'left' else (GRID[..., 1] >= MID_Y))
+LEG_GROW = 0.012                   # capsules a little fatter than the measured legs: no leg rims left on the body
+LEG = {s: occ & capsule_mask(s, LEG_SEGS, LEG_GROW) & leg_zone & ((GRID[..., 1] < MID_Y) if s == 'left' else (GRID[..., 1] >= MID_Y))
        for s in ('left', 'right')}
-body_occ = occ.copy()
+# Under the skirt and in front of the cape there are only legs and air. Whatever
+# the hull put there besides the legs (calf backs, heel rims, the bridge between
+# the shins) would stay on the body as painted ghost legs, so it all goes.
+# The hull also swells the cape's side panels forward to wherever the side view
+# shows legs, so below the skirt nothing forward of x = -0.06 is cape either.
+UNDER_SKIRT = occ & (GRID[..., 2] < 0.88) & (((GRID[..., 0] > -0.12) & (np.abs(GRID[..., 1] - MID_Y) < 0.2))
+                                           | (GRID[..., 0] > -0.06))
+body_occ = occ & ~UNDER_SKIRT
 for s in ('left', 'right'):
     body_occ &= ~capsule_mask(s, ARM_SEGS, 0.006)
-    body_occ &= ~(capsule_mask(s, LEG_SEGS, 0.006) & leg_zone)
-# nothing of the body belongs between the shins in front of the cape
-body_occ &= ~((np.abs(GRID[..., 1] - MID_Y) < 0.05) & (GRID[..., 2] < 0.6) & (GRID[..., 0] > -0.10))
+    body_occ &= ~(capsule_mask(s, LEG_SEGS, LEG_GROW + 0.006) & leg_zone)
 
 
 def smooth(o, passes=2):
@@ -239,7 +245,7 @@ def smooth(o, passes=2):
 
 def arm_pixel_mask(v):
     m = np.zeros((P[v]['h'], P[v]['w']), bool)
-    for part in (*ARM.values(), *LEG.values()):
+    for part in (*ARM.values(), *LEG.values(), UNDER_SKIRT):
         pts = GRID[part]
         r, c = to_pixel(v, pts)
         r = np.clip(np.round(r).astype(int), 0, P[v]['h'] - 1)
@@ -256,7 +262,9 @@ def inpaint(px, hole, figure):
     valid = (~hole & figure).astype(np.float32)
     out = px.copy()
     todo = hole.copy()
-    for radius in (6, 12, 24, 48, 96):
+    # Blend only from nearby figure pixels; a wide reach drags the cape's gold trim
+    # across the hole. What stays unfilled gets the cape's dark tone below.
+    for radius, need in ((6, 0.25), (12, 0.25), (24, 0.2)):
         k = 2 * radius + 1
 
         def blur(a):
@@ -269,9 +277,11 @@ def inpaint(px, hole, figure):
             return a
         wsum = blur(valid)
         csum = blur(px * valid[..., None])
-        ok = todo & (wsum > 0.25)
+        ok = todo & (wsum > need)
         out[ok] = csum[ok] / wsum[ok, None]
         todo &= ~ok
+    if todo.any():                              # anything left: the figure's darkest common tone (cape black)
+        out[todo] = np.percentile(px[valid > 0], 25, axis=0)
     return out
 
 
@@ -373,7 +383,8 @@ legs = {s: mesh_from_occ(f'clone_01_leg_{s}', LEG[s], 0.6) for s in ('left', 'ri
 # 5. projection materials
 
 
-def projection_material(name, paths):
+def projection_material(name, paths, shade=1.0):
+    """shade < 1 darkens the result: the far limbs read as behind, as in Plan B."""
     mat = bpy.data.materials.new(name)
     mat.use_nodes = True
     nt = mat.node_tree
@@ -421,6 +432,7 @@ def projection_material(name, paths):
             ad = N.new('ShaderNodeVectorMath'); ad.operation = 'ADD'
             L.new(acc, ad.inputs[0]); L.new(sc.outputs[0], ad.inputs[1]); acc = ad.outputs[0]
     em = N.new('ShaderNodeEmission'); L.new(acc, em.inputs['Color'])
+    em.inputs['Strength'].default_value = shade
     out = N.new('ShaderNodeOutputMaterial'); L.new(em.outputs[0], out.inputs['Surface'])
     return mat
 
@@ -430,9 +442,15 @@ LIMBS = [*arms.values(), *legs.values()]
 for ob in [body, *LIMBS]:
     ob.data.materials.clear()          # new_from_object leaves an empty slot 0
 body.data.materials.append(projection_material('clone_01_body_paint', BODY_PAINT))
-arm_mat = projection_material('clone_01_arm_paint', LIMB_PAINT)
-for ob in LIMBS:
-    ob.data.materials.append(arm_mat)
+# The side painting shows only the near limbs; the far ones get the same picture
+# and would read as duplicates. Darken them like Plan B's far leg.
+near_mat = projection_material('clone_01_limb_near', LIMB_PAINT)
+far_leg_mat = projection_material('clone_01_leg_far', LIMB_PAINT, shade=0.5)
+far_arm_mat = projection_material('clone_01_arm_far', LIMB_PAINT, shade=0.72)
+for s, ob in arms.items():
+    ob.data.materials.append(near_mat if s == 'left' else far_arm_mat)
+for s, ob in legs.items():
+    ob.data.materials.append(near_mat if s == 'left' else far_leg_mat)
 
 # ----------------------------------------------------------------------------
 # 6. armature and weights

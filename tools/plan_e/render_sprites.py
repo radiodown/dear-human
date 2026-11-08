@@ -31,7 +31,7 @@ parser.add_argument('--exposure', type=float, default=0.6, help='0 keeps painted
 parser.add_argument('--twist', type=float, default=1.0, help='scale of the chest yaw toward the camera')
 parser.add_argument('--stance', type=float, default=1.0, help='foot spread of the shooting stance, 0 = rest pose')
 parser.add_argument('--out', required=True)
-parser.add_argument('--clips', default='reload,walk_aim,turnaround')
+parser.add_argument('--clips', default='idle,relaxed,walk,fire,walk_fire,run,run_fire,kneel,kneel_fire,reload')
 parser.add_argument('--ppm', type=float, default=64.0, help='output pixels per meter')
 parser.add_argument('--supersample', type=int, default=4)
 parser.add_argument('--colors', type=int, default=24)
@@ -247,14 +247,17 @@ def pose_arm(side, wrist_target, hand_dir, pole):
         set_abs(fingers, q @ Quaternion(axis, math.radians(FINGER_CURL)))
 
 
-def pose_leg(side, ankle_target):
+def pose_leg(side, ankle_target, pole=None, foot_pitch=0.0):
+    """pole: where the knee points (default forward); foot_pitch: degrees about Y,
+    0 = flat on the ground, ~160 = foot pointing back with the toes down (kneeling)."""
     hip, knee, ankle, toe = f'{side}_hip', f'{side}_knee', f'{side}_ankle', f'{side}_toe'
     l1, l2 = rest_dir(hip, knee).length, rest_dir(knee, ankle).length
-    k, a = two_bone(joint(hip), ankle_target, l1, l2, Vector((1, 0, 0.15)))
+    k, a = two_bone(joint(hip), ankle_target, l1, l2, pole if pole is not None else Vector((1, 0, 0.15)))
     set_abs(hip, aim(hip, knee, k - joint(hip)))
     set_abs(knee, aim(knee, ankle, a - joint(knee)))
-    set_abs(ankle, Quaternion())
-    set_abs(toe, Quaternion())
+    foot = rot_ypz(pitch=foot_pitch)
+    set_abs(ankle, foot)
+    set_abs(toe, foot)
 
 
 def rot_ypz(yaw=0.0, pitch=0.0, roll=0.0):
@@ -318,6 +321,8 @@ class ChainSim:
                 if local.x > limit:
                     local.x = limit
                     self.p[i] = root + yaw @ local
+                if self.p[i].z < FLOOR_Z:
+                    self.p[i].z = FLOOR_Z
             for i in range(1, len(self.p)):
                 self.v[i] = (self.p[i] - prev[i]) / h
 
@@ -339,6 +344,7 @@ SIMS = {name: ChainSim(cfg) for name, cfg in CHAINS.items()}
 # Extra acceleration on chain knots. In-place clips of forward motion use it for
 # the air drag the sprite would feel while the game moves it forward.
 DRAG = Vector((0, 0, 0))
+FLOOR_Z = 0.03          # chain knots never go below this (cloth lies on the floor when kneeling)
 
 
 def reset_chains():
@@ -494,8 +500,11 @@ def pose_body(lean, twist, head_pitch, pelvis_drop, feet=None):
     # Offsets from the rest ankles; with the Plan D rig stance=1 gives the original
     # targets (0.17, 0.14) and (-0.13, -0.15).
     if feet is not None:
-        pose_leg(SUPPORT, feet[0])
-        pose_leg(TRIGGER, feet[1])
+        for side, spec in zip((SUPPORT, TRIGGER), feet):
+            if isinstance(spec, Vector):
+                pose_leg(side, spec)
+            else:                                   # (target, pole, foot_pitch)
+                pose_leg(side, *spec)
         return
     pose_leg(SUPPORT, REST[f'{SUPPORT}_ankle'] + Vector((0.185, 0.01, 0.0)) * args.stance)
     pose_leg(TRIGGER, REST[f'{TRIGGER}_ankle'] + Vector((-0.115, -0.02, 0.0)) * args.stance)
@@ -775,29 +784,55 @@ def collect_reload():
     return dict(id='reload', title='장전', fps=RELOAD_FPS, loop=False, w=w, h=h, frames=frames)
 
 
-# Aimed walk, in place (the game moves the sprite). One stride per leg per cycle.
-WALK_FRAMES, WALK_FPS = 16, 12
-WALK_STRIDE, WALK_LIFT, WALK_DUTY = 0.34, 0.07, 0.6
+# ----------------------------------------------------------------------------
+# The nine side-view motions. Locomotion is in place: the game moves the sprite.
+
+def make_flash():
+    """Muzzle flash: three crossed emissive blades along the barrel axis."""
+    import bmesh
+    mesh = bpy.data.meshes.new('plan_e_flash')
+    bm = bmesh.new()
+    for roll in (0, 60, 120):
+        r = Euler((math.radians(roll), 0, 0)).to_matrix()
+        pts = [Vector((0, 0, 0)), Vector((0.07, 0, 0.045)), Vector((0.19, 0, 0)), Vector((0.07, 0, -0.045))]
+        bm.faces.new([bm.verts.new(r @ q) for q in pts])
+    bm.to_mesh(mesh)
+    bm.free()
+    mat = bpy.data.materials.new('plan_e_flash')
+    mat.use_nodes = True
+    nt = mat.node_tree
+    nt.nodes.clear()
+    em = nt.nodes.new('ShaderNodeEmission')
+    em.inputs['Color'].default_value = (1.0, 0.78, 0.32, 1)
+    em.inputs['Strength'].default_value = 1.0
+    out = nt.nodes.new('ShaderNodeOutputMaterial')
+    nt.links.new(em.outputs[0], out.inputs['Surface'])
+    mesh.materials.append(mat)
+    obj = bpy.data.objects.new('plan_e_flash', mesh)
+    scene.collection.objects.link(obj)
+    obj.parent = root
+    obj.hide_render = True
+    return obj
 
 
-def foot_cycle(p):
-    """Foot offset (forward, up) over one cycle: planted and sliding back, then a swing."""
-    if p < WALK_DUTY:
-        return WALK_STRIDE * (0.5 - p / WALK_DUTY), 0.0
-    t = (p - WALK_DUTY) / (1 - WALK_DUTY)
-    return WALK_STRIDE * (-0.5 + smooth(t)), WALK_LIFT * math.sin(math.pi * t)
+flash = make_flash()
+MUZZLE = Vector((0.735, 0, 0.035))
+RECOIL = [1.0, 0.55, 0.25, 0.08]          # gun kick on the frames after a shot
 
 
-def pose_walk(p):
-    body = dict(AIM_BODY)
-    body['pelvis_drop'] = 0.045 + 0.014 * math.cos(4 * math.pi * p)    # lowest just after each contact
-    body['lean'] = AIM_BODY['lean'] + 1.5 * math.cos(4 * math.pi * p)    # chest dips with each step
-    feet = []
-    for side, phase, centre in ((SUPPORT, p, Vector((0.035, 0.01, 0))), (TRIGGER, (p + 0.5) % 1, Vector((-0.02, -0.01, 0)))):
-        dx, dz = foot_cycle(phase)
-        feet.append(REST[f'{side}_ankle'] + centre * args.stance + Vector((dx, 0, dz)))
-    pose_body(**body, feet=feet)
-    g_origin, g_rot = aim_gun_matrix()
+def gun_shouldered(pocket_drop=0.0, kick=0.0):
+    """Stock in the shoulder pocket, barrel level; kick pushes the gun back and the muzzle up."""
+    pocket = joint(f'{TRIGGER}_shoulder') + Vector((0.075, 0.07, -0.02 - pocket_drop))
+    rot = rot_ypz(pitch=-4.0 * kick)
+    return pocket + rot @ Vector((0.335 - 0.03 * kick, 0, 0)), rot
+
+
+def gun_carried(down, offset):
+    """Low carry: grip at the chest joint + offset, muzzle `down` degrees below level."""
+    return joint('chest') + Vector(offset), rot_ypz(pitch=down)
+
+
+def hold(g_origin, g_rot, firing=False):
     gun.matrix_basis = matrix(g_origin, g_rot)
     trigger_wrist = g_origin + g_rot @ Vector((-0.045, -0.035, -0.075))
     pose_arm(TRIGGER, trigger_wrist, g_rot @ Vector((0.55, 0.15, 0.8)), Vector((-0.3, -0.9, -0.8)))
@@ -806,33 +841,193 @@ def pose_walk(p):
     mag_old.matrix_basis = matrix(g_origin, g_rot) @ Matrix.Translation(MAG_WELL)
     mag_old.hide_render = False
     mag_new.hide_render = True
+    flash.matrix_basis = matrix(g_origin, g_rot) @ Matrix.Translation(MUZZLE)
+    flash.hide_render = not firing
 
 
-def walk_drag(p):
-    """Air drag of walking ~1.2 m/s, surging twice per cycle as each push-off speeds the body up."""
-    return Vector((-(1.6 + 1.0 * math.cos(4 * math.pi * (p - 0.15))), 0, 0))
+def foot_cycle(p, stride, lift, duty):
+    """Foot offset (forward, up) over one cycle: planted and sliding back, then a swing."""
+    if p < duty:
+        return stride * (0.5 - p / duty), 0.0
+    t = (p - duty) / (1 - duty)
+    return stride * (-0.5 + smooth(t)), lift * math.sin(math.pi * t) ** 0.8
 
 
-def collect_walk():
-    w, h = frame_camera(-0.75, 1.39, -0.04, 2.10)
+GAITS = {
+    'walk': dict(stride=0.34, lift=0.07, duty=0.6, bob=0.014, lean_amp=1.5, frames=16, fps=12),
+    'run': dict(stride=0.80, lift=0.20, duty=0.38, bob=0.03, lean_amp=2.5, frames=12, fps=16),
+}
+
+
+def gait_feet(gait, p):
+    g = GAITS[gait]
+    feet = []
+    for side, phase, centre in ((SUPPORT, p, Vector((0.035, 0.01, 0))), (TRIGGER, (p + 0.5) % 1, Vector((-0.02, -0.01, 0)))):
+        dx, dz = foot_cycle(phase, g['stride'], g['lift'], g['duty'])
+        feet.append(REST[f'{side}_ankle'] + centre * args.stance + Vector((dx, 0, dz)))
+    return feet
+
+
+def gait_body(gait, p, base):
+    g = GAITS[gait]
+    body = dict(base)
+    body['pelvis_drop'] = base['pelvis_drop'] + g['bob'] * (0.5 + 0.5 * math.cos(4 * math.pi * p))
+    body['lean'] = base['lean'] + g['lean_amp'] * math.cos(4 * math.pi * p)
+    return body
+
+
+def gait_drag(speed):
+    """Air drag of moving forward at `speed` m/s, surging twice per cycle with each push-off."""
+    return lambda p: Vector((-(speed * (1.3 + 0.8 * math.cos(4 * math.pi * (p - 0.15)))), 0, 0))
+
+
+def shot(i, every):
+    """(kick, firing) for frame i when a shot leaves every `every` frames."""
+    k = i % every
+    return (RECOIL[k] if k < len(RECOIL) else 0.0), k == 0
+
+
+IDLE_BODY = dict(AIM_BODY)
+READY_BODY = dict(lean=5.0, twist=-14.0, head_pitch=4.0, pelvis_drop=0.03)        # low-ready walk
+RELAXED_BODY = dict(lean=2.0, twist=-8.0, head_pitch=2.0, pelvis_drop=0.015)
+RUN_BODY = dict(lean=15.0, twist=-10.0, head_pitch=0.0, pelvis_drop=0.05)          # head stays level
+KNEEL_DROP = 0.595                         # rear knee on the floor with the thigh upright
+KNEEL_BODY = dict(lean=7.0, twist=-20.0, head_pitch=17.0, pelvis_drop=KNEEL_DROP)
+
+
+def kneel_feet(t):
+    """t: 0 standing (shooting stance) -> 1 kneeling on the trigger-side knee."""
+    t = smooth(t)
+    hip_x = REST[f'{TRIGGER}_hip'].x
+    stand_front = REST[f'{SUPPORT}_ankle'] + Vector((0.185, 0.01, 0.0)) * args.stance
+    stand_rear = REST[f'{TRIGGER}_ankle'] + Vector((-0.115, -0.02, 0.0)) * args.stance
+    kneel_front = Vector((hip_x + 0.30, REST[f'{SUPPORT}_ankle'].y + 0.01, REST[f'{SUPPORT}_ankle'].z))
+    kneel_rear = Vector((hip_x - 0.47, REST[f'{TRIGGER}_ankle'].y - 0.02, 0.085))
+    front = stand_front.lerp(kneel_front, t)
+    rear = stand_rear.lerp(kneel_rear, t)
+    rear_pole = Vector((1, 0, 0.15)).lerp(Vector((0.25, 0, -1)), t)
+    # the rear foot stays flat until the knee is nearly down, then tips onto its toes
+    return [front, (rear, rear_pole, 162.0 * smooth((t - 0.45) / 0.55))]
+
+
+def kneel_body(t, end):
+    """Blend the standing ready body into `end` as the knee goes down."""
+    t = smooth(t)
+    start = dict(READY_BODY, pelvis_drop=0.035)
+    return {k: lerp(start[k], end[k], t) for k in end}
+
+
+def breath(i, n):
+    return math.sin(2 * math.pi * i / n)
+
+
+def m_idle(i, n):
+    b = breath(i, n)
+    pose_body(**dict(IDLE_BODY, lean=IDLE_BODY['lean'] + 0.7 * b, pelvis_drop=IDLE_BODY['pelvis_drop'] + 0.004 * b))
+    hold(*gun_shouldered())
+    return '들숨' if i == n // 4 else '날숨' if i == 3 * n // 4 else ''
+
+
+def m_relaxed(i, n):
+    b = breath(i, n)
+    pose_body(**dict(RELAXED_BODY, lean=RELAXED_BODY['lean'] + 0.6 * b))
+    hold(*gun_carried(58.0, (0.20, -0.07, -0.30)))
+    return ''
+
+
+def m_walk(i, n):
+    p = i / n
+    pose_body(**gait_body('walk', p, READY_BODY), feet=gait_feet('walk', p))
+    hold(*gun_carried(25.0, (0.27, -0.07, -0.13)))
+    return '앞발 디딤' if i == 0 else '뒷발 디딤' if i == n // 2 else ''
+
+
+def m_fire(i, n):
+    kick, firing = shot(i, n)
+    pose_body(**dict(IDLE_BODY, lean=IDLE_BODY['lean'] - 1.5 * kick))
+    hold(*gun_shouldered(kick=kick), firing=firing)
+    return '발사' if firing else ''
+
+
+def m_walk_fire(i, n):
+    p = i / n
+    kick, firing = shot(i, 4)
+    body = gait_body('walk', p, IDLE_BODY)
+    body['lean'] -= 1.5 * kick
+    pose_body(**body, feet=gait_feet('walk', p))
+    hold(*gun_shouldered(kick=kick), firing=firing)
+    return '발사' if firing else ''
+
+
+def m_run(i, n):
+    p = i / n
+    pose_body(**gait_body('run', p, RUN_BODY), feet=gait_feet('run', p))
+    hold(*gun_carried(35.0, (0.24, -0.07, -0.16)))
+    return '앞발 디딤' if i == 0 else '뒷발 디딤' if i == n // 2 else ''
+
+
+def m_run_fire(i, n):
+    p = i / n
+    kick, firing = shot(i, 3)
+    body = gait_body('run', p, RUN_BODY)
+    body['lean'] -= 1.0 * kick
+    pose_body(**body, feet=gait_feet('run', p))
+    hold(*gun_shouldered(pocket_drop=0.10, kick=kick), firing=firing)      # chest height, no eye aim
+    return '발사' if firing else ''
+
+
+def m_kneel(i, n):
+    t = i / (n - 1)
+    pose_body(**kneel_body(t, dict(KNEEL_BODY, head_pitch=READY_BODY['head_pitch'])), feet=kneel_feet(t))
+    hold(*gun_carried(25.0, (0.27, -0.07, -0.13)))
+    return '서기' if i == 0 else '무릎 접지' if i == n - 1 else ''
+
+
+def m_kneel_fire(i, n):
+    kick, firing = shot(i, n)
+    pose_body(**dict(KNEEL_BODY, lean=KNEEL_BODY['lean'] - 1.5 * kick), feet=kneel_feet(1.0))
+    hold(*gun_shouldered(kick=kick), firing=firing)
+    return '발사' if firing else ''
+
+
+MOTIONS = {
+    # id: (title, pose fn, frames, fps, loop, warm-up cycles, drag)
+    'idle': ('견착 대기', m_idle, 16, 8, True, 1, None),
+    'relaxed': ('완전 대기', m_relaxed, 16, 8, True, 1, None),
+    'walk': ('걷기', m_walk, GAITS['walk']['frames'], GAITS['walk']['fps'], True, 2, gait_drag(1.2)),
+    'fire': ('서서쏴', m_fire, 4, 20, True, 2, None),
+    'walk_fire': ('걸으며쏴', m_walk_fire, GAITS['walk']['frames'], GAITS['walk']['fps'], True, 2, gait_drag(1.2)),
+    'run': ('달리기', m_run, GAITS['run']['frames'], GAITS['run']['fps'], True, 3, gait_drag(2.4)),
+    'run_fire': ('뛰며쏴', m_run_fire, GAITS['run']['frames'], GAITS['run']['fps'], True, 3, gait_drag(2.4)),
+    'kneel': ('앉기', m_kneel, 12, 12, False, 0, None),
+    'kneel_fire': ('앉아쏴', m_kneel_fire, 4, 20, True, 2, None),
+}
+
+
+def collect_motion(cid):
     global DRAG
-    reset_chains()
-    dt = 1.0 / WALK_FPS
-    for i in range(WALK_FRAMES * 2):          # two silent cycles so the cape swing is steady and loops
-        DRAG = walk_drag(i / WALK_FRAMES % 1.0)
-        pose_walk(i / WALK_FRAMES % 1.0)
+    title, fn, n, fps, loop, warm, drag = MOTIONS[cid]
+    w, h = frame_camera(-0.75, 1.39, -0.04, 2.10)
+    dt = 1.0 / fps
+    DRAG = Vector((0, 0, 0))
+    fn(0, n)
+    settle_chains()                          # cloth starts at rest in the first pose
+    for k in range(warm * n):                # silent cycles so a looping clip starts in its steady swing
+        if drag:
+            DRAG = drag((k % n) / n)
+        fn(k % n, n)
         advance_chains(dt)
     frames = []
-    for i in range(WALK_FRAMES):
-        p = i / WALK_FRAMES
-        DRAG = walk_drag(p)
-        pose_walk(p)
+    for i in range(n):
+        if drag:
+            DRAG = drag(i / n)
+        label = fn(i, n)
         advance_chains(dt)
         bpy.context.view_layer.update()
-        label = '앞발 디딤' if i == 0 else '뒷발 디딤' if i == WALK_FRAMES // 2 else ''
         frames.append((render_rgba(), label))
     DRAG = Vector((0, 0, 0))
-    return dict(id='walk_aim', title='조준 걷기', fps=WALK_FPS, loop=True, w=w, h=h, frames=frames)
+    flash.hide_render = True
+    return dict(id=cid, title=title, fps=fps, loop=loop, w=w, h=h, frames=frames)
 
 
 TURN_YAWS = [0, 45, 90, 135, 180, 225, 270, 315]
@@ -862,7 +1057,8 @@ def sha256(path):
 def main():
     os.makedirs(OUT, exist_ok=True)
     wanted = [c.strip() for c in args.clips.split(',') if c.strip()]
-    builders = {'reload': collect_reload, 'walk_aim': collect_walk, 'turnaround': collect_turnaround}
+    builders = {'reload': collect_reload, 'turnaround': collect_turnaround,
+                **{cid: (lambda c=cid: collect_motion(c)) for cid in MOTIONS}}
     clips = [builders[c]() for c in wanted]
 
     # One palette for every clip, so the character keeps the same colors.

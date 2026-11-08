@@ -2,8 +2,8 @@
 // The page only plays the saved PNG sheets; it never renders or regenerates them.
 const $ = id => document.getElementById(id);
 const base = '/art/characters/clone_01/motion/plan_e/';
-const versions = {sprite_005: '005 · 손가락·머리카락·조준 걷기', sprite_004: '004 · 팔다리 분리·망토 흔들림', sprite_003: '003 · 원화 투영 모델', sprite_002: '002 · M16·망토/머리 흔들림', sprite_001: '001 · 임시 상자 M16'};
-const latest = 'sprite_005';
+const versions = {sprite_006: '006 · 측면 9개 동작', sprite_005: '005 · 손가락·머리카락·조준 걷기', sprite_004: '004 · 팔다리 분리·망토 흔들림', sprite_003: '003 · 원화 투영 모델', sprite_002: '002 · M16·망토/머리 흔들림', sprite_001: '001 · 임시 상자 M16'};
+const latest = 'sprite_006';
 const scales = [2, 3, 4];
 const fpsChoices = [6, 12, 15, 24];
 
@@ -15,7 +15,7 @@ async function json(path) {
 
 export class PlanELab {
   constructor() {
-    this.active = false; this.status = 'idle'; this.clipId = 'reload'; this.index = 0;
+    this.active = false; this.status = 'idle'; this.clipId = 'idle'; this.index = 0;
     this.paused = false; this.loop = true; this.fps = null; this.scale = 3; this.background = 'light';
     this.version = latest;
     this.cache = new Map(); this.request = 0; this.raf = 0; this.last = null; this.elapsed = 0;
@@ -53,7 +53,7 @@ export class PlanELab {
     $('plan-e-version').value = this.version;
     $('plan-e-readme').href = `${this.root}README.md`;
     $('plan-e-reload-sheet').href = `${this.root}output/reload/spritesheet.png`;
-    $('plan-e-turn-sheet').href = `${this.root}output/turnaround/spritesheet.png`;
+    $('plan-e-turn-sheet').href = `${this.root}output/${this.version >= 'sprite_006' ? 'walk' : 'turnaround'}/spritesheet.png`;
   }
 
   get clip() { return this.loaded?.manifest ?? null; }
@@ -80,7 +80,9 @@ export class PlanELab {
     const request = ++this.request; this.cancel(); this.status = 'loading'; this.loaded = null;
     this.message('플랜 E 스프라이트를 불러오는 중…'); this.sync();
     try {
-      const entry = this.clipIndex.clips.find(clip => clip.id === id);
+      // Older versions have other clips (e.g. 001~005 have no idle): fall back to the first one.
+      let entry = this.clipIndex.clips.find(clip => clip.id === id);
+      if (!entry && this.clipIndex.clips.length) { entry = this.clipIndex.clips[0]; id = this.clipId = entry.id; }
       if (!entry) throw new Error('준비되지 않은 동작입니다.');
       const key = `${this.version}/${id}`;
       if (!this.cache.has(key)) {
@@ -115,7 +117,7 @@ export class PlanELab {
   }
 
   restoreParams(params) {
-    this.clipId = params.get('clip') || 'reload';
+    this.clipId = params.get('clip') || 'idle';
     const version = params.get('version');
     if (Object.hasOwn(versions, version) && version !== this.version) { this.version = version; this.clipIndex = null; this.initializing = null; }
     this.syncLinks();
