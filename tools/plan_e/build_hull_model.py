@@ -12,11 +12,12 @@ Method
   2. Visual hull: a voxel is solid when it falls inside all four silhouettes;
      each cross-section is rounded with a superellipse fitted to the front and
      side runs, then box-blurred and meshed through a volume.
-  3. Arms: capsules along the measured shoulder-elbow-wrist-hand joints cut the
-     arms out as separate meshes. Arm pixels are inpainted out of the images the
-     body uses, so the body does not keep a painted ghost arm.
+  3. Limbs: capsules along the measured joints cut the arms and legs out as
+     separate meshes (legs only in front of the cape and below the skirt). Limb
+     pixels are inpainted out of the images the body uses, so the body does not
+     keep painted ghost limbs. The cape region is tagged for the spring chain.
   4. Texture: every surface point picks the painting whose camera it faces
-     (weight = max(0, n.d)^4). Rest position/normal are stored as attributes, so
+     (weight = max(0, n.d)^8). Rest position/normal are stored as attributes, so
      the paint stays attached when the armature deforms the mesh. Emission only:
      the paintings already carry their lighting.
   5. Rig: the 21-joint names of the Plan D rig, so render_sprites.py can pose it.
@@ -201,7 +202,16 @@ near_floor = zs < 0.035
 feet = capsule_mask('left', LEG_SEGS[2:]) | capsule_mask('right', LEG_SEGS[2:])
 occ[:, :, near_floor] &= feet[:, :, near_floor]
 ARM = {s: occ & capsule_mask(s, ARM_SEGS) for s in ('left', 'right')}
-body_occ = occ & ~capsule_mask('left', ARM_SEGS, 0.006) & ~capsule_mask('right', ARM_SEGS, 0.006)
+# Legs: in front of the cape, below the skirt line, split at the midline so the
+# two thigh capsules never claim the same voxels.
+MID_Y = (J['left_hip'][1] + J['right_hip'][1]) / 2
+leg_zone = (GRID[..., 0] > -0.10) & (GRID[..., 2] < 0.93)
+LEG = {s: occ & capsule_mask(s, LEG_SEGS) & leg_zone & ((GRID[..., 1] < MID_Y) if s == 'left' else (GRID[..., 1] >= MID_Y))
+       for s in ('left', 'right')}
+body_occ = occ.copy()
+for s in ('left', 'right'):
+    body_occ &= ~capsule_mask(s, ARM_SEGS, 0.006)
+    body_occ &= ~(capsule_mask(s, LEG_SEGS, 0.006) & leg_zone)
 
 
 def smooth(o, passes=2):
@@ -219,13 +229,13 @@ def smooth(o, passes=2):
     return b > 0.5
 
 # ----------------------------------------------------------------------------
-# 3. inpaint arm pixels out of the paintings the body uses
+# 3. inpaint arm and leg pixels out of the paintings the body uses
 
 
 def arm_pixel_mask(v):
     m = np.zeros((P[v]['h'], P[v]['w']), bool)
-    for s in ('left', 'right'):
-        pts = GRID[ARM[s]]
+    for part in (*ARM.values(), *LEG.values()):
+        pts = GRID[part]
         r, c = to_pixel(v, pts)
         r = np.clip(np.round(r).astype(int), 0, P[v]['h'] - 1)
         c = np.clip(np.round(c).astype(int), 0, P[v]['w'] - 1)
@@ -236,8 +246,9 @@ def arm_pixel_mask(v):
     return m & MASK[v]
 
 
-def inpaint(px, hole):
-    valid = (~hole).astype(np.float32)
+def inpaint(px, hole, figure):
+    # fill only from the figure's own pixels: the gray backdrop must not leak in
+    valid = (~hole & figure).astype(np.float32)
     out = px.copy()
     todo = hole.copy()
     for radius in (6, 12, 24, 48, 96):
@@ -274,7 +285,7 @@ BODY_PAINT = {}
 for v in CAMS:
     hole = arm_pixel_mask(v)
     path = os.path.join(SRC_DIR, f'body_{v}.png')
-    save_png(inpaint(IMG[v], hole), path)
+    save_png(inpaint(IMG[v], hole, MASK[v]), path)
     BODY_PAINT[v] = path
 
 # ----------------------------------------------------------------------------
@@ -337,6 +348,7 @@ def mesh_from_occ(name, o, decimate):
 
 body = mesh_from_occ('clone_01_body', body_occ, 0.25)
 arms = {s: mesh_from_occ(f'clone_01_arm_{s}', ARM[s], 0.6) for s in ('left', 'right')}
+legs = {s: mesh_from_occ(f'clone_01_leg_{s}', LEG[s], 0.6) for s in ('left', 'right')}
 
 # ----------------------------------------------------------------------------
 # 5. projection materials
@@ -377,7 +389,7 @@ def projection_material(name, paths):
         tex.extension = 'EXTEND'
         L.new(uv.outputs[0], tex.inputs[0])
         nax = [i for i in range(3) if c['normal'][i]][0]
-        w = math('POWER', math('MAXIMUM', math('MULTIPLY', nor.outputs[nax], c['normal'][nax]), 0.0), 4.0)
+        w = math('POWER', math('MAXIMUM', math('MULTIPLY', nor.outputs[nax], c['normal'][nax]), 0.0), 8.0)
         cols.append(tex.outputs['Color']); wts.append(w)
     total = math('MAXIMUM', math('ADD', math('ADD', wts[0], wts[1]), math('ADD', wts[2], wts[3])), 1e-4)
     acc = None
@@ -395,11 +407,12 @@ def projection_material(name, paths):
 
 
 ORIG = {v: os.path.join(VIEWS, f'{v}.png') for v in CAMS}
-for ob in [body, *arms.values()]:
+LIMBS = [*arms.values(), *legs.values()]
+for ob in [body, *LIMBS]:
     ob.data.materials.clear()          # new_from_object leaves an empty slot 0
 body.data.materials.append(projection_material('clone_01_body_paint', BODY_PAINT))
 arm_mat = projection_material('clone_01_arm_paint', ORIG)
-for ob in arms.values():
+for ob in LIMBS:
     ob.data.materials.append(arm_mat)
 
 # ----------------------------------------------------------------------------
@@ -477,23 +490,17 @@ z = pts[:, 2]
 knots = [zk for zk, _ in SPINE]
 # piecewise-linear blend between neighbouring spine bones by height
 W = {name: np.interp(z, knots, [1.0 if j == i else 0.0 for j in range(len(SPINE))]) for i, (_, name) in enumerate(SPINE)}
-# legs: inside the leg capsules, in front of the cape, below the skirt line
-for s in ('left', 'right'):
-    leg_bones = [f'{s}_hip', f'{s}_knee', f'{s}_ankle']
-    d = np.min(np.stack([seg_dist(pts, J[f'{s}_{a}'], J[f'{s}_{b}'])[0] - r for a, b, r in LEG_SEGS], 1), 1)
-    in_leg = (d < 0.0) & (pts[:, 0] > -0.09) & (z < 0.93)
-    # thigh tops fade into the pelvis over 12 cm so the skirt stays with the body
-    fade = np.clip((0.93 - z) / 0.12, 0, 1) * in_leg
-    LW = chain_weights(pts, s, LEG_SEGS, leg_bones)
-    for b in leg_bones:
-        W[b] = LW[b] * fade
-    for _, name in SPINE:
-        W[name] = W[name] * (1 - fade)
 add_weights(body, W)
+# Cape region for render_sprites.py's spring chain: behind the back or out at the
+# sides, below the shoulders. Membership only; the chain sets the real weights.
+cape = (z < 1.42) & ((pts[:, 0] < -0.075) | (np.abs(pts[:, 1]) > 0.19))
+add_weights(body, {'plan_e_cape': cape.astype(float)})
 for s, ob in arms.items():
     add_weights(ob, chain_weights(verts(ob), s, ARM_SEGS, [f'{s}_shoulder', f'{s}_elbow', f'{s}_wrist']))
+for s, ob in legs.items():
+    add_weights(ob, chain_weights(verts(ob), s, LEG_SEGS, [f'{s}_hip', f'{s}_knee', f'{s}_ankle']))
 
-for ob in [body, *arms.values()]:
+for ob in [body, *LIMBS]:
     ob.parent = rig
     mod = ob.modifiers.new('Armature', 'ARMATURE')
     mod.object = rig
@@ -512,7 +519,7 @@ info = {
     'params': {k: (v if not isinstance(v, float) else round(v, 5)) for k, v in vars(args).items()},
     'painting_params': P,
     'joints': {k: [round(float(x), 3) for x in v] for k, v in J.items()},
-    'faces': {ob.name: len(ob.data.polygons) for ob in [body, *arms.values()]},
+    'faces': {ob.name: len(ob.data.polygons) for ob in [body, *LIMBS]},
     'elapsed_seconds': round(time.time() - T0, 1),
 }
 with open(os.path.join(records, 'build.json'), 'w', encoding='utf-8') as fh:

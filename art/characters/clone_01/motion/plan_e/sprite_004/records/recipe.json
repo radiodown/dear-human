@@ -1,0 +1,207 @@
+{
+  "tool": "Blender headless + tools/plan_e/render_sprites.py",
+  "blender_version": "5.2.3 LTS",
+  "source_glb": "art/characters/clone_01/motion/plan_e/model_hull_003/source/clone_01_hull.blend",
+  "source_glb_sha256": "53dc3db3cd3bb65e9d58cab85e1bd263d82e04fe022065f18d4098547eadbe9d",
+  "script_sha256": "11cc7f62e82cac7913f30b54df9f8afe0a735ed883c5d564d4575e6a91ae4d65",
+  "params": {
+    "glb": "art/characters/clone_01/motion/plan_e/model_hull_003/source/clone_01_hull.blend",
+    "exposure": 0.0,
+    "twist": 0.35,
+    "stance": 1.0,
+    "out": "art/characters/clone_01/motion/plan_e/sprite_004",
+    "clips": "reload,turnaround",
+    "ppm": 96.0,
+    "supersample": 4,
+    "colors": 32,
+    "pitch": 8.0,
+    "raw": false
+  },
+  "palette_rgb": [
+    [
+      18,
+      18,
+      17
+    ],
+    [
+      24,
+      23,
+      23
+    ],
+    [
+      29,
+      27,
+      28
+    ],
+    [
+      33,
+      31,
+      32
+    ],
+    [
+      36,
+      34,
+      35
+    ],
+    [
+      39,
+      37,
+      38
+    ],
+    [
+      42,
+      39,
+      41
+    ],
+    [
+      45,
+      42,
+      43
+    ],
+    [
+      47,
+      44,
+      46
+    ],
+    [
+      51,
+      45,
+      43
+    ],
+    [
+      49,
+      46,
+      48
+    ],
+    [
+      52,
+      48,
+      50
+    ],
+    [
+      55,
+      51,
+      53
+    ],
+    [
+      61,
+      53,
+      50
+    ],
+    [
+      58,
+      54,
+      55
+    ],
+    [
+      63,
+      57,
+      58
+    ],
+    [
+      61,
+      60,
+      63
+    ],
+    [
+      69,
+      62,
+      61
+    ],
+    [
+      73,
+      67,
+      67
+    ],
+    [
+      77,
+      72,
+      74
+    ],
+    [
+      101,
+      75,
+      59
+    ],
+    [
+      85,
+      80,
+      81
+    ],
+    [
+      91,
+      88,
+      91
+    ],
+    [
+      120,
+      90,
+      72
+    ],
+    [
+      109,
+      103,
+      104
+    ],
+    [
+      141,
+      106,
+      79
+    ],
+    [
+      159,
+      120,
+      89
+    ],
+    [
+      130,
+      124,
+      126
+    ],
+    [
+      184,
+      135,
+      95
+    ],
+    [
+      201,
+      149,
+      107
+    ],
+    [
+      221,
+      164,
+      115
+    ],
+    [
+      231,
+      181,
+      147
+    ]
+  ],
+  "outline_rgb": [
+    10,
+    10,
+    14
+  ],
+  "render_engine": "BLENDER_EEVEE",
+  "elapsed_seconds": 89.0,
+  "clips": [
+    {
+      "id": "reload",
+      "frames": 54,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "turnaround",
+      "frames": 8,
+      "canvas": [
+        205,
+        205
+      ]
+    }
+  ]
+}

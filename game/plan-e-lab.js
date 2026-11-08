@@ -2,8 +2,8 @@
 // The page only plays the saved PNG sheets; it never renders or regenerates them.
 const $ = id => document.getElementById(id);
 const base = '/art/characters/clone_01/motion/plan_e/';
-const versions = {sprite_003: '003 · 원화 투영 모델', sprite_002: '002 · M16·망토/머리 흔들림', sprite_001: '001 · 임시 상자 M16'};
-const latest = 'sprite_003';
+const versions = {sprite_004: '004 · 팔다리 분리·망토 흔들림', sprite_003: '003 · 원화 투영 모델', sprite_002: '002 · M16·망토/머리 흔들림', sprite_001: '001 · 임시 상자 M16'};
+const latest = 'sprite_004';
 const scales = [2, 3, 4];
 const fpsChoices = [6, 12, 15, 24];
 

@@ -92,7 +92,8 @@ ARM_BASIS_INV = ARM_BASIS.inverted()
 # hair to `head`, so they cannot sway. Add bone chains along their centerlines
 # and move those vertices onto the chains (the GLB file itself is unchanged).
 
-body_mesh = next(o for o in bpy.data.objects if o.type == 'MESH' and o.parent == arm)
+# The body is the largest skinned mesh (hull models also carry separate limb meshes).
+body_mesh = max((o for o in bpy.data.objects if o.type == 'MESH' and o.parent == arm), key=lambda o: len(o.data.vertices))
 _mats = [m.name for m in body_mesh.data.materials]
 _vert_mats = {}
 for poly in body_mesh.data.polygons:
@@ -124,7 +125,16 @@ CAPE_TOP, CAPE_BOTTOM = 1.47, 0.15
 HAIR_TOP, HAIR_BOTTOM = 1.64, 1.24
 # The cape's gold edge trim shares 'muted gold' with the armor; take only the
 # trim strands that sit behind the back, below the shoulders.
-cape_verts = _verts(CAPE_MATS) + _verts({'muted gold'}, lambda co: co.x < -0.12 and co.z < CAPE_TOP)
+_cape_group = body_mesh.vertex_groups.get('plan_e_cape')
+if _cape_group is not None:
+    # Hull models tag the cape region with a membership group instead of materials.
+    _gi = _cape_group.index
+    cape_verts = [(v.index, _world @ v.co) for v in body_mesh.data.vertices
+                  if any(g.group == _gi and g.weight > 0.5 for g in v.groups)]
+    _zs = [co.z for _, co in cape_verts]
+    CAPE_TOP, CAPE_BOTTOM = max(_zs) - 0.02, min(_zs) + 0.05
+else:
+    cape_verts = _verts(CAPE_MATS) + _verts({'muted gold'}, lambda co: co.x < -0.12 and co.z < CAPE_TOP)
 hair_verts = _verts(HAIR_MATS, lambda co: co.z < HAIR_TOP + 0.02 and co.x < -0.03)
 CHAINS = {
     'cape': dict(parent='chest', bones=['cape_0', 'cape_1', 'cape_2'],
@@ -161,6 +171,11 @@ for chain in CHAINS.values():
     owners = [chain['parent'], *chain['bones']]
     groups = {name: body_mesh.vertex_groups.get(name) or body_mesh.vertex_groups.new(name=name) for name in owners}
     ids = [i for i, _ in chain['verts']]
+    # Clear every earlier deform weight on these vertices (Plan D: only `chest`;
+    # hull models: the spine blend), then hand them to the chain.
+    for g in list(body_mesh.vertex_groups):
+        if g.name not in owners:
+            g.remove(ids)
     groups[chain['parent']].remove(ids)
     for i, co in chain['verts']:
         s = max(0.0, min(1.0, (chain['top'] - co.z) / (chain['top'] - chain['bottom'])))
@@ -771,10 +786,20 @@ def main():
         for rgb, a in clip['reduced']:
             reduced.append(rgb[a >= 0.5])
     samples = np.concatenate(reduced)
+    # Small saturated accents (gold trim) lose to the dark majority in k-means;
+    # repeat the most saturated 4% so they get palette entries of their own.
+    sat = samples.max(1) - samples.min(1)
+    accents = samples[sat >= np.quantile(sat, 0.96)]
+    if len(accents):
+        samples = np.concatenate([samples] + [accents] * 6)
     rng = np.random.default_rng(11)
     if len(samples) > 60000:
         samples = samples[rng.choice(len(samples), 60000, replace=False)]
     palette = kmeans(to_linear_safe(samples).astype(np.float64), args.colors)
+    # Cluster centres average away chroma; give warm (gold/skin) entries it back.
+    gray = palette.mean(1, keepdims=True)
+    warm = (palette[:, 0] - palette[:, 2]) > 0.1
+    palette[warm] = np.clip(gray[warm] + (palette[warm] - gray[warm]) * 1.6, 0, 1)
     palette = palette[np.argsort(palette.sum(1))]
     outline = np.array([10, 10, 14], dtype=np.uint8)
 
