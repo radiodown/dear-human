@@ -29,6 +29,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument('--glb', required=True, help='rigged model: .glb (Plan D) or .blend (build_hull_model.py)')
 parser.add_argument('--exposure', type=float, default=0.6, help='0 keeps painted (emission) models at their painted values')
 parser.add_argument('--twist', type=float, default=1.0, help='scale of the chest yaw toward the camera')
+parser.add_argument('--gun-light', dest='gun_light', type=float, default=1.0, help='scale of the lights (they only affect the rifle on painted models)')
 parser.add_argument('--stance', type=float, default=1.0, help='foot spread of the shooting stance, 0 = rest pose')
 parser.add_argument('--out', required=True)
 parser.add_argument('--clips', default='idle,relaxed,walk,fire,walk_fire,run,run_fire,kneel,kneel_fire,reload')
@@ -376,17 +377,25 @@ def material(name, rgb, rough=0.55, metal=0.4):
     return m
 
 
-# Low metallic keeps the rifle near-black instead of mirroring the gray sky.
-GUN_MAT = material('plan_e_m16_black', (0.028, 0.029, 0.032), rough=0.6, metal=0.2)
-GUN_EDGE = material('plan_e_m16_edge', (0.10, 0.104, 0.112), rough=0.45, metal=0.45)
+# M16A1 in four finishes so the parts separate in value even at sprite size.
+# Low metallic on the large parts keeps the rifle near-black instead of mirroring the sky.
+GUN_MATS = [
+    material('plan_e_m16_receiver', (0.050, 0.052, 0.058), rough=0.45, metal=0.35),   # 0 anodized aluminium
+    material('plan_e_m16_polymer', (0.020, 0.020, 0.022), rough=0.75, metal=0.0),     # 1 stock, grip, handguard
+    material('plan_e_m16_steel', (0.07, 0.072, 0.078), rough=0.33, metal=0.5),        # 2 barrel, sights
+    material('plan_e_m16_bright', (0.36, 0.37, 0.39), rough=0.4, metal=0.3),          # 3 pins, levers, sight posts: 1 px glints
+]
+RECV, POLY, STEEL, BRIGHT = range(4)
 
 
 def shape_object(name, parts):
     """parts: ('box', center, size, rot_deg, mat) | ('cyl', x0, x1, r0, r1, (y, z), mat)
-    | ('hexa', eight corner points, mat). Built in the gun frame."""
+    | ('cyl', x, width, r0, r1, (y, z), mat, 'y') for a cylinder across the gun
+    | ('hexa', eight corner points, mat). Built in the gun frame (+X muzzle, +Z top)."""
     import bmesh
     mesh = bpy.data.meshes.new(name)
     bm = bmesh.new()
+    smooth_faces = set()
     for part in parts:
         kind = part[0]
         if kind == 'box':
@@ -396,11 +405,16 @@ def shape_object(name, parts):
                  @ Euler([math.radians(v) for v in rot]).to_matrix().to_4x4()
                  @ Matrix.Diagonal((*size, 1)))
         elif kind == 'cyl':
-            _, x0, x1, r0, r1, (y, z), mat_index = part
-            verts = bmesh.ops.create_cone(bm, cap_ends=True, segments=14, radius1=r0, radius2=r1,
-                                          depth=x1 - x0)['verts']
-            m = (Matrix.Translation(Vector(((x0 + x1) / 2, y, z)))
-                 @ Euler((0, math.radians(90), 0)).to_matrix().to_4x4())
+            _, x0, x1, r0, r1, (y, z), mat_index, *axis = part
+            across = bool(axis) and axis[0] == 'y'           # pins, drums: x1 is the width
+            verts = bmesh.ops.create_cone(bm, cap_ends=True, segments=20, radius1=r0, radius2=r1,
+                                          depth=x1 if across else x1 - x0)['verts']
+            if across:
+                m = (Matrix.Translation(Vector((x0, y, z)))
+                     @ Euler((math.radians(90), 0, 0)).to_matrix().to_4x4())
+            else:
+                m = (Matrix.Translation(Vector(((x0 + x1) / 2, y, z)))
+                     @ Euler((0, math.radians(90), 0)).to_matrix().to_4x4())
         else:
             _, corners, mat_index = part
             verts = [bm.verts.new(c) for c in corners]
@@ -408,16 +422,26 @@ def shape_object(name, parts):
                 bm.faces.new([verts[i] for i in face])
             m = Matrix.Identity(4)
         bmesh.ops.transform(bm, matrix=m, verts=verts)
-        for f in {f for v in verts for f in v.link_faces}:
+        faces = {f for v in verts for f in v.link_faces}
+        for f in faces:
             f.material_index = mat_index
+        if kind == 'cyl':
+            smooth_faces |= {f for f in faces if len(f.verts) == 4}
     bmesh.ops.recalc_face_normals(bm, faces=bm.faces)
+    for f in smooth_faces:
+        f.smooth = True
     bm.to_mesh(mesh)
     bm.free()
-    mesh.materials.append(GUN_MAT)
-    mesh.materials.append(GUN_EDGE)
+    for mat in GUN_MATS:
+        mesh.materials.append(mat)
     obj = bpy.data.objects.new(name, mesh)
     scene.collection.objects.link(obj)
     obj.parent = root
+    # Tiny bevels catch the key light along every edge: that edge light is what
+    # separates the parts once the rifle is a few pixels tall.
+    bev = obj.modifiers.new('edges', 'BEVEL')
+    bev.width, bev.segments, bev.limit_method, bev.angle_limit = 0.0016, 2, 'ANGLE', math.radians(40)
+    bev.harden_normals = True
     return obj
 
 
@@ -428,29 +452,63 @@ def hexa(x0, x1, y_half, z0_bottom, z0_top, z1_bottom, z1_top, y1_half=None):
             (x0, -y_half, z0_top), (x1, -y1, z1_top), (x1, y1, z1_top), (x0, y_half, z0_top)]
 
 
-# M16A1 proportions (meters): 0.99 m overall, 20-inch barrel, fixed A1 stock,
-# triangular handguard, carry handle with rear sight, A-frame front sight.
+def slanted(p0, p1, thick, half_y, mat):
+    """A bar from p0 to p1 (x, z) in the side profile."""
+    (x0, z0), (x1, z1) = p0, p1
+    dx, dz = x1 - x0, z1 - z0
+    n = math.hypot(dx, dz)
+    ox, oz = -dz / n * thick / 2, dx / n * thick / 2
+    return ('hexa', [(x0 - ox, -half_y, z0 - oz), (x1 - ox, -half_y, z1 - oz), (x1 - ox, half_y, z1 - oz), (x0 - ox, half_y, z0 - oz),
+                     (x0 + ox, -half_y, z0 + oz), (x1 + ox, -half_y, z1 + oz), (x1 + ox, half_y, z1 + oz), (x0 + ox, half_y, z0 + oz)], mat)
+
+
+# M16A1, measured from the real rifle: 0.99 m from butt plate (-0.345) to muzzle
+# (+0.645), 0.33 m length of pull, 20-inch barrel. The -Y side (the rifle's left,
+# with bolt catch, selector and pins) faces the sprite camera.
+HANDGUARD_RIBS = [0.225 + 0.03 * k for k in range(7)]
 gun = shape_object('plan_e_m16', [
-    ('hexa', hexa(-0.10, 0.20, 0.024, 0.0, 0.07, 0.0, 0.07), 0),             # upper receiver
-    ('hexa', hexa(-0.06, 0.16, 0.022, -0.035, 0.0, -0.035, 0.0), 0),         # lower receiver
-    ('box', (0.075, 0, 0.115), (0.13, 0.016, 0.014), (0, 0, 0), 0),          # carry handle bar
-    ('box', (0.015, 0, 0.088), (0.03, 0.02, 0.04), (0, 0, 0), 0),            # rear handle post
-    ('box', (0.135, 0, 0.088), (0.018, 0.02, 0.04), (0, 0, 0), 0),           # front handle post
-    ('box', (0.012, 0, 0.128), (0.012, 0.012, 0.016), (0, 0, 0), 1),         # rear sight aperture
-    ('cyl', 0.195, 0.205, 0.041, 0.041, (0, 0.035), 1),                      # delta ring
-    ('cyl', 0.205, 0.46, 0.036, 0.031, (0, 0.035), 0),                       # handguard
-    ('cyl', 0.455, 0.47, 0.022, 0.022, (0, 0.035), 1),                       # handguard cap
-    ('cyl', 0.47, 0.68, 0.0095, 0.0085, (0, 0.035), 1),                      # barrel
-    ('hexa', hexa(0.475, 0.50, 0.01, 0.025, 0.05, 0.025, 0.13), 0),          # front sight base (sloped)
-    ('box', (0.497, 0, 0.142), (0.006, 0.006, 0.026), (0, 0, 0), 1),         # front sight post
-    ('cyl', 0.68, 0.735, 0.012, 0.011, (0, 0.035), 1),                       # flash hider
-    ('hexa', hexa(-0.355, -0.10, 0.022, -0.075, 0.055, -0.01, 0.06, 0.02), 0),  # A1 stock
-    ('box', (-0.36, 0, -0.01), (0.012, 0.024, 0.132), (0, 0, 0), 1),         # butt plate
-    ('hexa', hexa(-0.03, 0.02, 0.015, -0.12, -0.035, -0.115, -0.035), 0),    # pistol grip (raked)
-    ('box', (0.045, 0, -0.048), (0.07, 0.01, 0.006), (0, 0, 0), 1),          # trigger guard
-    ('box', (0.04, 0, -0.04), (0.006, 0.006, 0.02), (0, 0, 0), 1),           # trigger
-    ('hexa', hexa(0.085, 0.16, 0.026, -0.05, 0.0, -0.05, 0.0), 0),           # magazine well
-    ('box', (-0.06, -0.014, 0.05), (0.03, 0.006, 0.012), (0, 0, 0), 1),      # charging handle side
+    # receivers
+    ('hexa', hexa(-0.11, 0.19, 0.023, 0.0, 0.064, 0.0, 0.064), RECV),                 # upper receiver
+    ('hexa', hexa(-0.075, 0.165, 0.021, -0.036, 0.0, -0.036, 0.0), RECV),             # lower receiver
+    ('hexa', hexa(0.085, 0.165, 0.025, -0.064, -0.02, -0.06, -0.02, 0.023), RECV),    # flared magazine well
+    ('box', (0.005, 0, 0.078), (0.026, 0.02, 0.028), (0, 0, 0), RECV),                # carry handle rear post
+    ('box', (0.14, 0, 0.078), (0.018, 0.02, 0.028), (0, 0, 0), RECV),                 # carry handle front post
+    ('box', (0.073, 0, 0.1), (0.15, 0.018, 0.013), (0, 0, 0), RECV),                  # carry handle bar (open below)
+    ('box', (0.006, 0, 0.116), (0.02, 0.014, 0.022), (0, 0, 0), RECV),                # rear sight housing
+    ('cyl', 0.006, 0.008, 0.011, 0.011, (-0.016, 0.1), BRIGHT, 'y'),                  # windage drum (left side)
+    ('box', (0.004, 0, 0.13), (0.008, 0.008, 0.012), (0, 0, 0), STEEL),               # rear aperture
+    ('box', (-0.103, 0, 0.066), (0.016, 0.034, 0.008), (0, 0, 0), BRIGHT),            # charging handle T
+    ('box', (0.097, -0.024, -0.008), (0.022, 0.004, 0.01), (0, 0, 0), BRIGHT),        # bolt catch
+    ('box', (-0.03, -0.022, -0.006), (0.016, 0.004, 0.006), (0, 25, 0), BRIGHT),      # selector lever
+    ('cyl', -0.064, 0.004, 0.0045, 0.0045, (-0.022, -0.012), BRIGHT, 'y'),           # takedown pin
+    ('cyl', 0.152, 0.004, 0.0045, 0.0045, (-0.022, -0.008), BRIGHT, 'y'),             # pivot pin
+    ('box', (0.13, -0.02, 0.03), (0.06, 0.004, 0.022), (0, 0, 0), STEEL),             # ejection port cover line
+    # fire control
+    ('box', (0.043, 0, -0.058), (0.066, 0.012, 0.006), (0, 0, 0), RECV),              # trigger guard bottom
+    ('box', (0.076, 0, -0.047), (0.007, 0.012, 0.024), (0, 0, 0), RECV),              # trigger guard front post
+    slanted((0.03, -0.012), (0.036, -0.044), 0.006, 0.004, STEEL),                    # trigger
+    ('hexa', [(-0.064, -0.015, -0.125), (-0.018, -0.015, -0.118), (-0.018, 0.015, -0.118), (-0.064, 0.015, -0.125),
+              (-0.034, -0.015, -0.036), (0.012, -0.015, -0.036), (0.012, 0.015, -0.036), (-0.034, 0.015, -0.036)], POLY),  # pistol grip
+    # stock (A1 fixed), butt plate, rear sling swivel
+    ('hexa', hexa(-0.345, -0.11, 0.022, -0.083, 0.046, -0.018, 0.058, 0.02), POLY),
+    ('box', (-0.348, 0, -0.018), (0.008, 0.024, 0.132), (0, 0, 0), STEEL),            # butt plate
+    ('box', (-0.29, 0, -0.088), (0.03, 0.006, 0.004), (0, -8, 0), STEEL),              # sling swivel
+    # barrel group
+    ('cyl', 0.19, 0.206, 0.041, 0.041, (0, 0.034), RECV),                             # delta ring
+    ('cyl', 0.206, 0.44, 0.034, 0.03, (0, 0.034), POLY),                              # handguard
+    *[('cyl', x, x + 0.011, 0.0365 - 0.016 * (x - 0.206), 0.0365 - 0.016 * (x - 0.195), (0, 0.034), RECV)
+      for x in HANDGUARD_RIBS],                                                       # handguard ribs (lighter bands)
+    ('cyl', 0.44, 0.452, 0.023, 0.023, (0, 0.034), STEEL),                            # handguard cap
+    ('cyl', 0.452, 0.60, 0.0092, 0.0084, (0, 0.034), STEEL),                          # barrel
+    ('cyl', 0.455, 0.486, 0.015, 0.015, (0, 0.034), STEEL),                           # front sight base collar
+    slanted((0.458, 0.04), (0.469, 0.128), 0.007, 0.008, STEEL),                      # A-frame rear leg
+    slanted((0.486, 0.04), (0.474, 0.128), 0.007, 0.008, STEEL),                      # A-frame front leg
+    ('box', (0.4715, 0, 0.133), (0.016, 0.012, 0.006), (0, 0, 0), STEEL),             # sight ears
+    ('box', (0.4715, 0, 0.142), (0.004, 0.004, 0.014), (0, 0, 0), BRIGHT),            # front sight post
+    ('box', (0.472, 0, 0.016), (0.014, 0.008, 0.01), (0, 0, 0), STEEL),               # bayonet lug
+    ('box', (0.462, 0, 0.006), (0.004, 0.012, 0.016), (0, 0, 0), STEEL),              # front sling swivel
+    ('cyl', 0.60, 0.645, 0.0115, 0.0112, (0, 0.034), STEEL),                          # birdcage flash hider
+    *[('cyl', x, x + 0.004, 0.0098, 0.0098, (0, 0.034), RECV) for x in (0.612, 0.622, 0.632)],  # hider slots
 ])
 gun.name = 'plan_e_m16'
 
@@ -459,13 +517,14 @@ MAG_HOLD = Vector((0.0, 0.045, 0.13))         # magazine top relative to the sup
 
 
 def make_mag(name):
-    # 30-round curved magazine: three slabs bending forward toward the bottom.
+    # 30-round curved magazine: three slabs bending forward, side ribs, base plate.
     return shape_object(name, [
-        ('hexa', hexa(-0.032, 0.032, 0.012, -0.08, 0.0, -0.08, 0.0), 0),
+        ('hexa', hexa(-0.032, 0.032, 0.012, -0.08, 0.0, -0.08, 0.0), RECV),
         ('hexa', [(-0.026, -0.012, -0.16), (0.04, -0.012, -0.152), (0.04, 0.012, -0.152), (-0.026, 0.012, -0.16),
-                  (-0.032, -0.012, -0.08), (0.032, -0.012, -0.08), (0.032, 0.012, -0.08), (-0.032, 0.012, -0.08)], 0),
-        ('hexa', [(-0.018, -0.014, -0.172), (0.05, -0.014, -0.162), (0.05, 0.014, -0.162), (-0.018, 0.014, -0.172),
-                  (-0.026, -0.014, -0.158), (0.04, -0.014, -0.15), (0.04, 0.014, -0.15), (-0.026, 0.014, -0.158)], 1),
+                  (-0.032, -0.012, -0.08), (0.032, -0.012, -0.08), (0.032, 0.012, -0.08), (-0.032, 0.012, -0.08)], RECV),
+        ('box', (0.0, -0.0125, -0.07), (0.05, 0.002, 0.07), (0, 4, 0), STEEL),            # side rib
+        ('hexa', [(-0.02, -0.014, -0.172), (0.048, -0.014, -0.162), (0.048, 0.014, -0.162), (-0.02, 0.014, -0.172),
+                  (-0.026, -0.014, -0.158), (0.04, -0.014, -0.15), (0.04, 0.014, -0.15), (-0.026, 0.014, -0.158)], STEEL),
     ])
 
 
@@ -661,7 +720,7 @@ world = bpy.data.worlds.new('plan_e_world')
 scene.world = world
 world.use_nodes = True
 world.node_tree.nodes['Background'].inputs['Color'].default_value = (0.55, 0.58, 0.66, 1)
-world.node_tree.nodes['Background'].inputs['Strength'].default_value = 0.9
+world.node_tree.nodes['Background'].inputs['Strength'].default_value = 0.9 * args.gun_light
 
 
 def sun(name, energy, rot, color=(1, 1, 1)):
@@ -673,9 +732,15 @@ def sun(name, energy, rot, color=(1, 1, 1)):
     scene.collection.objects.link(obj)
 
 
-sun('key', 4.5, (55, 0, -35))                       # from upper front, camera side
-sun('rim', 3.5, (60, 0, 150), (0.75, 0.85, 1.0))    # cool back rim
-sun('fill', 1.2, (100, 0, 20), (1.0, 0.92, 0.85))
+# Painted (emission) models ignore these lights; they shape the rifle and the
+# magazines only. --gun-light scales them so the black rifle sits in the same
+# value range as the painted black armour instead of reading as mid gray.
+sun('key', 4.5 * args.gun_light, (55, 0, -35))                       # from upper front, camera side
+sun('rim', 3.5 * args.gun_light, (60, 0, 150), (0.75, 0.85, 1.0))    # cool back rim
+sun('fill', 1.2 * args.gun_light, (100, 0, 20), (1.0, 0.92, 0.85))
+# A light from straight above draws the bright top edge pixel artists give a
+# dark rifle (carry handle, handguard and barrel tops), separating the parts.
+sun('top', 2.4 * args.gun_light, (8, 0, 0), (0.9, 0.95, 1.0))
 
 cam_data = bpy.data.cameras.new('plan_e_cam')
 cam_data.type = 'ORTHO'
@@ -816,7 +881,7 @@ def make_flash():
 
 
 flash = make_flash()
-MUZZLE = Vector((0.735, 0, 0.035))
+MUZZLE = Vector((0.645, 0, 0.034))          # front of the birdcage flash hider
 RECOIL = [1.0, 0.55, 0.25, 0.08]          # gun kick on the frames after a shot
 
 
@@ -1078,7 +1143,10 @@ def main():
     rng = np.random.default_rng(11)
     if len(samples) > 60000:
         samples = samples[rng.choice(len(samples), 60000, replace=False)]
-    palette = kmeans(to_linear_safe(samples).astype(np.float64), args.colors)
+    # Three fixed neutral grays: the rifle's small bright parts are too few pixels to
+    # earn a cluster and would otherwise snap to the nearest warm (gold/skin) entry.
+    NEUTRALS = np.array([[0.16, 0.165, 0.175], [0.27, 0.275, 0.29], [0.42, 0.43, 0.45]])
+    palette = np.concatenate([kmeans(to_linear_safe(samples).astype(np.float64), args.colors - len(NEUTRALS)), NEUTRALS])
     # Cluster centres average away chroma; give warm (gold/skin) entries it back.
     gray = palette.mean(1, keepdims=True)
     # Only clearly warm entries (gold trim, skin); near-gray entries stay put so

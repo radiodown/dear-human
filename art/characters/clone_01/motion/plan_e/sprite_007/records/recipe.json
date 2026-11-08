@@ -1,0 +1,273 @@
+{
+  "tool": "Blender headless + tools/plan_e/render_sprites.py",
+  "blender_version": "5.2.3 LTS",
+  "source_glb": "art/characters/clone_01/motion/plan_e/model_hull_005/source/clone_01_hull.blend",
+  "source_glb_sha256": "85146a8cec5d462c425d3f7b2d9ae393bb053d0134d0fe91f36125a1fb161567",
+  "script_sha256": "9fd90a4724aa5309394ea3746d910ef0a71b1371276640d59f06ddc982e2975a",
+  "params": {
+    "glb": "art/characters/clone_01/motion/plan_e/model_hull_005/source/clone_01_hull.blend",
+    "exposure": 0.0,
+    "twist": 0.35,
+    "gun_light": 0.45,
+    "stance": 1.0,
+    "out": "art/characters/clone_01/motion/plan_e/sprite_007",
+    "clips": "idle,relaxed,walk,fire,walk_fire,run,run_fire,kneel,kneel_fire,reload",
+    "ppm": 96.0,
+    "supersample": 4,
+    "colors": 32,
+    "pitch": 8.0,
+    "raw": false
+  },
+  "palette_rgb": [
+    [
+      16,
+      15,
+      15
+    ],
+    [
+      23,
+      22,
+      22
+    ],
+    [
+      29,
+      28,
+      28
+    ],
+    [
+      33,
+      31,
+      32
+    ],
+    [
+      36,
+      33,
+      34
+    ],
+    [
+      38,
+      35,
+      37
+    ],
+    [
+      42,
+      37,
+      35
+    ],
+    [
+      40,
+      37,
+      38
+    ],
+    [
+      42,
+      39,
+      40
+    ],
+    [
+      43,
+      40,
+      41
+    ],
+    [
+      41,
+      42,
+      45
+    ],
+    [
+      49,
+      44,
+      42
+    ],
+    [
+      46,
+      44,
+      46
+    ],
+    [
+      51,
+      47,
+      49
+    ],
+    [
+      58,
+      51,
+      48
+    ],
+    [
+      54,
+      51,
+      53
+    ],
+    [
+      60,
+      55,
+      56
+    ],
+    [
+      65,
+      60,
+      61
+    ],
+    [
+      75,
+      65,
+      62
+    ],
+    [
+      69,
+      68,
+      71
+    ],
+    [
+      69,
+      70,
+      74
+    ],
+    [
+      84,
+      75,
+      73
+    ],
+    [
+      93,
+      84,
+      83
+    ],
+    [
+      128,
+      95,
+      70
+    ],
+    [
+      109,
+      100,
+      100
+    ],
+    [
+      107,
+      110,
+      115
+    ],
+    [
+      149,
+      112,
+      88
+    ],
+    [
+      176,
+      129,
+      94
+    ],
+    [
+      204,
+      148,
+      98
+    ],
+    [
+      170,
+      145,
+      140
+    ],
+    [
+      220,
+      164,
+      119
+    ],
+    [
+      255,
+      226,
+      132
+    ]
+  ],
+  "outline_rgb": [
+    10,
+    10,
+    14
+  ],
+  "render_engine": "BLENDER_EEVEE",
+  "elapsed_seconds": 363.3,
+  "clips": [
+    {
+      "id": "idle",
+      "frames": 16,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "relaxed",
+      "frames": 16,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "walk",
+      "frames": 16,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "fire",
+      "frames": 4,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "walk_fire",
+      "frames": 16,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "run",
+      "frames": 12,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "run_fire",
+      "frames": 12,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "kneel",
+      "frames": 12,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "kneel_fire",
+      "frames": 4,
+      "canvas": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "reload",
+      "frames": 54,
+      "canvas": [
+        205,
+        205
+      ]
+    }
+  ],
+  "note": "full-resolution renders were inspected and not kept"
+}
