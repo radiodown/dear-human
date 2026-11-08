@@ -1,0 +1,49 @@
+{
+  "version": "samples_005",
+  "created_at": "2026-11-07T10:29:25.245561+09:00",
+  "source_assets": "art/external/samples_005/sources.json",
+  "preserved": [
+    "clone_003 body face rig",
+    "original hair_004",
+    "plans A B C"
+  ],
+  "runtime": "native C++20 SDL 3.4.20 Metal/D3D12",
+  "hair_fit": {
+    "rotation_y_degrees": 90,
+    "scale_xyz": [
+      1.25,
+      1.08,
+      1.03
+    ],
+    "top_y": 1.895,
+    "offset_x": -0.005,
+    "tint_srgb": [
+      0.2,
+      0.21,
+      0.23
+    ]
+  },
+  "physics": {
+    "method": "custom PBD-inspired guide solver",
+    "step_hz": 120,
+    "guides": 16,
+    "particles_per_guide": 10,
+    "iterations": 12,
+    "contact_margin_m": 0.009,
+    "fixed_styles": [
+      "Parted",
+      "Short F",
+      "Short M"
+    ]
+  },
+  "purchase_cost_usd": 0,
+  "image_generation_cost_usd": 0,
+  "api_cost": "not available",
+  "elapsed_wall_seconds_since_snapshot": 1131,
+  "elapsed_scope": "includes research/download/development; not active CPU time",
+  "research": [
+    "https://matthias-research.github.io/pages/publications/posBasedDyn.pdf"
+  ],
+  "export_scope": "original004 only",
+  "status": "implementation_complete_user_visual_review_pending"
+}

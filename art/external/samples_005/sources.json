@@ -1,0 +1,49 @@
+{
+  "created_at": "2026-11-07T10:29:25.245561+09:00",
+  "purchase_cost": 0,
+  "currency": "USD",
+  "user_choice": "무료 공개 에셋부터 진행",
+  "quaternius": {
+    "product": "https://quaternius.com/packs/universalbasecharacters.html",
+    "download": "https://quaternius.itch.io/universal-base-characters",
+    "edition": "Standard FREE",
+    "upload_id": 15861669,
+    "archive_sha256": "fdbf1804c90dfc1ea03e992bff7da2dfd1a79318e13270a660180f9308455f40",
+    "license": "CC0-1.0",
+    "runtime_hair": [
+      "Long",
+      "Buns",
+      "SimpleParted",
+      "BuzzedFemale",
+      "Buzzed"
+    ]
+  },
+  "kenney": {
+    "repository": "https://github.com/KenneyNL/Starter-Kit-3D-Platformer",
+    "commit": "3fa8a04b1c01ab23db43123d4ce814a34c3fc7f0",
+    "asset_license": "CC0-1.0",
+    "code_license": "MIT",
+    "models": [
+      "brick",
+      "coin",
+      "flag",
+      "platform",
+      "grass",
+      "cloud"
+    ]
+  },
+  "cgltf": {
+    "repository": "https://github.com/jkuhlmann/cgltf",
+    "commit": "85cd62382dfea638278962690cf515023f33ed00",
+    "license": "MIT"
+  },
+  "not_integrated": [
+    "paid Hair Tool",
+    "Character Creator",
+    "MetaHuman",
+    "Filament",
+    "TressFX",
+    "Jolt"
+  ],
+  "failed_downloads": "Initial itch rate limits resolved through public free download. Stale Kenney ZIP returned HTML, discarded; used official pinned GitHub files."
+}

@@ -1,0 +1,58 @@
+{
+  "uri": "clone_01.glb",
+  "mimeType": "model/gltf-binary",
+  "validatorVersion": "2.0.0-dev.3.10",
+  "validatedAt": "2026-11-07T01:04:23.005Z",
+  "issues": {
+    "numErrors": 0,
+    "numWarnings": 0,
+    "numInfos": 1,
+    "numHints": 0,
+    "messages": [
+      {
+        "code": "UNUSED_OBJECT",
+        "message": "This object may be unused.",
+        "severity": 2,
+        "pointer": "/materials/5"
+      }
+    ],
+    "truncated": false
+  },
+  "info": {
+    "version": "2.0",
+    "generator": "Dear Human hair_004 / guide cards and original coverage atlas",
+    "resources": [
+      {
+        "pointer": "/buffers/0",
+        "mimeType": "application/gltf-buffer",
+        "storage": "glb",
+        "byteLength": 4886548
+      },
+      {
+        "pointer": "/images/0",
+        "mimeType": "image/png",
+        "storage": "buffer-view",
+        "image": {
+          "width": 1024,
+          "height": 1024,
+          "format": "rgba",
+          "primaries": "srgb",
+          "transfer": "srgb",
+          "bits": 8
+        }
+      }
+    ],
+    "animationCount": 0,
+    "materialCount": 16,
+    "hasMorphTargets": false,
+    "hasSkins": true,
+    "hasTextures": true,
+    "hasDefaultScene": true,
+    "drawCallCount": 22,
+    "totalVertexCount": 1008370,
+    "totalTriangleCount": 69680,
+    "maxUVs": 1,
+    "maxInfluences": 4,
+    "maxAttributes": 6
+  }
+}

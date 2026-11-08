@@ -1,0 +1,7 @@
+{
+  "date": "2026-11-07",
+  "user_feedback": "왜 짧은머리됨",
+  "cause": "Imported Quaternius Long is shoulder-length and had been selected as default.",
+  "change": "ViewState.hairSample 1 -> 0, including startup and Reset. Existing body and all comparison samples retained.",
+  "verification_scope": "incremental build and native launch; no additional test suite or captures"
+}

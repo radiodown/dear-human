@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "recorded_at_kst": "2026-11-07T08:31:07+09:00",
+  "platform": "macOS",
+  "os_version": "27.2",
+  "os_build": "26B123",
+  "architecture": "arm64",
+  "compiler": "Apple Clang 21.0.0 (clang-2100.4.1.1)",
+  "language": "C++20",
+  "cmake": "4.4.5",
+  "ninja": "1.13.2",
+  "sdl": "3.4.20",
+  "sdl_source": "https://github.com/libsdl-org/SDL/releases/tag/release-3.4.20",
+  "sdl_license": "Zlib",
+  "gpu_api": "SDL3 GPU",
+  "actual_backend": "metal",
+  "shader_source_format": "MSL compiled at runtime by SDL/Metal",
+  "build_type": "Debug",
+  "setup_command": "brew install cmake ninja sdl3",
+  "setup_result": "CMake and Ninja installed; existing SDL 3.4.18 upgraded to 3.4.20",
+  "configure_command": "cmake -S native/plan-d -B native/plan-d/build -G Ninja -DCMAKE_BUILD_TYPE=Debug -DCMAKE_PREFIX_PATH=/opt/homebrew/opt/sdl3",
+  "build_command": "cmake --build native/plan-d/build",
+  "build_exit_code": 0,
+  "build_wall_seconds": 0.751511167,
+  "configure_log": [
+    "The CXX compiler identification is AppleClang 21.0.0.21000401",
+    "Configuring done (1.5s)",
+    "Generating done (0.0s)"
+  ],
+  "build_log": [
+    "[1/5] Building CXX object CMakeFiles/dear-human-plan-d.dir/src/Skeleton.cpp.o",
+    "[2/5] Building CXX object CMakeFiles/dear-human-plan-d.dir/src/Scene.cpp.o",
+    "[3/5] Building CXX object CMakeFiles/dear-human-plan-d.dir/src/main.cpp.o",
+    "[4/5] Building CXX object CMakeFiles/dear-human-plan-d.dir/src/Renderer.cpp.o",
+    "[5/5] Linking CXX executable bin/dear-human-plan-d"
+  ],
+  "external_image_generation_used": false,
+  "external_3d_model_used": false,
+  "paid_generation_calls": [],
+  "monetary_cost": null,
+  "total_work_wall_seconds": null,
+  "windows_build": "not_run"
+}
