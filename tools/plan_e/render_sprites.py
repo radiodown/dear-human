@@ -1,0 +1,604 @@
+"""Plan E: pose the Plan D clone_01 GLB in headless Blender and bake pixel sprites.
+
+Run (from the project root):
+  /Applications/Blender.app/Contents/MacOS/Blender -b --factory-startup \
+    --python tools/plan_e/render_sprites.py -- \
+    --glb art/characters/clone_01/motion/plan_d/hair_006/source/clone_01.glb \
+    --out art/characters/clone_01/motion/plan_e/sprite_001
+
+The script is deterministic: the same GLB and parameters give the same PNGs.
+World units are meters. The character faces +X, the camera looks along +Y.
+"""
+import argparse
+import hashlib
+import json
+import math
+import os
+import sys
+import time
+
+import bpy
+import numpy as np
+from mathutils import Euler, Matrix, Quaternion, Vector
+
+# ----------------------------------------------------------------------------
+# Arguments
+
+argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
+parser = argparse.ArgumentParser()
+parser.add_argument('--glb', required=True)
+parser.add_argument('--out', required=True)
+parser.add_argument('--clips', default='reload,turnaround')
+parser.add_argument('--ppm', type=float, default=64.0, help='output pixels per meter')
+parser.add_argument('--supersample', type=int, default=4)
+parser.add_argument('--colors', type=int, default=24)
+parser.add_argument('--pitch', type=float, default=8.0, help='camera downward pitch in degrees')
+parser.add_argument('--raw', action='store_true', help='also keep the full-resolution renders')
+args = parser.parse_args(argv)
+
+OUT = os.path.abspath(args.out)
+STARTED = time.time()
+
+# The rig names its -Y limbs left_*. That side faces the camera, so it holds the
+# pistol grip (near arm, as in the Plan A side rig); the +Y arm supports.
+TRIGGER = 'left'
+SUPPORT = 'right'
+
+# ----------------------------------------------------------------------------
+# Scene
+
+bpy.ops.wm.read_factory_settings(use_empty=True)
+bpy.ops.import_scene.gltf(filepath=os.path.abspath(args.glb))
+for obj in list(bpy.data.objects):
+    if obj.type == 'MESH' and obj.name.startswith('Icosphere'):
+        bpy.data.objects.remove(obj, do_unlink=True)
+arm = next(o for o in bpy.data.objects if o.type == 'ARMATURE')
+scene = bpy.context.scene
+
+# Hair cards read as gray at sprite size: keep their sheen low so the hair stays black.
+for mat in bpy.data.materials:
+    if 'hair' in mat.name.lower() and mat.use_nodes:
+        bsdf = mat.node_tree.nodes.get('Principled BSDF')
+        if bsdf:
+            bsdf.inputs['Roughness'].default_value = 0.8
+            if 'Specular IOR Level' in bsdf.inputs:
+                bsdf.inputs['Specular IOR Level'].default_value = 0.15
+            if 'Coat Weight' in bsdf.inputs:
+                bsdf.inputs['Coat Weight'].default_value = 0.0
+
+root = bpy.data.objects.new('plan_e_root', None)
+scene.collection.objects.link(root)
+arm.parent = root
+arm.matrix_parent_inverse = Matrix.Identity(4)
+ARM_BASIS = arm.matrix_basis.copy()
+ARM_BASIS_INV = ARM_BASIS.inverted()
+
+REST = {b.name: (ARM_BASIS @ b.head_local).copy() for b in arm.data.bones}
+
+
+def joint(name):
+    """Current posed joint position in root space."""
+    return ARM_BASIS @ arm.pose.bones[name].head
+
+
+def set_abs(name, rot, head=None):
+    """Give a bone an absolute root-space rotation relative to its rest pose."""
+    pb = arm.pose.bones[name]
+    rest = pb.bone.matrix_local
+    basis_rot = ARM_BASIS.to_quaternion()
+    arm_rot = basis_rot.inverted() @ rot @ basis_rot
+    h = pb.head.copy() if head is None else ARM_BASIS_INV @ head
+    pb.matrix = Matrix.Translation(h) @ arm_rot.to_matrix().to_4x4() @ rest.to_3x3().to_4x4()
+    bpy.context.view_layer.update()
+
+
+def rest_dir(a, b):
+    return (REST[b] - REST[a])
+
+
+def aim(a, b, target_vec):
+    return rest_dir(a, b).normalized().rotation_difference(target_vec.normalized())
+
+
+def two_bone(start, target, l1, l2, pole):
+    d = target - start
+    dist = max(1e-4, min(d.length, (l1 + l2) * 0.995))
+    dn = d.normalized()
+    a = (l1 * l1 + dist * dist - l2 * l2) / (2 * dist)
+    h = math.sqrt(max(l1 * l1 - a * a, 0.0))
+    side = pole - dn * pole.dot(dn)
+    side = side.normalized() if side.length > 1e-6 else Vector((0, 0, -1))
+    return start + dn * a + side * h, start + dn * dist
+
+
+def pose_arm(side, wrist_target, hand_dir, pole):
+    s, e, w, h = f'{side}_shoulder', f'{side}_elbow', f'{side}_wrist', f'{side}_hand'
+    l1, l2 = rest_dir(s, e).length, rest_dir(e, w).length
+    elbow, wrist = two_bone(joint(s), wrist_target, l1, l2, pole)
+    set_abs(s, aim(s, e, elbow - joint(s)))
+    set_abs(e, aim(e, w, wrist - joint(e)))
+    q = aim(w, h, hand_dir)
+    set_abs(w, q)
+    set_abs(h, q)
+
+
+def pose_leg(side, ankle_target):
+    hip, knee, ankle, toe = f'{side}_hip', f'{side}_knee', f'{side}_ankle', f'{side}_toe'
+    l1, l2 = rest_dir(hip, knee).length, rest_dir(knee, ankle).length
+    k, a = two_bone(joint(hip), ankle_target, l1, l2, Vector((1, 0, 0.15)))
+    set_abs(hip, aim(hip, knee, k - joint(hip)))
+    set_abs(knee, aim(knee, ankle, a - joint(knee)))
+    set_abs(ankle, Quaternion())
+    set_abs(toe, Quaternion())
+
+
+def rot_ypz(yaw=0.0, pitch=0.0, roll=0.0):
+    """Degrees. yaw about Z, pitch about Y (positive = muzzle down), roll about X."""
+    return (Euler((0, 0, math.radians(yaw))).to_quaternion()
+            @ Euler((0, math.radians(pitch), 0)).to_quaternion()
+            @ Euler((math.radians(roll), 0, 0)).to_quaternion())
+
+# ----------------------------------------------------------------------------
+# M16 built from boxes (gun frame: +X muzzle, +Z top, origin above the grip)
+
+
+def material(name, rgb, rough=0.55, metal=0.4):
+    m = bpy.data.materials.new(name)
+    m.use_nodes = True
+    bsdf = m.node_tree.nodes['Principled BSDF']
+    bsdf.inputs['Base Color'].default_value = (*rgb, 1)
+    bsdf.inputs['Roughness'].default_value = rough
+    bsdf.inputs['Metallic'].default_value = metal
+    return m
+
+
+GUN_MAT = material('plan_e_m16_black', (0.045, 0.047, 0.052))
+GUN_EDGE = material('plan_e_m16_edge', (0.16, 0.165, 0.175), rough=0.4, metal=0.7)
+
+
+def box_object(name, parts):
+    import bmesh
+    mesh = bpy.data.meshes.new(name)
+    bm = bmesh.new()
+    for center, size, rot, mat_index in parts:
+        geom = bmesh.ops.create_cube(bm, size=1.0)
+        verts = geom['verts']
+        m = (Matrix.Translation(Vector(center))
+             @ Euler([math.radians(v) for v in rot]).to_matrix().to_4x4()
+             @ Matrix.Diagonal((*size, 1)))
+        bmesh.ops.transform(bm, matrix=m, verts=verts)
+        for f in {f for v in verts for f in v.link_faces}:
+            f.material_index = mat_index
+    bm.to_mesh(mesh)
+    bm.free()
+    mesh.materials.append(GUN_MAT)
+    mesh.materials.append(GUN_EDGE)
+    obj = bpy.data.objects.new(name, mesh)
+    scene.collection.objects.link(obj)
+    obj.parent = root
+    return obj
+
+
+gun = box_object('plan_e_m16', [
+    ((0.06, 0, 0.035), (0.34, 0.05, 0.075), (0, 0, 0), 0),     # receiver
+    ((0.10, 0, 0.10), (0.15, 0.022, 0.035), (0, 0, 0), 1),     # carry handle
+    ((0.03, 0, 0.085), (0.02, 0.022, 0.03), (0, 0, 0), 1),     # rear sight
+    ((0.36, 0, 0.035), (0.26, 0.064, 0.064), (0, 0, 0), 0),    # handguard
+    ((0.58, 0, 0.04), (0.22, 0.016, 0.016), (0, 0, 0), 1),     # barrel
+    ((0.47, 0, 0.085), (0.02, 0.014, 0.08), (0, 0, 0), 1),     # front sight
+    ((0.70, 0, 0.04), (0.04, 0.024, 0.024), (0, 0, 0), 1),     # flash hider
+    ((-0.22, 0, 0.005), (0.24, 0.042, 0.085), (0, -4, 0), 0),  # stock
+    ((-0.335, 0, -0.002), (0.012, 0.046, 0.105), (0, -4, 0), 1),  # butt plate
+    ((-0.005, 0, -0.045), (0.034, 0.03, 0.09), (0, -18, 0), 0),  # pistol grip
+    ((0.045, 0, -0.02), (0.06, 0.012, 0.012), (0, 0, 0), 1),   # trigger guard
+    ((0.12, 0, -0.012), (0.075, 0.046, 0.03), (0, 0, 0), 0),   # magazine well
+])
+gun.name = 'plan_e_m16'
+
+MAG_WELL = Vector((0.12, 0, -0.025))          # magazine top in gun frame
+MAG_HOLD = Vector((0.0, 0.045, 0.13))         # magazine top relative to the support wrist (mag frame)
+
+
+def make_mag(name):
+    return box_object(name, [
+        ((0.0, 0, -0.045), (0.066, 0.024, 0.09), (0, 0, 0), 0),
+        ((0.008, 0, -0.125), (0.066, 0.024, 0.08), (0, 8, 0), 0),
+        ((0.014, 0, -0.17), (0.07, 0.028, 0.012), (0, 8, 0), 1),
+    ])
+
+
+mag_old = make_mag('plan_e_mag_old')
+mag_new = make_mag('plan_e_mag_new')
+
+# ----------------------------------------------------------------------------
+# Pose model
+
+
+def smooth(t):
+    t = max(0.0, min(1.0, t))
+    return t * t * (3 - 2 * t)
+
+
+def lerp(a, b, t):
+    return a + (b - a) * t
+
+
+def pose_body(lean, twist, head_pitch, pelvis_drop):
+    """lean: forward degrees spread on the spine; twist: chest yaw toward camera."""
+    pelvis_head = REST['pelvis'] + Vector((0, 0, -pelvis_drop))
+    set_abs('pelvis', rot_ypz(yaw=twist * 0.25, pitch=lean * 0.2), head=pelvis_head)
+    set_abs('waist', rot_ypz(yaw=twist * 0.55, pitch=lean * 0.55))
+    set_abs('chest', rot_ypz(yaw=twist, pitch=lean))
+    set_abs('neck', rot_ypz(yaw=twist * 0.4, pitch=lean * 0.5 + head_pitch * 0.4))
+    set_abs('head', rot_ypz(yaw=0, pitch=head_pitch))
+    pose_leg(SUPPORT, Vector((0.17, 0.14, REST[f'{SUPPORT}_ankle'].z)))
+    pose_leg(TRIGGER, Vector((-0.13, -0.15, REST[f'{TRIGGER}_ankle'].z)))
+
+
+def aim_gun_matrix():
+    """Gun shouldered: butt in the trigger-side shoulder pocket, barrel level."""
+    pocket = joint(f'{TRIGGER}_shoulder') + Vector((0.075, 0.07, -0.02))
+    rot = rot_ypz()
+    origin = pocket + rot @ Vector((0.335, 0, 0))
+    return origin, rot
+
+
+# Key poses. gun: 'aim' or (origin, yaw, pitch, roll). support: (space, point, hand_dir_in_space)
+AIM_BODY = dict(lean=9.0, twist=-28.0, head_pitch=17.0, pelvis_drop=0.035)
+RELOAD_BODY = dict(lean=13.0, twist=-22.0, head_pitch=30.0, pelvis_drop=0.05)
+RELOAD_GUN = ((0.25, -0.07, 1.25), 6.0, -22.0, 32.0)
+HANDGUARD = ('gun', Vector((0.31, 0.05, -0.03)), Vector((0.25, 0.15, 1.0)))
+MAG_GRIP = ('gun', MAG_WELL + Vector((0.0, -0.045, -0.13)), Vector((0.15, 0.2, 1.0)))
+MAG_OUT = ('gun', MAG_WELL + Vector((-0.02, -0.06, -0.34)), Vector((0.15, 0.2, 1.0)))
+POUCH = ('world', Vector((0.12, 0.10, 0.98)), Vector((0.2, 0.0, 1.0)))
+NEW_BELOW = ('gun', MAG_WELL + Vector((0.0, -0.05, -0.30)), Vector((0.15, 0.2, 1.0)))
+SEATED = MAG_GRIP
+SEAT_PUSH = ('gun', MAG_WELL + Vector((0.0, -0.045, -0.105)), Vector((0.15, 0.2, 1.0)))
+BOLT_CATCH = ('gun', Vector((0.075, 0.05, 0.03)), Vector((0.0, -0.3, 1.0)))
+
+# (frame, body, gun, support, label)
+KEYS = [
+    (0, AIM_BODY, 'aim', HANDGUARD, '조준'),
+    (4, AIM_BODY, 'aim', HANDGUARD, ''),
+    (10, RELOAD_BODY, RELOAD_GUN, HANDGUARD, '장전 자세'),
+    (14, RELOAD_BODY, RELOAD_GUN, MAG_GRIP, '탄창 잡기'),
+    (18, RELOAD_BODY, RELOAD_GUN, MAG_OUT, '탄창 분리'),
+    (23, RELOAD_BODY, RELOAD_GUN, POUCH, '새 탄창'),
+    (25, RELOAD_BODY, RELOAD_GUN, POUCH, ''),
+    (30, RELOAD_BODY, RELOAD_GUN, NEW_BELOW, ''),
+    (33, RELOAD_BODY, RELOAD_GUN, SEATED, '삽입'),
+    (35, RELOAD_BODY, RELOAD_GUN, SEAT_PUSH, '밀어 넣기'),
+    (39, RELOAD_BODY, RELOAD_GUN, BOLT_CATCH, '노리쇠 멈치'),
+    (41, RELOAD_BODY, RELOAD_GUN, BOLT_CATCH, ''),
+    (47, AIM_BODY, 'aim', HANDGUARD, ''),
+    (53, AIM_BODY, 'aim', HANDGUARD, '조준 복귀'),
+]
+RELOAD_FRAMES = KEYS[-1][0] + 1
+RELOAD_FPS = 15
+MAG_GRAB, MAG_RELEASE = 14, 18      # old magazine follows the hand between these
+NEW_GRAB, NEW_SEAT = 23, 33         # new magazine follows the hand between these
+
+
+def key_span(f):
+    for (fa, *a), (fb, *b) in zip(KEYS, KEYS[1:]):
+        if fa <= f <= fb:
+            return (fa, a), (fb, b), smooth((f - fa) / max(1, fb - fa))
+    return (KEYS[-1][0], KEYS[-1][1:]), (KEYS[-1][0], KEYS[-1][1:]), 0.0
+
+
+def gun_pose(spec):
+    if spec == 'aim':
+        return aim_gun_matrix()
+    origin, yaw, pitch, roll = spec
+    return Vector(origin), rot_ypz(yaw, pitch, roll)
+
+
+def resolve(target, g_origin, g_rot):
+    space, point, hand = target
+    if space == 'gun':
+        return g_origin + g_rot @ point, g_rot @ hand
+    return point.copy(), hand.copy()
+
+
+def matrix(origin, rot):
+    return Matrix.Translation(origin) @ rot.to_matrix().to_4x4()
+
+
+def pose_reload_frame(f, falling):
+    (fa, a), (fb, b), t = key_span(f)
+    body = {k: lerp(a[0][k], b[0][k], t) for k in a[0]}
+    pose_body(**body)
+    oa, ra = gun_pose(a[1])
+    ob, rb = gun_pose(b[1])
+    g_origin, g_rot = oa.lerp(ob, t), ra.slerp(rb, t)
+    gun.matrix_basis = matrix(g_origin, g_rot)
+
+    wa, ha = resolve(a[2], g_origin, g_rot)
+    wb, hb = resolve(b[2], g_origin, g_rot)
+    support_wrist, support_dir = wa.lerp(wb, t), ha.lerp(hb, t)
+
+    trigger_wrist = g_origin + g_rot @ Vector((-0.045, -0.035, -0.075))
+    pose_arm(TRIGGER, trigger_wrist, g_rot @ Vector((0.55, 0.15, 0.8)), Vector((-0.3, -0.9, -0.8)))
+    pose_arm(SUPPORT, support_wrist, support_dir, Vector((0.1, 0.6, -1.0)))
+
+    wrist = joint(f'{SUPPORT}_wrist')
+    held = matrix(wrist, g_rot) @ Matrix.Translation(MAG_HOLD)
+    seated = matrix(g_origin, g_rot) @ Matrix.Translation(MAG_WELL)
+
+    # Old magazine: seated -> in hand -> falls out of the sprite (the game spawns debris).
+    mag_old.hide_render = False
+    if f < MAG_GRAB:
+        mag_old.matrix_basis = seated
+    elif f <= MAG_RELEASE:
+        mag_old.matrix_basis = held
+        falling['m'] = held.copy()
+        falling['v'] = Vector((0.15, 0.0, -0.6))
+    else:
+        dt = 1.0 / RELOAD_FPS
+        falling['v'].z -= 9.8 * dt
+        m = falling['m']
+        loc = m.translation + falling['v'] * dt
+        rot = m.to_quaternion() @ Euler((0, math.radians(14), 0)).to_quaternion()
+        falling['m'] = matrix(loc, rot)
+        mag_old.matrix_basis = falling['m']
+        mag_old.hide_render = loc.z < 0.12
+
+    # New magazine: hidden in the pouch -> in hand -> seated.
+    mag_new.hide_render = f < NEW_GRAB
+    if f >= NEW_SEAT:
+        mag_new.matrix_basis = seated
+    else:
+        mag_new.matrix_basis = held
+    return next((k[4] for k in KEYS if k[0] == f), '')
+
+
+def pose_ready():
+    pose_body(**AIM_BODY)
+    g_origin, g_rot = aim_gun_matrix()
+    gun.matrix_basis = matrix(g_origin, g_rot)
+    trigger_wrist = g_origin + g_rot @ Vector((-0.045, -0.035, -0.075))
+    pose_arm(TRIGGER, trigger_wrist, g_rot @ Vector((0.55, 0.15, 0.8)), Vector((-0.3, -0.9, -0.8)))
+    w, h = resolve(HANDGUARD, g_origin, g_rot)
+    pose_arm(SUPPORT, w, h, Vector((0.1, 0.6, -1.0)))
+    mag_old.matrix_basis = matrix(g_origin, g_rot) @ Matrix.Translation(MAG_WELL)
+    mag_old.hide_render = False
+    mag_new.hide_render = True
+
+# ----------------------------------------------------------------------------
+# Camera, light, render settings
+
+scene.render.engine = 'BLENDER_EEVEE'
+scene.render.film_transparent = True
+scene.render.image_settings.file_format = 'PNG'
+scene.render.image_settings.color_mode = 'RGBA'
+scene.view_settings.view_transform = 'Standard'
+scene.view_settings.exposure = 0.6
+scene.render.filter_size = 0.5
+
+world = bpy.data.worlds.new('plan_e_world')
+scene.world = world
+world.use_nodes = True
+world.node_tree.nodes['Background'].inputs['Color'].default_value = (0.55, 0.58, 0.66, 1)
+world.node_tree.nodes['Background'].inputs['Strength'].default_value = 0.9
+
+
+def sun(name, energy, rot, color=(1, 1, 1)):
+    light = bpy.data.lights.new(name, 'SUN')
+    light.energy = energy
+    light.color = color
+    obj = bpy.data.objects.new(name, light)
+    obj.rotation_euler = [math.radians(v) for v in rot]
+    scene.collection.objects.link(obj)
+
+
+sun('key', 4.5, (55, 0, -35))                       # from upper front, camera side
+sun('rim', 3.5, (60, 0, 150), (0.75, 0.85, 1.0))    # cool back rim
+sun('fill', 1.2, (100, 0, 20), (1.0, 0.92, 0.85))
+
+cam_data = bpy.data.cameras.new('plan_e_cam')
+cam_data.type = 'ORTHO'
+cam = bpy.data.objects.new('plan_e_cam', cam_data)
+scene.collection.objects.link(cam)
+scene.camera = cam
+
+
+def frame_camera(x0, x1, z0, z1):
+    """Fit an orthographic camera (looking +Y, pitched down) to a world box."""
+    p = math.radians(args.pitch)
+    width_m, height_m = x1 - x0, (z1 - z0)
+    w = int(round(width_m * args.ppm))
+    h = int(round(height_m * args.ppm))
+    s = args.supersample
+    scene.render.resolution_x, scene.render.resolution_y = w * s, h * s
+    cam_data.ortho_scale = max(width_m, height_m)
+    cx, cz = (x0 + x1) / 2, (z0 + z1) / 2
+    cam.rotation_euler = (math.radians(90) - p, 0, 0)
+    cam.location = (cx, -10 * math.cos(p), cz + 10 * math.sin(p))
+    return w, h
+
+# ----------------------------------------------------------------------------
+# Pixel conversion
+
+
+def render_rgba():
+    path = os.path.join(OUT, '_tmp_render.png')
+    scene.render.filepath = path
+    bpy.ops.render.render(write_still=True)
+    img = bpy.data.images.load(path)
+    w, h = img.size
+    px = np.array(img.pixels[:], dtype=np.float32).reshape(h, w, 4)[::-1]
+    bpy.data.images.remove(img)
+    os.remove(path)
+    return px
+
+
+def downsample(px, s):
+    h, w = px.shape[0] // s, px.shape[1] // s
+    blocks = px[:h * s, :w * s].reshape(h, s, w, s, 4)
+    alpha = blocks[..., 3]
+    a = alpha.mean(axis=(1, 3))
+    rgb = (blocks[..., :3] * alpha[..., None]).sum(axis=(1, 3)) / np.maximum(alpha.sum(axis=(1, 3)), 1e-6)[..., None]
+    return rgb, a
+
+
+def kmeans(samples, k, iters=24):
+    rng = np.random.default_rng(7)
+    centers = samples[rng.choice(len(samples), size=k, replace=False)]
+    for _ in range(iters):
+        d = ((samples[:, None, :] - centers[None]) ** 2).sum(-1)
+        lab = d.argmin(1)
+        for i in range(k):
+            sel = samples[lab == i]
+            if len(sel):
+                centers[i] = sel.mean(0)
+    return centers
+
+
+def quantize(rgb, a, palette, outline):
+    h, w, _ = rgb.shape
+    mask = a >= 0.5
+    out = np.zeros((h, w, 4), dtype=np.uint8)
+    flat = rgb[mask]
+    if len(flat):
+        idx = ((flat[:, None, :] - palette[None]) ** 2).sum(-1).argmin(1)
+        out[mask, :3] = np.clip(palette[idx] * 255 + 0.5, 0, 255).astype(np.uint8)
+        out[mask, 3] = 255
+    if outline is not None:
+        grown = np.zeros_like(mask)
+        grown[1:] |= mask[:-1]; grown[:-1] |= mask[1:]
+        grown[:, 1:] |= mask[:, :-1]; grown[:, :-1] |= mask[:, 1:]
+        edge = grown & ~mask
+        out[edge, :3] = outline
+        out[edge, 3] = 255
+    return out
+
+
+def save_png(arr, path):
+    h, w, _ = arr.shape
+    img = bpy.data.images.new(os.path.basename(path), w, h, alpha=True)
+    img.pixels = (arr[::-1].astype(np.float32) / 255).ravel()
+    img.filepath_raw = path
+    img.file_format = 'PNG'
+    img.save()
+    bpy.data.images.remove(img)
+
+# ----------------------------------------------------------------------------
+# Clips
+
+
+def to_linear_safe(rgb):
+    return np.clip(rgb, 0, 1)
+
+
+def collect_reload():
+    w, h = frame_camera(-0.75, 1.39, -0.04, 2.10)
+    frames, falling = [], {}
+    for f in range(RELOAD_FRAMES):
+        label = pose_reload_frame(f, falling)
+        bpy.context.view_layer.update()
+        frames.append((render_rgba(), label))
+    return dict(id='reload', title='장전', fps=RELOAD_FPS, loop=False, w=w, h=h, frames=frames)
+
+
+TURN_YAWS = [0, 45, 90, 135, 180, 225, 270, 315]
+TURN_LABELS = ['측면 · 오른쪽', '3/4 · 정면 쪽', '정면', '3/4 · 정면 왼쪽', '측면 · 왼쪽', '3/4 · 뒤 왼쪽', '후면', '3/4 · 뒤 오른쪽']
+
+
+def collect_turnaround():
+    w, h = frame_camera(-1.07, 1.07, -0.04, 2.10)
+    pose_ready()
+    frames = []
+    for yaw, label in zip(TURN_YAWS, TURN_LABELS):
+        root.rotation_euler = (0, 0, math.radians(-yaw))
+        bpy.context.view_layer.update()
+        frames.append((render_rgba(), label))
+    root.rotation_euler = (0, 0, 0)
+    return dict(id='turnaround', title='같은 자세 8방향', fps=4, loop=True, w=w, h=h, frames=frames)
+
+
+def sha256(path):
+    digest = hashlib.sha256()
+    with open(path, 'rb') as fh:
+        for chunk in iter(lambda: fh.read(1 << 20), b''):
+            digest.update(chunk)
+    return digest.hexdigest()
+
+
+def main():
+    os.makedirs(OUT, exist_ok=True)
+    wanted = [c.strip() for c in args.clips.split(',') if c.strip()]
+    builders = {'reload': collect_reload, 'turnaround': collect_turnaround}
+    clips = [builders[c]() for c in wanted]
+
+    # One palette for every clip, so the character keeps the same colors.
+    s = args.supersample
+    reduced = []
+    for clip in clips:
+        clip['reduced'] = [downsample(px, s) for px, _ in clip['frames']]
+        for rgb, a in clip['reduced']:
+            reduced.append(rgb[a >= 0.5])
+    samples = np.concatenate(reduced)
+    rng = np.random.default_rng(11)
+    if len(samples) > 60000:
+        samples = samples[rng.choice(len(samples), 60000, replace=False)]
+    palette = kmeans(to_linear_safe(samples).astype(np.float64), args.colors)
+    palette = palette[np.argsort(palette.sum(1))]
+    outline = np.array([10, 10, 14], dtype=np.uint8)
+
+    index = []
+    for clip in clips:
+        clip_dir = os.path.join(OUT, 'output', clip['id'])
+        frame_dir = os.path.join(clip_dir, 'frames')
+        os.makedirs(frame_dir, exist_ok=True)
+        pixel_frames = [quantize(rgb, a, palette, outline) for rgb, a in clip['reduced']]
+        w, h = clip['w'], clip['h']
+        for i, arr in enumerate(pixel_frames):
+            save_png(arr, os.path.join(frame_dir, f'{i:02d}.png'))
+        sheet = np.concatenate(pixel_frames, axis=1)
+        save_png(sheet, os.path.join(clip_dir, 'spritesheet.png'))
+        if args.raw:
+            raw_dir = os.path.join(OUT, 'raw', clip['id'])
+            os.makedirs(raw_dir, exist_ok=True)
+            for i, (px, _) in enumerate(clip['frames']):
+                save_png(np.clip(px * 255 + 0.5, 0, 255).astype(np.uint8), os.path.join(raw_dir, f'{i:02d}.png'))
+        manifest = {
+            'schema_version': 1,
+            'plan': 'Plan E',
+            'clip': clip['id'],
+            'title': clip['title'],
+            'frameCount': len(pixel_frames),
+            'fps': clip['fps'],
+            'loop': clip['loop'],
+            'canvas': {'width': w, 'height': h},
+            'pixelsPerMeter': args.ppm,
+            'spritesheet': 'spritesheet.png',
+            'frames': [{'label': label} for _, label in clip['frames']],
+        }
+        with open(os.path.join(clip_dir, 'manifest.json'), 'w', encoding='utf-8') as fh:
+            json.dump(manifest, fh, ensure_ascii=False, indent=2)
+        index.append({'id': clip['id'], 'title': clip['title'], 'path': f"output/{clip['id']}/manifest.json"})
+
+    with open(os.path.join(OUT, 'output', 'clips.json'), 'w', encoding='utf-8') as fh:
+        json.dump({'schema_version': 1, 'plan': 'Plan E', 'clips': index}, fh, ensure_ascii=False, indent=2)
+
+    records = os.path.join(OUT, 'records')
+    os.makedirs(records, exist_ok=True)
+    recipe = {
+        'tool': 'Blender headless + tools/plan_e/render_sprites.py',
+        'blender_version': bpy.app.version_string,
+        'source_glb': os.path.relpath(os.path.abspath(args.glb)),
+        'source_glb_sha256': sha256(args.glb),
+        'script_sha256': sha256(os.path.abspath(__file__)) if '__file__' in globals() else None,
+        'params': vars(args),
+        'palette_rgb': [[int(round(c * 255)) for c in p] for p in palette],
+        'outline_rgb': outline.tolist(),
+        'render_engine': scene.render.engine,
+        'elapsed_seconds': round(time.time() - STARTED, 1),
+        'clips': [{'id': c['id'], 'frames': len(c['frames']), 'canvas': [c['w'], c['h']]} for c in clips],
+    }
+    with open(os.path.join(records, 'recipe.json'), 'w', encoding='utf-8') as fh:
+        json.dump(recipe, fh, ensure_ascii=False, indent=2)
+    print('PLAN_E_DONE', json.dumps(recipe['clips']), recipe['elapsed_seconds'])
+
+
+main()

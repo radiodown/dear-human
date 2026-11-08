@@ -1,43 +1,51 @@
 import { RigLab, MOTIONS } from './rig-lab.js';
 import { PlanBLab } from './plan-b-lab.js';
 import { PartsV2Lab } from './parts-v2-lab.js';
+import { PlanELab } from './plan-e-lab.js';
 const $ = (id) => document.getElementById(id);
 const lab = new RigLab();
 const planB = new PlanBLab();
 const partsV2 = new PartsV2Lab();
+const planE = new PlanELab();
 let labInitialized = false;
 function setPreviewMode(mode, updateUrl=true) {
   const rigMode = mode === 'rig';
   const planBMode = mode === 'plan-b';
   const v2Mode = mode === 'rig-v2';
-  $('reference-view').hidden = rigMode || planBMode || v2Mode; $('rig-view').hidden = !rigMode;
+  const planEMode = mode === 'plan-e';
+  $('reference-view').hidden = rigMode || planBMode || v2Mode || planEMode; $('rig-view').hidden = !rigMode;
   $('rig-v2-view').hidden = !v2Mode;
   $('plan-b-view').hidden = !planBMode;
-  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode && !v2Mode));
+  $('plan-e-view').hidden = !planEMode;
+  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode && !v2Mode && !planEMode));
+  $('mode-plan-e').setAttribute('aria-pressed', String(planEMode));
   $('mode-rig').setAttribute('aria-pressed', String(rigMode));
   $('mode-plan-b').setAttribute('aria-pressed', String(planBMode));
   $('mode-rig-v2').setAttribute('aria-pressed', String(v2Mode));
-  $('review-state').textContent = v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
+  $('review-state').textContent = planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
   lab.show(rigMode);
   planB.show(planBMode);
   partsV2.show(v2Mode);
+  planE.show(planEMode);
   if (rigMode && !labInitialized) { labInitialized=true; lab.init(); }
   if (updateUrl) {
     const [route,query] = location.hash.split('?');const params=new URLSearchParams(query||'');
-    if (v2Mode) partsV2.writeParams(params);
+    if (planEMode) planE.writeParams(params);
+    else if (v2Mode) partsV2.writeParams(params);
     else {
-    if(params.get('plan')==='parts-v2')for(const key of ['frame','fps','loop','paused','face','viewPitch'])params.delete(key);
+    if(['parts-v2','e'].includes(params.get('plan')))for(const key of ['frame','fps','loop','paused','face','viewPitch','clip','scale'])params.delete(key);
     if (planBMode) planB.writeParams(params);
     else { params.delete('plan'); params.delete('study'); params.delete('pixelView'); if(rigMode)params.set('motion',lab.mode);else params.delete('motion'); }
     }
     history.replaceState(null,'',`${location.pathname}${location.search}${route}${params.size?'?'+params:''}`);
   }
-  if (!rigMode && !planBMode && !v2Mode) fitArt();
+  if (!rigMode && !planBMode && !v2Mode && !planEMode) fitArt();
 }
 $('mode-reference').addEventListener('click',()=>setPreviewMode('reference'));
 $('mode-rig').addEventListener('click',()=>setPreviewMode('rig'));
 $('mode-rig-v2').addEventListener('click',()=>setPreviewMode('rig-v2'));
 $('mode-plan-b').addEventListener('click',()=>setPreviewMode('plan-b'));
+$('mode-plan-e').addEventListener('click',()=>setPreviewMode('plan-e'));
 const app = { entries: [], entry: null, revision: null, view: 'sheet', zoom: 1 };
 const labels = { character: '캐릭터', weapon: '무기', enemy: '적' };
 const viewLabels = { front: '정면', back: '후면', left: '좌측면', right: '우측면', side: '측면' };
@@ -152,6 +160,7 @@ function showRoute() {
   lab.show(false);
   planB.show(false);
   partsV2.show(false);
+  planE.show(false);
   try {
     const [route, query] = location.hash.slice(1).split('?');
     const parts = (route || '/samples').split('/').filter(Boolean);
@@ -163,6 +172,7 @@ function showRoute() {
     const entry = app.entry;
     $('mode-plan-b').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-rig-v2').hidden = kind !== 'character' || id !== 'clone_01';
+    $('mode-plan-e').hidden = kind !== 'character' || id !== 'clone_01';
     const hasArt = entry.revisions.some((revision) => revision.preview?.image_path);
     $('workspace').hidden = !hasArt;
     $('empty-state').hidden = hasArt;
@@ -185,6 +195,9 @@ function showRoute() {
     const labParams = new URLSearchParams(query || '');
     if(labParams.get('plan')==='parts-v2'&&kind==='character'&&id==='clone_01'){
       partsV2.restoreParams(labParams);setPreviewMode('rig-v2',false);return;
+    }
+    if(labParams.get('plan')==='e'&&kind==='character'&&id==='clone_01'){
+      planE.restoreParams(labParams);setPreviewMode('plan-e',false);return;
     }
     const motion = labParams.get('motion');
     if (motion && Object.hasOwn(MOTIONS,motion)) lab.setMode(motion,{immediate:true,updateUrl:false});

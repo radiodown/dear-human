@@ -31,7 +31,7 @@
 
     <div class="workspace" id="workspace">
       <section class="viewer-panel" aria-label="아트와 모션 미리보기">
-        <div class="preview-mode" aria-label="미리보기 종류"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button><button id="mode-rig" type="button" aria-pressed="false">파츠 모션 테스트 <span>LIVE</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 모션 V2 <span>FRAME</span></button><button id="mode-plan-b" type="button" aria-pressed="false">플랜 B · 도트 모션</button></div>
+        <div class="preview-mode" aria-label="미리보기 종류"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button><button id="mode-rig" type="button" aria-pressed="false">파츠 모션 테스트 <span>LIVE</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 모션 V2 <span>FRAME</span></button><button id="mode-plan-b" type="button" aria-pressed="false">플랜 B · 도트 모션</button><button id="mode-plan-e" type="button" aria-pressed="false">플랜 E · 3D→도트 <span>SPRITE</span></button></div>
         <div id="reference-view">
         <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="back" aria-pressed="false" hidden>후면</button><button type="button" data-view="left" aria-pressed="false" hidden>좌측면</button><button type="button" data-view="right" aria-pressed="false" hidden>우측면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
         <div class="art-stage bg-dark" id="art-stage"><span class="stage-label" id="stage-label">APPEARANCE / STATIC REFERENCE</span><div class="art-frame" id="art-frame" data-view="sheet"><img id="character-art" alt="주인공 클론의 전신 외형 시안" draggable="false"><div id="turnaround-grid" class="turnaround-grid" aria-label="캐릭터 4방향 일러스트" hidden></div></div><p id="image-loading" class="image-loading" role="status">외형 시안을 불러오는 중…</p></div>
@@ -69,6 +69,15 @@
           <div id="v2-frames" class="v2-frames" role="group" aria-label="프레임 선택"></div>
           <div class="rig-toggles"><button type="button" id="v2-turn">좌우 반전</button><label>시점 <select id="v2-camera"><option value="0">정측면 0°</option><option value="12" selected>위에서 12°</option><option value="20">위에서 20°</option></select></label><label><input type="checkbox" id="v2-cape" checked>망토 표시</label></div>
           <p class="rig-metrics" id="v2-caption" aria-live="off"></p><p class="rig-note">한 장씩 넘기며 동작을 확인하세요. 동작을 바꾸면 첫 프레임부터 바로 시작합니다. Space 재생·정지, ← → 이전·다음 프레임. 기존 파츠로 만든 프레임 초안이며 자세와 반복 구간은 검토 중입니다.</p>
+        </div>
+        <div id="plan-e-view" hidden>
+          <div class="rig-motion-tabs" id="plan-e-clips" role="group" aria-label="플랜 E 동작"></div>
+          <div id="plan-e-stage" class="plan-e-stage bg-light" tabindex="0" aria-label="플랜 E 스프라이트 재생 영역"><canvas id="plan-e-canvas" aria-label="3D 모델에서 렌더링한 도트 스프라이트"></canvas><p id="plan-e-loading" role="status">플랜 E 스프라이트를 불러오는 중…</p></div>
+          <div class="rig-playback"><button id="plan-e-pause" type="button">일시정지</button><button id="plan-e-prev" type="button">이전</button><button id="plan-e-next" type="button">다음</button><output id="plan-e-counter">—</output><label>속도 <select id="plan-e-fps"><option value="default">기본</option><option value="6">6fps</option><option value="12">12fps</option><option value="15">15fps</option><option value="24">24fps</option></select></label><label>배율 <select id="plan-e-scale"><option value="2">2×</option><option value="3">3×</option><option value="4">4×</option></select></label><label>배경 <select id="plan-e-background"><option value="light">밝게</option><option value="dark">어둡게</option></select></label><label><input id="plan-e-loop" type="checkbox" checked> 반복</label></div>
+          <label class="plan-b-scrubber">프레임 <input id="plan-e-frame" type="range" min="0" max="0" value="0" aria-label="플랜 E 프레임"></label>
+          <p class="rig-note" id="plan-e-caption">스프라이트를 준비하는 중입니다.</p>
+          <div class="plan-b-links"><a href="/art/characters/clone_01/motion/plan_e/sprite_001/README.md" target="_blank" rel="noopener">제작 기록 ↗</a><a href="/art/characters/clone_01/motion/plan_e/sprite_001/output/reload/spritesheet.png" target="_blank" rel="noopener">장전 시트 ↗</a><a href="/art/characters/clone_01/motion/plan_e/sprite_001/output/turnaround/spritesheet.png" target="_blank" rel="noopener">8방향 시트 ↗</a></div>
+          <p class="rig-note">플랜 D의 3D 모델(hair_006)에 자세를 지정하고 Blender에서 저해상도로 렌더링한 뒤, 공통 팔레트 24색으로 줄인 첫 실험입니다. 같은 모델에서 렌더링하므로 회전해도 크기와 비례가 유지됩니다. 모델 외형·동작 자연스러움은 검수 대기입니다.</p>
         </div>
         <div id="plan-b-view" hidden>
           <div class="rig-toolbar"><div class="rig-motion-tabs" role="group" aria-label="플랜 B 동작">

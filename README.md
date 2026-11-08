@@ -1,5 +1,9 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**플랜 E · 3D→도트 스프라이트 001:** [장전](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=e&clip=reload) · [8방향](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=e&clip=turnaround) · [기록](art/characters/clone_01/motion/plan_e/sprite_001/README.md). 팀 결정에 따라 복구한 플랜 D의 3D 모델로 장전 동작을 만들고, Blender에서 저해상도 도트 스프라이트로 렌더링했다. 같은 모델에서 렌더링하므로 회전해도 크기와 비례가 유지되고, 픽셀 격자가 균일하다. 임시 M16과 고정된 망토는 한계이며 동작·외형은 검수 대기다.
+
+**플랜 D 복구:** 2026-11-08 팀 결정으로 삭제 커밋 `8a61cfc` 직전 상태에서 [native/plan-d](native/plan-d/README.md)와 [기록](art/characters/clone_01/motion/plan_d/README.md)을 되살렸다. 웹 우선·이후 확장 방침에 따라 플랜 D와 E를 병행한다.
+
 **파츠 모션 V2 · 프레임 001:** [V2 열기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=parts-v2&motion=walk) · [기록](docs/parts-motion-v2-001.md). 별도 탭에서 동작 전환/중간 보간 없이 9개 클립·136개의 저장 포즈를 한 장씩 표시한다. 번호·이전/다음·재생 속도·반복/한 번 재생·주소 복원을 제공한다. 기존 파츠를 샘플링한 첫 초안이며 필요한 짧은 프레임/Chrome 확인을 마쳤다. 자세와 루프의 자연스러움은 검수 대기다.
 
 **앞뒤좌우 샘플 일러스트 001:** [4방향 보기](http://127.0.0.1:4173/#/samples/characters/clone_01?rev=turnaround_001) · [PNG 4장·프롬프트·제작 기록](art/characters/clone_01/concepts/turnaround_001/README.md). 채택 외형을 참조해 정면·후면·좌우 측면을 각각 생성했다. 같은 페이지에서 전체/개별 방향을 비교하며 후면 추정 구조와 방향 사이 세부 일관성은 아트 검수 대기다.
