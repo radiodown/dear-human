@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "plan": "Plan E",
+  "clip": "run",
+  "title": "달리기",
+  "frameCount": 12,
+  "fps": 16,
+  "loop": true,
+  "canvas": {
+    "width": 221,
+    "height": 205
+  },
+  "pixelsPerMeter": 96.0,
+  "spritesheet": "spritesheet.png",
+  "frames": [
+    {
+      "label": "앞발 디딤"
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": "뒷발 디딤"
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "plan": "Plan E",
+  "clip": "kneel_fire",
+  "title": "앉아쏴",
+  "frameCount": 4,
+  "fps": 20,
+  "loop": true,
+  "canvas": {
+    "width": 221,
+    "height": 205
+  },
+  "pixelsPerMeter": 96.0,
+  "spritesheet": "spritesheet.png",
+  "frames": [
+    {
+      "label": "발사"
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    },
+    {
+      "label": ""
+    }
+  ]
+}
