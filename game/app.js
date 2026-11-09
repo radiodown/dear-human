@@ -2,7 +2,7 @@ import { RigLab, MOTIONS } from './rig-lab.js';
 import { PlanBLab } from './plan-b-lab.js';
 import { PartsV2Lab } from './parts-v2-lab.js';
 import { PlanELab } from './plan-e-lab.js';
-import { GlbModelLab } from './glb-model-lab.js';
+import { GlbModelLab, MODELS as GLB_MODELS } from './glb-model-lab.js';
 import { GlbSpriteLab } from './glb-sprite-lab.js';
 const $ = (id) => document.getElementById(id);
 const lab = new RigLab();
@@ -304,7 +304,9 @@ function showRoute() {
     $('mode-plan-b').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-rig-v2').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-plan-e').hidden = kind !== 'character' || id !== 'clone_01';
-    $('mode-glb').hidden = kind !== 'character' || id !== 'clone_01';
+    const glbAvailable = (kind === 'character' && id === 'clone_01') || (kind === 'enemy' && Object.hasOwn(GLB_MODELS, id));
+    glb.configure(glbAvailable ? id : 'clone_01');
+    $('mode-glb').hidden = !glbAvailable;
     $('mode-glb-sprite').hidden = kind !== 'character' || id !== 'clone_01';
     document.querySelectorAll('.preview-group').forEach(group => {
       group.hidden = ![...group.querySelectorAll('button')].some(button => !button.hidden);
@@ -336,7 +338,7 @@ function showRoute() {
     if(labParams.get('plan')==='e'&&kind==='character'&&id==='clone_01'){
       planE.restoreParams(labParams);setPreviewMode('plan-e',false);return;
     }
-    if(labParams.get('plan')==='glb'&&kind==='character'&&id==='clone_01'){
+    if(labParams.get('plan')==='glb'&&glbAvailable){
       glb.restoreParams(labParams);setPreviewMode('glb',false);return;
     }
     if(labParams.get('plan')==='glb-sprite'&&kind==='character'&&id==='clone_01'){
