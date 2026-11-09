@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/iren-illustration-004.png",
+  "source": "art/characters/iren/concepts/illustration_004/source/illustration.png",
+  "sha256": "ef92b959be6fb468cbe1a7100736c68089b1c14f9e65cf427ef675b76fc2f159",
+  "width": 1024,
+  "height": 1536,
+  "status": "시안 004 · 사용자 검수 대기",
+  "treatment": "내장 image_gen 원본을 바이트 변경 없이 복사",
+  "prompt": "art/characters/iren/concepts/illustration_004/records/prompt.md"
+}

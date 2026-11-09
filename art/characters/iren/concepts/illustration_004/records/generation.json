@@ -1,0 +1,19 @@
+{
+  "id": "iren",
+  "name": "이렌",
+  "beauty": "단아하고 세련된 미인",
+  "hair": "윤기나는 흑발 쇄골 길이 레이어드 컷·옆으로 넘긴 앞머리",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-feec443e-e34b-4eef-b3f3-52b289b38735.png",
+  "generated_started_at": "2026-11-09T02:36:36.092Z",
+  "generated_finished_at": "2026-11-09T02:38:47.530Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "sha256": "ef92b959be6fb468cbe1a7100736c68089b1c14f9e65cf427ef675b76fc2f159",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "new beautiful young adult Asian head and hairstyle; existing role equipment retained visually; aesthetic approval pending"
+}

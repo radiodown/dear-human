@@ -7455,7 +7455,7 @@
       "display_name": "세나",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_002",
+      "review_revision_id": "illustration_004",
       "capabilities": [
         "concept_image"
       ],
@@ -7545,10 +7545,10 @@
         {
           "revision_id": "illustration_002",
           "display_name": "세나 · 일러스트 002 · 병과별 신형 장비",
-          "status": "draft",
-          "verification": "untested",
-          "verification_scope": "awaiting_targeted_preview_check",
-          "art_direction_status": "awaiting_user_review",
+          "status": "archived",
+          "verification": "passed",
+          "verification_scope": "png_decode_dimensions_sha256_byte_identical_wiki_copy_and_targeted_static_preview",
+          "art_direction_status": "rejected_by_user",
           "recipe_key": "squad-illustration-002-sena",
           "artifacts": [
             {
@@ -7616,10 +7616,198 @@
           "review_notes": [
             "정지 일러스트만 제공 · 모션·리그 없음",
             "정확한 무기 모델·방호 수치 미정",
-            "001은 사용자 반려 · 002는 사용자 검수 대기"
+            "001은 사용자 반려 · 002는 사용자 검수 대기",
+            "사용자 피드백: 얼굴이 너무 서양인처럼 보여 003에서 수정"
           ],
           "preview": {
             "image_path": "art/characters/sena/concepts/illustration_002/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_003",
+          "display_name": "세나 · 일러스트 003 · 동아시아계 인상",
+          "status": "archived",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "squad-illustration-003-sena",
+          "artifacts": [
+            {
+              "path": "art/characters/sena/concepts/illustration_003/source/illustration.png",
+              "sha256": "18013fc55272566a3f64817c75b4eb6e4c4bc48c7d9e5006397f0be039be708e"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_003/records/prompt.json",
+              "sha256": "a529e5e0f580d01fbba409a606c25e05663e015cac7b89b21624ac28f6c20713"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_003/records/prompt.md",
+              "sha256": "326263083e1b865db3ad95a7af51b7d10bd32aa9b13f3f2593f07d7860338190"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_003/records/generation.json",
+              "sha256": "8bb278eb2fd87a5776db89952ca0f280cb46c934f74d9aaf3feb6450ad3eb161"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "sena",
+              "revision_id": "illustration_002"
+            }
+          ],
+          "description": "25~26세의 젊은 성인. 은회색 낮은 포니테일과 회색 눈. 가벼운 비대칭 정찰 망토, 슬림한 전술 바지와 경량 장갑. 신형 정밀 사격 화기. 가터벨트 없음. 외형 시안·사용자 검수 대기. 모션은 미지원. 동아시아계 얼굴 인상으로 수정한 시안 003.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "저격·관측"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "검수 대기"
+            ],
+            [
+              "얼굴 표현",
+              "동아시아계 인상 · 시안"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "003: 동아시아계 얼굴 인상 · 사용자 검수 대기",
+            "25~26세 외형·신형 장비·병과별 제복 유지",
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원",
+            "사용자 피드백: 미모와 머리스타일 재디자인 요청"
+          ],
+          "preview": {
+            "image_path": "art/characters/sena/concepts/illustration_003/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_004",
+          "display_name": "세나 · 일러스트 004 · 새 얼굴·헤어",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-004-sena",
+          "artifacts": [
+            {
+              "path": "art/characters/sena/concepts/illustration_004/source/illustration.png",
+              "sha256": "5a5385e6ccfb1984e7069e2ab2351fc7d22a64c7ccdc8467dbe4b3ec83b07701"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_004/records/prompt.json",
+              "sha256": "2e8997c46f441932d9090dd0d2bedbc6f890e207a35de4fcdd5654a393544d0e"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_004/records/prompt.md",
+              "sha256": "bd8d75793b0c19a214c62103ff21e18a7bf112a22db4af71ae7822132c601b49"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_004/records/generation.json",
+              "sha256": "3713b16ea99deb4442c60f0d48d5b91368b2c5373a53a74c793c2660f7283125"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "sena",
+              "revision_id": "illustration_003"
+            }
+          ],
+          "description": "차갑고 청초한 미인 · 애쉬브라운 긴 생머리 반묶음·얇은 시스루뱅 · 25~26세 외형. 가벼운 정찰 망토와 경량 장갑·전술 바지, 신형 정밀 사격 소총을 유지한다. 가터벨트는 착용하지 않는다. 최종 미감은 사용자 검수 대기다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "저격·관측"
+            ],
+            [
+              "얼굴 시안",
+              "차갑고 청초한 미인"
+            ],
+            [
+              "헤어",
+              "애쉬브라운 긴 생머리 반묶음·얇은 시스루뱅"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "004: 얼굴·헤어 새 디자인 · 사용자 검수 대기",
+            "25~26세·신형 장비·병과별 제복 유지",
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원"
+          ],
+          "preview": {
+            "image_path": "art/characters/sena/concepts/illustration_004/source/illustration.png",
             "width": 1024,
             "height": 1536,
             "views": [
@@ -7637,7 +7825,7 @@
       "display_name": "모아",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_002",
+      "review_revision_id": "illustration_004",
       "capabilities": [
         "concept_image"
       ],
@@ -7727,10 +7915,10 @@
         {
           "revision_id": "illustration_002",
           "display_name": "모아 · 일러스트 002 · 병과별 신형 장비",
-          "status": "draft",
-          "verification": "untested",
-          "verification_scope": "awaiting_targeted_preview_check",
-          "art_direction_status": "awaiting_user_review",
+          "status": "archived",
+          "verification": "passed",
+          "verification_scope": "png_decode_dimensions_sha256_byte_identical_wiki_copy_and_targeted_static_preview",
+          "art_direction_status": "rejected_by_user",
           "recipe_key": "squad-illustration-002-moa",
           "artifacts": [
             {
@@ -7798,10 +7986,198 @@
           "review_notes": [
             "정지 일러스트만 제공 · 모션·리그 없음",
             "정확한 무기 모델·방호 수치 미정",
-            "001은 사용자 반려 · 002는 사용자 검수 대기"
+            "001은 사용자 반려 · 002는 사용자 검수 대기",
+            "사용자 피드백: 얼굴이 너무 서양인처럼 보여 003에서 수정"
           ],
           "preview": {
             "image_path": "art/characters/moa/concepts/illustration_002/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_003",
+          "display_name": "모아 · 일러스트 003 · 동아시아계 인상",
+          "status": "archived",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "squad-illustration-003-moa",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/illustration_003/source/illustration.png",
+              "sha256": "ec4687fb8d3309f74cada96251ab611961fd073e6288489521114496d8b2ebad"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_003/records/prompt.json",
+              "sha256": "426cc6d03b83d34025d3c58d9023bf6e63e5e2073e182c84b23f55bda8c97345"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_003/records/prompt.md",
+              "sha256": "dec263a4c55f295a50a95fa0f9afaf05de322da3900f473d1615810e3cc36fde"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_003/records/generation.json",
+              "sha256": "1bcacfa56ff2e250b730783251c57be800eed1081628fc4df40eb12f438b1925"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "illustration_002"
+            }
+          ],
+          "description": "25~26세의 젊은 성인. 적갈색 땋은 머리와 단단한 체형. 탄약·하중을 받치는 지지 하네스, 전술 바지와 강화 장갑. 신형 지원화기. 가터벨트 없음. 외형 시안·사용자 검수 대기. 모션은 미지원. 동아시아계 얼굴 인상으로 수정한 시안 003.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "분대지원화기"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "검수 대기"
+            ],
+            [
+              "얼굴 표현",
+              "동아시아계 인상 · 시안"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "003: 동아시아계 얼굴 인상 · 사용자 검수 대기",
+            "25~26세 외형·신형 장비·병과별 제복 유지",
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원",
+            "사용자 피드백: 미모와 머리스타일 재디자인 요청"
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/illustration_003/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_004",
+          "display_name": "모아 · 일러스트 004 · 새 얼굴·헤어",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-004-moa",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/illustration_004/source/illustration.png",
+              "sha256": "19f715635c0df28c6a8f1660313c630d97c82558ef6d94f3e47f0a90d3cbab12"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_004/records/prompt.json",
+              "sha256": "435bdc93659a5fe9209762ebb0cfb0d2567036cc523a65d032d3ca04f6151cfb"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_004/records/prompt.md",
+              "sha256": "377c64d5e5efba427a35c2acc6710de2d030bb1d95d7ed1fe3df6377a1c53c12"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_004/records/generation.json",
+              "sha256": "b34ee302422e49811a94a1019afc58d703dff03b2918f642a0f46b2cc980d5d4"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "illustration_003"
+            }
+          ],
+          "description": "따뜻하고 화사한 미인 · 다크브라운 긴 웨이브·자연스러운 사이드 가르마 · 25~26세 외형. 탄약 하중을 받치는 하네스와 강화 장갑·전술 바지, 신형 지원화기를 유지한다. 가터벨트는 착용하지 않는다. 최종 미감은 사용자 검수 대기다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "분대지원화기"
+            ],
+            [
+              "얼굴 시안",
+              "따뜻하고 화사한 미인"
+            ],
+            [
+              "헤어",
+              "다크브라운 긴 웨이브·자연스러운 사이드 가르마"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "004: 얼굴·헤어 새 디자인 · 사용자 검수 대기",
+            "25~26세·신형 장비·병과별 제복 유지",
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원"
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/illustration_004/source/illustration.png",
             "width": 1024,
             "height": 1536,
             "views": [
@@ -7819,7 +8195,7 @@
       "display_name": "유나",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_002",
+      "review_revision_id": "illustration_004",
       "capabilities": [
         "concept_image"
       ],
@@ -7909,10 +8285,10 @@
         {
           "revision_id": "illustration_002",
           "display_name": "유나 · 일러스트 002 · 병과별 신형 장비",
-          "status": "draft",
-          "verification": "untested",
-          "verification_scope": "awaiting_targeted_preview_check",
-          "art_direction_status": "awaiting_user_review",
+          "status": "archived",
+          "verification": "passed",
+          "verification_scope": "png_decode_dimensions_sha256_byte_identical_wiki_copy_and_targeted_static_preview",
+          "art_direction_status": "rejected_by_user",
           "recipe_key": "squad-illustration-002-yuna",
           "artifacts": [
             {
@@ -7980,10 +8356,198 @@
           "review_notes": [
             "정지 일러스트만 제공 · 모션·리그 없음",
             "정확한 무기 모델·방호 수치 미정",
-            "001은 사용자 반려 · 002는 사용자 검수 대기"
+            "001은 사용자 반려 · 002는 사용자 검수 대기",
+            "사용자 피드백: 얼굴이 너무 서양인처럼 보여 003에서 수정"
           ],
           "preview": {
             "image_path": "art/characters/yuna/concepts/illustration_002/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_003",
+          "display_name": "유나 · 일러스트 003 · 동아시아계 인상",
+          "status": "archived",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "squad-illustration-003-yuna",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/illustration_003/source/illustration.png",
+              "sha256": "1eebe2e45ed50410ae3293e3932fb225c26b96f09af14d47929e74742572b1c9"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_003/records/prompt.json",
+              "sha256": "a4ccbae2d0cb4cb48355f928bdf7b773c29166371c2219fd863554c1de2cb746"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_003/records/prompt.md",
+              "sha256": "4c1d2b3a500c660abedff5f646431017bdaa73d559ed16eacd9fed2cbd68fd5d"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_003/records/generation.json",
+              "sha256": "2f6bd5259b1c54293c56bcb7234cfbd989480dd0a007c6fa522d408e4c8cc654"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "illustration_002"
+            }
+          ],
+          "description": "25~26세의 젊은 성인. 밝은 금발 보브와 청회색 눈. 방패를 받치는 전완·흉부 장갑, 짧은 망토와 닫힌 방호 하의. 복합재 방패와 신형 보조 화기. 가터벨트 없음. 외형 시안·사용자 검수 대기. 모션은 미지원. 동아시아계 얼굴 인상으로 수정한 시안 003.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "방패·진입"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "검수 대기"
+            ],
+            [
+              "얼굴 표현",
+              "동아시아계 인상 · 시안"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "003: 동아시아계 얼굴 인상 · 사용자 검수 대기",
+            "25~26세 외형·신형 장비·병과별 제복 유지",
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원",
+            "사용자 피드백: 미모와 머리스타일 재디자인 요청"
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/illustration_003/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_004",
+          "display_name": "유나 · 일러스트 004 · 새 얼굴·헤어",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-004-yuna",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/illustration_004/source/illustration.png",
+              "sha256": "907318914363c00a5f505107d84d6a5f2c7d9f30c4b4fab19c1bd3997702964d"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_004/records/prompt.json",
+              "sha256": "dca582cebf2d93da35017c6d2247bccfaa0f79142ee531dba556ab4151dedf23"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_004/records/prompt.md",
+              "sha256": "5ce74668df65cfafafa05722066ce7b3dfc2eee2cc980b05ca4f66fe88317a23"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_004/records/generation.json",
+              "sha256": "98c7018a78b59ea841fbeaad82c762243c96b2a724a15e8e9d70f4d13009f7a8"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "illustration_003"
+            }
+          ],
+          "description": "산뜻하고 또렷한 미인 · 윤기나는 흑발 하이 포니테일·깔끔한 이마와 잔 옆머리 · 25~26세 외형. 방패용 전완·흉부 장갑과 짧은 망토·방호 바지, 신형 복합재 방패를 유지한다. 가터벨트는 착용하지 않는다. 최종 미감은 사용자 검수 대기다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "방패·진입"
+            ],
+            [
+              "얼굴 시안",
+              "산뜻하고 또렷한 미인"
+            ],
+            [
+              "헤어",
+              "윤기나는 흑발 하이 포니테일·깔끔한 이마와 잔 옆머리"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "004: 얼굴·헤어 새 디자인 · 사용자 검수 대기",
+            "25~26세·신형 장비·병과별 제복 유지",
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원"
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/illustration_004/source/illustration.png",
             "width": 1024,
             "height": 1536,
             "views": [
@@ -8001,7 +8565,7 @@
       "display_name": "이렌",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_002",
+      "review_revision_id": "illustration_004",
       "capabilities": [
         "concept_image"
       ],
@@ -8091,10 +8655,10 @@
         {
           "revision_id": "illustration_002",
           "display_name": "이렌 · 일러스트 002 · 병과별 신형 장비",
-          "status": "draft",
-          "verification": "untested",
-          "verification_scope": "awaiting_targeted_preview_check",
-          "art_direction_status": "awaiting_user_review",
+          "status": "archived",
+          "verification": "passed",
+          "verification_scope": "png_decode_dimensions_sha256_byte_identical_wiki_copy_and_targeted_static_preview",
+          "art_direction_status": "rejected_by_user",
           "recipe_key": "squad-illustration-002-iren",
           "artifacts": [
             {
@@ -8162,10 +8726,198 @@
           "review_notes": [
             "정지 일러스트만 제공 · 모션·리그 없음",
             "정확한 무기 모델·방호 수치 미정",
-            "001은 사용자 반려 · 002는 사용자 검수 대기"
+            "001은 사용자 반려 · 002는 사용자 검수 대기",
+            "사용자 피드백: 얼굴이 너무 서양인처럼 보여 003에서 수정"
           ],
           "preview": {
             "image_path": "art/characters/iren/concepts/illustration_002/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_003",
+          "display_name": "이렌 · 일러스트 003 · 동아시아계 인상",
+          "status": "archived",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "squad-illustration-003-iren",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/illustration_003/source/illustration.png",
+              "sha256": "ca23d47ebd46428c435ccdee801e4f8f98c7696575b5c97438cfd7f9ac545098"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_003/records/prompt.json",
+              "sha256": "554f2645ec3f4524070d0f9220764fa43fb0c9f2c38b4cee3e018ac11e61f9af"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_003/records/prompt.md",
+              "sha256": "8be3bad3082f411facc51ddab1c02ea1ec3848daa216771ea7150cfbb55d97bd"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_003/records/generation.json",
+              "sha256": "4207a604b3b6eaf138d1d226e8e5f1d534faf3fea0700b37301e738d68766237"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "iren",
+              "revision_id": "illustration_002"
+            }
+          ],
+          "description": "외형은 25~26세, 각성 후 약 7년의 경험은 별도. 짧은 짙은 갈색 머리와 회갈색 눈. 돌격용 분절 장갑·짧은 장갑 하의·가터벨트·스타킹, 신형 돌격 화기. 노화 대신 태도로 선임의 경험 표현. 외형 시안·사용자 검수 대기. 모션은 미지원. 동아시아계 얼굴 인상으로 수정한 시안 003.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "돌격"
+            ],
+            [
+              "가터벨트",
+              "이렌만 착용"
+            ],
+            [
+              "상태",
+              "검수 대기"
+            ],
+            [
+              "얼굴 표현",
+              "동아시아계 인상 · 시안"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "003: 동아시아계 얼굴 인상 · 사용자 검수 대기",
+            "25~26세 외형·신형 장비·병과별 제복 유지",
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원",
+            "사용자 피드백: 미모와 머리스타일 재디자인 요청"
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/illustration_003/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_004",
+          "display_name": "이렌 · 일러스트 004 · 새 얼굴·헤어",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-004-iren",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/illustration_004/source/illustration.png",
+              "sha256": "ef92b959be6fb468cbe1a7100736c68089b1c14f9e65cf427ef675b76fc2f159"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_004/records/prompt.json",
+              "sha256": "75f7df0e46e5265bb9226f70aa190434949ff27ff92a6238a7aa2f4715a36f16"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_004/records/prompt.md",
+              "sha256": "46eb81825e6591f05654447ac7034707a4fd0a56d3916a6af87aa28ad206756f"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_004/records/generation.json",
+              "sha256": "039891a41cff36e2c447a40faae3702cf604e60ba139a2be067a9cc3d98a036e"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "iren",
+              "revision_id": "illustration_003"
+            }
+          ],
+          "description": "단아하고 세련된 미인 · 윤기나는 흑발 쇄골 길이 레이어드 컷·옆으로 넘긴 앞머리 · 25~26세 외형. 분절 돌격 장갑과 짧은 장갑 하의·안전 하의·스타킹, 신형 돌격 소총을 유지한다. 네 명 중 이렌만 허리에서 스타킹으로 이어지는 가터벨트를 착용한다. 각성 후 약 7년 활동 기간과 기존 친구·전임 지휘관 사망 이력은 유지한다. 최종 미감은 사용자 검수 대기다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "돌격"
+            ],
+            [
+              "얼굴 시안",
+              "단아하고 세련된 미인"
+            ],
+            [
+              "헤어",
+              "윤기나는 흑발 쇄골 길이 레이어드 컷·옆으로 넘긴 앞머리"
+            ],
+            [
+              "가터벨트",
+              "이렌만 착용"
+            ],
+            [
+              "상태",
+              "사용자 검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "004: 얼굴·헤어 새 디자인 · 사용자 검수 대기",
+            "25~26세·신형 장비·병과별 제복 유지",
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원"
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/illustration_004/source/illustration.png",
             "width": 1024,
             "height": 1536,
             "views": [

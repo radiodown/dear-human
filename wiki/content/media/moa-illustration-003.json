@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/moa-illustration-003.png",
+  "source": "art/characters/moa/concepts/illustration_003/source/illustration.png",
+  "sha256": "ec4687fb8d3309f74cada96251ab611961fd073e6288489521114496d8b2ebad",
+  "width": 1024,
+  "height": 1536,
+  "status": "시안 003 · 사용자 검수 대기",
+  "treatment": "내장 image_gen 원본을 바이트 변경 없이 복사",
+  "prompt": "art/characters/moa/concepts/illustration_003/records/prompt.md"
+}

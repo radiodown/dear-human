@@ -1,0 +1,19 @@
+{
+  "id": "yuna",
+  "name": "유나",
+  "beauty": "산뜻하고 또렷한 미인",
+  "hair": "윤기나는 흑발 하이 포니테일·깔끔한 이마와 잔 옆머리",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-efb1278a-58f3-4886-9086-502b12ec4fda.png",
+  "generated_started_at": "2026-11-09T02:36:36.092Z",
+  "generated_finished_at": "2026-11-09T02:38:10.807Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "sha256": "907318914363c00a5f505107d84d6a5f2c7d9f30c4b4fab19c1bd3997702964d",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "new beautiful young adult Asian head and hairstyle; existing role equipment retained visually; aesthetic approval pending"
+}

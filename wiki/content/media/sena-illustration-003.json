@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/sena-illustration-003.png",
+  "source": "art/characters/sena/concepts/illustration_003/source/illustration.png",
+  "sha256": "18013fc55272566a3f64817c75b4eb6e4c4bc48c7d9e5006397f0be039be708e",
+  "width": 1024,
+  "height": 1536,
+  "status": "시안 003 · 사용자 검수 대기",
+  "treatment": "내장 image_gen 원본을 바이트 변경 없이 복사",
+  "prompt": "art/characters/sena/concepts/illustration_003/records/prompt.md"
+}

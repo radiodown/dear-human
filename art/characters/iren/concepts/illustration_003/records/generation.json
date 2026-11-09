@@ -1,0 +1,17 @@
+{
+  "id": "iren",
+  "name": "이렌",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-e28b287c-31ac-4a8f-a02b-29f82d721f31.png",
+  "generated_started_at": "2026-11-09T02:27:32.709Z",
+  "generated_finished_at": "2026-11-09T02:29:47.308Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "sha256": "ca23d47ebd46428c435ccdee801e4f8f98c7696575b5c97438cfd7f9ac545098",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "East Asian facial art direction; adult appearance and existing role equipment retained visually; no pixel identity guarantee"
+}

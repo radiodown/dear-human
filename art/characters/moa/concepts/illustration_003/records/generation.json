@@ -1,0 +1,17 @@
+{
+  "id": "moa",
+  "name": "모아",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-f290a56b-bcd8-401e-be9d-8a973d951484.png",
+  "generated_started_at": "2026-11-09T02:27:32.709Z",
+  "generated_finished_at": "2026-11-09T02:28:36.624Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "sha256": "ec4687fb8d3309f74cada96251ab611961fd073e6288489521114496d8b2ebad",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "East Asian facial art direction; adult appearance and existing role equipment retained visually; no pixel identity guarantee"
+}

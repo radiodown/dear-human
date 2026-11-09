@@ -1,0 +1,17 @@
+{
+  "scope": "catalog structure and only the eight new revisions plus their shared original style reference; no historical revision retest",
+  "checked": [
+    "clone_01:reference_003_3d",
+    "sena:illustration_001",
+    "sena:illustration_002",
+    "moa:illustration_001",
+    "moa:illustration_002",
+    "yuna:illustration_001",
+    "yuna:illustration_002",
+    "iren:illustration_001",
+    "iren:illustration_002"
+  ],
+  "issues": [],
+  "existing_entries_unchanged": true,
+  "art_direction_status": "awaiting_user_review"
+}

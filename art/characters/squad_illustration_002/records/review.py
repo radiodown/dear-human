@@ -33,6 +33,8 @@ with sync_playwright() as playwright:
     for character in ('sena','moa','yuna','iren'):
         page.goto(f'http://127.0.0.1:4175/#/article/{character}',wait_until='networkidle')
         page.wait_for_function("character => document.querySelector('.profile-portrait img')?.src.includes(character + '-illustration-002.png') && document.querySelector('.profile-portrait img').naturalWidth === 1024",arg=character)
+        page.locator('.profile-portrait img').evaluate('image => image.decode()')
+        page.evaluate('() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))')
         assert f'{character}-illustration-002.png' in page.locator('.profile-portrait img').get_attribute('src')
         assert '25~26세' in page.locator('.character-profile').inner_text()
         assert '시안 002' in page.locator('.profile-portrait figcaption').inner_text()
@@ -46,6 +48,8 @@ with sync_playwright() as playwright:
     popup.value.close()
     page.set_viewport_size({'width':500,'height':1000})
     page.goto('http://127.0.0.1:4175/#/article/yuna',wait_until='networkidle')
+    page.locator('.profile-portrait img').evaluate('image => image.decode()')
+    page.evaluate('() => new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)))')
     assert page.evaluate('document.documentElement.scrollWidth <= window.innerWidth')
     page.screenshot(path=str(records/'wiki-yuna-mobile.png'),full_page=True)
     assert not errors, errors

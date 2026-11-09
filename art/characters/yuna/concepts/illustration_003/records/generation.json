@@ -1,0 +1,17 @@
+{
+  "id": "yuna",
+  "name": "유나",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-280827a2-c89a-473b-ae41-3e8f9a823f92.png",
+  "generated_started_at": "2026-11-09T02:27:32.709Z",
+  "generated_finished_at": "2026-11-09T02:29:08.614Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "sha256": "1eebe2e45ed50410ae3293e3932fb225c26b96f09af14d47929e74742572b1c9",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "East Asian facial art direction; adult appearance and existing role equipment retained visually; no pixel identity guarantee"
+}

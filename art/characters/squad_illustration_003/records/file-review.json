@@ -1,0 +1,34 @@
+{
+  "scope": "four new 003 files only; PNG decode/dimensions/SHA-256 and byte-identical wiki copy",
+  "items": [
+    {
+      "character": "sena",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "18013fc55272566a3f64817c75b4eb6e4c4bc48c7d9e5006397f0be039be708e",
+      "source_equals_wiki": true
+    },
+    {
+      "character": "moa",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "ec4687fb8d3309f74cada96251ab611961fd073e6288489521114496d8b2ebad",
+      "source_equals_wiki": true
+    },
+    {
+      "character": "yuna",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "1eebe2e45ed50410ae3293e3932fb225c26b96f09af14d47929e74742572b1c9",
+      "source_equals_wiki": true
+    },
+    {
+      "character": "iren",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "ca23d47ebd46428c435ccdee801e4f8f98c7696575b5c97438cfd7f9ac545098",
+      "source_equals_wiki": true
+    }
+  ],
+  "art_direction_status": "awaiting_user_review"
+}

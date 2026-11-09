@@ -1,0 +1,37 @@
+{
+  "scope": "only four new 004 revisions, their static sample/wiki display and one mobile layout; no motion/game tests",
+  "results": [
+    {
+      "character": "sena",
+      "sample": "004 displayed",
+      "wiki": "004 displayed",
+      "age": "25~26",
+      "garter_direction": "Iren only; checked in generated full-body images"
+    },
+    {
+      "character": "moa",
+      "sample": "004 displayed",
+      "wiki": "004 displayed",
+      "age": "25~26",
+      "garter_direction": "Iren only; checked in generated full-body images"
+    },
+    {
+      "character": "yuna",
+      "sample": "004 displayed",
+      "wiki": "004 displayed",
+      "age": "25~26",
+      "garter_direction": "Iren only; checked in generated full-body images"
+    },
+    {
+      "character": "iren",
+      "sample": "004 displayed",
+      "wiki": "004 displayed",
+      "age": "25~26",
+      "garter_direction": "Iren only; checked in generated full-body images"
+    }
+  ],
+  "page_errors": [],
+  "issues": [],
+  "unrelated_catalog_entries_unchanged": true,
+  "art_direction_status": "awaiting_user_review"
+}

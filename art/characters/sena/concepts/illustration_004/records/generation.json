@@ -1,0 +1,19 @@
+{
+  "id": "sena",
+  "name": "세나",
+  "beauty": "차갑고 청초한 미인",
+  "hair": "애쉬브라운 긴 생머리 반묶음·얇은 시스루뱅",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-a68a5a95-9ea2-4249-9116-89a2bd270698.png",
+  "generated_started_at": "2026-11-09T02:36:36.092Z",
+  "generated_finished_at": "2026-11-09T02:37:06.367Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "sha256": "5a5385e6ccfb1984e7069e2ab2351fc7d22a64c7ccdc8467dbe4b3ec83b07701",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "new beautiful young adult Asian head and hairstyle; existing role equipment retained visually; aesthetic approval pending"
+}
