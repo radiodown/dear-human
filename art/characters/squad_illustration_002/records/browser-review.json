@@ -1,0 +1,55 @@
+{
+  "scope": "four new sample routes and portraits, old-version selection, clone_01 rig button availability, one image open and 500px layout; no motion/game simulation tests",
+  "results": [
+    {
+      "character": "sena",
+      "sample_image": "002 loaded",
+      "unsupported_motion": "reference only",
+      "nav_current_count": 1
+    },
+    {
+      "character": "moa",
+      "sample_image": "002 loaded",
+      "unsupported_motion": "reference only",
+      "nav_current_count": 1
+    },
+    {
+      "character": "yuna",
+      "sample_image": "002 loaded",
+      "unsupported_motion": "reference only",
+      "nav_current_count": 1
+    },
+    {
+      "character": "iren",
+      "sample_image": "002 loaded",
+      "unsupported_motion": "reference only",
+      "nav_current_count": 1
+    },
+    {
+      "character": "sena",
+      "wiki_portrait": "002 loaded",
+      "age_profile": "25~26",
+      "caption": "review pending"
+    },
+    {
+      "character": "moa",
+      "wiki_portrait": "002 loaded",
+      "age_profile": "25~26",
+      "caption": "review pending"
+    },
+    {
+      "character": "yuna",
+      "wiki_portrait": "002 loaded",
+      "age_profile": "25~26",
+      "caption": "review pending"
+    },
+    {
+      "character": "iren",
+      "wiki_portrait": "002 loaded",
+      "age_profile": "25~26",
+      "caption": "review pending"
+    }
+  ],
+  "page_errors": [],
+  "art_direction_status": "awaiting_user_review"
+}
