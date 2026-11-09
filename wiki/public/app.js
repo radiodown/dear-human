@@ -33,7 +33,7 @@ function renderSidebar() {
   document.querySelector('#sidebar').innerHTML = `
     <section class="side-panel"><h2>위키 둘러보기</h2>
     <nav class="primary-nav" aria-label="주요 메뉴">
-      ${[['#/', 'home', '위키 홈'], ['#/article/characters', 'star', '등장인물'], ['#/articles', 'list', '모든 문서'], ['#/timeline', 'clock', '세계 연표']].map(([url, symbol, label]) => `<a href="${url}" class="nav-item ${route === url || (!location.hash && url === '#/') ? 'active' : ''}" ${route === url ? 'aria-current="page"' : ''}>${icon(symbol)}<span>${label}</span>${url === '#/articles' ? `<small>${visible().length}</small>` : ''}</a>`).join('')}
+      ${[['#/', 'home', '위키 홈'], ['#/article/last-card', 'star', '소대 · 구성원'], ['#/article/characters', 'book', '등장인물'], ['#/articles', 'list', '모든 문서'], ['#/timeline', 'clock', '세계 연표']].map(([url, symbol, label]) => `<a href="${url}" class="nav-item ${route === url || (!location.hash && url === '#/') ? 'active' : ''}" ${route === url ? 'aria-current="page"' : ''}>${icon(symbol)}<span>${label}</span>${url === '#/articles' ? `<small>${visible().length}</small>` : ''}</a>`).join('')}
     </nav></section>
     <section class="side-panel"><h2>세계관 분류</h2>
     <nav class="category-nav" aria-label="문서 분류">${content.categories.map(category => `<a href="#/category/${category.id}" class="nav-item ${route === `#/category/${category.id}` ? 'active' : ''}"><span class="category-dot"></span><span>${e(category.title)}</span><small>${visible().filter(article => article.category === category.id).length}</small></a>`).join('')}</nav>
@@ -47,9 +47,34 @@ function card(article, index) {
 }
 
 function characterCards() {
-  const roles = { heroine: '리안 · 핵심 히로인', sena: '세나 · 저격', moa: '모아 · 분대지원화기', yuna: '유나 · 방패·진입', iren: '이렌 · 돌격' };
-  const people = Object.keys(roles).map(slug => visible().find(article => article.slug === slug)).filter(article => article?.portrait);
-  return people.map(article => `<a class="character-card" href="${href(article.slug)}"><div class="character-card-portrait"><img src="./${e(article.portrait.src)}" alt="${e(article.title)}의 최신 인물 일러스트" width="${article.portrait.width}" height="${article.portrait.height}" loading="lazy" decoding="async"></div><div class="character-card-copy"><h3>${e(roles[article.slug])}</h3><span>인물 문서 보기 ↗</span></div></a>`).join('');
+  const unit = visible().find(article => article.slug === 'last-card');
+  return unit?.unit ? rosterCards(unit, '') : '';
+}
+
+function memberImage(person) {
+  return person.avatar
+    ? `<img src="./${e(person.avatar.src)}" alt="${e(person.avatar.alt)}" width="${person.avatar.width}" height="${person.avatar.height}" decoding="async">`
+    : `<span class="commander-symbol" aria-hidden="true">${icon('star')}</span><span class="commander-image-note">외형 미정</span>`;
+}
+
+function rosterCards(unit, currentSlug, compact = false) {
+  return unit.unit.members.map(member => {
+    const person = visible().find(article => article.slug === member.article);
+    if (!person) return '';
+    return `<a class="roster-member${person.slug === currentSlug ? ' is-current' : ''}" href="${href(person.slug)}"${person.slug === currentSlug ? ' aria-current="page"' : ''}><span class="roster-avatar${person.avatar ? '' : ' no-portrait'}">${memberImage(person)}</span><span class="roster-copy"><strong>${e(person.title)}</strong><span class="roster-role">${e(member.role)}</span>${compact ? '' : `<span class="roster-description">${e(member.description)}</span><span class="roster-open">인물 문서 →</span>`}</span></a>`;
+  }).join('');
+}
+
+function renderUnitPanel(article) {
+  const unit = article.unit ? article : visible().find(item => item.slug === article.unitPage);
+  if (!unit?.unit) return;
+  const compact = Boolean(article.profile);
+  const panel = document.createElement(compact ? 'nav' : 'section');
+  panel.className = `unit-panel${compact ? ' unit-panel-compact' : ''}`;
+  panel.setAttribute('aria-label', compact ? '소대 구성원 둘러보기' : '소대와 구성원 안내');
+  const fields = article.unit ? `<aside class="unit-infobox" aria-label="소대 기본 정보"><header><strong>${e(unit.title)}</strong><span>${e(unit.unit.subtitle)} · 별명</span></header><table><caption class="sr-only">소대 정보표</caption><tbody>${unit.unit.fields.map(([label, value]) => `<tr><th scope="row">${e(label)}</th><td>${e(value)}</td></tr>`).join('')}</tbody></table></aside>` : '';
+  panel.innerHTML = `<header class="unit-panel-heading"><div><span class="unit-kicker">DEAR HUMAN · 소대 둘러보기</span><h2>${link(unit.slug, unit.title)}</h2></div><span class="unit-designation">소대 별명</span></header><div class="unit-panel-content${fields ? ' has-unit-info' : ''}"><div class="roster-grid">${rosterCards(unit, article.slug, compact)}</div>${fields}</div>${compact ? '' : `<footer>지휘관과 핵심 클론 5명의 안내입니다. 전체 정원·하위 편제는 미정입니다. <span>아이콘 시안 001 · 검수 대기</span></footer>`}`;
+  document.querySelector('.article-heading').after(panel);
 }
 
 function titleBlock(eyebrow, title, description, extra = '') {
@@ -63,7 +88,7 @@ function renderHome() {
     <div class="category-box"><span>분류:</span> <a href="#/">Dear Human</a> · 대문</div>
     <section class="wiki-welcome"><div class="welcome-caption">DEAR HUMAN WORLD WIKI</div><h2><strong>Dear Human</strong> 세계관 위키</h2><p>인류를 지키기 위해 만들어진 클론들과,<br>한 클론에게 목숨을 빚진 인간 지휘관의 이야기.</p><nav aria-label="입문 바로가기">${link('world-overview', '세계관 개요')}<span>·</span><a href="#/timeline">세계 연표</a><span>·</span><a href="#/articles">모든 문서</a></nav></section>
     <div class="wiki-notice"><strong>열람 안내</strong><p>설정은 ${badge('확정')} ${badge('보완안')} ${badge('미정')}으로 구분합니다. 비밀 설정은 상단의 <strong>제작자 설정</strong>을 켜면 볼 수 있습니다.</p></div>
-    <section class="character-portal" aria-label="주요 인물"><h2 class="wiki-section-title">주요 인물 ${link('characters', '등장인물 모아보기 →')}</h2><p>초상화를 눌러 프로필과 성격·역할·인물 관계를 읽어보세요.</p><div class="character-card-grid">${characterCards()}</div></section>
+    <section class="character-portal" aria-label="주요 인물"><h2 class="wiki-section-title">Last Card · 소대 별명 ${link('last-card', '소대 문서 보기 →')}</h2><p>지휘관과 클론 5명 · 아이콘을 눌러 인물 문서를 읽어보세요. Last Card는 소대의 별명이며, 아이콘은 검수 대기 시안입니다.</p><div class="roster-grid home-roster">${characterCards()}</div></section>
     <section class="portal-section"><h2 class="wiki-section-title">세계관 찾아보기</h2><div class="portal-grid">${content.categories.map(category => `<section class="wiki-portal"><h3><a href="#/category/${category.id}">${e(category.title)}</a><span>${articles.filter(article => article.category === category.id).length}</span></h3><p>${e(category.description)}</p><div class="portal-links">${articles.filter(article => article.category === category.id).map(article => link(article.slug, article.title)).join('')}</div></section>`).join('')}</div></section>
     <section class="home-chronology"><h2 class="wiki-section-title">주요 역사 <a href="#/timeline">전체 연표 보기 →</a></h2><div class="history-track">${[['2063', 'AI 전쟁', 'ai-war'], ['2090', 'UE 출범', 'united-earth'], ['2099', '클론전쟁', 'clone-war'], ['2114', '베스퍼 도착', 'commander']].map(([date, title, slug]) => `<a href="${href(slug)}"><time>${date}</time><span class="history-node"></span><strong>${title}</strong></a>`).join('')}</div></section>
     <div class="wiki-bottom-note">본편 시작 기준일: <strong>2114년 11월 21일</strong> · 날짜와 나이는 ${link('calendar', '지구 표준력과 만 나이')}를 따릅니다.</div>
@@ -78,6 +103,7 @@ function renderIndex(categoryId) {
 }
 
 function renderArticle(slug) {
+  if (slug === 'lumen-platoon') { location.replace('#/article/last-card'); return; }
   const article = content.articles.find(item => item.slug === slug);
   if (!article) return renderMissing();
   if (!creator && article.visibility === 'creator') {
@@ -93,6 +119,7 @@ function renderArticle(slug) {
   main.innerHTML = `<div class="article-page"><div class="breadcrumbs"><a href="#/">위키</a><span>/</span><a href="#/category/${article.category}">${e(categoryById(article.category).title)}</a></div><div class="article-layout"><article class="article-main"><header class="article-heading"><div class="article-meta">${badge(article.status)}${article.visibility === 'creator' ? '<span class="creator-tag">제작자 전용 · 스포일러</span>' : '<span>세계관 문서</span>'}</div><h1>${e(article.title)}</h1><p class="article-summary">${e(article.summary)}</p><div class="article-tools"><span>편찬 ${e(article.updated)}</span><div><button id="copy-link">주소 복사</button><a href="${sourceUrl}" download>문서 내려받기 ↗</a></div></div></header>${article.visibility === 'creator' ? '<div class="spoiler-banner">제작자용 기록입니다. 작중 인물이 이미 아는 사실과 구분해 읽어주세요.</div>' : ''}<div class="prose">${html}</div><section class="article-sources"><h2>편찬 근거</h2><p>기존 설정을 바탕으로 이 위키를 위해 독립 집필한 문서입니다.</p><ul>${article.sources.map(source => `<li>${e(source)}</li>`).join('')}</ul></section>${backlinks.length ? `<section class="backlinks"><h2>이 문서를 가리키는 기록 <span>${backlinks.length}</span></h2><div>${backlinks.map(item => link(item.slug, item.title)).join('')}</div></section>` : ''}<section class="related"><h2>함께 읽기</h2><div class="related-grid">${related.map(item => `<a href="${href(item.slug)}"><strong>${e(item.title)}</strong><p>${e(item.summary)}</p><span>↗</span></a>`).join('')}</div></section></article><aside class="toc"><div class="eyebrow">ON THIS PAGE</div><h2>이 문서의 목차</h2><nav aria-label="문서 목차">${toc.map(item => `<button data-section="${e(item.id)}" class="toc-level-${item.level}">${e(item.title)}</button>`).join('')}</nav><div class="toc-note"><span class="live-dot"></span>${e(categoryById(article.category).title)}<p>${article.status === '확정' ? '기준 설정으로 채택된 내용입니다. 문서 안의 미정 사항은 별도로 표시합니다.' : '명칭과 세부 사항을 구체화하는 보완 설정입니다.'}</p></div></aside></div></div>`;
   const articleToc = document.querySelector('.toc');
   document.querySelector('.article-heading').after(articleToc);
+  renderUnitPanel(article);
   articleToc.querySelector('h2').textContent = '목차';
   if (article.profile) {
     const profile = article.profile;

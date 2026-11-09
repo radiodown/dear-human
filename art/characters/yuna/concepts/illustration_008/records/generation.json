@@ -1,0 +1,54 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit",
+  "calls": 2,
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "user_instruction": "이걸로 전부 변경해서 다시 생성",
+  "face_direction_status": "approved_by_user",
+  "derivative_status": "awaiting_user_review",
+  "references": [
+    {
+      "role": "fullbody_edit_target",
+      "path": "art/characters/yuna/concepts/illustration_006/source/illustration.png",
+      "sha256": "63d52b9c771ad20ae3320234a7cc8c589b5077bf86082df67fe5af290799fcd0"
+    },
+    {
+      "role": "approved_blonde_face_identity",
+      "path": "art/characters/yuna/concepts/face_blonde_sample_008/source/portrait.png",
+      "sha256": "ff9304f631978654170bf69b59e1b5579aceba8f7f28a0e965d1858a5493fa3e"
+    }
+  ],
+  "outputs": {
+    "fullbody": {
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bef9-ff7c-7740-89dc-8113d6cdcaae\\exec-2caf3975-81f2-4b53-a4d2-2bd3ee0e5fd4.png",
+      "saved_path": "art/characters/yuna/concepts/illustration_008/source/illustration.png",
+      "width": 1024,
+      "height": 1536,
+      "image_mode": "RGB",
+      "sha256": "e24c2d98685292e27e8c3c05bd9b303bfb2d91b60605825ba538715bbf709f8b",
+      "transformations": [],
+      "timing": {
+        "started_at": "2026-11-09T06:34:14.226Z",
+        "finished_at": "2026-11-09T06:34:51.578Z"
+      },
+      "prompt": "prompt.json"
+    },
+    "icon": {
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bef9-ff7c-7740-89dc-8113d6cdcaae\\exec-4844638e-4012-4abf-884d-c3d7f39cb53a.png",
+      "saved_path": "art/characters/yuna/concepts/illustration_008/source/icon.png",
+      "width": 1254,
+      "height": 1254,
+      "image_mode": "RGB",
+      "sha256": "7bb8c713dd41adbc0b34d81f24c5447941e8cb9eb3d7f09c8db9e5e3d1edf190",
+      "transformations": [],
+      "timing": {
+        "started_at": "2026-11-09T06:34:57.872Z",
+        "finished_at": "2026-11-09T06:35:24.928Z"
+      },
+      "prompt": "icon-prompt.json"
+    }
+  },
+  "review_scope": "Visually inspected generated fullbody and icon; golden blonde and approved face applied; armor/shield/pistol/pose retained visually. Pixel identity is not guaranteed. No browser or game tests."
+}

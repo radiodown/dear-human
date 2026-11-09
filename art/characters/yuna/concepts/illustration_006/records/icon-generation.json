@@ -1,0 +1,17 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "generated_started_at": "2026-11-09T06:05:38.154Z",
+  "generated_finished_at": "2026-11-09T06:06:01.264Z",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bee1-3e63-7033-8410-1da7ce13ec6e\\exec-8944b111-cc66-4c49-bcad-2f37e4b68ddb.png",
+  "sha256": "70724dd4422ce11036b88e7874811b1ccc060c6f76e26ea669d8566ecf267080",
+  "width": 1254,
+  "height": 1254,
+  "reference": "art/characters/yuna/concepts/face_gyaru_sample_006/source/portrait.png",
+  "transformations": [],
+  "face_direction_status": "approved_by_user",
+  "derivative_status": "awaiting_user_review"
+}

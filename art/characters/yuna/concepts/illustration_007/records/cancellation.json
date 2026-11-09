@@ -1,0 +1,9 @@
+{
+  "status": "cancelled_by_user",
+  "instruction": "아니야 취소 너무 애니느낌이야",
+  "applied_to_wiki": false,
+  "applied_to_catalog": false,
+  "scope": "Cancel the stronger 3D anime style revision. Preserve existing applied versions. Moa white hair / blue eyes / Russian-inspired appearance direction retained; newer instruction requests straight medium-length bob.",
+  "generation_outcome": "Style-transfer call interrupted with no returned result.",
+  "confirmed_generated_source": null
+}

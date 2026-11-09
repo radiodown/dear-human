@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/moa-illustration-007.png",
+  "source": "art/characters/moa/concepts/illustration_007/source/illustration.png",
+  "sha256": "6660f4cd9d21ca3aa5afdf69c3ffd5f38559302ea98e5d6f907627563e38cece",
+  "width": 1024,
+  "height": 1536,
+  "status": "채택 얼굴·헤어 적용 전신 007 · 세부 확인 대기",
+  "treatment": "내장 image_gen 원본을 바이트 변경 없이 복사",
+  "prompt": "art/characters/moa/concepts/illustration_007/records/prompt.md"
+}

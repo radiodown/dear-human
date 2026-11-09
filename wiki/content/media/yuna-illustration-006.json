@@ -1,0 +1,12 @@
+{
+  "asset": "public/assets/characters/yuna-illustration-006.png",
+  "source": "art/characters/yuna/concepts/illustration_006/source/illustration.png",
+  "sha256": "63d52b9c771ad20ae3320234a7cc8c589b5077bf86082df67fe5af290799fcd0",
+  "width": 1024,
+  "height": 1536,
+  "status": "채택한 얼굴 적용 전신 006 · 세부 확인 대기",
+  "face_direction_status": "approved_by_user",
+  "fullbody_result_status": "awaiting_user_review",
+  "treatment": "내장 image_gen 원본을 바이트 변경 없이 복사",
+  "prompt": "art/characters/yuna/concepts/illustration_006/records/prompt.md"
+}

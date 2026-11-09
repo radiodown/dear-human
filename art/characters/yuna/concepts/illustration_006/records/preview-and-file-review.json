@@ -1,0 +1,15 @@
+{
+  "scope": "New Yuna 006 static images and wiki/sample displays only; no motion/game tests",
+  "results": [
+    "Default Yuna sample selects illustration_006 and loads full-body PNG",
+    "Wiki Yuna shows 006 full-body portrait, updated facial description and square icon",
+    "500px wiki layout has no horizontal overflow",
+    "Last Card roster reuses new Yuna icon"
+  ],
+  "page_errors": [],
+  "issues": [],
+  "unrelated_catalog_entries_unchanged": true,
+  "face_direction_status": "approved_by_user",
+  "fullbody_art_review": "awaiting_user_review",
+  "browser": "standalone headless Chrome; in-app connection unavailable"
+}

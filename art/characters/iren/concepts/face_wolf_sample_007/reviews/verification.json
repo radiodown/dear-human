@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-11-09T06:42:13.885768+00:00",
+  "url": "http://127.0.0.1:4173/#/samples/characters/iren?rev=face_wolf_sample_007",
+  "browser": "Separate headless local Chrome via existing Playwright; node_repl unavailable before browser connection (sandboxPolicy metadata error).",
+  "checks": [
+    "New portrait decodes (1199 x 1312)",
+    "Requested revision is selected",
+    "New portrait is visible in existing Aren sample page",
+    "No page errors observed"
+  ],
+  "page_errors": [],
+  "images": [
+    {
+      "src": "http://127.0.0.1:4173/art/characters/iren/concepts/face_wolf_sample_007/source/portrait.png",
+      "width": 1199,
+      "height": 1312,
+      "visible": true
+    }
+  ],
+  "art_acceptance": "awaiting_user_review",
+  "scope": "One static sample page only. No motion, gameplay or full regression checks.",
+  "catalog_change_scope": "Only new Aren sample revision and Aren review revision pointer changed against the saved pre-edit catalog.",
+  "project_wide_checks": {
+    "catalog": {
+      "status": "failed",
+      "issue_count": 21,
+      "scope_note": "Project-wide historical artifact hash issues observed; not a pass of the entire catalog."
+    },
+    "documents": {
+      "status": "failed",
+      "issue_count": 2012,
+      "scope_note": "Project-wide links in historical snapshots and other documents; not a pass of the entire document set."
+    }
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "generated_started_at": "2026-11-09T06:02:34.931Z",
+  "generated_finished_at": "2026-11-09T06:03:11.301Z",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bee1-3e63-7033-8410-1da7ce13ec6e\\exec-e0f476c6-ab7a-46c7-9f76-a20754b41b6e.png",
+  "width": 1024,
+  "height": 1536,
+  "image_mode": "RGB",
+  "sha256": "63d52b9c771ad20ae3320234a7cc8c589b5077bf86082df67fe5af290799fcd0",
+  "transformations": [],
+  "face_direction_status": "approved_by_user",
+  "fullbody_result_status": "awaiting_user_review",
+  "user_instruction": "좋아 그렇게 전 일러스트 변경",
+  "references": [
+    {
+      "role": "fullbody_edit_target",
+      "path": "art/characters/yuna/concepts/illustration_005/source/illustration.png",
+      "sha256": "65b48e854ff3794d6c13c535b25fab9ee32e91a4b94384167776702490f5242f"
+    },
+    {
+      "role": "approved_face_identity",
+      "path": "art/characters/yuna/concepts/face_gyaru_sample_006/source/portrait.png",
+      "sha256": "ffe6961d1ded7e12ba275c96c81e79b1ebe325d20ead3ae9935a917b7d82c600"
+    }
+  ],
+  "review_scope": "Approved gyaru face applied to full-body illustration; original hair, outfit, equipment and composition retained visually, not pixel-identical."
+}

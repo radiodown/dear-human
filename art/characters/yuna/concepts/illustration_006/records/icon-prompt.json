@@ -1,0 +1,7 @@
+{
+  "prompt": "Use case: identity-preserve.\nAsset type: square wiki portrait icon of Dear Human Yuna.\nThe input image is the USER-APPROVED exact face identity and hairstyle. Reframe this same portrait into a SINGLE SQUARE 1:1 head-and-shoulders icon. Maintain the same facial identity, warm slightly tanned caramel skin, gyaru eye makeup and curled lashes, glossy peach-nude lips, small cheek beauty mark, confident gentle smile, head angle and long straight black half-up hairstyle. Keep the black and gunmetal armored high collar and restrained gold trim with dark charcoal studio background and the same cinematic realistic-anime 3D illustration style.\nThis is only a framing derivative of the approved face. Do not redesign facial features, complexion, hair, outfit or jewelry. Entire head and hair top visible, face large and centered with a little shoulder/collar visible, useful as a small square UI icon. Square image, no border or panels. No text, watermark, new accessory, weapon or additional person.",
+  "referenced_image_paths": [
+    "C:/Users/axgatge/Desktop/miss/art/characters/yuna/concepts/face_gyaru_sample_006/source/portrait.png"
+  ],
+  "transparent_background": false
+}

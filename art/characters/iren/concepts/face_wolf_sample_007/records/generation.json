@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "entity_id": "iren",
+  "display_name": "아렌",
+  "revision_id": "face_wolf_sample_007",
+  "request": "사용자 선택 ① 흑발 늑대상. 얼굴·헤어 상반신 시안을 먼저 제작.",
+  "tool": "built-in image_gen",
+  "model": null,
+  "calls": 1,
+  "started_at_utc": "2026-11-09 06:39:03 UTC",
+  "finished_at_utc": "2026-11-09 06:39:48 UTC",
+  "cost": null,
+  "unexposed_fields": "Exact model and actual cost not exposed by built-in tool.",
+  "input": {
+    "path": "art/characters/iren/concepts/illustration_005/source/illustration.png",
+    "sha256": "c537123349520e899d1c3415ff6832e314087718c593fc1f3f95f30c2e17d99b",
+    "role": "Existing uniform, material and render reference; face/hair redesigned."
+  },
+  "output": {
+    "original_path": "C:/Users/axgatge/.codex/generated_images/01a1bf06-20df-7ce0-9d08-b9358d001b4a/exec-69a71a9d-a088-4f1b-9ede-922f74c854c2.png",
+    "workspace_path": "art/characters/iren/concepts/face_wolf_sample_007/source/portrait.png",
+    "sha256": "28d26951cfaab878f5e0e93b4a0c862f7f0e756bfe0069286a32b569b42c83c0",
+    "width": 1199,
+    "height": 1312,
+    "mode": "RGB",
+    "unmodified_original": true
+  },
+  "art_direction_status": "awaiting_user_review",
+  "visual_review": "Short layered black bob, one visible ear, defined straight brows, steady neutral gaze, youthful adult face and black/gold upper-body uniform observed. Exact appeal remains for user review.",
+  "scope": "Upper-body face and hair sample only. Existing full body, wiki icon, motion and gameplay preserved."
+}

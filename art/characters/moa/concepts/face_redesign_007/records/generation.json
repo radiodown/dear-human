@@ -1,0 +1,27 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "timing": {
+    "face_started": "2026-11-09T06:28:47.609Z",
+    "face_finished": "2026-11-09T06:29:35.311Z",
+    "hair_started": "2026-11-09T06:30:39.830Z",
+    "hair_finished": "2026-11-09T06:31:05.595Z"
+  },
+  "sources": {
+    "portrait.png": "exec-27c648e2-fc84-4cc3-bdbf-65c4534baeb8.png",
+    "previous-hair.png": "exec-e70aceeb-afca-4fb2-a02b-ebcc9c045bf3.png"
+  },
+  "width": 1254,
+  "height": 1254,
+  "sha256": "4f62c7389750d5dc15d2daa5e556fdeed6757eba7e0fd1a6f24f73ab39b6bae8",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "scope": "New youthful adult face, followed by modern straight medium bob and wispy fringe; portrait sample only",
+  "reference": {
+    "path": "art/characters/moa/concepts/illustration_006/source/illustration-no-folds.png",
+    "sha256": "54a5f396aecfb1cea64b3112ef26b536f50ef9bfce72c82b939d1e883e72369d"
+  }
+}

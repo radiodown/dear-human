@@ -1,0 +1,21 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "generated_started_at": "2026-11-09T06:00:13.781Z",
+  "generated_finished_at": "2026-11-09T06:00:48.482Z",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bee1-3e63-7033-8410-1da7ce13ec6e\\exec-b2bdc951-b593-4e28-bed3-173d91f7186d.png",
+  "width": 1024,
+  "height": 1536,
+  "image_mode": "RGB",
+  "sha256": "ffe6961d1ded7e12ba275c96c81e79b1ebe325d20ead3ae9935a917b7d82c600",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "reference": {
+    "path": "art/characters/yuna/concepts/illustration_005/source/illustration.png",
+    "sha256": "65b48e854ff3794d6c13c535b25fab9ee32e91a4b94384167776702490f5242f"
+  },
+  "review_scope": "Single upper-body facial redesign sample; slightly tan gyaru makeup; black half-up hair and armor concept retained visually. New cheek beauty mark visible. No full-body replacement or adoption."
+}

@@ -1,0 +1,13 @@
+{
+  "asset": "public/assets/characters/yuna-icon-008.png",
+  "source": "art/characters/yuna/concepts/illustration_008/source/icon.png",
+  "sha256": "7bb8c713dd41adbc0b34d81f24c5447941e8cb9eb3d7f09c8db9e5e3d1edf190",
+  "width": 1254,
+  "height": 1254,
+  "status": "채택한 밝은 금발·새 얼굴 적용 008 · 파생 세부 일치도 확인 대기",
+  "face_direction_status": "approved_by_user",
+  "derivative_status": "awaiting_user_review",
+  "treatment": "내장 image_gen 원본을 바이트 변경 없이 복사",
+  "prompt": "art/characters/yuna/concepts/illustration_008/records/icon-prompt.md",
+  "supersedes": "assets/characters/yuna-icon-006.png"
+}

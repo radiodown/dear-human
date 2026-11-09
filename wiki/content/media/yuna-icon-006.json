@@ -1,0 +1,11 @@
+{
+  "asset": "public/assets/characters/yuna-icon-006.png",
+  "source": "art/characters/yuna/concepts/illustration_006/source/icon.png",
+  "sha256": "70724dd4422ce11036b88e7874811b1ccc060c6f76e26ea669d8566ecf267080",
+  "width": 1254,
+  "height": 1254,
+  "status": "채택한 갸루 얼굴의 정사각형 파생 아이콘 006 · 일치도 검수 대기",
+  "treatment": "내장 image_gen 정사각형 파생 편집 원본을 바이트 변경 없이 복사",
+  "prompt": "art/characters/yuna/concepts/illustration_006/records/icon-prompt.json",
+  "supersedes": "assets/characters/icons-001/yuna.webp"
+}

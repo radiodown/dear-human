@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/moa-icon-007.png",
+  "source": "art/characters/moa/concepts/face_redesign_007/source/portrait.png",
+  "sha256": "4f62c7389750d5dc15d2daa5e556fdeed6757eba7e0fd1a6f24f73ab39b6bae8",
+  "width": 1254,
+  "height": 1254,
+  "status": "사용자 채택 얼굴·헤어 샘플 007",
+  "treatment": "채택된 정사각형 초상 원본을 바이트 변경 없이 복사",
+  "supersedes": "assets/characters/icons-001/moa.webp"
+}

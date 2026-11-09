@@ -1,0 +1,15 @@
+{
+  "scope": "New Moa 007 static PNGs and wiki/sample display only; no game/motion tests",
+  "results": [
+    "Default Moa sample displays full-body 007",
+    "Wiki displays updated full-body, approved icon and facial/hair description",
+    "500px wiki layout has no horizontal overflow",
+    "Last Card roster reuses approved Moa icon"
+  ],
+  "page_errors": [],
+  "issues": [],
+  "unrelated_catalog_entries_unchanged": true,
+  "face_and_hair_status": "approved_by_user",
+  "fullbody_result_status": "awaiting_user_review",
+  "browser": "standalone headless Chrome; in-app connection unavailable"
+}

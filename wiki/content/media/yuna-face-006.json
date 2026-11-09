@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/yuna-face-006.png",
+  "source": "art/characters/yuna/concepts/face_gyaru_sample_006/source/portrait.png",
+  "sha256": "ffe6961d1ded7e12ba275c96c81e79b1ebe325d20ead3ae9935a917b7d82c600",
+  "width": 1024,
+  "height": 1536,
+  "status": "사용자 채택 얼굴 샘플 006",
+  "treatment": "채택한 세로형 초상 원본을 바이트 변경 없이 복사; UI 아이콘으로 표시",
+  "supersedes": "assets/characters/icons-001/yuna.webp"
+}
