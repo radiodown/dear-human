@@ -7455,7 +7455,7 @@
       "display_name": "세나",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_004",
+      "review_revision_id": "turnaround_002",
       "capabilities": [
         "concept_image"
       ],
@@ -7816,6 +7816,146 @@
             "type": "concept_image",
             "production_ready_cutout": false
           }
+        },
+        {
+          "revision_id": "turnaround_002",
+          "display_name": "세나 · 현재 외형 앞뒤좌우 002",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "sena-turnaround-002",
+          "artifacts": [
+            {
+              "path": "art/characters/sena/concepts/turnaround_002/source/back.png",
+              "sha256": "b297ddd4a151c7b73064d708d93b9dfb1149f04b205af21df9961d4d7b6b3cce"
+            },
+            {
+              "path": "art/characters/sena/concepts/turnaround_002/source/front.png",
+              "sha256": "cf3226db744c90ebe5ab6bda689f8bc5a144a5df1947ea579ab3eb57cfd38fe1"
+            },
+            {
+              "path": "art/characters/sena/concepts/turnaround_002/source/left.png",
+              "sha256": "104f2f328b50daf7100fd670fa29c26bcf4ad3a3601b8ea3ce210854536f0f96"
+            },
+            {
+              "path": "art/characters/sena/concepts/turnaround_002/source/right.png",
+              "sha256": "a7b393b5869b534ac20c8ef9c8b5c28242afa9e13cf7ea90098ac823fb14fc35"
+            },
+            {
+              "path": "art/characters/sena/concepts/turnaround_002/records/generation.json",
+              "sha256": "104b3f434a94c0cde37e519f31ac9cf9be148c60871f2eb5bb65aede2ef7d5cf"
+            },
+            {
+              "path": "art/characters/sena/concepts/turnaround_002/records/prompt_right.json",
+              "sha256": "733942d20cd838f7c5975397a8e6e93a2077dad094d681b75154a35a82508ac4"
+            },
+            {
+              "path": "art/characters/sena/concepts/turnaround_002/records/tool_right.json",
+              "sha256": "8cbb20d6cc6afe944e86d8817d5ca837ffdd2cc623064d663b6ba33f26561c09"
+            },
+            {
+              "path": "art/characters/sena/concepts/turnaround_002/records/prompt_right.md",
+              "sha256": "981f7decb98ab60808a29d3a6969e3c0fd560dff1c1d8cd6a79aa911be0adc2c"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "sena",
+              "revision_id": "illustration_004"
+            }
+          ],
+          "description": "세나의 현재 외형을 반영한 정면·후면·좌측면·우측면 전신 시안. 손에 든 장비를 뺀 중립 자세이며 복장·부착 장비를 확인한다. 리안·기존 모션·게임은 유지한다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "저격·관측"
+            ],
+            [
+              "얼굴 시안",
+              "차갑고 청초한 미인"
+            ],
+            [
+              "헤어",
+              "애쉬브라운 긴 생머리 반묶음·얇은 시스루뱅"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 검수 대기"
+            ],
+            [
+              "보기",
+              "정면·후면·좌측면·우측면"
+            ],
+            [
+              "자세",
+              "중립 서기 · 빈손"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "내장 image_gen 1회 · 원본 및 실패 시도 보존",
+            "세나의 기존 정면·후면·좌측면 세 장은 원본 바이트 재사용",
+            "방향별 얼굴·신체 비례·장식·가림 세부는 사용자 검수 대기",
+            "좌·우는 화면에서 바라보는 방향 기준이며 이미지를 단순 반전하지 않음"
+          ],
+          "preview": {
+            "image_path": "art/characters/sena/concepts/turnaround_002/source/front.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front",
+              "back",
+              "left",
+              "right"
+            ],
+            "images": {
+              "front": {
+                "image_path": "art/characters/sena/concepts/turnaround_002/source/front.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "back": {
+                "image_path": "art/characters/sena/concepts/turnaround_002/source/back.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "left": {
+                "image_path": "art/characters/sena/concepts/turnaround_002/source/left.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "right": {
+                "image_path": "art/characters/sena/concepts/turnaround_002/source/right.png",
+                "width": 1024,
+                "height": 1536
+              }
+            },
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "png_hashes_and_four_wiki_images_and_four_sample_view_buttons_url_restore_500px"
         }
       ]
     },
@@ -7825,7 +7965,7 @@
       "display_name": "모아",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_007",
+      "review_revision_id": "turnaround_002",
       "capabilities": [
         "concept_image"
       ],
@@ -8490,6 +8630,209 @@
             "production_ready_cutout": false
           },
           "verification_scope": "png_decode_sha256_targeted_sample_wiki_roster_and_500px_display"
+        },
+        {
+          "revision_id": "turnaround_002",
+          "display_name": "모아 · 현재 외형 앞뒤좌우 002",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "moa-turnaround-002",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/source/attempt-back-cape.png",
+              "sha256": "8aec62b45cfea7d3b56274fe75987d501d4025fd6e48eaaff6710b7141e4ac7a"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/source/attempt-left-cape.png",
+              "sha256": "07bb2516c4b56931a1b3ff943a0f3c1f28f7669c9d406b25fa4fc30b3e211b6d"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/source/attempt-right-cape.png",
+              "sha256": "71a070ed4840e030eeacc52c9baf7a0eaf31b8c1a179817ce6e5f886ee15719f"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/source/back.png",
+              "sha256": "b5503a4dc62c5afbc6ba5bfa58249d8908d03924387c31e96ad7d69d90fb4fa1"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/source/front.png",
+              "sha256": "114443ce63c3e7ba1a9de96ed3c518073668b622a29da028aafe5d0f8b8473ff"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/source/left.png",
+              "sha256": "de19b96dcecad7eb9392c744296659d422336c47d2de525936d0b401af7d5dc0"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/source/right.png",
+              "sha256": "949c0eebc9ef451183055752d59d6a2dbfaa5eb6868d70d013b850edc8340e59"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/generation.json",
+              "sha256": "3d55cb4b7481c711f6c673b3fce73e2503fd6efb2e20922a7d9e9976732cd96d"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_back.json",
+              "sha256": "c48866b5beded102c4039c0ee7071116353912ab468bf6633e7f4b34a0b3db76"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_back_repair.json",
+              "sha256": "279758947f9daf63410d4661cff7bcd265b6594a93eb63778e5bcfb7c9e65c34"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_front.json",
+              "sha256": "6d0cbd361204b092b5a3eb17ace00bd3d3ea30813517979082410dc939b4bdfa"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_left.json",
+              "sha256": "b7c2817562ec69c4b78c9580069f96475f929280fa4fbdf77f99ec87f86df9f7"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_left_repair.json",
+              "sha256": "3712c1cb53a030246e094a2be77365ca4812e473a209bcc6b8726a2e4f5b8070"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_right.json",
+              "sha256": "8837462d84e767451272b1cc1d7ad71f349a455b3fd60dc5d2d8257f5ef1a0c0"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_right_repair.json",
+              "sha256": "0ec6c46a8f9dc6a530b6492529fe12f72f3c31998a38cbeccf1780212b44c1bb"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/tool_back.json",
+              "sha256": "dacad034337c1607b9b46dcc0dcbe43d5cb84ec7cd84ba8770a513efc5581ad5"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/tool_back_repair.json",
+              "sha256": "20b7292ee756f212e9fc0fbb02c14c5c2d7901f48b7a8ef4034d4101a06c6cbd"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/tool_front.json",
+              "sha256": "a6bf2395f62373c0ac5d44cad59d4c887cd4125e71c8bcbb347c7452d67bd1cb"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/tool_left.json",
+              "sha256": "197d40b97bfb4171b2452b89575078e1b5d9116f3d3050a20855ad668ea3b883"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/tool_left_repair.json",
+              "sha256": "8b6b7196ceb1026078f87e4d71cef92252b8d0225071ab049c80142c66c25b70"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/tool_right.json",
+              "sha256": "7c7813582d7ba39bcba7ab06725698779c1ad8b265f01f47acbb3ffd64840d50"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/tool_right_repair.json",
+              "sha256": "8873ff56b75ea3b10fbf8fcd7a1b168447bb0dd02fa9c09b577a2b7c02c8a2ad"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_back.md",
+              "sha256": "928ffe17cf8e746604a3cc8bfea1c21269337eb21b69cabcac7e7393dd3736fe"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_back_repair.md",
+              "sha256": "1f83b3d19ab3ec0716d12711c90ed38650da677cf228c82a7ce48fa1ff59694a"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_front.md",
+              "sha256": "c1a0e02e31e844b740edddb384f1b05560e12211ae33a8e30166da7e0891a35c"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_left.md",
+              "sha256": "22648bb9521f9d14faa67a658a08e5eaacb5629b781d2911a4847f0ff73dfa0b"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_left_repair.md",
+              "sha256": "c71ae844f711258f94834e531e5d69aecdd44594a3d4ad0e63731e93cc5f916e"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_right.md",
+              "sha256": "0963336f6d679e3d61eb73cbd206f3449e5990612bd1038e75cb2c43debc49c8"
+            },
+            {
+              "path": "art/characters/moa/concepts/turnaround_002/records/prompt_right_repair.md",
+              "sha256": "2bcb70f608bae3b17f7eac989a0dd23e3a39b619811fcc1a113e463795897f69"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "illustration_007"
+            }
+          ],
+          "description": "모아의 현재 외형을 반영한 정면·후면·좌측면·우측면 전신 시안. 손에 든 장비를 뺀 중립 자세이며 복장·부착 장비를 확인한다. 리안·기존 모션·게임은 유지한다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "헤어",
+              "백발 생머리 중단발·시스루뱅 · 채택"
+            ],
+            [
+              "눈",
+              "푸른 눈"
+            ],
+            [
+              "얼굴",
+              "젊고 부드러운 러시아계 인상 · 채택"
+            ],
+            [
+              "보기",
+              "정면·후면·좌측면·우측면"
+            ],
+            [
+              "자세",
+              "중립 서기 · 빈손"
+            ]
+          ],
+          "palette": [],
+          "review_notes": [
+            "내장 image_gen 7회 · 원본 및 실패 시도 보존",
+            "최신 얼굴·헤어를 기준으로 새 다방향 제작",
+            "방향별 얼굴·신체 비례·장식·가림 세부는 사용자 검수 대기",
+            "좌·우는 화면에서 바라보는 방향 기준이며 이미지를 단순 반전하지 않음"
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/turnaround_002/source/front.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front",
+              "back",
+              "left",
+              "right"
+            ],
+            "images": {
+              "front": {
+                "image_path": "art/characters/moa/concepts/turnaround_002/source/front.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "back": {
+                "image_path": "art/characters/moa/concepts/turnaround_002/source/back.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "left": {
+                "image_path": "art/characters/moa/concepts/turnaround_002/source/left.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "right": {
+                "image_path": "art/characters/moa/concepts/turnaround_002/source/right.png",
+                "width": 1024,
+                "height": 1536
+              }
+            },
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "png_hashes_and_four_wiki_images_and_four_sample_view_buttons_url_restore_500px"
         }
       ]
     },
@@ -8499,7 +8842,7 @@
       "display_name": "유나",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_008",
+      "review_revision_id": "turnaround_002",
       "capabilities": [
         "concept_image"
       ],
@@ -9308,6 +9651,182 @@
             "type": "concept_image",
             "production_ready_cutout": false
           }
+        },
+        {
+          "revision_id": "turnaround_002",
+          "display_name": "유나 · 현재 외형 앞뒤좌우 002",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "yuna-turnaround-002",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/source/back.png",
+              "sha256": "698b4e055329dcd9b483eddd21d277d6c9aec27188dfab5aaa9157adcdcdf812"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/source/front.png",
+              "sha256": "3de19101f2316a3aa1298a524f3765463d288f484064934e17b2f32fa04fa4f1"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/source/left.png",
+              "sha256": "4c6121018e21423b067927df07f86fb55a3d438fa5827d389f647769c8e8625f"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/source/right.png",
+              "sha256": "a4408bf160a77260ff19455503f8645ca5870fe266f8d5edcfd8f6a2f5a4c313"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/generation.json",
+              "sha256": "ab1b3408524ee5c946d14fd177f2338ee6b5f4080c9c68b11954ee8457e97547"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/prompt_back.json",
+              "sha256": "1f31e43b7180d5ba921f45820f6a9f2b346979b8bf57077c7215cf7e48be5c27"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/prompt_front.json",
+              "sha256": "cdf6aef4cd0eaa2ce6e2dab16b39b71cf5b13b2f2a5164682fe8a90c9f527868"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/prompt_left.json",
+              "sha256": "5afdaa4ea7d14386464577d797d76c3e78def9938eaf52c10d10c9ba3db8fc01"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/prompt_right.json",
+              "sha256": "d31a0518bb0d16eee2360c56901bab6ac972f36008c15ce8935185bdb46009d4"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/tool_back.json",
+              "sha256": "3dba1d92de257eb20a9d9ab8b60690f7982e3fe37a06dbb248a4565a8a765b3e"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/tool_front.json",
+              "sha256": "215769451c26127df92010c088aeb8dd34215dfd57583801e848afa120826e0b"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/tool_left.json",
+              "sha256": "4d64ae819c919ecca6e2a0558e6bf771f748ec9bf9e17799a9c4b82ae550d159"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/tool_right.json",
+              "sha256": "f00159afc8fdf5eadd30b5748ad13da0f6612e011f15d06a646eef08e2edc107"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/prompt_back.md",
+              "sha256": "f8899dff0e853bf20224d6ab41bc24794e8b529ea98f0d74d1ddb092437f68ef"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/prompt_front.md",
+              "sha256": "ec8fa384e00e51f38a86496f31cedeb4fd79238b060e7541ea33142373c6fc09"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/prompt_left.md",
+              "sha256": "4ba3a333b5d66d8c18ac127eebfa7b15babfcf6e92d98b91798a6a917e42efeb"
+            },
+            {
+              "path": "art/characters/yuna/concepts/turnaround_002/records/prompt_right.md",
+              "sha256": "262e66decdde7a2e07d1bab9ea10911635d6babfc4d48faed28e61f5447f0839"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "illustration_008"
+            }
+          ],
+          "description": "유나의 현재 외형을 반영한 정면·후면·좌측면·우측면 전신 시안. 손에 든 장비를 뺀 중립 자세이며 복장·부착 장비를 확인한다. 리안·기존 모션·게임은 유지한다.",
+          "appearance_specs": [
+            [
+              "국적",
+              "미국"
+            ],
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "방패·진입"
+            ],
+            [
+              "얼굴",
+              "샘플 008의 새 얼굴 · 사용자 채택"
+            ],
+            [
+              "헤어",
+              "밝은 금발 긴 생머리 반묶음·옆가르마"
+            ],
+            [
+              "상태",
+              "전신·아이콘 008 · 세부 확인 대기"
+            ],
+            [
+              "보기",
+              "정면·후면·좌측면·우측면"
+            ],
+            [
+              "자세",
+              "중립 서기 · 빈손"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "내장 image_gen 4회 · 원본 및 실패 시도 보존",
+            "최신 얼굴·헤어를 기준으로 새 다방향 제작",
+            "방향별 얼굴·신체 비례·장식·가림 세부는 사용자 검수 대기",
+            "좌·우는 화면에서 바라보는 방향 기준이며 이미지를 단순 반전하지 않음"
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/turnaround_002/source/front.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front",
+              "back",
+              "left",
+              "right"
+            ],
+            "images": {
+              "front": {
+                "image_path": "art/characters/yuna/concepts/turnaround_002/source/front.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "back": {
+                "image_path": "art/characters/yuna/concepts/turnaround_002/source/back.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "left": {
+                "image_path": "art/characters/yuna/concepts/turnaround_002/source/left.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "right": {
+                "image_path": "art/characters/yuna/concepts/turnaround_002/source/right.png",
+                "width": 1024,
+                "height": 1536
+              }
+            },
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "png_hashes_and_four_wiki_images_and_four_sample_view_buttons_url_restore_500px"
         }
       ]
     },
@@ -9317,7 +9836,7 @@
       "display_name": "아렌",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "face_french_beauty_sample_010",
+      "review_revision_id": "turnaround_002",
       "capabilities": [
         "concept_image"
       ],
@@ -10055,9 +10574,9 @@
         {
           "revision_id": "face_french_beauty_sample_010",
           "display_name": "아렌 · 레아 세이두 느낌 얼굴 시안 010",
-          "status": "draft",
+          "status": "archived",
           "verification": "passed",
-          "art_direction_status": "awaiting_user_review",
+          "art_direction_status": "rejected_by_user",
           "recipe_key": "iren-french-seydoux-inspired-beauty-010",
           "artifacts": [
             {
@@ -10132,7 +10651,8 @@
             "사용자 지정: 레아 세이두 느낌",
             "내장 image_gen 1회 · 이미지 참조 없이 새 생성 · 원본 보존",
             "미모·레퍼런스 느낌·나이·숙련감은 사용자 검수 대기",
-            "기존 전신 005·위키 전신/아이콘·모션·게임·다른 인물 유지"
+            "기존 전신 005·위키 전신/아이콘·모션·게임·다른 인물 유지",
+            "사용자 확인: 레아 세이두 본인과 너무 닮음. 부드러운 분위기만 유지한 고유 얼굴 011로 새 설계."
           ],
           "preview": {
             "image_path": "art/characters/iren/concepts/face_french_beauty_sample_010/source/portrait.png",
@@ -10145,6 +10665,283 @@
             "production_ready_cutout": false
           },
           "verification_scope": "original_png_decode_sha256_and_one_static_chrome_preview"
+        },
+        {
+          "revision_id": "face_original_sample_011",
+          "display_name": "아렌 · 분위기만 참고한 고유 얼굴 011",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "iren-french-original-face-011",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/face_original_sample_011/source/portrait.png",
+              "sha256": "d72a5713e0c81408a5cfd453754c7a9e6890035f87183b3e394711bca5072c8c"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_original_sample_011/records/prompt.json",
+              "sha256": "a2cdef70b4832826e457eff7e81899beca1599ca3fca92f5647476ca0e8948cf"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_original_sample_011/records/prompt.md",
+              "sha256": "83fe1c6d003bf5f17764d49e6f757ba6ab53f88b17c3a4e9d21fcdb38ace6467"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_original_sample_011/records/generation.json",
+              "sha256": "3d0dd408982147b57ec9dfbb5c9dab21f0b8e802f8ff9d2a8fcbaa719094ce37"
+            }
+          ],
+          "dependencies": [],
+          "description": "010이 배우 본인과 너무 닮았다는 사용자 확인으로 고유 얼굴을 새 설계. 부드럽고 차분한 분위기, 갈색 단발·녹갈색 눈·프랑스 설정 유지. 유사성 감소·미감 검수 대기.",
+          "appearance_specs": [
+            [
+              "국적",
+              "프랑스"
+            ],
+            [
+              "외형상 나이",
+              "25~26세 목표"
+            ],
+            [
+              "얼굴",
+              "고유 얼굴 구조 · 배우 직접 재현 반려"
+            ],
+            [
+              "머리",
+              "짙은 갈색·깔끔한 단발"
+            ],
+            [
+              "눈",
+              "녹갈색"
+            ],
+            [
+              "분위기",
+              "부드러움·침착함·전장 경험"
+            ],
+            [
+              "상태",
+              "상반신 검토 시안"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "짙은 갈색 머리",
+              "hex": "#30251F"
+            },
+            {
+              "label": "녹갈색 눈",
+              "hex": "#7C7951"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제한 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "사용자 확인: 010은 레아 세이두 본인과 너무 닮음",
+            "내장 image_gen 1회 · 배우 이름과 이미지 참조 없이 새 얼굴 생성",
+            "미모·유사성 감소·나이·숙련감은 사용자 검수 대기",
+            "기존 전신 005·위키 전신/아이콘·다른 인물·게임·모션 유지"
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/face_original_sample_011/source/portrait.png",
+            "width": 1199,
+            "height": 1312,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "original_png_decode_sha256_and_one_static_chrome_preview"
+        },
+        {
+          "revision_id": "turnaround_002",
+          "display_name": "아렌 · 현재 외형 앞뒤좌우 002",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "iren-turnaround-002",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/source/back.png",
+              "sha256": "f0fd20a12d3e8060e5287dfb28a6788816fe412d39bcbb8b7a54514811084710"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/source/front.png",
+              "sha256": "e075480c9e0e621443dd805cbda48dfbc7263630013d496c4e38daf32851f0ae"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/source/left.png",
+              "sha256": "b5d06cd98ba38c3423347a662e5e23fcfb9d885a5be825fc779d3bb74d6a4ac3"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/source/right.png",
+              "sha256": "689221a3ec02190f2db665b7aaef695a4ece2f809c14e9f6c9e8e3a83406680f"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/generation.json",
+              "sha256": "cdc7760988f8aab1ae0e4b54b5cbc6660e01dced675eeb03129b89b488f2e9a0"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/prompt_back.json",
+              "sha256": "ffb2c2997e8fec71b4dafaaf38a7f9745bda0dfa96699849a4d905c47dbd3900"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/prompt_front.json",
+              "sha256": "cf8cf56d72c792a6a86d45807462d9db97e8a7a8b06c2ea4c37d3f13b98b3e3d"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/prompt_left.json",
+              "sha256": "d41da1665915b80e284bfa8aa3ddd9e77010b9d56b980aba9b7653f08365123b"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/prompt_right.json",
+              "sha256": "45fc5f47ee4dd6c30519cc1e0ea29b39935c61d0ef7b174816431ff5722ee1e7"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/tool_back.json",
+              "sha256": "7322c39221f95dd108e40263ae41c4644ba8fd35a4304ea0f1b0b565de3c0ff0"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/tool_front.json",
+              "sha256": "d3d7c8c700cf65eecff7c86d2617812fff667353e078208ceacbe074f7ceff21"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/tool_left.json",
+              "sha256": "6b6cf8d770ca3c08449dfb6368edf5c05b1cef996fc639fa088dfa5618c9ba21"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/tool_right.json",
+              "sha256": "89cdaf1ef5e4258ebb07fe71cc0ad2d01eadfa8ba65e4934a7b1dd0ab4458ed8"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/prompt_back.md",
+              "sha256": "4b082acc3694b918a4ca0a62036ddfb4eccec9ffe7eb83d1548a28ece416dfc5"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/prompt_front.md",
+              "sha256": "2fb9ffee20db25d28bee3d375f36dae79271818c8a6a60d4ec44424e7b94cca5"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/prompt_left.md",
+              "sha256": "3627ac727472883aa774c3fe4a94b3f088cb0691d8208cb2fe4b9a883cd158d1"
+            },
+            {
+              "path": "art/characters/iren/concepts/turnaround_002/records/prompt_right.md",
+              "sha256": "397dbcffc9b24ab2eb05c708694069e8e7e46cfba850b3130ba73602af4a6c4e"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "iren",
+              "revision_id": "face_original_sample_011"
+            }
+          ],
+          "description": "아렌의 현재 외형을 반영한 정면·후면·좌측면·우측면 전신 시안. 손에 든 장비를 뺀 중립 자세이며 복장·부착 장비를 확인한다. 리안·기존 모션·게임은 유지한다.",
+          "appearance_specs": [
+            [
+              "국적",
+              "프랑스"
+            ],
+            [
+              "외형상 나이",
+              "25~26세 목표"
+            ],
+            [
+              "얼굴",
+              "고유 얼굴 구조 · 배우 직접 재현 반려"
+            ],
+            [
+              "머리",
+              "짙은 갈색·깔끔한 단발"
+            ],
+            [
+              "눈",
+              "녹갈색"
+            ],
+            [
+              "분위기",
+              "부드러움·침착함·전장 경험"
+            ],
+            [
+              "상태",
+              "상반신 검토 시안"
+            ],
+            [
+              "보기",
+              "정면·후면·좌측면·우측면"
+            ],
+            [
+              "자세",
+              "중립 서기 · 빈손"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "짙은 갈색 머리",
+              "hex": "#30251F"
+            },
+            {
+              "label": "녹갈색 눈",
+              "hex": "#7C7951"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제한 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "내장 image_gen 4회 · 원본 및 실패 시도 보존",
+            "최신 얼굴·헤어를 기준으로 새 다방향 제작",
+            "방향별 얼굴·신체 비례·장식·가림 세부는 사용자 검수 대기",
+            "좌·우는 화면에서 바라보는 방향 기준이며 이미지를 단순 반전하지 않음"
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/turnaround_002/source/front.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front",
+              "back",
+              "left",
+              "right"
+            ],
+            "images": {
+              "front": {
+                "image_path": "art/characters/iren/concepts/turnaround_002/source/front.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "back": {
+                "image_path": "art/characters/iren/concepts/turnaround_002/source/back.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "left": {
+                "image_path": "art/characters/iren/concepts/turnaround_002/source/left.png",
+                "width": 1024,
+                "height": 1536
+              },
+              "right": {
+                "image_path": "art/characters/iren/concepts/turnaround_002/source/right.png",
+                "width": 1024,
+                "height": 1536
+              }
+            },
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "png_hashes_and_four_wiki_images_and_four_sample_view_buttons_url_restore_500px"
         }
       ]
     },

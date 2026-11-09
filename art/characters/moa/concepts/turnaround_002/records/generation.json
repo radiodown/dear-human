@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "entity_id": "moa",
+  "revision_id": "turnaround_002",
+  "tool": "built-in image_gen",
+  "calls": 7,
+  "model": null,
+  "cost": null,
+  "unexposed_fields": "Exact model and cost not exposed by the tool.",
+  "generations": [
+    {
+      "dir": "back",
+      "started_at_utc": "2026-11-09 09:38:48 UTC",
+      "finished_at_utc": "2026-11-09 09:43:45 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-b89a19a1-7705-4348-b4df-49064b0638c2.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/turnaround_002/source/front.png",
+          "sha256": "114443ce63c3e7ba1a9de96ed3c518073668b622a29da028aafe5d0f8b8473ff"
+        }
+      ]
+    },
+    {
+      "dir": "back",
+      "started_at_utc": "2026-11-09 09:45:20 UTC",
+      "finished_at_utc": "2026-11-09 09:46:58 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-689edf5e-c6c8-433c-8b86-e2b783cb7e27.png",
+      "inputs": [
+        {
+          "path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-b89a19a1-7705-4348-b4df-49064b0638c2.png",
+          "sha256": "8aec62b45cfea7d3b56274fe75987d501d4025fd6e48eaaff6710b7141e4ac7a"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/turnaround_002/source/front.png",
+          "sha256": "114443ce63c3e7ba1a9de96ed3c518073668b622a29da028aafe5d0f8b8473ff"
+        }
+      ]
+    },
+    {
+      "dir": "front",
+      "started_at_utc": "2026-11-09 09:35:32 UTC",
+      "finished_at_utc": "2026-11-09 09:37:45 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-11edd7e3-775e-4953-9036-bab36213e665.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/turnaround_001/source/front.png",
+          "sha256": "2cfda18e9bc785fa570ea47d71a9a87c0743c73173c9a4bf914755e9fe8cebcf"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/illustration_007/source/illustration.png",
+          "sha256": "6660f4cd9d21ca3aa5afdf69c3ffd5f38559302ea98e5d6f907627563e38cece"
+        }
+      ]
+    },
+    {
+      "dir": "left",
+      "started_at_utc": "2026-11-09 09:38:48 UTC",
+      "finished_at_utc": "2026-11-09 09:39:55 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-7453e217-2840-44ef-8462-dd014751baa0.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/turnaround_002/source/front.png",
+          "sha256": "114443ce63c3e7ba1a9de96ed3c518073668b622a29da028aafe5d0f8b8473ff"
+        }
+      ]
+    },
+    {
+      "dir": "left",
+      "started_at_utc": "2026-11-09 09:45:20 UTC",
+      "finished_at_utc": "2026-11-09 09:46:26 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-e0be3c83-ef90-44f2-b0db-4fd1516af55f.png",
+      "inputs": [
+        {
+          "path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-7453e217-2840-44ef-8462-dd014751baa0.png",
+          "sha256": "07bb2516c4b56931a1b3ff943a0f3c1f28f7669c9d406b25fa4fc30b3e211b6d"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/turnaround_002/source/front.png",
+          "sha256": "114443ce63c3e7ba1a9de96ed3c518073668b622a29da028aafe5d0f8b8473ff"
+        }
+      ]
+    },
+    {
+      "dir": "right",
+      "started_at_utc": "2026-11-09 09:38:48 UTC",
+      "finished_at_utc": "2026-11-09 09:40:30 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-d8ea650d-ce05-459f-82a4-fecabdaee9f9.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/turnaround_002/source/front.png",
+          "sha256": "114443ce63c3e7ba1a9de96ed3c518073668b622a29da028aafe5d0f8b8473ff"
+        }
+      ]
+    },
+    {
+      "dir": "right",
+      "started_at_utc": "2026-11-09 09:45:20 UTC",
+      "finished_at_utc": "2026-11-09 09:46:58 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-66473075-8a30-41c7-bb96-e972db67f1b1.png",
+      "inputs": [
+        {
+          "path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-d8ea650d-ce05-459f-82a4-fecabdaee9f9.png",
+          "sha256": "71a070ed4840e030eeacc52c9baf7a0eaf31b8c1a179817ce6e5f886ee15719f"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/turnaround_002/source/front.png",
+          "sha256": "114443ce63c3e7ba1a9de96ed3c518073668b622a29da028aafe5d0f8b8473ff"
+        }
+      ]
+    }
+  ],
+  "reused": [],
+  "outputs": [
+    {
+      "view": "front",
+      "path": "art/characters/moa/concepts/turnaround_002/source/front.png",
+      "sha256": "114443ce63c3e7ba1a9de96ed3c518073668b622a29da028aafe5d0f8b8473ff",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/moa-turnaround-002-front.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "back",
+      "path": "art/characters/moa/concepts/turnaround_002/source/back.png",
+      "sha256": "b5503a4dc62c5afbc6ba5bfa58249d8908d03924387c31e96ad7d69d90fb4fa1",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/moa-turnaround-002-back.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "left",
+      "path": "art/characters/moa/concepts/turnaround_002/source/left.png",
+      "sha256": "de19b96dcecad7eb9392c744296659d422336c47d2de525936d0b401af7d5dc0",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/moa-turnaround-002-left.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "right",
+      "path": "art/characters/moa/concepts/turnaround_002/source/right.png",
+      "sha256": "949c0eebc9ef451183055752d59d6a2dbfaa5eb6868d70d013b850edc8340e59",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/moa-turnaround-002-right.png",
+      "wiki_byte_identical": true
+    }
+  ],
+  "visual_review": "Separate front/back/left-facing/right-facing full-body concepts. Neutral empty hands; current hair and face direction applied. Moa cape corrections, when present, replace rejected cape attempts. Rear details and exact cross-view proportions remain subject to user art review.",
+  "art_direction_status": "awaiting_user_review",
+  "unchanged": [
+    "Lian assets and article",
+    "gameplay",
+    "existing motion",
+    "previous originals"
+  ]
+}

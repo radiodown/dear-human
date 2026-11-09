@@ -53,7 +53,7 @@ function characterCards() {
 
 function memberImage(person) {
   return person.avatar
-    ? `<img src="./${e(person.avatar.src)}" alt="${e(person.avatar.alt)}" width="${person.avatar.width}" height="${person.avatar.height}" decoding="async">`
+    ? `<img${person.avatar.fit === 'cover' ? ' class="avatar-cover"' : ''} src="./${e(person.avatar.src)}" alt="${e(person.avatar.alt)}" width="${person.avatar.width}" height="${person.avatar.height}" decoding="async">`
     : `<span class="commander-symbol" aria-hidden="true">${icon('star')}</span><span class="commander-image-note">외형 미정</span>`;
 }
 
@@ -134,6 +134,13 @@ function renderArticle(slug) {
     overview.prepend(overview.querySelector('.character-profile'));
     if (portraitHtml) overview.querySelector('.character-profile>header').insertAdjacentHTML('afterend', portraitHtml);
     document.querySelector('.article-main').classList.add('has-character-profile');
+  }
+  if (article.turnaround?.length) {
+    const gallery = document.createElement('section');
+    gallery.className = 'character-turnaround';
+    gallery.setAttribute('aria-label', '앞뒤좌우 전신 이미지');
+    gallery.innerHTML = `<h2>전신 · 앞뒤좌우</h2><p class="turnaround-note">현재 외형의 정면·후면·좌측면·우측면입니다. 각 이미지를 누르면 원본을 크게 볼 수 있습니다.</p><div class="character-turnaround-grid">${article.turnaround.map(image => `<figure data-direction="${e(image.view)}"><a href="./${e(image.src)}" target="_blank" rel="noopener" aria-label="${e(article.title)} ${e(image.title)} 원본 크게 보기"><img src="./${e(image.src)}" alt="${e(image.alt)}" width="${image.width}" height="${image.height}" loading="lazy" decoding="async"></a><figcaption>${e(image.title)}</figcaption></figure>`).join('')}</div>`;
+    document.querySelector('.prose').before(gallery);
   }
   if (article.illustrations?.length) {
     const gallery = document.createElement('section');

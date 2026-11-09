@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "entity_id": "iren",
+  "revision_id": "turnaround_002",
+  "tool": "built-in image_gen",
+  "calls": 4,
+  "model": null,
+  "cost": null,
+  "unexposed_fields": "Exact model and cost not exposed by the tool.",
+  "generations": [
+    {
+      "dir": "back",
+      "started_at_utc": "2026-11-09 09:38:48 UTC",
+      "finished_at_utc": "2026-11-09 09:42:37 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-5d8461d4-4a28-4ad3-91d8-fa2e8bbd7493.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/iren/concepts/turnaround_002/source/front.png",
+          "sha256": "e075480c9e0e621443dd805cbda48dfbc7263630013d496c4e38daf32851f0ae"
+        }
+      ]
+    },
+    {
+      "dir": "front",
+      "started_at_utc": "2026-11-09 09:35:32 UTC",
+      "finished_at_utc": "2026-11-09 09:37:45 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-0ceb63f6-0ad4-437a-b60e-3a2b13cf1ea3.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/iren/concepts/turnaround_001/source/front.png",
+          "sha256": "06ffcecb5647150f7a89229da25bb870d3bb1b82eeceebd3a0992e7e18ae978f"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/iren/concepts/face_original_sample_011/source/portrait.png",
+          "sha256": "d72a5713e0c81408a5cfd453754c7a9e6890035f87183b3e394711bca5072c8c"
+        }
+      ]
+    },
+    {
+      "dir": "left",
+      "started_at_utc": "2026-11-09 09:38:48 UTC",
+      "finished_at_utc": "2026-11-09 09:43:09 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-9f6fe0f6-2ac6-4c2e-ab85-9fd1d11c8482.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/iren/concepts/turnaround_002/source/front.png",
+          "sha256": "e075480c9e0e621443dd805cbda48dfbc7263630013d496c4e38daf32851f0ae"
+        }
+      ]
+    },
+    {
+      "dir": "right",
+      "started_at_utc": "2026-11-09 09:38:48 UTC",
+      "finished_at_utc": "2026-11-09 09:43:45 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-2a2fcace-9a2c-466f-83ec-56f7c8812df3.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/iren/concepts/turnaround_002/source/front.png",
+          "sha256": "e075480c9e0e621443dd805cbda48dfbc7263630013d496c4e38daf32851f0ae"
+        }
+      ]
+    }
+  ],
+  "reused": [],
+  "outputs": [
+    {
+      "view": "front",
+      "path": "art/characters/iren/concepts/turnaround_002/source/front.png",
+      "sha256": "e075480c9e0e621443dd805cbda48dfbc7263630013d496c4e38daf32851f0ae",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/iren-turnaround-002-front.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "back",
+      "path": "art/characters/iren/concepts/turnaround_002/source/back.png",
+      "sha256": "f0fd20a12d3e8060e5287dfb28a6788816fe412d39bcbb8b7a54514811084710",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/iren-turnaround-002-back.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "left",
+      "path": "art/characters/iren/concepts/turnaround_002/source/left.png",
+      "sha256": "b5d06cd98ba38c3423347a662e5e23fcfb9d885a5be825fc779d3bb74d6a4ac3",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/iren-turnaround-002-left.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "right",
+      "path": "art/characters/iren/concepts/turnaround_002/source/right.png",
+      "sha256": "689221a3ec02190f2db665b7aaef695a4ece2f809c14e9f6c9e8e3a83406680f",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/iren-turnaround-002-right.png",
+      "wiki_byte_identical": true
+    }
+  ],
+  "visual_review": "Separate front/back/left-facing/right-facing full-body concepts. Neutral empty hands; current hair and face direction applied. Moa cape corrections, when present, replace rejected cape attempts. Rear details and exact cross-view proportions remain subject to user art review.",
+  "art_direction_status": "awaiting_user_review",
+  "unchanged": [
+    "Lian assets and article",
+    "gameplay",
+    "existing motion",
+    "previous originals"
+  ]
+}

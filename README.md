@@ -1,5 +1,7 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+- [소대원 앞뒤좌우 002](docs/squad-character-turnarounds-002.md): 리안을 제외한 네 대원의 현재 외형을 위키·공통 미리보기에 적용.
+
 모아의 최신 외형은 [채택 얼굴·헤어 적용 전신 007](docs/squad-character-concepts-007.md)이다.
 
 유나 외형 최신은 [밝은 금발·새 얼굴 전신 008](docs/squad-character-concepts-008.md)이다. 사용자 채택 샘플 008을 전신·위키 얼굴 아이콘·미리보기에 적용했다. 이전 흑발 006과 생성 기록은 보존한다.

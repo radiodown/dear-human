@@ -1,0 +1,59 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-11-09T09:50:53.395136+00:00",
+  "browser": "Separate local headless Chrome/Playwright after in-app runtime failed before connection (missing sandboxPolicy metadata).",
+  "wiki_url": "http://127.0.0.1:4174/#/article/moa",
+  "preview_url": "http://127.0.0.1:4173/#/samples/characters/moa?rev=turnaround_002",
+  "checks": [
+    "Four wiki images decoded with correct direction labels and original links",
+    "500px wiki and sample page without horizontal overflow",
+    "All four sample view buttons load the corresponding PNG",
+    "URL restores the right view after reload",
+    "Lian catalog entry unchanged"
+  ],
+  "wiki_images": [
+    {
+      "view": "front",
+      "src": "./assets/characters/moa-turnaround-002-front.png",
+      "link": "./assets/characters/moa-turnaround-002-front.png",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "view": "back",
+      "src": "./assets/characters/moa-turnaround-002-back.png",
+      "link": "./assets/characters/moa-turnaround-002-back.png",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "view": "left",
+      "src": "./assets/characters/moa-turnaround-002-left.png",
+      "link": "./assets/characters/moa-turnaround-002-left.png",
+      "width": 1024,
+      "height": 1536
+    },
+    {
+      "view": "right",
+      "src": "./assets/characters/moa-turnaround-002-right.png",
+      "link": "./assets/characters/moa-turnaround-002-right.png",
+      "width": 1024,
+      "height": 1536
+    }
+  ],
+  "switched": [
+    "front",
+    "back",
+    "left",
+    "right"
+  ],
+  "page_errors": [],
+  "art_direction_status": "awaiting_user_review",
+  "scope": "Static images and their display only; no game/motion regressions or new generation.",
+  "record_checks": {
+    "catalog_reuse_find": "passed",
+    "current_task_document_links": "passed",
+    "unrelated_historical_document_issue_count": 2573,
+    "note": "Global historical document snapshots have pre-existing link issues; no claim of global docs pass."
+  }
+}

@@ -1,3 +1,12 @@
+.character-turnaround { margin:22px 0; }
+.character-turnaround h2 { margin-bottom:6px; }
+.turnaround-note { color:var(--muted); font-size:12px; line-height:1.7; margin:0 0 12px; }
+.character-turnaround-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; }
+.character-turnaround-grid figure { min-width:0; margin:0; border:1px solid var(--line); background:var(--paper); }
+.character-turnaround-grid a { display:block; background:#55545a; }
+.character-turnaround-grid img { display:block; width:100%; height:auto; aspect-ratio:2/3; object-fit:contain; }
+.character-turnaround-grid figcaption { padding:8px; text-align:center; font-size:12px; font-weight:700; }
+@media(max-width:850px) { .character-turnaround-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } }
 .unit-panel { margin:22px 0 25px; border:2px solid var(--brand); background:var(--paper); }
 .unit-panel-heading { display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 18px; background:var(--brand); color:white; }
 .unit-kicker { display:block; font-size:10px; letter-spacing:1.5px; color:#b8ccea; }
@@ -12,6 +21,7 @@
 .roster-member.is-current { border:2px solid var(--link); background:var(--brand-soft); }
 .roster-avatar { display:flex; position:relative; width:100%; aspect-ratio:1; overflow:hidden; align-items:center; justify-content:center; background:#122039; color:#bcd2f0; }
 .roster-avatar img { display:block; width:100%; height:100%; object-fit:contain; }
+.roster-avatar img.avatar-cover { object-fit:cover; object-position:center 30%; }
 .commander-symbol svg { width:52px; height:52px; stroke-width:1; }
 .commander-image-note { position:absolute; bottom:12px; font-size:11px; color:#a9bdd8; }
 .roster-copy { display:flex; flex-direction:column; padding:10px 11px; flex:1; }

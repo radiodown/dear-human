@@ -1,0 +1,17 @@
+{
+  "cid": "moa",
+  "dir": "right",
+  "args": {
+    "prompt": "Use case: precise-object-edit. Image 1 is the EDIT TARGET. Image 2 is the FRONT OUTFIT master. Remove ONLY ALL of the long hanging cloth CAPE from image 1. It was an erroneous addition: MOA wears NO cape, no cloak, no cloth shoulder drape and no fabric skirt behind the legs. No long fabric may hang behind her shoulders, waist or legs. Reconstruct the revealed fitted black/gunmetal combat jacket back, harness, utility belt with ammunition pouches and opaque trousers to match image 2. Her segmented armored shoulder plates remain, but no fabric hangs from them. Preserve the existing WHITE straight bob, BLUE eyes where visible, face, head direction, skin, entire body pose, right view, hands, trousers, pouches, armor, boots, full-body scale, floor contact, gray background, lighting and framing. Do not add new equipment. Keep both boot soles and hair entirely in frame. This is only a cape-removal correction, not a character redesign. One person, no text, watermark, new panels, weapon, shield, coat tails or rear cloth.",
+    "referenced_image_paths": [
+      "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-d8ea650d-ce05-459f-82a4-fecabdaee9f9.png",
+      "C:/Users/axgatge/Desktop/miss/art/characters/moa/concepts/turnaround_002/source/front.png"
+    ],
+    "transparent_background": false
+  },
+  "reason": "remove erroneously invented cape",
+  "started_at_utc": "2026-11-09 09:45:20 UTC",
+  "finished_at_utc": "2026-11-09 09:46:58 UTC",
+  "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-66473075-8a30-41c7-bb96-e972db67f1b1.png",
+  "output_hint": "Generated images are saved to C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a as C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-66473075-8a30-41c7-bb96-e972db67f1b1.png by default.\nIf you need to use a generated image at another path, copy it and leave the original in place unless the user explicitly asks you to delete it.\nThe generated image is already displayed to the user. There is no need to render it in the final response as a Markdown image or file link."
+}

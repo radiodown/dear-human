@@ -1,0 +1,8 @@
+# 세나 turnaround 002 — right
+
+Exact built-in image_gen request.
+
+```text
+Use case: stylized-concept. Dear Human full-body character turnaround, revision 002. Create ONE separate full-body image, not a multi-panel sheet. Sophisticated realistic cinematic 3D game illustration. Exact neutral upright stance, arms relaxed slightly away from torso, both gloved hands EMPTY, feet flat on a level floor. No handheld guns, shield, helmet or action pose. Preserve attached pouches, holsters, binoculars, cape and each character's outfit. Plain neutral medium-gray studio backdrop and floor, soft even lighting, small contact shadow. Full hair top, complete cape and both boot soles inside frame with comfortable margin. Portrait 2:3 framing targeting 1024x1536, near orthographic level mid-body camera. Body and head must face the specified direction together. Adult feminine realistic proportions, appearance age 25-26. No text, labels, codes, watermark, additional people or new lore. Preserve anatomical asymmetry; do not simply mirror logos or pouches. Rear details are design interpretations subject to review.
+Input 1 is SENA's identity, hairstyle, exact outfit and neutral pose master. Input 2 is the OPPOSITE left-facing profile for side geometry only: produce the other side, not a copy or flip. Long ash-brown straight hair half-up, fine see-through bangs and small gold leaf ornament. Preserve youthful East Asian face, scout armor, harness/binoculars, asymmetric cape, fully opaque tactical trousers, knee/shin armor and boots. NO garter straps, stockings or exposed thighs. Exact RIGHT-facing profile: nose, chest and boot toes point toward the RIGHT edge of image; show the opposite side from input 2. Not three-quarter.
+```

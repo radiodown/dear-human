@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "entity_id": "sena",
+  "revision_id": "turnaround_002",
+  "tool": "built-in image_gen",
+  "calls": 1,
+  "model": null,
+  "cost": null,
+  "unexposed_fields": "Exact model and cost not exposed by the tool.",
+  "generations": [
+    {
+      "dir": "right",
+      "started_at_utc": "2026-11-09 09:35:32 UTC",
+      "finished_at_utc": "2026-11-09 09:37:45 UTC",
+      "original_output_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-d182036f-74d8-4042-b373-82b7e554588f.png",
+      "inputs": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/sena/concepts/turnaround_001/source/front.png",
+          "sha256": "cf3226db744c90ebe5ab6bda689f8bc5a144a5df1947ea579ab3eb57cfd38fe1"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/characters/sena/concepts/turnaround_001/source/left.png",
+          "sha256": "104f2f328b50daf7100fd670fa29c26bcf4ad3a3601b8ea3ce210854536f0f96"
+        }
+      ]
+    }
+  ],
+  "reused": [
+    {
+      "view": "front",
+      "path": "art/characters/sena/concepts/turnaround_001/source/front.png",
+      "sha256": "cf3226db744c90ebe5ab6bda689f8bc5a144a5df1947ea579ab3eb57cfd38fe1"
+    },
+    {
+      "view": "back",
+      "path": "art/characters/sena/concepts/turnaround_001/source/back.png",
+      "sha256": "b297ddd4a151c7b73064d708d93b9dfb1149f04b205af21df9961d4d7b6b3cce"
+    },
+    {
+      "view": "left",
+      "path": "art/characters/sena/concepts/turnaround_001/source/left.png",
+      "sha256": "104f2f328b50daf7100fd670fa29c26bcf4ad3a3601b8ea3ce210854536f0f96"
+    }
+  ],
+  "outputs": [
+    {
+      "view": "front",
+      "path": "art/characters/sena/concepts/turnaround_002/source/front.png",
+      "sha256": "cf3226db744c90ebe5ab6bda689f8bc5a144a5df1947ea579ab3eb57cfd38fe1",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/sena-turnaround-002-front.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "back",
+      "path": "art/characters/sena/concepts/turnaround_002/source/back.png",
+      "sha256": "b297ddd4a151c7b73064d708d93b9dfb1149f04b205af21df9961d4d7b6b3cce",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/sena-turnaround-002-back.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "left",
+      "path": "art/characters/sena/concepts/turnaround_002/source/left.png",
+      "sha256": "104f2f328b50daf7100fd670fa29c26bcf4ad3a3601b8ea3ce210854536f0f96",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/sena-turnaround-002-left.png",
+      "wiki_byte_identical": true
+    },
+    {
+      "view": "right",
+      "path": "art/characters/sena/concepts/turnaround_002/source/right.png",
+      "sha256": "a7b393b5869b534ac20c8ef9c8b5c28242afa9e13cf7ea90098ac823fb14fc35",
+      "width": 1024,
+      "height": 1536,
+      "wiki_path": "wiki/public/assets/characters/sena-turnaround-002-right.png",
+      "wiki_byte_identical": true
+    }
+  ],
+  "visual_review": "Separate front/back/left-facing/right-facing full-body concepts. Neutral empty hands; current hair and face direction applied. Moa cape corrections, when present, replace rejected cape attempts. Rear details and exact cross-view proportions remain subject to user art review.",
+  "art_direction_status": "awaiting_user_review",
+  "unchanged": [
+    "Lian assets and article",
+    "gameplay",
+    "existing motion",
+    "previous originals"
+  ]
+}

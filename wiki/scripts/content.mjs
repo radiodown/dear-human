@@ -44,7 +44,8 @@ export function validateContent({ articles, categories }) {
       if (!article.profile || !avatar || typeof avatar !== 'object' || Array.isArray(avatar)) throw new Error(`${article.slug}: 인물 아이콘 형식 오류`);
       if (typeof avatar.src !== 'string' || !/^assets\/[a-zA-Z0-9/_-]+\.(png|jpe?g|webp)$/.test(avatar.src)) throw new Error(`${article.slug}: 위키 내부 아이콘 경로 필요`);
       if (typeof avatar.alt !== 'string' || !avatar.alt) throw new Error(`${article.slug}: 아이콘 대체 텍스트 필요`);
-      if (!Number.isInteger(avatar.width) || avatar.width <= 0 || avatar.width !== avatar.height) throw new Error(`${article.slug}: 정사각형 아이콘 크기 필요`);
+      if (!Number.isInteger(avatar.width) || avatar.width <= 0 || !Number.isInteger(avatar.height) || avatar.height <= 0 || (avatar.width !== avatar.height && avatar.fit !== 'cover')) throw new Error(`${article.slug}: 정사각형 아이콘 또는 cover 표시 크기 필요`);
+      if (avatar.fit !== undefined && !['contain', 'cover'].includes(avatar.fit)) throw new Error(`${article.slug}: 인물 아이콘 표시 방식 오류`);
       const imagePath = path.join(root, 'public', avatar.src);
       if (!existsSync(imagePath) || !statSync(imagePath).isFile()) throw new Error(`${article.slug}: 아이콘 파일이 없습니다.`);
     }
@@ -69,6 +70,19 @@ export function validateContent({ articles, categories }) {
         if (typeof profile[field] !== 'string' || !profile[field]) throw new Error(`${article.slug}: 프로필 ${field} 필요`);
       }
       if (!Array.isArray(profile.fields) || !profile.fields.length || profile.fields.some(row => !Array.isArray(row) || row.length !== 2 || row.some(value => typeof value !== 'string' || !value))) throw new Error(`${article.slug}: 프로필 항목은 이름과 값의 쌍이어야 합니다.`);
+    }
+    if (article.turnaround !== undefined) {
+      const views = ['front', 'back', 'left', 'right'];
+      if (!article.profile || !Array.isArray(article.turnaround) || article.turnaround.length !== views.length) throw new Error(`${article.slug}: 인물의 앞뒤좌우 이미지 네 장이 필요합니다.`);
+      const sources = new Set();
+      for (const [index, image] of article.turnaround.entries()) {
+        if (!image || image.view !== views[index] || typeof image.src !== 'string' || !/^assets\/[a-zA-Z0-9/_-]+\.png$/.test(image.src) || sources.has(image.src)) throw new Error(`${article.slug}: 방향별 이미지 순서 또는 경로 오류`);
+        for (const field of ['title', 'alt']) if (typeof image[field] !== 'string' || !image[field]) throw new Error(`${article.slug}: 방향별 이미지 ${field} 필요`);
+        for (const field of ['width', 'height']) if (!Number.isInteger(image[field]) || image[field] <= 0) throw new Error(`${article.slug}: 방향별 이미지 ${field} 오류`);
+        const imagePath = path.join(root, 'public', image.src);
+        if (!existsSync(imagePath) || !statSync(imagePath).isFile()) throw new Error(`${article.slug}: 방향별 이미지 파일이 없습니다.`);
+        sources.add(image.src);
+      }
     }
     if (article.illustrations !== undefined) {
       if (!Array.isArray(article.illustrations) || !article.illustrations.length) throw new Error(`${article.slug}: 장비 이미지 배열 필요`);
