@@ -18,13 +18,15 @@ export const MODELS = {
   vesper_colony_insect: {
     url: '/art/enemies/vesper_colony_insect/motion/glb_model_001/source/mob.glb',
     file: 'mob.glb',
-    labels: { walk: '걷기', walk_fast: '빠른 걷기', pounce: '덮치기', pounce_fast: '빠른 덮치기' },
+    labels: { walk: '걷기', walk_fast: '빠른 걷기', pounce: '덮치기', pounce_fast: '빠른 덮치기', death: '사망' },
     hidden: [],
     hips: [],
     target: .27, viewHeight: .9, // about 0.6 tall and 1.0 long
     // Both pounces keep their 0.5 m root motion, so widen the view and centre it ahead of the start point.
     clipView: { pounce: { viewHeight: 1.3, ahead: .3 }, pounce_fast: { viewHeight: 1.3, ahead: .3 } },
-    note: '사용자가 리깅한 mob 모델(mob.glb)을 복사해 Three.js로 재생합니다. 걷기(1초 주기)·빠른 걷기(0.5초 주기)는 Blender에서 발끝 IK로 만든 뒤 회전 키프레임으로 구운 제자리 클립이고, 덮치기(1.42초)·빠른 덮치기(0.71초)는 앞다리를 들고 0.5m 앞으로 뛰어 내리찍는 같은 동작의 두 속도로 실제 전진을 포함해 끝나면 처음 자리로 돌아가 반복합니다. 카메라는 오른쪽 옆에서 정사영으로 봅니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
+    // Non-looping clips: play once, hold the last pose for this many seconds, then start over.
+    once: { death: 1 },
+    note: '사용자가 리깅한 mob 모델(mob.glb)을 복사해 Three.js로 재생합니다. 걷기(1초 주기)·빠른 걷기(0.5초 주기)는 Blender에서 발끝 IK로 만든 뒤 회전 키프레임으로 구운 제자리 클립이고, 덮치기(1.42초)·빠른 덮치기(0.71초)는 앞다리를 들고 0.5m 앞으로 뛰어 내리찍는 같은 동작의 두 속도로 실제 전진을 포함해 끝나면 처음 자리로 돌아가 반복합니다. 사망(1.54초)은 맞고 휘청이다 주저앉아 다리를 오그리는 한 번 재생 클립으로, 마지막 자세에서 1초 멈춘 뒤 다시 시작합니다. 카메라는 오른쪽 옆에서 정사영으로 봅니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
 };
 
@@ -36,7 +38,7 @@ export class GlbModelLab {
     this.raf = 0; this.tick = this.tick.bind(this);
     $('glb-pause').addEventListener('click', () => this.pause(!this.paused));
     // mixer.update(0) re-evaluates the pose so a paused restart shows the first frame too.
-    $('glb-restart').addEventListener('click', () => { if (this.action) { this.action.time = 0; this.current.mixer.update(0); this.render(); } });
+    $('glb-restart').addEventListener('click', () => { if (this.action) { this.held = 0; this.action.reset().play(); this.current.mixer.update(0); this.render(); } });
     $('glb-speed').addEventListener('change', event => { this.speed = Number(event.target.value); this.writeUrl(); });
     $('glb-inplace').addEventListener('change', event => { this.inPlace = event.target.checked; this.writeUrl(); });
     $('glb-turn').addEventListener('click', () => { this.facing *= -1; this.placeCamera(); this.writeUrl(); });
@@ -140,7 +142,11 @@ export class GlbModelLab {
     model.mixer.stopAllAction();
     if (model.hips && model.hipsRest) model.hips.position.copy(model.hipsRest);
     this.clipName = name;
-    this.action = model.mixer.clipAction(clip); this.action.reset().play();
+    this.action = model.mixer.clipAction(clip);
+    this.holdFor = this.config.once?.[name] ?? null; this.held = 0;
+    this.action.setLoop(this.holdFor == null ? this.THREE.LoopRepeat : this.THREE.LoopOnce, Infinity);
+    this.action.clampWhenFinished = this.holdFor != null;
+    this.action.reset().play();
     this.placeCamera();
     for (const button of $('glb-clips').children) button.setAttribute('aria-pressed', String(button.dataset.clip === name));
     this.render();
@@ -186,7 +192,13 @@ export class GlbModelLab {
     if (!this.active) return;
     const dt = this.last == null ? 0 : Math.min(.1, (now - this.last) / 1000);
     this.last = now;
-    if (!this.paused && this.current) this.current.mixer.update(dt * this.speed);
+    if (!this.paused && this.current) {
+      this.current.mixer.update(dt * this.speed);
+      if (this.holdFor != null && this.action && this.action.time >= this.action.getClip().duration - 1e-4) {
+        this.held += dt * this.speed;
+        if (this.held >= this.holdFor) { this.held = 0; this.action.reset().play(); }
+      }
+    }
     this.render();
     this.schedule();
   }
