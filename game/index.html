@@ -31,7 +31,7 @@
 
     <div class="workspace" id="workspace">
       <section class="viewer-panel" aria-label="아트와 모션 미리보기">
-        <div class="preview-mode" aria-label="미리보기 종류"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button><button id="mode-rig" type="button" aria-pressed="false">파츠 모션 테스트 <span>LIVE</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 모션 V2 <span>FRAME</span></button><button id="mode-plan-b" type="button" aria-pressed="false">플랜 B · 도트 모션</button><button id="mode-plan-e" type="button" aria-pressed="false">플랜 E · 3D→도트 <span>SPRITE</span></button></div>
+        <div class="preview-mode" aria-label="미리보기 종류"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button><button id="mode-rig" type="button" aria-pressed="false">파츠 모션 테스트 <span>LIVE</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 모션 V2 <span>FRAME</span></button><button id="mode-plan-b" type="button" aria-pressed="false">플랜 B · 도트 모션</button><button id="mode-plan-e" type="button" aria-pressed="false">플랜 E · 3D→도트 <span>SPRITE</span></button><button id="mode-glb" type="button" aria-pressed="false">3D 모델 · GLB <span>WEBGL</span></button><button id="mode-glb-sprite" type="button" aria-pressed="false">GLB · 2D 스프라이트 <span>SPRITE</span></button></div>
         <div id="reference-view">
         <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="back" aria-pressed="false" hidden>후면</button><button type="button" data-view="left" aria-pressed="false" hidden>좌측면</button><button type="button" data-view="right" aria-pressed="false" hidden>우측면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
         <div class="art-stage bg-dark" id="art-stage"><span class="stage-label" id="stage-label">APPEARANCE / STATIC REFERENCE</span><div class="art-frame" id="art-frame" data-view="sheet"><img id="character-art" alt="주인공 클론의 전신 외형 시안" draggable="false"><div id="turnaround-grid" class="turnaround-grid" aria-label="캐릭터 4방향 일러스트" hidden></div></div><p id="image-loading" class="image-loading" role="status">외형 시안을 불러오는 중…</p></div>
@@ -69,6 +69,20 @@
           <div id="v2-frames" class="v2-frames" role="group" aria-label="프레임 선택"></div>
           <div class="rig-toggles"><button type="button" id="v2-turn">좌우 반전</button><label>시점 <select id="v2-camera"><option value="0">정측면 0°</option><option value="12" selected>위에서 12°</option><option value="20">위에서 20°</option></select></label><label><input type="checkbox" id="v2-cape" checked>망토 표시</label></div>
           <p class="rig-metrics" id="v2-caption" aria-live="off"></p><p class="rig-note">한 장씩 넘기며 동작을 확인하세요. 동작을 바꾸면 첫 프레임부터 바로 시작합니다. Space 재생·정지, ← → 이전·다음 프레임. 기존 파츠로 만든 프레임 초안이며 자세와 반복 구간은 검토 중입니다.</p>
+        </div>
+        <div id="glb-view" hidden>
+          <div class="rig-motion-tabs" id="glb-clips" role="group" aria-label="GLB 모델 동작"></div>
+          <div id="glb-stage" class="plan-e-stage glb-stage bg-dark" tabindex="0" aria-label="GLB 모델 재생 영역. Space로 재생·정지"><canvas id="glb-canvas" aria-label="version04.glb 모델의 우측면 애니메이션"></canvas><p id="glb-loading" role="status">GLB 모델을 불러오는 중…</p></div>
+          <div class="rig-playback"><button id="glb-pause" type="button">일시정지</button><button id="glb-restart" type="button">처음부터</button><output id="glb-counter">—</output><label>속도 <select id="glb-speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label><label><input id="glb-inplace" type="checkbox" checked> 제자리</label><button id="glb-turn" type="button">좌우 반전</button><label>배경 <select id="glb-background"><option value="dark">어둡게</option><option value="light">밝게</option></select></label></div>
+          <p class="rig-metrics" id="glb-caption" aria-live="off"></p>
+          <p class="rig-note">상위 폴더의 version04.glb를 복사해 Three.js로 그대로 재생합니다. 모델에 들어 있는 애니메이션을 탭으로 고르고, 카메라는 캐릭터의 오른쪽 옆에서 정사영으로 봅니다. ‘제자리’는 골반의 앞뒤·좌우 이동을 고정하고 위아래 움직임은 유지합니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.</p>
+        </div>
+        <div id="glb-sprite-view" hidden>
+          <div class="rig-motion-tabs" id="glbs-clips" role="group" aria-label="GLB 2D 스프라이트 동작"></div>
+          <div id="glbs-stage" class="plan-e-stage glb-stage bg-dark" tabindex="0" aria-label="GLB 2D 스프라이트 재생 영역. Space로 재생·정지, 좌우 화살표로 한 장씩"><canvas id="glbs-canvas" aria-label="Blender에서 렌더링한 2D 스프라이트 프레임"></canvas><p id="glbs-loading" role="status">스프라이트를 불러오는 중…</p></div>
+          <div class="rig-playback"><button id="glbs-pause" type="button">일시정지</button><button id="glbs-prev" type="button">← 이전</button><button id="glbs-next" type="button">다음 →</button><button id="glbs-restart" type="button">첫 프레임</button><output id="glbs-counter">—</output><label>속도 <select id="glbs-speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label><button id="glbs-turn" type="button">좌우 반전</button><label>배경 <select id="glbs-background"><option value="dark">어둡게</option><option value="light">밝게</option></select></label></div>
+          <p class="rig-metrics" id="glbs-caption" aria-live="off"></p>
+          <p class="rig-note">version04.glb를 Blender에서 오른쪽 옆면으로 렌더링한 PNG를 그대로 이어 붙인 스프라이트 시트(sprite_001)를 기본 6fps로 재생합니다. Space 재생·정지, ← → 한 장씩. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.</p>
         </div>
         <div id="plan-e-view" hidden>
           <div class="rig-motion-tabs" id="plan-e-clips" role="group" aria-label="플랜 E 동작"></div>
