@@ -1,0 +1,41 @@
+{
+  "tool": "image_gen.imagegen",
+  "outputs": [
+    {
+      "id": "sena",
+      "name": "세나",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-9e61b963-710b-46a8-8740-c840f3d7d2ff.png",
+      "generated_started_at": "2026-11-09T02:09:08.834Z",
+      "generated_finished_at": "2026-11-09T02:09:44.853Z",
+      "request_record": "art/characters/sena/concepts/illustration_001/records/prompt.json"
+    },
+    {
+      "id": "moa",
+      "name": "모아",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-202c5b9c-2c6a-48d5-bcd0-003c44f5f5bc.png",
+      "generated_started_at": "2026-11-09T02:09:08.834Z",
+      "generated_finished_at": "2026-11-09T02:10:18.946Z",
+      "request_record": "art/characters/moa/concepts/illustration_001/records/prompt.json"
+    },
+    {
+      "id": "yuna",
+      "name": "유나",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-8537bdc9-aba8-47d8-a5c5-cbfade360bc1.png",
+      "generated_started_at": "2026-11-09T02:09:08.834Z",
+      "generated_finished_at": "2026-11-09T02:10:57.278Z",
+      "request_record": "art/characters/yuna/concepts/illustration_001/records/prompt.json"
+    },
+    {
+      "id": "iren",
+      "name": "이렌",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-af1213b6-01bb-49dd-ba55-b547c2160cc9.png",
+      "generated_started_at": "2026-11-09T02:09:08.834Z",
+      "generated_finished_at": "2026-11-09T02:11:38.399Z",
+      "request_record": "art/characters/iren/concepts/illustration_001/records/prompt.json"
+    }
+  ],
+  "cost": null,
+  "model": null,
+  "art_direction_status": "rejected_by_user",
+  "feedback": "무기가 너무 구닥다리이며 전체적으로 40세처럼 보인다. 네 명 모두 외형 25~26세와 근미래 신형 무기로 수정 요청."
+}

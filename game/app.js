@@ -2,50 +2,67 @@ import { RigLab, MOTIONS } from './rig-lab.js';
 import { PlanBLab } from './plan-b-lab.js';
 import { PartsV2Lab } from './parts-v2-lab.js';
 import { PlanELab } from './plan-e-lab.js';
+import { GlbModelLab } from './glb-model-lab.js';
+import { GlbSpriteLab } from './glb-sprite-lab.js';
 const $ = (id) => document.getElementById(id);
 const lab = new RigLab();
 const planB = new PlanBLab();
 const partsV2 = new PartsV2Lab();
 const planE = new PlanELab();
+const glb = new GlbModelLab();
+const glbSprite = new GlbSpriteLab();
 let labInitialized = false;
 function setPreviewMode(mode, updateUrl=true) {
+  if (mode === 'rig' && !app.entry?.capabilities?.some(value => ['webgl_rig', 'rig_mount'].includes(value))) mode = 'reference';
   const rigMode = mode === 'rig';
   const planBMode = mode === 'plan-b';
   const v2Mode = mode === 'rig-v2';
   const planEMode = mode === 'plan-e';
-  $('reference-view').hidden = rigMode || planBMode || v2Mode || planEMode; $('rig-view').hidden = !rigMode;
+  const glbMode = mode === 'glb';
+  const glbSpriteMode = mode === 'glb-sprite';
+  $('reference-view').hidden = rigMode || planBMode || v2Mode || planEMode || glbMode || glbSpriteMode; $('rig-view').hidden = !rigMode;
   $('rig-v2-view').hidden = !v2Mode;
   $('plan-b-view').hidden = !planBMode;
   $('plan-e-view').hidden = !planEMode;
-  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode && !v2Mode && !planEMode));
+  $('glb-view').hidden = !glbMode;
+  $('glb-sprite-view').hidden = !glbSpriteMode;
+  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode && !v2Mode && !planEMode && !glbMode && !glbSpriteMode));
   $('mode-plan-e').setAttribute('aria-pressed', String(planEMode));
+  $('mode-glb').setAttribute('aria-pressed', String(glbMode));
+  $('mode-glb-sprite').setAttribute('aria-pressed', String(glbSpriteMode));
   $('mode-rig').setAttribute('aria-pressed', String(rigMode));
   $('mode-plan-b').setAttribute('aria-pressed', String(planBMode));
   $('mode-rig-v2').setAttribute('aria-pressed', String(v2Mode));
-  $('review-state').textContent = planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
+  $('review-state').textContent = glbSpriteMode ? 'GLB · 2D 스프라이트 시험' : glbMode ? '3D 모델 · GLB 재생 시험' : planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
   lab.show(rigMode);
   planB.show(planBMode);
   partsV2.show(v2Mode);
   planE.show(planEMode);
+  glb.show(glbMode);
+  glbSprite.show(glbSpriteMode);
   if (rigMode && !labInitialized) { labInitialized=true; lab.init(); }
   if (updateUrl) {
     const [route,query] = location.hash.split('?');const params=new URLSearchParams(query||'');
-    if (planEMode) planE.writeParams(params);
+    if (glbSpriteMode) glbSprite.writeParams(params);
+    else if (glbMode) glb.writeParams(params);
+    else if (planEMode) planE.writeParams(params);
     else if (v2Mode) partsV2.writeParams(params);
     else {
-    if(['parts-v2','e'].includes(params.get('plan')))for(const key of ['frame','fps','loop','paused','face','viewPitch','clip','scale','version'])params.delete(key);
+    if(['parts-v2','e','glb','glb-sprite'].includes(params.get('plan')))for(const key of ['frame','fps','loop','paused','face','viewPitch','clip','scale','version','speed','inPlace'])params.delete(key);
     if (planBMode) planB.writeParams(params);
     else { params.delete('plan'); params.delete('study'); params.delete('pixelView'); if(rigMode)params.set('motion',lab.mode);else params.delete('motion'); }
     }
     history.replaceState(null,'',`${location.pathname}${location.search}${route}${params.size?'?'+params:''}`);
   }
-  if (!rigMode && !planBMode && !v2Mode && !planEMode) fitArt();
+  if (!rigMode && !planBMode && !v2Mode && !planEMode && !glbMode && !glbSpriteMode) fitArt();
 }
 $('mode-reference').addEventListener('click',()=>setPreviewMode('reference'));
 $('mode-rig').addEventListener('click',()=>setPreviewMode('rig'));
 $('mode-rig-v2').addEventListener('click',()=>setPreviewMode('rig-v2'));
 $('mode-plan-b').addEventListener('click',()=>setPreviewMode('plan-b'));
 $('mode-plan-e').addEventListener('click',()=>setPreviewMode('plan-e'));
+$('mode-glb').addEventListener('click',()=>setPreviewMode('glb'));
+$('mode-glb-sprite').addEventListener('click',()=>setPreviewMode('glb-sprite'));
 const app = { entries: [], entry: null, revision: null, view: 'sheet', zoom: 1 };
 const labels = { character: '캐릭터', weapon: '무기', enemy: '적' };
 const viewLabels = { front: '정면', back: '후면', left: '좌측면', right: '우측면', side: '측면' };
@@ -161,6 +178,8 @@ function showRoute() {
   planB.show(false);
   partsV2.show(false);
   planE.show(false);
+  glb.show(false);
+  glbSprite.show(false);
   try {
     const [route, query] = location.hash.slice(1).split('?');
     const parts = (route || '/samples').split('/').filter(Boolean);
@@ -170,9 +189,14 @@ function showRoute() {
     if (!app.entry) throw new Error('등록되지 않은 샘플입니다. 왼쪽 목록에서 대상을 선택해 주세요.');
     $('error').hidden = true;
     const entry = app.entry;
+    const rigAvailable = entry.capabilities?.some(value => ['webgl_rig', 'rig_mount'].includes(value));
+    const conceptOnly = entry.capabilities?.includes('concept_image') && !rigAvailable;
+    $('mode-rig').hidden = !rigAvailable;
     $('mode-plan-b').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-rig-v2').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-plan-e').hidden = kind !== 'character' || id !== 'clone_01';
+    $('mode-glb').hidden = kind !== 'character' || id !== 'clone_01';
+    $('mode-glb-sprite').hidden = kind !== 'character' || id !== 'clone_01';
     const hasArt = entry.revisions.some((revision) => revision.preview?.image_path);
     $('workspace').hidden = !hasArt;
     $('empty-state').hidden = hasArt;
@@ -180,10 +204,10 @@ function showRoute() {
     $('breadcrumb').textContent = labels[kind];
     $('eyebrow').textContent = `${kind.toUpperCase()} / ${entry.entity_id.toUpperCase().replaceAll('_', ' ')}`;
     $('subtitle').textContent = hasArt ? kind === 'weapon' ? '본체·탄창과 공통 캐릭터의 장착 모션을 확인하세요.' : '첨부 기준 캐릭터와 3D 렌더 질감의 외형을 확인하세요.' : '이 대상의 아트와 모션은 제작 예정입니다.';
-    $('mode-reference').textContent = kind === 'weapon' ? '무기 파츠' : '채택 외형';
-    $('direction-heading').textContent = kind === 'weapon' ? 'M16 · 분리형 무기.' : '차갑고, 도도하게.';
+    $('mode-reference').textContent = kind === 'weapon' ? '무기 파츠' : conceptOnly ? '일러스트 시안' : '채택 외형';
+    $('direction-heading').textContent = kind === 'weapon' ? 'M16 · 분리형 무기.' : conceptOnly ? `${entry.display_name} · 콘셉트 시안.` : '차갑고, 도도하게.';
     $('review-state').textContent = hasArt ? '외형 검토 대기' : '제작 예정';
-    document.querySelectorAll('[data-nav]').forEach((link) => link.classList.toggle('current', link.dataset.nav === kind));
+    document.querySelectorAll('[data-nav]').forEach((link) => link.classList.toggle('current', link.dataset.nav === kind && (link.dataset.entity ? link.dataset.entity === id : kind !== 'character' || id === 'clone_01')));
     if (!hasArt) { $('empty-title').textContent = `${entry.display_name}은 아직 제작하지 않았습니다.`; return; }
     const revisions = entry.revisions.filter((revision) => revision.preview?.image_path).toReversed();
     $('revision-select').disabled = revisions.length < 2;
@@ -199,7 +223,13 @@ function showRoute() {
     if(labParams.get('plan')==='e'&&kind==='character'&&id==='clone_01'){
       planE.restoreParams(labParams);setPreviewMode('plan-e',false);return;
     }
-    const motion = labParams.get('motion');
+    if(labParams.get('plan')==='glb'&&kind==='character'&&id==='clone_01'){
+      glb.restoreParams(labParams);setPreviewMode('glb',false);return;
+    }
+    if(labParams.get('plan')==='glb-sprite'&&kind==='character'&&id==='clone_01'){
+      glbSprite.restoreParams(labParams);setPreviewMode('glb-sprite',false);return;
+    }
+    const motion = rigAvailable ? labParams.get('motion') : null;
     if (motion && Object.hasOwn(MOTIONS,motion)) lab.setMode(motion,{immediate:true,updateUrl:false});
     if (labParams.get('debug') === '1') { lab.options.debug=true; $('rig-debug').checked=true; }
     if (labParams.get('mesh') === '1') { lab.options.mesh=true; $('rig-mesh').checked=true; }
@@ -247,5 +277,13 @@ try {
   if (!response.ok) throw new Error('샘플 목록을 불러오지 못했습니다.');
   const catalog = await response.json();
   if (catalog.schema_version !== 1 || !Array.isArray(catalog.entries)) throw new Error('샘플 목록 형식이 맞지 않습니다.');
-  app.entries = catalog.entries; showRoute();
+  app.entries = catalog.entries;
+  const sampleNav = document.querySelector('nav[aria-label="샘플 목록"]');
+  for (const entry of app.entries.filter(item => item.kind === 'character' && item.entity_id !== 'clone_01' && item.revisions.some(revision => revision.preview?.image_path))) {
+    const link = Object.assign(document.createElement('a'), { className: 'nav-item', href: `#/samples/characters/${encodeURIComponent(entry.entity_id)}`, textContent: `◈ ${entry.display_name}` });
+    link.dataset.nav = 'character'; link.dataset.entity = entry.entity_id;
+    const label = document.createElement('small'); label.textContent = '시안'; link.append(label);
+    sampleNav.append(link);
+  }
+  showRoute();
 } catch (error) { $('error').hidden = false; $('error').textContent = error.message; $('workspace').hidden = true; }

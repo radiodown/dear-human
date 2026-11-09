@@ -1,0 +1,44 @@
+{
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "art_direction_status": "awaiting_user_review",
+  "outputs": [
+    {
+      "id": "sena",
+      "name": "세나",
+      "concept": "25~26세의 젊은 성인. 은회색 낮은 포니테일과 회색 눈. 가벼운 비대칭 정찰 망토, 슬림한 전술 바지와 경량 장갑. 신형 정밀 사격 화기. 가터벨트 없음.",
+      "recipe_key": "squad-illustration-002-sena",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-f52d17c6-9e8a-404f-b468-30adef27c019.png",
+      "generated_started_at": "2026-11-09T02:16:17.369Z",
+      "generated_finished_at": "2026-11-09T02:16:53.395Z"
+    },
+    {
+      "id": "moa",
+      "name": "모아",
+      "concept": "25~26세의 젊은 성인. 적갈색 땋은 머리와 단단한 체형. 탄약·하중을 받치는 지지 하네스, 전술 바지와 강화 장갑. 신형 지원화기. 가터벨트 없음.",
+      "recipe_key": "squad-illustration-002-moa",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-a25c146c-652e-460d-8093-5a60885ac6dc.png",
+      "generated_started_at": "2026-11-09T02:16:17.369Z",
+      "generated_finished_at": "2026-11-09T02:17:31.152Z"
+    },
+    {
+      "id": "yuna",
+      "name": "유나",
+      "concept": "25~26세의 젊은 성인. 밝은 금발 보브와 청회색 눈. 방패를 받치는 전완·흉부 장갑, 짧은 망토와 닫힌 방호 하의. 복합재 방패와 신형 보조 화기. 가터벨트 없음.",
+      "recipe_key": "squad-illustration-002-yuna",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-31757d29-09e9-430a-b2b2-f38d253d4350.png",
+      "generated_started_at": "2026-11-09T02:16:17.369Z",
+      "generated_finished_at": "2026-11-09T02:18:09.904Z"
+    },
+    {
+      "id": "iren",
+      "name": "이렌",
+      "concept": "외형은 25~26세, 각성 후 약 7년의 경험은 별도. 짧은 짙은 갈색 머리와 회갈색 눈. 돌격용 분절 장갑·짧은 장갑 하의·가터벨트·스타킹, 신형 돌격 화기. 노화 대신 태도로 선임의 경험 표현.",
+      "recipe_key": "squad-illustration-002-iren",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-e3c1bf4c-6e01-4d76-a77a-3d1d7e496f6f.png",
+      "generated_started_at": "2026-11-09T02:16:17.369Z",
+      "generated_finished_at": "2026-11-09T02:19:31.242Z"
+    }
+  ]
+}

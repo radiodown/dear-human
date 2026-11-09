@@ -1,0 +1,34 @@
+{
+  "scope": "new 002 PNG decode/dimensions/hash and byte-identical wiki copies only; original catalog entries preserved",
+  "items": [
+    {
+      "character": "sena",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "621a3d959075636a0e7fd365151bdb988e9f21d4c68b81f9fbc6a73020cd05f6",
+      "source_equals_wiki": true
+    },
+    {
+      "character": "moa",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "07479eceb11d80db291b13a53d6876bdcbd11fbc44101f49775e4e959afb9d59",
+      "source_equals_wiki": true
+    },
+    {
+      "character": "yuna",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "05e58a7b55c024d993a549557719e915167a9f0d69ea92714132f1de38c4188d",
+      "source_equals_wiki": true
+    },
+    {
+      "character": "iren",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "639d94fae839744b8c36f2658093934adfea366ccae99dbc479a22075307aff3",
+      "source_equals_wiki": true
+    }
+  ],
+  "art_direction_status": "awaiting_user_review"
+}

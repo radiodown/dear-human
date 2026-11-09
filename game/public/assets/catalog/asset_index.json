@@ -7448,6 +7448,734 @@
           ]
         }
       ]
+    },
+    {
+      "kind": "character",
+      "entity_id": "sena",
+      "display_name": "세나",
+      "status": "draft",
+      "selected_revision_id": null,
+      "review_revision_id": "illustration_002",
+      "capabilities": [
+        "concept_image"
+      ],
+      "revisions": [
+        {
+          "revision_id": "illustration_001",
+          "display_name": "세나 · 일러스트 001 · 반려",
+          "status": "archived",
+          "verification": "failed",
+          "verification_scope": "user_art_review_rejected",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "squad-illustration-001-sena",
+          "artifacts": [
+            {
+              "path": "art/characters/sena/concepts/illustration_001/source/illustration.png",
+              "sha256": "ae85b3d1b0ffd665507f2b18177392e0cd9f57894414765e3ebd0eb4b39fb762"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_001/records/prompt.json",
+              "sha256": "7ce882e659d0dbdd6dace3f41e85d5e75d4c6c212a26a782f2dcf54d8f4c283b"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_001/records/prompt.md",
+              "sha256": "50b97e94ef6932bc622d55916592a0554cecac79235ada9c7e554a0e982423cd"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_001/records/generation.json",
+              "sha256": "4e5c0093b00b3f36e760a1f93135f95ca3acc170a74f5c3b6682a4db08510750"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            }
+          ],
+          "description": "사용자 반려: 구식 화기·노화된 인상. 변경 전 기록이다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "반려한 이전 시도"
+            ],
+            [
+              "역할",
+              "저격·관측"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 반려"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "정지 일러스트만 제공 · 모션·리그 없음",
+            "정확한 무기 모델·방호 수치 미정",
+            "001은 사용자 반려 · 002는 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/characters/sena/concepts/illustration_001/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_002",
+          "display_name": "세나 · 일러스트 002 · 병과별 신형 장비",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "awaiting_targeted_preview_check",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-002-sena",
+          "artifacts": [
+            {
+              "path": "art/characters/sena/concepts/illustration_002/source/illustration.png",
+              "sha256": "621a3d959075636a0e7fd365151bdb988e9f21d4c68b81f9fbc6a73020cd05f6"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_002/records/prompt.json",
+              "sha256": "0b945f833153a06de65b6093a1107ab74343f6f5c23fb8a533ad907abc2e1e26"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_002/records/prompt.md",
+              "sha256": "8491ff001c36b542728e45b7aedf5595a54f918831afcb71e63a0ddb0d188481"
+            },
+            {
+              "path": "art/characters/sena/concepts/illustration_002/records/generation.json",
+              "sha256": "2e55401dd421394b71377f48f93d332168ce4389a3694f0591f512a149738ed6"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "sena",
+              "revision_id": "illustration_001"
+            }
+          ],
+          "description": "25~26세의 젊은 성인. 은회색 낮은 포니테일과 회색 눈. 가벼운 비대칭 정찰 망토, 슬림한 전술 바지와 경량 장갑. 신형 정밀 사격 화기. 가터벨트 없음. 외형 시안·사용자 검수 대기. 모션은 미지원.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "저격·관측"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "정지 일러스트만 제공 · 모션·리그 없음",
+            "정확한 무기 모델·방호 수치 미정",
+            "001은 사용자 반려 · 002는 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/characters/sena/concepts/illustration_002/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        }
+      ]
+    },
+    {
+      "kind": "character",
+      "entity_id": "moa",
+      "display_name": "모아",
+      "status": "draft",
+      "selected_revision_id": null,
+      "review_revision_id": "illustration_002",
+      "capabilities": [
+        "concept_image"
+      ],
+      "revisions": [
+        {
+          "revision_id": "illustration_001",
+          "display_name": "모아 · 일러스트 001 · 반려",
+          "status": "archived",
+          "verification": "failed",
+          "verification_scope": "user_art_review_rejected",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "squad-illustration-001-moa",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/illustration_001/source/illustration.png",
+              "sha256": "e697a2287cdd87afdcd8f65a96787802842742b9c24571466fdccda81c4d89b0"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_001/records/prompt.json",
+              "sha256": "eb6e241e2d210945e063d6b12db6e0486d6060f184dd2d38883f02e3b22baaf5"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_001/records/prompt.md",
+              "sha256": "27eca8dfe3237c793e6a11e707812fa330c5d5da9a89a92caa339c1f633e7ad7"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_001/records/generation.json",
+              "sha256": "655b80e3e769d0223af0cbe200369540db370e87377199280a2b5b1d4cc3c1ed"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            }
+          ],
+          "description": "사용자 반려: 구식 화기·노화된 인상. 변경 전 기록이다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "반려한 이전 시도"
+            ],
+            [
+              "역할",
+              "분대지원화기"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 반려"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "정지 일러스트만 제공 · 모션·리그 없음",
+            "정확한 무기 모델·방호 수치 미정",
+            "001은 사용자 반려 · 002는 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/illustration_001/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_002",
+          "display_name": "모아 · 일러스트 002 · 병과별 신형 장비",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "awaiting_targeted_preview_check",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-002-moa",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/illustration_002/source/illustration.png",
+              "sha256": "07479eceb11d80db291b13a53d6876bdcbd11fbc44101f49775e4e959afb9d59"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_002/records/prompt.json",
+              "sha256": "df2ebd3eaf46d28deb2eedc0095e4808c7f04a26dedc15310e0ac6423c985dcb"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_002/records/prompt.md",
+              "sha256": "c493ed77fa37e00f73963ad052809080669dd206b3f38b8d2a2944a8ece9c398"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_002/records/generation.json",
+              "sha256": "a43e691a69e5d99fa9130d9b158167e92cceece24704380d29c201b8c86b7988"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "illustration_001"
+            }
+          ],
+          "description": "25~26세의 젊은 성인. 적갈색 땋은 머리와 단단한 체형. 탄약·하중을 받치는 지지 하네스, 전술 바지와 강화 장갑. 신형 지원화기. 가터벨트 없음. 외형 시안·사용자 검수 대기. 모션은 미지원.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "분대지원화기"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "정지 일러스트만 제공 · 모션·리그 없음",
+            "정확한 무기 모델·방호 수치 미정",
+            "001은 사용자 반려 · 002는 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/illustration_002/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        }
+      ]
+    },
+    {
+      "kind": "character",
+      "entity_id": "yuna",
+      "display_name": "유나",
+      "status": "draft",
+      "selected_revision_id": null,
+      "review_revision_id": "illustration_002",
+      "capabilities": [
+        "concept_image"
+      ],
+      "revisions": [
+        {
+          "revision_id": "illustration_001",
+          "display_name": "유나 · 일러스트 001 · 반려",
+          "status": "archived",
+          "verification": "failed",
+          "verification_scope": "user_art_review_rejected",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "squad-illustration-001-yuna",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/illustration_001/source/illustration.png",
+              "sha256": "3ac3c52fcfd2759caf6275b04a78dad795cd496d1501db3fc7f868e72c9b1177"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_001/records/prompt.json",
+              "sha256": "4f79bc48d86eb38b67dfd487cc7348c3e187be6889f9ac8cc91c4a16395e2cb9"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_001/records/prompt.md",
+              "sha256": "2b97c2b8780520a51a664ab5c6e4d7930daa27326dc23e4b841aee1acc7eee3d"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_001/records/generation.json",
+              "sha256": "2fe61833a1f1072c561b583e1b6248866c5a3e52be3df4c6ab8ca39e8805f45c"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            }
+          ],
+          "description": "사용자 반려: 구식 화기·노화된 인상. 변경 전 기록이다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "반려한 이전 시도"
+            ],
+            [
+              "역할",
+              "방패·진입"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 반려"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "정지 일러스트만 제공 · 모션·리그 없음",
+            "정확한 무기 모델·방호 수치 미정",
+            "001은 사용자 반려 · 002는 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/illustration_001/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_002",
+          "display_name": "유나 · 일러스트 002 · 병과별 신형 장비",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "awaiting_targeted_preview_check",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-002-yuna",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/illustration_002/source/illustration.png",
+              "sha256": "05e58a7b55c024d993a549557719e915167a9f0d69ea92714132f1de38c4188d"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_002/records/prompt.json",
+              "sha256": "7a92b114543f12d85b61b6cf8047647af9859d2def93fc050a7fe6ed26a77c9f"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_002/records/prompt.md",
+              "sha256": "3e43a75bd284ff43c8bbb4a7d7810fe34dc695ee54705745e995e4e84ebf5451"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_002/records/generation.json",
+              "sha256": "e93715098d8c2f15f64d867c89087bc4ceb39e157b190fcd0ed953ba41c24496"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "illustration_001"
+            }
+          ],
+          "description": "25~26세의 젊은 성인. 밝은 금발 보브와 청회색 눈. 방패를 받치는 전완·흉부 장갑, 짧은 망토와 닫힌 방호 하의. 복합재 방패와 신형 보조 화기. 가터벨트 없음. 외형 시안·사용자 검수 대기. 모션은 미지원.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "방패·진입"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "정지 일러스트만 제공 · 모션·리그 없음",
+            "정확한 무기 모델·방호 수치 미정",
+            "001은 사용자 반려 · 002는 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/illustration_002/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        }
+      ]
+    },
+    {
+      "kind": "character",
+      "entity_id": "iren",
+      "display_name": "이렌",
+      "status": "draft",
+      "selected_revision_id": null,
+      "review_revision_id": "illustration_002",
+      "capabilities": [
+        "concept_image"
+      ],
+      "revisions": [
+        {
+          "revision_id": "illustration_001",
+          "display_name": "이렌 · 일러스트 001 · 반려",
+          "status": "archived",
+          "verification": "failed",
+          "verification_scope": "user_art_review_rejected",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "squad-illustration-001-iren",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/illustration_001/source/illustration.png",
+              "sha256": "cad59582779f77902c8f5fd7f05738b6ba894a6c179c2c848cb0d0bdbc7fe616"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_001/records/prompt.json",
+              "sha256": "3b67d80737cdad3fb7f3f7a7313c52aa87a2d5189bf439d91efc707bc0d805db"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_001/records/prompt.md",
+              "sha256": "f406537fd77978d3a7cbaa5b41b848c79b58ecd331bb79661e9ca21bc82c0e54"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_001/records/generation.json",
+              "sha256": "b7aeffcdab6977aa87e3b7196df82c783b35ed261ee2583cda8ff049b872df45"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            }
+          ],
+          "description": "사용자 반려: 구식 화기·노화된 인상. 변경 전 기록이다.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "반려한 이전 시도"
+            ],
+            [
+              "역할",
+              "돌격"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 반려"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "정지 일러스트만 제공 · 모션·리그 없음",
+            "정확한 무기 모델·방호 수치 미정",
+            "001은 사용자 반려 · 002는 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/illustration_001/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_002",
+          "display_name": "이렌 · 일러스트 002 · 병과별 신형 장비",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "awaiting_targeted_preview_check",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-002-iren",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/illustration_002/source/illustration.png",
+              "sha256": "639d94fae839744b8c36f2658093934adfea366ccae99dbc479a22075307aff3"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_002/records/prompt.json",
+              "sha256": "ec0d5e00771784a66746359f32ba4270738e79389b03c290ee1859119bb502f1"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_002/records/prompt.md",
+              "sha256": "9de27d56ef8a793f78f7affd13cfcea01b8078299a045102af0bb3a8b956f638"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_002/records/generation.json",
+              "sha256": "eab32467e9f905422a0eabe00048f7ccc38c19752ff94c8a7f7f3abfecaa4eb0"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "iren",
+              "revision_id": "illustration_001"
+            }
+          ],
+          "description": "외형은 25~26세, 각성 후 약 7년의 경험은 별도. 짧은 짙은 갈색 머리와 회갈색 눈. 돌격용 분절 장갑·짧은 장갑 하의·가터벨트·스타킹, 신형 돌격 화기. 노화 대신 태도로 선임의 경험 표현. 외형 시안·사용자 검수 대기. 모션은 미지원.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "돌격"
+            ],
+            [
+              "가터벨트",
+              "이렌만 착용"
+            ],
+            [
+              "상태",
+              "검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "정지 일러스트만 제공 · 모션·리그 없음",
+            "정확한 무기 모델·방호 수치 미정",
+            "001은 사용자 반려 · 002는 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/illustration_002/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        }
+      ]
     }
   ]
 }

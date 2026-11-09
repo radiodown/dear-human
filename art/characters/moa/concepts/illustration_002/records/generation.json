@@ -1,0 +1,21 @@
+{
+  "id": "moa",
+  "name": "모아",
+  "concept": "25~26세의 젊은 성인. 적갈색 땋은 머리와 단단한 체형. 탄약·하중을 받치는 지지 하네스, 전술 바지와 강화 장갑. 신형 지원화기. 가터벨트 없음.",
+  "recipe_key": "squad-illustration-002-moa",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-a25c146c-652e-460d-8093-5a60885ac6dc.png",
+  "generated_started_at": "2026-11-09T02:16:17.369Z",
+  "generated_finished_at": "2026-11-09T02:17:31.152Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "mode": "RGB",
+  "source_sha256": "07479eceb11d80db291b13a53d6876bdcbd11fbc44101f49775e4e959afb9d59",
+  "art_direction_status": "awaiting_user_review",
+  "transformations": [],
+  "review_scope": "full-body portrait, youthful adult face direction, role-specific equipment and Iren-only garters; user aesthetic approval pending",
+  "limitations": "Illustrative weapons; exact engineering, ages as visually perceived and production cutout usability require user review."
+}

@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/iren-illustration-002.png",
+  "source": "art/characters/iren/concepts/illustration_002/source/illustration.png",
+  "sha256": "639d94fae839744b8c36f2658093934adfea366ccae99dbc479a22075307aff3",
+  "width": 1024,
+  "height": 1536,
+  "status": "시안 002 · 사용자 검수 대기",
+  "treatment": "원본 PNG를 바이트 변경 없이 복사. 이전 001은 사용자 반려 상태로 아트 폴더에 보존.",
+  "prompt": "art/characters/iren/concepts/illustration_002/records/prompt.md"
+}

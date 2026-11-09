@@ -1,0 +1,21 @@
+{
+  "id": "iren",
+  "name": "이렌",
+  "concept": "외형은 25~26세, 각성 후 약 7년의 경험은 별도. 짧은 짙은 갈색 머리와 회갈색 눈. 돌격용 분절 장갑·짧은 장갑 하의·가터벨트·스타킹, 신형 돌격 화기. 노화 대신 태도로 선임의 경험 표현.",
+  "recipe_key": "squad-illustration-002-iren",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-e3c1bf4c-6e01-4d76-a77a-3d1d7e496f6f.png",
+  "generated_started_at": "2026-11-09T02:16:17.369Z",
+  "generated_finished_at": "2026-11-09T02:19:31.242Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "mode": "RGB",
+  "source_sha256": "639d94fae839744b8c36f2658093934adfea366ccae99dbc479a22075307aff3",
+  "art_direction_status": "awaiting_user_review",
+  "transformations": [],
+  "review_scope": "full-body portrait, youthful adult face direction, role-specific equipment and Iren-only garters; user aesthetic approval pending",
+  "limitations": "Illustrative weapons; exact engineering, ages as visually perceived and production cutout usability require user review."
+}

@@ -1,0 +1,18 @@
+{
+  "id": "yuna",
+  "name": "유나",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-8537bdc9-aba8-47d8-a5c5-cbfade360bc1.png",
+  "generated_started_at": "2026-11-09T02:09:08.834Z",
+  "generated_finished_at": "2026-11-09T02:10:57.278Z",
+  "request_record": "art/characters/yuna/concepts/illustration_001/records/prompt.json",
+  "project_path": "art/characters/yuna/concepts/illustration_001/source/illustration.png",
+  "sha256": "3ac3c52fcfd2759caf6275b04a78dad795cd496d1501db3fc7f868e72c9b1177",
+  "size": [
+    1024,
+    1536
+  ],
+  "art_direction_status": "rejected_by_user",
+  "cost": null,
+  "model": null,
+  "feedback": "무기가 너무 구닥다리이며 전체적으로 40세처럼 보인다. 네 명 모두 외형 25~26세와 근미래 신형 무기로 수정 요청."
+}

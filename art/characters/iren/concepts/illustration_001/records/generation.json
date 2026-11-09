@@ -1,0 +1,18 @@
+{
+  "id": "iren",
+  "name": "이렌",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-af1213b6-01bb-49dd-ba55-b547c2160cc9.png",
+  "generated_started_at": "2026-11-09T02:09:08.834Z",
+  "generated_finished_at": "2026-11-09T02:11:38.399Z",
+  "request_record": "art/characters/iren/concepts/illustration_001/records/prompt.json",
+  "project_path": "art/characters/iren/concepts/illustration_001/source/illustration.png",
+  "sha256": "cad59582779f77902c8f5fd7f05738b6ba894a6c179c2c848cb0d0bdbc7fe616",
+  "size": [
+    1024,
+    1536
+  ],
+  "art_direction_status": "rejected_by_user",
+  "cost": null,
+  "model": null,
+  "feedback": "무기가 너무 구닥다리이며 전체적으로 40세처럼 보인다. 네 명 모두 외형 25~26세와 근미래 신형 무기로 수정 요청."
+}

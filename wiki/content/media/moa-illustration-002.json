@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/moa-illustration-002.png",
+  "source": "art/characters/moa/concepts/illustration_002/source/illustration.png",
+  "sha256": "07479eceb11d80db291b13a53d6876bdcbd11fbc44101f49775e4e959afb9d59",
+  "width": 1024,
+  "height": 1536,
+  "status": "시안 002 · 사용자 검수 대기",
+  "treatment": "원본 PNG를 바이트 변경 없이 복사. 이전 001은 사용자 반려 상태로 아트 폴더에 보존.",
+  "prompt": "art/characters/moa/concepts/illustration_002/records/prompt.md"
+}

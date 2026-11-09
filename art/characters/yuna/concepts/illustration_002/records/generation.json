@@ -1,0 +1,21 @@
+{
+  "id": "yuna",
+  "name": "유나",
+  "concept": "25~26세의 젊은 성인. 밝은 금발 보브와 청회색 눈. 방패를 받치는 전완·흉부 장갑, 짧은 망토와 닫힌 방호 하의. 복합재 방패와 신형 보조 화기. 가터벨트 없음.",
+  "recipe_key": "squad-illustration-002-yuna",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-31757d29-09e9-430a-b2b2-f38d253d4350.png",
+  "generated_started_at": "2026-11-09T02:16:17.369Z",
+  "generated_finished_at": "2026-11-09T02:18:09.904Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "mode": "RGB",
+  "source_sha256": "05e58a7b55c024d993a549557719e915167a9f0d69ea92714132f1de38c4188d",
+  "art_direction_status": "awaiting_user_review",
+  "transformations": [],
+  "review_scope": "full-body portrait, youthful adult face direction, role-specific equipment and Iren-only garters; user aesthetic approval pending",
+  "limitations": "Illustrative weapons; exact engineering, ages as visually perceived and production cutout usability require user review."
+}

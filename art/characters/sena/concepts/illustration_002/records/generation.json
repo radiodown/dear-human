@@ -1,0 +1,21 @@
+{
+  "id": "sena",
+  "name": "세나",
+  "concept": "25~26세의 젊은 성인. 은회색 낮은 포니테일과 회색 눈. 가벼운 비대칭 정찰 망토, 슬림한 전술 바지와 경량 장갑. 신형 정밀 사격 화기. 가터벨트 없음.",
+  "recipe_key": "squad-illustration-002-sena",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-f52d17c6-9e8a-404f-b468-30adef27c019.png",
+  "generated_started_at": "2026-11-09T02:16:17.369Z",
+  "generated_finished_at": "2026-11-09T02:16:53.395Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "mode": "RGB",
+  "source_sha256": "621a3d959075636a0e7fd365151bdb988e9f21d4c68b81f9fbc6a73020cd05f6",
+  "art_direction_status": "awaiting_user_review",
+  "transformations": [],
+  "review_scope": "full-body portrait, youthful adult face direction, role-specific equipment and Iren-only garters; user aesthetic approval pending",
+  "limitations": "Illustrative weapons; exact engineering, ages as visually perceived and production cutout usability require user review."
+}
