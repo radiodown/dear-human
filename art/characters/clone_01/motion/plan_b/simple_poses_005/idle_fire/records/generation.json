@@ -1,0 +1,11 @@
+{
+  "pose": "idle_fire",
+  "tool": "built-in image_gen.imagegen",
+  "started_at_utc": "2026-11-09T00:52:37.545Z",
+  "finished_at_utc": "2026-11-09T00:54:19.338Z",
+  "elapsed_seconds": 101.793,
+  "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-5301a4bf-5144-4f88-8943-f2e4c18b95b2.png",
+  "model": null,
+  "cost": null,
+  "seed": null
+}

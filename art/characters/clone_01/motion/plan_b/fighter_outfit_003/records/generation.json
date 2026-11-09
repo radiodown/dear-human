@@ -1,0 +1,51 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "edit",
+  "calls": 1,
+  "model": null,
+  "model_note": "No model/version identifier returned by the built-in tool.",
+  "seed": null,
+  "cost": null,
+  "cost_note": "No billing amount returned by the tool.",
+  "started_at_utc": "2026-11-09T00:25:16.456Z",
+  "finished_at_utc": "2026-11-09T00:25:56.297Z",
+  "elapsed_seconds": 39.841,
+  "requested_camera_elevation_degrees": 12,
+  "measured_camera_elevation_degrees": null,
+  "prompt": "records/baseline_prompt.json",
+  "exact_prompt_md": "records/baseline_prompt.md",
+  "inputs": [
+    {
+      "role": "edit target",
+      "path": "source/reference-fighter.png",
+      "sha256": "a15bc6e8d02b3400a7e48ecd829e45ca29f554feddf5edfd838373ebcc61814d"
+    },
+    {
+      "role": "approved costume reference",
+      "path": "source/reference-approved.png",
+      "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+    },
+    {
+      "role": "front costume construction reference",
+      "path": "source/reference-front.png",
+      "sha256": "2220886447a7b7aa2a1c4d26af7e15a306c8409064b7937a9a96ac7dc1643985"
+    }
+  ],
+  "camera_pose_policy": "Retain the previous shallow fighting-game view and pose. This request targets costume only.",
+  "dependencies": [
+    "plan_b_fighter_view_002",
+    "reference_003_3d",
+    "turnaround_001"
+  ],
+  "original_tool_output": "C:/Users/axgatge/.codex/generated_images/01a1bd85-b640-76d1-b63b-d6db45e6d65c/exec-3e13640a-7ccd-4ec9-9146-75f6d351173a.png",
+  "saved_source": "source/baseline_generated.png",
+  "display": "output/baseline.png",
+  "output_sha256": "9b760e8267ac7b44abdc810a860b18c15b4f4ede1611395619f13b9c970839db",
+  "native_size": [
+    1254,
+    1254
+  ],
+  "postprocessing": "None; exact byte copies. No scaling, alignment, cropping, palette conversion or alpha cleanup.",
+  "art_direction_status": "awaiting_user_review",
+  "motions": []
+}

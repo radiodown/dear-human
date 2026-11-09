@@ -1,0 +1,7 @@
+[
+  {"id":"world","title":"세계와 사회","description":"UE의 이상, 통치와 그 안에서 살아가는 사람들","symbol":"01"},
+  {"id":"history","title":"역사와 사건","description":"AI 전쟁에서 베스퍼의 첫 임무까지","symbol":"02"},
+  {"id":"people","title":"인물과 관계","description":"지휘관, 클론과 서로를 부르는 이름","symbol":"03"},
+  {"id":"places","title":"장소와 개척","description":"지구에서 180광년, 베스퍼 동부 개척권","symbol":"04"},
+  {"id":"technology","title":"기술과 제도","description":"성간항해, 강화 복제와 신경 통제","symbol":"05"}
+]

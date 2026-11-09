@@ -1,0 +1,31 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "edit",
+  "calls": 1,
+  "model": null,
+  "model_note": "No model/version identifier returned by the built-in tool.",
+  "seed": null,
+  "cost": null,
+  "cost_note": "No billing amount returned by the tool.",
+  "started_at_utc": "2026-11-09T00:10:53.106Z",
+  "finished_at_utc": "2026-11-09T00:11:30.608Z",
+  "elapsed_seconds": 37.502,
+  "requested_camera_elevation_degrees": 30,
+  "measured_camera_elevation_degrees": null,
+  "prompt": "records/baseline_prompt.json",
+  "exact_prompt_md": "records/baseline_prompt.md",
+  "input": "source/reference-side.png",
+  "input_sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de",
+  "dependency": "plan_b_guard_007_walk",
+  "original_tool_output": "C:/Users/axgatge/.codex/generated_images/01a1bd85-b640-76d1-b63b-d6db45e6d65c/exec-1535a304-5678-41e0-ae40-bdba7e36bb8f.png",
+  "saved_source": "source/baseline_generated.png",
+  "display": "output/baseline.png",
+  "output_sha256": "df79b69bad90ece397b3d564dcecc77d34a93eac7c2d50134176378c16344f58",
+  "native_size": [
+    1254,
+    1254
+  ],
+  "postprocessing": "None; exact byte copies. No scaling, alignment, cropping, palette conversion or alpha cleanup.",
+  "art_direction_status": "awaiting_user_review",
+  "motions": []
+}

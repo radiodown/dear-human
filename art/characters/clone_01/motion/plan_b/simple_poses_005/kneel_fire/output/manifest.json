@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "type": "still_pose",
+  "pose": "kneel_fire",
+  "image": "pose.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "source_output_sha256": "47e4e1bbf3dbbd27f9f941d1c70f6227b7d90c905efe280fc2db19da979b1ecf",
+  "postprocessing": "None. Identical original bytes; display size is controlled by the page.",
+  "kind": "single_pose_concept",
+  "animation_available": false
+}

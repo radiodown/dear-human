@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "type": "still_pose",
+  "pose": "reload",
+  "image": "pose.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "source_output_sha256": "ea0975606490e9dcea3bc75503c153ad79ef2d6123cf5b4f09de13424796e077",
+  "postprocessing": "None. Identical original bytes; display size is controlled by the page.",
+  "kind": "single_pose_concept",
+  "animation_available": false
+}

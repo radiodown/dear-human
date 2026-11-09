@@ -1,0 +1,5 @@
+{
+  "frames": {"0":"source/baseline.png","6":"kneel/source/grounded_reference.png","7":"kneel/source/grounded_reference.png"},
+  "reason":"Use the exact existing standing and separately model-drawn grounded kneeling drawings as immutable transition endpoints. Final frame repeats the end pose as a hold, not another generated pose.",
+  "individual_pose_scale_or_translation":false
+}

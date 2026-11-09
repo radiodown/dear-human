@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "type": "still_pose",
+  "pose": "walk_fire",
+  "image": "pose.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "source_output_sha256": "cd2e2d32c3805a79939f1df88127e5b7a5062e53e8de83120c0db240269d693f",
+  "postprocessing": "None. Identical original bytes; display size is controlled by the page.",
+  "kind": "single_pose_concept",
+  "animation_available": false
+}

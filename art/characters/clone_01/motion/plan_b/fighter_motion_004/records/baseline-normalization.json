@@ -1,0 +1,20 @@
+{
+  "source_size": [
+    1254,
+    1254
+  ],
+  "size": [
+    627,
+    627
+  ],
+  "scale": 0.5,
+  "resampling": "nearest",
+  "offset": [
+    0,
+    0
+  ],
+  "alpha_cleanup": false,
+  "performed_before_pose_generation": true,
+  "individual_pose_fitting": false,
+  "source_sha256": "9b760e8267ac7b44abdc810a860b18c15b4f4ede1611395619f13b9c970839db"
+}

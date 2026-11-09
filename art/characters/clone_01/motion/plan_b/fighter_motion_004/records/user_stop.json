@@ -1,0 +1,10 @@
+{
+  "status": "stopped_by_user",
+  "reason": "User requested simpler/slimmer static pose concept art first, no motion work yet.",
+  "remaining_generation_cancelled": true,
+  "new_motion_runtime_wiring_removed": true,
+  "not_catalog_registered": true,
+  "existing_generated_material_preserved": true,
+  "delivered_motion_completion_claimed": false,
+  "known_state": "Five clips packed but not browser-reviewed; kneel keys and kneel-fire keys exist; their inbetweens and final packing are unfinished."
+}

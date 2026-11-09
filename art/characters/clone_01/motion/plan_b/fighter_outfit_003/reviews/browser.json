@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=fighter_outfit_003",
+  "browser": "Separate headless local Windows Chrome through Playwright. In-app browser bootstrap unavailable: missing sandboxPolicy.",
+  "decoded_size": [
+    1254,
+    1254
+  ],
+  "checks": [
+    "Direct address selects the static angle sample; image decoded; animation/fire controls hidden.",
+    "Existing background and display-size controls work for the new angle.",
+    "Approved illustration and costume-corrected sprite load in the comparison disclosure.",
+    "Previous and corrected costumes load together in the before/after disclosure.",
+    "Previous 12-degree sprite and original comparison remain available; returning restores costume view and URL.",
+    "Reload restores the camera-angle selection.",
+    "500px layout has no horizontal page overflow."
+  ],
+  "page_errors": [],
+  "art_acceptance": "awaiting_user_review",
+  "scope": "One still and its display/URL integration only; no animation-art validation or complete test suite."
+}

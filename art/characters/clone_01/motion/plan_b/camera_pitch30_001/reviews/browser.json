@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=camera_pitch30_001",
+  "browser": "Separate headless local Windows Chrome through Playwright. In-app browser bootstrap unavailable: missing sandboxPolicy.",
+  "decoded_size": [
+    1254,
+    1254
+  ],
+  "checks": [
+    "Direct address selects the static angle sample; image decoded; animation/fire controls hidden.",
+    "Existing background and display-size controls work for the new angle.",
+    "Side-profile and elevated images load in the comparison disclosure.",
+    "Existing guard walk still advances; returning to the angle restores its URL and static view.",
+    "Reload restores the camera-angle selection.",
+    "500px layout has no horizontal page overflow."
+  ],
+  "page_errors": [],
+  "art_acceptance": "awaiting_user_review",
+  "scope": "One still and its display/URL integration only; no animation-art validation or complete test suite."
+}

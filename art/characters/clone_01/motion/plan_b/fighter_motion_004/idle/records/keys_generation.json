@@ -1,0 +1,13 @@
+{
+  "clip": "idle",
+  "stage": "keys",
+  "tool": "built-in image_gen.imagegen",
+  "started_at_utc": "2026-11-09T00:33:22.081Z",
+  "finished_at_utc": "2026-11-09T00:34:36.712Z",
+  "elapsed_seconds": 74.631,
+  "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-bc91978a-032e-4e67-b615-8b7ffc74b29d.png",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "cost_note": "Not exposed by tool."
+}

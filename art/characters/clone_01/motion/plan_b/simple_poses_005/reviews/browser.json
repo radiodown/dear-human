@@ -1,0 +1,58 @@
+{
+  "status": "passed",
+  "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=idle",
+  "poses": [
+    {
+      "pose": "idle",
+      "decoded": true,
+      "static": true,
+      "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=idle"
+    },
+    {
+      "pose": "walk",
+      "decoded": true,
+      "static": true,
+      "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=walk"
+    },
+    {
+      "pose": "walk_fire",
+      "decoded": true,
+      "static": true,
+      "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=walk_fire"
+    },
+    {
+      "pose": "idle_fire",
+      "decoded": true,
+      "static": true,
+      "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=idle_fire"
+    },
+    {
+      "pose": "kneel",
+      "decoded": true,
+      "static": true,
+      "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=kneel"
+    },
+    {
+      "pose": "kneel_fire",
+      "decoded": true,
+      "static": true,
+      "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=kneel_fire"
+    },
+    {
+      "pose": "reload",
+      "decoded": true,
+      "static": true,
+      "url": "http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=reload"
+    }
+  ],
+  "checks": [
+    "Seven separate stills decoded; correct selection and pose URL.",
+    "Animation and input-fire controls hidden in every new pose.",
+    "Static all-pose gallery and detailed/simple style comparison.",
+    "Reload restoration, display size/background, 500px layout."
+  ],
+  "browser": "Separate local headless Windows Chrome; in-app bootstrap earlier unavailable (missing sandboxPolicy).",
+  "page_errors": [],
+  "art_acceptance": "awaiting_user_review",
+  "motion_work": "Stopped by user; no new animation checks or execution."
+}

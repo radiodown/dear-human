@@ -1,0 +1,121 @@
+{
+  "walk": {
+    "title": "걷기",
+    "loop": true,
+    "durationMs": 115,
+    "keys": [
+      "00 contact A: the NEAR lighter leg A reaches forward screen-right, heel down; FAR darker leg B extends behind, toe pushing. Moderate stride. Upper body and rifle steady.",
+      "02 passing A: near A supports under the pelvis, far B knee and boot pass behind/under the near leg toward screen-right, boot lifted only 10-14 pixels. Legs clearly cross.",
+      "04 contact B: FAR darker B now forward screen-right heel down, NEAR lighter A back on its toe. REVERSE the support roles of 00; do not mirror the whole character.",
+      "06 passing B: far B supports under pelvis, near A knee/boot passes in front/under body toward screen-right with small toe lift. Opposite support leg to 02."
+    ],
+    "between": [
+      "01 halfway from key 00 to 02: A accepts weight under a soft knee, B pushes off behind and begins crossing under the body.",
+      "03 halfway from key 02 to 04: B extends forward preparing heel contact, A heel lifts behind.",
+      "05 halfway from key 04 to 06: B accepts weight, A pushes off behind and crosses under the body.",
+      "07 halfway from key 06 back to 00: A extends forward preparing heel contact while B heel lifts. Natural loop into 00, no neutral standing pause."
+    ]
+  },
+  "walk_fire": {
+    "title": "걸으며쏴",
+    "loop": true,
+    "durationMs": 115,
+    "keys": [
+      "00 near A forward contact / shot-release pose: same gait phase as walk key 00, M16 stock firmly at shoulder, slight recoil into shoulder; NO muzzle flash.",
+      "02 near A support / far B crossing passing: same phase as walk key 02, torso recovering from recoil without changing body size; both grips fixed.",
+      "04 far B forward contact / next shot-release: opposite support roles, same phase as walk key 04, slight shoulder recoil; NO muzzle flash.",
+      "06 far B support / near A crossing passing: same phase as walk key 06, recover shoulder and rifle to forward aim."
+    ],
+    "between": [
+      "01 A weight acceptance / B toe-off, peak modest shoulder-back recoil, head and cape lag slightly; same leg placement as walk frame 01.",
+      "03 B extending forward / A back, recoil settled to aimed walk; match walk frame 03.",
+      "05 B weight acceptance / A toe-off, peak modest shoulder recoil; match walk frame 05.",
+      "07 A extending forward / B back, recoil settled to aimed walk; match walk frame 07, flowing into 00."
+    ]
+  },
+  "idle": {
+    "title": "정지",
+    "loop": true,
+    "durationMs": 180,
+    "keys": [
+      "00 normal quiet aimed standing/guard pose, match the provided exact baseline stance, knees soft and feet planted.",
+      "02 inhale: a subtle 1-2 pixel chest/shoulder expansion upward, head follows by 1 pixel, hands and rifle remain shouldered; feet do not move.",
+      "04 breath apex: same proportions, tiny chest lift and delayed slight movement at hair/cape tips only.",
+      "06 exhale: shoulders/chest settle toward baseline, slight late cloth tip movement; both boots remain exactly planted."
+    ],
+    "between": [
+      "01 halfway inhale from 00 to 02, very small breathing motion, no foot movement.",
+      "03 halfway from inhale 02 to apex 04, upper body settles at top of breath, no body scaling.",
+      "05 halfway exhale from 04 to 06, hair/cape tip lags gently.",
+      "07 almost back to baseline 00, seamless quiet breathing loop; no head turn or blink needed."
+    ]
+  },
+  "idle_fire": {
+    "title": "서서쏴",
+    "loop": true,
+    "durationMs": 80,
+    "keys": [
+      "00 first shot-release shoulder pose, same standing feet/pelvis as baseline and idle; M16 shouldered, NO flash.",
+      "02 recoil settlement: shoulder/chest return forward after first shot, fingers remain on the same grips, no foot translation.",
+      "04 next shot-release shoulder pose, same planted stance, small upper-body compression back; NO flash.",
+      "06 second recoil settlement: same body scale and aim, slight delayed hair/cape movement."
+    ],
+    "between": [
+      "01 peak first recoil: shoulder/chest move back only 2-3 pixels; neck/head follows slightly, stock stays touching shoulder.",
+      "03 full aimed recovery before next shot, head stable, cape/hair still catching up.",
+      "05 peak second recoil, matching the same two grips and planted feet.",
+      "07 full aimed recovery, flowing back into 00. No muzzle flash, smoke, cartridge or separate FX."
+    ]
+  },
+  "kneel": {
+    "title": "앉기",
+    "loop": false,
+    "durationMs": 120,
+    "keys": [
+      "00 START STANDING: exact baseline aimed guard stance, same height, both hands on M16.",
+      "02 lowering: bend both knees and hips, pelvis halfway down, front boot toward screen-right stays planted; rear leg begins folding backward under body.",
+      "04 near-kneeling: rear knee approaches ground in front of/below pelvis, front knee raised over the forward flat boot, torso/stock/eyes still aligned toward screen-right. Body height naturally lower; DO NOT enlarge head/torso/rifle.",
+      "06 settled one-knee aim: adopt the supporting pose reference's low kneeling structure in the baseline's shallow 12-degree view. Rear knee on ground, front boot planted farther screen-right, front shin roughly upright, M16 horizontal, cape excess drapes on ground behind. No requirement for support elbow to touch knee."
+    ],
+    "between": [
+      "01 between standing 00 and lowering 02: hips drop, knees soften, rear heel starts lifting while front foot supports.",
+      "03 between lowering 02 and near-kneel 04: rear knee descends toward floor, front boot stays planted, head/torso travel downward together without scaling.",
+      "05 between near-kneel 04 and settled 06: rear knee makes soft ground contact, cape trailing length folds onto ground behind.",
+      "07 END HOLD: fully settle into the same kneeling aim as key 06 with a tiny final weight shift. This is the final held state, not a loop back to standing."
+    ]
+  },
+  "kneel_fire": {
+    "title": "앉아쏴",
+    "loop": true,
+    "durationMs": 80,
+    "keys": [
+      "00 first kneeling shot-release: copy the supplied approved kneeling key pose at the same low screen position and scale, both hands hold M16, no flash.",
+      "02 kneeling recoil settlement: shoulder/chest settle forward into stock without moving grounded knee or front boot.",
+      "04 next kneeling shot-release: small shoulder-back compression, front boot and rear knee fixed, no flash.",
+      "06 kneeling recoil settlement: head/shoulder recover, cape/hair have slight delayed response, same low seated scale."
+    ],
+    "between": [
+      "01 peak first kneeling recoil: chest/shoulder move back 2-3 pixels, head follows softly; front foot and rear knee absolutely anchored.",
+      "03 recovered kneeling aim: rifle horizontal, stock contact and two hand grips retained.",
+      "05 peak second kneeling recoil, subtle delayed hair/cape response, no lower-body translation.",
+      "07 recovered kneeling aim, return toward 00 without any standing up, knee lift or ground sliding."
+    ]
+  },
+  "reload": {
+    "title": "장전",
+    "loop": false,
+    "durationMs": 190,
+    "keys": [
+      "00 start fully shouldered: same baseline guard stance, right firing hand on grip, left support hand under handguard, existing magazine installed.",
+      "02 remove old magazine: right hand keeps grip/control and stock at shoulder, left hand has pulled the old magazine down and away from the magwell, clearly separate; rifle still points screen-right.",
+      "04 insert new magazine: left hand guides a replacement magazine upward into the magwell, old magazine no longer floats in scene, right hand still on grip, feet/pelvis/head unchanged.",
+      "06 finish manipulation: new magazine seated, left hand briefly reaches receiver/bolt release then starts returning toward handguard; no extra arms or floating second gun."
+    ],
+    "between": [
+      "01 support hand leaves handguard and reaches the magazine/magwell to release the old magazine. Right hand keeps firearm supported.",
+      "03 left hand takes replacement magazine near the waist pouch while right hand supports rifle; one magazine in the hand, no floating old magazine.",
+      "05 left hand firmly seats new magazine upward; receiver/bolt release manipulation beginning, fingers wrapped around magazine.",
+      "07 END: left hand returns to handguard, both hands resume original aimed grip, magazine installed and rifle shouldered. Hold this final pose; no automatic reload loop."
+    ]
+  }
+}

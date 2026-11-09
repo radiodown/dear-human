@@ -1,0 +1,12 @@
+{
+  "clip": "kneel",
+  "stage": "reference",
+  "tool": "built-in image_gen.imagegen",
+  "pose_slots": 1,
+  "started_at_utc": "2026-11-09T00:43:49.098Z",
+  "finished_at_utc": "2026-11-09T00:44:24.436Z",
+  "elapsed_seconds": 35.338,
+  "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-690b9059-40a5-41ee-9165-dc02f000d41f.png",
+  "model": null,
+  "cost": null
+}

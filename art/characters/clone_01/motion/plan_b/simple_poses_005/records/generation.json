@@ -1,0 +1,103 @@
+{
+  "tool": "built-in image_gen.imagegen",
+  "mode": "static pose concept editing",
+  "image_generation_calls": 7,
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "unexposed_fields_note": "The tool did not expose model/version, seed or monetary charge.",
+  "calls": [
+    {
+      "pose": "idle",
+      "tool": "built-in image_gen.imagegen",
+      "started_at_utc": "2026-11-09T00:50:39.415Z",
+      "finished_at_utc": "2026-11-09T00:51:14.881Z",
+      "elapsed_seconds": 35.466,
+      "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-977655ff-76e2-4abf-b52f-9a2f2c86fc50.png",
+      "model": null,
+      "cost": null,
+      "seed": null
+    },
+    {
+      "pose": "walk",
+      "tool": "built-in image_gen.imagegen",
+      "started_at_utc": "2026-11-09T00:52:37.526Z",
+      "finished_at_utc": "2026-11-09T00:53:10.616Z",
+      "elapsed_seconds": 33.09,
+      "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-61a2b849-af6a-45a1-b2a4-851a82d1f1a1.png",
+      "model": null,
+      "cost": null,
+      "seed": null
+    },
+    {
+      "pose": "walk_fire",
+      "tool": "built-in image_gen.imagegen",
+      "started_at_utc": "2026-11-09T00:52:37.533Z",
+      "finished_at_utc": "2026-11-09T00:53:44.809Z",
+      "elapsed_seconds": 67.276,
+      "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-63bd1b0c-ab6e-41c7-b2b3-8cb1136248e4.png",
+      "model": null,
+      "cost": null,
+      "seed": null
+    },
+    {
+      "pose": "idle_fire",
+      "tool": "built-in image_gen.imagegen",
+      "started_at_utc": "2026-11-09T00:52:37.545Z",
+      "finished_at_utc": "2026-11-09T00:54:19.338Z",
+      "elapsed_seconds": 101.793,
+      "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-5301a4bf-5144-4f88-8943-f2e4c18b95b2.png",
+      "model": null,
+      "cost": null,
+      "seed": null
+    },
+    {
+      "pose": "kneel",
+      "tool": "built-in image_gen.imagegen",
+      "started_at_utc": "2026-11-09T00:52:37.554Z",
+      "finished_at_utc": "2026-11-09T00:54:58.935Z",
+      "elapsed_seconds": 141.381,
+      "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-4cc7dfa7-f84f-4915-aa1a-06346695701d.png",
+      "model": null,
+      "cost": null,
+      "seed": null
+    },
+    {
+      "pose": "kneel_fire",
+      "tool": "built-in image_gen.imagegen",
+      "started_at_utc": "2026-11-09T00:52:37.563Z",
+      "finished_at_utc": "2026-11-09T00:55:34.242Z",
+      "elapsed_seconds": 176.679,
+      "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-867cce3b-a749-4c87-9ec4-64a1cabcf4ac.png",
+      "model": null,
+      "cost": null,
+      "seed": null
+    },
+    {
+      "pose": "reload",
+      "tool": "built-in image_gen.imagegen",
+      "started_at_utc": "2026-11-09T00:52:37.577Z",
+      "finished_at_utc": "2026-11-09T00:56:11.938Z",
+      "elapsed_seconds": 214.361,
+      "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-00eec087-98d9-46e9-8e1c-58aeb54ba17c.png",
+      "model": null,
+      "cost": null,
+      "seed": null
+    }
+  ],
+  "sum_observed_call_seconds": 770.046,
+  "inputs": [
+    "source/reference-detailed.png",
+    "source/reference-kneel.png",
+    "idle/output/pose.png for the six derived poses"
+  ],
+  "prior_motion_work": "fighter_motion_004 stopped and preserved; experimental runtime wiring removed.",
+  "pose_count": 7,
+  "animation_frames_created": 0,
+  "animation_available": false,
+  "postprocessing": "Original individual PNG bytes preserved. Static overview only uses uniform thumbnails for comparison, never pose fitting.",
+  "style": "Simpler, slimmer adult pixel-art concepts; sparse armor/pouches, large flat clusters. Exact fixed palette/grid and final game sprites are not certified.",
+  "requested_camera_pitch": 12,
+  "measured_camera_pitch": null,
+  "art_direction_status": "awaiting_user_review"
+}

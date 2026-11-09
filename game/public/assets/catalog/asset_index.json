@@ -6292,6 +6292,791 @@
               "sha256": "da8d41414337ccff1b3478350ce0ed56fe32b0b02aa6ea2a3060b71102f8a395"
             }
           ]
+        },
+        {
+          "revision_id": "plan_b_camera_pitch30_001",
+          "display_name": "플랜 B · 30° 내려보기 기준 001",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Single PNG decode/alpha and byte preservation; JS syntax; focused Windows Chrome display/URL/selection/comparison/500px only. Not art acceptance or animation validation.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "69f5c45ef0c69334c02eb74a2b57603c4c24f751707f92ca5478edfdf8f726f2",
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_guard_007_walk"
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/output/baseline.png",
+              "sha256": "df79b69bad90ece397b3d564dcecc77d34a93eac7c2d50134176378c16344f58"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/output/manifest.json",
+              "sha256": "0f947bea28745f4831e4692e0197d2992e3ca34f4895e5da295787e2676d5343"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/README.md",
+              "sha256": "b0393a868aece3e70b730412d2f1762d8d1c601151f650536fb29470e9bcad4d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/recipe/prepare.py",
+              "sha256": "b9a158133451c1f38c0ad50fed8f80f1078c4c244512912a5e88855730e55218"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/recipe/record.py",
+              "sha256": "001a2ffa16fa9722d59ef7443d1e033e7ea6c9a91911aba087cfb67b2479dbd1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/recipe/review.py",
+              "sha256": "c000eee4c8a4a24086917d1e986745f0825af9e0b3d0e76286fae3d93d4fb35a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/baseline_prompt.json",
+              "sha256": "69f5c45ef0c69334c02eb74a2b57603c4c24f751707f92ca5478edfdf8f726f2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/baseline_prompt.md",
+              "sha256": "7aead25e150b3ddb6016381f453453a0a873533dd38e1ffa2e08b56b7a19df31"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/generation.json",
+              "sha256": "4e96b2add4f2a05b4ca77937bfdb1d0ddebb69953b464304d285280e6143bddb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_after/game/index.html",
+              "sha256": "a449d36efc2eec7120394b0b1077058a03fc6c8d78d47abd257961ace85f2289"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_after/game/plan-b-lab.js",
+              "sha256": "2f43edf4133b5950d02018a02abeba3fe3e0c0a774ffa3125e5e3aa35169c1d6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_before/AGENTS.md",
+              "sha256": "297d0edc7619256d26c1c91d5754772b805cb02eb4abfc92daf5de6fa602f185"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_before/game/app.js",
+              "sha256": "1f8129362caeb79538a6b4701c2c55c5f70a97957d21cde5096fd91ee5cb1dab"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_before/game/index.html",
+              "sha256": "5734b65d244d547b1080d542a80f7cb4afb9679b050393bb7faa1fb35fb75d1f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_before/game/plan-b-lab.js",
+              "sha256": "4ff8377aafaf733f65ef910fb08f375dc6e04aa26b69e5c5b62ee12f8101bc9d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_before/game/public/assets/catalog/asset_index.json",
+              "sha256": "3110f481d20bfb1814673be8b5e47e441c376a717bc6d020d1dd8af731ba5624"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_before/game/styles.css",
+              "sha256": "cbec8a395cea99bbd82f90c139b6cb714a5f4cd6d21a2d6cd2001ce2a6aabe28"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/runtime_snapshot_before/README.md",
+              "sha256": "10d2812c2d2d46bc4a4df8864488af8a9a6f5c15ae2e8b7d0efaf0b5635b43a8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/reviews/browser-angle.png",
+              "sha256": "f0511fce852574b6e5120ee8d7e5089e33377072dcbe6c42b1f00c0ebc1036b1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/reviews/browser-comparison.png",
+              "sha256": "d97304368849c3d5acd695eca61f754387c6edf71b4990c2ddb4eb2f6d1c142c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/reviews/browser-narrow.png",
+              "sha256": "41fb027f1775072c3291a0c3a322c15ecf92907ca013c86573388157255ad414"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/reviews/browser.json",
+              "sha256": "de3739bcf3ce4bc2b0701cb9fa6c150b844b58f86d0acc7b3486f09eff5d54ba"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/reviews/structure.json",
+              "sha256": "1cfb2a7ad248f30b6b75fcb442497b9af5c450d700d2e00c94c02ef0e0b7919b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/reviews/visual.json",
+              "sha256": "a8581a12f3d15c8e1b897febaaf67ac78d76898046457489d01d3760c3959282"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/source/baseline_generated.png",
+              "sha256": "df79b69bad90ece397b3d564dcecc77d34a93eac7c2d50134176378c16344f58"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/source/reference-side.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            }
+          ],
+          "preview": {
+            "type": "concept_image",
+            "image_path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/output/baseline.png",
+            "width": 1254,
+            "height": 1254,
+            "views": [
+              "right_elevated_30"
+            ],
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=camera_pitch30_001"
+          },
+          "motions": [],
+          "capabilities": [
+            "concept_image"
+          ],
+          "description": "기존 경계 자세를 약 30° 위에서 내려다보는 시점으로 새로 그린 도트풍 정지 기준. 시점/비례/외형 검수 대기이며 이 시점의 동작은 미제작입니다.",
+          "review_notes": [
+            "정수리·어깨·총·군화 윗면과 양발 깊이 표현",
+            "정확한 3D 각도·부위 비례·고정 픽셀 격자는 보장하지 않음",
+            "같은 플랜 B 페이지에서 선택·정측면 비교·주소 복원"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/baseline_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/camera_pitch30_001/records/baseline_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_fighter_view_002",
+          "display_name": "플랜 B · 격투게임식 시점 002",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Single PNG decode/alpha and byte preservation; JS syntax; focused Windows Chrome display/URL/selection/comparison/500px only. Not art acceptance or animation validation.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "44af72a9ee9108c27a90719f9da621ea146603728bdb0f16713f3ae87519e2ca",
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_camera_pitch30_001"
+            },
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_guard_007_walk"
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/output/baseline.png",
+              "sha256": "a15bc6e8d02b3400a7e48ecd829e45ca29f554feddf5edfd838373ebcc61814d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/output/manifest.json",
+              "sha256": "972adeba795cc0a3b915ac9783806b3d7e096ce42b3062752fa2b4a4b51f879e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/README.md",
+              "sha256": "c8ff3dc73de9d0b42e64169310bc64aa0dcdf981548e43d5e1156e5409d9288a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/recipe/prepare.py",
+              "sha256": "12bba16e1a9c8d979072ba51492168f74465749dd4e0407097e6774a2a61f572"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/recipe/record.py",
+              "sha256": "52368ff8e2e3d1435cb885f13acf3b60636656ee178fa8e2b712447b9c8fcda5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/recipe/review.py",
+              "sha256": "d9418e8d79c856dff1f557a99c70590b33a4a7ee7e96af20a55cfc49e2e285c0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/baseline_prompt.json",
+              "sha256": "44af72a9ee9108c27a90719f9da621ea146603728bdb0f16713f3ae87519e2ca"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/baseline_prompt.md",
+              "sha256": "69955e1148330b6868b4af760197cabd94b161ea304c87937affd103780a1a14"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/generation.json",
+              "sha256": "61b2645b39e10bf568599b3bfa4fccf3ec72f9a246f02c7ac4844875a781d425"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_after/game/index.html",
+              "sha256": "86c08314927ef8a0b6b9d91225a841f60f199e95b2d47ddd2479495e07a51149"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_after/game/plan-b-lab.js",
+              "sha256": "10c2a87dc200ea7ab2fb1778fb80f23460d80c01efad35ef93fa403d812706c1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_before/AGENTS.md",
+              "sha256": "a79fba64b0e651e0f7c85d204c7a78f928bbdabca618890f56b671fa2afae7a1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_before/game/app.js",
+              "sha256": "1f8129362caeb79538a6b4701c2c55c5f70a97957d21cde5096fd91ee5cb1dab"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_before/game/index.html",
+              "sha256": "a449d36efc2eec7120394b0b1077058a03fc6c8d78d47abd257961ace85f2289"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_before/game/plan-b-lab.js",
+              "sha256": "2f43edf4133b5950d02018a02abeba3fe3e0c0a774ffa3125e5e3aa35169c1d6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_before/game/public/assets/catalog/asset_index.json",
+              "sha256": "068d9cd081029dcac88665fca29fa71d51daf216970d587a23f0ace4fbbf301b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_before/game/styles.css",
+              "sha256": "cbec8a395cea99bbd82f90c139b6cb714a5f4cd6d21a2d6cd2001ce2a6aabe28"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/runtime_snapshot_before/README.md",
+              "sha256": "52f5bd1d49eddc21dac357378599f3c2d8d5874210b118ab92404e9a20227086"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/reviews/browser-angle.png",
+              "sha256": "13ca464e0786a32f99aaf38a2ec4ea371f7c19ac960829497d9e02d192765b3c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/reviews/browser-comparison.png",
+              "sha256": "7d8c18ec3e2e7ee331eb2e7ee894536c63e6a39b412ab5e08e64b253df10b935"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/reviews/browser-narrow.png",
+              "sha256": "7a0cc45a0eb79dcedcb0e29e272d5873ad30f0d02ad685788f3d0b8cc31144e4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/reviews/browser.json",
+              "sha256": "22de77e07864c1e4f51e6901a8b7fa5829f4df87a7df9d5df3ae1bd5eb26a7d1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/reviews/structure.json",
+              "sha256": "3e3938566f5206383092e0531fd3835cf93da004515f79961c35ab028dea4cfb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/reviews/visual.json",
+              "sha256": "3e653347b11647b3d061c34193456d6dbdb23a789b85b70aacc2850de11ba47c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/source/baseline_generated.png",
+              "sha256": "a15bc6e8d02b3400a7e48ecd829e45ca29f554feddf5edfd838373ebcc61814d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/source/reference-pitch30.png",
+              "sha256": "df79b69bad90ece397b3d564dcecc77d34a93eac7c2d50134176378c16344f58"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_view_002/source/reference-side.png",
+              "sha256": "a65274bcfbca6675a6ef1a0a65102e0d57014fe354a0c5b87f4d16c3594f53de"
+            }
+          ],
+          "preview": {
+            "type": "concept_image",
+            "image_path": "art/characters/clone_01/motion/plan_b/fighter_view_002/output/baseline.png",
+            "width": 1254,
+            "height": 1254,
+            "views": [
+              "right_elevated_12_torso_open"
+            ],
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=fighter_view_002"
+          },
+          "motions": [],
+          "capabilities": [
+            "concept_image"
+          ],
+          "description": "내려보기를 약 12°로 낮추고 몸을 카메라 쪽으로 조금 튼 격투게임식 도트풍 정지 기준. 얼굴·흉갑·양팔을 보여 주며 시점/비례/외형 검수 대기, 모션은 미제작입니다.",
+          "review_notes": [
+            "약 12° 내려보기 + 카메라 쪽으로 몸 틀기 · 얼굴/흉갑/양팔 강조",
+            "정확한 3D 각도·부위 비례·고정 픽셀 격자는 보장하지 않음",
+            "같은 플랜 B 페이지에서 선택·이전 30°와 비교·주소 복원"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/baseline_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/fighter_view_002/records/baseline_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_fighter_outfit_003",
+          "display_name": "플랜 B · 격투게임식 의상 보완 003",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Single PNG decode/alpha and byte preservation; JS syntax; focused Windows Chrome display/URL/selection/comparison/500px only. Not art acceptance or animation validation.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "640ae39fa0269c2be535f1c4698eea5b85024d6acb3eefa4821129c3a143be64",
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_fighter_view_002"
+            },
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "turnaround_001"
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/output/baseline.png",
+              "sha256": "9b760e8267ac7b44abdc810a860b18c15b4f4ede1611395619f13b9c970839db"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/output/manifest.json",
+              "sha256": "3d85195475b94a9bb0580be6959f6c47fb0da5344849b596e6229e45febaf4f1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/README.md",
+              "sha256": "862cb99c66789fba602dd5534fa19eadc656ef09e321e2035f67077749706ca2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/recipe/prepare.py",
+              "sha256": "1cee27ba53411c786d7e5ff78059e7c759320404c699f032f5e59d575649d908"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/recipe/record.py",
+              "sha256": "9e5a7afe63394a37827deb1106544583cae7e617661af4666da5215190121bc6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/recipe/review.py",
+              "sha256": "4f94df7892d4f3ed04d5cd7ca584d36f409f0d9d1b1ae582bcb264755b741009"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/baseline_prompt.json",
+              "sha256": "640ae39fa0269c2be535f1c4698eea5b85024d6acb3eefa4821129c3a143be64"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/baseline_prompt.md",
+              "sha256": "238fbecbeb877d7e1c01065cfb0e2349149988adf769a435da3ebfcfdfe360d0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/generation.json",
+              "sha256": "71a5130b5454f1fff4b15d33a378ce92b036811f2d35c07dc18c50f2a3985059"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_after/game/index.html",
+              "sha256": "346bd77f7b06f966964664622f3aa707797ac3ae0b5be0d6d39a3dc299246815"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_after/game/plan-b-lab.js",
+              "sha256": "4acad195f92695e4c937198857aa4c05e46c5f5ec89cef1b7116a94fe7af7588"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_after/game/styles.css",
+              "sha256": "361ec70729b4e08e93289a0a5cde301edfea4683e52e02f3fbd58408f5d2afed"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_before/AGENTS.md",
+              "sha256": "8f3e165b56dc6d35c99aca5cbe61b952278e21571e2d1be120f8102d74c56f46"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_before/game/app.js",
+              "sha256": "1f8129362caeb79538a6b4701c2c55c5f70a97957d21cde5096fd91ee5cb1dab"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_before/game/index.html",
+              "sha256": "86c08314927ef8a0b6b9d91225a841f60f199e95b2d47ddd2479495e07a51149"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_before/game/plan-b-lab.js",
+              "sha256": "10c2a87dc200ea7ab2fb1778fb80f23460d80c01efad35ef93fa403d812706c1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_before/game/public/assets/catalog/asset_index.json",
+              "sha256": "d75dcfbc0f63ca75f9097bbbf7696002f2dce39f0ad11f2fe3ba0f00c9f44884"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_before/game/styles.css",
+              "sha256": "cbec8a395cea99bbd82f90c139b6cb714a5f4cd6d21a2d6cd2001ce2a6aabe28"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/runtime_snapshot_before/README.md",
+              "sha256": "129578e813c5d5ba34204a5ef113905b7d59094ed7bde850dac954da61677f0b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/reviews/browser-angle.png",
+              "sha256": "025a9c9f204af126d4c20d10029d6b8d414b2b266e86e541eec247d9c84fcf55"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/reviews/browser-before-after.png",
+              "sha256": "c3bfa228a0c07f09ebaa4f230e950be6b3a0907d081849bb7120cf4f71dbb556"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/reviews/browser-comparison.png",
+              "sha256": "84c55bdde30615359e6ceec10b93e1c8ea18e4de4602ac7865fd5c6f5035cd1b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/reviews/browser-narrow.png",
+              "sha256": "9d7aeadd4fb9c8c01d3add37141412bc1e1c2cc196ca1469583de20e9c0f8cd6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/reviews/browser.json",
+              "sha256": "1f7ccbb7e1763bb945ace41635159667ae79b329abf95b84c46872276c79485f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/reviews/structure.json",
+              "sha256": "bc93ac9894ef800199900927ddfaeb43a24db35276ffc0e15444eeec49bddecd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/reviews/visual.json",
+              "sha256": "f099bd0a96f5263904139eff2e3f500ea6cb6adf100d92cd0130f7a878574dcd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/source/baseline_generated.png",
+              "sha256": "9b760e8267ac7b44abdc810a860b18c15b4f4ede1611395619f13b9c970839db"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/source/reference-approved.png",
+              "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/source/reference-fighter.png",
+              "sha256": "a15bc6e8d02b3400a7e48ecd829e45ca29f554feddf5edfd838373ebcc61814d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/source/reference-front.png",
+              "sha256": "2220886447a7b7aa2a1c4d26af7e15a306c8409064b7937a9a96ac7dc1643985"
+            }
+          ],
+          "preview": {
+            "type": "concept_image",
+            "image_path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/output/baseline.png",
+            "width": 1254,
+            "height": 1254,
+            "views": [
+              "right_elevated_12_torso_open_costume_corrected"
+            ],
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=fighter_outfit_003"
+          },
+          "motions": [],
+          "capabilities": [
+            "concept_image"
+          ],
+          "description": "격투게임식 12° 시점의 몸통과 스커트를 채택 일러스트에 맞춰 보완한 도트풍 정지 기준. 회색 흉갑 인셋·몸통 스트랩/벨트·허리 파우치·겹친 장갑 스커트를 복원했으며 아트 검수 대기, 모션은 미제작입니다.",
+          "review_notes": [
+            "흉갑 인셋·가슴 아래 스트랩·허리 벨트/파우치 복원",
+            "주름치마 대신 겹친 장갑 패널·중앙 하의 패널",
+            "같은 페이지에서 채택 일러스트/보완 전후 비교 · 세부 아트 검수 대기"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/baseline_prompt.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/fighter_outfit_003/records/baseline_prompt.md"
+        },
+        {
+          "revision_id": "plan_b_simple_poses_005",
+          "display_name": "플랜 B · 심플·슬림 자세 원화 005",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Seven still PNG decode/alpha/source-byte checks and short Chrome static selection/gallery/URL/500px display only; not art acceptance or animation validation.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "2acb5a5ef0c49c2052fe9b6659bdffa998962d2bb238e9333d354ee8848d2d68",
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_b_fighter_outfit_003"
+            }
+          ],
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle/output/manifest.json",
+              "sha256": "34d5e108189b06af6de88f4805204878e5b4ac9a8b8c6623bd5ecca831d273ae"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle/output/pose.png",
+              "sha256": "ec10936ebb05908ec1dda8daff4c9a8b4a54b8245556cbaef29a7368986fcab1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle/records/generation.json",
+              "sha256": "d7fa443c9944dd498ce98ec712ee3d3ab8f20ee8ab7945c5b3509f2896c706da"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle/records/prompt.json",
+              "sha256": "2acb5a5ef0c49c2052fe9b6659bdffa998962d2bb238e9333d354ee8848d2d68"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle/records/prompt.md",
+              "sha256": "4069cfd9400d498c808087953982e3453f0adca32f27a62574d0a22e4073a9b5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle/source/generated.png",
+              "sha256": "ec10936ebb05908ec1dda8daff4c9a8b4a54b8245556cbaef29a7368986fcab1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle_fire/output/manifest.json",
+              "sha256": "c427672aea3fcc42fd3d4cfd1063c9fea76dfd328bf2efa461e18312633344f4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle_fire/output/pose.png",
+              "sha256": "bb26eadad81122eaec47834c00b311e639e41a0ab77591a37a71f5b50ff83913"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle_fire/records/generation.json",
+              "sha256": "74fc0d4bbf5f2e56df4b1e5498d941723dd4190938b68826c940c39e6fed8963"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle_fire/records/prompt.json",
+              "sha256": "d9fb60c51705644902975bc4e59782b2f4e2343b122cf42f78a904476dd7ddb7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle_fire/records/prompt.md",
+              "sha256": "ef5ea47498c23dd5e1464a620527a16df9c727c1b98ecf58645062ae5351d1a6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/idle_fire/source/generated.png",
+              "sha256": "bb26eadad81122eaec47834c00b311e639e41a0ab77591a37a71f5b50ff83913"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel/output/manifest.json",
+              "sha256": "f165a41e498a5fb13062631114dff397f1b7eab9e739996ca8a8fdd679af91d3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel/output/pose.png",
+              "sha256": "788025d19bc40da37b1a49a00d6d211634446aeb144b5a81996f797ac4068c3f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel/records/generation.json",
+              "sha256": "9a401b508e678fed0594626b1cb8fc7c4f5fa8fe16e4836879fdfdde81ef89ed"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel/records/prompt.json",
+              "sha256": "6671cda7baa5068c82c4459f8d75f58c1c6b94a087748c1122d8b19a4b4008ab"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel/records/prompt.md",
+              "sha256": "7547f1db56617277e947e52e4166fd699e98705983e27570badc0e340fa9b1e0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel/source/generated.png",
+              "sha256": "788025d19bc40da37b1a49a00d6d211634446aeb144b5a81996f797ac4068c3f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel_fire/output/manifest.json",
+              "sha256": "dc8f8d568778d2f7d00c22e11bb4839691c7d7c6c6e73d2eb1d9ae681b082747"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel_fire/output/pose.png",
+              "sha256": "47e4e1bbf3dbbd27f9f941d1c70f6227b7d90c905efe280fc2db19da979b1ecf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel_fire/records/generation.json",
+              "sha256": "ec9561a66870c528e1b7bb2a4a7d4105cd158723897863704d6f6bb83ddc715b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel_fire/records/prompt.json",
+              "sha256": "9063fad0b6be98847ef9f1527f742db15ecfd08cec436027abf3ac438fbcb64b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel_fire/records/prompt.md",
+              "sha256": "651ea2e04eb86b2761493738c0c0e8197fdf9d05837efad0adc80e92a587966f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/kneel_fire/source/generated.png",
+              "sha256": "47e4e1bbf3dbbd27f9f941d1c70f6227b7d90c905efe280fc2db19da979b1ecf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/output/pose-overview.png",
+              "sha256": "ffc1bfd11c00476e87fcd5831f3b8e5b76c747686f29acf7f9ff58efe362d24b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/README.md",
+              "sha256": "bf34298ffe41a8a29dde0fc0500238d96125406cca9ff4da583987db5e9e0f3f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/recipe/import_image.py",
+              "sha256": "1a71e965c8e1c3b8e549073cf02daae60ab7ec8988dc1ced30dbc8d4a215c2a0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/recipe/prepare.py",
+              "sha256": "20af82a7b4c152f44693abb876a095b691f93bacdb6480b486d97c22a80c2885"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/recipe/record.py",
+              "sha256": "c9aefc1c5f1996909d9731351df79f6e115d12f51cfa6f1f69d7dc45199745a6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/recipe/review.py",
+              "sha256": "40a65c3083fe89e5349966da8b1a9e680e61adc21c71770e7522ed28e57fa3db"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/generation.json",
+              "sha256": "85dac505033f53403fbd07fd30008b1a07b725ce3168a75b4e52330409ba6cc9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/poses.json",
+              "sha256": "233edc20ef64cd0b2db38c95dc9bbea41e6804f805012f5fa97b0db5f89df30f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_after/game/index.html",
+              "sha256": "8fe54632d0d35e6f21cd82591f3c83015295d301fdd45987403ab46895ee1b4a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_after/game/plan-b-lab.js",
+              "sha256": "c041002ecd8be88e4c37c233103ef2ba84de45e2764fce4f5b47229794bff787"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_before/AGENTS.md",
+              "sha256": "b689dc1ac83d07e611596afde3c1c2b76fdbbff20e11d52c1a99922817523b48"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_before/game/app.js",
+              "sha256": "1f8129362caeb79538a6b4701c2c55c5f70a97957d21cde5096fd91ee5cb1dab"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_before/game/index.html",
+              "sha256": "346bd77f7b06f966964664622f3aa707797ac3ae0b5be0d6d39a3dc299246815"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_before/game/plan-b-lab.js",
+              "sha256": "4acad195f92695e4c937198857aa4c05e46c5f5ec89cef1b7116a94fe7af7588"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_before/game/public/assets/catalog/asset_index.json",
+              "sha256": "d3e43daf6fbedba592380b9edfbcb076be25cacc2deb8c36dd6a11bd3ecddad3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_before/game/styles.css",
+              "sha256": "361ec70729b4e08e93289a0a5cde301edfea4683e52e02f3fbd58408f5d2afed"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/runtime_snapshot_before/README.md",
+              "sha256": "5e1d7827ef844ef53711f997e1928d7fa0f71f4a16462f67916372dabad38785"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reload/output/manifest.json",
+              "sha256": "310d1e07ea7aa6d027c0f77e8d4e94d1a6ee51e16cf78e42442177ea3a80eb4a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reload/output/pose.png",
+              "sha256": "ea0975606490e9dcea3bc75503c153ad79ef2d6123cf5b4f09de13424796e077"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reload/records/generation.json",
+              "sha256": "90b852c3c482d811f7fba55d35561dcd92344648d543f0c08a99567befcbc087"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reload/records/prompt.json",
+              "sha256": "90929e5c96b1039f5279685fc90213bd0b448af43b5b9eaffe6cdb1e5cfa7d7d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reload/records/prompt.md",
+              "sha256": "0052aefced64914df3ce9e871330f8c658d94e74e9500cbda75253543ede7edf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reload/source/generated.png",
+              "sha256": "ea0975606490e9dcea3bc75503c153ad79ef2d6123cf5b4f09de13424796e077"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/browser-attempt-001.json",
+              "sha256": "2393e630db568aaf51b2ad235aba18b542382dc9af76e28acde36016cf3806bd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/browser-gallery.png",
+              "sha256": "b40a276a151c571ef40dfaf5b77dd2fd367b6d82e4ab2b081f72304243538e6b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/browser-narrow.png",
+              "sha256": "611a472308c2b9b7758526b05dcf7df1de5e84c8b6b8b286c0aefdec0fe8014c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/browser-reload-pose.png",
+              "sha256": "8a6f3e142f22cbfdd09ef441a9e002e4bfd86ea5c15262017c8e6f6534d25838"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/browser-style-comparison.png",
+              "sha256": "915a99c76d824575d4d637a88d072752a45c206ae7b2d84acffae0991cfa2363"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/browser.json",
+              "sha256": "c9b5544ba74a39de7a53eff72418ea8f3a3860fe8f170dae2104eb7b0a6662f9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/structure.json",
+              "sha256": "645438d6fdfc396a6790632902848ffc51ee4ca0c62006ff1793eb09f8365b95"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/style_gate.json",
+              "sha256": "91de98db43c7b9bc5584f6958e67c203bf55a8c75719338bc92dd2770be08694"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/reviews/visual.json",
+              "sha256": "6504375154c2900d87fd0162e3bd2fc2e7eab08cd342b066e65aa6cb34fb361b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/source/reference-detailed.png",
+              "sha256": "9b760e8267ac7b44abdc810a860b18c15b4f4ede1611395619f13b9c970839db"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/source/reference-kneel.png",
+              "sha256": "8895f62a9e7c2ab91f1389639be30ac73309c3d889824e5cdb0ca695b0c77564"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk/output/manifest.json",
+              "sha256": "9f6d0d638d3a0fa151eb0677ee62c08b4fd7609362ce408fc79dd0d2bca4e97f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk/output/pose.png",
+              "sha256": "a3d3ba384468664a3b9e2de976317e6a09a46534ba11b8fdcf91e71336fc6804"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk/records/generation.json",
+              "sha256": "f687b2d30d054f9f06730dc05d8e55914e2ba09332f8a01667bccca228873714"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk/records/prompt.json",
+              "sha256": "8311bbc5bc57b92944adcfcb8eebe0d0ca2a5959cb0d682517879a97de018c09"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk/records/prompt.md",
+              "sha256": "7de409e23a34c3656b78351ec37572e61ed074c225c59c9c0f37d61e35d45b89"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk/source/generated.png",
+              "sha256": "a3d3ba384468664a3b9e2de976317e6a09a46534ba11b8fdcf91e71336fc6804"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk_fire/output/manifest.json",
+              "sha256": "08cc042da89e13b0c865c45852a9b4cd443409fa1d6d53431b307c9cb9305229"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk_fire/output/pose.png",
+              "sha256": "cd2e2d32c3805a79939f1df88127e5b7a5062e53e8de83120c0db240269d693f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk_fire/records/generation.json",
+              "sha256": "842d27bbf383c74c8bf23572cafc6ddd6db872c09c9ac495f7d0d903ef6c5625"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk_fire/records/prompt.json",
+              "sha256": "7ec7422e049add1fa0aa863e9f2a31eeb1cabca6864a308b16313e947d8d9265"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk_fire/records/prompt.md",
+              "sha256": "b8ac039c220d5e5f73672771a79684d30088bce175d8a22b56bdccd98137ef9e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_b/simple_poses_005/walk_fire/source/generated.png",
+              "sha256": "cd2e2d32c3805a79939f1df88127e5b7a5062e53e8de83120c0db240269d693f"
+            }
+          ],
+          "motions": [],
+          "capabilities": [
+            "concept_image",
+            "still_pose_collection"
+          ],
+          "preview": {
+            "type": "pose_concept_collection",
+            "image_path": "art/characters/clone_01/motion/plan_b/simple_poses_005/output/pose-overview.png",
+            "width": 1600,
+            "height": 900,
+            "sample_url": "#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=idle"
+          },
+          "description": "도트의 장식/명암/의상 조각을 줄이고 성인 체형을 슬림하게 다듬은7자세 정지 원화. 모션은 사용자 지시로 보류했으며 각 자세의 외형 검토 단계입니다.",
+          "review_notes": [
+            "정지·걷기·걷기 사격·정지 사격·앉기·앉아쏴·장전 각1장",
+            "큰 색면·적은 장식·가늘고 긴 체형 · 세부 일치도/시점은 사용자 검수 대기",
+            "프레임/중간 포즈/새 재생 연결 없음 · 기존 작업은 중단 기록에 보존"
+          ],
+          "prompt_path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/poses.json",
+          "prompt_document": "art/characters/clone_01/motion/plan_b/simple_poses_005/README.md"
         }
       ],
       "capabilities": [

@@ -5,7 +5,51 @@ const WALK_ROOT = '/art/characters/clone_01/motion/plan_b/pixel_walk_005';
 const PREVIOUS_WALK_ROOT = '/art/characters/clone_01/motion/plan_b/pixel_walk_004';
 const COMBAT_ROOT = '/art/characters/clone_01/motion/plan_b/pixel_combat_006';
 const GUARD_ROOT = '/art/characters/clone_01/motion/plan_b/pixel_guard_007';
-const DEFAULT_STUDY = 'guard-walk';
+const PITCH30_ROOT = '/art/characters/clone_01/motion/plan_b/camera_pitch30_001';
+const FIGHTER_ROOT = '/art/characters/clone_01/motion/plan_b/fighter_view_002';
+const OUTFIT_ROOT = '/art/characters/clone_01/motion/plan_b/fighter_outfit_003';
+const SIMPLE_ROOT = '/art/characters/clone_01/motion/plan_b/simple_poses_005';
+const SIMPLE_POSES = {
+  'simple-idle': {pose: 'idle', title: '정지'},
+  'simple-walk': {pose: 'walk', title: '걷기 자세'},
+  'simple-walk-fire': {pose: 'walk_fire', title: '걷기 사격 자세'},
+  'simple-idle-fire': {pose: 'idle_fire', title: '정지 사격 자세'},
+  'simple-kneel': {pose: 'kneel', title: '앉기 자세'},
+  'simple-kneel-fire': {pose: 'kneel_fire', title: '앉아쏴 자세'},
+  'simple-reload': {pose: 'reload', title: '장전 자세'},
+};
+const CAMERA_STUDIES = {
+  ...Object.fromEntries(Object.entries(SIMPLE_POSES).map(([id, pose]) => [id, {
+    root: `${SIMPLE_ROOT}/${pose.pose}`, query: 'simple_poses_005', pose: pose.pose,
+    image: `${SIMPLE_ROOT}/${pose.pose}/output/pose.png`, prompt: `${SIMPLE_ROOT}/${pose.pose}/records/prompt.md`, record: `${SIMPLE_ROOT}/README.md`,
+    title: `심플 · ${pose.title}`, alt: `장식과 명암을 줄인 슬림한 성인 비례의 플랜 B 도트 ${pose.title} 정지 원화`,
+    note: `${pose.title} 정지 원화입니다. 몸통·팔다리를 가늘게 다듬고 머리카락·의상·명암을 큰 색면으로 줄였습니다. 자세별 외형 검토 단계이며 동작·프레임 재생은 없습니다.`,
+    comparison: '상세형과 심플·슬림형 비교', reference: `${SIMPLE_ROOT}/source/reference-detailed.png`,
+    referenceLabel: '이전 · 상세한 의상 기준', caption: `심플·슬림 · ${pose.title}`, comparisonKind: 'simple',
+  }])),
+  'camera-outfit': {
+    root: OUTFIT_ROOT, query: 'fighter_outfit_003', title: '격투게임식 의상 보완',
+    alt: '격투게임식 약 12도 시점에서 일러스트의 회색 흉갑 인셋·벨트·파우치·겹친 장갑 스커트를 보완한 플랜 B 기준 이미지',
+    note: '기준 일러스트의 흉갑 인셋·몸통 스트랩·허리 벨트와 파우치·겹친 장갑 스커트를 보완했습니다. 약 12°의 얕은 내려보기와 오른쪽 조준 자세를 이어가는 정지 기준이며 모션은 아직 제작하지 않았습니다.',
+    comparison: '기준 일러스트와 의상 비교', reference: '/art/characters/clone_01/concepts/reference_003_3d/source/appearance.png',
+    referenceLabel: '채택 일러스트 · 몸통과 장갑 하의', caption: '보완 · 흉갑/벨트/장갑 스커트', comparisonKind: 'outfit',
+  },
+  'camera-pitch30': {
+    root: PITCH30_ROOT, query: 'camera_pitch30_001', title: '30° 내려보기 기준',
+    alt: '오른쪽을 조준하는 경계 자세를 약 30도 위에서 내려다본 플랜 B 도트 기준 이미지',
+    note: '같은 경계 자세를 약 30° 위에서 내려다보는 시점 초안입니다. 정수리·어깨·M16의 윗면과 양발의 깊이를 확인하세요. 시점 확인용 정지 이미지이며 동작은 아직 제작하지 않았습니다.',
+    comparison: '정측면과 30° 내려보기 비교', reference: `${GUARD_ROOT}/source/baseline.png`,
+    referenceLabel: '기존 경계 자세 · 정측면', caption: '30° 내려보기 · 시점 초안',
+  },
+  'camera-fighter': {
+    root: FIGHTER_ROOT, query: 'fighter_view_002', title: '격투게임식 12° 기준',
+    alt: '약 12도 내려보기와 카메라 쪽으로 조금 튼 몸으로 얼굴·흉갑·양팔이 보이는 플랜 B 도트 기준 이미지',
+    note: '내려보기는 약 12°로 낮추고 몸을 카메라 쪽으로 조금 틀어 얼굴·흉갑·양팔을 보여 주는 시점 초안입니다. 총과 시선은 오른쪽을 향합니다. 시점 확인용 정지 이미지이며 동작은 아직 제작하지 않았습니다.',
+    comparison: '30°와 격투게임식 시점 비교', reference: `${PITCH30_ROOT}/output/baseline.png`,
+    referenceLabel: '이전 · 30° 내려보기', caption: '수정 · 약 12° + 몸 틀기',
+  },
+};
+const DEFAULT_STUDY = 'simple-idle';
 const firingOptions = study => {
   const manifest = root => `${root}/output/manifest.json`;
   if (['guard-walk', 'guard-fire'].includes(study)) return {kind: 'walking', baseUrl: manifest(`${GUARD_ROOT}/walk`), fireUrl: manifest(`${GUARD_ROOT}/walk_fire`)};
@@ -91,7 +135,7 @@ export class PlanBLab {
   }
   pause(paused) { this.player.pause(paused); $('plan-b-pause').textContent = paused ? '재생' : '일시정지'; }
   holdFire(held) {
-    if (held && (!this.visible || !this.player.fire)) return;
+    if (held && (!this.visible || !firingOptions(this.study) || !this.player.fire)) return;
     if (held && this.player.paused) this.pause(false);
     this.player.trigger(held);
   }
@@ -108,7 +152,11 @@ export class PlanBLab {
   }
   writeParams(params) {
     params.set('plan', 'b');
-    if (COMBAT[this.study]) {
+    params.delete('pose');
+    if (CAMERA_STUDIES[this.study]) {
+      params.set('study', CAMERA_STUDIES[this.study].query); params.delete('motion'); params.delete('pixelView');
+      if (CAMERA_STUDIES[this.study].pose) params.set('pose', CAMERA_STUDIES[this.study].pose);
+    } else if (COMBAT[this.study]) {
       params.set('study', COMBAT[this.study].study ?? 'combat_006'); params.set('motion', COMBAT[this.study].motion); params.delete('pixelView');
     } else if (this.study === 'pixel-walk') {
       params.set('study', 'pixel_005'); params.set('motion', 'walk'); params.delete('pixelView');
@@ -123,8 +171,9 @@ export class PlanBLab {
   }
   selectStudy(study, updateUrl = false) {
     this.player.cancelFire();
-    this.study = ['guard-walk', 'guard-fire', 'walk-fire', 'kneel-fire', 'pixel-walk', 'pixel-walk-004', 'pixel-baseline', 'pixel-keys', 'walk-001'].includes(study) ? study : DEFAULT_STUDY;
+    this.study = Object.hasOwn(CAMERA_STUDIES, study) || ['guard-walk', 'guard-fire', 'walk-fire', 'kneel-fire', 'pixel-walk', 'pixel-walk-004', 'pixel-baseline', 'pixel-keys', 'walk-001'].includes(study) ? study : DEFAULT_STUDY;
     const combat = COMBAT[this.study];
+    const camera = CAMERA_STUDIES[this.study];
     const oldWalk = this.study === 'walk-001';
     const previousWalk = this.study === 'pixel-walk-004';
     const walk = Boolean(combat) || oldWalk || previousWalk || this.study === 'pixel-walk';
@@ -138,9 +187,10 @@ export class PlanBLab {
       if (active && button.closest('#plan-b-history')) $('plan-b-history').open = true;
     });
     $('plan-b-pixel-view').hidden = walk;
+    $('plan-b-simple-gallery').hidden = !SIMPLE_POSES[this.study];
     $('plan-b-walk-view').hidden = !walk;
     this.player.show(this.visible && walk);
-    if (this.visible) $('review-state').textContent = combat ? `${combat.title} 검토` : previousWalk ? '플랜 B · 다리 교대 반려' : oldWalk || this.study === 'pixel-keys' ? '플랜 B · 크기 검수 실패' : walk ? '플랜 B · 다리 교차 보정' : '플랜 B · 도트 외형 검토';
+    if (this.visible) $('review-state').textContent = camera ? `플랜 B · ${camera.title} 검토` : combat ? `${combat.title} 검토` : previousWalk ? '플랜 B · 다리 교대 반려' : oldWalk || this.study === 'pixel-keys' ? '플랜 B · 크기 검수 실패' : walk ? '플랜 B · 다리 교차 보정' : '플랜 B · 도트 외형 검토';
     if (walk && this.visible) {
       const selected = this.study;
       const root = combat ? combat.root : oldWalk ? '/art/characters/clone_01/motion/plan_b/walk_001' : previousWalk ? PREVIOUS_WALK_ROOT : WALK_ROOT;
@@ -172,8 +222,25 @@ export class PlanBLab {
     } else if (!walk && this.visible) {
       const keys = this.study === 'pixel-keys';
       $('plan-b-pixel-quality-warning').hidden = !keys;
-      const path = `${PIXEL_ROOT}/${keys ? 'source/keyposes.png' : 'output/baseline.png'}`;
-      $('plan-b-pixel-image').alt = keys ? '도트 003 · 모델로 생성한 걷기 키포즈 네 자세, 완성 모션 전 검토용' : '장식을 줄인 플랜 B 도트풍 기준 캐릭터';
+      const path = camera ? camera.image ?? `${camera.root}/output/baseline.png` : `${PIXEL_ROOT}/${keys ? 'source/keyposes.png' : 'output/baseline.png'}`;
+      $('plan-b-pixel-image').alt = camera ? camera.alt : keys ? '도트 003 · 모델로 생성한 걷기 키포즈 네 자세, 완성 모션 전 검토용' : '장식을 줄인 플랜 B 도트풍 기준 캐릭터';
+      $('plan-b-pixel-note').textContent = camera ? camera.note : '긴 머리·검은 갑옷·망토·M16을 남기고 문양·장식·작은 버클·재질 묘사를 줄인 도트 003의 정지 이미지 기록입니다. 최신 걷기는 위 ‘경계 걷기’ 탭에서 볼 수 있습니다.';
+      $('plan-b-pixel-comparison-link').href = camera ? camera.record ?? `${camera.root}/README.md` : `${PIXEL_ROOT}/reviews/baseline-key-comparison.png`;
+      $('plan-b-pixel-comparison-link').textContent = camera ? `${camera.title} 제작 기록 ↗` : '기준·키포즈 크기 대조 ↗';
+      $('plan-b-pixel-prompt-link').href = camera?.prompt ?? `${camera ? camera.root : PIXEL_ROOT}/records/baseline_prompt.md`;
+      $('plan-b-style-comparison').hidden = Boolean(camera);
+      $('plan-b-angle-comparison').hidden = !camera;
+      $('plan-b-outfit-before-after').hidden = camera?.comparisonKind !== 'outfit';
+      if (camera) {
+        $('plan-b-angle-comparison').dataset.kind = camera.comparisonKind ?? 'camera';
+        $('plan-b-angle-summary').textContent = camera.comparison;
+        $('plan-b-angle-reference').src = camera.reference;
+        $('plan-b-angle-reference').alt = camera.referenceLabel;
+        $('plan-b-angle-reference-label').textContent = camera.referenceLabel;
+        $('plan-b-angle-current').src = path;
+        $('plan-b-angle-current').alt = camera.alt;
+        $('plan-b-angle-current-label').textContent = camera.caption;
+      }
       if ($('plan-b-pixel-image').getAttribute('src') !== path) {
         $('plan-b-pixel-loading').hidden = false;
         $('plan-b-pixel-loading').textContent = '도트 시도를 불러오는 중…';
@@ -193,7 +260,11 @@ export class PlanBLab {
     this.player.show(false);
     if (!visible) return;
     const params = new URLSearchParams(location.hash.split('?')[1] || '');
-    this.selectStudy(params.get('study') === 'guard_007' ? (params.get('motion') === 'walk_fire' ? 'guard-fire' : 'guard-walk')
+    this.selectStudy(params.get('study') === 'simple_poses_005' ? Object.keys(SIMPLE_POSES).find(key => SIMPLE_POSES[key].pose === params.get('pose')) ?? 'simple-idle'
+      : params.get('study') === 'fighter_outfit_003' ? 'camera-outfit'
+      : params.get('study') === 'fighter_view_002' ? 'camera-fighter'
+      : params.get('study') === 'camera_pitch30_001' ? 'camera-pitch30'
+      : params.get('study') === 'guard_007' ? (params.get('motion') === 'walk_fire' ? 'guard-fire' : 'guard-walk')
       : params.get('study') === 'combat_006' ? (params.get('motion') === 'kneel_fire' ? 'kneel-fire' : 'walk-fire')
       : params.get('study') === 'pixel_005' ? 'pixel-walk'
       : params.get('study') === 'pixel_004' ? 'pixel-walk-004'

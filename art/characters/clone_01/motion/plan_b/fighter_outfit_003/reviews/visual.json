@@ -1,0 +1,22 @@
+{
+  "status": "reviewed_pending_user",
+  "reviewed": [
+    "Generated image",
+    "approved costume illustration",
+    "front and right turnaround illustrations",
+    "browser-angle.png",
+    "browser-comparison.png",
+    "browser-before-after.png"
+  ],
+  "observations": [
+    "Plain rounded chest/abdominal plates are replaced by a dark central cuirass with light-gray outer chest insets, a strapped under-chest band and a dark fitted waist with sparse gold vertical seams.",
+    "The smooth flared school-pleat skirt is replaced by layered rectangular armored tassets, a distinct center panel, stacked waist/hip belts and box-shaped side pouches, closer to the approved illustration.",
+    "Face, hair, shallow camera, open-torso pose, cape, two-handed M16 aim and bent legs remain visually similar to the edit target; full body and rifle fit inside the canvas.",
+    "The costume references are translated into simplified pixel-art clusters. Fine motifs/rivets, exact pouch count and fabric layering are not reproduced one-to-one. Generation is not a pixel-exact local patch outside the outfit."
+  ],
+  "limitations": [
+    "Approximate generated angle, not measured 3D projection.",
+    "One still; no keyposes or inbetweens.",
+    "User acceptance pending."
+  ]
+}

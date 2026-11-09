@@ -1,0 +1,13 @@
+{
+  "status": "provisional_pass",
+  "scope": "Visual gate for generating inbetweens, not user art approval or final animation acceptance.",
+  "inspected": [
+    "source/keys.png",
+    "source/baseline.png"
+  ],
+  "observations": [
+    "Head, torso and rifle scale stay close to the standardized baseline; no gross per-pose enlargement observed.",
+    "Near/far contact and passing roles reverse in the two half-cycles; near/far shading is visible but detailed leg ownership remains user-review scope.",
+    "Visible boot-bottom positions span about 9px across keys at 627px. No per-frame alignment or physical ground-contact pass is claimed."
+  ]
+}
