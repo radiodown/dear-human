@@ -66,7 +66,10 @@ export class GlbModelLab {
   configure(key) {
     key = Object.hasOwn(MODELS, key) ? key : 'clone_01';
     if (key === this.modelKey) return;
-    this.revive(); this.modelKey = key; this.clipName = null; this.current = null; this.action = null; this.explode = null;
+    this.revive();
+    // Take the previous page's model out of the scene now; attach() only removes this.current, which is cleared here.
+    if (this.current) { this.current.mixer.stopAllAction(); this.scene?.remove(this.current.root); }
+    this.modelKey = key; this.clipName = null; this.current = null; this.action = null; this.explode = null;
   }
 
   show(active) {
