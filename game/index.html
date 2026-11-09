@@ -80,9 +80,9 @@
         <div id="glb-sprite-view" hidden>
           <div class="rig-motion-tabs" id="glbs-clips" role="group" aria-label="GLB 2D 스프라이트 동작"></div>
           <div id="glbs-stage" class="plan-e-stage glb-stage bg-dark" tabindex="0" aria-label="GLB 2D 스프라이트 재생 영역. Space로 재생·정지, 좌우 화살표로 한 장씩"><canvas id="glbs-canvas" aria-label="Blender에서 렌더링한 2D 스프라이트 프레임"></canvas><p id="glbs-loading" role="status">스프라이트를 불러오는 중…</p></div>
-          <div class="rig-playback"><button id="glbs-pause" type="button">일시정지</button><button id="glbs-prev" type="button">← 이전</button><button id="glbs-next" type="button">다음 →</button><button id="glbs-restart" type="button">첫 프레임</button><output id="glbs-counter">—</output><label>속도 <select id="glbs-speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label><button id="glbs-turn" type="button">좌우 반전</button><label>배경 <select id="glbs-background"><option value="dark">어둡게</option><option value="light">밝게</option></select></label></div>
+          <div class="rig-playback"><button id="glbs-pause" type="button">일시정지</button><button id="glbs-prev" type="button">← 이전</button><button id="glbs-next" type="button">다음 →</button><button id="glbs-restart" type="button">첫 프레임</button><output id="glbs-counter">—</output><label>속도 <select id="glbs-speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label><button id="glbs-turn" type="button">좌우 반전</button><label>버전 <select id="glbs-version"></select></label><label>배경 <select id="glbs-background"><option value="dark">어둡게</option><option value="light">밝게</option></select></label></div>
           <p class="rig-metrics" id="glbs-caption" aria-live="off"></p>
-          <p class="rig-note">version04.glb를 Blender에서 오른쪽 옆면으로 렌더링한 PNG를 그대로 이어 붙인 스프라이트 시트(sprite_001)를 기본 6fps로 재생합니다. Space 재생·정지, ← → 한 장씩. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.</p>
+          <p class="rig-note">version04.glb를 Blender에서 오른쪽 옆면으로 렌더링한 PNG를 그대로 이어 붙인 스프라이트 시트를 재생합니다. 기본은 모든 프레임을 24fps로 재생하는 sprite_002이고, 버전에서 이전 sprite_001(4프레임 간격·6fps)을 고를 수 있습니다. Space 재생·정지, ← → 한 장씩. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.</p>
         </div>
         <div id="plan-e-view" hidden>
           <div class="rig-motion-tabs" id="plan-e-clips" role="group" aria-label="플랜 E 동작"></div>

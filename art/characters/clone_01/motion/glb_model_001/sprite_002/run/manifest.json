@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "source": "version04.glb · Blender 수동 렌더(사용자, 모든 프레임)",
+  "clip": "run",
+  "glbAnimation": "run.001",
+  "title": "달리기",
+  "frameCount": 29,
+  "fps": 24,
+  "loop": true,
+  "canvas": { "width": 512, "height": 512 },
+  "layout": "grid",
+  "columns": 8,
+  "spritesheet": "spritesheet.png",
+  "sourceFrames": ["0001.png","0002.png","0003.png","0004.png","0005.png","0006.png","0007.png","0008.png","0009.png","0010.png","0011.png","0012.png","0013.png","0014.png","0015.png","0016.png","0017.png","0018.png","0019.png","0020.png","0021.png","0022.png","0023.png","0024.png","0025.png","0026.png","0027.png","0028.png","0029.png"]
+}
