@@ -16,13 +16,15 @@ export const MODELS = {
     note: '상위 폴더의 version04.glb를 복사해 Three.js로 그대로 재생합니다. 모델에 들어 있는 애니메이션을 탭으로 고르고, 카메라는 캐릭터의 오른쪽 옆에서 정사영으로 봅니다. ‘제자리’는 골반의 앞뒤·좌우 이동을 고정하고 위아래 움직임은 유지합니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
   vesper_colony_insect: {
-    url: '/art/enemies/vesper_colony_insect/motion/glb_model_001/source/mob_version05.glb',
-    file: 'mob_version05.glb',
-    labels: { walk: '걷기', walk_fast: '빠른 걷기' },
+    url: '/art/enemies/vesper_colony_insect/motion/glb_model_001/source/mob.glb',
+    file: 'mob.glb',
+    labels: { walk: '걷기', walk_fast: '빠른 걷기', pounce: '덮치기', pounce_fast: '빠른 덮치기' },
     hidden: [],
     hips: [],
     target: .27, viewHeight: .9, // about 0.6 tall and 1.0 long
-    note: '사용자가 리깅한 mob 모델(mob_version05.glb)을 복사해 Three.js로 재생합니다. 걷기(1초 주기)와 빠른 걷기(0.5초 주기)는 Blender에서 발끝 IK로 만든 뒤 회전 키프레임으로 구운 제자리 클립이며 몸은 앞으로 이동하지 않습니다. 카메라는 오른쪽 옆에서 정사영으로 봅니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
+    // Both pounces keep their 0.5 m root motion, so widen the view and centre it ahead of the start point.
+    clipView: { pounce: { viewHeight: 1.3, ahead: .3 }, pounce_fast: { viewHeight: 1.3, ahead: .3 } },
+    note: '사용자가 리깅한 mob 모델(mob.glb)을 복사해 Three.js로 재생합니다. 걷기(1초 주기)·빠른 걷기(0.5초 주기)는 Blender에서 발끝 IK로 만든 뒤 회전 키프레임으로 구운 제자리 클립이고, 덮치기(1.42초)·빠른 덮치기(0.71초)는 앞다리를 들고 0.5m 앞으로 뛰어 내리찍는 같은 동작의 두 속도로 실제 전진을 포함해 끝나면 처음 자리로 돌아가 반복합니다. 카메라는 오른쪽 옆에서 정사영으로 봅니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
 };
 
@@ -33,7 +35,8 @@ export class GlbModelLab {
     this.speed = 1; this.inPlace = true; this.facing = 1; this.background = 'dark';
     this.raf = 0; this.tick = this.tick.bind(this);
     $('glb-pause').addEventListener('click', () => this.pause(!this.paused));
-    $('glb-restart').addEventListener('click', () => { if (this.action) { this.action.time = 0; this.render(); } });
+    // mixer.update(0) re-evaluates the pose so a paused restart shows the first frame too.
+    $('glb-restart').addEventListener('click', () => { if (this.action) { this.action.time = 0; this.current.mixer.update(0); this.render(); } });
     $('glb-speed').addEventListener('change', event => { this.speed = Number(event.target.value); this.writeUrl(); });
     $('glb-inplace').addEventListener('change', event => { this.inPlace = event.target.checked; this.writeUrl(); });
     $('glb-turn').addEventListener('click', () => { this.facing *= -1; this.placeCamera(); this.writeUrl(); });
@@ -47,6 +50,7 @@ export class GlbModelLab {
   }
 
   get config() { return MODELS[this.modelKey]; }
+  get view() { return this.config.clipView?.[this.clipName] ?? {}; }
 
   // Called on route change, before restoreParams/show. Unknown pages fall back to clone_01.
   configure(key) {
@@ -137,6 +141,7 @@ export class GlbModelLab {
     if (model.hips && model.hipsRest) model.hips.position.copy(model.hipsRest);
     this.clipName = name;
     this.action = model.mixer.clipAction(clip); this.action.reset().play();
+    this.placeCamera();
     for (const button of $('glb-clips').children) button.setAttribute('aria-pressed', String(button.dataset.clip === name));
     this.render();
     if (update) this.writeUrl();
@@ -145,9 +150,9 @@ export class GlbModelLab {
   placeCamera() {
     if (!this.camera) return;
     // Models face +Z. A camera on -X sees the right side with the model facing screen right.
-    const target = this.config.target;
-    this.camera.position.set(-5 * this.facing, target, 0);
-    this.camera.lookAt(0, target, 0);
+    const target = this.config.target, ahead = this.view.ahead ?? 0;
+    this.camera.position.set(-5 * this.facing, target, ahead);
+    this.camera.lookAt(0, target, ahead);
     this.resize();
   }
 
@@ -157,7 +162,7 @@ export class GlbModelLab {
     const width = Math.max(240, stage.clientWidth - 24), height = Math.round(Math.min(560, Math.max(320, width * .75)));
     this.renderer.setSize(width, height, false);
     const canvas = $('glb-canvas'); canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
-    const aspect = width / height, half = this.config.viewHeight / 2;
+    const aspect = width / height, half = (this.view.viewHeight ?? this.config.viewHeight) / 2;
     Object.assign(this.camera, { left: -half * aspect, right: half * aspect, top: half, bottom: -half });
     this.camera.updateProjectionMatrix();
     this.render();

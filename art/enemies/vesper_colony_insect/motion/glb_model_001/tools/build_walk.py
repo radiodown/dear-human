@@ -80,8 +80,74 @@ def compute(N,STRIDE,LIFT,DUTY):
           err.append((end.tail-P[f'ik_{l}_{s}'].head).length)
       poses.append({n:P[n].matrix.copy() for n in deform})
   return poses,err
+
+# ---------------- pounce: raise front legs, leap 0.5 m forward, slam down (root motion kept) ----------------
+PN=34; PDIST=0.5
+# key tables below are authored in 24fps frames of the 1.42 s clip; pounce_fast samples every other one (0.71 s).
+POUNCES={'pounce':1,'pounce_fast':2}
+def ease(u): u=min(max(u,0.0),1.0); return u*u*(3-2*u)
+def track(keys,f):
+    if f<=keys[0][0]: return keys[0][1]
+    for (f0,v0),(f1,v1) in zip(keys,keys[1:]):
+        if f<=f1: return v0+(v1-v0)*ease((f-f0)/(f1-f0))
+    return keys[-1][1]
+BODY_X=[(0,0),(8,-0.03),(11,-0.035),(14,0.06),(20,0.40),(23,PDIST),(34,PDIST)]
+BODY_Z=[(0,0),(8,-0.06),(11,-0.065),(14,0.04),(17,0.17),(20,0.06),(22,-0.05),(26,-0.015),(34,0)]
+PITCH=[(0,0),(8,-16),(11,-18),(14,-10),(18,4),(21,11),(23,5),(34,0)]          # deg, negative = nose up
+JAW=[(0,0),(8,10),(18,18),(21,-2),(24,4),(34,0)]                              # mandibles open
+TAIL=[(0,0),(8,10),(11,11),(14,4),(18,-6),(22,3),(26,-2),(34,0)]               # abdomen raise, deg per segment
+pivot=arm.data.bones['tripo::Root'].head_local.copy()
+def body_matrix(f):
+    R=Matrix.Rotation(math.radians(track(PITCH,f)),4,'Y')
+    T=Vector((track(BODY_X,f),0,track(BODY_Z,f)))
+    return Matrix.Translation(T)@Matrix.Translation(pivot)@R@Matrix.Translation(-pivot), R, T
+def blend(a,b,u): u=ease(u); return a.lerp(b,u)
+def foot_target(l,s,f,Mb):
+    base=feet[(l,s)]; land=base+Vector((PDIST,0,0)); side=1 if s=='L' else -1
+    rel=lambda off: Mb@(base+off)
+    if l=='first':
+        lift=rel(Vector((-0.14,0.14*side,0.42))); reach=rel(Vector((0.16,0.02*side,0.06))); slam=base+Vector((PDIST+0.08,0,0))
+        if f<=8: return blend(base,lift,(f-2)/6)
+        if f<=14: return lift
+        if f<=19: return blend(lift,reach,(f-14)/5)
+        if f<=21: return blend(reach,slam,(f-19)/2)
+        return blend(slam,land,(f-21)/9)
+    off={'second':13.0,'third':13.5,'last':14.0}[l]; touch={'second':21.0,'third':21.5,'last':22.0}[l]
+    tuck=Mb@Vector((base.x,base.y*0.88,base.z+0.07))
+    if f<=off: return base
+    if f<=touch-2: return blend(base,tuck,(f-off)/3)
+    return blend(tuck,land,(f-(touch-2))/2)
+def compute_pounce(PSPEED):
+    poses=[]; err=[]
+    for fi in range(PN//PSPEED+1):
+        f=fi*PSPEED
+        for pb in P: pb.matrix_basis=Matrix()
+        bpy.context.view_layer.update()
+        Mb,R,T=body_matrix(f)
+        set_world(P['tripo::Root'],R,T)
+        for (l,s) in feet: P[f'ik_{l}_{s}'].matrix=Matrix.Translation(foot_target(l,s,f,Mb))
+        bpy.context.view_layer.update()
+        for i in range(1,5):
+            pb=P[f'abdomen_0{i}']; m=pb.matrix; h=m.translation.copy()
+            r=Matrix.Rotation(math.radians(track(TAIL,f-0.8*(i-1))),4,'Y')
+            pb.matrix=Matrix.Translation(h)@r@Matrix.Translation(-h)@m
+            bpy.context.view_layer.update()
+        for n,sg in (('bone_30',1),('tripo::Spine_2',-1)):
+            pb=P[n]; m=pb.matrix; h=m.translation.copy()
+            pb.matrix=Matrix.Translation(h)@Matrix.Rotation(sg*math.radians(track(JAW,f)),4,'Z')@Matrix.Translation(-h)@m
+            bpy.context.view_layer.update()
+        for (l,s) in feet:
+            end=P[f'tip_last_{s}'] if l=='last' else P[f'leg_{l}_04_{s}']
+            err.append(((end.tail-P[f'ik_{l}_{s}'].head).length, f, l+'_'+s))
+        poses.append({n:P[n].matrix.copy() for n in deform})
+    return poses,err
 results={k:compute(*v) for k,v in CLIPS.items()}
-for k,(poses,err) in results.items():
+for pname,ps in POUNCES.items():
+    pp,pe=compute_pounce(ps)
+    worst=max(pe)
+    print(pname,'IK max foot error', round(worst[0],4), 'at frame', worst[1], worst[2], 'frames>1cm', sum(1 for e in pe if e[0]>0.01))
+    results[pname]=(pp,[e[0] for e in pe])
+for k,(poses,err) in list(results.items())[:len(CLIPS)]:
   print(k,'IK max foot error', round(max(err),4))
   flips=sum(1 for fr in poses for l in LEGS for sd in 'LR' if fr[f'leg_{l}_03_{sd}'].translation.z < fr[f'leg_{l}_02_{sd}'].translation.z-0.02)
   print(k,'knee-below-hip frames', flips)
@@ -113,6 +179,9 @@ sc.frame_start=0; sc.frame_end=CLIPS['walk'][0]
 bpy.ops.object.mode_set(mode='OBJECT')
 bpy.ops.wm.save_as_mainfile(filepath=out_blend)
 bpy.ops.export_scene.gltf(filepath=out_glb, export_format='GLB', export_def_bones=False, export_animations=True, export_force_sampling=True)
-json.dump({'clips':{k:{'frames':v[0],'fps':FPS,'seconds':v[0]/FPS,'stride':v[1],'lift':v[2],'duty':v[3],'ik_max_foot_error':max(results[k][1])} for k,v in CLIPS.items()},
-           'gait':'alternating tetrapod (A: L1 R2 L3 R4 / B: R1 L2 R3 L4)','in_place':True,'source':src}, open(out_json,'w'), indent=2)
+clips={k:{'frames':v[0],'fps':FPS,'seconds':v[0]/FPS,'stride':v[1],'lift':v[2],'duty':v[3],'ik_max_foot_error':max(results[k][1])} for k,v in CLIPS.items()}
+for pname,ps in POUNCES.items():
+    clips[pname]={'frames':PN//ps,'fps':FPS,'seconds':PN/ps/FPS,'speed':ps,'authored_frames':PN,'forward':PDIST,'root_motion':True,'body_x':BODY_X,'body_z':BODY_Z,'pitch_deg':PITCH,'jaw_deg':JAW,'tail_deg':TAIL,'ik_max_foot_error':max(results[pname][1])}
+json.dump({'clips':clips,
+           'walk_gait':'alternating tetrapod (A: L1 R2 L3 R4 / B: R1 L2 R3 L4), in place','source':src}, open(out_json,'w'), indent=2)
 print('SAVED')
