@@ -4,7 +4,7 @@
     {
       "kind": "character",
       "entity_id": "clone_01",
-      "display_name": "주인공 클론",
+      "display_name": "리안",
       "status": "draft",
       "selected_revision_id": "reference_003_3d",
       "revisions": [
@@ -8658,7 +8658,7 @@
     {
       "kind": "character",
       "entity_id": "iren",
-      "display_name": "이렌",
+      "display_name": "아렌",
       "status": "draft",
       "selected_revision_id": null,
       "review_revision_id": "illustration_005",

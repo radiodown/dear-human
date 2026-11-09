@@ -67,6 +67,53 @@ const app = { entries: [], entry: null, revision: null, view: 'sheet', zoom: 1 }
 const labels = { character: '캐릭터', weapon: '무기', enemy: '적' };
 const viewLabels = { front: '정면', back: '후면', left: '좌측면', right: '우측면', side: '측면' };
 
+function renderSampleNav() {
+  const nav = document.querySelector('nav[aria-label="샘플 목록"]');
+  const groups = [
+    { kind: 'character', route: 'characters', label: '캐릭터', icon: '◈' },
+    { kind: 'weapon', route: 'weapons', label: '무기', icon: '⌁' },
+    { kind: 'enemy', route: 'enemies', label: '적 · 토착 생물', icon: '◇' },
+  ];
+  let count = 0;
+  nav.replaceChildren();
+  for (const group of groups) {
+    const entries = app.entries.filter(entry => entry.kind === group.kind);
+    if (!entries.length) continue;
+    const section = document.createElement('section');
+    section.className = 'nav-group';
+    const heading = document.createElement('h2');
+    heading.className = 'nav-group-heading';
+    heading.id = `nav-${group.kind}-heading`;
+    heading.textContent = group.label;
+    const total = document.createElement('small');
+    total.textContent = String(entries.length).padStart(2, '0');
+    heading.append(total);
+    section.setAttribute('aria-labelledby', heading.id);
+    section.append(heading);
+    for (const entry of entries) {
+      const link = document.createElement('a');
+      link.className = 'nav-item';
+      link.href = `#/samples/${group.route}/${encodeURIComponent(entry.entity_id)}${group.kind === 'weapon' ? '?motion=idle' : ''}`;
+      link.dataset.nav = group.kind;
+      link.dataset.entity = entry.entity_id;
+      const icon = document.createElement('span');
+      icon.textContent = group.icon;
+      icon.setAttribute('aria-hidden', 'true');
+      const name = document.createElement('span');
+      name.className = 'nav-item-name';
+      name.textContent = entry.display_name;
+      const badge = document.createElement('small');
+      const hasArt = entry.revisions.some(revision => revision.preview?.image_path);
+      badge.textContent = !hasArt ? '예정' : entry.entity_id === 'clone_01' ? '047' : group.kind === 'weapon' ? '시험' : '시안';
+      link.append(icon, name, badge);
+      section.append(link);
+    }
+    nav.append(section);
+    count += entries.length;
+  }
+  $('sample-count').textContent = String(count).padStart(2, '0');
+}
+
 function assetUrl(path) {
   if (typeof path !== 'string' || !path.startsWith('art/') || path.includes('..') || path.includes('\\')) throw new Error('등록된 아트 경로가 올바르지 않습니다.');
   return '/' + path.split('/').map(encodeURIComponent).join('/');
@@ -197,17 +244,25 @@ function showRoute() {
     $('mode-plan-e').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-glb').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-glb-sprite').hidden = kind !== 'character' || id !== 'clone_01';
+    document.querySelectorAll('.preview-group').forEach(group => {
+      group.hidden = ![...group.querySelectorAll('button')].some(button => !button.hidden);
+    });
     const hasArt = entry.revisions.some((revision) => revision.preview?.image_path);
     $('workspace').hidden = !hasArt;
     $('empty-state').hidden = hasArt;
     $('entity-title').replaceChildren(document.createTextNode(entry.display_name), Object.assign(document.createElement('span'), { className: 'title-dot', textContent: '.' }));
-    $('breadcrumb').textContent = labels[kind];
-    $('eyebrow').textContent = `${kind.toUpperCase()} / ${entry.entity_id.toUpperCase().replaceAll('_', ' ')}`;
-    $('subtitle').textContent = hasArt ? kind === 'weapon' ? '본체·탄창과 공통 캐릭터의 장착 모션을 확인하세요.' : kind === 'enemy' ? '베스퍼 토착 크리처의 원화와 앞뒤좌우 시안을 확인하세요.' : '첨부 기준 캐릭터와 3D 렌더 질감의 외형을 확인하세요.' : '이 대상의 아트와 모션은 제작 예정입니다.';
+    $('breadcrumb').textContent = `${labels[kind]} / ${entry.display_name}`;
+    $('eyebrow').textContent = id === 'clone_01' ? 'LIAN / CL-VS-13-047' : `${kind.toUpperCase()} / ${entry.entity_id.toUpperCase().replaceAll('_', ' ')}`;
+    document.title = `${entry.display_name} · 샘플 라이브러리 — Dear Human`;
+    $('subtitle').textContent = hasArt ? kind === 'weapon' ? '본체·탄창과 리안의 장착 모션을 확인하세요.' : kind === 'enemy' ? '베스퍼 토착 크리처의 원화와 앞뒤좌우 시안을 확인하세요.' : id === 'clone_01' ? '리안의 기준 원화와 파츠·도트·3D 미리보기를 확인하세요.' : `${entry.display_name}의 원화와 버전별 시안을 확인하세요.` : '이 대상의 아트와 모션은 제작 예정입니다.';
     $('mode-reference').textContent = kind === 'weapon' ? '무기 파츠' : conceptOnly ? '일러스트 시안' : '채택 외형';
     $('direction-heading').textContent = kind === 'weapon' ? 'M16 · 분리형 무기.' : conceptOnly ? `${entry.display_name} · 콘셉트 시안.` : '차갑고, 도도하게.';
     $('review-state').textContent = hasArt ? '외형 검토 대기' : '제작 예정';
-    document.querySelectorAll('[data-nav]').forEach((link) => link.classList.toggle('current', link.dataset.nav === kind && (link.dataset.entity ? link.dataset.entity === id : kind !== 'character' || id === 'clone_01')));
+    document.querySelectorAll('[data-nav]').forEach(link => {
+      const current = link.dataset.nav === kind && link.dataset.entity === id;
+      link.classList.toggle('current', current);
+      if (current) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+    });
     if (!hasArt) { $('empty-title').textContent = `${entry.display_name}은 아직 제작하지 않았습니다.`; return; }
     const revisions = entry.revisions.filter((revision) => revision.preview?.image_path).toReversed();
     $('revision-select').disabled = revisions.length < 2;
@@ -278,12 +333,6 @@ try {
   const catalog = await response.json();
   if (catalog.schema_version !== 1 || !Array.isArray(catalog.entries)) throw new Error('샘플 목록 형식이 맞지 않습니다.');
   app.entries = catalog.entries;
-  const sampleNav = document.querySelector('nav[aria-label="샘플 목록"]');
-  for (const entry of app.entries.filter(item => item.kind === 'character' && item.entity_id !== 'clone_01' && item.revisions.some(revision => revision.preview?.image_path))) {
-    const link = Object.assign(document.createElement('a'), { className: 'nav-item', href: `#/samples/characters/${encodeURIComponent(entry.entity_id)}`, textContent: `◈ ${entry.display_name}` });
-    link.dataset.nav = 'character'; link.dataset.entity = entry.entity_id;
-    const label = document.createElement('small'); label.textContent = '시안'; link.append(label);
-    sampleNav.append(link);
-  }
+  renderSampleNav();
   showRoute();
 } catch (error) { $('error').hidden = false; $('error').textContent = error.message; $('workspace').hidden = true; }

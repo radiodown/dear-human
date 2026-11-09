@@ -12,30 +12,29 @@
 <body>
   <aside class="sidebar">
     <a class="brand" href="#/samples"><span class="brand-icon">D<span>H</span></span><span>DEAR HUMAN<small>ART & MOTION LIBRARY</small></span></a>
-    <div class="nav-label">샘플 라이브러리 <span>01</span></div>
-    <nav aria-label="샘플 목록">
-      <a class="nav-item current" href="#/samples/characters/clone_01" data-nav="character"><span>◈</span> 주인공 클론 <small>01</small></a>
-      <a class="nav-item" href="#/samples/weapons/m16_basic?motion=idle" data-nav="weapon"><span>⌁</span> M16 <small>시험</small></a>
-      <a class="nav-item" href="#/samples/enemies/swarm_creature_melee" data-nav="enemy" data-entity="swarm_creature_melee"><span>◇</span> 군집생물 <small>예정</small></a>
-      <a class="nav-item" href="#/samples/enemies/vesper_colony_insect" data-nav="enemy" data-entity="vesper_colony_insect"><span>◇</span> 베스퍼 크리처 <small>4방향</small></a>
-    </nav>
-    <div class="sidebar-note"><span class="live-dot"></span> 채택 외형 · 모션 시험<p>첨부 캐릭터 · 3D 렌더 질감<br>파츠·무기 분리 테스트</p></div>
+    <div class="nav-label">샘플 라이브러리 <span id="sample-count">—</span></div>
+    <nav class="sample-nav" aria-label="샘플 목록"></nav>
+    <div class="sidebar-note"><span class="live-dot"></span> 원화 · 모션 미리보기<p>대상을 선택한 뒤<br>원화와 준비된 모션을 확인하세요.</p></div>
     <div class="sidebar-bottom">VESPER · COLONIAL FRONTIER<br><span>CONCEPT DEVELOPMENT / 2026</span></div>
   </aside>
 
   <main>
     <header class="page-top"><span>라이브러리 <b>/</b> <span id="breadcrumb">캐릭터</span></span><span class="local-badge">LOCAL PREVIEW</span></header>
-    <section class="title-row"><div><p class="eyebrow" id="eyebrow">CHARACTER / CLONE 01</p><h1 id="entity-title">주인공 클론<span class="title-dot">.</span></h1><p class="subtitle" id="subtitle">첨부 기준 캐릭터와 3D 렌더 질감의 외형을 확인하세요.</p></div><div class="review-state" id="review-state">새 기준 · 외형 검토</div></section>
+    <section class="title-row"><div><p class="eyebrow" id="eyebrow">LIAN / CL-VS-13-047</p><h1 id="entity-title">리안<span class="title-dot">.</span></h1><p class="subtitle" id="subtitle">리안의 기준 원화와 파츠·도트·3D 미리보기를 확인하세요.</p></div><div class="review-state" id="review-state">새 기준 · 외형 검토</div></section>
 
     <div id="error" class="error" role="alert" hidden></div>
-    <section id="empty-state" class="empty-state" hidden><span>PREPARATION</span><h2 id="empty-title">아직 제작하지 않았습니다.</h2><p>준비된 산출물이 생기면 이 페이지에 추가합니다.</p><a href="#/samples/characters/clone_01">주인공 클론 외형 보기 →</a></section>
+    <section id="empty-state" class="empty-state" hidden><span>PREPARATION</span><h2 id="empty-title">아직 제작하지 않았습니다.</h2><p>준비된 산출물이 생기면 이 페이지에 추가합니다.</p><a href="#/samples/characters/clone_01">리안 원화 보기 →</a></section>
 
     <div class="workspace" id="workspace">
       <section class="viewer-panel" aria-label="아트와 모션 미리보기">
-        <div class="preview-mode" aria-label="미리보기 종류"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button><button id="mode-rig" type="button" aria-pressed="false">파츠 모션 테스트 <span>LIVE</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 모션 V2 <span>FRAME</span></button><button id="mode-plan-b" type="button" aria-pressed="false">플랜 B · 도트 모션</button><button id="mode-plan-e" type="button" aria-pressed="false">플랜 E · 3D→도트 <span>SPRITE</span></button><button id="mode-glb" type="button" aria-pressed="false">3D 모델 · GLB <span>WEBGL</span></button><button id="mode-glb-sprite" type="button" aria-pressed="false">GLB · 2D 스프라이트 <span>SPRITE</span></button></div>
+        <div class="preview-mode" aria-label="미리보기 종류">
+          <div class="preview-group" role="group" aria-label="원화"><span class="preview-group-label">원화</span><div class="preview-group-buttons"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button></div></div>
+          <div class="preview-group" role="group" aria-label="2D 모션"><span class="preview-group-label">2D 모션</span><div class="preview-group-buttons"><button id="mode-rig" type="button" aria-pressed="false">파츠 · 실시간 <span>LIVE</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 · 프레임 <span>V2</span></button><button id="mode-plan-b" type="button" aria-pressed="false">도트 원화·모션 <span>플랜 B</span></button><button id="mode-plan-e" type="button" aria-pressed="false">3D→도트 <span>플랜 E</span></button><button id="mode-glb-sprite" type="button" aria-pressed="false">GLB 스프라이트 <span>2D</span></button></div></div>
+          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button></div></div>
+        </div>
         <div id="reference-view">
         <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="back" aria-pressed="false" hidden>후면</button><button type="button" data-view="left" aria-pressed="false" hidden>좌측면</button><button type="button" data-view="right" aria-pressed="false" hidden>우측면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
-        <div class="art-stage bg-dark" id="art-stage"><span class="stage-label" id="stage-label">APPEARANCE / STATIC REFERENCE</span><div class="art-frame" id="art-frame" data-view="sheet"><img id="character-art" alt="주인공 클론의 전신 외형 시안" draggable="false"><div id="turnaround-grid" class="turnaround-grid" aria-label="캐릭터 4방향 일러스트" hidden></div></div><p id="image-loading" class="image-loading" role="status">외형 시안을 불러오는 중…</p></div>
+        <div class="art-stage bg-dark" id="art-stage"><span class="stage-label" id="stage-label">APPEARANCE / STATIC REFERENCE</span><div class="art-frame" id="art-frame" data-view="sheet"><img id="character-art" alt="리안의 전신 외형 시안" draggable="false"><div id="turnaround-grid" class="turnaround-grid" aria-label="캐릭터 4방향 일러스트" hidden></div></div><p id="image-loading" class="image-loading" role="status">외형 시안을 불러오는 중…</p></div>
         <div class="viewer-bottom"><div class="background-controls" aria-label="배경 선택"><button type="button" data-bg="dark" class="bg-dot dark" aria-label="어두운 배경" aria-pressed="true"></button><button type="button" data-bg="light" class="bg-dot light" aria-label="밝은 배경" aria-pressed="false"></button><button type="button" data-bg="grid" class="bg-dot grid" aria-label="격자 배경" aria-pressed="false"></button><span>배경</span></div><div class="zoom-controls"><button type="button" id="zoom-out" aria-label="축소">−</button><output id="zoom-value">100%</output><button type="button" id="zoom-in" aria-label="확대">+</button><button type="button" id="zoom-reset">화면 맞춤</button></div><a id="original-link" href="#" target="_blank" rel="noopener">원본 보기 ↗</a></div>
         <div class="sheet-caption"><span id="revision-caption">외형 시안</span><span id="image-dimensions"></span></div>
         </div>
