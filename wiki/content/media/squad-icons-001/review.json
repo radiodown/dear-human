@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "members": 6,
+  "icons": 5,
+  "viewports": [
+    1440,
+    390
+  ],
+  "errors": [],
+  "checks": [
+    "all six member links",
+    "current-member highlight",
+    "member profiles retained",
+    "route reload",
+    "TOC jump",
+    "mobile overflow",
+    "home roster",
+    "dark theme"
+  ]
+}

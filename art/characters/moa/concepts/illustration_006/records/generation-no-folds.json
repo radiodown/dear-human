@@ -1,0 +1,20 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "started_at": "2026-11-09T06:22:32.597Z",
+  "finished_at": "2026-11-09T06:23:08.933Z",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bee1-3e63-7033-8410-1da7ce13ec6e\\exec-bf64b07a-2d2a-4e77-bce7-803cafd3062e.png",
+  "width": 1024,
+  "height": 1536,
+  "sha256": "54a5f396aecfb1cea64b3112ef26b536f50ef9bfce72c82b939d1e883e72369d",
+  "transformations": [],
+  "reference": {
+    "path": "art/characters/moa/concepts/illustration_006/source/illustration.png",
+    "sha256": "1894bf959a36a9e2193968b2f7100c659220f6beffa74d506f7cdbd8b0d9a0c6"
+  },
+  "request": "팔자주름과 코 옆에서 입가로 이어지는 음영 제거",
+  "art_direction_status": "awaiting_user_review"
+}

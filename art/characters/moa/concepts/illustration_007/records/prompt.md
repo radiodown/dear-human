@@ -1,0 +1,13 @@
+# Moa illustration 007 — exact full-body head application prompt
+
+```text
+Use case: precise-object-edit.
+Asset type: Dear Human MOA FULL-BODY illustration 007, apply USER-APPROVED face and haircut.
+Image 1: FULL-BODY EDIT TARGET. Use ONLY for body, costume, equipment, pose, camera, head position/scale, lighting and background. Its old FACE and old HAIRSTYLE have been REJECTED and must be replaced.
+Image 2: USER-APPROVED HEAD IDENTITY AND HAIRCUT. This is the final accepted face and hair, not optional mood inspiration.
+Replace the HEAD APPEARANCE in image 1 with image 2's exact youthful adult facial identity, face proportions, soft full cheeks, gently rounded jaw, refined nose and soft lips, BLUE eyes, fair skin and relaxed gentle small smile. Preserve the smooth youthful cheeks with no dark nasolabial grooves, smile-line tracks, hollow eye sockets or aged facial planes. Keep her a beautiful adult around 25-26 with Russian / Eastern European-inspired appearance. Do NOT revert to image 1's older face or angular cheek modeling.
+Apply image 2's exact haircut: snowy pure WHITE sleek STRAIGHT shoulder-length LOB with low side volume, crisp even straight ends and light wispy SEE-THROUGH BANGS. No large forehead-exposing side sweep, bouffant, curled-under rounded ends, waves, long hair or blonde tint. The lightly separated fringe is critical to the user-approved youthful modern look.
+Integrate the approved face and haircut naturally at the original full-body head size and head angle, rather than enlarging the head or pasting a front-facing portrait. Match image 2's facial rendering and youthful shading.
+LOCK ALL OTHER DESIGN to image 1: entire full-body head-to-boots framing, pose, body proportions, black/gunmetal armor, restrained gold trim, shoulder cape, support-gunner harness, belt and ammunition pouches, opaque reinforced trousers, gloves, armored boots, exact support gun and both hand grips. Do not add, remove or redesign equipment. All hair, boots and weapon fit on the canvas with the same margins.
+Same polished cinematic 3D character illustration quality as the inputs with charcoal studio background and soft lighting. No stronger anime/cartoon style shift, no enlarged cartoon eyes. One person, full-body, no portrait crop, text, watermark, panels or new accessories. Only the head's face and hair are changed.
+```

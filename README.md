@@ -1,5 +1,9 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+모아의 최신 외형은 [채택 얼굴·헤어 적용 전신 007](docs/squad-character-concepts-007.md)이다.
+
+유나 외형 최신은 [밝은 금발·새 얼굴 전신 008](docs/squad-character-concepts-008.md)이다. 사용자 채택 샘플 008을 전신·위키 얼굴 아이콘·미리보기에 적용했다. 이전 흑발 006과 생성 기록은 보존한다.
+
 **플랜 B · 심플·슬림 자세 원화 005:** [미리보기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=b&study=simple_poses_005&pose=idle) · [7자세 원화/프롬프트](docs/plan-b-simple-poses-005.md). 더 가늘고 단순한 도트로 자세별 정지 원화만 만들었다. 모션 작업은 사용자 지시로 중단·보류하며, 새 프레임 재생은 연결하지 않았다.
 
 **세계관 위키:** [독립 프로젝트 안내](wiki/README.md) · `cd wiki` 후 `npm run dev` · 기본 주소 `http://127.0.0.1:4174`. 위키 전용 개별 문서를 새로 집필했으며, 게임 서버와 기존 docs를 실행 의존성으로 사용하지 않는다.

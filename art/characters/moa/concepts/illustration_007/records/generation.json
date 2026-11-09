@@ -1,0 +1,31 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in edit",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "timing": {
+    "started": "2026-11-09T06:32:46.649Z",
+    "finished": "2026-11-09T06:33:23.839Z"
+  },
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bee1-3e63-7033-8410-1da7ce13ec6e\\exec-898ddbfa-bf05-46f9-8c6f-d78462c67a96.png",
+  "width": 1024,
+  "height": 1536,
+  "sha256": "6660f4cd9d21ca3aa5afdf69c3ffd5f38559302ea98e5d6f907627563e38cece",
+  "transformations": [],
+  "user_instruction": "이렇게 변경해줘",
+  "face_and_hair_status": "approved_by_user",
+  "fullbody_result_status": "awaiting_user_review",
+  "references": [
+    {
+      "role": "fullbody_edit_target",
+      "path": "art/characters/moa/concepts/illustration_006/source/illustration-no-folds.png",
+      "sha256": "54a5f396aecfb1cea64b3112ef26b536f50ef9bfce72c82b939d1e883e72369d"
+    },
+    {
+      "role": "approved_face_and_hair",
+      "path": "art/characters/moa/concepts/face_redesign_007/source/portrait.png",
+      "sha256": "4f62c7389750d5dc15d2daa5e556fdeed6757eba7e0fd1a6f24f73ab39b6bae8"
+    }
+  ]
+}

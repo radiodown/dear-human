@@ -39,6 +39,29 @@ export function validateContent({ articles, categories }) {
     if (!Array.isArray(article.sources) || !article.sources.length) throw new Error(`${article.slug}: 집필 근거 필요`);
     if (!Array.isArray(article.aliases)) throw new Error(`${article.slug}: 별칭 배열 필요`);
     if (!article.body.startsWith(`# ${article.title}\n`)) throw new Error(`${article.slug}: 제목 불일치`);
+    if (article.avatar !== undefined) {
+      const avatar = article.avatar;
+      if (!article.profile || !avatar || typeof avatar !== 'object' || Array.isArray(avatar)) throw new Error(`${article.slug}: 인물 아이콘 형식 오류`);
+      if (typeof avatar.src !== 'string' || !/^assets\/[a-zA-Z0-9/_-]+\.(png|jpe?g|webp)$/.test(avatar.src)) throw new Error(`${article.slug}: 위키 내부 아이콘 경로 필요`);
+      if (typeof avatar.alt !== 'string' || !avatar.alt) throw new Error(`${article.slug}: 아이콘 대체 텍스트 필요`);
+      if (!Number.isInteger(avatar.width) || avatar.width <= 0 || avatar.width !== avatar.height) throw new Error(`${article.slug}: 정사각형 아이콘 크기 필요`);
+      const imagePath = path.join(root, 'public', avatar.src);
+      if (!existsSync(imagePath) || !statSync(imagePath).isFile()) throw new Error(`${article.slug}: 아이콘 파일이 없습니다.`);
+    }
+    if (article.unitPage !== undefined && (typeof article.unitPage !== 'string' || !articles.some(item => item.slug === article.unitPage && item.unit && (article.visibility === 'creator' || item.visibility === 'reader')))) throw new Error(`${article.slug}: 소대 문서 연결 오류`);
+    if (article.unit !== undefined) {
+      const unit = article.unit;
+      if (!unit || typeof unit !== 'object' || typeof unit.subtitle !== 'string' || !unit.subtitle) throw new Error(`${article.slug}: 소대 정보 형식 오류`);
+      if (!Array.isArray(unit.fields) || !unit.fields.length || unit.fields.some(row => !Array.isArray(row) || row.length !== 2 || row.some(value => typeof value !== 'string' || !value))) throw new Error(`${article.slug}: 소대 정보 항목 오류`);
+      if (!Array.isArray(unit.members) || !unit.members.length) throw new Error(`${article.slug}: 소대 구성원 필요`);
+      const members = new Set();
+      for (const member of unit.members) {
+        const person = articles.find(item => item.slug === member.article);
+        if (!person?.profile || members.has(member.article) || (article.visibility === 'reader' && person.visibility !== 'reader') || person.unitPage !== article.slug) throw new Error(`${article.slug}: 소대 구성원 연결 오류`);
+        for (const field of ['role', 'description']) if (typeof member[field] !== 'string' || !member[field]) throw new Error(`${article.slug}: 구성원 ${field} 필요`);
+        members.add(member.article);
+      }
+    }
     if (article.profile !== undefined) {
       const profile = article.profile;
       if (article.category !== 'people' || !profile || typeof profile !== 'object' || Array.isArray(profile)) throw new Error(`${article.slug}: 인물 프로필 형식 오류`);

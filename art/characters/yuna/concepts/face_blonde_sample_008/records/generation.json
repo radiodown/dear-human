@@ -1,0 +1,44 @@
+{
+  "tool": "image_gen.imagegen",
+  "mode": "built-in",
+  "calls": 2,
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "reference": {
+    "path": "art/characters/yuna/concepts/face_gyaru_sample_006/source/portrait.png",
+    "sha256": "ffe6961d1ded7e12ba275c96c81e79b1ebe325d20ead3ae9935a917b7d82c600"
+  },
+  "outputs": [
+    {
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bef9-ff7c-7740-89dc-8113d6cdcaae\\exec-a4ac8cfa-d4dd-40f5-8990-43cb62c955b9.png",
+      "saved_path": "art/characters/yuna/concepts/face_blonde_sample_008/source/first-pass.png",
+      "sha256": "1463d40e5968606094196ce6a101db0cf63ca6857033781d1955d3288d16dbc1",
+      "width": 1024,
+      "height": 1536,
+      "image_mode": "RGB",
+      "transformations": [],
+      "timing": {
+        "started_at": "2026-11-09T06:28:26.851Z",
+        "finished_at": "2026-11-09T06:29:04.444Z"
+      },
+      "prompt": "prompt.json"
+    },
+    {
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bef9-ff7c-7740-89dc-8113d6cdcaae\\exec-24a035b2-74b0-4a21-b62b-7c1a1e42fd51.png",
+      "saved_path": "art/characters/yuna/concepts/face_blonde_sample_008/source/portrait.png",
+      "sha256": "ff9304f631978654170bf69b59e1b5579aceba8f7f28a0e965d1858a5493fa3e",
+      "width": 1024,
+      "height": 1536,
+      "image_mode": "RGB",
+      "transformations": [],
+      "timing": {
+        "started_at": "2026-11-09T06:29:33.029Z",
+        "finished_at": "2026-11-09T06:30:11.019Z"
+      },
+      "prompt": "prompt-face-revision.json"
+    }
+  ],
+  "art_direction_status": "awaiting_user_review",
+  "review": "Bright golden blonde confirmed visually; second output changes facial outline, nose, mouth and smile. Facial redesign degree and aesthetics await user review. No pixel-identity guarantee for costume. No browser or game tests."
+}

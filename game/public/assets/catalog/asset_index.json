@@ -7825,7 +7825,7 @@
       "display_name": "모아",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_004",
+      "review_revision_id": "illustration_007",
       "capabilities": [
         "concept_image"
       ],
@@ -8186,6 +8186,310 @@
             "type": "concept_image",
             "production_ready_cutout": false
           }
+        },
+        {
+          "revision_id": "illustration_006",
+          "display_name": "모아 · 백발 생머리 중단발 006 · 젊은 얼굴 수정",
+          "status": "draft",
+          "verification": "untested",
+          "art_direction_status": "rejected",
+          "recipe_key": "moa-white-straight-lob-blue-russian-younger-face-006",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/illustration_006/source/illustration.png",
+              "sha256": "1894bf959a36a9e2193968b2f7100c659220f6beffa74d506f7cdbd8b0d9a0c6"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/source/previous-face.png",
+              "sha256": "02d91ea3f28f88f493643b7222efbb35576efe19b82a0d3dfb2d0eb47888cafe"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/records/prompt.json",
+              "sha256": "a09951cee2522321c0f786dabc51c463d569b3c1abc8515fcff8a187a7988f90"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/records/prompt.md",
+              "sha256": "a5bccc499c82bfd16233a2bdabcc3e0a5eb253ac3555d21a6cbc68e006e6cb38"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/records/prompt-younger-face.json",
+              "sha256": "b68e1788e8dc1bc68dafb8ce25c4f4a3218382250ba823768b1508ef8764cf61"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/records/prompt-younger-face.md",
+              "sha256": "7e61bc4607d160a3e3354fd24b93d98b0cf7ed7f9eed9e7e9c7d7a74554f67d8"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/records/generation.json",
+              "sha256": "2e67c297e9494e5a67390f93395303d663dc057875a12d1352f56135c170e45f"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "illustration_004"
+            }
+          ],
+          "description": "백발 생머리 중단발·푸른 눈·러시아계 인상. 얼굴을 25~26세의 젊고 부드러운 인상으로 보정한 검토 샘플. 기존 의상·장비·구도 유지. 강한 애니풍은 취소.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "헤어",
+              "백발·생머리 중단발·옆가르마"
+            ],
+            [
+              "눈",
+              "푸른 눈"
+            ],
+            [
+              "얼굴 방향",
+              "러시아계 인상 · 국적 확정 아님"
+            ]
+          ],
+          "review_notes": [
+            "나이 들어 보인다는 사용자 피드백으로 얼굴 추가 보정",
+            "미감은 사용자 검수 대기",
+            "기존 위키·아이콘·모션·다른 인물 유지",
+            "사용자 반려: 얼굴이 나이 들어 보임. 007 새 얼굴·헤어 확대 샘플로 재검토."
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/illustration_006/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_006_no_folds",
+          "display_name": "모아 · 006 팔자주름 제거 수정본",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "rejected",
+          "recipe_key": "moa-006-no-nasolabial-folds",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/illustration_006/source/illustration-no-folds.png",
+              "sha256": "54a5f396aecfb1cea64b3112ef26b536f50ef9bfce72c82b939d1e883e72369d"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/records/prompt-no-nasolabial-folds.json",
+              "sha256": "449fac90098b4bc86cdbebb939aad8ca66b2b7961ca97cb21029f050a962ac50"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/records/prompt-no-nasolabial-folds.md",
+              "sha256": "d088c7d86dde68e2edf96efa26a0425b052b198626428053e170376cc79eebe7"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_006/records/generation-no-folds.json",
+              "sha256": "022854161613a1a77d4d589fce6626e772ba0839d722bcf4388ffe360d9bf0e4"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "illustration_006"
+            }
+          ],
+          "description": "백발 생머리 중단발·푸른 눈·러시아계 인상을 유지한 팔자주름·입가 음영 제거 수정 샘플.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "헤어",
+              "백발 생머리 중단발"
+            ],
+            [
+              "눈",
+              "푸른 눈"
+            ],
+            [
+              "수정",
+              "팔자주름·입가 음영 제거"
+            ]
+          ],
+          "review_notes": [
+            "내장 image_gen 국소 편집 1회 · 이전 원본 보존",
+            "의상·장비·헤어 유지 목표 · 픽셀 동일성은 보장하지 않음",
+            "주름 제거 정도와 미감은 사용자 검수 대기",
+            "사용자 반려: 얼굴이 나이 들어 보임. 007 새 얼굴·헤어 확대 샘플로 재검토."
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/illustration_006/source/illustration-no-folds.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_display"
+        },
+        {
+          "revision_id": "face_redesign_007",
+          "display_name": "모아 · 얼굴·헤어 확대 007 · 직선 중단발·시스루뱅",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "approved",
+          "recipe_key": "moa-young-new-face-white-sleek-lob-wispy-fringe-007",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/face_redesign_007/source/portrait.png",
+              "sha256": "4f62c7389750d5dc15d2daa5e556fdeed6757eba7e0fd1a6f24f73ab39b6bae8"
+            },
+            {
+              "path": "art/characters/moa/concepts/face_redesign_007/source/previous-hair.png",
+              "sha256": "21610c23be3ef2f8c7e7619234d4b9e4681308bd6844d6076f3ddd3e80b678ef"
+            },
+            {
+              "path": "art/characters/moa/concepts/face_redesign_007/records/prompt.json",
+              "sha256": "b4ae57f714182d0c1045d8df4cead0ddf61211ead566fe5db2a84ac26dbd8daf"
+            },
+            {
+              "path": "art/characters/moa/concepts/face_redesign_007/records/prompt.md",
+              "sha256": "c17c7bbab67bb0ead329186acbf5d34ed80c80ebcdf5fa3445a2eaa7778b0444"
+            },
+            {
+              "path": "art/characters/moa/concepts/face_redesign_007/records/prompt-modern-hair.json",
+              "sha256": "f913aa0560bdb9b74d29438fc342909335ff7f16a54aad60af520de1458ae281"
+            },
+            {
+              "path": "art/characters/moa/concepts/face_redesign_007/records/prompt-modern-hair.md",
+              "sha256": "adec71bce72bdbae2ecaa5d53d233cee05fc9789b2a31f8c9218a9d3531ec4cd"
+            },
+            {
+              "path": "art/characters/moa/concepts/face_redesign_007/records/generation.json",
+              "sha256": "561ec63b6cbf417e4acd34b852ad39fcd0bbcfa49c2a66743c05a7748fc8adb7"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "illustration_006_no_folds"
+            }
+          ],
+          "description": "나이 들어 보인다는 피드백으로 얼굴 재설계 후 헤어를 보정한 확대 샘플. 백발·푸른 눈·러시아계 인상 유지. 직선 중단발·시스루뱅은 검수 대기.",
+          "appearance_specs": [
+            [
+              "목표 외형상 나이",
+              "24~26세 성인"
+            ],
+            [
+              "헤어 시안",
+              "백발·직선 중단발·얇은 시스루뱅"
+            ],
+            [
+              "눈",
+              "푸른 눈"
+            ],
+            [
+              "상태",
+              "얼굴 확대 샘플·채택 전"
+            ]
+          ],
+          "review_notes": [
+            "얼굴 재설계 1회·헤어 편집 1회",
+            "전신·위키 아이콘 적용 전",
+            "얼굴·헤어·화풍의 미감은 사용자 검수 대기",
+            "사용자가 이 얼굴·헤어를 채택해 전신 007 적용을 지시함."
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/face_redesign_007/source/portrait.png",
+            "width": 1254,
+            "height": 1254,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "png_decode_sha256_and_targeted_static_sample_display"
+        },
+        {
+          "revision_id": "illustration_007",
+          "display_name": "모아 · 전신 007 · 채택 얼굴·백발 중단발 적용",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "face_and_hair_status": "approved_by_user",
+          "recipe_key": "moa-approved-face007-fullbody-007",
+          "artifacts": [
+            {
+              "path": "art/characters/moa/concepts/illustration_007/source/illustration.png",
+              "sha256": "6660f4cd9d21ca3aa5afdf69c3ffd5f38559302ea98e5d6f907627563e38cece"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_007/records/prompt.json",
+              "sha256": "cf554a92f5995df69e861d9ffc8c6d1ad64abf38bd017879bcbb6db7edb213f6"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_007/records/prompt.md",
+              "sha256": "483b7d9d1aa33abe07f1cab1cf5485450c8bddb1aec378dd845be89c2b465a3a"
+            },
+            {
+              "path": "art/characters/moa/concepts/illustration_007/records/generation.json",
+              "sha256": "6960e7b8193fa820b4a50af46fb02dd809de2d54ce334488592ef0db572bcfb2"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "illustration_006_no_folds"
+            },
+            {
+              "kind": "character",
+              "entity_id": "moa",
+              "revision_id": "face_redesign_007"
+            }
+          ],
+          "description": "채택된 젊은 얼굴·백발 생머리 중단발·시스루뱅·푸른 눈을 적용한 전신 007. 러시아계 인상, 기존 의상·지원화기·포즈 유지. 전신 세부 확인 대기.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "헤어",
+              "백발 생머리 중단발·시스루뱅 · 채택"
+            ],
+            [
+              "눈",
+              "푸른 눈"
+            ],
+            [
+              "얼굴",
+              "젊고 부드러운 러시아계 인상 · 채택"
+            ]
+          ],
+          "review_notes": [
+            "얼굴·헤어 방향은 사용자 채택 · 새 전신 일치도는 확인 대기",
+            "내장 image_gen 편집 1회 · 원본 보존",
+            "의상·무기·장비·포즈는 시각적으로 유지, 픽셀 동일성은 보장하지 않음"
+          ],
+          "preview": {
+            "image_path": "art/characters/moa/concepts/illustration_007/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "png_decode_sha256_targeted_sample_wiki_roster_and_500px_display"
         }
       ]
     },
@@ -8195,7 +8499,7 @@
       "display_name": "유나",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_005",
+      "review_revision_id": "illustration_008",
       "capabilities": [
         "concept_image"
       ],
@@ -8652,6 +8956,358 @@
             "type": "concept_image",
             "production_ready_cutout": false
           }
+        },
+        {
+          "revision_id": "face_gyaru_sample_006",
+          "display_name": "유나 · 갸루 얼굴 샘플 006",
+          "status": "draft",
+          "verification": "untested",
+          "art_direction_status": "approved",
+          "recipe_key": "yuna-face-gyaru-sample-006",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/face_gyaru_sample_006/source/portrait.png",
+              "sha256": "ffe6961d1ded7e12ba275c96c81e79b1ebe325d20ead3ae9935a917b7d82c600"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_gyaru_sample_006/records/prompt.json",
+              "sha256": "926aa24be02e97b253d5705d4ba24a748b4cfb71131deda808c093e3f6f4cb20"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_gyaru_sample_006/records/prompt.md",
+              "sha256": "d708b20ae12cf0548dce793d9649698229b73c474d375db0d99f0e62d675cd91"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_gyaru_sample_006/records/generation.json",
+              "sha256": "2a8af6275d9e57dc41ed1948f95976cdbc7953571fb08d51036062ae81e05786"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "illustration_005"
+            }
+          ],
+          "description": "얼굴 확인용 상반신 샘플. 약간 까무잡잡한 구릿빛 피부와 갸루 메이크업. 기존 흑발 반묶음·방호복 컨셉 유지. 사용자 검수 대기.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "얼굴",
+              "구릿빛 피부·갸루 메이크업"
+            ],
+            [
+              "상태",
+              "샘플 · 채택 전"
+            ]
+          ],
+          "review_notes": [
+            "내장 image_gen 편집 1회 · 원본 바이트 보존",
+            "005 전신 원화와 위키 인물 이미지는 교체하지 않음",
+            "새 얼굴 옆 점이 생성됨 · 의상 세부 픽셀 동일성은 보장하지 않음",
+            "PNG 디코딩·해시 확인 완료. 브라우저 표시 검사는 미실행. 미감은 사용자 검수 대기.",
+            "사용자가 이 얼굴 샘플을 채택하고 전신 적용을 지시함. 새 전신은 illustration_006."
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/face_gyaru_sample_006/source/portrait.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_006",
+          "display_name": "유나 · 전신 006 · 채택한 갸루 얼굴 적용",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "face_direction_status": "approved_by_user",
+          "recipe_key": "yuna-fullbody-approved-gyaru-face-006",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/illustration_006/source/illustration.png",
+              "sha256": "63d52b9c771ad20ae3320234a7cc8c589b5077bf86082df67fe5af290799fcd0"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_006/records/prompt.json",
+              "sha256": "95ca2415a8397b091d50bbdc240c872b8d94c72fb4b4f6bcb18a5fe0f7aa7ecc"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_006/records/prompt.md",
+              "sha256": "1bdf1da33c61575e00315749987cc3b3e29bb36ceb9a8c305e4ddb7401a00679"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_006/records/generation.json",
+              "sha256": "4c394744acb567d880198f62d17d960e62f9819d4a866795714031bfebea9794"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "illustration_005"
+            },
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "face_gyaru_sample_006"
+            }
+          ],
+          "description": "사용자가 채택한 약간 까무잡잡한 갸루 얼굴을 기존 전신에 적용. 흑발 반묶음·방호복·물리 방패·권총·자세 유지. 새 전신 세부 확인 대기.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "방패·진입"
+            ],
+            [
+              "얼굴",
+              "구릿빛 갸루 얼굴 · 방향 채택"
+            ],
+            [
+              "헤어",
+              "흑발 긴 생머리 반묶음·옆가르마"
+            ],
+            [
+              "전신",
+              "006 · 세부 확인 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "내장 image_gen 1회 · 원본 보존",
+            "샘플 얼굴 방향은 사용자 채택 · 새 전신 일치도는 확인 대기",
+            "기존 005와 이전 아이콘·모션은 보존",
+            "얼굴 밖 픽셀 동일성은 보장하지 않음"
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/illustration_006/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_wiki_roster_500px_display"
+        },
+        {
+          "revision_id": "face_blonde_sample_008",
+          "display_name": "유나 · 밝은 금발·새 얼굴 샘플 008",
+          "status": "draft",
+          "verification": "untested",
+          "art_direction_status": "approved",
+          "recipe_key": "yuna-bright-blonde-face-sample-008",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/face_blonde_sample_008/source/first-pass.png",
+              "sha256": "1463d40e5968606094196ce6a101db0cf63ca6857033781d1955d3288d16dbc1"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_blonde_sample_008/source/portrait.png",
+              "sha256": "ff9304f631978654170bf69b59e1b5579aceba8f7f28a0e965d1858a5493fa3e"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_blonde_sample_008/records/prompt.json",
+              "sha256": "294a1390f0aaa96ffc384235ba56a589c79581d1339fd3687bf44e44bc0a03be"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_blonde_sample_008/records/prompt.md",
+              "sha256": "5353334810dcf2eca080e68a63b7e9b010261121decab7e515ca316e56f57860"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_blonde_sample_008/records/prompt-face-revision.json",
+              "sha256": "ba15a4dc48de6f24c743742be0dba7ee949403d3ea260c22a284824a3fff7884"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_blonde_sample_008/records/prompt-face-revision.md",
+              "sha256": "b43eb764b19a61b5662a4967113220b91154c6eef6fbbf50edc1c2bab07152f0"
+            },
+            {
+              "path": "art/characters/yuna/concepts/face_blonde_sample_008/records/generation.json",
+              "sha256": "8d5153e03822296e66bc6c88a46f3af7c149ad3d1348570d07cdda42ad574156"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "face_gyaru_sample_006"
+            }
+          ],
+          "description": "밝은 금발과 전면 재설계한 얼굴의 상반신 샘플. 기존 갸루 분위기와 반묶음·방호복 컨셉 유지. 사용자 검수 대기.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "머리",
+              "밝은 금발 · 긴 생머리 반묶음"
+            ],
+            [
+              "얼굴",
+              "새 얼굴형·눈·코·입·미소 시안"
+            ],
+            [
+              "상태",
+              "검토용 샘플 · 채택 전"
+            ]
+          ],
+          "review_notes": [
+            "내장 image_gen 2회 · 두 출력 원본 보존",
+            "첫 출력은 기존 얼굴 인상이 많이 남아 두 번째 생성 진행",
+            "사용자 정정: 백발이 아니라 밝은 금발",
+            "이미지 직접 확인·PNG 크기와 해시 기록. 브라우저·게임 테스트 미실행.",
+            "기존 전신 006·위키 아이콘·모션은 유지. 얼굴 재설계 정도와 미감은 사용자 검수 대기.",
+            "사용자가 밝은 금발·새 얼굴 샘플을 채택하고 전신·아이콘 등 현재 표시 적용 지시. 후속 전신 illustration_008."
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/face_blonde_sample_008/source/portrait.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_008",
+          "display_name": "유나 · 전신 008 · 채택 금발·새 얼굴 적용",
+          "status": "draft",
+          "verification": "untested",
+          "art_direction_status": "awaiting_user_review",
+          "face_direction_status": "approved_by_user",
+          "recipe_key": "yuna-fullbody-approved-blonde-face-008",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/illustration_008/source/illustration.png",
+              "sha256": "e24c2d98685292e27e8c3c05bd9b303bfb2d91b60605825ba538715bbf709f8b"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_008/source/icon.png",
+              "sha256": "7bb8c713dd41adbc0b34d81f24c5447941e8cb9eb3d7f09c8db9e5e3d1edf190"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_008/records/prompt.json",
+              "sha256": "7855b50ffba57f07d1366aa37459d10e34dbf15e3166082f2629c8c4b81fb413"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_008/records/prompt.md",
+              "sha256": "d2866b0b89a31beb52e57280660a9327bf7146c23e977b1c309b89623304f70a"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_008/records/icon-prompt.json",
+              "sha256": "baa843eac0a2d0a26353d384ca0bff54a0367615f8fd846d3f30d9dca56ee572"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_008/records/icon-prompt.md",
+              "sha256": "264e0dfb22d6dc35ddf66264e77295fb35c3e834a7c6016d0671565c8897fd0a"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_008/records/generation.json",
+              "sha256": "42e1fdf8a79431cf594b521538e3f62cee50398b02bd553173315e68d7837148"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_008/records/approval.json",
+              "sha256": "e5bad22bd6a4362d80e0e59d35da2423ec2d4572a261ce6f437b34a92f6e12b0"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "illustration_006"
+            },
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "face_blonde_sample_008"
+            }
+          ],
+          "description": "채택한 밝은 금발·새 얼굴을 전신과 위키 아이콘에 적용. 방호복·방패·권총·자세 유지. 파생 결과 세부 일치도 확인 대기.",
+          "appearance_specs": [
+            [
+              "국적",
+              "미국"
+            ],
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "방패·진입"
+            ],
+            [
+              "얼굴",
+              "샘플 008의 새 얼굴 · 사용자 채택"
+            ],
+            [
+              "헤어",
+              "밝은 금발 긴 생머리 반묶음·옆가르마"
+            ],
+            [
+              "상태",
+              "전신·아이콘 008 · 세부 확인 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "내장 image_gen 전신 1회·아이콘 1회 · 원본 바이트 보존",
+            "얼굴과 금발 방향은 사용자 채택 · 파생 전신·아이콘 세부 일치도는 확인 대기",
+            "이미지 직접 확인·크기·해시 기록. 브라우저·게임 테스트 미실행",
+            "기존 006·아이콘·과거 기록·모션·게임 구현 보존"
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/illustration_008/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
         }
       ]
     },
@@ -8661,7 +9317,7 @@
       "display_name": "아렌",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_005",
+      "review_revision_id": "face_wolf_sample_007",
       "capabilities": [
         "concept_image"
       ],
@@ -9118,6 +9774,89 @@
             "type": "concept_image",
             "production_ready_cutout": false
           }
+        },
+        {
+          "revision_id": "face_wolf_sample_007",
+          "display_name": "아렌 · 흑발 늑대상 얼굴·헤어 샘플 007",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "iren-face-wolf-sample-007",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/face_wolf_sample_007/source/portrait.png",
+              "sha256": "28d26951cfaab878f5e0e93b4a0c862f7f0e756bfe0069286a32b569b42c83c0"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_wolf_sample_007/records/prompt.json",
+              "sha256": "8902a05a48b0256f85dd39e0cbd28cce948bcb46b1ed557b327b9feefbc18a2e"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_wolf_sample_007/records/prompt.md",
+              "sha256": "c91e1261b9bf6d37b6c1c324a702a3396547880f21cb2464b42597594fb9c7ae"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_wolf_sample_007/records/generation.json",
+              "sha256": "b633f703babf812c1a9ba08fb0f83e24bcc8e4eff1528ff7020c23b02627d2d5"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "iren",
+              "revision_id": "illustration_005"
+            }
+          ],
+          "description": "① 흑발 늑대상: 25~26세의 젊은 얼굴, 길고 선명한 눈매·곧은 눈썹·차분한 시선. 옆가르마 짧은 레이어드 단발과 한쪽 드러난 귀. 얼굴·헤어 상반신 시안이며 미감 검수 대기.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "얼굴",
+              "선명한 눈매·곧은 눈썹·침착한 표정"
+            ],
+            [
+              "머리",
+              "흑발·옆가르마 짧은 레이어드 단발·한쪽 귀 노출"
+            ],
+            [
+              "상태",
+              "상반신 시안 · 사용자 검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "흑발",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제한 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "내장 image_gen 1회 · 생성 원본 바이트 보존",
+            "사용자 선택은 ① 컨셉 방향이며 새 출력 미감은 검수 대기",
+            "기존 전신 005·위키 얼굴 아이콘·다른 대원·모션·게임 유지",
+            "PNG 크기·원본 해시 동일성과 별도 Chrome의 해당 시안 선택·표시를 확인. 사용자 미감 검수 대기."
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/face_wolf_sample_007/source/portrait.png",
+            "width": 1199,
+            "height": 1312,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "png_decode_sha256_unmodified_original_and_one_static_chrome_preview"
         }
       ]
     },
