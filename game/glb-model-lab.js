@@ -4,6 +4,7 @@
 const $ = id => document.getElementById(id);
 const THREE_URL = './vendor/three-0.187.0/build/three.module.js';
 const LOADER_URL = './vendor/three-0.187.0/examples/jsm/loaders/GLTFLoader.js';
+const FX_URL = './glb-burst-fx.js';
 export const MODELS = {
   clone_01: {
     url: '/art/characters/clone_01/motion/glb_model_001/source/version04.glb',
@@ -23,10 +24,12 @@ export const MODELS = {
     hips: [],
     target: .27, viewHeight: .9, // about 0.6 tall and 1.0 long
     // Both pounces keep their 0.5 m root motion, so widen the view and centre it ahead of the start point.
-    clipView: { pounce: { viewHeight: 1.3, ahead: .3 }, pounce_fast: { viewHeight: 1.3, ahead: .3 } },
+    clipView: { pounce: { viewHeight: 1.3, ahead: .3 }, pounce_fast: { viewHeight: 1.3, ahead: .3 }, explode: { viewHeight: 1.5, target: .5 } },
     // Non-looping clips: play once, hold the last pose for this many seconds, then start over.
     once: { death: 1 },
-    note: '사용자가 리깅한 mob 모델(mob.glb)을 복사해 Three.js로 재생합니다. 걷기(1초 주기)·빠른 걷기(0.5초 주기)는 Blender에서 발끝 IK로 만든 뒤 회전 키프레임으로 구운 제자리 클립이고, 덮치기(1.42초)·빠른 덮치기(0.71초)는 앞다리를 들고 0.5m 앞으로 뛰어 내리찍는 같은 동작의 두 속도로 실제 전진을 포함해 끝나면 처음 자리로 돌아가 반복합니다. 사망(1.54초)은 맞고 휘청이다 주저앉아 다리를 오그리는 한 번 재생 클립으로, 마지막 자세에서 1초 멈춘 뒤 다시 시작합니다. 카메라는 오른쪽 옆에서 정사영으로 봅니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
+    // Tab-only modes that are not GLB clips. explode: shoot it `shots` times, it swells, pops in green ichor and fades out as smoke.
+    extras: { explode: { label: '폭사', base: 'walk', shots: 5, center: [0, .3, .05], hitZ: [-.25, .4], hitY: [.24, .42], side: .17 } },
+    note: '사용자가 리깅한 mob 모델(mob.glb)을 복사해 Three.js로 재생합니다. 걷기(1초 주기)·빠른 걷기(0.5초 주기)는 Blender에서 발끝 IK로 만든 뒤 회전 키프레임으로 구운 제자리 클립이고, 덮치기(1.42초)·빠른 덮치기(0.71초)는 앞다리를 들고 0.5m 앞으로 뛰어 내리찍는 같은 동작의 두 속도로 실제 전진을 포함해 끝나면 처음 자리로 돌아가 반복합니다. 사망(1.54초)은 맞고 휘청이다 주저앉아 다리를 오그리는 한 번 재생 클립으로, 마지막 자세에서 1초 멈춘 뒤 다시 시작합니다. 폭사는 걷는 몬스터를 화면 클릭·F·사격 버튼으로 쏘면 맞은 자리에 초록 체액이 튀고, 5발째에 크게 뒤로 뒤집히며 공중에서 터져 초록 연기로 사라진 뒤 다시 나타납니다(미리보기용 Three.js 효과). 카메라는 오른쪽 옆에서 정사영으로 봅니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
 };
 
@@ -46,19 +49,24 @@ export class GlbModelLab {
     $('glb-stage').addEventListener('keydown', event => {
       if (!this.active || /INPUT|SELECT|TEXTAREA|BUTTON/.test(event.target.tagName)) return;
       if (event.code === 'Space') { event.preventDefault(); this.pause(!this.paused); }
+      if (event.code === 'KeyF' && this.explode) { event.preventDefault(); this.shoot(); }
     });
+    $('glb-canvas').addEventListener('click', () => { if (this.explode) this.shoot(); });
+    $('glb-shoot').addEventListener('click', () => this.shoot());
+    $('glb-revive').addEventListener('click', () => this.revive());
     window.addEventListener('resize', () => { if (this.active) this.resize(); });
     document.addEventListener('visibilitychange', () => { this.last = null; });
   }
 
   get config() { return MODELS[this.modelKey]; }
   get view() { return this.config.clipView?.[this.clipName] ?? {}; }
+  get extra() { return this.config.extras?.[this.clipName] ?? null; }
 
   // Called on route change, before restoreParams/show. Unknown pages fall back to clone_01.
   configure(key) {
     key = Object.hasOwn(MODELS, key) ? key : 'clone_01';
     if (key === this.modelKey) return;
-    this.modelKey = key; this.clipName = null; this.current = null; this.action = null;
+    this.revive(); this.modelKey = key; this.clipName = null; this.current = null; this.action = null; this.explode = null;
   }
 
   show(active) {
@@ -96,6 +104,8 @@ export class GlbModelLab {
     const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(-2, 3, 1.5); this.scene.add(key);
     const rim = new THREE.DirectionalLight(0xffffff, .8); rim.position.set(2, 2, -2); this.scene.add(rim);
     this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, .01, 20);
+    const { BurstFx } = await import(FX_URL);
+    this.fx = new BurstFx(THREE, this.scene);
   }
 
   async load(key) {
@@ -108,7 +118,9 @@ export class GlbModelLab {
     const hips = config.hips.map(name => root.getObjectByName(name)).find(Boolean) ?? null;
     const order = Object.keys(config.labels), rank = name => { const index = order.indexOf(name); return index < 0 ? order.length : index; };
     const clips = gltf.animations.filter(clip => !config.hidden.includes(clip.name)).sort((a, b) => rank(a.name) - rank(b.name));
-    return { key, root, hips, hipsRest: hips?.position.clone() ?? null, clips, mixer: new THREE.AnimationMixer(root) };
+    const materials = [];
+    root.traverse(object => { if (object.isMesh) for (const m of [object.material].flat()) if (!materials.includes(m)) materials.push(m); });
+    return { key, root, hips, hipsRest: hips?.position.clone() ?? null, clips, materials, mixer: new THREE.AnimationMixer(root) };
   }
 
   attach(model) {
@@ -116,7 +128,8 @@ export class GlbModelLab {
       if (this.current) { this.current.mixer.stopAllAction(); this.scene.remove(this.current.root); }
       this.current = model; this.scene.add(model.root);
       this.buildTabs();
-      this.setClip(model.clips.some(clip => clip.name === this.clipName) ? this.clipName : model.clips[0]?.name, false);
+      const known = model.clips.some(clip => clip.name === this.clipName) || Object.hasOwn(this.config.extras ?? {}, this.clipName ?? '');
+      this.setClip(known ? this.clipName : model.clips[0]?.name, false);
     }
     this.placeCamera();
     this.applyBackground();
@@ -126,10 +139,12 @@ export class GlbModelLab {
 
   buildTabs() {
     const labels = this.config.labels;
-    $('glb-clips').replaceChildren(...this.current.clips.map(clip => {
-      const button = Object.assign(document.createElement('button'), { type: 'button', textContent: labels[clip.name] ?? clip.name.replace(/\.\d+$/, ''), title: clip.name });
-      button.dataset.clip = clip.name;
-      button.addEventListener('click', () => this.setClip(clip.name));
+    const entries = [...this.current.clips.map(clip => [clip.name, labels[clip.name] ?? clip.name.replace(/\.\d+$/, '')]),
+      ...Object.entries(this.config.extras ?? {}).map(([name, extra]) => [name, extra.label])];
+    $('glb-clips').replaceChildren(...entries.map(([name, label]) => {
+      const button = Object.assign(document.createElement('button'), { type: 'button', textContent: label, title: name });
+      button.dataset.clip = name;
+      button.addEventListener('click', () => this.setClip(name));
       return button;
     }));
   }
@@ -137,11 +152,16 @@ export class GlbModelLab {
   setClip(name, update = true) {
     const model = this.current;
     if (!model) { this.clipName = name; return; }
-    const clip = model.clips.find(item => item.name === name);
+    const extra = this.config.extras?.[name];
+    const clip = model.clips.find(item => item.name === (extra ? extra.base : name));
     if (!clip) return;
     model.mixer.stopAllAction();
     if (model.hips && model.hipsRest) model.hips.position.copy(model.hipsRest);
+    this.revive();
     this.clipName = name;
+    this.explode = extra ? { shots: 0, phase: 'alive', t: 0, flinch: 0 } : null;
+    $('glb-fx').hidden = !extra; $('glb-stage').classList.toggle('glb-aim', Boolean(extra));
+    this.updateHp();
     this.action = model.mixer.clipAction(clip);
     this.holdFor = this.config.once?.[name] ?? null; this.held = 0;
     this.action.setLoop(this.holdFor == null ? this.THREE.LoopRepeat : this.THREE.LoopOnce, Infinity);
@@ -153,10 +173,75 @@ export class GlbModelLab {
     if (update) this.writeUrl();
   }
 
+  updateHp() {
+    const extra = this.extra, state = this.explode;
+    if (!extra || !state) return;
+    $('glb-hp').textContent = state.phase === 'alive' ? `남은 체력 ${extra.shots - state.shots} / ${extra.shots}발` : '폭사';
+    $('glb-shoot').disabled = state.phase !== 'alive';
+  }
+
+  shoot() {
+    const extra = this.extra, state = this.explode, model = this.current;
+    if (!extra || !state || state.phase !== 'alive' || !model || !this.fx) return;
+    const V = this.THREE.Vector3, r = (a, b) => a + Math.random() * (b - a);
+    const point = new V(-extra.side * this.facing, r(...extra.hitY), r(...extra.hitZ)).add(model.root.position);
+    this.fx.hit(point, new V(-this.facing, 0, 0));
+    state.shots += 1; state.flinch = 1;
+    if (state.shots >= extra.shots) { state.phase = 'flip'; state.t = 0; }
+    this.updateHp();
+    if (this.paused) this.pause(false);
+  }
+
+  // Restore the model after a burst (also used when leaving the mode).
+  revive() {
+    const model = this.current;
+    if (model) {
+      model.root.visible = true; model.root.scale.setScalar(1); model.root.position.set(0, 0, 0); model.root.rotation.set(0, 0, 0);
+      for (const m of model.materials) { m.transparent = false; m.opacity = 1; m.depthWrite = true; m.needsUpdate = true; }
+    }
+    this.fx?.clear();
+    if (this.explode) { this.explode = { shots: 0, phase: 'alive', t: 0, flinch: 0 }; this.updateHp(); }
+  }
+
+  stepExplode(dt) {
+    const state = this.explode, extra = this.extra, model = this.current;
+    if (!state || !model) return;
+    const THREE = this.THREE, root = model.root;
+    const ease = u => { u = Math.min(Math.max(u, 0), 1); return u * u * (3 - 2 * u); }, easeOut = u => 1 - (1 - Math.min(Math.max(u, 0), 1)) ** 2;
+    state.t += dt; state.flinch = Math.max(0, state.flinch - dt / .18);
+    const f = state.flinch * state.flinch;
+    // Rotate about the body centre (not the feet): position = lift + c - R*S*c.
+    const center = new THREE.Vector3(...extra.center);
+    const place = (pitch, lift, back, scale) => {
+      root.rotation.set(pitch, 0, -.07 * f * this.facing); root.scale.setScalar(scale);
+      const turned = center.clone().multiplyScalar(scale).applyEuler(root.rotation);
+      root.position.copy(center).sub(turned).add(new THREE.Vector3(.02 * f * this.facing, lift, -back));
+    };
+    if (state.phase === 'alive' || state.phase === 'gone') place(0, 0, 0, 1);
+    if (state.phase === 'flip') {               // 0.42 s: the last hit throws it up and over backwards, swelling as it turns belly-up
+      const u = state.t / .42;
+      place(-Math.PI * .85 * easeOut(u), .3 * Math.sin(Math.PI / 2 * Math.min(u, 1)), .14 * u, 1 + .14 * ease(u) ** 2);
+      root.position.x += (Math.random() - .5) * .01 * ease(u);
+      if (state.t >= .42) {
+        state.phase = 'fade'; state.t = 0;
+        root.updateMatrixWorld(true);
+        this.fx.burst(root.localToWorld(center.clone()));
+        for (const m of model.materials) { m.transparent = true; m.depthWrite = false; m.needsUpdate = true; }
+      }
+    } else if (state.phase === 'fade') {        // 0.35 s: keeps turning and starts to fall while it dissolves into the smoke
+      const u = state.t / .35;
+      place(-Math.PI * (.85 + .25 * u), .3 - .06 * u * u, .14 + .05 * u, 1.14 + .22 * ease(u));
+      for (const m of model.materials) m.opacity = 1 - ease(u);
+      if (state.t >= .35) { root.visible = false; state.phase = 'gone'; state.t = 0; this.updateHp(); }
+    } else if (state.phase === 'gone' && state.t > 1 && !this.fx.busy) {
+      this.revive();
+    }
+  }
+
   placeCamera() {
     if (!this.camera) return;
     // Models face +Z. A camera on -X sees the right side with the model facing screen right.
-    const target = this.config.target, ahead = this.view.ahead ?? 0;
+    const target = this.view.target ?? this.config.target, ahead = this.view.ahead ?? 0;
     this.camera.position.set(-5 * this.facing, target, ahead);
     this.camera.lookAt(0, target, ahead);
     this.resize();
@@ -194,6 +279,8 @@ export class GlbModelLab {
     this.last = now;
     if (!this.paused && this.current) {
       this.current.mixer.update(dt * this.speed);
+      this.stepExplode(dt * this.speed);
+      this.fx?.update(dt * this.speed);
       if (this.holdFor != null && this.action && this.action.time >= this.action.getClip().duration - 1e-4) {
         this.held += dt * this.speed;
         if (this.held >= this.holdFor) { this.held = 0; this.action.reset().play(); }
