@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "entity_id": "iren",
+  "revision_id": "face_veteran_sample_008",
+  "tool": "built-in image_gen",
+  "model": null,
+  "cost": null,
+  "unexposed_fields": "Exact model and actual cost not exposed by built-in tool.",
+  "calls": 2,
+  "user_feedback": [
+    "007 looks mean and unattractive",
+    "Years of battlefield experience should be visible in her bearing",
+    "Natural skin instead of soft-focus beauty treatment",
+    "A cleaner, neater bob"
+  ],
+  "generations": [
+    {
+      "started_at_utc": "2026-11-09 07:31:32 UTC",
+      "finished_at_utc": "2026-11-09 07:32:05 UTC",
+      "prompt": "records/prompt.json",
+      "output": "source/first-pass.png"
+    },
+    {
+      "started_at_utc": "2026-11-09 07:32:53 UTC",
+      "finished_at_utc": "2026-11-09 07:33:35 UTC",
+      "prompt": "records/prompt-face-revision.json",
+      "output": "source/portrait.png"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "art/characters/iren/concepts/face_wolf_sample_007/source/portrait.png",
+      "sha256": "28d26951cfaab878f5e0e93b4a0c862f7f0e756bfe0069286a32b569b42c83c0"
+    },
+    {
+      "path": "art/characters/iren/concepts/face_veteran_sample_008/source/first-pass.png",
+      "sha256": "4000f7bf9e9eb0c5fdaa32e6231cc609c1037bb176dd9d94e74e4fed07014344"
+    }
+  ],
+  "outputs": [
+    {
+      "original_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-adbfa405-2f00-464b-b2b8-f085d1fbbe68.png",
+      "workspace_path": "art/characters/iren/concepts/face_veteran_sample_008/source/first-pass.png",
+      "sha256": "4000f7bf9e9eb0c5fdaa32e6231cc609c1037bb176dd9d94e74e4fed07014344",
+      "unmodified_original": true
+    },
+    {
+      "original_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bf06-20df-7ce0-9d08-b9358d001b4a\\exec-af5793ef-ea9b-42b5-b7bd-1797291cc963.png",
+      "workspace_path": "art/characters/iren/concepts/face_veteran_sample_008/source/portrait.png",
+      "sha256": "1c902196c21d30554fab8574ee992b680a0368d15081ca668b5203dd8f550313",
+      "unmodified_original": true
+    }
+  ],
+  "width": 1199,
+  "height": 1312,
+  "mode": "RGB",
+  "visual_review": "Neat straight bob and natural skin texture observed. The first image retained too much of the rejected face, so a second generation requested a stronger face redesign. Face resemblance still remains; extent of redesign, attractiveness and veteran impression require user review.",
+  "art_direction_status": "awaiting_user_review",
+  "preserved": "Existing full-body 005, wiki illustrations and icons, other characters, motions and gameplay."
+}

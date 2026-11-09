@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-11-09T07:56:54.604917+00:00",
+  "url": "http://127.0.0.1:4173/#/samples/characters/iren?rev=face_french_sample_009",
+  "browser": "Existing separate local headless Chrome/Playwright; in-app browser execution unavailable earlier in this session.",
+  "checks": [
+    "Original PNG copied byte-identically and decoded",
+    "New sample selected and visibly loaded at 1199 x 1312",
+    "No page errors observed",
+    "Wiki profile nationality is France",
+    "Wiki keeps previous full-body image and labels it as previous appearance",
+    "Wiki npm run check passed: 67 articles, 5 categories, 2 creator-only"
+  ],
+  "images": [
+    {
+      "width": 1199,
+      "height": 1312,
+      "visible": true
+    }
+  ],
+  "page_errors": [],
+  "scope": "One static portrait preview and wiki content check. No full game/motion or project-wide artifact checks.",
+  "art_direction_status": "awaiting_user_review"
+}

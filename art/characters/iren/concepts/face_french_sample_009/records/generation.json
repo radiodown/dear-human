@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "entity_id": "iren",
+  "revision_id": "face_french_sample_009",
+  "tool": "built-in image_gen",
+  "model": null,
+  "cost": null,
+  "unexposed_fields": "Exact model and cost not exposed by the built-in tool.",
+  "calls": 1,
+  "started_at_utc": "2026-11-09 07:53:50 UTC",
+  "finished_at_utc": "2026-11-09 07:54:39 UTC",
+  "user_request": "프랑스로 해봐",
+  "context": "Proposed France direction: dark-chestnut neat bob, hazel-green eyes, refined face and composed veteran impression. Preserve natural skin and apparent age 25-26.",
+  "generation_mode": "New generation without image references, avoiding the prior rejected facial identity.",
+  "input_images": [],
+  "output": {
+    "original_path": "C:/Users/axgatge/.codex/generated_images/01a1bf06-20df-7ce0-9d08-b9358d001b4a/exec-9f5cf62e-f486-4b4d-842c-4555e8e96716.png",
+    "workspace_path": "art/characters/iren/concepts/face_french_sample_009/source/portrait.png",
+    "sha256": "c60b59ec1351eeabbce048e9c511a3153632e8f357bcc675bb2aaa794df37a0e",
+    "width": 1199,
+    "height": 1312,
+    "mode": "RGB",
+    "unmodified_original": true
+  },
+  "visual_review": "Clearly different facial design, hazel-green eyes, neat dark-chestnut bob, natural skin texture, composed expression and used black/gunmetal/gold uniform observed. Fresh-generation costume details differ from the previous full body. Attractiveness, age impression and veteran bearing require user review.",
+  "art_direction_status": "awaiting_user_review",
+  "story_change": "Nationality: France. Birthplace, ancestry and citizenship history remain unspecified.",
+  "scope": "Upper-body sample only. Existing full-body 005 and wiki imagery remain previous artwork; motion/gameplay and other characters preserved."
+}

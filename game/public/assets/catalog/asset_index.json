@@ -9317,7 +9317,7 @@
       "display_name": "아렌",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "face_wolf_sample_007",
+      "review_revision_id": "face_french_beauty_sample_010",
       "capabilities": [
         "concept_image"
       ],
@@ -9778,9 +9778,9 @@
         {
           "revision_id": "face_wolf_sample_007",
           "display_name": "아렌 · 흑발 늑대상 얼굴·헤어 샘플 007",
-          "status": "draft",
+          "status": "archived",
           "verification": "passed",
-          "art_direction_status": "awaiting_user_review",
+          "art_direction_status": "rejected_by_user",
           "recipe_key": "iren-face-wolf-sample-007",
           "artifacts": [
             {
@@ -9844,7 +9844,8 @@
             "내장 image_gen 1회 · 생성 원본 바이트 보존",
             "사용자 선택은 ① 컨셉 방향이며 새 출력 미감은 검수 대기",
             "기존 전신 005·위키 얼굴 아이콘·다른 대원·모션·게임 유지",
-            "PNG 크기·원본 해시 동일성과 별도 Chrome의 해당 시안 선택·표시를 확인. 사용자 미감 검수 대기."
+            "PNG 크기·원본 해시 동일성과 별도 Chrome의 해당 시안 선택·표시를 확인. 사용자 미감 검수 대기.",
+            "사용자 반려: 못되게 보이고 얼굴 미감 불만. 전장 경험·자연스러운 질감·더 깔끔한 단발을 요청해 008로 수정."
           ],
           "preview": {
             "image_path": "art/characters/iren/concepts/face_wolf_sample_007/source/portrait.png",
@@ -9857,6 +9858,293 @@
             "production_ready_cutout": false
           },
           "verification_scope": "png_decode_sha256_unmodified_original_and_one_static_chrome_preview"
+        },
+        {
+          "revision_id": "face_veteran_sample_008",
+          "display_name": "아렌 · 전장 경험·깔끔한 단발 샘플 008",
+          "status": "archived",
+          "verification": "passed",
+          "art_direction_status": "revision_requested",
+          "recipe_key": "iren-face-veteran-neat-bob-008",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/face_veteran_sample_008/source/first-pass.png",
+              "sha256": "4000f7bf9e9eb0c5fdaa32e6231cc609c1037bb176dd9d94e74e4fed07014344"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_veteran_sample_008/source/portrait.png",
+              "sha256": "1c902196c21d30554fab8574ee992b680a0368d15081ca668b5203dd8f550313"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_veteran_sample_008/records/prompt.json",
+              "sha256": "e4d8f04970a6dac9f93c13afd1725137e39435dfef8578dbae79b37eabf5f621"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_veteran_sample_008/records/prompt.md",
+              "sha256": "f44d6b562272d904ecaa953ba2ea8750244a68315336cdc30ba6d46f200c62fa"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_veteran_sample_008/records/prompt-face-revision.json",
+              "sha256": "e9b701c2597ee5932b26cb956925b997f92aed3bdcc54e11fa6c241511af24b3"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_veteran_sample_008/records/prompt-face-revision.md",
+              "sha256": "8bc7fce3dc3bd2ce14ae754189aad96c7d380c8f1e222a44c92ec5f5b486fc47"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_veteran_sample_008/records/generation.json",
+              "sha256": "bf43107eb58afa64209423f993565543e366815b93f411e0ea5ce161f5e50dc0"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "iren",
+              "revision_id": "face_wolf_sample_007"
+            }
+          ],
+          "description": "오래 전장을 겪은 분대장의 침착함·자연스러운 피부 질감·깔끔한 흑발 생머리 단발을 목표로 수정한 상반신 시안. 얼굴 변화 정도·미모·숙련감은 사용자 검수 대기.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "인상",
+              "오래 전장을 겪은 침착함 · 표현 검수 대기"
+            ],
+            [
+              "피부",
+              "자연스러운 질감 · 과한 뽀샤시 처리 지양"
+            ],
+            [
+              "머리",
+              "깔끔한 흑발 생머리 원랭스 단발 · 한쪽 귀 노출"
+            ],
+            [
+              "상태",
+              "상반신 검토 시안"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "흑발",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제한 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "사용자 피드백: 007이 못되게 보이고 얼굴 미감 불만",
+            "최신 요청: 전장 경험·자연스러운 피부·더 깔끔한 단발",
+            "내장 image_gen 2회 · 첫 출력과 최종 출력 원본 모두 보존",
+            "두 번째에도 이전 얼굴의 인상이 일부 남음. 얼굴 변경 정도·미모·숙련감 사용자 검수 대기",
+            "기존 전신 005·위키 전신/아이콘·다른 인물·모션·게임 유지",
+            "프랑스 국적·짙은 갈색 단발·녹갈색 눈의 새 얼굴 방향 009로 후속 제작. 008 원본과 생성 기록 보존."
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/face_veteran_sample_008/source/portrait.png",
+            "width": 1199,
+            "height": 1312,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "original_png_decode_sha256_and_one_static_chrome_preview"
+        },
+        {
+          "revision_id": "face_french_sample_009",
+          "display_name": "아렌 · 프랑스·짙은 갈색 단발 새 얼굴 009",
+          "status": "archived",
+          "verification": "passed",
+          "art_direction_status": "rejected_by_user",
+          "recipe_key": "iren-face-french-veteran-009",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/face_french_sample_009/source/portrait.png",
+              "sha256": "c60b59ec1351eeabbce048e9c511a3153632e8f357bcc675bb2aaa794df37a0e"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_french_sample_009/records/prompt.json",
+              "sha256": "1fcfa58322c595e42d28c0135be846ca7554265a117556fb8a125705b7ba5a18"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_french_sample_009/records/prompt.md",
+              "sha256": "7e2afd3f1627f46b40cd8431c63f18d24295ebfc3a28bf203dbc35ed3a02f6d0"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_french_sample_009/records/generation.json",
+              "sha256": "56240d5b0305318cf8af9d5bea97602ef2c289828689aa54632293eec634efdb"
+            }
+          ],
+          "dependencies": [],
+          "description": "프랑스 국적 방향의 새 얼굴 시안. 짙은 갈색 깔끔한 단발·녹갈색 눈·자연스러운 피부와 침착한 시선. 25~26세의 숙련된 분대장 인상을 목표로 새 생성. 미감 검수 대기.",
+          "appearance_specs": [
+            [
+              "국적",
+              "프랑스"
+            ],
+            [
+              "외형상 나이",
+              "25~26세"
+            ],
+            [
+              "머리",
+              "짙은 갈색·깔끔한 생머리 단발"
+            ],
+            [
+              "눈",
+              "녹갈색"
+            ],
+            [
+              "인상",
+              "전장 경험·침착함·자연스러운 피부 질감"
+            ],
+            [
+              "상태",
+              "새 얼굴 상반신 시안 · 검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "짙은 갈색 머리",
+              "hex": "#30251F"
+            },
+            {
+              "label": "녹갈색 눈",
+              "hex": "#7C7951"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제한 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "사용자 선택: 프랑스 방향",
+            "내장 image_gen 1회 · 이전 얼굴 참조 없이 새 생성 · 원본 보존",
+            "신규 생성으로 의상 세부도 이전 전신과 다름. 전신 적용은 미실행",
+            "출생지·혈통·국적 취득 경위 미정",
+            "기존 전신 005·위키 전신/아이콘·다른 인물·모션·게임 유지",
+            "새 얼굴의 미모·나이·숙련감은 사용자 검수 대기",
+            "사용자 피드백: 강해 보이지만 미녀는 아니다. 레아 세이두 느낌을 요청해 010 새 생성."
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/face_french_sample_009/source/portrait.png",
+            "width": 1199,
+            "height": 1312,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "original_png_decode_sha256_and_one_static_chrome_preview_with_wiki_content_check"
+        },
+        {
+          "revision_id": "face_french_beauty_sample_010",
+          "display_name": "아렌 · 레아 세이두 느낌 얼굴 시안 010",
+          "status": "draft",
+          "verification": "passed",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "iren-french-seydoux-inspired-beauty-010",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/face_french_beauty_sample_010/source/portrait.png",
+              "sha256": "c214a987f35df3061bad969c3b5029e421ae0080fd03891f3442fbc062c80cb6"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_french_beauty_sample_010/records/prompt.json",
+              "sha256": "806f03f9cb52908a257e0c259797c0239490a8a1bfb0e7bc1b0c0eac5370dded"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_french_beauty_sample_010/records/prompt.md",
+              "sha256": "b44e20ad7c499d3481b49dbaad4d2b22eb9d818a51c22ca31011810a47dee5e4"
+            },
+            {
+              "path": "art/characters/iren/concepts/face_french_beauty_sample_010/records/generation.json",
+              "sha256": "49a1bf23f0083dd7ac1d9ec796a170e0db80a8e5bb8e713edffdea54645ffcce"
+            }
+          ],
+          "dependencies": [],
+          "description": "사용자 지정 레아 세이두 느낌: 부드러운 얼굴선·도톰한 입술·살짝 나른한 눈매를 참고한 새 얼굴. 짙은 갈색 단발·녹갈색 눈·자연스러운 피부·프랑스 국적 유지. 미감 검수 대기.",
+          "appearance_specs": [
+            [
+              "국적",
+              "프랑스"
+            ],
+            [
+              "외형상 나이",
+              "25~26세 목표"
+            ],
+            [
+              "얼굴 참고",
+              "레아 세이두 느낌 · 사용자 지정"
+            ],
+            [
+              "얼굴",
+              "부드러운 윤곽·도톰한 입술·나른한 눈매"
+            ],
+            [
+              "머리",
+              "짙은 갈색·정돈된 단발"
+            ],
+            [
+              "눈",
+              "녹갈색"
+            ],
+            [
+              "상태",
+              "새 얼굴 상반신 시안 · 검수 대기"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "짙은 갈색 머리",
+              "hex": "#30251F"
+            },
+            {
+              "label": "녹갈색 눈",
+              "hex": "#7C7951"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제한 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "009: 강해 보이지만 미녀는 아니라는 사용자 피드백",
+            "사용자 지정: 레아 세이두 느낌",
+            "내장 image_gen 1회 · 이미지 참조 없이 새 생성 · 원본 보존",
+            "미모·레퍼런스 느낌·나이·숙련감은 사용자 검수 대기",
+            "기존 전신 005·위키 전신/아이콘·모션·게임·다른 인물 유지"
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/face_french_beauty_sample_010/source/portrait.png",
+            "width": 1199,
+            "height": 1312,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          },
+          "verification_scope": "original_png_decode_sha256_and_one_static_chrome_preview"
         }
       ]
     },

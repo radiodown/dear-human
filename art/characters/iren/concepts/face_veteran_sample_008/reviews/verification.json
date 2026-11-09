@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "recorded_at_utc": "2026-11-09T07:35:00.152260+00:00",
+  "url": "http://127.0.0.1:4173/#/samples/characters/iren?rev=face_veteran_sample_008",
+  "browser": "Separate headless local Chrome via existing Playwright; in-app browser execution unavailable earlier in session.",
+  "checks": [
+    "Both original PNG files decode",
+    "Copied outputs retain original SHA256",
+    "Revision 008 selected and new portrait displayed",
+    "No page errors observed"
+  ],
+  "images": [
+    {
+      "width": 1199,
+      "height": 1312,
+      "visible": true
+    }
+  ],
+  "page_errors": [],
+  "scope": "One static portrait preview only. No gameplay or motion checks, no project-wide checks.",
+  "art_acceptance": "awaiting_user_review"
+}
