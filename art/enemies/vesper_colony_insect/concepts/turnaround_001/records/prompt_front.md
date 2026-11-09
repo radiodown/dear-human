@@ -1,0 +1,13 @@
+# Front · exact image generation input
+
+```text
+Use case: identity-preserve creature turnaround.
+Create ONE isolated full-body view of the EXACT foreground alien insect creature in reference image 1, for a consistent four-direction creature reference set.
+Image 1 is the design identity reference, not the background to reproduce. Preserve this specific creature's shape and identity: russet dark reddish-brown weathered chitin, broad pointed wedge-shaped head shield with layered sharp brow ridges, clusters of small glossy black eyes on both sides, a pair of short segmented feelers, two thick inward-curving mandibles and smaller mouthparts, compact segmented thorax, SIX long angular articulated walking legs (three attached on each side), pointed armored leg tips, pale gray-ivory fibrous flexible membranes at all joints and along the underside, thick short armored abdomen held upward in its characteristic alert arch. Preserve the armor plate shapes and scale of this reference; no redesign and no new horns, wings, arms or stinger. All six appendages are walking legs. Keep the same neutral alert stance, equivalent proportions and diffuse neutral studio light across views. Small colony insect creature; no human scale figure.
+Output: a genuine transparent-background PNG with an actual alpha channel. Entire space surrounding and between the legs must be transparent. No ground, no rock, no vegetation, no other creatures, no cast shadow, no backdrop, no opaque white/black background and no painted checkerboard.
+Framing: landscape canvas, full creature centered, all six feet, mandibles, antennae and the raised abdomen fully inside the frame, comfortable empty margins. Realistic high-detail professional game creature concept render, sharp readable silhouette, restrained material highlights. No lettering, labels, diagrams, watermark or layout collage.
+
+Required direction:
+FRONT VIEW: camera exactly in front of the creature at body level, looking straight at its face down the head-to-abdomen axis. Bilaterally symmetrical front elevation, no three-quarter angle, no top-down view. Both eye clusters, both mandibles and the three legs on each side are visible in the spread stance; the arched abdomen rises behind the thorax.
+```
+

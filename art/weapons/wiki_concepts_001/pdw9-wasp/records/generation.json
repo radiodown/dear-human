@@ -1,0 +1,25 @@
+{
+  "id": "pdw9-wasp",
+  "revision": "001",
+  "title": "PDW-9 와스프",
+  "role": "세나 · 고속연사 부무장",
+  "dir": "pdw9-wasp",
+  "start": {
+    "current_time": "2026-11-09 04:30:57 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:31:42 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/pdw9-wasp/source/illustration.png",
+  "error": null,
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "66de7e99bcd6263fdb7e1e59d68d2c116c156df296f5d9b0866b41437f479407",
+  "status": "user-review-pending",
+  "asset": "assets/weapons/pdw9-wasp-001.png",
+  "elapsed_seconds": 45.0
+}

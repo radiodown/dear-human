@@ -1,0 +1,21 @@
+{
+  "id": "hp14-bastion",
+  "revision": "005",
+  "title": "HP-14 바스티온",
+  "role": "유나 · 대구경 권총",
+  "dir": "hp14-bastion_005",
+  "start": {
+    "current_time": "2026-11-09 04:54:20 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:54:32 UTC"
+  },
+  "source": null,
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID b7d4c4a0-da08-4de2-8146-cda2f7ac9bf6. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "status": "generation-failed",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "requested_change": "Add a compact muzzle compensator to fictional Bastion illustration",
+  "result": "No edited image; equipment setting can be updated independently."
+}

@@ -8195,7 +8195,7 @@
       "display_name": "유나",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_004",
+      "review_revision_id": "illustration_005",
       "capabilities": [
         "concept_image"
       ],
@@ -8465,10 +8465,10 @@
         {
           "revision_id": "illustration_004",
           "display_name": "유나 · 일러스트 004 · 새 얼굴·헤어",
-          "status": "draft",
+          "status": "archived",
           "verification": "passed",
           "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
-          "art_direction_status": "awaiting_user_review",
+          "art_direction_status": "revision_requested",
           "recipe_key": "squad-illustration-004-yuna",
           "artifacts": [
             {
@@ -8544,10 +8544,106 @@
           "review_notes": [
             "004: 얼굴·헤어 새 디자인 · 사용자 검수 대기",
             "25~26세·신형 장비·병과별 제복 유지",
-            "가터벨트는 이렌만 · 정지 이미지·모션 미지원"
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원",
+            "사용자 요청으로 해당 인물 얼굴·헤어를 005에서 수정"
           ],
           "preview": {
             "image_path": "art/characters/yuna/concepts/illustration_004/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "illustration_005",
+          "display_name": "유나 · 일러스트 005 · 얼굴·헤어 수정",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-005-yuna",
+          "artifacts": [
+            {
+              "path": "art/characters/yuna/concepts/illustration_005/source/illustration.png",
+              "sha256": "65b48e854ff3794d6c13c535b25fab9ee32e91a4b94384167776702490f5242f"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_005/records/prompt.json",
+              "sha256": "dc1c7e313a1a5586471b92041b45d4589de9066938f5215085a914ea44b0bd80"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_005/records/prompt.md",
+              "sha256": "ca5499c0f13e2965e611e76907c47f9aa37e48429f67751fe617abbf1d3ed3fe"
+            },
+            {
+              "path": "art/characters/yuna/concepts/illustration_005/records/generation.json",
+              "sha256": "530f8a1304b6b1f40541c6a4e169c23b9ff24f9069f8d08acc4f50ae4b820c4c"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "yuna",
+              "revision_id": "illustration_004"
+            }
+          ],
+          "description": "맑고 화사한 아시아계 미인 · 흑발 긴 생머리 반묶음·부드러운 옆가르마 · 25~26세 외형. 병과별 제복과 신형 장비 유지. 사용자 검수 대기.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "방패·진입"
+            ],
+            [
+              "가터벨트",
+              "없음"
+            ],
+            [
+              "상태",
+              "사용자 검수 대기"
+            ],
+            [
+              "얼굴 시안",
+              "맑고 화사한 아시아계 미인"
+            ],
+            [
+              "헤어",
+              "흑발 긴 생머리 반묶음·부드러운 옆가르마"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "005: 얼굴·헤어 수정 · 사용자 검수 대기",
+            "25~26세·병과별 제복·장비 유지",
+            "이렌만 가터벨트 · 세나·모아 원화는 004 유지"
+          ],
+          "preview": {
+            "image_path": "art/characters/yuna/concepts/illustration_005/source/illustration.png",
             "width": 1024,
             "height": 1536,
             "views": [
@@ -8565,7 +8661,7 @@
       "display_name": "이렌",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "illustration_004",
+      "review_revision_id": "illustration_005",
       "capabilities": [
         "concept_image"
       ],
@@ -8835,10 +8931,10 @@
         {
           "revision_id": "illustration_004",
           "display_name": "이렌 · 일러스트 004 · 새 얼굴·헤어",
-          "status": "draft",
+          "status": "archived",
           "verification": "passed",
           "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
-          "art_direction_status": "awaiting_user_review",
+          "art_direction_status": "revision_requested",
           "recipe_key": "squad-illustration-004-iren",
           "artifacts": [
             {
@@ -8914,7 +9010,8 @@
           "review_notes": [
             "004: 얼굴·헤어 새 디자인 · 사용자 검수 대기",
             "25~26세·신형 장비·병과별 제복 유지",
-            "가터벨트는 이렌만 · 정지 이미지·모션 미지원"
+            "가터벨트는 이렌만 · 정지 이미지·모션 미지원",
+            "사용자 요청으로 해당 인물 얼굴·헤어를 005에서 수정"
           ],
           "preview": {
             "image_path": "art/characters/iren/concepts/illustration_004/source/illustration.png",
@@ -8926,8 +9023,349 @@
             "type": "concept_image",
             "production_ready_cutout": false
           }
+        },
+        {
+          "revision_id": "illustration_005",
+          "display_name": "이렌 · 일러스트 005 · 얼굴·헤어 수정",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "new_png_decode_sha256_and_targeted_static_sample_and_wiki_display",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "squad-illustration-005-iren",
+          "artifacts": [
+            {
+              "path": "art/characters/iren/concepts/illustration_005/source/illustration.png",
+              "sha256": "c537123349520e899d1c3415ff6832e314087718c593fc1f3f95f30c2e17d99b"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_005/records/prompt.json",
+              "sha256": "b446ff5e7749379e6915b57f3e34e567bef6babd5ae88bb3835bc87b8c646b7c"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_005/records/prompt.md",
+              "sha256": "736238bd75aaade36de6ce94534c444ea1feb6b58b44f6c6e748d6640f527925"
+            },
+            {
+              "path": "art/characters/iren/concepts/illustration_005/records/generation.json",
+              "sha256": "0c81f6594a7ad03942e37bb49b6d508de022ac1f1cd4fe2a3c23b5cee1c3ba7a"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "iren",
+              "revision_id": "illustration_004"
+            }
+          ],
+          "description": "단아하고 세련된 아시아계 미인 · 깔끔한 흑발 생머리 단발·정돈된 옆가르마 · 25~26세 외형. 병과별 제복과 신형 장비 유지. 사용자 검수 대기.",
+          "appearance_specs": [
+            [
+              "외형상 나이",
+              "25~26세 상당"
+            ],
+            [
+              "역할",
+              "돌격"
+            ],
+            [
+              "가터벨트",
+              "이렌만 착용"
+            ],
+            [
+              "상태",
+              "사용자 검수 대기"
+            ],
+            [
+              "얼굴 시안",
+              "단아하고 세련된 아시아계 미인"
+            ],
+            [
+              "헤어",
+              "깔끔한 흑발 생머리 단발·정돈된 옆가르마"
+            ]
+          ],
+          "palette": [
+            {
+              "label": "블랙",
+              "hex": "#17191F"
+            },
+            {
+              "label": "건메탈",
+              "hex": "#454954"
+            },
+            {
+              "label": "절제된 금장",
+              "hex": "#B79B6D"
+            }
+          ],
+          "review_notes": [
+            "005: 얼굴·헤어 수정 · 사용자 검수 대기",
+            "25~26세·병과별 제복·장비 유지",
+            "이렌만 가터벨트 · 세나·모아 원화는 004 유지"
+          ],
+          "preview": {
+            "image_path": "art/characters/iren/concepts/illustration_005/source/illustration.png",
+            "width": 1024,
+            "height": 1536,
+            "views": [
+              "front"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
         }
       ]
+    },
+    {
+      "kind": "enemy",
+      "entity_id": "vesper_colony_insect",
+      "display_name": "베스퍼 군락형 곤충",
+      "status": "draft",
+      "selected_revision_id": null,
+      "review_revision_id": "turnaround_001",
+      "revisions": [
+        {
+          "revision_id": "illustration_001",
+          "display_name": "??? ?? ? ?? 001",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "original_copy_sha256_png_decode_exact_prompt_and_local_artifact_references",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ac10faa92fdb84da225a59713a128662ced7da6d0da114b857bdb8cd8e617d70",
+          "artifacts": [
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/illustration_001/source/illustration.png",
+              "sha256": "4d8dd5e70b8e508d38142d96a3074c317b23eb5949fb7badd51c29346a7cfc7d"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/illustration_001/README.md",
+              "sha256": "5f2987f4ec322143053c236ff170876b3d881b44c212b84fafb368e7cc4674af"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/illustration_001/records/prompt.md",
+              "sha256": "cc0c5ed33304fe1218aa47080fa88f9c0af6cee5b78e89655db006a8b23cffc8"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/illustration_001/records/prompt.json",
+              "sha256": "ac10faa92fdb84da225a59713a128662ced7da6d0da114b857bdb8cd8e617d70"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/illustration_001/records/generation.json",
+              "sha256": "ba5da11ef562129b0a7ee2404eaf3b50d1af25feb365d12cf5030a828a0912fa"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/illustration_001/records/archive-verification.json",
+              "sha256": "0fa038f50ae9d456add185971595916519bbe19163e98a1a47f0aed220c4f055"
+            }
+          ],
+          "dependencies": [],
+          "description": "??? ???? ??? ???? ?? ?? ?? ??. ? ?? ?? ?? ?? ???????? ????? ??. ?? ???????? ??? ??. ?? ?? ?? ???? ???.",
+          "appearance_specs": [
+            [
+              "??",
+              "?? ?? ? ?? ?? ??"
+            ],
+            [
+              "??",
+              "?? ?? ?? ? ?? ?? ?? ??"
+            ],
+            [
+              "??",
+              "?? ?? ?? ?? ?? ?"
+            ],
+            [
+              "??",
+              "?? ? ??? ? ? ??? ?? ??"
+            ],
+            [
+              "?? ??",
+              "??? ? 1m ? ??? ?? ??"
+            ],
+            [
+              "?? ??",
+              "?? ?? 1? ? ?? ???"
+            ]
+          ],
+          "review_notes": [
+            "2026-11-09 ??? ???? ??? ??? ??",
+            "????? ????? ?? ??? ??",
+            "?? ???PNG ?????? ??; ???? ?? ?? ???"
+          ],
+          "preview": {
+            "image_path": "art/enemies/vesper_colony_insect/concepts/illustration_001/source/illustration.png",
+            "width": 1672,
+            "height": 941,
+            "views": [
+              "three_quarter"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false
+          }
+        },
+        {
+          "revision_id": "turnaround_001",
+          "display_name": "투명 배경 · 앞뒤좌우 4방향 001",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "original_sha256_rgba_alpha_frame_bounds_and_short_chrome_gallery_four_views_url_restore_500px",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "vesper-colony-insect-transparent-turnaround-001",
+          "artifacts": [
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/README.md",
+              "sha256": "8a001f17cde30c3caa4d17f4d9a4c6ffd84cb9cc0b85f2de3abee9d0eb72e2f9"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/generation.json",
+              "sha256": "c1672ff67e05b8b5deb8d0e1c710ccc18724e723a53f4722269c83dc658aa4f4"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/file-verification.json",
+              "sha256": "eb1e341ffc6cd5eb9d109c1604944f2f088a8b1e480b418bda07b85cedb169ee"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+              "sha256": "2d5296d9d28719353b69071a294ca4b34a5217b0700fff05fe5e7441087c3f5b"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/prompt_front.json",
+              "sha256": "701971e2c829aa91682b17b06414ba60a618c36c5919df2bb5ec2fb61f430a48"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/prompt_front.md",
+              "sha256": "1fc6ff20688a1aa5570acd66d0f2db959f451d30649a4543839b02873e9fc15e"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/back.png",
+              "sha256": "7d6984e8497ed87395069555f682a392e8005fca7fb6d2ed36b5671ee3f6aa6c"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/prompt_back.json",
+              "sha256": "b23a1565326ac1e60e9709ddcb85a6e08ca058a4cb0f402c285fa111ffd05e03"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/prompt_back.md",
+              "sha256": "be29331b7669eae8ca5a0df8be93f0b96fb9b788998e678cf9f997da454c24d0"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/left.png",
+              "sha256": "7e8a63fcd96d4f36869c66962cb9011250caab8ea1c6eadcaaa816c23dfac4b8"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/prompt_left.json",
+              "sha256": "5b658605636152667b2f414665da992b37574c2351d974f0849198b0660f17da"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/prompt_left.md",
+              "sha256": "6486721bb9165ae1ab30569fbbb92a8773333297d20c703470541982ffb0918f"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/right.png",
+              "sha256": "65f0d546acbbde225e0c18837f2dd6de5f4b867730b9512ea3af596e366094d8"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/prompt_right.json",
+              "sha256": "7e5e1b85d8a44de41fad858d1fb4ff6006f62fb40183e8c7d064c9fff8944b22"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/prompt_right.md",
+              "sha256": "1ffcea691011632bda21a600418507b617b63a3c47402974b95618f7c40f0a3e"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/reviews/browser.json",
+              "sha256": "87982136e5667abe5a804e31c0a5d275e1cf4a1bb4286dc93e4e447486eb18c7"
+            },
+            {
+              "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/records/review.py",
+              "sha256": "52b5a53426a2f4a1fd5eafe9f9bc754dcd254546bf1084e1734787b8ad9d3c12"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "enemy",
+              "entity_id": "vesper_colony_insect",
+              "revision_id": "illustration_001"
+            }
+          ],
+          "description": "컨셉 001 기반 배경 없는 정면·후면·좌측면·우측면 PNG 네 장. 긴 관절 다리 여섯 개·적갈색 갑각·큰턱·치켜든 배를 유지한 회전 시안. 방향별 생성 세부는 사용자 검수 대기.",
+          "appearance_specs": [
+            [
+              "형식",
+              "투명 배경 RGBA PNG · 4장"
+            ],
+            [
+              "방향",
+              "정면 · 후면 · 좌측면 · 우측면"
+            ],
+            [
+              "원화",
+              "컨셉 001 기반"
+            ],
+            [
+              "다리",
+              "보행 다리 여섯 개"
+            ],
+            [
+              "외피",
+              "적갈색 키틴 갑각 · 회백색 연결 조직"
+            ],
+            [
+              "상태",
+              "방향별 세부와 비례 · 사용자 검수 대기"
+            ]
+          ],
+          "review_notes": [
+            "내장 image_gen 4회 · 방향별 개별 생성",
+            "알파 채널을 보존하는 뷰어에서 사용",
+            "측면은 정투영을 목표로 생성한 시안이며 정확한 3D 도면 아님"
+          ],
+          "preview": {
+            "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+            "width": 1536,
+            "height": 1024,
+            "views": [
+              "front",
+              "back",
+              "left",
+              "right"
+            ],
+            "type": "concept_image",
+            "production_ready_cutout": false,
+            "transparent_background": true,
+            "images": {
+              "front": {
+                "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+                "width": 1536,
+                "height": 1024
+              },
+              "back": {
+                "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/back.png",
+                "width": 1536,
+                "height": 1024
+              },
+              "left": {
+                "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/left.png",
+                "width": 1774,
+                "height": 887
+              },
+              "right": {
+                "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/right.png",
+                "width": 1774,
+                "height": 887
+              }
+            }
+          }
+        }
+      ],
+      "capabilities": [
+        "concept_image"
+      ],
+      "motions": []
     }
   ]
 }

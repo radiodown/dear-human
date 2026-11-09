@@ -47,6 +47,17 @@ export function validateContent({ articles, categories }) {
       }
       if (!Array.isArray(profile.fields) || !profile.fields.length || profile.fields.some(row => !Array.isArray(row) || row.length !== 2 || row.some(value => typeof value !== 'string' || !value))) throw new Error(`${article.slug}: 프로필 항목은 이름과 값의 쌍이어야 합니다.`);
     }
+    if (article.illustrations !== undefined) {
+      if (!Array.isArray(article.illustrations) || !article.illustrations.length) throw new Error(`${article.slug}: 장비 이미지 배열 필요`);
+      for (const image of article.illustrations) {
+        if (!image || typeof image !== 'object' || typeof image.src !== 'string' || !/^assets\/[a-zA-Z0-9/_-]+\.(png|jpe?g|webp)$/.test(image.src)) throw new Error(`${article.slug}: 위키 내부 장비 이미지 경로 필요`);
+        for (const field of ['title', 'alt', 'caption']) if (typeof image[field] !== 'string' || !image[field]) throw new Error(`${article.slug}: 장비 이미지 ${field} 필요`);
+        for (const field of ['width', 'height']) if (!Number.isInteger(image[field]) || image[field] <= 0) throw new Error(`${article.slug}: 장비 이미지 ${field} 오류`);
+        if (image.article !== undefined && (typeof image.article !== 'string' || !articles.some(item => item.slug === image.article))) throw new Error(`${article.slug}: 장비 이미지 문서 연결 오류`);
+        const imagePath = path.join(root, 'public', image.src);
+        if (!existsSync(imagePath) || !statSync(imagePath).isFile()) throw new Error(`${article.slug}: 장비 이미지 파일이 없습니다.`);
+      }
+    }
     if (article.portrait !== undefined) {
       const portrait = article.portrait;
       if (!article.profile || !portrait || typeof portrait !== 'object' || Array.isArray(portrait)) throw new Error(`${article.slug}: 인물 이미지 형식 오류`);

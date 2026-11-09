@@ -1,0 +1,25 @@
+{
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "outputs": [
+    {
+      "id": "iren",
+      "name": "이렌",
+      "hair": "깔끔한 흑발 생머리 단발·정돈된 옆가르마",
+      "beauty": "단아하고 세련된 아시아계 미인",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-09501eb5-8869-4c69-8638-95fe65d1fd37.png",
+      "generated_started_at": "2026-11-09T03:48:22.724Z",
+      "generated_finished_at": "2026-11-09T03:48:52.196Z"
+    },
+    {
+      "id": "yuna",
+      "name": "유나",
+      "hair": "흑발 긴 생머리 반묶음·부드러운 옆가르마",
+      "beauty": "맑고 화사한 아시아계 미인",
+      "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-2c8341ec-1fbd-4b62-bdcf-82e5453e737b.png",
+      "generated_started_at": "2026-11-09T03:48:22.724Z",
+      "generated_finished_at": "2026-11-09T03:49:25.976Z"
+    }
+  ]
+}

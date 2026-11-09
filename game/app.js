@@ -203,7 +203,7 @@ function showRoute() {
     $('entity-title').replaceChildren(document.createTextNode(entry.display_name), Object.assign(document.createElement('span'), { className: 'title-dot', textContent: '.' }));
     $('breadcrumb').textContent = labels[kind];
     $('eyebrow').textContent = `${kind.toUpperCase()} / ${entry.entity_id.toUpperCase().replaceAll('_', ' ')}`;
-    $('subtitle').textContent = hasArt ? kind === 'weapon' ? '본체·탄창과 공통 캐릭터의 장착 모션을 확인하세요.' : '첨부 기준 캐릭터와 3D 렌더 질감의 외형을 확인하세요.' : '이 대상의 아트와 모션은 제작 예정입니다.';
+    $('subtitle').textContent = hasArt ? kind === 'weapon' ? '본체·탄창과 공통 캐릭터의 장착 모션을 확인하세요.' : kind === 'enemy' ? '베스퍼 토착 크리처의 원화와 앞뒤좌우 시안을 확인하세요.' : '첨부 기준 캐릭터와 3D 렌더 질감의 외형을 확인하세요.' : '이 대상의 아트와 모션은 제작 예정입니다.';
     $('mode-reference').textContent = kind === 'weapon' ? '무기 파츠' : conceptOnly ? '일러스트 시안' : '채택 외형';
     $('direction-heading').textContent = kind === 'weapon' ? 'M16 · 분리형 무기.' : conceptOnly ? `${entry.display_name} · 콘셉트 시안.` : '차갑고, 도도하게.';
     $('review-state').textContent = hasArt ? '외형 검토 대기' : '제작 예정';

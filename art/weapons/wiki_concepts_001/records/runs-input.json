@@ -1,0 +1,293 @@
+[
+  {
+    "id": "amr21-nail",
+    "revision": "001",
+    "title": "AMR-21 네일",
+    "role": "세나 · 대갑주 저격총",
+    "dir": "amr21-nail",
+    "start": {
+      "current_time": "2026-11-09 04:30:57 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:31:42 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-ebf6285a-ce24-4cc3-b39a-670d4824886e.png",
+    "error": null
+  },
+  {
+    "id": "pdw9-wasp",
+    "revision": "001",
+    "title": "PDW-9 와스프",
+    "role": "세나 · 고속연사 부무장",
+    "dir": "pdw9-wasp",
+    "start": {
+      "current_time": "2026-11-09 04:30:57 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:31:42 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-95d55236-e7c0-46d3-8bad-b3860ff5cf50.png",
+    "error": null
+  },
+  {
+    "id": "hmg15-goliath",
+    "revision": "001",
+    "title": "HMG-15 골리앗",
+    "role": "모아 · 대구경 지원기관총",
+    "dir": "hmg15-goliath",
+    "start": {
+      "current_time": "2026-11-09 04:31:48 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:32:33 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-cc74a21e-0991-4a50-b5b8-53251e178426.png",
+    "error": null
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "001",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule",
+    "start": {
+      "current_time": "2026-11-09 04:31:48 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:32:33 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-e22e98fe-682f-4596-bdcc-9a1ee9a99f92.png",
+    "error": null
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "001",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion",
+    "start": {
+      "current_time": "2026-11-09 04:32:45 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:33:05 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-233d4987-d91b-435d-8aeb-26102de6de69.png",
+    "error": null
+  },
+  {
+    "id": "ih7-knocker",
+    "revision": "001",
+    "title": "IH-7 노커",
+    "role": "유나 · 특수 충격 해머",
+    "dir": "ih7-knocker",
+    "start": {
+      "current_time": "2026-11-09 04:32:45 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:33:24 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-89b3527a-5ce0-4b9c-a127-81090bc233e7.png",
+    "error": null
+  },
+  {
+    "id": "ar12-rupture",
+    "revision": "001",
+    "title": "AR-12 럽처",
+    "role": "아렌 · 파열탄 돌격소총",
+    "dir": "ar12-rupture",
+    "start": {
+      "current_time": "2026-11-09 04:32:45 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:33:47 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-deeaa726-ae8f-4ffc-abde-ad6f9b725455.png",
+    "error": null
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "001",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher",
+    "start": {
+      "current_time": "2026-11-09 04:34:03 UTC"
+    },
+    "error": "Generation rejected by safety system; no output."
+  },
+  {
+    "id": "hp14t-gemini",
+    "revision": "001",
+    "title": "HP-14T 제미니",
+    "role": "리안 · 대구경 쌍권총",
+    "dir": "hp14t-gemini",
+    "start": {
+      "current_time": "2026-11-09 04:34:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:34:27 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-fe58b4a4-c917-4fa5-9c9a-6f34b4bcd55a.png",
+    "error": null
+  },
+  {
+    "id": "yuna-physical-shield",
+    "revision": "001",
+    "title": "유나의 물리 방패",
+    "role": "유나 · 방패·진입 장비",
+    "dir": "yuna-physical-shield",
+    "start": {
+      "current_time": "2026-11-09 04:34:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:34:51 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-8b660774-152b-409a-8f1a-13fc824bffcc.png",
+    "error": null
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "002",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule_002",
+    "start": {
+      "current_time": "2026-11-09 04:34:03 UTC"
+    },
+    "error": "Generation rejected by safety system; no output."
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "002",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_002",
+    "start": {
+      "current_time": "2026-11-09 04:34:55 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:35:43 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-b815c45d-5efc-458f-91de-55be5fe5af8c.png",
+    "error": null
+  },
+  {
+    "id": "ih7-knocker",
+    "revision": "002",
+    "title": "IH-7 노커",
+    "role": "유나 · 특수 충격 해머",
+    "dir": "ih7-knocker_002",
+    "start": {
+      "current_time": "2026-11-09 04:34:55 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:35:43 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-734b8cc9-0c37-48d3-8914-774be3c837a1.png",
+    "error": null
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "002",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_002",
+    "start": {
+      "current_time": "2026-11-09 04:37:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:38:10 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-412c562d-3f55-4091-9207-5541ec583d0a.png",
+    "error": null
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "003",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule_003",
+    "start": {
+      "current_time": "2026-11-09 04:37:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:38:10 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-4ffd3d59-069f-4b53-8c2d-b1ac09e127a1.png",
+    "error": null
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "003",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_003",
+    "start": {
+      "current_time": "2026-11-09 04:37:03 UTC"
+    },
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 91f06a9f-0aae-4632-9fcc-13f5af840676. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")"
+  },
+  {
+    "id": "ih7-knocker",
+    "revision": "003",
+    "title": "IH-7 노커",
+    "role": "유나 · 특수 충격 해머",
+    "dir": "ih7-knocker_003",
+    "start": {
+      "current_time": "2026-11-09 04:37:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:38:10 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-7b9b64fb-362c-493c-a585-f0ee0355a669.png",
+    "error": null
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "004",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_004",
+    "start": {
+      "current_time": "2026-11-09 04:38:41 UTC"
+    },
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID c4c0901f-f306-461e-bb3b-d4fef89f9a30. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")"
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "004",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule_004",
+    "start": {
+      "current_time": "2026-11-09 04:41:41 UTC"
+    },
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 9e9352ca-4440-47b1-a154-aaa4e8deceb7. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")"
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "003",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_003",
+    "start": {
+      "current_time": "2026-11-09 04:41:41 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:42:05 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-40180897-4a48-4409-8fe6-07f95367b8b1.png",
+    "error": null
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "005",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule_005",
+    "start": {
+      "current_time": "2026-11-09 04:42:24 UTC"
+    },
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID ef681899-bf0c-432d-bd8c-2a9e3400ac80. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")"
+  }
+]

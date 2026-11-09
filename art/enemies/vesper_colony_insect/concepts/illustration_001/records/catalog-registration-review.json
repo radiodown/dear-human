@@ -1,0 +1,9 @@
+{
+  "status": "passed_for_new_entry",
+  "entity_id": "vesper_colony_insect",
+  "new_entry_issue_count": 0,
+  "preexisting_issue_count": 21,
+  "preexisting_issues_unchanged": true,
+  "global_catalog_status": "failed",
+  "preview": "registered_for_existing_static_concept_view; browser not verified"
+}

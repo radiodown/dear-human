@@ -1,0 +1,21 @@
+{
+  "id": "ar12-rupture",
+  "revision": "002",
+  "title": "AR-12 럽처",
+  "role": "아렌 · 파열탄 돌격소총",
+  "dir": "ar12-rupture_002",
+  "start": {
+    "current_time": "2026-11-09 05:00:00 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 05:00:11 UTC"
+  },
+  "source": null,
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 23f58954-cebd-4774-a00f-c46adb2f141e. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "status": "generation-failed",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "requested_change": "User requests a visible barrel-front attachment; compact angular muzzle brake is a visual proposal.",
+  "result": "No edited image; prior 001 remains visible."
+}

@@ -1,0 +1,5 @@
+# Exact submitted prompt — ml70-mule 003
+
+Tool: built-in image_gen.imagegen; transparent_background: false
+
+Create a standalone studio equipment illustration of the fictional ML-70 Mule from the Dear Human science-fiction wiki. The subject is a modern revolver-style grenade launcher: prominent round rotating cylinder beneath a compact receiver, short thick barrel, rifle-style shoulder stock, pistol grip, short foregrip and small optic. Recognizable M32 / Milkor style external proportions. Show a single complete object pointing right, side view with slight three-quarter volume, matte gunmetal and graphite, clean pale cool-gray background, realistic 3D concept art. Landscape 1536x1024 with generous margins. No long shoulder-fired tube and no rear bell. No people, action, text, diagrams, cutaways or internal parts.

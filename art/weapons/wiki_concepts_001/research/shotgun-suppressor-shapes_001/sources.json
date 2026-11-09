@@ -1,0 +1,23 @@
+{
+  "retrieved": "2026-11-09",
+  "scope": "Exterior appearance research only",
+  "images_generated": 0,
+  "sources": [
+    {
+      "page": "https://silencerco.com/silencers/salvo-12/",
+      "image": "https://silencerco.com/wp-content/uploads/2023/04/SALVO-12-DSCF3613.png",
+      "file": "silencerco-salvo12-official-reference.png",
+      "owner": "SilencerCo",
+      "sha256": "271e68ce568cb9dd5db15936e2a5740341d89f42e110a34f8ca8ffca034f79e8",
+      "role": "official exterior visual reference; not a generated or published wiki asset"
+    },
+    {
+      "page": "https://yhm.net/12-gauge-suppressors/victra-12-modular-shotgun-suppressor-yhm-1200/",
+      "image": "https://cdn11.bigcommerce.com/s-9bhazx3nv8/images/stencil/500x659/products/713/2145/V-12_square_up__27553.1746621128.jpg?c=1",
+      "file": "yhm-victra12-official-reference.jpg",
+      "owner": "Yankee Hill Machine",
+      "sha256": "81af41aecfcf856a03133c1dc4e91cbb46b8982e3defbc659702303aa23f2bf2",
+      "role": "official exterior visual reference; not a generated or published wiki asset"
+    }
+  ]
+}

@@ -1,0 +1,161 @@
+{
+  "attempts": 6,
+  "generated": [
+    "hp14-bastion",
+    "sg23-breacher",
+    "ml70-mule"
+  ],
+  "failed": [
+    "ar12-rupture_003",
+    "ml70-mule_006",
+    "ar12-rupture_004"
+  ],
+  "updated_articles": [
+    "clone-special-weapons.md",
+    "weapon-hp14-bastion.md",
+    "weapon-ml70-mule.md",
+    "weapon-sg23-breacher.md",
+    "yuna.md"
+  ],
+  "records": [
+    {
+      "id": "hp14-bastion",
+      "revision": "006",
+      "title": "HP-14 바스티온",
+      "role": "유나 · 대구경 권총",
+      "dir": "hp14-bastion_006",
+      "start": {
+        "current_time": "2026-11-09 05:20:51 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:21:38 UTC"
+      },
+      "source": "art/weapons/wiki_concepts_001/hp14-bastion_006/source/illustration.png",
+      "error": null,
+      "tool": "built-in image_gen.imagegen",
+      "model": "not exposed by tool",
+      "cost": "not reported by tool",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "48a8b40e2f87f9733d2e119eeaf572685df46b9694f14020a7994ff5516cb507",
+      "status": "user-review-pending",
+      "asset": "assets/weapons/hp14-bastion-006.png",
+      "elapsed_seconds": 47.0
+    },
+    {
+      "id": "sg23-breacher",
+      "revision": "007",
+      "title": "SG-23 브리처",
+      "role": "아렌 · 전투 산탄총",
+      "dir": "sg23-breacher_007",
+      "start": {
+        "current_time": "2026-11-09 05:20:51 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:21:38 UTC"
+      },
+      "source": "art/weapons/wiki_concepts_001/sg23-breacher_007/source/illustration.png",
+      "error": null,
+      "tool": "built-in image_gen.imagegen",
+      "model": "not exposed by tool",
+      "cost": "not reported by tool",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "8e1c625fc82b9f7948d92102afe8f4b5fcfee32d620b86c1722a0c11ee85a40f",
+      "status": "user-review-pending",
+      "asset": "assets/weapons/sg23-breacher-007.png",
+      "elapsed_seconds": 47.0
+    },
+    {
+      "id": "ar12-rupture",
+      "revision": "003",
+      "title": "AR-12 럽처",
+      "role": "아렌 · 파열탄 돌격소총",
+      "dir": "ar12-rupture_003",
+      "start": {
+        "current_time": "2026-11-09 05:20:51 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:21:38 UTC"
+      },
+      "source": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 4e977930-b819-4675-8053-3d33fba1e397. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "tool": "built-in image_gen.imagegen",
+      "model": "not exposed by tool",
+      "cost": "not reported by tool",
+      "status": "generation-failed",
+      "elapsed_seconds": 47.0
+    },
+    {
+      "id": "ml70-mule",
+      "revision": "006",
+      "title": "ML-70 뮬",
+      "role": "모아 · 다목적 유탄발사기",
+      "dir": "ml70-mule_006",
+      "start": {
+        "current_time": "2026-11-09 05:20:51 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:21:38 UTC"
+      },
+      "source": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID afb38870-30da-4641-8fe2-d1f2e3af0000. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "tool": "built-in image_gen.imagegen",
+      "model": "not exposed by tool",
+      "cost": "not reported by tool",
+      "status": "generation-failed",
+      "elapsed_seconds": 47.0
+    },
+    {
+      "id": "ar12-rupture",
+      "revision": "004",
+      "title": "AR-12 럽처",
+      "role": "아렌 · 파열탄 돌격소총",
+      "dir": "ar12-rupture_004",
+      "start": {
+        "current_time": "2026-11-09 05:22:23 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:22:52 UTC"
+      },
+      "source": null,
+      "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID f0aca769-b2a6-4312-9b9a-f57e4fe5a084. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+      "reference": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+      "tool": "built-in image_gen.imagegen",
+      "model": "not exposed by tool",
+      "cost": "not reported by tool",
+      "status": "generation-failed",
+      "reference_sha256": "c60fabfa2c004c07c5b0bc070ed2a6ae85ba6aac8a52698a8b70374d4a959eba",
+      "elapsed_seconds": 29.0
+    },
+    {
+      "id": "ml70-mule",
+      "revision": "007",
+      "title": "ML-70 뮬",
+      "role": "모아 · 다목적 유탄발사기",
+      "dir": "ml70-mule_007",
+      "start": {
+        "current_time": "2026-11-09 05:22:23 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:22:52 UTC"
+      },
+      "source": "art/weapons/wiki_concepts_001/ml70-mule_007/source/illustration.png",
+      "error": null,
+      "reference": "art/weapons/wiki_concepts_001/ml70-mule_003/source/illustration.png",
+      "tool": "built-in image_gen.imagegen",
+      "model": "not exposed by tool",
+      "cost": "not reported by tool",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGB",
+      "sha256": "11a2e9a6415d0014723825753640e93e62d81795e0bf97795197b3831d917977",
+      "status": "user-review-pending",
+      "asset": "assets/weapons/ml70-mule-007.png",
+      "reference_sha256": "e18402cb8ee318cff8ac92f590a9364dfa507d61924f1746e933130b2c665531",
+      "elapsed_seconds": 29.0
+    }
+  ]
+}

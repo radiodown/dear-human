@@ -33,7 +33,7 @@ function renderSidebar() {
   document.querySelector('#sidebar').innerHTML = `
     <section class="side-panel"><h2>위키 둘러보기</h2>
     <nav class="primary-nav" aria-label="주요 메뉴">
-      ${[['#/', 'home', '위키 홈'], ['#/articles', 'list', '모든 문서'], ['#/timeline', 'clock', '세계 연표']].map(([url, symbol, label]) => `<a href="${url}" class="nav-item ${route === url || (!location.hash && url === '#/') ? 'active' : ''}" ${route === url ? 'aria-current="page"' : ''}>${icon(symbol)}<span>${label}</span>${url === '#/articles' ? `<small>${visible().length}</small>` : ''}</a>`).join('')}
+      ${[['#/', 'home', '위키 홈'], ['#/article/characters', 'star', '등장인물'], ['#/articles', 'list', '모든 문서'], ['#/timeline', 'clock', '세계 연표']].map(([url, symbol, label]) => `<a href="${url}" class="nav-item ${route === url || (!location.hash && url === '#/') ? 'active' : ''}" ${route === url ? 'aria-current="page"' : ''}>${icon(symbol)}<span>${label}</span>${url === '#/articles' ? `<small>${visible().length}</small>` : ''}</a>`).join('')}
     </nav></section>
     <section class="side-panel"><h2>세계관 분류</h2>
     <nav class="category-nav" aria-label="문서 분류">${content.categories.map(category => `<a href="#/category/${category.id}" class="nav-item ${route === `#/category/${category.id}` ? 'active' : ''}"><span class="category-dot"></span><span>${e(category.title)}</span><small>${visible().filter(article => article.category === category.id).length}</small></a>`).join('')}</nav>
@@ -44,6 +44,12 @@ function renderSidebar() {
 
 function card(article, index) {
   return `<a class="article-card" href="${href(article.slug)}"><div class="card-meta"><span>${e(categoryById(article.category).title)}</span>${badge(article.status)}</div><h3>${e(article.title)}</h3><p>${e(article.summary)}</p><div class="card-bottom"><span>${index === undefined ? '문서 읽기' : `0${index + 1}`}</span>${icon('arrow')}</div></a>`;
+}
+
+function characterCards() {
+  const roles = { heroine: '리안 · 핵심 히로인', sena: '세나 · 저격', moa: '모아 · 분대지원화기', yuna: '유나 · 방패·진입', iren: '이렌 · 돌격' };
+  const people = Object.keys(roles).map(slug => visible().find(article => article.slug === slug)).filter(article => article?.portrait);
+  return people.map(article => `<a class="character-card" href="${href(article.slug)}"><div class="character-card-portrait"><img src="./${e(article.portrait.src)}" alt="${e(article.title)}의 최신 인물 일러스트" width="${article.portrait.width}" height="${article.portrait.height}" loading="lazy" decoding="async"></div><div class="character-card-copy"><h3>${e(roles[article.slug])}</h3><span>인물 문서 보기 ↗</span></div></a>`).join('');
 }
 
 function titleBlock(eyebrow, title, description, extra = '') {
@@ -57,6 +63,7 @@ function renderHome() {
     <div class="category-box"><span>분류:</span> <a href="#/">Dear Human</a> · 대문</div>
     <section class="wiki-welcome"><div class="welcome-caption">DEAR HUMAN WORLD WIKI</div><h2><strong>Dear Human</strong> 세계관 위키</h2><p>인류를 지키기 위해 만들어진 클론들과,<br>한 클론에게 목숨을 빚진 인간 지휘관의 이야기.</p><nav aria-label="입문 바로가기">${link('world-overview', '세계관 개요')}<span>·</span><a href="#/timeline">세계 연표</a><span>·</span><a href="#/articles">모든 문서</a></nav></section>
     <div class="wiki-notice"><strong>열람 안내</strong><p>설정은 ${badge('확정')} ${badge('보완안')} ${badge('미정')}으로 구분합니다. 비밀 설정은 상단의 <strong>제작자 설정</strong>을 켜면 볼 수 있습니다.</p></div>
+    <section class="character-portal" aria-label="주요 인물"><h2 class="wiki-section-title">주요 인물 ${link('characters', '등장인물 모아보기 →')}</h2><p>초상화를 눌러 프로필과 성격·역할·인물 관계를 읽어보세요.</p><div class="character-card-grid">${characterCards()}</div></section>
     <section class="portal-section"><h2 class="wiki-section-title">세계관 찾아보기</h2><div class="portal-grid">${content.categories.map(category => `<section class="wiki-portal"><h3><a href="#/category/${category.id}">${e(category.title)}</a><span>${articles.filter(article => article.category === category.id).length}</span></h3><p>${e(category.description)}</p><div class="portal-links">${articles.filter(article => article.category === category.id).map(article => link(article.slug, article.title)).join('')}</div></section>`).join('')}</div></section>
     <section class="home-chronology"><h2 class="wiki-section-title">주요 역사 <a href="#/timeline">전체 연표 보기 →</a></h2><div class="history-track">${[['2063', 'AI 전쟁', 'ai-war'], ['2090', 'UE 출범', 'united-earth'], ['2099', '클론전쟁', 'clone-war'], ['2114', '베스퍼 도착', 'commander']].map(([date, title, slug]) => `<a href="${href(slug)}"><time>${date}</time><span class="history-node"></span><strong>${title}</strong></a>`).join('')}</div></section>
     <div class="wiki-bottom-note">본편 시작 기준일: <strong>2114년 11월 21일</strong> · 날짜와 나이는 ${link('calendar', '지구 표준력과 만 나이')}를 따릅니다.</div>
@@ -100,6 +107,13 @@ function renderArticle(slug) {
     overview.prepend(overview.querySelector('.character-profile'));
     if (portraitHtml) overview.querySelector('.character-profile>header').insertAdjacentHTML('afterend', portraitHtml);
     document.querySelector('.article-main').classList.add('has-character-profile');
+  }
+  if (article.illustrations?.length) {
+    const gallery = document.createElement('section');
+    gallery.className = `equipment-gallery${article.illustrations.length === 1 ? ' equipment-gallery-single' : ''}`;
+    gallery.setAttribute('aria-label', '장비 원화');
+    gallery.innerHTML = `<h2>장비 원화</h2><p class="equipment-gallery-note">외형 시안 · 사용자 검수 대기. 이미지를 누르면 원본을 크게 볼 수 있습니다. 각 이미지는 같은 축척이 아닙니다.</p><div class="equipment-grid">${article.illustrations.map((item, index) => `<figure class="equipment-card"><a class="equipment-image" href="./${e(item.src)}" target="_blank" rel="noopener" aria-label="${e(item.title)} 원본 크게 보기"><img src="./${e(item.src)}" alt="${e(item.alt)}" width="${item.width}" height="${item.height}" loading="${index < 2 ? 'eager' : 'lazy'}" decoding="async"></a><figcaption><strong>${e(item.title)}</strong><p>${e(item.caption)}</p>${item.article && item.article !== article.slug ? `<a href="${href(item.article)}">장비 문서 보기 ↗</a>` : ''}</figcaption></figure>`).join('')}</div>`;
+    document.querySelector('.prose').before(gallery);
   }
   document.querySelector('.article-summary').insertAdjacentHTML('beforebegin', `<div class="category-box"><span>분류:</span> <a href="#/category/${article.category}">${e(categoryById(article.category).title)}</a></div>`);
   document.querySelectorAll('[data-section]').forEach(button => button.addEventListener('click', () => document.getElementById(button.dataset.section)?.scrollIntoView({ behavior: 'smooth', block: 'start' })));

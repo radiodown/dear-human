@@ -1,0 +1,15 @@
+{
+  "id": "hp14-bastion",
+  "revision": "004",
+  "title": "HP-14 바스티온",
+  "role": "유나 · 대구경 권총",
+  "dir": "hp14-bastion_004",
+  "start": {
+    "current_time": "2026-11-09 04:38:41 UTC"
+  },
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID c4c0901f-f306-461e-bb3b-d4fef89f9a30. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "status": "generation-failed"
+}

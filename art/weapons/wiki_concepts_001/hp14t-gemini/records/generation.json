@@ -1,0 +1,25 @@
+{
+  "id": "hp14t-gemini",
+  "revision": "001",
+  "title": "HP-14T 제미니",
+  "role": "리안 · 대구경 쌍권총",
+  "dir": "hp14t-gemini",
+  "start": {
+    "current_time": "2026-11-09 04:34:03 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:34:27 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/hp14t-gemini/source/illustration.png",
+  "error": null,
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "33e6541b8b138b295b1c6189ecd35835bb55303b88eb9036e35ee96382bdc4a9",
+  "status": "user-review-pending",
+  "asset": "assets/weapons/hp14t-gemini-001.png",
+  "elapsed_seconds": 24.0
+}

@@ -1,0 +1,19 @@
+{
+  "id": "yuna",
+  "name": "유나",
+  "hair": "흑발 긴 생머리 반묶음·부드러운 옆가르마",
+  "beauty": "맑고 화사한 아시아계 미인",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-2c8341ec-1fbd-4b62-bdcf-82e5453e737b.png",
+  "generated_started_at": "2026-11-09T03:48:22.724Z",
+  "generated_finished_at": "2026-11-09T03:49:25.976Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "sha256": "65b48e854ff3794d6c13c535b25fab9ee32e91a4b94384167776702490f5242f",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "face and hairstyle edit; equipment and wardrobe retained visually; aesthetic approval pending"
+}

@@ -1,0 +1,751 @@
+[
+  {
+    "id": "amr21-nail",
+    "revision": "001",
+    "title": "AMR-21 네일",
+    "role": "세나 · 대갑주 저격총",
+    "dir": "amr21-nail",
+    "start": {
+      "current_time": "2026-11-09 04:30:57 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:31:42 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/amr21-nail/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "4016678e923cb7cb295fe3382aa170df6b444a3cbbf9bc3954a4269c16559b1a",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/amr21-nail-001.png",
+    "elapsed_seconds": 45.0
+  },
+  {
+    "id": "pdw9-wasp",
+    "revision": "001",
+    "title": "PDW-9 와스프",
+    "role": "세나 · 고속연사 부무장",
+    "dir": "pdw9-wasp",
+    "start": {
+      "current_time": "2026-11-09 04:30:57 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:31:42 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/pdw9-wasp/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "66de7e99bcd6263fdb7e1e59d68d2c116c156df296f5d9b0866b41437f479407",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/pdw9-wasp-001.png",
+    "elapsed_seconds": 45.0
+  },
+  {
+    "id": "hmg15-goliath",
+    "revision": "001",
+    "title": "HMG-15 골리앗",
+    "role": "모아 · 대구경 지원기관총",
+    "dir": "hmg15-goliath",
+    "start": {
+      "current_time": "2026-11-09 04:31:48 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:32:33 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/hmg15-goliath/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "bd46bd1b452a4b50a8aa5c7b56ed5f1edf62683c4e7f47ebb8510bb56233f3db",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/hmg15-goliath-001.png",
+    "elapsed_seconds": 45.0
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "001",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule",
+    "start": {
+      "current_time": "2026-11-09 04:31:48 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:32:33 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/ml70-mule/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "100d7ed91a4399047b93eae69b347a0f8fe288404259b8dcb47ccd9e375541be",
+    "status": "superseded-or-rejected",
+    "elapsed_seconds": 45.0
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "001",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion",
+    "start": {
+      "current_time": "2026-11-09 04:32:45 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:33:05 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/hp14-bastion/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "151233c1d326f6c8d1d2dece2a6979025d3abdd3b1c19d4446367bf72fb9cc06",
+    "status": "superseded-by-006",
+    "elapsed_seconds": 20.0
+  },
+  {
+    "id": "ih7-knocker",
+    "revision": "001",
+    "title": "IH-7 노커",
+    "role": "유나 · 특수 충격 해머",
+    "dir": "ih7-knocker",
+    "start": {
+      "current_time": "2026-11-09 04:32:45 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:33:24 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/ih7-knocker/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "f2a6abdfc341b4dcc023398ed5a24adf232c7853bf785a391f76c1aceb7e5259",
+    "status": "superseded-or-rejected",
+    "elapsed_seconds": 39.0
+  },
+  {
+    "id": "ar12-rupture",
+    "revision": "001",
+    "title": "AR-12 럽처",
+    "role": "아렌 · 파열탄 돌격소총",
+    "dir": "ar12-rupture",
+    "start": {
+      "current_time": "2026-11-09 04:32:45 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:33:47 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "c60fabfa2c004c07c5b0bc070ed2a6ae85ba6aac8a52698a8b70374d4a959eba",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/ar12-rupture-001.png",
+    "elapsed_seconds": 62.0
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "001",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher",
+    "start": {
+      "current_time": "2026-11-09 04:34:03 UTC"
+    },
+    "error": "Generation rejected by safety system; no output.",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed"
+  },
+  {
+    "id": "hp14t-gemini",
+    "revision": "001",
+    "title": "HP-14T 제미니",
+    "role": "리안 · 대구경 쌍권총",
+    "dir": "hp14t-gemini",
+    "start": {
+      "current_time": "2026-11-09 04:34:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:34:27 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/hp14t-gemini/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "33e6541b8b138b295b1c6189ecd35835bb55303b88eb9036e35ee96382bdc4a9",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/hp14t-gemini-001.png",
+    "elapsed_seconds": 24.0
+  },
+  {
+    "id": "yuna-physical-shield",
+    "revision": "001",
+    "title": "유나의 물리 방패",
+    "role": "유나 · 방패·진입 장비",
+    "dir": "yuna-physical-shield",
+    "start": {
+      "current_time": "2026-11-09 04:34:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:34:51 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/yuna-physical-shield/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "2616678096ef411e497bc415558331f8c315da22151e2291d9d90baae676fabb",
+    "status": "superseded-by-flat-shield-002",
+    "elapsed_seconds": 48.0
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "002",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule_002",
+    "start": {
+      "current_time": "2026-11-09 04:34:03 UTC"
+    },
+    "error": "Generation rejected by safety system; no output.",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed"
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "002",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_002",
+    "start": {
+      "current_time": "2026-11-09 04:34:55 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:35:43 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/hp14-bastion_002/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "29c45b11d988017ff9f97f0f1a3ba6b5dd5696a47acac8fa764b12ff3a5e7542",
+    "status": "superseded-or-rejected",
+    "elapsed_seconds": 48.0
+  },
+  {
+    "id": "ih7-knocker",
+    "revision": "002",
+    "title": "IH-7 노커",
+    "role": "유나 · 특수 충격 해머",
+    "dir": "ih7-knocker_002",
+    "start": {
+      "current_time": "2026-11-09 04:34:55 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:35:43 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/ih7-knocker_002/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "8007427dfe34a0e7f09492a9a91c4828de7a0dcfa416e60b82f93e871ced417b",
+    "status": "superseded-or-rejected",
+    "elapsed_seconds": 48.0
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "002",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_002",
+    "start": {
+      "current_time": "2026-11-09 04:37:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:38:10 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/sg23-breacher_002/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "91d9b3f3400780197626d696c77e23ce555a7736a47169c7611fd457e81b10a9",
+    "status": "superseded-by-007",
+    "elapsed_seconds": 67.0
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "003",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule_003",
+    "start": {
+      "current_time": "2026-11-09 04:37:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:38:10 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/ml70-mule_003/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "e18402cb8ee318cff8ac92f590a9364dfa507d61924f1746e933130b2c665531",
+    "status": "superseded-by-007",
+    "elapsed_seconds": 67.0
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "003",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_003",
+    "start": {
+      "current_time": "2026-11-09 04:37:03 UTC"
+    },
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 91f06a9f-0aae-4632-9fcc-13f5af840676. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed"
+  },
+  {
+    "id": "ih7-knocker",
+    "revision": "003",
+    "title": "IH-7 노커",
+    "role": "유나 · 특수 충격 해머",
+    "dir": "ih7-knocker_003",
+    "start": {
+      "current_time": "2026-11-09 04:37:03 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:38:10 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/ih7-knocker_003/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "009fdb0bda0a60d63420d484c696c8db04cd77a4cf85fb41ea034d32c8f07fde",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/ih7-knocker-003.png",
+    "elapsed_seconds": 67.0
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "004",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_004",
+    "start": {
+      "current_time": "2026-11-09 04:38:41 UTC"
+    },
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID c4c0901f-f306-461e-bb3b-d4fef89f9a30. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed"
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "004",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule_004",
+    "start": {
+      "current_time": "2026-11-09 04:41:41 UTC"
+    },
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 9e9352ca-4440-47b1-a154-aaa4e8deceb7. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed"
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "003",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_003",
+    "start": {
+      "current_time": "2026-11-09 04:41:41 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:42:05 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/sg23-breacher_003/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "bf81a054eb29fb29fb41f1d46702faf76c0f734cfbdf34a0f11859ed95f1b0fd",
+    "status": "user-rejected-too-futuristic",
+    "elapsed_seconds": 24.0
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "005",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 런처",
+    "dir": "ml70-mule_005",
+    "start": {
+      "current_time": "2026-11-09 04:42:24 UTC"
+    },
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID ef681899-bf0c-432d-bd8c-2a9e3400ac80. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed"
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "004",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_004",
+    "start": {
+      "current_time": "2026-11-09 04:49:14 UTC"
+    },
+    "end": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 5f87bb3e-07ba-4a8c-a75a-98ac7f48e032. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "source": null,
+    "status": "generation-failed",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool"
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "005",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_005",
+    "start": {
+      "current_time": "2026-11-09 04:49:49 UTC"
+    },
+    "end": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 3467ebb3-361f-4d6a-8ec2-1dbfd6794df5. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "source": null,
+    "status": "generation-failed",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool"
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "005",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_005",
+    "start": {
+      "current_time": "2026-11-09 04:54:20 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:54:32 UTC"
+    },
+    "source": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID b7d4c4a0-da08-4de2-8146-cda2f7ac9bf6. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "status": "generation-failed",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "requested_change": "Add a compact muzzle compensator to fictional Bastion illustration",
+    "result": "No edited image; equipment setting can be updated independently."
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "006",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_006",
+    "start": {
+      "current_time": "2026-11-09 04:55:47 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:55:56 UTC"
+    },
+    "source": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 02e9585b-332f-4de5-a437-a545ffff11df. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "status": "generation-failed",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "requested_change": "Add a suppressor to fictional Breacher illustration",
+    "result": "No edited image; suppressor equipment setting recorded separately."
+  },
+  {
+    "id": "yuna-physical-shield",
+    "revision": "002",
+    "title": "유나의 물리 방패",
+    "role": "유나 · 방패·진입 장비",
+    "dir": "yuna-physical-shield_002",
+    "start": {
+      "current_time": "2026-11-09 04:57:27 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 04:57:56 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/yuna-physical-shield_002/source/illustration.png",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "superseded-by-yuna-reference-derived-003",
+    "requested_change": "Flat planar physical shield with an imperial logo",
+    "emblem": "Original winged heraldic emblem proposal; not an adopted faction or state symbol",
+    "error": null,
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "53c8bb27c4e29a0a3f55c30d3511d60dfb919df19625a60783aa71989b82a052",
+    "input_sha256": "2616678096ef411e497bc415558331f8c315da22151e2291d9d90baae676fabb",
+    "elapsed_seconds": 29.0
+  },
+  {
+    "id": "ar12-rupture",
+    "revision": "002",
+    "title": "AR-12 럽처",
+    "role": "아렌 · 파열탄 돌격소총",
+    "dir": "ar12-rupture_002",
+    "start": {
+      "current_time": "2026-11-09 05:00:00 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:00:11 UTC"
+    },
+    "source": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 23f58954-cebd-4774-a00f-c46adb2f141e. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "status": "generation-failed",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "requested_change": "User requests a visible barrel-front attachment; compact angular muzzle brake is a visual proposal.",
+    "result": "No edited image; prior 001 remains visible."
+  },
+  {
+    "id": "hp14-bastion",
+    "revision": "006",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_006",
+    "start": {
+      "current_time": "2026-11-09 05:20:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:21:38 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/hp14-bastion_006/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "48a8b40e2f87f9733d2e119eeaf572685df46b9694f14020a7994ff5516cb507",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/hp14-bastion-006.png",
+    "elapsed_seconds": 47.0
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "007",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_007",
+    "start": {
+      "current_time": "2026-11-09 05:20:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:21:38 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/sg23-breacher_007/source/illustration.png",
+    "error": null,
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "8e1c625fc82b9f7948d92102afe8f4b5fcfee32d620b86c1722a0c11ee85a40f",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/sg23-breacher-007.png",
+    "elapsed_seconds": 47.0
+  },
+  {
+    "id": "ar12-rupture",
+    "revision": "003",
+    "title": "AR-12 럽처",
+    "role": "아렌 · 파열탄 돌격소총",
+    "dir": "ar12-rupture_003",
+    "start": {
+      "current_time": "2026-11-09 05:20:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:21:38 UTC"
+    },
+    "source": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 4e977930-b819-4675-8053-3d33fba1e397. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed",
+    "elapsed_seconds": 47.0
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "006",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 유탄발사기",
+    "dir": "ml70-mule_006",
+    "start": {
+      "current_time": "2026-11-09 05:20:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:21:38 UTC"
+    },
+    "source": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID afb38870-30da-4641-8fe2-d1f2e3af0000. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed",
+    "elapsed_seconds": 47.0
+  },
+  {
+    "id": "ar12-rupture",
+    "revision": "004",
+    "title": "AR-12 럽처",
+    "role": "아렌 · 파열탄 돌격소총",
+    "dir": "ar12-rupture_004",
+    "start": {
+      "current_time": "2026-11-09 05:22:23 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:22:52 UTC"
+    },
+    "source": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID f0aca769-b2a6-4312-9b9a-f57e4fe5a084. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+    "reference": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "generation-failed",
+    "reference_sha256": "c60fabfa2c004c07c5b0bc070ed2a6ae85ba6aac8a52698a8b70374d4a959eba",
+    "elapsed_seconds": 29.0
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "007",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 유탄발사기",
+    "dir": "ml70-mule_007",
+    "start": {
+      "current_time": "2026-11-09 05:22:23 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:22:52 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/ml70-mule_007/source/illustration.png",
+    "error": null,
+    "reference": "art/weapons/wiki_concepts_001/ml70-mule_003/source/illustration.png",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "width": 1536,
+    "height": 1024,
+    "mode": "RGB",
+    "sha256": "11a2e9a6415d0014723825753640e93e62d81795e0bf97795197b3831d917977",
+    "status": "user-review-pending",
+    "asset": "assets/weapons/ml70-mule-007.png",
+    "reference_sha256": "e18402cb8ee318cff8ac92f590a9364dfa507d61924f1746e933130b2c665531",
+    "elapsed_seconds": 29.0
+  },
+  {
+    "id": "yuna-physical-shield",
+    "revision": "003",
+    "title": "유나의 물리 방패",
+    "role": "유나 · 방패·진입 장비",
+    "dir": "yuna-physical-shield_003",
+    "start": {
+      "current_time": "2026-11-09 05:32:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:33:16 UTC"
+    },
+    "source": "art/weapons/wiki_concepts_001/yuna-physical-shield_003/source/illustration.png",
+    "tool": "built-in image_gen.imagegen",
+    "model": "not exposed by tool",
+    "cost": "not reported by tool",
+    "status": "reference-selected; isolated-illustration-review-pending",
+    "reference": "art/characters/yuna/concepts/illustration_005/source/illustration.png",
+    "reference_selection": "User selects the shield visible in supplied Yuna illustration as the design reference; local illustration 005 visually matches the attachment.",
+    "scope": "Shield design only; character portrait file and its separate review status unchanged.",
+    "error": null,
+    "width": 1024,
+    "height": 1536,
+    "mode": "RGB",
+    "reference_sha256": "65b48e854ff3794d6c13c535b25fab9ee32e91a4b94384167776702490f5242f",
+    "reference_copy": "art/weapons/wiki_concepts_001/yuna-physical-shield_003/references/yuna-illustration-005.png",
+    "sha256": "6071991b26362c0ab42e418194e0c517e29faf9b04df425013b7f910f143cf5d",
+    "asset": "assets/weapons/yuna-physical-shield-003.png",
+    "elapsed_seconds": 25.0
+  }
+]

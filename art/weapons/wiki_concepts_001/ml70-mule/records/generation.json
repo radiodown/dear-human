@@ -1,0 +1,24 @@
+{
+  "id": "ml70-mule",
+  "revision": "001",
+  "title": "ML-70 뮬",
+  "role": "모아 · 다목적 런처",
+  "dir": "ml70-mule",
+  "start": {
+    "current_time": "2026-11-09 04:31:48 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:32:33 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/ml70-mule/source/illustration.png",
+  "error": null,
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "100d7ed91a4399047b93eae69b347a0f8fe288404259b8dcb47ccd9e375541be",
+  "status": "superseded-or-rejected",
+  "elapsed_seconds": 45.0
+}

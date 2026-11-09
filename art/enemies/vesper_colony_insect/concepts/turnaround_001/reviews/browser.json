@@ -1,0 +1,23 @@
+{
+  "status": "passed",
+  "scope": "static_gallery_view_buttons_url_restore_original_version_alpha_background",
+  "browser": "separate headless local Chrome; in-app browser failed before connection: missing sandboxPolicy",
+  "url": "http://127.0.0.1:4173/#/samples/enemies/vesper_colony_insect?rev=turnaround_001",
+  "checks": [
+    "four original images decode in existing gallery on checker background",
+    "front button and URL",
+    "back button and URL",
+    "left button and URL",
+    "right button and URL",
+    "right view survives reload",
+    "original concept version still available",
+    "500px gallery display"
+  ],
+  "page_errors": [],
+  "art_approval": "awaiting_user_review",
+  "excluded": [
+    "motion",
+    "gameplay",
+    "exact_3d_anatomy"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "id": "sg23-breacher",
+  "revision": "005",
+  "title": "SG-23 브리처",
+  "role": "아렌 · 전투 산탄총",
+  "dir": "sg23-breacher_005",
+  "start": {
+    "current_time": "2026-11-09 04:49:49 UTC"
+  },
+  "end": null,
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 3467ebb3-361f-4d6a-8ec2-1dbfd6794df5. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "source": null,
+  "status": "generation-failed",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool"
+}

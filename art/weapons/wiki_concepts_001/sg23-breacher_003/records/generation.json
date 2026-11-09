@@ -1,0 +1,25 @@
+{
+  "id": "sg23-breacher",
+  "revision": "003",
+  "title": "SG-23 브리처",
+  "role": "아렌 · 전투 산탄총",
+  "dir": "sg23-breacher_003",
+  "start": {
+    "current_time": "2026-11-09 04:41:41 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:42:05 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/sg23-breacher_003/source/illustration.png",
+  "error": null,
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "bf81a054eb29fb29fb41f1d46702faf76c0f734cfbdf34a0f11859ed95f1b0fd",
+  "status": "user-review-pending",
+  "asset": "assets/weapons/sg23-breacher-003.png",
+  "elapsed_seconds": 24.0
+}

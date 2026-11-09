@@ -1,0 +1,10 @@
+{
+  "asset": "public/assets/characters/yuna-illustration-005.png",
+  "source": "art/characters/yuna/concepts/illustration_005/source/illustration.png",
+  "sha256": "65b48e854ff3794d6c13c535b25fab9ee32e91a4b94384167776702490f5242f",
+  "width": 1024,
+  "height": 1536,
+  "status": "시안 005 · 사용자 검수 대기",
+  "treatment": "내장 image_gen 원본을 바이트 변경 없이 복사",
+  "prompt": "art/characters/yuna/concepts/illustration_005/records/prompt.md"
+}

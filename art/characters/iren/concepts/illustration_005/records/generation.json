@@ -1,0 +1,19 @@
+{
+  "id": "iren",
+  "name": "이렌",
+  "hair": "깔끔한 흑발 생머리 단발·정돈된 옆가르마",
+  "beauty": "단아하고 세련된 아시아계 미인",
+  "source_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bda6-a5b9-7381-9340-0a7e018b52d9\\exec-09501eb5-8869-4c69-8638-95fe65d1fd37.png",
+  "generated_started_at": "2026-11-09T03:48:22.724Z",
+  "generated_finished_at": "2026-11-09T03:48:52.196Z",
+  "tool": "image_gen.imagegen",
+  "model": null,
+  "cost": null,
+  "seed": null,
+  "width": 1024,
+  "height": 1536,
+  "sha256": "c537123349520e899d1c3415ff6832e314087718c593fc1f3f95f30c2e17d99b",
+  "transformations": [],
+  "art_direction_status": "awaiting_user_review",
+  "review_scope": "face and hairstyle edit; equipment and wardrobe retained visually; aesthetic approval pending"
+}

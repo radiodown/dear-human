@@ -1,0 +1,5 @@
+# Exact submitted edit — AR-12 Rupture 002
+
+Tool: built-in image_gen.imagegen. Edit target: ar12-rupture/source/illustration.png (001). User asks for an attachment at the front of the barrel. A compact angular muzzle brake is the proposed visual interpretation, not a user-specified exact attachment model. transparent_background: false.
+
+Edit this fictional AR-12 Rupture rifle equipment illustration. Replace the small rounded muzzle tip with a clearly distinct short, thick, angular muzzle-brake attachment: a squared dark gunmetal block with a few large side openings and a visible collar where it meets the barrel. Make the muzzle accessory read as a purposeful separate piece, with robust tactical styling. Keep the attachment compact, balanced with the existing handguard. Preserve the rifle's receiver, barrel length, handguard, optic, magazine, grip, stock, materials and pale gray studio background. Whole object in the same right-facing side view, reframe only to give clear margins around the new tip. No added accessories, no text or diagrams.

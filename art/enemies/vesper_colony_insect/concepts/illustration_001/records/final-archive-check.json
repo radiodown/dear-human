@@ -1,0 +1,11 @@
+{
+  "new_asset_verification": "passed",
+  "concept_local_links": "passed",
+  "prompt_roundtrip": "passed",
+  "static_preview_paths": "passed",
+  "existing_catalog_entries": "unchanged",
+  "preexisting_catalog_issue_count": 21,
+  "global_document_issue_count": 1297,
+  "new_document_issue_count": 0,
+  "browser_visual_verification": "not_performed"
+}

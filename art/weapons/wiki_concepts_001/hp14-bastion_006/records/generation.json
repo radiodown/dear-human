@@ -1,0 +1,25 @@
+{
+  "id": "hp14-bastion",
+  "revision": "006",
+  "title": "HP-14 바스티온",
+  "role": "유나 · 대구경 권총",
+  "dir": "hp14-bastion_006",
+  "start": {
+    "current_time": "2026-11-09 05:20:51 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 05:21:38 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/hp14-bastion_006/source/illustration.png",
+  "error": null,
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "48a8b40e2f87f9733d2e119eeaf572685df46b9694f14020a7994ff5516cb507",
+  "status": "user-review-pending",
+  "asset": "assets/weapons/hp14-bastion-006.png",
+  "elapsed_seconds": 47.0
+}

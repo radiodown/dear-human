@@ -1,0 +1,12 @@
+{
+  "status": "passed_for_new_revision",
+  "scope": "original_sha256_rgba_alpha_frame_bounds_and_short_chrome_gallery_four_views_url_restore_500px",
+  "new_catalog_issue_count": 0,
+  "existing_catalog_issue_count": 21,
+  "existing_catalog_issues_unchanged": true,
+  "global_document_issue_count": 1297,
+  "new_document_issue_count": 0,
+  "art_direction_status": "awaiting_user_review",
+  "generation_calls": 4,
+  "image_postprocessing": "none"
+}

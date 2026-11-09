@@ -1,0 +1,30 @@
+{
+  "id": "yuna-physical-shield",
+  "revision": "003",
+  "title": "유나의 물리 방패",
+  "role": "유나 · 방패·진입 장비",
+  "dir": "yuna-physical-shield_003",
+  "start": {
+    "current_time": "2026-11-09 05:32:51 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 05:33:16 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/yuna-physical-shield_003/source/illustration.png",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "status": "reference-selected; isolated-illustration-review-pending",
+  "reference": "art/characters/yuna/concepts/illustration_005/source/illustration.png",
+  "reference_selection": "User selects the shield visible in supplied Yuna illustration as the design reference; local illustration 005 visually matches the attachment.",
+  "scope": "Shield design only; character portrait file and its separate review status unchanged.",
+  "error": null,
+  "width": 1024,
+  "height": 1536,
+  "mode": "RGB",
+  "reference_sha256": "65b48e854ff3794d6c13c535b25fab9ee32e91a4b94384167776702490f5242f",
+  "reference_copy": "art/weapons/wiki_concepts_001/yuna-physical-shield_003/references/yuna-illustration-005.png",
+  "sha256": "6071991b26362c0ab42e418194e0c517e29faf9b04df425013b7f910f143cf5d",
+  "asset": "assets/weapons/yuna-physical-shield-003.png",
+  "elapsed_seconds": 25.0
+}

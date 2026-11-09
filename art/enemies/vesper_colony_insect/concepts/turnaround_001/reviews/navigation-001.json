@@ -1,0 +1,18 @@
+{
+  "status": "passed",
+  "browser": "headless local Chrome; in-app browser connection unavailable earlier in this session",
+  "checks": [
+    "home menu opens creature",
+    "latest four-view revision is default",
+    "four images decode",
+    "only selected enemy menu highlighted",
+    "original concept accessible",
+    "previous planned enemy remains accessible"
+  ],
+  "page_errors": [],
+  "source_sha256": {
+    "game/app.js": "b8bb60883dadc59a065300e8fe0efd21a0ae4fa6768ba2f79645ab7b894674e5",
+    "game/index.html": "9c7934e88adc1f05c726b1765824eb01273b2addb88a9589ef579533bc1ce6b9"
+  },
+  "scope": "navigation and static creature view only"
+}

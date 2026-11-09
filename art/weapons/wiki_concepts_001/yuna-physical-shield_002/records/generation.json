@@ -1,0 +1,28 @@
+{
+  "id": "yuna-physical-shield",
+  "revision": "002",
+  "title": "유나의 물리 방패",
+  "role": "유나 · 방패·진입 장비",
+  "dir": "yuna-physical-shield_002",
+  "start": {
+    "current_time": "2026-11-09 04:57:27 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:57:56 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/yuna-physical-shield_002/source/illustration.png",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "status": "user-review-pending",
+  "requested_change": "Flat planar physical shield with an imperial logo",
+  "emblem": "Original winged heraldic emblem proposal; not an adopted faction or state symbol",
+  "error": null,
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "53c8bb27c4e29a0a3f55c30d3511d60dfb919df19625a60783aa71989b82a052",
+  "input_sha256": "2616678096ef411e497bc415558331f8c315da22151e2291d9d90baae676fabb",
+  "asset": "assets/weapons/yuna-physical-shield-002.png",
+  "elapsed_seconds": 29.0
+}

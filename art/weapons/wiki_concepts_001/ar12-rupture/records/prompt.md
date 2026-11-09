@@ -1,0 +1,16 @@
+# Exact submitted prompt — ar12-rupture
+
+Tool: built-in image_gen.imagegen
+
+transparent_background: false
+
+Use case: stylized-concept
+Asset type: Dear Human worldbuilding wiki equipment concept illustration, proposal 001.
+Primary request: A single fictional AR-12 Rupture large-caliber assault rifle for squad leader Aren. Modern M7 / contemporary modular rifle design language: straight top rail, angular long ventilated handguard, reinforced broad receiver, heavy barrel jacket, large box magazine forward of pistol grip, folding adjustable shoulder stock, compact combined optical sight. Fictional 12.7mm anti-armor bursting-round weapon. A dense muscular modern rifle, not a laser rifle, not an M16 carrying-handle silhouette.
+Style/medium: polished realistic 3D-render-style military equipment concept art, finely controlled metal and ceramic-composite textures, practical near-future industrial design inherited from contemporary firearms.
+Scene/backdrop: clean uniform pale cool-gray studio background, soft restrained contact shadow only. No scene, no people.
+Composition/framing: landscape 1536x1024 canvas; whole object fully visible, centered with generous margins. Firearms point right, near side-profile with a very slight upper three-quarter view so the exterior volume is legible. No crop. Each image is a standalone catalog illustration, not a technical blueprint.
+Lighting: soft large studio lights, readable dark surfaces, crisp silhouette and subtle rim highlights.
+Materials: matte gunmetal and dark graphite composite, restrained brushed steel edges, modest honest wear. No decorative neon.
+Text: no text, no model lettering, no numbers, no labels, no logos, no watermark.
+Constraints: fictional visual concept only. Exterior appearance only; no internal mechanisms, cross-sections, exploded parts, dimension annotations, manufacturing instructions, or diagrams. No firing effects, ammunition diagrams, energy weapons, extra props, humans or hands.

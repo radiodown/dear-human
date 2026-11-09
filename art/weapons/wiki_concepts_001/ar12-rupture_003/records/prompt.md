@@ -1,0 +1,6 @@
+# Exact regeneration prompt — ar12-rupture 003
+
+Tool: built-in image_gen.imagegen. User explicitly requested another regeneration attempt for unreflected images. Intent: new standalone concept, no image references submitted. transparent_background: false.
+
+Create a fictional AR-12 Rupture tactical rifle concept for the Dear Human game wiki. Modern modular rifle silhouette: reinforced metal receiver, long angular ventilated handguard, large box magazine, pistol grip, folding adjustable stock and compact combined optical sight. Its most distinctive new detail is a short thick SQUARED MUZZLE BRAKE attached at the barrel front: an angular gunmetal block with visible side vents and a clear collar separating it from the barrel. Make the attachment prominent but compact. Restrained near-future industrial styling, no decorative glow.
+Style: realistic 3D-render-style game equipment concept art. Matte gunmetal and dark graphite, crisp readable silhouette and restrained surface wear. Single complete object pointing right in near side profile, a little upper surface visible. Pale cool-gray seamless studio background, soft studio lighting. Landscape 1536x1024, whole object centered with ample margins. Exterior visual design only. No people, no firing scene, no text, no labels or diagrams.

@@ -1,0 +1,218 @@
+{
+  "entity_id": "vesper_colony_insect",
+  "revision_id": "turnaround_001",
+  "conversation_date": "2026-11-09",
+  "tool": "built-in image_gen.imagegen",
+  "generation_calls": 4,
+  "runs": [
+    {
+      "view": "front",
+      "start": {
+        "current_time": "2026-11-09 05:00:46 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:01:11 UTC"
+      },
+      "path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be98-b96a-7123-bdec-7a155e8645f6\\exec-6cf53bd9-0470-49d2-a55b-ffe74c38c7e6.png",
+      "tool": "built-in image_gen.imagegen",
+      "model": null,
+      "cost": null,
+      "seed": null,
+      "input_reference_hashes": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/illustration_001/source/illustration.png",
+          "sha256": "4d8dd5e70b8e508d38142d96a3074c317b23eb5949fb7badd51c29346a7cfc7d"
+        }
+      ],
+      "duration_seconds": 25.0
+    },
+    {
+      "view": "back",
+      "start": {
+        "current_time": "2026-11-09 05:01:48 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:02:13 UTC"
+      },
+      "path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be98-b96a-7123-bdec-7a155e8645f6\\exec-86d6f20d-8d33-4fd8-9863-f7bdc504bea4.png",
+      "tool": "built-in image_gen.imagegen",
+      "model": null,
+      "cost": null,
+      "seed": null,
+      "input_reference_hashes": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/illustration_001/source/illustration.png",
+          "sha256": "4d8dd5e70b8e508d38142d96a3074c317b23eb5949fb7badd51c29346a7cfc7d"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+          "sha256": "2d5296d9d28719353b69071a294ca4b34a5217b0700fff05fe5e7441087c3f5b"
+        }
+      ],
+      "duration_seconds": 25.0
+    },
+    {
+      "view": "left",
+      "start": {
+        "current_time": "2026-11-09 05:02:38 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:03:13 UTC"
+      },
+      "path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be98-b96a-7123-bdec-7a155e8645f6\\exec-7d752783-d633-4aeb-b3bd-3a409e1c13dd.png",
+      "tool": "built-in image_gen.imagegen",
+      "model": null,
+      "cost": null,
+      "seed": null,
+      "input_reference_hashes": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/illustration_001/source/illustration.png",
+          "sha256": "4d8dd5e70b8e508d38142d96a3074c317b23eb5949fb7badd51c29346a7cfc7d"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+          "sha256": "2d5296d9d28719353b69071a294ca4b34a5217b0700fff05fe5e7441087c3f5b"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/turnaround_001/source/back.png",
+          "sha256": "7d6984e8497ed87395069555f682a392e8005fca7fb6d2ed36b5671ee3f6aa6c"
+        }
+      ],
+      "duration_seconds": 35.0
+    },
+    {
+      "view": "right",
+      "start": {
+        "current_time": "2026-11-09 05:03:40 UTC"
+      },
+      "end": {
+        "current_time": "2026-11-09 05:04:17 UTC"
+      },
+      "path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be98-b96a-7123-bdec-7a155e8645f6\\exec-d6dc37c9-dd41-4bb2-94b7-0e47a8d95e98.png",
+      "tool": "built-in image_gen.imagegen",
+      "model": null,
+      "cost": null,
+      "seed": null,
+      "input_reference_hashes": [
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/illustration_001/source/illustration.png",
+          "sha256": "4d8dd5e70b8e508d38142d96a3074c317b23eb5949fb7badd51c29346a7cfc7d"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+          "sha256": "2d5296d9d28719353b69071a294ca4b34a5217b0700fff05fe5e7441087c3f5b"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/turnaround_001/source/back.png",
+          "sha256": "7d6984e8497ed87395069555f682a392e8005fca7fb6d2ed36b5671ee3f6aa6c"
+        },
+        {
+          "path": "C:/Users/axgatge/Desktop/miss/art/enemies/vesper_colony_insect/concepts/turnaround_001/source/left.png",
+          "sha256": "7e8a63fcd96d4f36869c66962cb9011250caab8ea1c6eadcaaa816c23dfac4b8"
+        }
+      ],
+      "duration_seconds": 37.0
+    }
+  ],
+  "saved_at_utc": "2026-11-09T05:06:34.178059+00:00",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "files": [
+    {
+      "view": "front",
+      "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+      "original_generated_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be98-b96a-7123-bdec-7a155e8645f6\\exec-6cf53bd9-0470-49d2-a55b-ffe74c38c7e6.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1066702,
+      "partial_alpha_pixels": 506162,
+      "major_alpha_bbox": [
+        33,
+        14,
+        1496,
+        1017
+      ],
+      "bytes": 2139210,
+      "sha256": "2d5296d9d28719353b69071a294ca4b34a5217b0700fff05fe5e7441087c3f5b",
+      "original_byte_identical": true
+    },
+    {
+      "view": "back",
+      "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/back.png",
+      "original_generated_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be98-b96a-7123-bdec-7a155e8645f6\\exec-86d6f20d-8d33-4fd8-9863-f7bdc504bea4.png",
+      "width": 1536,
+      "height": 1024,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        254
+      ],
+      "transparent_pixels": 1084716,
+      "partial_alpha_pixels": 488148,
+      "major_alpha_bbox": [
+        66,
+        14,
+        1470,
+        1012
+      ],
+      "bytes": 2074104,
+      "sha256": "7d6984e8497ed87395069555f682a392e8005fca7fb6d2ed36b5671ee3f6aa6c",
+      "original_byte_identical": true
+    },
+    {
+      "view": "left",
+      "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/left.png",
+      "original_generated_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be98-b96a-7123-bdec-7a155e8645f6\\exec-7d752783-d633-4aeb-b3bd-3a409e1c13dd.png",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 1038322,
+      "partial_alpha_pixels": 533886,
+      "major_alpha_bbox": [
+        110,
+        11,
+        1593,
+        875
+      ],
+      "bytes": 1489857,
+      "sha256": "7e8a63fcd96d4f36869c66962cb9011250caab8ea1c6eadcaaa816c23dfac4b8",
+      "original_byte_identical": true
+    },
+    {
+      "view": "right",
+      "path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/right.png",
+      "original_generated_path": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be98-b96a-7123-bdec-7a155e8645f6\\exec-d6dc37c9-dd41-4bb2-94b7-0e47a8d95e98.png",
+      "width": 1774,
+      "height": 887,
+      "mode": "RGBA",
+      "alpha_extrema": [
+        0,
+        255
+      ],
+      "transparent_pixels": 990588,
+      "partial_alpha_pixels": 581605,
+      "major_alpha_bbox": [
+        137,
+        8,
+        1658,
+        877
+      ],
+      "bytes": 1555675,
+      "sha256": "65f0d546acbbde225e0c18837f2dd6de5f4b867730b9512ea3af596e366094d8",
+      "original_byte_identical": true
+    }
+  ],
+  "postprocessing": "none; original alpha preserved",
+  "art_direction_status": "awaiting_user_review",
+  "runtime_integration": false
+}

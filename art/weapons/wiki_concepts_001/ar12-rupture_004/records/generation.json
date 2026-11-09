@@ -1,0 +1,22 @@
+{
+  "id": "ar12-rupture",
+  "revision": "004",
+  "title": "AR-12 럽처",
+  "role": "아렌 · 파열탄 돌격소총",
+  "dir": "ar12-rupture_004",
+  "start": {
+    "current_time": "2026-11-09 05:22:23 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 05:22:52 UTC"
+  },
+  "source": null,
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID f0aca769-b2a6-4312-9b9a-f57e4fe5a084. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "reference": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "status": "generation-failed",
+  "reference_sha256": "c60fabfa2c004c07c5b0bc070ed2a6ae85ba6aac8a52698a8b70374d4a959eba",
+  "elapsed_seconds": 29.0
+}

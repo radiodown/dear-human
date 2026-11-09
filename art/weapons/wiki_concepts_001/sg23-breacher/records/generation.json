@@ -1,0 +1,15 @@
+{
+  "id": "sg23-breacher",
+  "revision": "001",
+  "title": "SG-23 브리처",
+  "role": "아렌 · 전투 산탄총",
+  "dir": "sg23-breacher",
+  "start": {
+    "current_time": "2026-11-09 04:34:03 UTC"
+  },
+  "error": "Generation rejected by safety system; no output.",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "status": "generation-failed"
+}

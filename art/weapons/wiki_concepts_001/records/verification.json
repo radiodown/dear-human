@@ -1,0 +1,20 @@
+{
+  "date": "2026-11-09",
+  "scope": "Wiki equipment illustrations and their display only",
+  "content_check": "passed: 66 articles, 5 categories, 2 creator-only",
+  "static_build": "passed",
+  "current_image_http_and_hashes": "passed: 10 URLs returned 200 and match preserved original SHA-256 hashes",
+  "browser": {
+    "in_app": "Unavailable: node_repl tool failed before bootstrap with missing sandboxPolicy metadata",
+    "fallback": "Separate headless Windows Chrome, isolated profiles",
+    "desktop": "1440x1150 gallery screenshot visually inspected; first two images display; remaining images load lazily",
+    "mobile": "500x1150 shotgun article screenshot visually inspected; near-future 003 image displays without horizontal crop",
+    "screenshots": ["wiki-gallery-desktop-final.png", "wiki-shotgun-mobile.png"]
+  },
+  "art_review": "User review pending; no technical validation of proportions or physical specifications",
+  "incomplete": [
+    "HP-14 Bastion moderate barrel-length revision: generation 003 and edit 004 rejected by image tool; prior 001 labeled as previous concept",
+    "ML-70 Mule more futuristic exterior: generation 004 and edit 005 rejected by image tool; prior 003 labeled as previous concept"
+  ],
+  "game_changes": false
+}

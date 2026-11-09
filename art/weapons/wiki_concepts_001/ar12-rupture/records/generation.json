@@ -1,0 +1,25 @@
+{
+  "id": "ar12-rupture",
+  "revision": "001",
+  "title": "AR-12 럽처",
+  "role": "아렌 · 파열탄 돌격소총",
+  "dir": "ar12-rupture",
+  "start": {
+    "current_time": "2026-11-09 04:32:45 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:33:47 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+  "error": null,
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "c60fabfa2c004c07c5b0bc070ed2a6ae85ba6aac8a52698a8b70374d4a959eba",
+  "status": "user-review-pending",
+  "asset": "assets/weapons/ar12-rupture-001.png",
+  "elapsed_seconds": 62.0
+}

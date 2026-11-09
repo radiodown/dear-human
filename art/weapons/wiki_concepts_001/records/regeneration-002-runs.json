@@ -1,0 +1,62 @@
+[
+  {
+    "id": "hp14-bastion",
+    "revision": "006",
+    "title": "HP-14 바스티온",
+    "role": "유나 · 대구경 권총",
+    "dir": "hp14-bastion_006",
+    "start": {
+      "current_time": "2026-11-09 05:20:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:21:38 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-d5aa32ef-d6df-445a-97f4-99aec199c6ad.png",
+    "error": null
+  },
+  {
+    "id": "sg23-breacher",
+    "revision": "007",
+    "title": "SG-23 브리처",
+    "role": "아렌 · 전투 산탄총",
+    "dir": "sg23-breacher_007",
+    "start": {
+      "current_time": "2026-11-09 05:20:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:21:38 UTC"
+    },
+    "source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1be91-57c4-76c2-b8ee-c3902bfcc8df\\exec-f0d6b624-d095-4582-808e-fbb79ccb672d.png",
+    "error": null
+  },
+  {
+    "id": "ar12-rupture",
+    "revision": "003",
+    "title": "AR-12 럽처",
+    "role": "아렌 · 파열탄 돌격소총",
+    "dir": "ar12-rupture_003",
+    "start": {
+      "current_time": "2026-11-09 05:20:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:21:38 UTC"
+    },
+    "source": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID 4e977930-b819-4675-8053-3d33fba1e397. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")"
+  },
+  {
+    "id": "ml70-mule",
+    "revision": "006",
+    "title": "ML-70 뮬",
+    "role": "모아 · 다목적 유탄발사기",
+    "dir": "ml70-mule_006",
+    "start": {
+      "current_time": "2026-11-09 05:20:51 UTC"
+    },
+    "end": {
+      "current_time": "2026-11-09 05:21:38 UTC"
+    },
+    "source": null,
+    "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID afb38870-30da-4641-8fe2-d1f2e3af0000. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")"
+  }
+]

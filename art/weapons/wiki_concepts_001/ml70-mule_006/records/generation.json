@@ -1,0 +1,20 @@
+{
+  "id": "ml70-mule",
+  "revision": "006",
+  "title": "ML-70 뮬",
+  "role": "모아 · 다목적 유탄발사기",
+  "dir": "ml70-mule_006",
+  "start": {
+    "current_time": "2026-11-09 05:20:51 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 05:21:38 UTC"
+  },
+  "source": null,
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID afb38870-30da-4641-8fe2-d1f2e3af0000. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "status": "generation-failed",
+  "elapsed_seconds": 47.0
+}

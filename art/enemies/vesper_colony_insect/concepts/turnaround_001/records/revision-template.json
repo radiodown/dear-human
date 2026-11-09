@@ -1,0 +1,87 @@
+{
+  "entity_display_name": "베스퍼 군락형 곤충",
+  "revision_id": "turnaround_001",
+  "display_name": "투명 배경 · 앞뒤좌우 4방향 001",
+  "status": "draft",
+  "verification": "untested",
+  "verification_scope": "png_decode_original_sha256_rgba_alpha_and_targeted_static_gallery",
+  "art_direction_status": "awaiting_user_review",
+  "recipe_key": "vesper-colony-insect-transparent-turnaround-001",
+  "artifacts": [],
+  "dependencies": [
+    {
+      "kind": "enemy",
+      "entity_id": "vesper_colony_insect",
+      "revision_id": "illustration_001"
+    }
+  ],
+  "description": "컨셉 001 기반 배경 없는 정면·후면·좌측면·우측면 PNG 네 장. 긴 관절 다리 여섯 개·적갈색 갑각·큰턱·치켜든 배를 유지한 회전 시안. 방향별 생성 세부는 사용자 검수 대기.",
+  "appearance_specs": [
+    [
+      "형식",
+      "투명 배경 RGBA PNG · 4장"
+    ],
+    [
+      "방향",
+      "정면 · 후면 · 좌측면 · 우측면"
+    ],
+    [
+      "원화",
+      "컨셉 001 기반"
+    ],
+    [
+      "다리",
+      "보행 다리 여섯 개"
+    ],
+    [
+      "외피",
+      "적갈색 키틴 갑각 · 회백색 연결 조직"
+    ],
+    [
+      "상태",
+      "방향별 세부와 비례 · 사용자 검수 대기"
+    ]
+  ],
+  "review_notes": [
+    "내장 image_gen 4회 · 방향별 개별 생성",
+    "알파 채널을 보존하는 뷰어에서 사용",
+    "측면은 정투영을 목표로 생성한 시안이며 정확한 3D 도면 아님"
+  ],
+  "preview": {
+    "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+    "width": 1536,
+    "height": 1024,
+    "views": [
+      "front",
+      "back",
+      "left",
+      "right"
+    ],
+    "type": "concept_image",
+    "production_ready_cutout": false,
+    "transparent_background": true,
+    "images": {
+      "front": {
+        "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/front.png",
+        "width": 1536,
+        "height": 1024
+      },
+      "back": {
+        "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/back.png",
+        "width": 1536,
+        "height": 1024
+      },
+      "left": {
+        "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/left.png",
+        "width": 1774,
+        "height": 887
+      },
+      "right": {
+        "image_path": "art/enemies/vesper_colony_insect/concepts/turnaround_001/source/right.png",
+        "width": 1774,
+        "height": 887
+      }
+    }
+  }
+}
+

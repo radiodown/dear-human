@@ -1,0 +1,25 @@
+{
+  "id": "amr21-nail",
+  "revision": "001",
+  "title": "AMR-21 네일",
+  "role": "세나 · 대갑주 저격총",
+  "dir": "amr21-nail",
+  "start": {
+    "current_time": "2026-11-09 04:30:57 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:31:42 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/amr21-nail/source/illustration.png",
+  "error": null,
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "4016678e923cb7cb295fe3382aa170df6b444a3cbbf9bc3954a4269c16559b1a",
+  "status": "user-review-pending",
+  "asset": "assets/weapons/amr21-nail-001.png",
+  "elapsed_seconds": 45.0
+}

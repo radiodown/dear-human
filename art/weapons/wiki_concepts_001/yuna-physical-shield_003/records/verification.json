@@ -1,0 +1,13 @@
+{
+  "date": "2026-11-09",
+  "reference_review": "User attachment visually matches existing Yuna illustration 005; shield design selection applies only to the shield",
+  "output_visual_review": "Standalone shield has upper carry handle, viewing window, upper-right circular fitting, tall angular graphite armor, gold trim and central line, compact feathered gold bird emblem, reinforced bottom corners; no person or hand",
+  "limits": "Generated reconstruction of obscured areas; not an exact pixel extraction or measured 3D reconstruction. Similarity and details await user review.",
+  "output_size": [1024, 1536],
+  "wiki_content_check": "passed: 66 articles, 5 categories, 2 creator-only",
+  "wiki_static_build": "passed",
+  "http_hash_and_references": "Image returned HTTP 200 with matching original hash; Yuna and armory both point to 003 with correct dimensions",
+  "reference_integrity": "Yuna illustration source hash unchanged; same-byte reference copy preserved",
+  "browser_layout": "Not repeated; existing gallery uses object-fit contain and original-image links",
+  "game_changes": false
+}

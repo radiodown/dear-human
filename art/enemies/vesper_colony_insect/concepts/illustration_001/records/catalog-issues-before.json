@@ -1,0 +1,107 @@
+[
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:plan_b_walk_001",
+    "message": "art/characters/clone_01/motion/plan_b/README.md"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:plan_b_walk_001",
+    "message": "game/plan-b-lab.js"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:rig_005",
+    "message": "AGENTS.md"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:rig_005",
+    "message": "README.md"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:rig_005",
+    "message": "game/app.js"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:rig_005",
+    "message": "game/index.html"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:rig_005",
+    "message": "game/package.json"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:rig_005",
+    "message": "game/styles.css"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:rig_005",
+    "message": "skills/dear-human-pipeline/SKILL.md"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:plan_b_pixel_003",
+    "message": "art/characters/clone_01/motion/plan_b/pixel_walk_003/README.md"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:plan_b_pixel_003",
+    "message": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/generation.json"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:plan_b_pixel_walk_003_keys",
+    "message": "art/characters/clone_01/motion/plan_b/pixel_walk_003/README.md"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:plan_b_pixel_walk_003_keys",
+    "message": "art/characters/clone_01/motion/plan_b/pixel_walk_003/records/generation.json"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:parts_v2_frame_001",
+    "message": "AGENTS.md"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:parts_v2_frame_001",
+    "message": "README.md"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:parts_v2_frame_001",
+    "message": "game/app.js"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:parts_v2_frame_001",
+    "message": "game/index.html"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:parts_v2_frame_001",
+    "message": "game/package.json"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "character:clone_01:parts_v2_frame_001",
+    "message": "game/styles.css"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "fx:muzzle_flash:lighting_001",
+    "message": "game/animation/muzzle-light.js"
+  },
+  {
+    "code": "artifact_changed",
+    "path": "fx:muzzle_flash:lighting_001",
+    "message": "game/animation/webgl-character.js"
+  }
+]

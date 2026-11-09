@@ -1,0 +1,24 @@
+{
+  "id": "ih7-knocker",
+  "revision": "002",
+  "title": "IH-7 노커",
+  "role": "유나 · 특수 충격 해머",
+  "dir": "ih7-knocker_002",
+  "start": {
+    "current_time": "2026-11-09 04:34:55 UTC"
+  },
+  "end": {
+    "current_time": "2026-11-09 04:35:43 UTC"
+  },
+  "source": "art/weapons/wiki_concepts_001/ih7-knocker_002/source/illustration.png",
+  "error": null,
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "width": 1536,
+  "height": 1024,
+  "mode": "RGB",
+  "sha256": "8007427dfe34a0e7f09492a9a91c4828de7a0dcfa416e60b82f93e871ced417b",
+  "status": "superseded-or-rejected",
+  "elapsed_seconds": 48.0
+}

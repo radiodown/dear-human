@@ -1,0 +1,15 @@
+{
+  "id": "ml70-mule",
+  "revision": "005",
+  "title": "ML-70 뮬",
+  "role": "모아 · 다목적 런처",
+  "dir": "ml70-mule_005",
+  "start": {
+    "current_time": "2026-11-09 04:42:24 UTC"
+  },
+  "error": "image generation failed: http 400 Bad Request: Some(\"{\\n  \\\"error\\\": {\\n    \\\"message\\\": \\\"Your request was rejected by the safety system. If you believe this is an error, contact us at help.openai.com and include the request ID ef681899-bf0c-432d-bd8c-2a9e3400ac80. safety_violations=[violence].\\\",\\n    \\\"type\\\": \\\"image_generation_user_error\\\",\\n    \\\"param\\\": null,\\n    \\\"code\\\": \\\"moderation_blocked\\\",\\n    \\\"moderation_details\\\": {\\n      \\\"moderation_stage\\\": \\\"input\\\",\\n      \\\"categories\\\": [\\n        \\\"violence\\\"\\n      ]\\n    }\\n  }\\n}\")",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "status": "generation-failed"
+}

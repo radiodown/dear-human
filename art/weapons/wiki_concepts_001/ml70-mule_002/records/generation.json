@@ -1,0 +1,15 @@
+{
+  "id": "ml70-mule",
+  "revision": "002",
+  "title": "ML-70 뮬",
+  "role": "모아 · 다목적 런처",
+  "dir": "ml70-mule_002",
+  "start": {
+    "current_time": "2026-11-09 04:34:03 UTC"
+  },
+  "error": "Generation rejected by safety system; no output.",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": "not reported by tool",
+  "status": "generation-failed"
+}

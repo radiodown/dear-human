@@ -1,0 +1,12 @@
+{
+  "date": "2026-11-09",
+  "output_review": "Visually inspected generated output: flat broad face, straight rim, retained viewport and straps, centered silver winged heraldic emblem; whole object visible",
+  "adoption": "User review pending; imperial emblem is an original concept, not a confirmed official symbol",
+  "wiki_content_check": "passed",
+  "wiki_static_build": "passed",
+  "http_and_hash": "New image returned 200 and matched preserved original SHA-256",
+  "live_article_references": "Yuna and clone-special-weapons both reference shield 002",
+  "browser_layout": "Not repeated; renderer unchanged and dimensions match prior illustration",
+  "previous_source_preserved": true,
+  "game_changes": false
+}

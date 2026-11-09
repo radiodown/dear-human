@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "original_copy_sha256_png_decode_exact_prompt_and_local_artifact_references",
+  "verified_at_utc": "2026-11-09T04:58:43.479482+00:00",
+  "source_sha256": "4d8dd5e70b8e508d38142d96a3074c317b23eb5949fb7badd51c29346a7cfc7d",
+  "saved_sha256": "4d8dd5e70b8e508d38142d96a3074c317b23eb5949fb7badd51c29346a7cfc7d",
+  "byte_identical": true,
+  "image": {
+    "width": 1672,
+    "height": 941,
+    "mode": "RGB"
+  },
+  "art_approval": "not_recorded",
+  "browser_visual_verification": "not_performed",
+  "runtime_verification": "not_applicable"
+}
