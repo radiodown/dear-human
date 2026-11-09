@@ -8,7 +8,7 @@ const portIndex = args.indexOf('--port');
 const port = Number(portIndex >= 0 ? args[portIndex + 1] : process.env.PORT || 4174);
 if (!Number.isInteger(port) || port < 1 || port > 65535) throw new Error('유효한 포트 번호가 필요합니다.');
 const host = process.env.HOST || '127.0.0.1';
-const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.json': 'application/json; charset=utf-8', '.md': 'text/markdown; charset=utf-8' };
+const mime = { '.html': 'text/html; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.css': 'text/css; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.json': 'application/json; charset=utf-8', '.md': 'text/markdown; charset=utf-8' };
 const server = http.createServer(async (request, response) => {
   try {
     const pathname = decodeURIComponent(new URL(request.url, 'http://localhost').pathname);

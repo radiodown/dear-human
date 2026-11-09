@@ -38,7 +38,7 @@ function renderSidebar() {
     <section class="side-panel"><h2>세계관 분류</h2>
     <nav class="category-nav" aria-label="문서 분류">${content.categories.map(category => `<a href="#/category/${category.id}" class="nav-item ${route === `#/category/${category.id}` ? 'active' : ''}"><span class="category-dot"></span><span>${e(category.title)}</span><small>${visible().filter(article => article.category === category.id).length}</small></a>`).join('')}</nav>
     </section><section class="side-panel"><h2>주요 문서</h2>
-    <nav class="reading-nav" aria-label="추천 입문 문서">${[['world-overview', '세계관 개요'], ['ai-war', 'AI 전쟁'], ['united-earth', '유나이티드 어스'], ['clone-war', '클론전쟁'], ['commander', '인간 지휘관'], ['heroine', '최신형 클론 히로인']].map(([slug, title]) => link(slug, title)).join('')}</nav></section>
+    <nav class="reading-nav" aria-label="추천 입문 문서">${[['world-overview', '세계관 개요'], ['ai-war', 'AI 전쟁'], ['united-earth', '유나이티드 어스'], ['clone-war', '클론전쟁'], ['commander', '인간 지휘관'], ['heroine', '리안']].map(([slug, title]) => link(slug, title)).join('')}</nav></section>
     <section class="side-panel world-reference"><h2>이야기의 현재</h2><strong>2114. 11. 21.</strong><p>베스퍼 도착 · 본편의 시작</p><div>${visible().length}개 문서 · ${content.categories.length}개 분류</div></section>`;
 }
 
@@ -89,6 +89,8 @@ function renderArticle(slug) {
   articleToc.querySelector('h2').textContent = '목차';
   if (article.profile) {
     const profile = article.profile;
+    const portrait = article.portrait;
+    const portraitHtml = portrait ? `<figure class="profile-portrait"><a href="./${e(portrait.src)}" target="_blank" rel="noopener" aria-label="${e(article.title)} 이미지 크게 보기"><img src="./${e(portrait.src)}" alt="${e(portrait.alt)}" width="${portrait.width}" height="${portrait.height}" decoding="async"></a><figcaption>${e(portrait.caption)}</figcaption></figure>` : '';
     const overview = document.createElement('section');
     overview.className = 'character-overview';
     overview.setAttribute('aria-label', '인물 목차와 기본 정보');
@@ -96,6 +98,7 @@ function renderArticle(slug) {
     overview.append(articleToc);
     overview.insertAdjacentHTML('beforeend', `<aside class="character-profile" aria-label="${e(article.title)} 기본 정보"><header><h2>${e(article.title)}</h2><p>${e(profile.subtitle)}</p></header><p class="profile-description">${e(profile.description)}</p><table><caption class="sr-only">${e(article.title)} 인물 정보</caption><tbody>${profile.fields.map(([label, value]) => `<tr><th scope="row">${e(label)}</th><td>${e(value)}</td></tr>`).join('')}</tbody></table><p class="profile-note">${e(profile.note)}</p></aside>`);
     overview.prepend(overview.querySelector('.character-profile'));
+    if (portraitHtml) overview.querySelector('.character-profile>header').insertAdjacentHTML('afterend', portraitHtml);
     document.querySelector('.article-main').classList.add('has-character-profile');
   }
   document.querySelector('.article-summary').insertAdjacentHTML('beforebegin', `<div class="category-box"><span>분류:</span> <a href="#/category/${article.category}">${e(categoryById(article.category).title)}</a></div>`);

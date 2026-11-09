@@ -136,6 +136,10 @@ main { padding:28px 32px 38px; background:var(--paper); border:1px solid var(--l
 .character-profile>header { padding:16px 13px 14px; text-align:center; color:#fff; background:var(--brand); }
 .character-profile>header h2 { font-size:20px; line-height:1.5; letter-spacing:-.5px; }
 .character-profile>header p { color:#c0d2ef; margin-top:4px; font-size:11px; }
+.profile-portrait { margin:0; border-bottom:1px solid var(--line); background:#0a101c; }
+.profile-portrait a { display:block; cursor:zoom-in; }
+.profile-portrait img { display:block; width:100%; height:auto; }
+.profile-portrait figcaption { background:var(--soft); color:var(--muted); font-size:10px; line-height:1.8; text-align:center; padding:7px 10px; }
 .profile-description { padding:13px 14px; font-size:12px; line-height:1.8; border-bottom:1px solid var(--line); background:var(--soft); }
 .character-profile table { border-collapse:collapse; width:100%; table-layout:fixed; font-size:12px; line-height:1.75; }
 .character-profile th,.character-profile td { border-bottom:1px solid var(--line); padding:8px 10px; vertical-align:top; text-align:left; }

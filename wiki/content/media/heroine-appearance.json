@@ -1,0 +1,11 @@
+{
+  "asset": "public/assets/characters/heroine-appearance.png",
+  "source": "art/characters/clone_01/concepts/reference_003_3d/source/appearance.png",
+  "adoption_record": "docs/23-character-appearance-review.md",
+  "sha256": "2db26f5c2a197b5bfaff2d1b9fe4d82c721783205c22f74946ba92c25f77483c",
+  "width": 1024,
+  "height": 1536,
+  "registered": "2026-11-09",
+  "treatment": "채택된 외형 원화를 바이트 변경 없이 복사. 위키 표시 배율만 반응형으로 적용.",
+  "scope": "외형 참고 이미지. 이미지의 장비와 배경이 작중 초기 M16·신분·무대를 변경하지 않는다."
+}

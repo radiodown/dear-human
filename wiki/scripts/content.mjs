@@ -1,4 +1,5 @@
 import { readFile, readdir } from 'node:fs/promises';
+import { existsSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
@@ -45,6 +46,15 @@ export function validateContent({ articles, categories }) {
         if (typeof profile[field] !== 'string' || !profile[field]) throw new Error(`${article.slug}: 프로필 ${field} 필요`);
       }
       if (!Array.isArray(profile.fields) || !profile.fields.length || profile.fields.some(row => !Array.isArray(row) || row.length !== 2 || row.some(value => typeof value !== 'string' || !value))) throw new Error(`${article.slug}: 프로필 항목은 이름과 값의 쌍이어야 합니다.`);
+    }
+    if (article.portrait !== undefined) {
+      const portrait = article.portrait;
+      if (!article.profile || !portrait || typeof portrait !== 'object' || Array.isArray(portrait)) throw new Error(`${article.slug}: 인물 이미지 형식 오류`);
+      if (typeof portrait.src !== 'string' || !/^assets\/[a-zA-Z0-9/_-]+\.(png|jpe?g|webp)$/.test(portrait.src)) throw new Error(`${article.slug}: 위키 내부 이미지 경로가 필요합니다.`);
+      for (const field of ['alt', 'caption']) if (typeof portrait[field] !== 'string' || !portrait[field]) throw new Error(`${article.slug}: 이미지 ${field} 필요`);
+      for (const field of ['width', 'height']) if (!Number.isInteger(portrait[field]) || portrait[field] <= 0) throw new Error(`${article.slug}: 이미지 ${field} 오류`);
+      const imagePath = path.join(root, 'public', portrait.src);
+      if (!existsSync(imagePath) || !statSync(imagePath).isFile()) throw new Error(`${article.slug}: 이미지 파일이 없습니다.`);
     }
   }
   for (const article of articles) {
