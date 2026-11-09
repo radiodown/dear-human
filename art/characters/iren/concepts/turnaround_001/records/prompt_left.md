@@ -1,0 +1,27 @@
+# Aren · left · exact submitted English JSON prompt
+
+```json
+{
+  "use_case": "stylized-concept",
+  "asset_type": "Dear Human Aren (iren) full-body four-direction sample illustration; one separate portrait image per direction",
+  "primary_request": "Create ONE polished character turnaround illustration of the exact woman in input image 1, preserving HER face, hairstyle, body proportions and individual role-specific outfit. Use input image 2 (Lian turnaround) ONLY for the realistic cinematic 3D-render illustration style, neutral pose, gray studio background, lighting, scale and framing; do not copy Lian's identity or uniform.",
+  "subject": "AREN (previous name Iren; filesystem ID iren), a beautiful East Asian adult woman, appearance age 25–26. Preserve the distinctive composed refined face of input 1: clear gentle almond-shaped eyes, youthful oval cheek volume, graceful tapered jaw and small reassuring smile. CLEAN STRAIGHT BLACK ONE-LENGTH BOB, ends just BELOW THE JAW and well ABOVE THE SHOULDERS, tidy off-center SIDE PART, one side tucked behind the ear. No waves, curls, long hair or ponytail. Black/gunmetal assault-leader armor with restrained gold edging, high collar, armored chest and shoulder plates, black shoulder cape with gold edging, utility belt with magazine pouches, SHORT LAYERED ARMORED LOWER PANELS over OPAQUE SAFETY SHORTS, visible vertical waist-to-stocking GARTER STRAPS, dark THIGH-HIGH STOCKINGS, knee/shin plates and tall strapped armored boots. Preserve her individual outfit from input 1. Only Aren among these four wears garters and stockings. Do not copy Lian's hair, face or extra ornamentation.",
+  "pose": "Neutral upright standing turnaround pose as in input image 2. Both feet planted at equal height, arms relaxed slightly away from the torso, empty gloved hands. Any existing cape hangs naturally from the same shoulder attachments. No action pose. Remove all HANDHELD weapons, physical shield and handheld helmet so her outfit silhouette is clear. Existing attached pouches, binoculars and holsters remain.",
+  "framing": "Single character only, full body including hair top, complete cape hem and both boot soles, centered, portrait 2:3 canvas, target 1024x1536. Character occupies about 90 percent of canvas height, with comfortable empty margins. Level orthographic-like camera at mid-body height, no foreshortening, no tilted camera. Keep the same character scale, pose, floor level and framing across the four directions.",
+  "background": "Plain neutral medium gray studio backdrop and floor, soft contact shadow, no scenery, no props.",
+  "lighting": "Soft neutral studio key and fill, enough separation to read black hair, black cloth and metal armor; same lighting and materials in all views.",
+  "constraints": [
+    "Maintain the reference face and adult proportions.",
+    "Preserve costume construction and all established asymmetry on the same anatomical side.",
+    "Turn the entire person, hair, cape and outfit together.",
+    "Do not reinterpret the design as a different uniform or a different character.",
+    "No cropped feet or hair, no wide-angle perspective, no seductive pose.",
+    "No text, labels, codes, rank insignia, numbers, watermark, border, montage, extra people, handheld weapons, shields or helmets.",
+    "Use her own face and role-specific outfit from image 1. Lian provides rendering, backdrop and framing only.",
+    "Clothing, age and hair must remain the same in all four images. Hidden rear details are plausible concept proposals, not newly established lore."
+  ],
+  "input_images": "Image 1: PRIMARY identity, face, hairstyle and individual costume reference. Image 2: LIAN STYLE/FRAMING/NEUTRAL POSE reference ONLY, not identity or costume. Image 3: this same character's newly generated FRONT view, continuity reference. Image 4: this character's BACK view, rear costume continuity. ",
+  "direction": "Exact LEFT-FACING PROFILE: nose, torso, pelvis and both boot toes point horizontally toward the LEFT edge of the image. Strict full-body side view, no three-quarter turn, no face looking at the camera. Turn the entire person together; keep anatomical asymmetry consistent. This must be a newly illustrated view, not a mirrored image."
+}
+```
+

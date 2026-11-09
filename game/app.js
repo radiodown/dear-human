@@ -12,6 +12,14 @@ const planE = new PlanELab();
 const glb = new GlbModelLab();
 const glbSprite = new GlbSpriteLab();
 let labInitialized = false;
+const motionPreviews = [
+  { mode: 'rig', label: '플랜 A · 파츠 실시간', query: 'motion=idle' },
+  { mode: 'rig-v2', label: '플랜 A · 파츠 V2', query: 'plan=parts-v2&motion=walk' },
+  { mode: 'plan-b', label: '플랜 B · 도트 원화·모션', query: 'plan=b' },
+  { mode: 'plan-e', label: '플랜 E · 3D→도트', query: 'plan=e' },
+  { mode: 'glb', label: 'GLB · 3D 모델', query: 'plan=glb' },
+  { mode: 'glb-sprite', label: 'GLB · 2D 스프라이트', query: 'plan=glb-sprite' },
+];
 function setPreviewMode(mode, updateUrl=true) {
   if (mode === 'rig' && !app.entry?.capabilities?.some(value => ['webgl_rig', 'rig_mount'].includes(value))) mode = 'reference';
   const rigMode = mode === 'rig';
@@ -33,6 +41,7 @@ function setPreviewMode(mode, updateUrl=true) {
   $('mode-rig').setAttribute('aria-pressed', String(rigMode));
   $('mode-plan-b').setAttribute('aria-pressed', String(planBMode));
   $('mode-rig-v2').setAttribute('aria-pressed', String(v2Mode));
+  updateSampleSelection(mode);
   $('review-state').textContent = glbSpriteMode ? 'GLB · 2D 스프라이트 시험' : glbMode ? '3D 모델 · GLB 재생 시험' : planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
   lab.show(rigMode);
   planB.show(planBMode);
@@ -67,16 +76,69 @@ const app = { entries: [], entry: null, revision: null, view: 'sheet', zoom: 1 }
 const labels = { character: '캐릭터', weapon: '무기', enemy: '적' };
 const viewLabels = { front: '정면', back: '후면', left: '좌측면', right: '우측면', side: '측면' };
 
+function updateSampleSelection(mode = 'reference') {
+  const entry = app.entry;
+  if (!entry) return;
+  const preview = entry.entity_id === 'clone_01' ? motionPreviews.find(item => item.mode === mode) : null;
+  document.querySelectorAll('[data-nav], [data-preview]').forEach(link => {
+    const current = link.dataset.preview
+      ? link.dataset.preview === preview?.mode
+      : !preview && link.dataset.nav === entry.kind && link.dataset.entity === entry.entity_id;
+    link.classList.toggle('current', current);
+    if (current) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+  });
+  const motionMenu = document.querySelector('.motion-nav');
+  motionMenu.classList.toggle('has-current', Boolean(preview));
+  if (preview) motionMenu.open = true;
+  $('breadcrumb').textContent = preview ? `모션 테스트 / ${preview.label}` : `${labels[entry.kind]} / ${entry.display_name}`;
+  $('entity-title').replaceChildren(document.createTextNode(preview ? '모션 테스트' : entry.display_name), Object.assign(document.createElement('span'), { className: 'title-dot', textContent: '.' }));
+  document.title = `${preview ? preview.label + ' · 모션 테스트' : entry.display_name + ' · 샘플 라이브러리'} — Dear Human`;
+  if (preview) {
+    $('eyebrow').textContent = 'MOTION TEST / LIAN';
+    $('subtitle').textContent = `${preview.label} · 리안의 준비된 원화와 동작을 확인하세요.`;
+  } else if (entry.entity_id === 'clone_01') {
+    $('eyebrow').textContent = 'LIAN / CL-VS-13-047';
+    $('subtitle').textContent = '리안의 기준 원화와 파츠·도트·3D 미리보기를 확인하세요.';
+  }
+}
+
 function renderSampleNav() {
   const nav = document.querySelector('nav[aria-label="샘플 목록"]');
   const groups = [
     { kind: 'character', route: 'characters', label: '캐릭터', icon: '◈' },
-    { kind: 'weapon', route: 'weapons', label: '무기', icon: '⌁' },
+    { kind: 'motion' },
     { kind: 'enemy', route: 'enemies', label: '적 · 토착 생물', icon: '◇' },
   ];
   let count = 0;
   nav.replaceChildren();
   for (const group of groups) {
+    if (group.kind === 'motion') {
+      const section = document.createElement('details');
+      section.className = 'nav-group motion-nav';
+      section.open = true;
+      const heading = document.createElement('summary');
+      heading.className = 'nav-group-heading';
+      heading.textContent = '모션 테스트';
+      const total = document.createElement('small');
+      total.textContent = String(motionPreviews.length).padStart(2, '0');
+      heading.append(total);
+      const submenu = document.createElement('div');
+      submenu.className = 'nav-submenu';
+      submenu.setAttribute('role', 'group');
+      submenu.setAttribute('aria-label', '플랜별 모션 테스트');
+      for (const preview of motionPreviews) {
+        const link = document.createElement('a');
+        link.className = 'nav-item nav-subitem';
+        link.href = `#/samples/characters/clone_01?${preview.query}`;
+        link.dataset.preview = preview.mode;
+        link.textContent = preview.label;
+        submenu.append(link);
+      }
+      section.append(heading, submenu);
+      nav.append(section);
+      count += motionPreviews.length;
+      continue;
+    }
     const entries = app.entries.filter(entry => entry.kind === group.kind);
     if (!entries.length) continue;
     const section = document.createElement('section');
@@ -258,11 +320,7 @@ function showRoute() {
     $('mode-reference').textContent = kind === 'weapon' ? '무기 파츠' : conceptOnly ? '일러스트 시안' : '채택 외형';
     $('direction-heading').textContent = kind === 'weapon' ? 'M16 · 분리형 무기.' : conceptOnly ? `${entry.display_name} · 콘셉트 시안.` : '차갑고, 도도하게.';
     $('review-state').textContent = hasArt ? '외형 검토 대기' : '제작 예정';
-    document.querySelectorAll('[data-nav]').forEach(link => {
-      const current = link.dataset.nav === kind && link.dataset.entity === id;
-      link.classList.toggle('current', current);
-      if (current) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
-    });
+    updateSampleSelection();
     if (!hasArt) { $('empty-title').textContent = `${entry.display_name}은 아직 제작하지 않았습니다.`; return; }
     const revisions = entry.revisions.filter((revision) => revision.preview?.image_path).toReversed();
     $('revision-select').disabled = revisions.length < 2;

@@ -37,6 +37,15 @@ main{margin-left:218px;padding:0 40px;max-width:1800px}.page-top{height:73px;bor
 .sample-nav .nav-item>.nav-item-name{min-width:0;color:inherit;font-size:11px;line-height:1.6;overflow-wrap:anywhere}
 .sample-nav .nav-item small{flex-shrink:0}
 .sample-nav .nav-item.current small{color:#dfb79b}
+.motion-nav>summary{list-style:none;cursor:pointer;gap:7px;min-height:28px}
+.motion-nav>summary::-webkit-details-marker{display:none}
+.motion-nav>summary::before{content:'▸';font-size:11px;color:#a9b6ab;transition:transform .15s}
+.motion-nav[open]>summary::before{transform:rotate(90deg)}
+.motion-nav>summary small{margin-left:auto}
+.motion-nav>summary:focus-visible{outline:2px solid #e78452;outline-offset:3px}
+.motion-nav.has-current>summary{color:#dfb79b}
+.nav-submenu{display:grid;gap:3px;border-left:1px solid #3b4b41;margin-left:16px;padding-left:8px}
+.sample-nav .nav-subitem{font-size:10px;line-height:1.6;padding:9px 8px;margin:0}
 .sidebar-note{margin:22px 8px 18px;flex-shrink:0}
 .sidebar-bottom{padding-top:12px;flex-shrink:0}
 .preview-mode{display:flex;flex-direction:column;gap:0;margin-bottom:16px;border-bottom:1px solid var(--line)}
@@ -47,7 +56,7 @@ main{margin-left:218px;padding:0 40px;max-width:1800px}.page-top{height:73px;bor
 .preview-group-buttons button span{margin-left:5px;font-size:8px;letter-spacing:.3px;color:#8b704d}
 .preview-group-buttons button[aria-pressed=true] span{color:#dfb79b}
 @media(max-width:800px){
-  .sample-nav{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr) minmax(0,1.6fr);gap:16px;margin-top:20px;min-height:0;overflow:visible}
+  .sample-nav{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,2fr) minmax(0,1.6fr);gap:16px;margin-top:20px;min-height:0;overflow:visible}
   .nav-group{margin-bottom:0}
   .nav-group-heading{margin-left:8px;margin-right:8px}
   .sample-nav .nav-item{padding:7px 8px;gap:7px}
@@ -58,6 +67,9 @@ main{margin-left:218px;padding:0 40px;max-width:1800px}.page-top{height:73px;bor
   .nav-group{display:flex;flex-wrap:wrap;gap:4px}
   .nav-group-heading{flex-basis:100%;margin:0 8px 3px}
   .nav-group-heading small{display:none}
+  .motion-nav{display:block}
+  .motion-nav>summary{justify-content:flex-start;margin-bottom:6px}
+  .nav-submenu{grid-template-columns:repeat(2,minmax(0,1fr))}
   .sample-nav .nav-item{margin:0}
   .sample-nav .nav-item>.nav-item-name{font-size:10px}
   .sample-nav .nav-item small{font-size:8px}
