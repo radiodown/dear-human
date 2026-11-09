@@ -1,0 +1,19 @@
+{
+  "raw_size": [
+    1254,
+    1254
+  ],
+  "size": [
+    627,
+    627
+  ],
+  "scale": 0.5,
+  "resampling": "nearest",
+  "offset": [
+    0,
+    0
+  ],
+  "alpha_cleanup": false,
+  "before_dependent_generation": true,
+  "individual_pose_fit": false
+}

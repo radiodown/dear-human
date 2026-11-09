@@ -1,0 +1,14 @@
+{
+  "name": "dear-human-wiki",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Dear Human 세계관 위키 — 독립 문서와 정적 웹 서비스",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "dev": "node scripts/server.mjs",
+    "start": "node scripts/server.mjs",
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/check.mjs"
+  }
+}

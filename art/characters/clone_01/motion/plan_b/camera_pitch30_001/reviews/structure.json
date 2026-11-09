@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "scope": "Single PNG decode, RGBA alpha, and identical source/output bytes; no animation tests.",
+  "size": [
+    1254,
+    1254
+  ],
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "zero_alpha_pixels": 1326356,
+  "total_pixels": 1572516,
+  "raw_alpha_bbox": [
+    0,
+    0,
+    1240,
+    1254
+  ],
+  "alpha_over_16_bbox": [
+    267,
+    271,
+    1045,
+    1084
+  ],
+  "source_output_sha256": "df79b69bad90ece397b3d564dcecc77d34a93eac7c2d50134176378c16344f58",
+  "note": "Low-alpha generated edge specks remain unchanged. Angle and proportions require visual/user review."
+}

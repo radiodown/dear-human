@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#172b4a">
+  <meta name="description" content="Dear Human의 인물, 역사, 사회와 성간 개척을 담은 세계관 위키.">
+  <title>Dear Human · 세계관 위키</title>
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="./styles.css">
+  <script type="module" src="./app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">본문으로 이동</a>
+  <header class="topbar">
+    <a href="#/" class="top-label"><span class="site-symbol" aria-hidden="true">D</span>Dear Human <small>위키</small></a>
+    <nav class="header-nav" aria-label="상단 메뉴"><a href="#/">대문</a><a href="#/articles">문서 목록</a><a href="#/timeline">연표</a></nav>
+    <div class="search-wrap"><div class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" aria-label="위키 검색" placeholder="위키 검색" autocomplete="off"><kbd>/</kbd><button id="search-clear" class="icon-button" aria-label="검색 지우기" hidden>×</button></div></div>
+    <div class="top-actions"><button id="theme-toggle" class="icon-button" aria-label="어두운 테마로 변경">◐</button><label class="creator-switch"><input type="checkbox" id="creator-toggle"><span>제작자 설정</span></label></div>
+      <button id="menu-toggle" class="icon-button mobile-only" aria-label="탐색 메뉴 열기" aria-expanded="false">☰</button>
+  </header>
+  <div class="site-layout">
+    <div class="shell">
+    <main id="main" tabindex="-1"><div class="loading">기록을 불러오고 있습니다.</div></main>
+    <footer class="site-footer"><span>DEAR HUMAN <span class="footer-dot">·</span> WORLD WIKI</span><span>인류를 지키도록 만들어진 이들의 이야기.</span></footer>
+    </div>
+    <aside id="sidebar" class="sidebar" aria-label="위키 탐색"></aside>
+  </div>
+  <div id="notice" class="notice" role="status" aria-live="polite"></div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "type": "still_pose",
+  "pose": "idle_fire",
+  "image": "pose.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "source_output_sha256": "bb26eadad81122eaec47834c00b311e639e41a0ab77591a37a71f5b50ff83913",
+  "postprocessing": "None. Identical original bytes; display size is controlled by the page.",
+  "kind": "single_pose_concept",
+  "animation_available": false
+}

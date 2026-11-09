@@ -1,0 +1,30 @@
+{
+  "idle": {
+    "title": "정지",
+    "brief": "The quiet planted rifle-ready standing pose already drawn as the new simple style baseline."
+  },
+  "walk": {
+    "title": "걷기 자세",
+    "brief": "One single MID-STRIDE walking pose, not a cycle: the near leg extends forward screen-right, far leg trails behind with rear heel raised. Moderate stride and slim natural adult legs. Both hands carry the M16 calmly at chest-ready height pointing screen-right, without the cheek pressed into the stock. Torso slightly forward, no running leap or motion blur."
+  },
+  "walk_fire": {
+    "title": "걷기 사격 자세",
+    "brief": "One single walking-and-aiming/firing stance: near boot forward screen-right on heel/sole, far boot back on toe in the same moderate stride family. Torso leans forward slightly and stock is firmly in the shoulder, cheek and eye align to the M16 sight line. Both grips fixed. No muzzle flash, recoil sequence, trails or separate FX."
+  },
+  "idle_fire": {
+    "title": "정지 사격 자세",
+    "brief": "One single planted standing firing/aiming stance: feet fixed in a small stagger, knees soft, upper torso leans forward just enough to brace the M16, stock touching shoulder, cheek close to stock and eye on sight line. Same slim body and simplified costume. No muzzle flash or recoil sequence."
+  },
+  "kneel": {
+    "title": "앉기 자세",
+    "brief": "One single settled one-knee ready stance, not a lowering transition: forward boot flat toward screen-right, front knee raised, rear knee on ground below/in front of pelvis, rear shin folds backward. Rifle held with both hands horizontally at chest-ready height, face relaxed and not forcefully pressed into stock. Preserve adult head/torso/rifle sizes; kneeling figure is naturally lower and has substantial empty space above it. Ground contacts stay near the baseline's bottom contact level. Cape has one simple folded sweep on the ground behind, without many cloth folds."
+  },
+  "kneel_fire": {
+    "title": "앉아쏴 자세",
+    "brief": "One single settled one-knee firing/aiming stance: front boot planted toward screen-right with front shin roughly upright, rear knee on ground below/in front of pelvis, rear shin folded backward. Torso leans slightly forward, M16 horizontal, stock snug at shoulder, cheek/eye on the sights, both hands gripping correctly. No support-elbow-to-knee contact requirement. Same naturally lowered position and ground plane as the kneeling ready pose; do not enlarge the crouch. No flash, recoil sequence or extra effects."
+  },
+  "reload": {
+    "title": "장전 자세",
+    "brief": "One single clear magazine-insertion pose, not a sequence: right firing hand stays on the M16 rear grip and supports rifle at shoulder/chest height, left hand wraps ONE replacement magazine and guides it into the magwell. Keep a narrow planted standing stance and calm focused face. No extra hands, floating old magazine, duplicate weapon, motion arrows, FX or multiple stages."
+  }
+}

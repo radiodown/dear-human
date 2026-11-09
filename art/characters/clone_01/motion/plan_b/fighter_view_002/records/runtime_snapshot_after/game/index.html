@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Dear Human — 캐릭터 외형 검토</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="#/samples"><span class="brand-icon">D<span>H</span></span><span>DEAR HUMAN<small>ART & MOTION LIBRARY</small></span></a>
+    <div class="nav-label">샘플 라이브러리 <span>01</span></div>
+    <nav aria-label="샘플 목록">
+      <a class="nav-item current" href="#/samples/characters/clone_01" data-nav="character"><span>◈</span> 주인공 클론 <small>01</small></a>
+      <a class="nav-item" href="#/samples/weapons/m16_basic?motion=idle" data-nav="weapon"><span>⌁</span> M16 <small>시험</small></a>
+      <a class="nav-item" href="#/samples/enemies/swarm_creature_melee" data-nav="enemy"><span>◇</span> 군집생물 <small>예정</small></a>
+    </nav>
+    <div class="sidebar-note"><span class="live-dot"></span> 채택 외형 · 모션 시험<p>첨부 캐릭터 · 3D 렌더 질감<br>파츠·무기 분리 테스트</p></div>
+    <div class="sidebar-bottom">VESPER · COLONIAL FRONTIER<br><span>CONCEPT DEVELOPMENT / 2026</span></div>
+  </aside>
+
+  <main>
+    <header class="page-top"><span>라이브러리 <b>/</b> <span id="breadcrumb">캐릭터</span></span><span class="local-badge">LOCAL PREVIEW</span></header>
+    <section class="title-row"><div><p class="eyebrow" id="eyebrow">CHARACTER / CLONE 01</p><h1 id="entity-title">주인공 클론<span class="title-dot">.</span></h1><p class="subtitle" id="subtitle">첨부 기준 캐릭터와 3D 렌더 질감의 외형을 확인하세요.</p></div><div class="review-state" id="review-state">새 기준 · 외형 검토</div></section>
+
+    <div id="error" class="error" role="alert" hidden></div>
+    <section id="empty-state" class="empty-state" hidden><span>PREPARATION</span><h2 id="empty-title">아직 제작하지 않았습니다.</h2><p>준비된 산출물이 생기면 이 페이지에 추가합니다.</p><a href="#/samples/characters/clone_01">주인공 클론 외형 보기 →</a></section>
+
+    <div class="workspace" id="workspace">
+      <section class="viewer-panel" aria-label="아트와 모션 미리보기">
+        <div class="preview-mode" aria-label="미리보기 종류"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button><button id="mode-rig" type="button" aria-pressed="false">파츠 모션 테스트 <span>LIVE</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 모션 V2 <span>FRAME</span></button><button id="mode-plan-b" type="button" aria-pressed="false">플랜 B · 도트 모션</button><button id="mode-plan-e" type="button" aria-pressed="false">플랜 E · 3D→도트 <span>SPRITE</span></button></div>
+        <div id="reference-view">
+        <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="back" aria-pressed="false" hidden>후면</button><button type="button" data-view="left" aria-pressed="false" hidden>좌측면</button><button type="button" data-view="right" aria-pressed="false" hidden>우측면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
+        <div class="art-stage bg-dark" id="art-stage"><span class="stage-label" id="stage-label">APPEARANCE / STATIC REFERENCE</span><div class="art-frame" id="art-frame" data-view="sheet"><img id="character-art" alt="주인공 클론의 전신 외형 시안" draggable="false"><div id="turnaround-grid" class="turnaround-grid" aria-label="캐릭터 4방향 일러스트" hidden></div></div><p id="image-loading" class="image-loading" role="status">외형 시안을 불러오는 중…</p></div>
+        <div class="viewer-bottom"><div class="background-controls" aria-label="배경 선택"><button type="button" data-bg="dark" class="bg-dot dark" aria-label="어두운 배경" aria-pressed="true"></button><button type="button" data-bg="light" class="bg-dot light" aria-label="밝은 배경" aria-pressed="false"></button><button type="button" data-bg="grid" class="bg-dot grid" aria-label="격자 배경" aria-pressed="false"></button><span>배경</span></div><div class="zoom-controls"><button type="button" id="zoom-out" aria-label="축소">−</button><output id="zoom-value">100%</output><button type="button" id="zoom-in" aria-label="확대">+</button><button type="button" id="zoom-reset">화면 맞춤</button></div><a id="original-link" href="#" target="_blank" rel="noopener">원본 보기 ↗</a></div>
+        <div class="sheet-caption"><span id="revision-caption">외형 시안</span><span id="image-dimensions"></span></div>
+        </div>
+        <div id="rig-view" hidden>
+          <div class="rig-toolbar"><div class="rig-motion-tabs"><button data-motion="idle" aria-pressed="true">견착 대기</button><button data-motion="relaxed" aria-pressed="false">완전 대기</button><button data-motion="walk" aria-pressed="false">이동</button><button data-motion="fire" aria-pressed="false">서서쏴</button><button data-motion="walk_fire" aria-pressed="false">이동 사격</button><button data-motion="run" aria-pressed="false">달리기</button><button data-motion="run_fire" aria-pressed="false">뛰며쏴</button><button data-motion="kneel" aria-pressed="false">앉기</button><button data-motion="kneel_fire" aria-pressed="false">앉아쏴</button></div><label>무기 <select id="rig-weapon"><option value="m16_basic">M16</option><option value="diagnostic">진단 도형</option></select></label></div>
+          <div class="rig-stage" id="rig-stage"><canvas id="rig-canvas" aria-label="분리 파츠 캐릭터의 실시간 WebGL 모션"></canvas><span class="rig-label">PARTS RIG / KNEEL 17</span><div class="rig-hud"><strong id="rig-ammo">30 / 30</strong><span id="rig-state">대기</span></div><p id="rig-loading" role="status">파츠를 불러오는 중…</p></div>
+          <div class="rig-actions"><button id="rig-shot">단발</button><button id="rig-hold">누르고 연사</button><button id="rig-turn">좌우 반전</button><button id="rig-reload">장전 R</button><button id="rig-empty-reload">빈 탄창 장전</button><button id="rig-hit">피격 반응</button></div>
+          <div class="rig-playback"><button id="rig-pause">일시정지</button><button id="rig-step">1프레임</button><button id="rig-reset">모든 동작 초기화</button><label>속도 <select id="rig-speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label><label>인물 크기 <select id="rig-size"><option value="300">확대 검토</option><option value="128">128px 기준</option><option value="64">64px 기준</option></select></label></div>
+          <div class="rig-camera" aria-label="수직 시점"><label for="rig-camera-pitch">내려다보는 각도 <input id="rig-camera-pitch" type="range" min="0" max="20" step="1" value="12" aria-describedby="rig-camera-note"><output id="rig-camera-value" for="rig-camera-pitch">12°</output></label><button type="button" data-camera-pitch="0" aria-pressed="false">정측면 0°</button><button type="button" data-camera-pitch="12" aria-pressed="true">위에서 12°</button></div>
+          <p class="rig-camera-note" id="rig-camera-note">시점·재생 속도·인물 크기는 모든 동작의 공통 보기 설정입니다. 시점은 기본 12°, 범위 0~20°이며 일시정지에서도 비교할 수 있습니다. 기존 측면 그림을 이용하므로 머리·갑옷의 윗면 표현은 아직 없습니다.</p>
+          <div class="rig-articulation"><strong><span id="rig-controls-motion">견착 대기</span> 설정</strong><button id="rig-motion-reset" type="button">이 동작 기본값</button></div>
+          <div class="rig-articulation" aria-label="동작 강도"><label for="rig-motion-energy">동작 강도 <input id="rig-motion-energy" type="range" min="0" max="150" step="5" value="100" aria-describedby="rig-motion-energy-note"><output id="rig-motion-energy-value" for="rig-motion-energy">100%</output></label><button type="button" data-motion-energy="0" aria-pressed="false">추가 반응 0%</button><button type="button" data-motion-energy="100" aria-pressed="true">기본 강도 100%</button></div>
+          <p class="rig-note" id="rig-motion-energy-note">현재 자세의 착지·발 회수·상체·망토 반응을 조절합니다. 0%는 추가 반응을 끄고, 100%는 기본 강도입니다. 보정된 체형과 기본 걷기·달리기는 모든 강도에서 적용됩니다. 동작별 저장과 일시정지 비교도 유지됩니다.</p>
+          <div class="rig-articulation" aria-label="현재 동작 자세 조절" aria-describedby="rig-pose-controls-note"><label for="rig-pose-waist">기본 허리각 <input id="rig-pose-waist" type="range" min="0" max="45" step="0.5" value="4"><output id="rig-pose-waist-value" for="rig-pose-waist">4.0°</output></label><label for="rig-waist-bend">추가 숙임 <input id="rig-waist-bend" type="range" min="0" max="45" step="0.5" value="0"><output id="rig-waist-bend-value" for="rig-waist-bend">0.0°</output></label><label for="rig-bust-pitch">바스트·흉갑 각도 <input id="rig-bust-pitch" type="range" min="-5" max="5" step="0.5" value="0"><output id="rig-bust-pitch-value" for="rig-bust-pitch">0.0°</output></label><label for="rig-weapon-drop">총 낮춤 <input id="rig-weapon-drop" type="range" min="0" max="18" step="1" value="0"><output id="rig-weapon-drop-value" for="rig-weapon-drop">0</output></label><button id="rig-bend-reset" type="button">추가 숙임·흉갑 초기화</button></div>
+          <p class="rig-note" id="rig-pose-controls-note">모든 동작에서 같은 항목을 조절합니다. 기본 허리각에 호흡·하중·반동과 추가 숙임이 더해집니다. 총 낮춤은 총과 양손의 높이를 함께 바꾸고, 총구 방향은 선택한 자세를 따릅니다. 설정과 반응 on/off는 동작별로 저장되고, 공유 주소는 현재 동작의 값을 담습니다.</p>
+          <p class="rig-note" id="rig-carry-note">견착 대기는 총을 전방으로 들고, 완전 대기는 총을 내려 팔과 상체의 힘을 뺍니다. 사격하지 않는 달리기는 총구를 아래로 두며, 발사를 입력하면 총을 전방으로 든 뒤 쏩니다. 뛰며쏴는 기존처럼 정면을 보며 전방으로 쏩니다.</p>
+          <div class="rig-toggles"><label><input id="rig-debug" type="checkbox">뼈대·소켓</label><label><input id="rig-mesh" type="checkbox">메시</label><label><input id="rig-explode" type="checkbox">분리 파츠</label><label><input id="rig-showCape" type="checkbox" checked>망토 표시</label><a id="rig-master-link" target="_blank" rel="noopener">기준 자세 ↗</a><a id="rig-atlas-link" target="_blank" rel="noopener">머리·망토 ↗</a><a id="rig-limbs-link" target="_blank" rel="noopener">팔다리 ↗</a><a id="rig-body-link" target="_blank" rel="noopener">몸통 ↗</a><a id="rig-hand-link" target="_blank" rel="noopener">총열 파지 손 ↗</a><a id="rig-shoulder-link" target="_blank" rel="noopener">새 어깨 ↗</a><a id="rig-reload-arm-link" target="_blank" rel="noopener">새 장전 팔 ↗</a></div>
+          <div class="rig-toggles"><span>반응</span><label><input id="rig-fx-recoil" type="checkbox" checked>반동</label><label><input id="rig-fx-head" type="checkbox" checked>고개</label><label><input id="rig-fx-hair" type="checkbox" checked>머리카락</label><label title="허리 연결 천과 옷자락의 추가 흔들림을 켜고 끕니다."><input id="rig-fx-cloth" type="checkbox" checked aria-describedby="rig-secondary-note">허리·옷자락</label><label><input id="rig-fx-cape" type="checkbox" checked>망토</label><label><input id="rig-fx-light" type="checkbox" checked>캐릭터에 총구 빛</label><label class="rig-light-strength" for="rig-light-strength">빛 세기 <input id="rig-light-strength" type="range" min="0" max="200" step="10" value="100"><output id="rig-light-value" for="rig-light-strength">100%</output></label></div>
+          <p class="rig-metrics" id="rig-metrics" aria-live="off"></p><p class="rig-metrics" id="rig-springs"></p>
+          <p class="rig-note" id="rig-secondary-note">대기에서는 천천히 호흡하고, 걷기·달리기에서는 골반이 하중을 받고 흉곽이 조금 늦게 따라옵니다. 출발·정지에는 무게 이동이 더해지고 사격 후 상체가 밀렸다 돌아옵니다. ‘허리·옷자락’은 허리 천과 옷자락의 추가 흔들림을 켜고 끕니다. 일시정지 중에도 켜짐·꺼짐을 비교할 수 있으며 호흡과 기본 자세는 유지됩니다.</p>
+          <p class="rig-note">허리 숙임으로 상체를 0~45° 기울일 수 있습니다. 흉갑 각도는 몸통에 대한 상대 기울기이며 일시정지 상태에서도 조절할 수 있습니다. Space 연사 · A/D 이동 · Shift 달리기 · R 장전. 앉아쏴에서는 골반 앞의 무릎과 앞발로 몸을 지지하고 총을 수평으로 견착합니다. 앞허벅지에 따라 스커트 패널이 들리고 망토의 남는 길이는 바닥에 펼쳐집니다. 뛰며쏴는 정면을 보며 쏘고, 달리기 총 낮춤으로 높이를 조절할 수 있습니다. 사용자 검수 대기 상태입니다.</p>
+          <details class="rig-note"><summary>앉아쏴 기준 그림 보기</summary><a href="/art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png" target="_blank" rel="noopener"><img src="/art/characters/clone_01/concepts/kneeling_fire_001/source/kneeling_fire.png" alt="사용자가 채택한 M16 견착 앉아쏴 자세 기준 그림" loading="lazy" style="display:block;width:100%;height:auto;margin-top:12px"></a></details>
+          <p class="rig-note">발사 순간 총구 가까이의 얼굴·손·갑옷에 따뜻한 빛이 닿도록 연결했습니다. ‘캐릭터에 총구 빛’과 ‘빛 세기’로 비교할 수 있습니다. 장전 손 모양 3종(놓기·탄창 쥐기·조작부 누르기)은 미제작이며 장전에는 기존 임시 손을 사용합니다. 사용자 검수 대기 상태입니다.</p>
+        </div>
+        <div id="rig-v2-view" hidden>
+          <div class="rig-toolbar"><div class="rig-motion-tabs" role="group" aria-label="파츠 모션 V2 동작">
+            <button type="button" data-v2-motion="idle" aria-pressed="false">견착 대기</button><button type="button" data-v2-motion="relaxed" aria-pressed="false">완전 대기</button><button type="button" data-v2-motion="walk" aria-pressed="true">걷기</button><button type="button" data-v2-motion="fire" aria-pressed="false">서서쏴</button><button type="button" data-v2-motion="walk_fire" aria-pressed="false">걸으며쏴</button><button type="button" data-v2-motion="run" aria-pressed="false">달리기</button><button type="button" data-v2-motion="run_fire" aria-pressed="false">뛰며쏴</button><button type="button" data-v2-motion="kneel" aria-pressed="false">앉기</button><button type="button" data-v2-motion="kneel_fire" aria-pressed="false">앉아쏴</button>
+          </div></div>
+          <div class="rig-stage" id="v2-stage"><canvas id="v2-canvas" tabindex="0" aria-label="파츠 모션 V2 프레임 애니메이션. Space로 재생, 좌우 화살표로 한 장씩 이동"></canvas><span class="rig-label">PARTS MOTION V2 / FRAME ANIMATION</span><div class="rig-hud"><strong id="v2-frame-count">—</strong><span id="v2-state">걷기</span></div><p id="v2-loading" role="status">프레임 동작을 불러오는 중…</p></div>
+          <div class="rig-playback v2-playback"><button type="button" id="v2-prev" aria-label="이전 프레임">← 이전</button><button type="button" id="v2-pause">일시정지</button><button type="button" id="v2-next" aria-label="다음 프레임">다음 →</button><button type="button" id="v2-restart">첫 프레임</button><label>재생 <select id="v2-fps" aria-label="프레임 재생 속도"><option value="default">동작 기본</option><option value="6">6fps</option><option value="12">12fps</option><option value="18">18fps</option><option value="24">24fps</option></select></label><label><input type="checkbox" id="v2-loop" checked>반복</label></div>
+          <div class="v2-scrubber"><label for="v2-frame">프레임</label><input type="range" id="v2-frame" min="0" max="13" value="0"><output id="v2-frame-value" for="v2-frame">1 / 14</output></div>
+          <div id="v2-frames" class="v2-frames" role="group" aria-label="프레임 선택"></div>
+          <div class="rig-toggles"><button type="button" id="v2-turn">좌우 반전</button><label>시점 <select id="v2-camera"><option value="0">정측면 0°</option><option value="12" selected>위에서 12°</option><option value="20">위에서 20°</option></select></label><label><input type="checkbox" id="v2-cape" checked>망토 표시</label></div>
+          <p class="rig-metrics" id="v2-caption" aria-live="off"></p><p class="rig-note">한 장씩 넘기며 동작을 확인하세요. 동작을 바꾸면 첫 프레임부터 바로 시작합니다. Space 재생·정지, ← → 이전·다음 프레임. 기존 파츠로 만든 프레임 초안이며 자세와 반복 구간은 검토 중입니다.</p>
+        </div>
+        <div id="plan-e-view" hidden>
+          <div class="rig-motion-tabs" id="plan-e-clips" role="group" aria-label="플랜 E 동작"></div>
+          <div id="plan-e-stage" class="plan-e-stage bg-light" tabindex="0" aria-label="플랜 E 스프라이트 재생 영역"><canvas id="plan-e-canvas" aria-label="3D 모델에서 렌더링한 도트 스프라이트"></canvas><p id="plan-e-loading" role="status">플랜 E 스프라이트를 불러오는 중…</p></div>
+          <div class="rig-playback"><button id="plan-e-pause" type="button">일시정지</button><button id="plan-e-prev" type="button">이전</button><button id="plan-e-next" type="button">다음</button><output id="plan-e-counter">—</output><label>속도 <select id="plan-e-fps"><option value="default">기본</option><option value="6">6fps</option><option value="12">12fps</option><option value="15">15fps</option><option value="24">24fps</option></select></label><label>배율 <select id="plan-e-scale"><option value="2">2×</option><option value="3">3×</option><option value="4">4×</option></select></label><label>버전 <select id="plan-e-version"></select></label><label>배경 <select id="plan-e-background"><option value="light">밝게</option><option value="dark">어둡게</option></select></label><label><input id="plan-e-loop" type="checkbox" checked> 반복</label></div>
+          <label class="plan-b-scrubber">프레임 <input id="plan-e-frame" type="range" min="0" max="0" value="0" aria-label="플랜 E 프레임"></label>
+          <p class="rig-note" id="plan-e-caption">스프라이트를 준비하는 중입니다.</p>
+          <div class="plan-b-links"><a id="plan-e-readme" href="/art/characters/clone_01/motion/plan_e/sprite_007/README.md" target="_blank" rel="noopener">제작 기록 ↗</a><a id="plan-e-reload-sheet" href="/art/characters/clone_01/motion/plan_e/sprite_007/output/reload/spritesheet.png" target="_blank" rel="noopener">장전 시트 ↗</a><a id="plan-e-turn-sheet" href="/art/characters/clone_01/motion/plan_e/sprite_007/output/walk/spritesheet.png" target="_blank" rel="noopener">동작 시트 ↗</a></div>
+          <p class="rig-note">3D 모델에 자세를 지정하고 Blender에서 렌더링한 뒤 공통 팔레트로 줄인 스프라이트입니다. 003~007은 원화 4장으로 만든 투영 모델, 001·002는 플랜 D 모델을 사용합니다. 같은 모델에서 렌더링하므로 회전해도 크기와 비례가 유지됩니다. 모델 외형·동작 자연스러움은 검수 대기입니다.</p>
+        </div>
+        <div id="plan-b-view" hidden>
+          <div class="rig-toolbar"><div class="rig-motion-tabs" role="group" aria-label="플랜 B 동작">
+            <button type="button" data-plan-b-study="guard-walk" aria-pressed="true">경계 걷기</button>
+            <button type="button" data-plan-b-study="guard-fire" aria-pressed="false">경계 이동 사격</button>
+            <button type="button" data-plan-b-study="kneel-fire" aria-pressed="false">앉아쏴</button>
+            <button type="button" data-plan-b-study="pixel-walk" aria-pressed="false">기본 걷기</button>
+            <button type="button" data-plan-b-study="walk-fire" aria-pressed="false">기본 이동 사격</button>
+            <button type="button" data-plan-b-study="camera-fighter" aria-pressed="false">격투게임식 · 12° 기준</button>
+          </div></div>
+          <details id="plan-b-history" class="plan-b-history"><summary>이전 버전·기준 외형</summary><div class="rig-motion-tabs" role="group" aria-label="플랜 B 이전 버전">
+            <button type="button" data-plan-b-study="camera-pitch30" aria-pressed="false">30° 내려보기 · 기준</button>
+            <button type="button" data-plan-b-study="pixel-baseline" aria-pressed="false">도트 003 · 기준 외형</button>
+            <button type="button" data-plan-b-study="pixel-walk-004" aria-pressed="false">도트 004 · 교차 반려</button>
+            <button type="button" data-plan-b-study="pixel-keys" aria-pressed="false">도트 003 · 키포즈 반려</button>
+            <button type="button" data-plan-b-study="walk-001" aria-pressed="false">걷기 001 · 반려</button>
+          </div></details>
+          <div id="plan-b-pixel-view">
+            <p class="rig-note" id="plan-b-pixel-note">긴 머리·검은 갑옷·망토·M16을 남기고 문양·장식·작은 버클·재질 묘사를 줄인 도트 003의 정지 이미지 기록입니다. 최신 걷기는 위 ‘경계 걷기’ 탭에서 볼 수 있습니다.</p>
+            <p class="error" id="plan-b-pixel-quality-warning" role="status" hidden>이 키포즈는 기준보다 머리·상체·총이 커져 크기 검수에서 반려했습니다. 05/11의 지지 다리 교대도 불명확합니다. 중간 프레임은 생성하지 않았으며 아래 이미지는 시도 기록입니다.</p>
+            <div id="plan-b-pixel-stage" class="plan-b-pixel-stage bg-light"><img id="plan-b-pixel-image" alt="장식을 줄인 플랜 B 도트풍 기준 캐릭터" width="512" height="512"><p id="plan-b-pixel-loading" role="status">도트 시도를 불러오는 중…</p></div>
+            <div class="rig-playback"><label>표시 크기 <select id="plan-b-pixel-size"><option value="large">크게 · 512px</option><option value="medium">중간 · 384px</option><option value="small">작게 · 256px</option></select></label><label>배경 <select id="plan-b-pixel-background"><option value="light">밝게</option><option value="dark">어둡게</option><option value="grid">격자</option></select></label></div>
+            <div class="plan-b-links"><a id="plan-b-pixel-original" target="_blank" rel="noopener">이미지 원본 ↗</a><a id="plan-b-pixel-comparison-link" href="/art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/baseline-key-comparison.png" target="_blank" rel="noopener">기준·키포즈 크기 대조 ↗</a><a id="plan-b-pixel-prompt-link" href="/art/characters/clone_01/motion/plan_b/pixel_walk_003/records/baseline_prompt.md" target="_blank" rel="noopener">생성 프롬프트 ↗</a></div>
+            <details id="plan-b-style-comparison" class="rig-note"><summary>기존 외형과 단순화 비교</summary><div class="plan-b-comparison"><figure><img src="/art/characters/clone_01/motion/rig_004/source/side_master.png" alt="기존 플랜 B 입력으로 사용한 상세 측면 외형" loading="lazy"><figcaption>기존 상세 외형</figcaption></figure><figure><img src="/art/characters/clone_01/motion/plan_b/pixel_walk_003/source/baseline_generated.png" alt="장식과 명암 단계를 줄인 도트풍 외형" loading="lazy"><figcaption>도트 003 · 단순화</figcaption></figure></div></details>
+            <details id="plan-b-angle-comparison" class="rig-note" hidden><summary id="plan-b-angle-summary">시점 비교</summary><div class="plan-b-comparison"><figure><img id="plan-b-angle-reference" alt="이전 시점" loading="lazy"><figcaption id="plan-b-angle-reference-label">이전 시점</figcaption></figure><figure><img id="plan-b-angle-current" alt="선택한 시점" loading="lazy"><figcaption id="plan-b-angle-current-label">선택한 시점</figcaption></figure></div></details>
+          </div>
+          <div id="plan-b-walk-view" hidden>
+          <p class="error" id="plan-b-quality-warning" role="status">기준 이미지와 머리·몸통·총의 비례가 달라 크기 검수에서 반려한 결과입니다. 새 키포즈도 비례 검사 단계에서 반려했으며, 크기가 수정된 완성본은 아직 없습니다.</p>
+          <div id="plan-b-stage" class="plan-b-stage bg-light"><canvas id="plan-b-canvas" aria-label="플랜 B · 모델로 생성한 14프레임 M16 준비 보행"></canvas><p id="plan-b-loading" role="status">플랜 B 모션을 불러오는 중…</p></div>
+          <div class="rig-actions" id="plan-b-fire-controls" hidden><button id="plan-b-shot" type="button" disabled>단발</button><button id="plan-b-hold" type="button" aria-pressed="false" disabled>누르고 연사</button><output id="plan-b-shot-count" aria-label="발사 횟수">0발</output><span id="plan-b-fire-state" role="status">준비 중</span></div>
+          <p class="rig-note" id="plan-b-fire-note" hidden>단발은 한 번, 연사는 버튼이나 Space를 누르는 즉시 시작해 초당 10발을 발사합니다(1× 기준). 걷기 속도는 그대로 이어지며 버튼을 놓으면 남은 반동만 마칩니다. 프레임·자세 비교는 발사 횟수에 포함하지 않습니다.</p>
+          <div class="rig-playback"><button id="plan-b-pause" type="button">일시정지</button><button id="plan-b-step" type="button">다음 프레임</button><output id="plan-b-counter">00 / 13</output><label>속도 <select id="plan-b-speed"><option value="1">1×</option><option value="0.5">0.5×</option><option value="0.25">0.25×</option></select></label><label>배경 <select id="plan-b-background"><option value="light">밝게</option><option value="dark">어둡게</option><option value="grid">격자</option></select></label></div>
+          <label class="plan-b-scrubber">프레임 <input id="plan-b-frame" type="range" min="0" max="13" value="0" aria-label="플랜 B 프레임"></label>
+          <div class="rig-playback" id="plan-b-crossing-controls" hidden><button id="plan-b-cross-first" type="button">앞쪽 다리 지지 · 뒷다리 교차</button><button id="plan-b-cross-second" type="button">뒷다리 지지 · 앞다리 교차</button></div>
+          <div class="plan-b-links"><a id="plan-b-contact-link" href="/art/characters/clone_01/motion/plan_b/pixel_walk_004/output/contact-sheet.png" target="_blank" rel="noopener">걷기 14프레임 ↗</a><a id="plan-b-comparison-link" href="/art/characters/clone_01/motion/plan_b/pixel_walk_004/reviews/key-size-comparison.png" target="_blank" rel="noopener">기준·새 키포즈 크기 대조 ↗</a></div>
+          <p class="rig-note" id="plan-b-walk-note">도트 캐릭터의 14프레임 제자리 걷기입니다. 모션과 아트 채택은 검수 대기입니다.</p>
+          </div>
+        </div>
+        <section class="motion-strip"><div><p class="eyebrow">MOTION STUDIES / WAIST & PARTS 10 + PLAN B</p><h2>허리축·연결 천·새 손과 팔 · 검수 대기</h2></div><div class="motion-list"><span>대기</span><span>이동</span><span>기본 사격</span><span>이동 사격</span><span>장전 초안</span><span>피격 반응</span><span>플랜 B · 걷기 14프레임</span></div></section>
+      </section>
+
+      <aside class="inspector" aria-label="캐릭터 설정과 검토">
+        <div class="inspector-section"><p class="eyebrow">CURRENT DESIGN DIRECTION</p><h2 id="direction-heading">차갑고, 도도하게.</h2><p class="direction-copy" id="direction-copy">최신 설정을 불러오는 중입니다.</p><dl class="character-specs" id="character-specs"></dl><div class="palette" aria-label="색상 팔레트"><span class="swatch charcoal"></span><span class="swatch silver"></span><span class="swatch ivory"></span><span class="swatch gold"></span><span class="swatch orange"></span><small>COLOR STUDY</small></div></div>
+        <div class="inspector-section"><p class="eyebrow">REVISION NOTES</p><ul class="revision-notes" id="revision-notes"></ul></div>
+        <div class="inspector-section review-note"><label for="review-note">검토 메모</label><p>수정하고 싶은 부분을 적어 두세요.</p><textarea id="review-note" rows="4" placeholder="예: 얼굴·머리 일치도, 갑옷 재질, 망토 길이…" maxlength="5000"></textarea><div class="note-actions"><span id="note-status" role="status">이 브라우저에만 저장</span><button type="button" id="export-note">메모 내보내기 ↗</button></div></div>
+      </aside>
+    </div>
+    <footer>DEAR HUMAN <span>한 캐릭터, 하나의 페이지. 시안과 모션은 이곳에 쌓입니다.</span></footer>
+  </main>
+</body>
+</html>

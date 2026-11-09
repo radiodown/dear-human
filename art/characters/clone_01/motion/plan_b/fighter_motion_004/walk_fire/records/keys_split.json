@@ -1,0 +1,52 @@
+{
+  "raw_size": [
+    1254,
+    1254
+  ],
+  "board_size": [
+    1254,
+    1254
+  ],
+  "raw_sha256": "606a6ca217e3a6b430e29decd853ed6969a22d1d6c1ba25f05077d6f4b5da698",
+  "whole_sheet_normalization": false,
+  "individual_pose_scale_or_translation": false,
+  "alpha_cleanup": false,
+  "frames": [
+    {
+      "frame": 0,
+      "solid_bbox": [
+        87,
+        112,
+        520,
+        568
+      ]
+    },
+    {
+      "frame": 2,
+      "solid_bbox": [
+        122,
+        111,
+        516,
+        575
+      ]
+    },
+    {
+      "frame": 4,
+      "solid_bbox": [
+        89,
+        110,
+        520,
+        564
+      ]
+    },
+    {
+      "frame": 6,
+      "solid_bbox": [
+        118,
+        111,
+        516,
+        566
+      ]
+    }
+  ]
+}

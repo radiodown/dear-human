@@ -1,0 +1,79 @@
+{
+  "status": "passed",
+  "scope": "Seven decoded RGBA stills with transparency and original-byte preservation; no animation contract.",
+  "items": [
+    {
+      "pose": "idle",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "ec10936ebb05908ec1dda8daff4c9a8b4a54b8245556cbaef29a7368986fcab1",
+      "kind": "one_still_pose",
+      "animation_available": false
+    },
+    {
+      "pose": "walk",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "a3d3ba384468664a3b9e2de976317e6a09a46534ba11b8fdcf91e71336fc6804",
+      "kind": "one_still_pose",
+      "animation_available": false
+    },
+    {
+      "pose": "walk_fire",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "cd2e2d32c3805a79939f1df88127e5b7a5062e53e8de83120c0db240269d693f",
+      "kind": "one_still_pose",
+      "animation_available": false
+    },
+    {
+      "pose": "idle_fire",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "bb26eadad81122eaec47834c00b311e639e41a0ab77591a37a71f5b50ff83913",
+      "kind": "one_still_pose",
+      "animation_available": false
+    },
+    {
+      "pose": "kneel",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "788025d19bc40da37b1a49a00d6d211634446aeb144b5a81996f797ac4068c3f",
+      "kind": "one_still_pose",
+      "animation_available": false
+    },
+    {
+      "pose": "kneel_fire",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "47e4e1bbf3dbbd27f9f941d1c70f6227b7d90c905efe280fc2db19da979b1ecf",
+      "kind": "one_still_pose",
+      "animation_available": false
+    },
+    {
+      "pose": "reload",
+      "size": [
+        1254,
+        1254
+      ],
+      "sha256": "ea0975606490e9dcea3bc75503c153ad79ef2d6123cf5b4f09de13424796e077",
+      "kind": "one_still_pose",
+      "animation_available": false
+    }
+  ],
+  "no_new_atlas_or_gif": true,
+  "prior_experimental_frame_player_extension_removed": true,
+  "art_acceptance": "awaiting_user_review"
+}

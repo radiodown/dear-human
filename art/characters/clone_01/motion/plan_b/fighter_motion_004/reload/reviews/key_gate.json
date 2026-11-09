@@ -1,0 +1,13 @@
+{
+  "status": "provisional_pass",
+  "scope": "Visual key gate for inbetweens; not user art acceptance.",
+  "inspected": [
+    "source/keys.png",
+    "source/baseline.png"
+  ],
+  "observations": [
+    "Head/torso/rifle scale and planted stance stay close to baseline.",
+    "Magazine is visibly removed in key 02 and reinserted in key 04; key 06 shows the support hand by the receiver while the firing hand remains at the grip.",
+    "Fine fingers, receiver contact and old-to-new magazine continuity need user review."
+  ]
+}

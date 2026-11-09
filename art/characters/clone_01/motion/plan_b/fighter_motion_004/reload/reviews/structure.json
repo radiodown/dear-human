@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "scope": "8 RGBA frames, atlas dimensions and nonempty decoded content only; not final art acceptance.",
+  "frame_count": 8,
+  "canvas": [
+    627,
+    627
+  ],
+  "atlas": [
+    5016,
+    627
+  ],
+  "loop": false,
+  "unique_frame_hashes": 8,
+  "source_key_gate": "provisional only; user art review pending"
+}

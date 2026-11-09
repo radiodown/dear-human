@@ -1,0 +1,27 @@
+{
+  "status": "reviewed_pending_user",
+  "inspected": [
+    "idle/source/generated.png",
+    "walk/source/generated.png",
+    "walk_fire/source/generated.png",
+    "idle_fire/source/generated.png",
+    "kneel/source/generated.png",
+    "kneel_fire/source/generated.png",
+    "reload/source/generated.png",
+    "output/pose-overview.png",
+    "reviews/browser-style-comparison.png",
+    "reviews/browser-narrow.png"
+  ],
+  "observations": [
+    "The new body/limbs and skirt silhouette are visibly leaner than the detailed source, with a smaller adult head-to-body ratio.",
+    "Hair and armor use broad flat stepped clusters with far fewer seams, pouches and highlights.",
+    "Gray outer chest insets, under-chest strap, waist belt, a few broad skirt panels, pale skin/stockings and gold-edged cape retain the character's costume identity.",
+    "Each requested category has one complete still: walking stride, braced walking/standing aim, one-knee ready/aim, and magazine-insertion reload.",
+    "Kneeling concepts remain naturally lower with transparent space above; there are no successive stages or animation frames."
+  ],
+  "limitations": [
+    "Exact shared logical grid/palette and exact body-part/weapon scale matching are not certified.",
+    "Face, M16 silhouette, feet/support, cape and skirt outlines differ slightly among separate pose redraws; user art review remains pending.",
+    "No connection between poses, movement timing, loop quality, recoil animation or final game-sprite acceptance was tested or claimed."
+  ]
+}

@@ -1,0 +1,1 @@
+{"status":"review_wait_timeout","scope":"First gallery assertion waited for all offscreen lazy images without scrolling; no PNG or product failure was found.","resolution":"Review script now scrolls to the last gallery card, matching normal user viewing. The subsequent focused review passed; see browser.json."}

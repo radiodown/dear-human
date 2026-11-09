@@ -94,14 +94,27 @@
           <p class="rig-note">3D 모델에 자세를 지정하고 Blender에서 렌더링한 뒤 공통 팔레트로 줄인 스프라이트입니다. 003~007은 원화 4장으로 만든 투영 모델, 001·002는 플랜 D 모델을 사용합니다. 같은 모델에서 렌더링하므로 회전해도 크기와 비례가 유지됩니다. 모델 외형·동작 자연스러움은 검수 대기입니다.</p>
         </div>
         <div id="plan-b-view" hidden>
+          <p class="eyebrow">심플·슬림 · 자세별 정지 원화</p>
+          <div class="rig-toolbar"><div class="rig-motion-tabs" role="group" aria-label="플랜 B 심플 정지 원화">
+            <button type="button" data-plan-b-study="simple-idle" aria-pressed="false">심플 · 정지</button>
+            <button type="button" data-plan-b-study="simple-walk" aria-pressed="false">심플 · 걷기 자세</button>
+            <button type="button" data-plan-b-study="simple-walk-fire" aria-pressed="false">심플 · 걷기 사격</button>
+            <button type="button" data-plan-b-study="simple-idle-fire" aria-pressed="false">심플 · 정지 사격</button>
+            <button type="button" data-plan-b-study="simple-kneel" aria-pressed="false">심플 · 앉기 자세</button>
+            <button type="button" data-plan-b-study="simple-kneel-fire" aria-pressed="false">심플 · 앉아쏴</button>
+            <button type="button" data-plan-b-study="simple-reload" aria-pressed="false">심플 · 장전 자세</button>
+          </div></div>
           <div class="rig-toolbar"><div class="rig-motion-tabs" role="group" aria-label="플랜 B 동작">
             <button type="button" data-plan-b-study="guard-walk" aria-pressed="true">경계 걷기</button>
             <button type="button" data-plan-b-study="guard-fire" aria-pressed="false">경계 이동 사격</button>
             <button type="button" data-plan-b-study="kneel-fire" aria-pressed="false">앉아쏴</button>
             <button type="button" data-plan-b-study="pixel-walk" aria-pressed="false">기본 걷기</button>
             <button type="button" data-plan-b-study="walk-fire" aria-pressed="false">기본 이동 사격</button>
+            <button type="button" data-plan-b-study="camera-outfit" aria-pressed="false">격투게임식 · 의상 보완</button>
           </div></div>
           <details id="plan-b-history" class="plan-b-history"><summary>이전 버전·기준 외형</summary><div class="rig-motion-tabs" role="group" aria-label="플랜 B 이전 버전">
+            <button type="button" data-plan-b-study="camera-fighter" aria-pressed="false">격투게임식 · 12° 기준</button>
+            <button type="button" data-plan-b-study="camera-pitch30" aria-pressed="false">30° 내려보기 · 기준</button>
             <button type="button" data-plan-b-study="pixel-baseline" aria-pressed="false">도트 003 · 기준 외형</button>
             <button type="button" data-plan-b-study="pixel-walk-004" aria-pressed="false">도트 004 · 교차 반려</button>
             <button type="button" data-plan-b-study="pixel-keys" aria-pressed="false">도트 003 · 키포즈 반려</button>
@@ -112,8 +125,19 @@
             <p class="error" id="plan-b-pixel-quality-warning" role="status" hidden>이 키포즈는 기준보다 머리·상체·총이 커져 크기 검수에서 반려했습니다. 05/11의 지지 다리 교대도 불명확합니다. 중간 프레임은 생성하지 않았으며 아래 이미지는 시도 기록입니다.</p>
             <div id="plan-b-pixel-stage" class="plan-b-pixel-stage bg-light"><img id="plan-b-pixel-image" alt="장식을 줄인 플랜 B 도트풍 기준 캐릭터" width="512" height="512"><p id="plan-b-pixel-loading" role="status">도트 시도를 불러오는 중…</p></div>
             <div class="rig-playback"><label>표시 크기 <select id="plan-b-pixel-size"><option value="large">크게 · 512px</option><option value="medium">중간 · 384px</option><option value="small">작게 · 256px</option></select></label><label>배경 <select id="plan-b-pixel-background"><option value="light">밝게</option><option value="dark">어둡게</option><option value="grid">격자</option></select></label></div>
-            <div class="plan-b-links"><a id="plan-b-pixel-original" target="_blank" rel="noopener">이미지 원본 ↗</a><a href="/art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/baseline-key-comparison.png" target="_blank" rel="noopener">기준·키포즈 크기 대조 ↗</a><a href="/art/characters/clone_01/motion/plan_b/pixel_walk_003/records/baseline_prompt.md" target="_blank" rel="noopener">생성 프롬프트 ↗</a></div>
-            <details class="rig-note"><summary>기존 외형과 단순화 비교</summary><div class="plan-b-comparison"><figure><img src="/art/characters/clone_01/motion/rig_004/source/side_master.png" alt="기존 플랜 B 입력으로 사용한 상세 측면 외형" loading="lazy"><figcaption>기존 상세 외형</figcaption></figure><figure><img src="/art/characters/clone_01/motion/plan_b/pixel_walk_003/source/baseline_generated.png" alt="장식과 명암 단계를 줄인 도트풍 외형" loading="lazy"><figcaption>도트 003 · 단순화</figcaption></figure></div></details>
+            <div class="plan-b-links"><a id="plan-b-pixel-original" target="_blank" rel="noopener">이미지 원본 ↗</a><a id="plan-b-pixel-comparison-link" href="/art/characters/clone_01/motion/plan_b/pixel_walk_003/reviews/baseline-key-comparison.png" target="_blank" rel="noopener">기준·키포즈 크기 대조 ↗</a><a id="plan-b-pixel-prompt-link" href="/art/characters/clone_01/motion/plan_b/pixel_walk_003/records/baseline_prompt.md" target="_blank" rel="noopener">생성 프롬프트 ↗</a></div>
+            <details id="plan-b-style-comparison" class="rig-note"><summary>기존 외형과 단순화 비교</summary><div class="plan-b-comparison"><figure><img src="/art/characters/clone_01/motion/rig_004/source/side_master.png" alt="기존 플랜 B 입력으로 사용한 상세 측면 외형" loading="lazy"><figcaption>기존 상세 외형</figcaption></figure><figure><img src="/art/characters/clone_01/motion/plan_b/pixel_walk_003/source/baseline_generated.png" alt="장식과 명암 단계를 줄인 도트풍 외형" loading="lazy"><figcaption>도트 003 · 단순화</figcaption></figure></div></details>
+            <details id="plan-b-angle-comparison" class="rig-note" hidden><summary id="plan-b-angle-summary">시점 비교</summary><div class="plan-b-comparison"><figure><img id="plan-b-angle-reference" alt="이전 시점" loading="lazy"><figcaption id="plan-b-angle-reference-label">이전 시점</figcaption></figure><figure><img id="plan-b-angle-current" alt="선택한 시점" loading="lazy"><figcaption id="plan-b-angle-current-label">선택한 시점</figcaption></figure></div></details>
+            <details id="plan-b-outfit-before-after" class="rig-note" hidden><summary>의상 보완 전후 비교</summary><div class="plan-b-comparison"><figure><img src="/art/characters/clone_01/motion/plan_b/fighter_view_002/output/baseline.png" alt="보완 전의 단순한 흉갑과 주름치마 형태" loading="lazy"><figcaption>보완 전 · 12° 기준</figcaption></figure><figure><img src="/art/characters/clone_01/motion/plan_b/fighter_outfit_003/output/baseline.png" alt="일러스트를 참고해 보완한 몸통과 장갑 스커트" loading="lazy"><figcaption>보완 후 · 몸통과 장갑 스커트</figcaption></figure></div></details>
+            <details id="plan-b-simple-gallery" class="rig-note" hidden><summary>심플 원화 7자세 한눈에 보기</summary><div class="plan-b-comparison">
+              <figure><img src="/art/characters/clone_01/motion/plan_b/simple_poses_005/idle/output/pose.png" alt="심플 정지 원화" loading="lazy"><figcaption>정지</figcaption></figure>
+              <figure><img src="/art/characters/clone_01/motion/plan_b/simple_poses_005/walk/output/pose.png" alt="심플 걷기 자세 원화" loading="lazy"><figcaption>걷기 자세</figcaption></figure>
+              <figure><img src="/art/characters/clone_01/motion/plan_b/simple_poses_005/walk_fire/output/pose.png" alt="심플 걷기 사격 원화" loading="lazy"><figcaption>걷기 사격 자세</figcaption></figure>
+              <figure><img src="/art/characters/clone_01/motion/plan_b/simple_poses_005/idle_fire/output/pose.png" alt="심플 정지 사격 원화" loading="lazy"><figcaption>정지 사격 자세</figcaption></figure>
+              <figure><img src="/art/characters/clone_01/motion/plan_b/simple_poses_005/kneel/output/pose.png" alt="심플 앉기 자세 원화" loading="lazy"><figcaption>앉기 자세</figcaption></figure>
+              <figure><img src="/art/characters/clone_01/motion/plan_b/simple_poses_005/kneel_fire/output/pose.png" alt="심플 앉아쏴 원화" loading="lazy"><figcaption>앉아쏴 자세</figcaption></figure>
+              <figure><img src="/art/characters/clone_01/motion/plan_b/simple_poses_005/reload/output/pose.png" alt="심플 장전 자세 원화" loading="lazy"><figcaption>장전 자세</figcaption></figure>
+            </div></details>
           </div>
           <div id="plan-b-walk-view" hidden>
           <p class="error" id="plan-b-quality-warning" role="status">기준 이미지와 머리·몸통·총의 비례가 달라 크기 검수에서 반려한 결과입니다. 새 키포즈도 비례 검사 단계에서 반려했으며, 크기가 수정된 완성본은 아직 없습니다.</p>

@@ -1,0 +1,16 @@
+{
+  "schema_version": 1,
+  "plan": "Plan B",
+  "revision": "plan_b_fighter_view_002",
+  "type": "still_camera_reference",
+  "image": "baseline.png",
+  "canvas": {
+    "width": 1254,
+    "height": 1254
+  },
+  "frame_count": 1,
+  "requested_camera_elevation_degrees": 12,
+  "facing": "right",
+  "animation_available": false,
+  "art_direction_status": "awaiting_user_review"
+}

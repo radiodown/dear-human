@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "plan": "Plan B",
+  "revision_id": "plan_b_fighter_motion_004_idle",
+  "action": "idle",
+  "frameCount": 8,
+  "keyframeIndices": [
+    0,
+    2,
+    4,
+    6
+  ],
+  "canvas": {
+    "width": 627,
+    "height": 627
+  },
+  "durationMs": 180,
+  "frameDurationsMs": [
+    180,
+    180,
+    180,
+    180,
+    180,
+    180,
+    180,
+    180
+  ],
+  "loopRange": [
+    0,
+    7
+  ],
+  "loop": true,
+  "pixelArt": true,
+  "shotIndices": [],
+  "frames": [
+    "frames/00.png",
+    "frames/01.png",
+    "frames/02.png",
+    "frames/03.png",
+    "frames/04.png",
+    "frames/05.png",
+    "frames/06.png",
+    "frames/07.png"
+  ],
+  "spritesheet": "spritesheet.png",
+  "contactSheet": "contact-sheet.png",
+  "referenceFrameIndices": [],
+  "facing": "right",
+  "requestedCameraPitch": 12,
+  "art_direction_status": "awaiting_user_review",
+  "processing": "2x2 model-generated sheets split into equal cells, one shared whole-sheet normalization if needed. No individual pose scaling/alignment, interpolation, limb transforms or generated GIF.",
+  "limitations": [
+    "Approximate drawn 12-degree view; not 3D projection.",
+    "Full-body rifle/cape/hair are baked; detail and contact continuity require user review."
+  ]
+}

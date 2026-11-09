@@ -1,0 +1,16 @@
+{
+  "status": "awaiting_final_kneel_assets",
+  "scope": "Generated boards and five packed motion clips visually inspected; final kneel and full browser review follow.",
+  "observations": [
+    "Walking keys and intermediates show opposite contact/passing support roles; there is residual boot/cape silhouette variation across redraws.",
+    "Quiet idle retains an aimed planted stance and shows small chest/head breathing movement.",
+    "Standing and walking fire drawings preserve the gray chest insets, straps/pouches and layered skirt, with shoulder/cape response; runtime flashes are input-driven.",
+    "Reload drawings show support-hand release, old magazine removal, replacement insertion/receiver manipulation and support-hand return; exact fingers/contact continuity remain user-review scope."
+  ],
+  "limitations": [
+    "Boot contact is not an exact physical simulation.",
+    "Face, cape, skirt/pouch and weapon detail drift across model redraws.",
+    "The first three kneel key attempts have a raised final ground plane and are not used as completed animation until a revised final anchor is reviewed.",
+    "No GIF or whole-project test suite."
+  ]
+}

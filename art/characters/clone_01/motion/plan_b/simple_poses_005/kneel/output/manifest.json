@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "type": "still_pose",
+  "pose": "kneel",
+  "image": "pose.png",
+  "size": [
+    1254,
+    1254
+  ],
+  "mode": "RGBA",
+  "alpha_extrema": [
+    0,
+    255
+  ],
+  "source_output_sha256": "788025d19bc40da37b1a49a00d6d211634446aeb144b5a81996f797ac4068c3f",
+  "postprocessing": "None. Identical original bytes; display size is controlled by the page.",
+  "kind": "single_pose_concept",
+  "animation_available": false
+}

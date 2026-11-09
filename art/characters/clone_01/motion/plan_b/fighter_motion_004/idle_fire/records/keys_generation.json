@@ -1,0 +1,13 @@
+{
+  "clip": "idle_fire",
+  "stage": "keys",
+  "tool": "built-in image_gen.imagegen",
+  "started_at_utc": "2026-11-09T00:38:35.197Z",
+  "finished_at_utc": "2026-11-09T00:40:36.763Z",
+  "elapsed_seconds": 121.566,
+  "generated_source": "C:\\Users\\axgatge\\.codex\\generated_images\\01a1bd85-b640-76d1-b63b-d6db45e6d65c\\exec-4d86a569-3a40-4dcf-bcea-8e4ebe79a7d3.png",
+  "model": null,
+  "seed": null,
+  "cost": null,
+  "cost_note": "Not exposed by tool."
+}

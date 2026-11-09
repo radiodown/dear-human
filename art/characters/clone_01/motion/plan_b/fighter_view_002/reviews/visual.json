@@ -1,0 +1,19 @@
+{
+  "status": "reviewed_pending_user",
+  "reviewed": [
+    "Generated image",
+    "browser-angle.png",
+    "browser-comparison.png"
+  ],
+  "observations": [
+    "Compared with the 30-degree target, the crown and boot tops are less dominant and the front face/chest and both bent arms read more clearly.",
+    "The legs read taller with less overhead foreshortening and less depth separation between the feet. Full body, hair, cape and rifle remain inside the canvas.",
+    "Long black hair, pale skin, black armor, restrained gold trim and a right-aimed rifle are retained.",
+    "Torso front surface is opened toward the viewer while rifle and gaze remain toward screen right. This is a redrawn pose, not a rigid 3D camera transform; armor/face/stance details differ."
+  ],
+  "limitations": [
+    "Approximate generated angle, not measured 3D projection.",
+    "One still; no keyposes or inbetweens.",
+    "User acceptance pending."
+  ]
+}

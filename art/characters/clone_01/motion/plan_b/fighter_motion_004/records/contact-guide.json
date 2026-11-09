@@ -1,0 +1,11 @@
+{
+  "purpose": "Visual grounding guide for kneel key retry; not a delivered sprite.",
+  "line_y": 574,
+  "line_color": [
+    40,
+    180,
+    255
+  ],
+  "character_pixels_changed": false,
+  "new_pose_synthesis": false
+}

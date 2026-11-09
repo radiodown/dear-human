@@ -1,0 +1,13 @@
+{
+  "status": "provisional_pass",
+  "scope": "Visual gate for generating inbetweens, not user art approval or final animation acceptance.",
+  "inspected": [
+    "source/keys.png",
+    "source/baseline.png"
+  ],
+  "observations": [
+    "Same planted stance, full-body margins and approximate head/torso/rifle scale are retained.",
+    "Breathing keys show a small chest/head rise and delayed cape changes; there is some generated detail drift.",
+    "No frame resizing/alignment was applied. Fixed foot silhouettes and final subtlety require user review."
+  ]
+}
