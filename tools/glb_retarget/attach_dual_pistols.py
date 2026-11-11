@@ -3,8 +3,9 @@
 The weapon GLB holds two meshes (*_right, *_left) and sockets socket_grip_r/l, socket_muzzle_r/l in real metres.
 Each pistol is scaled to the character (height / 1.65 m) and driven by its own non-deforming bone under the Hips
 (`weapon` = right, `weapon_l` = left, keyed per frame so in-place playback keeps it with the body). The offset from
-each hand is found on a reference frame: grip socket on that palm, barrel (+X) along that forearm, gun up ~ world
-up. No IK: the arms keep the clip as retargeted. Only the listed clips are exported.
+each hand is found on a reference frame: grip socket on that palm, barrel (+X) along that forearm levelled to horizontal, gun up ~ world
+up. No IK: the arms keep the clip as retargeted. Each pistol is then pushed out of its hand (hand_clearance.py: the
+palm skin must not be inside the pistol) by moving the pistol, not the hand. Only the listed clips are exported.
 
 usage: blender -b --python tools/glb_retarget/attach_dual_pistols.py -- <character.glb> <weapon.glb>
        <reference clip> <out.glb> clip [clip ...]"""
@@ -56,19 +57,30 @@ OFFSET = {}
 for side, (S, _) in SIDE.items():
     G = sockets[f'socket_grip_{side}']; gd = sockets[f'socket_muzzle_{side}'] - G; gd = Vector((gd.x, 0, 0))
     wd = pbs[f'mixamorig:{S}Hand'].head - pbs[f'mixamorig:{S}ForeArm'].head
+    wd = wd - wd.dot(up_a) * up_a      # level barrel on the reference frame (aiming idle)
     R = frame_basis(wd, up_a) @ frame_basis(gd, Vector((0, 0, 1))).inverted()
     M_ref = Matrix.Translation(palm_a(S)) @ R.to_4x4() @ Matrix.Translation(-G)
     OFFSET[side] = pbs[f'mixamorig:{S}Hand'].matrix.inverted() @ M_ref
+sys.path.insert(0, __import__('os').path.dirname(__file__))
+from hand_clearance import HandClearance
+CLEAR = {side: HandClearance(arm, bodies, [v.co.copy() for v in guns[side].data.vertices], [tuple(p.vertices) for p in guns[side].data.polygons], k) for side in guns}
+# hand moves (gun space) that would clear it: right hand to its pistol's right, left hand to its pistol's left; the pistol moves the opposite way
+DIRS = {'r': [(0, -1, 0), (0, -0.7, -0.7), (-0.7, -0.7, 0), (-1, 0, 0), (-0.7, 0, -0.7)], 'l': [(0, 1, 0), (0, 0.7, -0.7), (-0.7, 0.7, 0), (-1, 0, 0), (-0.7, 0, -0.7)]}
 print('ATTACH dual char height %.3f scale %.4f ref %s %d' % (height, k, ref_clip, (s0 + e0) // 2))
 
 hips_rest_inv = arm.data.bones['mixamorig:Hips'].matrix_local.inverted()
 for clip in CLIPS:
     act = bpy.data.actions[clip]; arm.animation_data.action = act
-    s, e = map(int, act.frame_range); prev = {}; gap = []
+    s, e = map(int, act.frame_range); prev = {}; gap = []; pen = {}
     frames = {}
     for f in range(s, e + 1):
         sc.frame_set(f)
         frames[f] = {side: pbs[f'mixamorig:{S}Hand'].matrix @ OFFSET[side] for side, (S, _) in SIDE.items()}
+        for side, (S, _) in SIDE.items():
+            Mg = frames[f][side]; hb = pbs[f'mixamorig:{S}Hand']
+            v, d0, rest = CLEAR[side].shift(CLEAR[side].local(S), hb.matrix.to_3x3(), hb.head.copy(), Mg, DIRS[side])
+            frames[f][side] = Matrix.Translation(-v) @ Mg
+            pen.setdefault(side, []).append((d0 / k, rest / k, v.length / k))
         hips = pbs['mixamorig:Hips'].matrix.inverted()
         frames[f]['hips'] = hips
     for f in range(s, e + 1):
@@ -81,7 +93,8 @@ for clip in CLIPS:
             pb.keyframe_insert('location', frame=f); pb.keyframe_insert('rotation_quaternion', frame=f)
         a, b = frames[f]['r'] @ sockets['socket_grip_r'], frames[f]['l'] @ sockets['socket_grip_l']
         gap.append((a - b).length)
-    print('CLIP %-18s frames %3d pistol grips apart min %.0f mm (real)' % (clip, e - s + 1, min(gap) / k * 1000))
+    print('CLIP %-18s frames %3d pistol grips apart min %.0f mm (real)' % (clip, e - s + 1, min(gap) / k * 1000) + '  ' +
+          '  '.join('%s palm in gun %.0f->%.0f mm, gun moved max %.0f mm' % (sd, max(x[0] for x in v) * 1000, max(x[1] for x in v) * 1000, max(x[2] for x in v) * 1000) for sd, v in pen.items()))
 for a in list(bpy.data.actions):
     if a.name not in CLIPS: bpy.data.actions.remove(a)
 if arm.animation_data:

@@ -80,3 +80,15 @@
 사용자 지시로 `shoot/gunmotion`의 새 Mixamo FBX 4개(`Pistol Idle2.fbx` bb2a41bd8fda2f93…, `Pistol Kneeling Idle.fbx` 6b13651b5b132852…, `Pistol Walk.fbx` 798d6f16851e6ca2…, `Pistol Run.fbx` 71a11e2fbff3b5b7…)를 `tools/glb_retarget/retarget_mixamo_fbx.py`로 옮겼다: `pistol_idle2`(권총 대기 2, 33프레임)·`pistol_kneel_idle`(권총 앉아 대기, 92)·`pistol_walk`(권총 걷기, 20)·`pistol_run`(권총 달리기, 13), 24fps. 결과 `shoot/yuna_rig_pistol.glb`(기존 동작 + 4개)로 이 폴더 `source/yuna_rig.glb`를 교체했다(SHA-256 `256d1216f83553450b585a3beb3aa6dddc86219fa9f2816d9709edc19b6e37ca`). 기존 동작은 도구가 건드리지 않는다. 걷기·달리기는 Mixamo 이동 거리를 그대로 둬 3D 탭 ‘제자리’로 본다. 총은 이 파일에 없다(맨손). 3D 탭 재생만 확인했고 사용자 검수 대기다.
 
 권총 사용자인 유나는 `loadout_002/yuna_hp14_bastion.glb`를 권총 동작 5개(권총 대기·대기 2·앉아 대기·걷기·달리기)로 다시 만들었다(이전 권총 대기만 있던 같은 이름 파일 대체, 기준 장면 권총 대기 100). HP-14는 오른손 손잡이에 붙고 받침점이 없어 왼손은 원래 동작 그대로다. 오른손–손잡이 0mm. SHA-256 `47a8072aedfc0957efece85d5af30d311b06b77c24338a0c7122020adce573f3`. 정면·측면 렌더만 확인했다.
+
+## 손–총 관통 보정 loadout_005 · 권총 대기 삭제 (2026-11-11)
+
+사용자 지시(“권총 대기 첫 번째 동작은 다 삭제해줘”)로 `pistol_idle`을 `tools/glb_retarget/remove_glb_clips.py`(재내보내기 없이 glTF에서 해당 애니메이션과 그 데이터만 제거·재포장)로 `source/yuna_rig.glb`에서 지웠다(SHA-256 `c4fd159c11f2be4220f8ac9ecc0fe0803ec0c694ba9199e78d65daa80a870ea0`, 삭제 전 파일은 `shoot/yuna_rig_pistol.glb`). 남은 `pistol_idle2`는 탭에서 ‘권총 대기’로 표시한다.
+
+사용자 지시(“손과 총이 겹치거나 관통하는 경우가 많아. 적어도 정우측, 정좌측에서 봤을 때는 관통되어 보이지 않도록”)로 모든 무장을 `loadout_005`에 다시 만들었다(이전 버전 보존). 원인은 손바닥 기준점을 총 몸통 가운데에 있는 기준점에 그대로 둬 손이 총 안에 묻힌 것이다(측정: 손바닥 15~35mm, 손가락 최대 49mm). 새 `tools/glb_retarget/hand_clearance.py`가 매 2프레임 손 뼈가 주된 피부 정점(손바닥·손등) 표본 260개를 총 메시와 대조해, 정점이 총 안 1mm보다 깊지 않도록 손을 총 바깥 방향(오른손은 총 오른쪽·뒤·아래, 왼손은 왼쪽·아래·위) 중 가장 짧은 거리로 옮긴 뒤 팔 IK를 다시 푼다(5프레임 평균, 각 프레임 필요량 이상 유지). 쌍권총은 손 대신 권총을 옮긴다. 굽은 손가락이 손잡이 뒤로 감기는 것은 실제 파지와 같아 허용했다. 총·견착점은 그대로라 견착 0mm는 유지된다. 권총 무장은 기준 장면을 `pistol_idle2`로 바꾸고 기준 장면의 총신을 수평으로 맞췄다(전완 각도 때문에 위로 들리던 문제).
+
+| 파일 | SHA-256 |
+|---|---|
+| `loadout_005/yuna_hp14_bastion.glb` | `85dece5f57ca49e4cedf77f37f614ced343c63ca6e2a8aa539a1349c5ce0ade4` |
+
+손을 옮긴 거리는 오른손 약 40~80mm, 왼손 약 10~110mm(엄폐 조준·소총 대기가 큼)라 정면·위에서는 손과 총 사이가 떠 보일 수 있다. 모아 HMG-15 엄폐 조준의 왼손 한 구간은 120mm 안에서 빠지지 않아 약 15mm 남는다. 정우측·정좌측·정면 렌더와 유나 탭 재생만 확인했고 사용자 검수 대기다.
