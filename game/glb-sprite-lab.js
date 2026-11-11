@@ -14,6 +14,14 @@ export const SPRITE_MODELS = {
     },
     note: 'version04.glb를 Blender에서 렌더링한 스프라이트 시트를 재생합니다. 기본 003은 정사영 카메라를 정확히 오른쪽 옆에 둔 완전 우측면·제자리 렌더(tools/glb_sprites)로, 게임용으로 12fps·동작별 여백 자르기·무손실 WebP로 줄였습니다. 해상도는 기본 200px/m와 더 작은 100px/m를 버전에서 고릅니다. 002·001은 사용자가 직접 렌더링한 이전 걷기·달리기입니다.',
   },
+  iren: {
+    base: '/art/characters/iren/motion/glb_model_001/', file: 'iren_rig.glb',
+    versions: {
+      sprite_001: { label: '001 · 완전 우측면 · 200px/m', dir: 'sprite_001', manifest: 'manifest_200.json', clips: { walk: '걷기', run: '달리기', dive: '다이브', afraid: '겁먹음' } },
+      sprite_001_100: { label: '001 · 완전 우측면 · 100px/m (작게)', dir: 'sprite_001', manifest: 'manifest_100.json', clips: { walk: '걷기', run: '달리기', dive: '다이브', afraid: '겁먹음' } },
+    },
+    note: 'iren_rig.glb를 Blender에서 정사영 완전 우측면·제자리로 렌더링한 스프라이트 시트를 재생합니다(tools/glb_sprites). 리안·몬스터와 같은 비율(기본 200px/m, 버전에서 100px/m)·12fps·동작별 여백 자르기·무손실 WebP입니다.',
+  },
   vesper_colony_insect: {
     base: '/art/enemies/vesper_colony_insect/motion/glb_model_001/', file: 'mob.glb',
     versions: {

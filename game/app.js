@@ -304,10 +304,10 @@ function showRoute() {
     $('mode-plan-b').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-rig-v2').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-plan-e').hidden = kind !== 'character' || id !== 'clone_01';
-    const glbAvailable = (kind === 'character' && id === 'clone_01') || (kind === 'enemy' && Object.hasOwn(GLB_MODELS, id));
+    const glbAvailable = ['character', 'enemy'].includes(kind) && Object.hasOwn(GLB_MODELS, id);
     glb.configure(glbAvailable ? id : 'clone_01');
     $('mode-glb').hidden = !glbAvailable;
-    const spriteAvailable = (kind === 'character' && id === 'clone_01') || (kind === 'enemy' && Object.hasOwn(SPRITE_MODELS, id));
+    const spriteAvailable = ['character', 'enemy'].includes(kind) && Object.hasOwn(SPRITE_MODELS, id);
     glbSprite.configure(spriteAvailable ? id : 'clone_01');
     $('mode-glb-sprite').hidden = !spriteAvailable;
     document.querySelectorAll('.preview-group').forEach(group => {
