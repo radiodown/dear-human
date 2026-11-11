@@ -11197,7 +11197,7 @@
       "display_name": "AMR-21 네일",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_003",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11222,7 +11222,7 @@
             },
             {
               "path": "art/weapons/amr21_nail/model_3d_001/README.md",
-              "sha256": "d3af6a6abbee2f1cd0b79a67c943464f66e5c93b2e2e5916b88674452f6a5d4f"
+              "sha256": "5a411988347ae9fccf77757f51527658eeac27a519146e16a9c2d1c552742dae"
             }
           ],
           "dependencies": [],
@@ -11267,6 +11267,156 @@
             "width": 1536,
             "height": 1024
           }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "AMR-21 네일 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "6d0a721e2c57bdc90c4c32b1af1ac4aec21cf6d8fc938579b2507dec7eff8458",
+          "artifacts": [
+            {
+              "path": "art/weapons/amr21_nail/model_3d_002/amr21_nail.glb",
+              "sha256": "6d0a721e2c57bdc90c4c32b1af1ac4aec21cf6d8fc938579b2507dec7eff8458"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/amr21-nail/source/illustration.png",
+              "sha256": "4016678e923cb7cb295fe3382aa170df6b444a3cbbf9bc3954a4269c16559b1a"
+            },
+            {
+              "path": "art/weapons/amr21_nail/model_3d_001/README.md",
+              "sha256": "5a411988347ae9fccf77757f51527658eeac27a519146e16a9c2d1c552742dae"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "amr21_nail",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "세나의 Mk21 계열 디자인을 계승한 대전차급 대갑주 저격총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/amr-21.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대전차급 대갑주 저격총 (주무장)"
+            ],
+            [
+              "사용 대원",
+              "세나"
+            ],
+            [
+              "위키 문서",
+              "weapon-amr21-nail"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/amr-21.glb"
+            ],
+            [
+              "크기",
+              "1.40m (제안) · Mk21 PSR 약 1.25m + 20mm 대구경"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#1c1c1b",
+            "#2c2b2b",
+            "#3d3c3c",
+            "#565657",
+            "#6d7075"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/amr21-nail/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        },
+        {
+          "revision_id": "model_3d_003",
+          "display_name": "AMR-21 네일 · 3D 모델 003 (크기 축소 1.20m)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Resized from model_3d_002 after user feedback (too big); checked on character shoulder-mount renders only.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "02eba2f8596cb9f63fd4bcb42bf9cf181be70bc81888c9adedad54f3bb1640ea",
+          "artifacts": [
+            {
+              "path": "art/weapons/amr21_nail/model_3d_003/amr21_nail.glb",
+              "sha256": "02eba2f8596cb9f63fd4bcb42bf9cf181be70bc81888c9adedad54f3bb1640ea"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/amr21-nail/source/illustration.png",
+              "sha256": "4016678e923cb7cb295fe3382aa170df6b444a3cbbf9bc3954a4269c16559b1a"
+            },
+            {
+              "path": "art/weapons/amr21_nail/model_3d_001/README.md",
+              "sha256": "a29804e1165462fe8ea5e5764e75557a18107c19954b1a900befd7a68db24e23"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "amr21_nail",
+              "revision_id": "model_3d_002"
+            }
+          ],
+          "description": "세나의 Mk21 계열 디자인을 계승한 대전차급 대갑주 저격총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/amr-21.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대전차급 대갑주 저격총 (주무장)"
+            ],
+            [
+              "사용 대원",
+              "세나"
+            ],
+            [
+              "위키 문서",
+              "weapon-amr21-nail"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/amr-21.glb"
+            ],
+            [
+              "크기",
+              "1.20m (제안, 002의 1.40m에서 축소)"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#1c1c1b",
+            "#2c2b2b",
+            "#3d3c3c",
+            "#565657",
+            "#6d7075"
+          ],
+          "review_notes": [
+            "“너무 크다” 지적으로 축소 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "002는 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/amr21-nail/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
         }
       ]
     },
@@ -11276,7 +11426,7 @@
       "display_name": "PDW-9 와스프",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_002",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11301,7 +11451,7 @@
             },
             {
               "path": "art/weapons/pdw9_wasp/model_3d_001/README.md",
-              "sha256": "d68599be1f64dd5ba23ea008cd7d319517221e31d0b743ab8774319fc55761db"
+              "sha256": "c448cfe233a786f94d521b7007c39bbf06dda2e1d5786f6da4fe38c5c6a5fc02"
             }
           ],
           "dependencies": [],
@@ -11346,6 +11496,81 @@
             "width": 1536,
             "height": 1024
           }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "PDW-9 와스프 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "51f486fc8af71c3729847be7cf5e5950dcb5e3896f70f8a61a23a7fabe21cd8f",
+          "artifacts": [
+            {
+              "path": "art/weapons/pdw9_wasp/model_3d_002/pdw9_wasp.glb",
+              "sha256": "51f486fc8af71c3729847be7cf5e5950dcb5e3896f70f8a61a23a7fabe21cd8f"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/pdw9-wasp/source/illustration.png",
+              "sha256": "66de7e99bcd6263fdb7e1e59d68d2c116c156df296f5d9b0866b41437f479407"
+            },
+            {
+              "path": "art/weapons/pdw9_wasp/model_3d_001/README.md",
+              "sha256": "c448cfe233a786f94d521b7007c39bbf06dda2e1d5786f6da4fe38c5c6a5fc02"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "pdw9_wasp",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "세나의 부무장인 짧고 두꺼운 고속연사 기관단총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/pdw-9.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "고속연사 기관단총 (부무장)"
+            ],
+            [
+              "사용 대원",
+              "세나"
+            ],
+            [
+              "위키 문서",
+              "weapon-pdw9-wasp"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/pdw-9.glb"
+            ],
+            [
+              "크기",
+              "0.60m (제안) · MP7(개머리판 폄 약 0.64m)"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#161617",
+            "#252627",
+            "#323335",
+            "#424346",
+            "#53575c"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/pdw9-wasp/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
         }
       ]
     },
@@ -11355,7 +11580,7 @@
       "display_name": "HMG-15 골리앗",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_003",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11380,7 +11605,7 @@
             },
             {
               "path": "art/weapons/hmg15_goliath/model_3d_001/README.md",
-              "sha256": "32cccf9ecd167a80b1972db8366bf3fc8695383e1d509f72fb7f451edbe45c9d"
+              "sha256": "0b1ed8df521bcee58f6b56123f3c85ee622078d8ff644eae433d56184e5b3171"
             }
           ],
           "dependencies": [],
@@ -11425,6 +11650,156 @@
             "width": 1536,
             "height": 1024
           }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "HMG-15 골리앗 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "a03db0acb94ca3cafa816813d1800692064380e5ac76aa84c95265d1d0b76299",
+          "artifacts": [
+            {
+              "path": "art/weapons/hmg15_goliath/model_3d_002/hmg15_goliath.glb",
+              "sha256": "a03db0acb94ca3cafa816813d1800692064380e5ac76aa84c95265d1d0b76299"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/hmg15-goliath/source/illustration.png",
+              "sha256": "bd46bd1b452a4b50a8aa5c7b56ed5f1edf62683c4e7f47ebb8510bb56233f3db"
+            },
+            {
+              "path": "art/weapons/hmg15_goliath/model_3d_001/README.md",
+              "sha256": "0b1ed8df521bcee58f6b56123f3c85ee622078d8ff644eae433d56184e5b3171"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "hmg15_goliath",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "모아가 휴대하는 길고 거대한 대구경 지원기관총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/hmg-15.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대구경 지원기관총 (주무장)"
+            ],
+            [
+              "사용 대원",
+              "모아"
+            ],
+            [
+              "위키 문서",
+              "weapon-hmg15-goliath"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/hmg-15.glb"
+            ],
+            [
+              "크기",
+              "1.45m (제안) · M250 약 1.1m보다 크게, 15.2mm"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#242423",
+            "#383737",
+            "#484747",
+            "#565555",
+            "#8b6c4c"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/hmg15-goliath/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        },
+        {
+          "revision_id": "model_3d_003",
+          "display_name": "HMG-15 골리앗 · 3D 모델 003 (크기 축소 1.20m)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Resized from model_3d_002 after user feedback (too big); checked on character shoulder-mount renders only.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "d6782763e8dad2b46ac926a9f91cc774a1e9b45f77791ee9bfcf7b9ffb2adaa7",
+          "artifacts": [
+            {
+              "path": "art/weapons/hmg15_goliath/model_3d_003/hmg15_goliath.glb",
+              "sha256": "d6782763e8dad2b46ac926a9f91cc774a1e9b45f77791ee9bfcf7b9ffb2adaa7"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/hmg15-goliath/source/illustration.png",
+              "sha256": "bd46bd1b452a4b50a8aa5c7b56ed5f1edf62683c4e7f47ebb8510bb56233f3db"
+            },
+            {
+              "path": "art/weapons/hmg15_goliath/model_3d_001/README.md",
+              "sha256": "d82c03643f2651ef09a7f961f422c411e608274f45fd2922cb35fb5d8290ff95"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "hmg15_goliath",
+              "revision_id": "model_3d_002"
+            }
+          ],
+          "description": "모아가 휴대하는 길고 거대한 대구경 지원기관총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/hmg-15.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대구경 지원기관총 (주무장)"
+            ],
+            [
+              "사용 대원",
+              "모아"
+            ],
+            [
+              "위키 문서",
+              "weapon-hmg15-goliath"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/hmg-15.glb"
+            ],
+            [
+              "크기",
+              "1.20m (제안, 002의 1.45m에서 축소)"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#242423",
+            "#383737",
+            "#484747",
+            "#565555",
+            "#8b6c4c"
+          ],
+          "review_notes": [
+            "“너무 크다” 지적으로 축소 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "002는 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/hmg15-goliath/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
         }
       ]
     },
@@ -11434,7 +11809,7 @@
       "display_name": "ML-70 뮬",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_003",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11459,7 +11834,7 @@
             },
             {
               "path": "art/weapons/ml70_mule/model_3d_001/README.md",
-              "sha256": "b751092e94b83bb3e022c9f317432d7fe3c8c19d5c556e1bc33378ab85709218"
+              "sha256": "4722d3012b12e8e4f3f79443e4640f639fcd47c5a2c0ee2bbc5038a099017d7e"
             }
           ],
           "dependencies": [],
@@ -11504,6 +11879,156 @@
             "width": 1536,
             "height": 1024
           }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "ML-70 뮬 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ef4ab871d93c205cbb51972c33cd76d6a57ff81e99029f2c2e2598fa77531515",
+          "artifacts": [
+            {
+              "path": "art/weapons/ml70_mule/model_3d_002/ml70_mule.glb",
+              "sha256": "ef4ab871d93c205cbb51972c33cd76d6a57ff81e99029f2c2e2598fa77531515"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/ml70-mule_007/source/illustration.png",
+              "sha256": "11a2e9a6415d0014723825753640e93e62d81795e0bf97795197b3831d917977"
+            },
+            {
+              "path": "art/weapons/ml70_mule/model_3d_001/README.md",
+              "sha256": "4722d3012b12e8e4f3f79443e4640f639fcd47c5a2c0ee2bbc5038a099017d7e"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "ml70_mule",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "모아의 부무장인 다목적 유탄발사기형 런처. 사용자가 Tripo로 만든 3D 모델(shoot/gun/ml-70.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "다목적 유탄발사기형 런처 (부무장)"
+            ],
+            [
+              "사용 대원",
+              "모아"
+            ],
+            [
+              "위키 문서",
+              "weapon-ml70-mule"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/ml-70.glb"
+            ],
+            [
+              "크기",
+              "0.85m (제안) · MGL급 회전식 유탄발사기 약 0.8m"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#27282b",
+            "#38393d",
+            "#49494d",
+            "#54555a",
+            "#52555c"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/ml70-mule_007/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        },
+        {
+          "revision_id": "model_3d_003",
+          "display_name": "ML-70 뮬 · 3D 모델 003 (크기 축소 0.70m)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Resized from model_3d_002 on user request; checked on the character shoulder-mount render and tab only.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "e2b3008c2f8db742c2813c97f88231fa8b6dbaaa000d3a165207a9c8af536dca",
+          "artifacts": [
+            {
+              "path": "art/weapons/ml70_mule/model_3d_003/ml70_mule.glb",
+              "sha256": "e2b3008c2f8db742c2813c97f88231fa8b6dbaaa000d3a165207a9c8af536dca"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/ml70-mule_007/source/illustration.png",
+              "sha256": "11a2e9a6415d0014723825753640e93e62d81795e0bf97795197b3831d917977"
+            },
+            {
+              "path": "art/weapons/ml70_mule/model_3d_001/README.md",
+              "sha256": "cd01cea72cd55dd052f94433d3fb441215ab2cd624d4b16a7bec160cd5c7a391"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "ml70_mule",
+              "revision_id": "model_3d_002"
+            }
+          ],
+          "description": "모아의 부무장인 다목적 유탄발사기형 런처. 사용자가 Tripo로 만든 3D 모델(shoot/gun/ml-70.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "다목적 유탄발사기형 런처 (부무장)"
+            ],
+            [
+              "사용 대원",
+              "모아"
+            ],
+            [
+              "위키 문서",
+              "weapon-ml70-mule"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/ml-70.glb"
+            ],
+            [
+              "크기",
+              "0.70m (제안, 002의 0.85m에서 축소)"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#27282b",
+            "#38393d",
+            "#49494d",
+            "#54555a",
+            "#52555c"
+          ],
+          "review_notes": [
+            "사용자 지시로 축소 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "002는 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/ml70-mule_007/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
         }
       ]
     },
@@ -11513,7 +12038,7 @@
       "display_name": "AR-12 럽처",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_003",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11538,7 +12063,7 @@
             },
             {
               "path": "art/weapons/ar12_rupture/model_3d_001/README.md",
-              "sha256": "b1c69136885c580bdc6ded75a1683b3809c7db0ecb5e5625d0e4f5bc4d5dea67"
+              "sha256": "0c4806eb436321eca1032f2458652c19f8998345dd5420b78ccfae94f408e635"
             }
           ],
           "dependencies": [],
@@ -11583,6 +12108,156 @@
             "width": 1536,
             "height": 1024
           }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "AR-12 럽처 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "e9a38ffbeb36bfc887516d52c144fa4a958cbe47ce4ddf872da8914c012d94ed",
+          "artifacts": [
+            {
+              "path": "art/weapons/ar12_rupture/model_3d_002/ar12_rupture.glb",
+              "sha256": "e9a38ffbeb36bfc887516d52c144fa4a958cbe47ce4ddf872da8914c012d94ed"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+              "sha256": "c60fabfa2c004c07c5b0bc070ed2a6ae85ba6aac8a52698a8b70374d4a959eba"
+            },
+            {
+              "path": "art/weapons/ar12_rupture/model_3d_001/README.md",
+              "sha256": "0c4806eb436321eca1032f2458652c19f8998345dd5420b78ccfae94f408e635"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "ar12_rupture",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "아렌과 리안의 무장 기본안인 대구경 파열탄 돌격소총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/ar12.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대구경 파열탄 돌격소총"
+            ],
+            [
+              "사용 대원",
+              "아렌·리안"
+            ],
+            [
+              "위키 문서",
+              "weapon-ar12-rupture"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/ar12.glb"
+            ],
+            [
+              "크기",
+              "1.00m (제안) · XM7 약 0.9m + 12.7mm"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#141515",
+            "#222223",
+            "#323333",
+            "#4d4d4f",
+            "#5e6165"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        },
+        {
+          "revision_id": "model_3d_003",
+          "display_name": "AR-12 럽처 · 3D 모델 003 (크기 축소 0.85m)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Resized from model_3d_002 after user feedback (too big); checked on character shoulder-mount renders only.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "6df6dcf1a41dda4b5afe95665a834797038fc9ee96d8153c867e7ba6c6a14107",
+          "artifacts": [
+            {
+              "path": "art/weapons/ar12_rupture/model_3d_003/ar12_rupture.glb",
+              "sha256": "6df6dcf1a41dda4b5afe95665a834797038fc9ee96d8153c867e7ba6c6a14107"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+              "sha256": "c60fabfa2c004c07c5b0bc070ed2a6ae85ba6aac8a52698a8b70374d4a959eba"
+            },
+            {
+              "path": "art/weapons/ar12_rupture/model_3d_001/README.md",
+              "sha256": "a9d929e754efe3168c2014be09490bbf65261311293625080abb5b8fd05c86a3"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "ar12_rupture",
+              "revision_id": "model_3d_002"
+            }
+          ],
+          "description": "아렌과 리안의 무장 기본안인 대구경 파열탄 돌격소총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/ar12.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대구경 파열탄 돌격소총"
+            ],
+            [
+              "사용 대원",
+              "아렌·리안"
+            ],
+            [
+              "위키 문서",
+              "weapon-ar12-rupture"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/ar12.glb"
+            ],
+            [
+              "크기",
+              "0.85m (제안, 002의 1.00m에서 축소)"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#141515",
+            "#222223",
+            "#323333",
+            "#4d4d4f",
+            "#5e6165"
+          ],
+          "review_notes": [
+            "“너무 크다” 지적으로 축소 · 사용자 검수 대기",
+            "손 부착 기준점 5개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "002는 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
         }
       ]
     },
@@ -11592,7 +12267,7 @@
       "display_name": "SG-23 브리처",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_002",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11617,7 +12292,7 @@
             },
             {
               "path": "art/weapons/sg23_breacher/model_3d_001/README.md",
-              "sha256": "e88f34ebe3e39de49d39e93ae4141b474a3c5021f4adadea3b2ad8e78ae43ef1"
+              "sha256": "22b0e3d428a7d627149995a968af512f6e470b1f23840f8eaedf14df4e03f9b1"
             }
           ],
           "dependencies": [],
@@ -11662,6 +12337,81 @@
             "width": 1536,
             "height": 1024
           }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "SG-23 브리처 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "2f3dfb7e299ee8c892faa6f73e54d241b12cde9332d24637abc5cb75003fd9d4",
+          "artifacts": [
+            {
+              "path": "art/weapons/sg23_breacher/model_3d_002/sg23_breacher.glb",
+              "sha256": "2f3dfb7e299ee8c892faa6f73e54d241b12cde9332d24637abc5cb75003fd9d4"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/sg23-breacher_007/source/illustration.png",
+              "sha256": "8e1c625fc82b9f7948d92102afe8f4b5fcfee32d620b86c1722a0c11ee85a40f"
+            },
+            {
+              "path": "art/weapons/sg23_breacher/model_3d_001/README.md",
+              "sha256": "22b0e3d428a7d627149995a968af512f6e470b1f23840f8eaedf14df4e03f9b1"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "sg23_breacher",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "분대장 아렌의 부무장으로 제안한 대구경 전투 산탄총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/sg-23.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대구경 전투 산탄총 (부무장)"
+            ],
+            [
+              "사용 대원",
+              "아렌"
+            ],
+            [
+              "위키 문서",
+              "weapon-sg23-breacher"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/sg-23.glb"
+            ],
+            [
+              "크기",
+              "1.05m (제안) · 소음기 포함 전투 산탄총"
+            ],
+            [
+              "기준점",
+              "개머리판, 손잡이, 받침손, 총구"
+            ]
+          ],
+          "palette": [
+            "#0c0c0d",
+            "#171818",
+            "#252627",
+            "#434448",
+            "#5e6269"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 4개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/sg23-breacher_007/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
         }
       ]
     },
@@ -11671,7 +12421,7 @@
       "display_name": "HP-14 바스티온",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_002",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11696,7 +12446,7 @@
             },
             {
               "path": "art/weapons/hp14_bastion/model_3d_001/README.md",
-              "sha256": "90e7359c4177d262cd6c0a9a2095c7ab0051c7624effe8ceb6a6833fe6c785c3"
+              "sha256": "b293e4fb7427a48d00f0de626e81e244d4b05ec7369fd047e781b8798e20b7b9"
             }
           ],
           "dependencies": [],
@@ -11741,6 +12491,81 @@
             "width": 1536,
             "height": 1024
           }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "HP-14 바스티온 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "9ef2e27d013fcfc24321af20ff61d48417dd1a2af9c6ef8724179a68a7ba254c",
+          "artifacts": [
+            {
+              "path": "art/weapons/hp14_bastion/model_3d_002/hp14_bastion.glb",
+              "sha256": "9ef2e27d013fcfc24321af20ff61d48417dd1a2af9c6ef8724179a68a7ba254c"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/hp14-bastion_006/source/illustration.png",
+              "sha256": "48a8b40e2f87f9733d2e119eeaf572685df46b9694f14020a7994ff5516cb507"
+            },
+            {
+              "path": "art/weapons/hp14_bastion/model_3d_001/README.md",
+              "sha256": "b293e4fb7427a48d00f0de626e81e244d4b05ec7369fd047e781b8798e20b7b9"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "hp14_bastion",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "유나가 물리적 방패와 함께 사용하는 대구경 권총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/hp-14.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대구경 권총 (방패와 함께)"
+            ],
+            [
+              "사용 대원",
+              "유나"
+            ],
+            [
+              "위키 문서",
+              "weapon-hp14-bastion"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/hp-14.glb"
+            ],
+            [
+              "크기",
+              "0.32m (제안) · 데저트 이글급 + 컴펜세이터"
+            ],
+            [
+              "기준점",
+              "손잡이, 받침손, 총구, 탄창"
+            ]
+          ],
+          "palette": [
+            "#232528",
+            "#3a3b3f",
+            "#47484d",
+            "#4f5055",
+            "#52555c"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 4개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/hp14-bastion_006/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
         }
       ]
     },
@@ -11750,7 +12575,7 @@
       "display_name": "유나의 물리 방패",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_002",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11775,7 +12600,7 @@
             },
             {
               "path": "art/weapons/yuna_physical_shield/model_3d_001/README.md",
-              "sha256": "a0154f633b475a18705e21710c14d8494d460abed58069aa8e25ca7507a7628b"
+              "sha256": "1cca4b4a8389a1f9055e00640f837a57804c0fb3bd703391f2d8ba4fcd8d362c"
             }
           ],
           "dependencies": [],
@@ -11820,6 +12645,81 @@
             "width": 1024,
             "height": 1536
           }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "유나의 물리 방패 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "a7e6ab0c186706a5c4120d280cdf3971aef57881263be4ce57a32a67846aadbe",
+          "artifacts": [
+            {
+              "path": "art/weapons/yuna_physical_shield/model_3d_002/yuna_physical_shield.glb",
+              "sha256": "a7e6ab0c186706a5c4120d280cdf3971aef57881263be4ce57a32a67846aadbe"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/yuna-physical-shield_003/source/illustration.png",
+              "sha256": "6071991b26362c0ab42e418194e0c517e29faf9b04df425013b7f910f143cf5d"
+            },
+            {
+              "path": "art/weapons/yuna_physical_shield/model_3d_001/README.md",
+              "sha256": "1cca4b4a8389a1f9055e00640f837a57804c0fb3bd703391f2d8ba4fcd8d362c"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "yuna_physical_shield",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "유나가 방패·진입 역할에 쓰는 물리 방패. 유나 일러스트 속 디자인(상단 손잡이·관측창·각형 흑색 장갑판·금색 세로선·금색 날개 문장)을 따른다. 사용자가 Tripo로 만든 3D 모델(shoot/gun/shield.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "물리 방패"
+            ],
+            [
+              "사용 대원",
+              "유나"
+            ],
+            [
+              "위키 문서",
+              "yuna"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/shield.glb"
+            ],
+            [
+              "크기",
+              "높이 0.95m (제안) · 진입용 방패"
+            ],
+            [
+              "기준점",
+              "손잡이, 팔뚝"
+            ]
+          ],
+          "palette": [
+            "#2e2d33",
+            "#3a383f",
+            "#444249",
+            "#59565e",
+            "#826c57"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 2개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/yuna-physical-shield_003/source/illustration.png",
+            "width": 1024,
+            "height": 1536
+          }
         }
       ]
     },
@@ -11829,7 +12729,7 @@
       "display_name": "HP-14T 제미니",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_001",
+      "review_revision_id": "model_3d_002",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -11854,7 +12754,7 @@
             },
             {
               "path": "art/weapons/hp14t_gemini/model_3d_001/README.md",
-              "sha256": "12913449c763ac9b9277fdc6ae76c4565f92d53e3bf1889a67d6384c29e08059"
+              "sha256": "f1a9ec1ab2ef9f742ee90dfcf89acf62255f4b7ddff8ca7a7cd1d75a0510fb4f"
             }
           ],
           "dependencies": [],
@@ -11893,6 +12793,81 @@
             "원화 탭은 위키 무기 원화",
             "실제 축척·손 부착 기준점 미정",
             "외형·원화 일치도 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/hp14t-gemini/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "HP-14T 제미니 · 3D 모델 002 (실제 크기·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Size and socket placement checked on side renders only; real size proposal and socket fit pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ba54d657791132e107a52afd50de18e7a86fbbcb56235690be8c647e1e2a3e1b",
+          "artifacts": [
+            {
+              "path": "art/weapons/hp14t_gemini/model_3d_002/hp14t_gemini.glb",
+              "sha256": "ba54d657791132e107a52afd50de18e7a86fbbcb56235690be8c647e1e2a3e1b"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/hp14t-gemini/source/illustration.png",
+              "sha256": "33e6541b8b138b295b1c6189ecd35835bb55303b88eb9036e35ee96382bdc4a9"
+            },
+            {
+              "path": "art/weapons/hp14t_gemini/model_3d_001/README.md",
+              "sha256": "f1a9ec1ab2ef9f742ee90dfcf89acf62255f4b7ddff8ca7a7cd1d75a0510fb4f"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "hp14t_gemini",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "리안의 부무장인 대구경 쌍권총과 건카타 운용. 사용자가 Tripo로 만든 3D 모델(shoot/gun/hp-14t.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "대구경 쌍권총 (부무장, 두 정 한 쌍)"
+            ],
+            [
+              "사용 대원",
+              "리안"
+            ],
+            [
+              "위키 문서",
+              "weapon-hp14t-gemini"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/hp-14t.glb"
+            ],
+            [
+              "크기",
+              "정당 0.30m (제안) · 두 정으로 분리"
+            ],
+            [
+              "기준점",
+              "오른손 손잡이, 오른쪽 총구, 왼손 손잡이, 왼쪽 총구"
+            ]
+          ],
+          "palette": [
+            "#232425",
+            "#36373a",
+            "#444549",
+            "#515256",
+            "#42454b"
+          ],
+          "review_notes": [
+            "실제 크기 제안 · 사용자 검수 대기",
+            "손 부착 기준점 4개",
+            "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
+            "원본 Tripo 모델 001은 보존"
           ],
           "preview": {
             "image_path": "art/weapons/wiki_concepts_001/hp14t-gemini/source/illustration.png",

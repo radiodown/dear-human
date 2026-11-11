@@ -10,23 +10,26 @@ export const WEAPONS = {
     measured: true,
     note: '플랜 E sprite_007의 M16A1 형상(실제 치수: 개머리판 끝 −0.345m ~ 총구 0.645m)을 Blender 스크립트(tools/weapons/build_weapon_glb.py)로 탄창까지 붙여 독립 GLB로 내보낸 모델입니다. 리시버·수지·강철·밝은 소부품 4종 재질과 1.6mm 모서리 베벨을 씁니다. 점은 손에 붙일 기준점입니다.',
   },
-  amr21_nail: { label: "AMR-21 네일", url: '/art/weapons/amr21_nail/model_3d_001/amr-21.glb', file: 'amr-21.glb', note: "세나의 Mk21 계열 디자인을 계승한 대전차급 대갑주 저격총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/amr-21.glb)과 위키 원화. 사용 대원 세나. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
-  pdw9_wasp: { label: "PDW-9 와스프", url: '/art/weapons/pdw9_wasp/model_3d_001/pdw-9.glb', file: 'pdw-9.glb', note: "세나의 부무장인 짧고 두꺼운 고속연사 기관단총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/pdw-9.glb)과 위키 원화. 사용 대원 세나. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
-  hmg15_goliath: { label: "HMG-15 골리앗", url: '/art/weapons/hmg15_goliath/model_3d_001/hmg-15.glb', file: 'hmg-15.glb', note: "모아가 휴대하는 길고 거대한 대구경 지원기관총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/hmg-15.glb)과 위키 원화. 사용 대원 모아. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
-  ml70_mule: { label: "ML-70 뮬", url: '/art/weapons/ml70_mule/model_3d_001/ml-70.glb', file: 'ml-70.glb', note: "모아의 부무장인 다목적 유탄발사기형 런처. 사용자가 Tripo로 만든 3D 모델(shoot/gun/ml-70.glb)과 위키 원화. 사용 대원 모아. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
-  ar12_rupture: { label: "AR-12 럽처", url: '/art/weapons/ar12_rupture/model_3d_001/ar12.glb', file: 'ar12.glb', note: "아렌과 리안의 무장 기본안인 대구경 파열탄 돌격소총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/ar12.glb)과 위키 원화. 사용 대원 아렌·리안. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
-  sg23_breacher: { label: "SG-23 브리처", url: '/art/weapons/sg23_breacher/model_3d_001/sg-23.glb', file: 'sg-23.glb', note: "분대장 아렌의 부무장으로 제안한 대구경 전투 산탄총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/sg-23.glb)과 위키 원화. 사용 대원 아렌. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
-  hp14_bastion: { label: "HP-14 바스티온", url: '/art/weapons/hp14_bastion/model_3d_001/hp-14.glb', file: 'hp-14.glb', note: "유나가 물리적 방패와 함께 사용하는 대구경 권총. 사용자가 Tripo로 만든 3D 모델(shoot/gun/hp-14.glb)과 위키 원화. 사용 대원 유나. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
-  yuna_physical_shield: { label: "유나의 물리 방패", url: '/art/weapons/yuna_physical_shield/model_3d_001/shield.glb', file: 'shield.glb', note: "유나가 방패·진입 역할에 쓰는 물리 방패. 유나 일러스트 속 디자인(상단 손잡이·관측창·각형 흑색 장갑판·금색 세로선·금색 날개 문장)을 따른다. 사용자가 Tripo로 만든 3D 모델(shoot/gun/shield.glb)과 위키 원화. 사용 대원 유나. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
-  hp14t_gemini: { label: "HP-14T 제미니", url: '/art/weapons/hp14t_gemini/model_3d_001/hp-14t.glb', file: 'hp-14t.glb', note: "리안의 부무장인 대구경 쌍권총과 건카타 운용. 사용자가 Tripo로 만든 3D 모델(shoot/gun/hp-14t.glb)과 위키 원화. 사용 대원 리안. Tripo가 가장 긴 변을 1m로 맞춘 크기라 실제 축척은 아직 정하지 않았고 손 부착 기준점도 없습니다." },
+  amr21_nail: { label: "AMR-21 네일", url: '/art/weapons/amr21_nail/model_3d_003/amr21_nail.glb', old001: '/art/weapons/amr21_nail/model_3d_001/amr-21.glb', file: 'amr21_nail.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 “너무 크다”는 지적에 따라 실제 크기 1.20m(이전 model_3d_002보다 축소, 검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  pdw9_wasp: { label: "PDW-9 와스프", url: '/art/weapons/pdw9_wasp/model_3d_002/pdw9_wasp.glb', old001: '/art/weapons/pdw9_wasp/model_3d_001/pdw-9.glb', file: 'pdw9_wasp.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 0.60m(MP7(개머리판 폄 약 0.64m), 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  hmg15_goliath: { label: "HMG-15 골리앗", url: '/art/weapons/hmg15_goliath/model_3d_003/hmg15_goliath.glb', old001: '/art/weapons/hmg15_goliath/model_3d_001/hmg-15.glb', file: 'hmg15_goliath.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 “너무 크다”는 지적에 따라 실제 크기 1.20m(이전 model_3d_002보다 축소, 검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  ml70_mule: { label: "ML-70 뮬", url: '/art/weapons/ml70_mule/model_3d_003/ml70_mule.glb', old001: '/art/weapons/ml70_mule/model_3d_001/ml-70.glb', file: 'ml70_mule.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 “크기를 줄여 달라”는 지시에 따라 실제 크기 0.70m(이전 model_3d_002의 0.85m에서 축소, 검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  ar12_rupture: { label: "AR-12 럽처", url: '/art/weapons/ar12_rupture/model_3d_003/ar12_rupture.glb', old001: '/art/weapons/ar12_rupture/model_3d_001/ar12.glb', file: 'ar12_rupture.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 “너무 크다”는 지적에 따라 실제 크기 0.85m(이전 model_3d_002보다 축소, 검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  sg23_breacher: { label: "SG-23 브리처", url: '/art/weapons/sg23_breacher/model_3d_002/sg23_breacher.glb', old001: '/art/weapons/sg23_breacher/model_3d_001/sg-23.glb', file: 'sg23_breacher.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 1.05m(소음기 포함 전투 산탄총, 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  hp14_bastion: { label: "HP-14 바스티온", url: '/art/weapons/hp14_bastion/model_3d_002/hp14_bastion.glb', old001: '/art/weapons/hp14_bastion/model_3d_001/hp-14.glb', file: 'hp14_bastion.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 0.32m(데저트 이글급 + 컴펜세이터, 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  yuna_physical_shield: { label: "유나의 물리 방패", url: '/art/weapons/yuna_physical_shield/model_3d_002/yuna_physical_shield.glb', old001: '/art/weapons/yuna_physical_shield/model_3d_001/shield.glb', file: 'yuna_physical_shield.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 높이 0.95m(진입용 방패, 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  hp14t_gemini: { label: "HP-14T 제미니", url: '/art/weapons/hp14t_gemini/model_3d_002/hp14t_gemini.glb', old001: '/art/weapons/hp14t_gemini/model_3d_001/hp-14t.glb', file: 'hp14t_gemini.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 정당 0.30m(두 정으로 분리, 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
 };
-const SOCKET_NAMES = { socket_grip: '손잡이(오른손)', socket_support: '받침손(왼손)', socket_stock: '개머리판(어깨)', socket_muzzle: '총구', socket_mag: '탄창' };
-const SOCKET_COLORS = { socket_grip: 0xff6b6b, socket_support: 0x4dabf7, socket_stock: 0xffd43b, socket_muzzle: 0xff922b, socket_mag: 0x69db7c };
+const SOCKET_NAMES = { socket_grip: '손잡이', socket_support: '받침손(왼손)', socket_stock: '개머리판(어깨)', socket_muzzle: '총구', socket_mag: '탄창',
+  socket_grip_r: '오른손 손잡이', socket_muzzle_r: '오른쪽 총구', socket_grip_l: '왼손 손잡이', socket_muzzle_l: '왼쪽 총구', socket_forearm: '팔뚝(방패)' };
+const SOCKET_COLORS = { socket_grip: 0xff6b6b, socket_support: 0x4dabf7, socket_stock: 0xffd43b, socket_muzzle: 0xff922b, socket_mag: 0x69db7c,
+  socket_grip_r: 0xff6b6b, socket_muzzle_r: 0xff922b, socket_grip_l: 0xf783ac, socket_muzzle_l: 0xffc078, socket_forearm: 0xb197fc };
+const REAL_SCALE_SPAN = 1.7; // metres across the view when comparing real sizes (longest weapon 1.20 m)
 
 export class WeaponModelLab {
   constructor() {
     this.active = false; this.key = Object.keys(WEAPONS)[0]; this.loaded = new Map(); this.request = 0;
-    this.spin = true; this.yaw = 0.6; this.pitch = 0.18; this.showSockets = true; this.background = 'dark';
+    this.spin = true; this.yaw = 0.6; this.pitch = 0.18; this.showSockets = true; this.background = 'dark'; this.realScale = false;
     this.raf = 0; this.last = null; this.tick = this.tick.bind(this); this.drag = null;
     $('wpn-list').replaceChildren(...Object.entries(WEAPONS).map(([key, w]) => {
       const b = Object.assign(document.createElement('button'), { type: 'button', textContent: w.label, title: w.file });
@@ -38,6 +41,7 @@ export class WeaponModelLab {
     $('wpn-top').addEventListener('click', () => this.setView(0, Math.PI / 2 - 0.001));
     $('wpn-sockets').addEventListener('change', e => { this.showSockets = e.target.checked; if (this.current) this.current.marks.visible = this.showSockets; this.render(); this.writeUrl(); });
     $('wpn-background').addEventListener('change', e => { this.background = e.target.value; this.applyBackground(); this.writeUrl(); });
+    $('wpn-realscale').addEventListener('change', e => { this.realScale = e.target.checked; this.resize(); this.writeUrl(); });
     const canvas = $('wpn-canvas');
     canvas.addEventListener('pointerdown', e => { this.drag = { x: e.clientX, y: e.clientY, yaw: this.yaw, pitch: this.pitch }; canvas.setPointerCapture(e.pointerId); this.setSpin(false); });
     canvas.addEventListener('pointermove', e => {
@@ -151,8 +155,10 @@ export class WeaponModelLab {
     this.renderer.setSize(width, height, false);
     const canvas = $('wpn-canvas'); canvas.style.width = `${width}px`; canvas.style.height = `${height}px`;
     // fit the longest side (whatever the turntable angle) with 15% margin; keep the height visible too
-    const s = this.current?.size, span = s ? Math.max(s.x, s.y, s.z) * 1.15 : 1.2, aspect = width / height;
-    const half = Math.max(span / 2 / aspect, s ? s.y * 0.7 : .2), halfW = half * aspect;
+    const s = this.current?.size, aspect = width / height;
+    // real-size mode: the same view for every weapon so their lengths compare; otherwise fit the weapon
+    const span = this.realScale ? REAL_SCALE_SPAN : s ? Math.max(s.x, s.y, s.z) * 1.15 : 1.2;
+    const half = this.realScale ? Math.max(span / 2 / aspect, .55) : Math.max(span / 2 / aspect, s ? s.y * 0.7 : .2), halfW = half * aspect;
     Object.assign(this.camera, { left: -halfW, right: halfW, top: half, bottom: -half });
     this.camera.updateProjectionMatrix(); this.placeCamera(); this.render();
   }
@@ -171,6 +177,7 @@ export class WeaponModelLab {
     if (params.get('sockets') === '0') { this.showSockets = false; $('wpn-sockets').checked = false; }
     if (params.get('spin') === '0') this.spin = false;
     if (params.get('bg') === 'light') { this.background = 'light'; this.applyBackground(); }
+    if (params.get('real') === '1') { this.realScale = true; $('wpn-realscale').checked = true; }
   }
   writeParams(params) {
     params.set('plan', 'weapon-3d'); params.set('weapon3d', this.key);
@@ -178,6 +185,7 @@ export class WeaponModelLab {
     if (!this.showSockets) params.set('sockets', '0'); else params.delete('sockets');
     if (!this.spin) params.set('spin', '0'); else params.delete('spin');
     if (this.background === 'light') params.set('bg', 'light'); else params.delete('bg');
+    if (this.realScale) params.set('real', '1'); else params.delete('real');
   }
   writeUrl() {
     if (!this.active) return;

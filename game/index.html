@@ -73,12 +73,13 @@
         <div id="weapon-3d-view" hidden>
           <div class="rig-motion-tabs" id="wpn-list" role="group" aria-label="무기 모델"></div>
           <div id="wpn-stage" class="plan-e-stage glb-stage bg-dark" tabindex="0" aria-label="무기 3D 모델. 끌어서 돌려 봅니다"><canvas id="wpn-canvas" aria-label="무기 3D 모델"></canvas><p id="wpn-loading" role="status">무기 모델을 불러오는 중…</p></div>
-          <div class="rig-playback"><button id="wpn-spin" type="button">회전 멈춤</button><button id="wpn-right" type="button">측면 (총구 →)</button><button id="wpn-left" type="button">반대쪽</button><button id="wpn-top" type="button">위에서</button><label><input id="wpn-sockets" type="checkbox" checked> 기준점</label><label>배경 <select id="wpn-background"><option value="dark">어둡게</option><option value="light">밝게</option></select></label></div>
+          <div class="rig-playback"><button id="wpn-spin" type="button">회전 멈춤</button><button id="wpn-right" type="button">측면 (총구 →)</button><button id="wpn-left" type="button">반대쪽</button><button id="wpn-top" type="button">위에서</button><label><input id="wpn-sockets" type="checkbox" checked> 기준점</label><label><input id="wpn-realscale" type="checkbox"> 실제 크기 비교</label><label>배경 <select id="wpn-background"><option value="dark">어둡게</option><option value="light">밝게</option></select></label></div>
           <p class="wpn-legend" id="wpn-legend"></p>
           <p class="rig-metrics" id="wpn-caption" aria-live="off"></p>
           <p class="rig-note"><span id="wpn-note"></span> 화면을 끌어서 돌려 볼 수 있습니다. 페이지를 열 때 모델 생성이나 렌더를 따로 실행하지 않습니다.</p>
         </div>
         <div id="glb-view" hidden>
+          <div class="rig-motion-tabs glb-loadouts" id="glb-loadouts" role="group" aria-label="무장" hidden></div>
           <div class="rig-motion-tabs" id="glb-clips" role="group" aria-label="GLB 모델 동작"></div>
           <div id="glb-stage" class="plan-e-stage glb-stage bg-dark" tabindex="0" aria-label="GLB 모델 재생 영역. Space로 재생·정지"><canvas id="glb-canvas" aria-label="version04.glb 모델의 우측면 애니메이션"></canvas><p id="glb-loading" role="status">GLB 모델을 불러오는 중…</p></div>
           <div class="rig-playback"><button id="glb-pause" type="button">일시정지</button><button id="glb-restart" type="button">처음부터</button><output id="glb-counter">—</output><label>속도 <select id="glb-speed"><option value="1">1×</option><option value=".5">0.5×</option><option value=".25">0.25×</option></select></label><label><input id="glb-inplace" type="checkbox" checked> 제자리</label><button id="glb-turn" type="button">좌우 반전</button><label>배경 <select id="glb-background"><option value="dark">어둡게</option><option value="light">밝게</option></select></label></div>

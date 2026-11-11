@@ -7,9 +7,11 @@ const LOADER_URL = './vendor/three-0.187.0/examples/jsm/loaders/GLTFLoader.js';
 const FX_URL = './glb-burst-fx.js';
 export const MODELS = {
   clone_01: {
+    // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
+    loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/clone_01/motion/glb_model_001/loadout_003/clone_01_ar12_rupture.glb', file: 'clone_01_ar12_rupture.glb' }, hp14t_gemini: { label: 'HP-14T 제미니 (쌍권총)', url: '/art/characters/clone_01/motion/glb_model_001/loadout_002/clone_01_hp14t_gemini.glb', file: 'clone_01_hp14t_gemini.glb' } },
     url: '/art/characters/clone_01/motion/glb_model_001/source/version04.glb',
     file: 'version04.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle: '권총 대기', pistol_idle2: '권총 대기 2', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
     // Clips kept in the GLB but hidden from the tab by user request (2026-11-09).
     hidden: ['캐릭터가 뛰게 해줘.001', '계속 반복해서 빠르게 달리는 동작.001'],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
@@ -17,36 +19,44 @@ export const MODELS = {
     note: '상위 폴더의 version04.glb를 복사해 Three.js로 그대로 재생합니다. 모델에 들어 있는 애니메이션을 탭으로 고르고, 카메라는 캐릭터의 오른쪽 옆에서 정사영으로 봅니다. ‘제자리’는 골반의 앞뒤·좌우 이동을 고정하고 위아래 움직임은 유지합니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
   iren: {
+    // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
+    loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/iren/motion/glb_model_001/loadout_003/iren_ar12_rupture.glb', file: 'iren_ar12_rupture.glb' }, sg23_breacher: { label: 'SG-23 브리처', url: '/art/characters/iren/motion/glb_model_001/loadout_002/iren_sg23_breacher.glb', file: 'iren_sg23_breacher.glb' } },
     url: '/art/characters/iren/motion/glb_model_001/source/iren_rig.glb',
     file: 'iren_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle: '권총 대기', pistol_idle2: '권총 대기 2', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
     note: '사용자가 리깅한 이렌 모델(iren_rig.glb, 정수리 뼈를 머리 안으로 줄인 보정본)을 복사해 Three.js로 그대로 재생합니다. 모델에 들어 있는 걷기·달리기·다이브·겁먹음을 탭으로 고르고, 카메라는 캐릭터의 오른쪽 옆에서 정사영으로 봅니다. ‘제자리’는 골반의 앞뒤·좌우 이동을 고정하고 위아래 움직임은 유지합니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
   moa: {
+    // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
+    loadouts: { hmg15_goliath: { label: 'HMG-15 골리앗', url: '/art/characters/moa/motion/glb_model_001/loadout_003/moa_hmg15_goliath.glb', file: 'moa_hmg15_goliath.glb' }, ml70_mule: { label: 'ML-70 뮬', url: '/art/characters/moa/motion/glb_model_001/loadout_003/moa_ml70_mule.glb', file: 'moa_ml70_mule.glb' } },
     url: '/art/characters/moa/motion/glb_model_001/source/moa_rig.glb',
     file: 'moa_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle: '권총 대기', pistol_idle2: '권총 대기 2', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
     note: '사용자가 리깅한 모아 모델(moa_rig.glb)에서 정수리 뼈를 머리 안으로 줄이고 가슴판이 흉곽을 따르도록 가중치를 고친 보정본을 복사해 Three.js로 그대로 재생합니다. 걷기·달리기·다이브·겁먹음을 탭으로 고르고, 카메라는 캐릭터의 오른쪽 옆에서 정사영으로 봅니다. ‘제자리’는 골반의 앞뒤·좌우 이동을 고정하고 위아래 움직임은 유지합니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
   yuna: {
+    // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
+    loadouts: { hp14_bastion: { label: 'HP-14 바스티온', url: '/art/characters/yuna/motion/glb_model_001/loadout_002/yuna_hp14_bastion.glb', file: 'yuna_hp14_bastion.glb' } },
     url: '/art/characters/yuna/motion/glb_model_001/source/yuna_rig.glb',
     file: 'yuna_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle: '권총 대기', pistol_idle2: '권총 대기 2', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
     note: '사용자가 리깅한 유나 모델(yuna_rig.glb)에서 정수리 뼈를 머리 안으로 줄이고, 손에 끌려가던 양쪽 엉덩이 장비(오른쪽 총·홀스터, 벨트 파우치)를 다리·골반에 고정한 보정본을 복사해 Three.js로 그대로 재생합니다. 걷기·달리기·다이브·겁먹음을 탭으로 고르고, 카메라는 캐릭터의 오른쪽 옆에서 정사영으로 봅니다. ‘제자리’는 골반의 앞뒤·좌우 이동을 고정하고 위아래 움직임은 유지합니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
   sena: {
+    // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
+    loadouts: { amr21_nail: { label: 'AMR-21 네일', url: '/art/characters/sena/motion/glb_model_001/loadout_003/sena_amr21_nail.glb', file: 'sena_amr21_nail.glb' }, pdw9_wasp: { label: 'PDW-9 와스프', url: '/art/characters/sena/motion/glb_model_001/loadout_002/sena_pdw9_wasp.glb', file: 'sena_pdw9_wasp.glb' } },
     url: '/art/characters/sena/motion/glb_model_001/source/sena_rig.glb',
     file: 'sena_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle: '권총 대기', pistol_idle2: '권총 대기 2', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
@@ -71,7 +81,7 @@ export const MODELS = {
 
 export class GlbModelLab {
   constructor() {
-    this.active = false; this.modelKey = 'clone_01'; this.loaded = new Map(); this.request = 0;
+    this.active = false; this.modelKey = 'clone_01'; this.loadout = ''; this.loaded = new Map(); this.request = 0;
     this.clipName = null; this.paused = false;
     this.speed = 1; this.inPlace = true; this.facing = 1; this.background = 'dark';
     this.raf = 0; this.tick = this.tick.bind(this);
@@ -95,6 +105,8 @@ export class GlbModelLab {
   }
 
   get config() { return MODELS[this.modelKey]; }
+  // the GLB file for the current loadout ('' = the base model with every clip)
+  get source() { return (this.loadout && this.config.loadouts?.[this.loadout]) || this.config; }
   get view() { return this.config.clipView?.[this.clipName] ?? {}; }
   get extra() { return this.config.extras?.[this.clipName] ?? null; }
 
@@ -105,24 +117,52 @@ export class GlbModelLab {
     this.revive();
     // Take the previous page's model out of the scene now; attach() only removes this.current, which is cleared here.
     if (this.current) { this.current.mixer.stopAllAction(); this.scene?.remove(this.current.root); }
-    this.modelKey = key; this.clipName = null; this.current = null; this.action = null; this.explode = null;
+    this.modelKey = key; this.loadout = ''; this.clipName = null; this.current = null; this.action = null; this.explode = null;
+  }
+
+  buildLoadouts() {
+    const loadouts = this.config.loadouts ?? {};
+    $('glb-loadouts').hidden = !Object.keys(loadouts).length;
+    $('glb-loadouts').replaceChildren(...[['', '맨손 · 모든 동작'], ...Object.entries(loadouts).map(([value, l]) => [value, `${l.label} · 사격 동작`])].map(([value, label]) => {
+      const button = Object.assign(document.createElement('button'), { type: 'button', textContent: label });
+      button.dataset.loadout = value;
+      button.addEventListener('click', () => this.setLoadout(value));
+      return button;
+    }));
+    if (!Object.hasOwn(loadouts, this.loadout)) this.loadout = '';
+    this.markLoadout();
+  }
+
+  markLoadout() {
+    for (const button of $('glb-loadouts').children) button.setAttribute('aria-pressed', String(button.dataset.loadout === this.loadout));
+  }
+
+  setLoadout(value) {
+    if (!Object.hasOwn(this.config.loadouts ?? {}, value)) value = '';
+    if (value === this.loadout) return;
+    if (this.current) { this.current.mixer.stopAllAction(); this.scene.remove(this.current.root); }
+    this.revive(); this.loadout = value; this.current = null; this.action = null; this.explode = null;
+    this.markLoadout();
+    this.writeUrl();
+    if (this.active) this.init().then(() => this.resize()).catch(() => {});
   }
 
   show(active) {
     this.active = active;
     if (!active) { cancelAnimationFrame(this.raf); this.raf = 0; return; }
-    $('glb-note').textContent = this.config.note;
+    this.buildLoadouts();
+    $('glb-note').textContent = this.config.note + (this.loadout ? ` 무장: ${this.source.label} — 무기를 캐릭터 크기(키 1.0≈1.65m)로 줄이고, 긴 총은 소총 대기를 뺀 동작에서 개머리판을 오른쪽 어깨 앞면에 붙이고 양손을 손잡이·받침점에 IK로 맞췄으며, 권총은 손에 붙였습니다(쌍권총은 양손에 한 자루씩). 해당 무기의 동작만 들어 있습니다.` : '');
     $('glb-canvas').setAttribute('aria-label', `${this.config.file} 모델의 우측면 애니메이션`);
     $('glb-inplace').closest('label').hidden = !this.config.hips.length;
     this.init().then(() => { if (this.active) { this.resize(); this.last = null; this.schedule(); } }).catch(() => {});
   }
 
   init() {
-    const key = this.modelKey, request = ++this.request;
+    const key = `${this.modelKey}|${this.loadout}`, request = ++this.request;
     if (!this.loaded.has(key)) this.loaded.set(key, this.load(key));
     $('glb-loading').hidden = false; $('glb-loading').textContent = 'GLB 모델을 불러오는 중…';
     return this.loaded.get(key).then(model => {
-      if (request !== this.request || key !== this.modelKey) return;
+      if (request !== this.request || key !== `${this.modelKey}|${this.loadout}`) return;
       this.attach(model);
     }, error => {
       this.loaded.delete(key);
@@ -150,8 +190,8 @@ export class GlbModelLab {
   async load(key) {
     this.ready ??= this.setup();
     await this.ready;
-    const config = MODELS[key], THREE = this.THREE;
-    const gltf = await this.loader.loadAsync(config.url);
+    const [modelKey, loadout] = key.split('|'), config = MODELS[modelKey], THREE = this.THREE;
+    const gltf = await this.loader.loadAsync((loadout && config.loadouts?.[loadout]?.url) || config.url);
     const root = gltf.scene;
     root.traverse(object => { if (object.isMesh) object.frustumCulled = false; });
     const hips = config.hips.map(name => root.getObjectByName(name)).find(Boolean) ?? null;
@@ -168,17 +208,25 @@ export class GlbModelLab {
       this.current = model; this.scene.add(model.root);
       this.buildTabs();
       const known = model.clips.some(clip => clip.name === this.clipName) || Object.hasOwn(this.config.extras ?? {}, this.clipName ?? '');
-      this.setClip(known ? this.clipName : model.clips[0]?.name, false);
+      this.setClip(known ? this.clipName : this.orderedClips()[0]?.name, !known && this.clipName != null);
     }
     this.placeCamera();
     this.applyBackground();
     $('glb-loading').hidden = true;
-    $('glb-caption').textContent = `${this.config.file} · 애니메이션 ${model.clips.length}개 · 정사영 우측면`;
+    $('glb-caption').textContent = `${this.source.file} · 애니메이션 ${model.clips.length}개 · 정사영 우측면`;
+  }
+
+  // weapon loadouts open on the aiming idle (user request); other clips keep the GLB order
+  orderedClips() {
+    const clips = [...this.current.clips];
+    if (!this.loadout) return clips;
+    const first = ['rifle_aim_idle', 'pistol_idle'];
+    return clips.sort((a, b) => (first.includes(b.name) ? 1 : 0) - (first.includes(a.name) ? 1 : 0));
   }
 
   buildTabs() {
     const labels = this.config.labels;
-    const entries = [...this.current.clips.map(clip => [clip.name, labels[clip.name] ?? clip.name.replace(/\.\d+$/, '')]),
+    const entries = [...this.orderedClips().map(clip => [clip.name, labels[clip.name] ?? clip.name.replace(/\.\d+$/, '')]),
       ...Object.entries(this.config.extras ?? {}).map(([name, extra]) => [name, extra.label])];
     $('glb-clips').replaceChildren(...entries.map(([name, label]) => {
       const button = Object.assign(document.createElement('button'), { type: 'button', textContent: label, title: name });
@@ -339,6 +387,7 @@ export class GlbModelLab {
 
   restoreParams(params) {
     if (params.get('clip')) this.clipName = params.get('clip');
+    if (Object.hasOwn(this.config.loadouts ?? {}, params.get('loadout') ?? '')) this.loadout = params.get('loadout');
     const speed = Number(params.get('speed')); if ([.25, .5, 1].includes(speed)) { this.speed = speed; $('glb-speed').value = String(speed); }
     if (params.get('inPlace') === '0') { this.inPlace = false; $('glb-inplace').checked = false; }
     if (params.get('face') === 'left') this.facing = -1;
@@ -349,6 +398,7 @@ export class GlbModelLab {
     for (const key of ['frame', 'fps', 'loop', 'viewPitch', 'scale', 'version', 'motion', 'study', 'pixelView']) params.delete(key);
     params.set('plan', 'glb');
     if (this.clipName) params.set('clip', this.clipName); else params.delete('clip');
+    if (this.loadout) params.set('loadout', this.loadout); else params.delete('loadout');
     if (this.speed !== 1) params.set('speed', String(this.speed)); else params.delete('speed');
     if (!this.inPlace) params.set('inPlace', '0'); else params.delete('inPlace');
     if (this.facing < 0) params.set('face', 'left'); else params.delete('face');
