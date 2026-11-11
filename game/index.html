@@ -30,7 +30,7 @@
         <div class="preview-mode" aria-label="미리보기 종류">
           <div class="preview-group" role="group" aria-label="원화"><span class="preview-group-label">원화</span><div class="preview-group-buttons"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button></div></div>
           <div class="preview-group" role="group" aria-label="2D 모션"><span class="preview-group-label">2D 모션</span><div class="preview-group-buttons"><button id="mode-rig" type="button" aria-pressed="false">파츠 · 실시간 <span>플랜 A</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 · 프레임 <span>플랜 A · V2</span></button><button id="mode-plan-b" type="button" aria-pressed="false">도트 원화·모션 <span>플랜 B</span></button><button id="mode-plan-e" type="button" aria-pressed="false">3D→도트 <span>플랜 E</span></button><button id="mode-glb-sprite" type="button" aria-pressed="false">GLB 스프라이트 <span>2D</span></button></div></div>
-          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button></div></div>
+          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button><button id="mode-weapon-3d" type="button" aria-pressed="false">무기 모델 <span>3D</span></button></div></div>
         </div>
         <div id="reference-view">
         <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="back" aria-pressed="false" hidden>후면</button><button type="button" data-view="left" aria-pressed="false" hidden>좌측면</button><button type="button" data-view="right" aria-pressed="false" hidden>우측면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
@@ -69,6 +69,14 @@
           <div id="v2-frames" class="v2-frames" role="group" aria-label="프레임 선택"></div>
           <div class="rig-toggles"><button type="button" id="v2-turn">좌우 반전</button><label>시점 <select id="v2-camera"><option value="0">정측면 0°</option><option value="12" selected>위에서 12°</option><option value="20">위에서 20°</option></select></label><label><input type="checkbox" id="v2-cape" checked>망토 표시</label></div>
           <p class="rig-metrics" id="v2-caption" aria-live="off"></p><p class="rig-note">한 장씩 넘기며 동작을 확인하세요. 동작을 바꾸면 첫 프레임부터 바로 시작합니다. Space 재생·정지, ← → 이전·다음 프레임. 기존 파츠로 만든 프레임 초안이며 자세와 반복 구간은 검토 중입니다.</p>
+        </div>
+        <div id="weapon-3d-view" hidden>
+          <div class="rig-motion-tabs" id="wpn-list" role="group" aria-label="무기 모델"></div>
+          <div id="wpn-stage" class="plan-e-stage glb-stage bg-dark" tabindex="0" aria-label="무기 3D 모델. 끌어서 돌려 봅니다"><canvas id="wpn-canvas" aria-label="무기 3D 모델"></canvas><p id="wpn-loading" role="status">무기 모델을 불러오는 중…</p></div>
+          <div class="rig-playback"><button id="wpn-spin" type="button">회전 멈춤</button><button id="wpn-right" type="button">측면 (총구 →)</button><button id="wpn-left" type="button">반대쪽</button><button id="wpn-top" type="button">위에서</button><label><input id="wpn-sockets" type="checkbox" checked> 기준점</label><label>배경 <select id="wpn-background"><option value="dark">어둡게</option><option value="light">밝게</option></select></label></div>
+          <p class="wpn-legend" id="wpn-legend"></p>
+          <p class="rig-metrics" id="wpn-caption" aria-live="off"></p>
+          <p class="rig-note"><span id="wpn-note"></span> 화면을 끌어서 돌려 볼 수 있습니다. 페이지를 열 때 모델 생성이나 렌더를 따로 실행하지 않습니다.</p>
         </div>
         <div id="glb-view" hidden>
           <div class="rig-motion-tabs" id="glb-clips" role="group" aria-label="GLB 모델 동작"></div>

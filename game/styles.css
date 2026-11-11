@@ -78,3 +78,4 @@ main{margin-left:218px;padding:0 40px;max-width:1800px}.page-top{height:73px;bor
   .preview-group-buttons button{padding:9px;font-size:10px}
 }
 .glb-fx-hint{font-size:.78rem;opacity:.7}.glb-stage.glb-aim canvas{cursor:crosshair}
+.wpn-legend{display:flex;flex-wrap:wrap;gap:.4rem 1rem;font-size:.8rem;margin:.4rem 0 0}.wpn-legend-item{display:inline-flex;align-items:center;gap:.35rem}.wpn-legend-item i{width:.7rem;height:.7rem;border-radius:50%;display:inline-block}#wpn-canvas{cursor:grab;touch-action:none}

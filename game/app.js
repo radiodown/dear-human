@@ -4,6 +4,7 @@ import { PartsV2Lab } from './parts-v2-lab.js';
 import { PlanELab } from './plan-e-lab.js';
 import { GlbModelLab, MODELS as GLB_MODELS } from './glb-model-lab.js';
 import { GlbSpriteLab, SPRITE_MODELS } from './glb-sprite-lab.js';
+import { WeaponModelLab } from './weapon-model-lab.js';
 const $ = (id) => document.getElementById(id);
 const lab = new RigLab();
 const planB = new PlanBLab();
@@ -11,6 +12,7 @@ const partsV2 = new PartsV2Lab();
 const planE = new PlanELab();
 const glb = new GlbModelLab();
 const glbSprite = new GlbSpriteLab();
+const weapon3d = new WeaponModelLab();
 let labInitialized = false;
 const motionPreviews = [
   { mode: 'rig', label: '플랜 A · 파츠 실시간', query: 'motion=idle' },
@@ -28,13 +30,16 @@ function setPreviewMode(mode, updateUrl=true) {
   const planEMode = mode === 'plan-e';
   const glbMode = mode === 'glb';
   const glbSpriteMode = mode === 'glb-sprite';
-  $('reference-view').hidden = rigMode || planBMode || v2Mode || planEMode || glbMode || glbSpriteMode; $('rig-view').hidden = !rigMode;
+  const weaponMode = mode === 'weapon-3d';
+  $('reference-view').hidden = rigMode || planBMode || v2Mode || planEMode || glbMode || glbSpriteMode || weaponMode; $('rig-view').hidden = !rigMode;
   $('rig-v2-view').hidden = !v2Mode;
   $('plan-b-view').hidden = !planBMode;
   $('plan-e-view').hidden = !planEMode;
   $('glb-view').hidden = !glbMode;
   $('glb-sprite-view').hidden = !glbSpriteMode;
-  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode && !v2Mode && !planEMode && !glbMode && !glbSpriteMode));
+  $('weapon-3d-view').hidden = !weaponMode;
+  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode && !v2Mode && !planEMode && !glbMode && !glbSpriteMode && !weaponMode));
+  $('mode-weapon-3d').setAttribute('aria-pressed', String(weaponMode));
   $('mode-plan-e').setAttribute('aria-pressed', String(planEMode));
   $('mode-glb').setAttribute('aria-pressed', String(glbMode));
   $('mode-glb-sprite').setAttribute('aria-pressed', String(glbSpriteMode));
@@ -42,28 +47,30 @@ function setPreviewMode(mode, updateUrl=true) {
   $('mode-plan-b').setAttribute('aria-pressed', String(planBMode));
   $('mode-rig-v2').setAttribute('aria-pressed', String(v2Mode));
   updateSampleSelection(mode);
-  $('review-state').textContent = glbSpriteMode ? 'GLB · 2D 스프라이트 시험' : glbMode ? '3D 모델 · GLB 재생 시험' : planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
+  $('review-state').textContent = weaponMode ? '무기 · 3D 모델 시험' : glbSpriteMode ? 'GLB · 2D 스프라이트 시험' : glbMode ? '3D 모델 · GLB 재생 시험' : planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
   lab.show(rigMode);
   planB.show(planBMode);
   partsV2.show(v2Mode);
   planE.show(planEMode);
   glb.show(glbMode);
   glbSprite.show(glbSpriteMode);
+  weapon3d.show(weaponMode);
   if (rigMode && !labInitialized) { labInitialized=true; lab.init(); }
   if (updateUrl) {
     const [route,query] = location.hash.split('?');const params=new URLSearchParams(query||'');
-    if (glbSpriteMode) glbSprite.writeParams(params);
+    if (weaponMode) weapon3d.writeParams(params);
+    else if (glbSpriteMode) glbSprite.writeParams(params);
     else if (glbMode) glb.writeParams(params);
     else if (planEMode) planE.writeParams(params);
     else if (v2Mode) partsV2.writeParams(params);
     else {
-    if(['parts-v2','e','glb','glb-sprite'].includes(params.get('plan')))for(const key of ['frame','fps','loop','paused','face','viewPitch','clip','scale','version','speed','inPlace'])params.delete(key);
+    if(['parts-v2','e','glb','glb-sprite','weapon-3d'].includes(params.get('plan')))for(const key of ['frame','fps','loop','paused','face','viewPitch','clip','scale','version','speed','inPlace','weapon3d','sockets','spin','bg'])params.delete(key);
     if (planBMode) planB.writeParams(params);
     else { params.delete('plan'); params.delete('study'); params.delete('pixelView'); if(rigMode)params.set('motion',lab.mode);else params.delete('motion'); }
     }
     history.replaceState(null,'',`${location.pathname}${location.search}${route}${params.size?'?'+params:''}`);
   }
-  if (!rigMode && !planBMode && !v2Mode && !planEMode && !glbMode && !glbSpriteMode) fitArt();
+  if (!rigMode && !planBMode && !v2Mode && !planEMode && !glbMode && !glbSpriteMode && !weaponMode) fitArt();
 }
 $('mode-reference').addEventListener('click',()=>setPreviewMode('reference'));
 $('mode-rig').addEventListener('click',()=>setPreviewMode('rig'));
@@ -72,6 +79,7 @@ $('mode-plan-b').addEventListener('click',()=>setPreviewMode('plan-b'));
 $('mode-plan-e').addEventListener('click',()=>setPreviewMode('plan-e'));
 $('mode-glb').addEventListener('click',()=>setPreviewMode('glb'));
 $('mode-glb-sprite').addEventListener('click',()=>setPreviewMode('glb-sprite'));
+$('mode-weapon-3d').addEventListener('click',()=>setPreviewMode('weapon-3d'));
 const app = { entries: [], entry: null, revision: null, view: 'sheet', zoom: 1 };
 const labels = { character: '캐릭터', weapon: '무기', enemy: '적' };
 const viewLabels = { front: '정면', back: '후면', left: '좌측면', right: '우측면', side: '측면' };
@@ -108,6 +116,7 @@ function renderSampleNav() {
     { kind: 'character', route: 'characters', label: '캐릭터', icon: '◈' },
     { kind: 'motion' },
     { kind: 'enemy', route: 'enemies', label: '적 · 토착 생물', icon: '◇' },
+    { kind: 'weapon', route: 'weapons', label: '무기', icon: '◆' },
   ];
   let count = 0;
   nav.replaceChildren();
@@ -155,7 +164,7 @@ function renderSampleNav() {
     for (const entry of entries) {
       const link = document.createElement('a');
       link.className = 'nav-item';
-      link.href = `#/samples/${group.route}/${encodeURIComponent(entry.entity_id)}${group.kind === 'weapon' ? '?motion=idle' : ''}`;
+      link.href = `#/samples/${group.route}/${encodeURIComponent(entry.entity_id)}${group.kind === 'weapon' && entry.capabilities?.includes('rig_mount') ? '?motion=idle' : ''}`;
       link.dataset.nav = group.kind;
       link.dataset.entity = entry.entity_id;
       const icon = document.createElement('span');
@@ -310,6 +319,8 @@ function showRoute() {
     const spriteAvailable = ['character', 'enemy'].includes(kind) && Object.hasOwn(SPRITE_MODELS, id);
     glbSprite.configure(spriteAvailable ? id : 'clone_01');
     $('mode-glb-sprite').hidden = !spriteAvailable;
+    $('mode-weapon-3d').hidden = kind !== 'weapon';
+    if (kind === 'weapon') weapon3d.configure(id);
     document.querySelectorAll('.preview-group').forEach(group => {
       group.hidden = ![...group.querySelectorAll('button')].some(button => !button.hidden);
     });
@@ -320,9 +331,9 @@ function showRoute() {
     $('breadcrumb').textContent = `${labels[kind]} / ${entry.display_name}`;
     $('eyebrow').textContent = id === 'clone_01' ? 'LIAN / CL-VS-13-047' : `${kind.toUpperCase()} / ${entry.entity_id.toUpperCase().replaceAll('_', ' ')}`;
     document.title = `${entry.display_name} · 샘플 라이브러리 — Dear Human`;
-    $('subtitle').textContent = hasArt ? kind === 'weapon' ? '본체·탄창과 리안의 장착 모션을 확인하세요.' : kind === 'enemy' ? '베스퍼 토착 크리처의 원화와 앞뒤좌우 시안을 확인하세요.' : id === 'clone_01' ? '리안의 기준 원화와 파츠·도트·3D 미리보기를 확인하세요.' : `${entry.display_name}의 원화와 버전별 시안을 확인하세요.` : '이 대상의 아트와 모션은 제작 예정입니다.';
-    $('mode-reference').textContent = kind === 'weapon' ? '무기 파츠' : conceptOnly ? '일러스트 시안' : '채택 외형';
-    $('direction-heading').textContent = kind === 'weapon' ? 'M16 · 분리형 무기.' : conceptOnly ? `${entry.display_name} · 콘셉트 시안.` : '차갑고, 도도하게.';
+    $('subtitle').textContent = hasArt ? kind === 'weapon' ? (rigAvailable ? '본체·탄창과 리안의 장착 모션을 확인하세요.' : '위키 무기 원화와 3D 모델을 확인하세요.') : kind === 'enemy' ? '베스퍼 토착 크리처의 원화와 앞뒤좌우 시안을 확인하세요.' : id === 'clone_01' ? '리안의 기준 원화와 파츠·도트·3D 미리보기를 확인하세요.' : `${entry.display_name}의 원화와 버전별 시안을 확인하세요.` : '이 대상의 아트와 모션은 제작 예정입니다.';
+    $('mode-reference').textContent = conceptOnly ? (kind === 'weapon' ? '위키 원화' : '일러스트 시안') : kind === 'weapon' ? '무기 파츠' : '채택 외형';
+    $('direction-heading').textContent = kind === 'weapon' ? (rigAvailable ? 'M16 · 분리형 무기.' : `${entry.display_name} · 무기.`) : conceptOnly ? `${entry.display_name} · 콘셉트 시안.` : '차갑고, 도도하게.';
     $('review-state').textContent = hasArt ? '외형 검토 대기' : '제작 예정';
     updateSampleSelection();
     if (!hasArt) { $('empty-title').textContent = `${entry.display_name}은 아직 제작하지 않았습니다.`; return; }
@@ -342,6 +353,9 @@ function showRoute() {
     }
     if(labParams.get('plan')==='glb'&&glbAvailable){
       glb.restoreParams(labParams);setPreviewMode('glb',false);return;
+    }
+    if(labParams.get('plan')==='weapon-3d'&&kind==='weapon'){
+      weapon3d.restoreParams(labParams);setPreviewMode('weapon-3d',false);return;
     }
     if(labParams.get('plan')==='glb-sprite'&&spriteAvailable){
       glbSprite.restoreParams(labParams);setPreviewMode('glb-sprite',false);return;
