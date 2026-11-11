@@ -9,7 +9,7 @@ export const MODELS = {
   clone_01: {
     url: '/art/characters/clone_01/motion/glb_model_001/source/version04.glb',
     file: 'version04.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
     // Clips kept in the GLB but hidden from the tab by user request (2026-11-09).
     hidden: ['캐릭터가 뛰게 해줘.001', '계속 반복해서 빠르게 달리는 동작.001'],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
@@ -19,7 +19,7 @@ export const MODELS = {
   iren: {
     url: '/art/characters/iren/motion/glb_model_001/source/iren_rig.glb',
     file: 'iren_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
@@ -28,7 +28,7 @@ export const MODELS = {
   moa: {
     url: '/art/characters/moa/motion/glb_model_001/source/moa_rig.glb',
     file: 'moa_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
@@ -37,7 +37,7 @@ export const MODELS = {
   yuna: {
     url: '/art/characters/yuna/motion/glb_model_001/source/yuna_rig.glb',
     file: 'yuna_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
@@ -46,7 +46,7 @@ export const MODELS = {
   sena: {
     url: '/art/characters/sena/motion/glb_model_001/source/sena_rig.glb',
     file: 'sena_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian

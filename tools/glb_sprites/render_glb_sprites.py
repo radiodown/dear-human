@@ -34,6 +34,8 @@ MODELS = {
             'run': {'action': 'run.001', 'title': '달리기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'dive': {'action': 'dive.001', 'title': '다이브', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'scared': {'action': 'scared_01.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'idle': {'action': 'idle.001', 'title': '대기 1', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'wait': {'action': 'wait.001', 'title': '대기 2', 'loop': True, 'inplace': 'rest', 'all_frames': True},
         },
     },
     'iren': {
@@ -45,6 +47,8 @@ MODELS = {
             'run': {'action': 'run.001', 'title': '달리기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'dive': {'action': 'dive.001', 'title': '다이브', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'idle': {'action': 'idle.001', 'title': '대기 1', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'wait': {'action': 'wait.001', 'title': '대기 2', 'loop': True, 'inplace': 'rest', 'all_frames': True},
         },
     },
     'moa': {
@@ -56,6 +60,8 @@ MODELS = {
             'run': {'action': 'run.001', 'title': '달리기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'dive': {'action': 'dive.001', 'title': '다이브', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'idle': {'action': 'idle.001', 'title': '대기 1', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'wait': {'action': 'wait.001', 'title': '대기 2', 'loop': True, 'inplace': 'rest', 'all_frames': True},
         },
     },
     'yuna': {
@@ -67,6 +73,8 @@ MODELS = {
             'run': {'action': 'run.001', 'title': '달리기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'dive': {'action': 'dive.001', 'title': '다이브', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'idle': {'action': 'idle.001', 'title': '대기 1', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'wait': {'action': 'wait.001', 'title': '대기 2', 'loop': True, 'inplace': 'rest', 'all_frames': True},
         },
     },
     'sena': {
@@ -78,6 +86,8 @@ MODELS = {
             'run': {'action': 'run.001', 'title': '달리기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'dive': {'action': 'dive.001', 'title': '다이브', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'idle': {'action': 'idle.001', 'title': '대기 1', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'wait': {'action': 'wait.001', 'title': '대기 2', 'loop': True, 'inplace': 'rest', 'all_frames': True},
         },
     },
     'vesper_colony_insect': {
