@@ -47,6 +47,17 @@ MODELS = {
             'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
         },
     },
+    'moa': {
+        # 사용자 리깅 shoot/moa_rig.glb에서 정수리 뼈·가슴 가중치를 고친 moa_rig_fixed.glb 사본
+        'glb': 'art/characters/moa/motion/glb_model_001/source/moa_rig.glb',
+        'ref_bone': 'mixamorig:Hips', 'view': 1.28, 'center': (-0.01, 0.52),  # metres shown
+        'clips': {
+            'walk': {'action': 'walk.001', 'title': '걷기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'run': {'action': 'run.001', 'title': '달리기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'dive': {'action': 'dive.001', 'title': '다이브', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+        },
+    },
     'vesper_colony_insect': {
         'glb': 'art/enemies/vesper_colony_insect/motion/glb_model_001/source/mob.glb',
         'ref_bone': 'tripo::Root', 'view': 1.72, 'center': (0.08, 0.72),  # metres shown

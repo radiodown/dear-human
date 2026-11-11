@@ -25,6 +25,15 @@ export const MODELS = {
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
     note: '사용자가 리깅한 이렌 모델(iren_rig.glb, 정수리 뼈를 머리 안으로 줄인 보정본)을 복사해 Three.js로 그대로 재생합니다. 모델에 들어 있는 걷기·달리기·다이브·겁먹음을 탭으로 고르고, 카메라는 캐릭터의 오른쪽 옆에서 정사영으로 봅니다. ‘제자리’는 골반의 앞뒤·좌우 이동을 고정하고 위아래 움직임은 유지합니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
   },
+  moa: {
+    url: '/art/characters/moa/motion/glb_model_001/source/moa_rig.glb',
+    file: 'moa_rig.glb',
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음' },
+    hidden: [],
+    hips: ['mixamorigHips', 'mixamorig:Hips'],
+    target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
+    note: '사용자가 리깅한 모아 모델(moa_rig.glb)에서 정수리 뼈를 머리 안으로 줄이고 가슴판이 흉곽을 따르도록 가중치를 고친 보정본을 복사해 Three.js로 그대로 재생합니다. 걷기·달리기·다이브·겁먹음을 탭으로 고르고, 카메라는 캐릭터의 오른쪽 옆에서 정사영으로 봅니다. ‘제자리’는 골반의 앞뒤·좌우 이동을 고정하고 위아래 움직임은 유지합니다. 페이지를 열 때 렌더나 변환을 따로 실행하지 않습니다.',
+  },
   vesper_colony_insect: {
     url: '/art/enemies/vesper_colony_insect/motion/glb_model_001/source/mob.glb',
     file: 'mob.glb',
