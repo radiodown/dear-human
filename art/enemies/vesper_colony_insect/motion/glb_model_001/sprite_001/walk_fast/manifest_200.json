@@ -1,0 +1,50 @@
+{
+  "schema_version": 2,
+  "source": "mob.glb · tools/glb_sprites/render_glb_sprites.py (Blender 헤드리스, 정사영 완전 우측면, 4배 렌더 후 축소)",
+  "clip": "walk_fast",
+  "glbAnimation": "walk_fast",
+  "title": "빠른 걷기",
+  "frameCount": 6,
+  "fps": 12,
+  "loop": true,
+  "inPlace": false,
+  "pixelsPerMeter": 200,
+  "modelCanvas": 344,
+  "canvas": {
+    "width": 344,
+    "height": 344
+  },
+  "crop": {
+    "x": 85,
+    "y": 189,
+    "width": 214,
+    "height": 131
+  },
+  "groundY": 316.0,
+  "originX": 188.0,
+  "layout": "grid",
+  "columns": 8,
+  "frame": {
+    "width": 214,
+    "height": 131
+  },
+  "camera": {
+    "type": "orthographic",
+    "view": "right side (-X looking +X)",
+    "orthoScale": 1.72,
+    "centerYZ": [
+      0.08,
+      0.72
+    ]
+  },
+  "spritesheet": "spritesheet_200.webp",
+  "framesDir": "frames_200",
+  "sourceFrames": [
+    "0001.png",
+    "0002.png",
+    "0003.png",
+    "0004.png",
+    "0005.png",
+    "0006.png"
+  ]
+}

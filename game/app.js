@@ -3,7 +3,7 @@ import { PlanBLab } from './plan-b-lab.js';
 import { PartsV2Lab } from './parts-v2-lab.js';
 import { PlanELab } from './plan-e-lab.js';
 import { GlbModelLab, MODELS as GLB_MODELS } from './glb-model-lab.js';
-import { GlbSpriteLab } from './glb-sprite-lab.js';
+import { GlbSpriteLab, SPRITE_MODELS } from './glb-sprite-lab.js';
 const $ = (id) => document.getElementById(id);
 const lab = new RigLab();
 const planB = new PlanBLab();
@@ -307,7 +307,9 @@ function showRoute() {
     const glbAvailable = (kind === 'character' && id === 'clone_01') || (kind === 'enemy' && Object.hasOwn(GLB_MODELS, id));
     glb.configure(glbAvailable ? id : 'clone_01');
     $('mode-glb').hidden = !glbAvailable;
-    $('mode-glb-sprite').hidden = kind !== 'character' || id !== 'clone_01';
+    const spriteAvailable = (kind === 'character' && id === 'clone_01') || (kind === 'enemy' && Object.hasOwn(SPRITE_MODELS, id));
+    glbSprite.configure(spriteAvailable ? id : 'clone_01');
+    $('mode-glb-sprite').hidden = !spriteAvailable;
     document.querySelectorAll('.preview-group').forEach(group => {
       group.hidden = ![...group.querySelectorAll('button')].some(button => !button.hidden);
     });
@@ -341,7 +343,7 @@ function showRoute() {
     if(labParams.get('plan')==='glb'&&glbAvailable){
       glb.restoreParams(labParams);setPreviewMode('glb',false);return;
     }
-    if(labParams.get('plan')==='glb-sprite'&&kind==='character'&&id==='clone_01'){
+    if(labParams.get('plan')==='glb-sprite'&&spriteAvailable){
       glbSprite.restoreParams(labParams);setPreviewMode('glb-sprite',false);return;
     }
     const motion = rigAvailable ? labParams.get('motion') : null;

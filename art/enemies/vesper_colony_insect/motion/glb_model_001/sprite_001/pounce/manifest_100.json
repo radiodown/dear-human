@@ -1,0 +1,62 @@
+{
+  "schema_version": 2,
+  "source": "mob.glb · tools/glb_sprites/render_glb_sprites.py (Blender 헤드리스, 정사영 완전 우측면, 4배 렌더 후 축소)",
+  "clip": "pounce",
+  "glbAnimation": "pounce",
+  "title": "덮치기",
+  "frameCount": 18,
+  "fps": 12,
+  "loop": false,
+  "inPlace": true,
+  "pixelsPerMeter": 100,
+  "modelCanvas": 172,
+  "canvas": {
+    "width": 172,
+    "height": 172
+  },
+  "crop": {
+    "x": 39,
+    "y": 85,
+    "width": 118,
+    "height": 76
+  },
+  "groundY": 158.0,
+  "originX": 94.0,
+  "layout": "grid",
+  "columns": 8,
+  "frame": {
+    "width": 118,
+    "height": 76
+  },
+  "camera": {
+    "type": "orthographic",
+    "view": "right side (-X looking +X)",
+    "orthoScale": 1.72,
+    "centerYZ": [
+      0.08,
+      0.72
+    ]
+  },
+  "spritesheet": "spritesheet_100.webp",
+  "framesDir": "frames_100",
+  "sourceFrames": [
+    "0001.png",
+    "0002.png",
+    "0003.png",
+    "0004.png",
+    "0005.png",
+    "0006.png",
+    "0007.png",
+    "0008.png",
+    "0009.png",
+    "0010.png",
+    "0011.png",
+    "0012.png",
+    "0013.png",
+    "0014.png",
+    "0015.png",
+    "0016.png",
+    "0017.png",
+    "0018.png"
+  ]
+}

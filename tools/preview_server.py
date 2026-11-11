@@ -9,6 +9,8 @@ import mimetypes
 from pathlib import Path
 from urllib.parse import unquote, urlsplit
 
+mimetypes.add_type('image/webp', '.webp')  # missing from some Windows registries (GLB sprite sheets are WebP)
+
 
 def resolve_asset(root: Path, request_path: str) -> Path | None:
     decoded = unquote(urlsplit(request_path).path)
