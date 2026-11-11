@@ -4,8 +4,9 @@ The weapon GLB holds two meshes (*_right, *_left) and sockets socket_grip_r/l, s
 Each pistol is scaled to the character (height / 1.65 m) and driven by its own non-deforming bone under the Hips
 (`weapon` = right, `weapon_l` = left, keyed per frame so in-place playback keeps it with the body). The offset from
 each hand is found on a reference frame: grip socket on that palm, barrel (+X) along that forearm levelled to horizontal, gun up ~ world
-up. No IK: the arms keep the clip as retargeted. Each pistol is then pushed out of its hand (hand_clearance.py: the
-palm skin must not be inside the pistol) by moving the pistol, not the hand. Only the listed clips are exported.
+up. No IK: the arms keep the clip as retargeted. On the reference frame each pistol is moved once, at most
+PISTOL_SHIFT, out of its palm (hand_clearance.py) and that fixed offset is used on every frame (a per-frame move left
+the pistols floating in front of the fists). Only the listed clips are exported.
 
 usage: blender -b --python tools/glb_retarget/attach_dual_pistols.py -- <character.glb> <weapon.glb>
        <reference clip> <out.glb> clip [clip ...]"""
@@ -66,6 +67,13 @@ from hand_clearance import HandClearance
 CLEAR = {side: HandClearance(arm, bodies, [v.co.copy() for v in guns[side].data.vertices], [tuple(p.vertices) for p in guns[side].data.polygons], k) for side in guns}
 # hand moves (gun space) that would clear it: right hand to its pistol's right, left hand to its pistol's left; the pistol moves the opposite way
 DIRS = {'r': [(0, -1, 0), (0, -0.7, -0.7), (-0.7, -0.7, 0), (-1, 0, 0), (-0.7, 0, -0.7)], 'l': [(0, 1, 0), (0, 0.7, -0.7), (-0.7, 0.7, 0), (-1, 0, 0), (-0.7, 0, -0.7)]}
+PISTOL_SHIFT = 0.015   # m real
+sc.frame_set((s0 + e0) // 2)
+for side, (S, _) in SIDE.items():
+    hb = pbs[f'mixamorig:{S}Hand']; Mg = hb.matrix @ OFFSET[side]
+    v, d0, rest = CLEAR[side].shift(CLEAR[side].local(S), hb.matrix.to_3x3(), hb.head.copy(), Mg, DIRS[side], max_shift=PISTOL_SHIFT)
+    OFFSET[side] = hb.matrix.inverted() @ (Matrix.Translation(-v) @ Mg)
+    print('PISTOL %s palm in gun %.0f -> %.0f mm on the reference frame, pistol moved %.0f mm' % (side, d0 / k * 1000, rest / k * 1000, v.length / k * 1000))
 print('ATTACH dual char height %.3f scale %.4f ref %s %d' % (height, k, ref_clip, (s0 + e0) // 2))
 
 hips_rest_inv = arm.data.bones['mixamorig:Hips'].matrix_local.inverted()
@@ -76,11 +84,6 @@ for clip in CLIPS:
     for f in range(s, e + 1):
         sc.frame_set(f)
         frames[f] = {side: pbs[f'mixamorig:{S}Hand'].matrix @ OFFSET[side] for side, (S, _) in SIDE.items()}
-        for side, (S, _) in SIDE.items():
-            Mg = frames[f][side]; hb = pbs[f'mixamorig:{S}Hand']
-            v, d0, rest = CLEAR[side].shift(CLEAR[side].local(S), hb.matrix.to_3x3(), hb.head.copy(), Mg, DIRS[side])
-            frames[f][side] = Matrix.Translation(-v) @ Mg
-            pen.setdefault(side, []).append((d0 / k, rest / k, v.length / k))
         hips = pbs['mixamorig:Hips'].matrix.inverted()
         frames[f]['hips'] = hips
     for f in range(s, e + 1):
@@ -93,8 +96,7 @@ for clip in CLIPS:
             pb.keyframe_insert('location', frame=f); pb.keyframe_insert('rotation_quaternion', frame=f)
         a, b = frames[f]['r'] @ sockets['socket_grip_r'], frames[f]['l'] @ sockets['socket_grip_l']
         gap.append((a - b).length)
-    print('CLIP %-18s frames %3d pistol grips apart min %.0f mm (real)' % (clip, e - s + 1, min(gap) / k * 1000) + '  ' +
-          '  '.join('%s palm in gun %.0f->%.0f mm, gun moved max %.0f mm' % (sd, max(x[0] for x in v) * 1000, max(x[1] for x in v) * 1000, max(x[2] for x in v) * 1000) for sd, v in pen.items()))
+    print('CLIP %-18s frames %3d pistol grips apart min %.0f mm (real)' % (clip, e - s + 1, min(gap) / k * 1000))
 for a in list(bpy.data.actions):
     if a.name not in CLIPS: bpy.data.actions.remove(a)
 if arm.animation_data:

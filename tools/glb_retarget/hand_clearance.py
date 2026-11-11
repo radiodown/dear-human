@@ -57,11 +57,11 @@ class HandClearance:
             if loc is not None and (q - loc).dot(nor) < 0 and d > worst: worst = d
         return worst
 
-    def shift(self, local, hand_rot, wrist, M, dirs):
+    def shift(self, local, hand_rot, wrist, M, dirs, max_shift=None):
         Minv = M.inverted(); R3 = M.to_3x3()
         H = Matrix.Translation(wrist) @ hand_rot.to_4x4()
         base = [Minv @ (H @ p) for p in local]                 # points in gun space
-        tol, top = TOL * self.k, MAX_SHIFT * self.k
+        tol, top = TOL * self.k, (MAX_SHIFT if max_shift is None else max_shift) * self.k
         d0 = self.depth(base)
         if d0 <= tol: return Vector((0, 0, 0)), d0, d0
         best = None

@@ -115,6 +115,16 @@ clear = HandClearance(arm, bodies, [v.co.copy() for v in gun.data.vertices], [tu
 # outward directions in gun space (+X muzzle, +Y gun left, +Z up): right hand to the gun's right, left hand to its left / below
 DIRS = {'Right': [(0, -1, 0), (0, -0.7, -0.7), (-0.7, -0.7, 0), (-1, 0, 0), (-0.7, 0, -0.7), (0, -0.7, 0.7)],
         'Left': [(0, 1, 0), (-0.7, 0.7, 0)] if VGRIP else [(0, 1, 0), (0, 0.7, -0.7), (0, 0, -1), (0, 0.7, 0.7), (0, 0, 1), (0, -0.7, -0.7)]}
+PISTOL_SHIFT = 0.015         # m real: max constant move of a pistol out of the right palm
+if mode == 'pistol':
+    # Two-handed pistol grips wrap the grip from both sides, so moving the hands out per frame bends the arms and
+    # leaves the pistol floating. Keep the clip's arms; move the pistol once (reference frame, capped) out of the palm.
+    sc.frame_set((s0 + e0) // 2)
+    hb = pbs[HAND]
+    v, d0, rest = clear.shift(clear.local('Right'), hb.matrix.to_3x3(), hb.head.copy(), M_ref, DIRS['Right'], max_shift=PISTOL_SHIFT)
+    M_ref = Matrix.Translation(-v) @ M_ref; OFFSET = hb.matrix.inverted() @ M_ref
+    CLEAR = False
+    print('PISTOL palm in gun %.0f -> %.0f mm on the reference frame, pistol moved %.0f mm' % (d0 / k * 1000, rest / k * 1000, v.length / k * 1000))
 bones = arm.data.bones
 def chain(side): return [f'mixamorig:{side}Arm', f'mixamorig:{side}ForeArm', f'mixamorig:{side}Hand']
 rel = {n: (bones[n].parent.matrix_local.inverted() @ bones[n].matrix_local) for s in ('Left', 'Right') for n in chain(s)}
@@ -217,8 +227,8 @@ for clip in CLIPS:
                 avg = sum(win, Vector()) / len(win)
                 # never smaller than the frame's own need (smoothing must not reintroduce overlap)
                 plan[f][side][2] = avg if avg.length >= raw[f].length else raw[f]
-    # pass 2: arm IK onto the (cleared) goals
-    for f in range(s, e + 1):
+    # pass 2: arm IK onto the (cleared) goals (pistols keep the clip's arms)
+    for f in (range(s, e + 1) if mode != 'pistol' else ()):
         sc.frame_set(f)
         ks = {}
         for side, (goal, hand_rot, sh) in plan[f].items():

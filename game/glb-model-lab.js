@@ -8,7 +8,7 @@ const FX_URL = './glb-burst-fx.js';
 export const MODELS = {
   clone_01: {
     // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
-    loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/clone_01/motion/glb_model_001/loadout_005/clone_01_ar12_rupture.glb', file: 'clone_01_ar12_rupture.glb' }, hp14t_gemini: { label: 'HP-14T 제미니 (쌍권총)', url: '/art/characters/clone_01/motion/glb_model_001/loadout_005/clone_01_hp14t_gemini.glb', file: 'clone_01_hp14t_gemini.glb' } },
+    loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/clone_01/motion/glb_model_001/loadout_005/clone_01_ar12_rupture.glb', file: 'clone_01_ar12_rupture.glb' }, hp14t_gemini: { label: 'HP-14T 제미니 (쌍권총)', url: '/art/characters/clone_01/motion/glb_model_001/loadout_006/clone_01_hp14t_gemini.glb', file: 'clone_01_hp14t_gemini.glb' } },
     url: '/art/characters/clone_01/motion/glb_model_001/source/version04.glb',
     file: 'version04.glb',
     labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
@@ -42,7 +42,7 @@ export const MODELS = {
   },
   yuna: {
     // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
-    loadouts: { hp14_bastion: { label: 'HP-14 바스티온', url: '/art/characters/yuna/motion/glb_model_001/loadout_005/yuna_hp14_bastion.glb', file: 'yuna_hp14_bastion.glb' } },
+    loadouts: { hp14_bastion: { label: 'HP-14 바스티온', url: '/art/characters/yuna/motion/glb_model_001/loadout_006/yuna_hp14_bastion.glb', file: 'yuna_hp14_bastion.glb' } },
     url: '/art/characters/yuna/motion/glb_model_001/source/yuna_rig.glb',
     file: 'yuna_rig.glb',
     labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
