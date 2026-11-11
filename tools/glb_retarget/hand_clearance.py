@@ -57,6 +57,25 @@ class HandClearance:
             if loc is not None and (q - loc).dot(nor) < 0 and d > worst: worst = d
         return worst
 
+    def dists(self, local, hand_rot, wrist, M, dirs, max_shift=None):
+        """per direction (gun space): smallest clearing distance (character units), or None if not within max_shift;
+        also the depth before any move"""
+        Minv = M.inverted(); H = Matrix.Translation(wrist) @ hand_rot.to_4x4()
+        base = [Minv @ (H @ p) for p in local]
+        tol, top = TOL * self.k, (MAX_SHIFT if max_shift is None else max_shift) * self.k
+        d0 = self.depth(base); out = []
+        for dg in dirs:
+            dg = Vector(dg).normalized()
+            if d0 <= tol: out.append(0.0); continue
+            if self.depth([p + dg * top for p in base]) > tol: out.append(None); continue
+            lo, hi = 0.0, top
+            for _ in range(10):
+                mid = (lo + hi) / 2
+                if self.depth([p + dg * mid for p in base]) > tol: lo = mid
+                else: hi = mid
+            out.append(hi)
+        return out, d0
+
     def shift(self, local, hand_rot, wrist, M, dirs, max_shift=None):
         Minv = M.inverted(); R3 = M.to_3x3()
         H = Matrix.Translation(wrist) @ hand_rot.to_4x4()

@@ -31,6 +31,7 @@ VGRIP = mode == 'long-vgrip'
 if VGRIP: mode = 'long'
 CLEAR = True                 # push hands out of the gun mesh (hand_clearance.py)
 CLEAR_STEP = 2
+MAX_CLEAR = 0.12             # m real: largest clearance move of a hand
 HIP_CLIPS = {'rifle_idle', 'pistol_idle'}   # low-ready / hip carry: gun stays in the right hand, no shoulder mount
 MIN_SUPPORT = 0.12            # m (real) in front of the grip
 bpy.ops.wm.read_factory_settings(use_empty=True); sc = bpy.context.scene
@@ -129,7 +130,48 @@ bones = arm.data.bones
 def chain(side): return [f'mixamorig:{side}Arm', f'mixamorig:{side}ForeArm', f'mixamorig:{side}Hand']
 rel = {n: (bones[n].parent.matrix_local.inverted() @ bones[n].matrix_local) for s in ('Left', 'Right') for n in chain(s)}
 
-def solve(side, goal_palm, slide_to=None, min_len=0.0, hand_rot=None):
+
+LEVEL = True                 # long guns: muzzle level at the firing and aiming moments (not held level throughout)
+FIRE_KICK = 1.5              # deg/frame: a muzzle rise at least this fast starts a recoil kick (the frame before it fires)
+AIM_PITCH, AIM_STILL = 25.0, 1.5   # deg, deg/frame: steady aiming frames (near level and not moving)
+RECOIL_SKIP = 4              # frames after a shot that are recoil, not aiming
+HOLD, BLEND = 3, 6           # frames: past a key the correction is held HOLD frames, then fades to none over BLEND
+
+def level_moments(clip, s, e, gun_frames):
+    """Rotate the gun about the stock so the muzzle is level at key moments: the frame before each recoil kick
+    (the shot) and steady aiming frames. Between keys the correction is interpolated, so the kick after a shot and
+    the clip's other gun moves stay; farther than BLEND from any key it fades to zero."""
+    pitch = {f: math.degrees(math.asin(max(-1.0, min(1.0, gun_frames[f].to_3x3().col[0].normalized().dot(up_a))))) for f in gun_frames}
+    fires = [f for f in range(s, e) if pitch[f + 1] - pitch[f] >= FIRE_KICK and (f == s or pitch[f] - pitch[f - 1] < FIRE_KICK)
+             and abs(pitch[f]) <= AIM_PITCH]   # a kick from a near-level gun (raising a lowered gun is not a shot)
+    recoil = {x for f in fires for x in range(f + 1, f + 1 + RECOIL_SKIP)}
+    aims = [f for f in range(s, e + 1) if f not in recoil and abs(pitch[f]) <= AIM_PITCH
+            and abs(pitch[min(e, f + 1)] - pitch[max(s, f - 1)]) / 2 <= AIM_STILL]
+    keys = sorted(set(fires) | set(aims))
+    if not keys: return
+    delta = {}
+    for f in range(s, e + 1):
+        a = max((k for k in keys if k <= f), default=None); b = min((k for k in keys if k >= f), default=None)
+        if a is not None and b is not None and b - a <= 2 * BLEND:
+            t = 0 if a == b else (f - a) / (b - a); d = -pitch[a] * (1 - t) - pitch[b] * t
+        else:
+            near = min((k for k in (a, b) if k is not None), key=lambda k: abs(k - f))
+            dist = abs(f - near); w = 1.0 if dist <= HOLD else max(0.0, 1 - (dist - HOLD) / BLEND); w = w * w * (3 - 2 * w); d = -pitch[near] * w
+        delta[f] = d
+    for f in range(s, e + 1):
+        M = gun_frames[f]; gx = M.to_3x3().col[0].normalized(); axis = gx.cross(up_a)
+        if axis.length < 1e-6 or abs(delta[f]) < 1e-4: continue
+        pivot = M @ ST
+        R = Matrix.Rotation(math.radians(delta[f]), 4, axis.normalized())   # +angle about gx x up raises the muzzle
+        gun_frames[f] = Matrix.Translation(pivot) @ R @ Matrix.Translation(-pivot) @ M
+    after = {f: math.degrees(math.asin(max(-1.0, min(1.0, gun_frames[f].to_3x3().col[0].normalized().dot(up_a))))) for f in gun_frames}
+    print('LEVEL %-15s shots at %s, %d aiming frames; muzzle at shots %s deg, at aiming %+.1f..%+.1f deg (clip %+.0f..%+.0f -> %+.0f..%+.0f)' % (
+        clip, fires, len(aims), ['%+.1f' % after[f] for f in fires], min(after[f] for f in aims) if aims else 0, max(after[f] for f in aims) if aims else 0,
+        min(pitch.values()), max(pitch.values()), min(after.values()), max(after.values())))
+
+LAST_POLE = {}   # per side, reset per clip: elbow direction of the previous solved frame
+ELBOW_LIKE_CLIP = {'Right'}   # arms whose elbow keeps the clip's angle from straight down (see solve)
+def solve(side, goal_palm, slide_to=None, min_len=0.0, hand_rot=None, remember=False):
     """two-bone IK in armature space; returns (local quats for the 3 bones, miss, slid distance)"""
     names = chain(side)
     A = {n: pbs[n].matrix.copy() for n in names}; sh = pbs[f'mixamorig:{side}Shoulder'].matrix.copy()
@@ -139,7 +181,7 @@ def solve(side, goal_palm, slide_to=None, min_len=0.0, hand_rot=None):
     if hand_rot is not None:   # new hand orientation: the palm point turns with it
         palm_off = hand_rot @ A[names[2]].to_3x3().inverted() @ palm_off
     def goal(t): return goal_palm + ((slide_to - goal_palm) * t if slide_to is not None else Vector()) - palm_off
-    t = 0.0; reach = (la + lf) * 0.985
+    t = 0.0; reach = (la + lf) * 0.93   # keep the elbow bent (a locked straight arm reads as broken)
     if slide_to is not None and (goal(0.0) - p_sh).length > reach:
         t_max = max(0.0, 1.0 - min_len / max((goal_palm - slide_to).length, 1e-6)); lo_t, hi_t = 0.0, t_max
         for _ in range(30):
@@ -147,12 +189,31 @@ def solve(side, goal_palm, slide_to=None, min_len=0.0, hand_rot=None):
             if (goal(mid) - p_sh).length > reach: lo_t = mid
             else: hi_t = mid
         t = hi_t
-    w = goal(t); d_vec = w - p_sh; d = min(max(d_vec.length, abs(la - lf) + 1e-4), la + lf - 1e-4)
+    w = goal(t); d_vec = w - p_sh; d = min(max(d_vec.length, abs(la - lf) + 1e-4), (la + lf) * 0.97)   # never lock the elbow fully straight
     miss = max(0.0, d_vec.length - (la + lf)); dirn = d_vec.normalized()
     cos_a = max(-1, min(1, (la * la + d * d - lf * lf) / (2 * la * d)))
     pole = (p_el - p_sh); pole = pole - pole.dot(dirn) * dirn
+    if side in ELBOW_LIKE_CLIP:
+        # keep the clip's elbow angle measured from straight down around the shoulder-wrist axis: projecting the old
+        # elbow onto the new plane swings it out sideways ("chicken wing") once the hand has moved
+        ax0 = (p_wr - p_sh).normalized(); off0 = (p_el - p_sh) - (p_el - p_sh).dot(ax0) * ax0
+        dn0 = -up_a - (-up_a).dot(ax0) * ax0; dnN = -up_a - (-up_a).dot(dirn) * dirn
+        if off0.length > 1e-6 and dn0.length > 1e-6 and dnN.length > 1e-6:
+            off0.normalize(); dn0.normalize(); dnN.normalize()
+            phi = math.atan2(ax0.dot(dn0.cross(off0)), dn0.dot(off0))
+            pole = Matrix.Rotation(phi, 3, dirn) @ dnN
+    lp = LAST_POLE.get(side)
+    if lp is not None:
+        lp = lp - lp.dot(dirn) * dirn
+        # the clip's elbow lies almost on the shoulder-goal line (ill-defined) or would flip: keep the previous side;
+        # otherwise blend with it so the elbow does not jump between frames
+        if lp.length > 1e-6:
+            lp.normalize()
+            if pole.length < 0.25 * la or pole.normalized().dot(lp) < 0.2: pole = lp.copy()
+            else: pole = pole.normalized() + lp
     if pole.length < 1e-6: pole = -up_a - (-up_a).dot(dirn) * dirn
     pole.normalize()
+    if remember: LAST_POLE[side] = pole.copy()
     new_el = p_sh + dirn * (la * cos_a) + pole * (la * math.sqrt(max(0, 1 - cos_a * cos_a))); new_wr = p_sh + dirn * d
     def rot_to(Mold, new_dir):
         old = (Mold.to_3x3() @ Vector((0, 1, 0))).normalized()
@@ -173,8 +234,8 @@ def key_weapon(act, f, M):
 for clip in CLIPS:
     act = bpy.data.actions[clip]; arm.animation_data.action = act
     s, e = map(int, act.frame_range); keys = {}; stat = {'miss_r': [], 'miss_l': [], 'slide': [], 'dist': [], 'w': []}
-    gun_frames = {}; plan = {}
-    # pass 1: gun pose, hand goals / orientations, and (every CLEAR_STEP frames) the clearance shift of each hand
+    gun_frames = {}; plan = {}; LAST_POLE.clear()
+    # pass 0: gun pose (hand carry, stock pinned to the shoulder pocket)
     for f in range(s, e + 1):
         sc.frame_set(f)
         M = pbs[HAND].matrix @ OFFSET
@@ -185,6 +246,12 @@ for clip in CLIPS:
             M = Matrix.Translation((P - st0) * w) @ M
             stat['dist'].append(dist); stat['w'].append(w)
         gun_frames[f] = M
+    if LEVEL and mode == 'long' and ST is not None and clip not in HIP_CLIPS:
+        level_moments(clip, s, e, gun_frames)
+    # pass 1: hand goals / orientations, and (every CLEAR_STEP frames) the clearance shift of each hand
+    for f in range(s, e + 1):
+        sc.frame_set(f)
+        M = gun_frames[f]
         R3 = M.to_3x3(); gx, gy, gz = (R3.col[i].normalized() for i in range(3))
         hands = {'Right': [M @ G, None, None]}
         if S is not None:
@@ -209,30 +276,68 @@ for clip in CLIPS:
                 R_orig = pbs[f'mixamorig:{side}Hand'].matrix.to_3x3(); R_new = h[1] if h[1] is not None else R_orig
                 palm_off = R_new @ R_orig.inverted() @ (palm_a(side) - pbs[f'mixamorig:{side}Hand'].head)
                 dirs = DIRS[side]
-                v, d0, rest = clear.shift(clear.local(side), R_new, h[0] - palm_off, M, dirs)
-                h[2] = v; stat.setdefault('pen0_' + side, []).append(d0 / k); stat.setdefault('pen1_' + side, []).append(rest / k)
-                stat.setdefault('shift_' + side, []).append(v.length / k)
+                ds, d0 = clear.dists(clear.local(side), R_new, h[0] - palm_off, M, dirs)
+                # how far the hand may move along each direction before the arm cannot reach (elbow would lock)
+                names = chain(side); p_sh = pbs[names[0]].head; reach = (bones[names[0]].length + bones[names[1]].length) * 0.93
+                wrist0 = h[0] - palm_off; allow = []
+                for dg in dirs:
+                    dv = (M.to_3x3() @ Vector(dg)).normalized()
+                    if (wrist0 - p_sh).length > reach: allow.append(0.0); continue
+                    lo, hi = 0.0, MAX_CLEAR * k
+                    if (wrist0 + dv * hi - p_sh).length <= reach: allow.append(hi); continue
+                    for _ in range(20):
+                        mid = (lo + hi) / 2
+                        if (wrist0 + dv * mid - p_sh).length > reach: hi = mid
+                        else: lo = mid
+                    allow.append(lo)
+                h[2] = (ds, allow, M.to_3x3()); stat.setdefault('pen0_' + side, []).append(d0 / k)
         plan[f] = hands
-    # clearance shifts: fill the skipped frames linearly, then smooth over 5 frames
+    # clearance: ONE direction per hand for the whole clip (switching directions between frames made the hand shake),
+    # the move capped to the arm's reach per frame, then smoothed in time (peak over 5 frames, mean over 9)
     if CLEAR:
         for side in plan[s]:
             known = sorted(f for f in plan if plan[f][side][2] is not None)
-            raw = {}
+            nd = len(DIRS[side]); top = MAX_CLEAR * k
+            def need(f, i):
+                ds, allow, _ = plan[f][side][2]; d = ds[i] if ds[i] is not None else top
+                return min(d, allow[i])
+            def left_inside(f, i):
+                ds, allow, _ = plan[f][side][2]; d = ds[i] if ds[i] is not None else float('inf')
+                return d > allow[i] + 1e-9
+            # best direction: fewest frames it cannot clear within reach, then the smallest largest move
+            best = min(range(nd), key=lambda i: (sum(left_inside(f, i) for f in known), max(need(f, i) for f in known)))
+            dg = Vector(DIRS[side][best]).normalized()
+            mag = {}
             for f in range(s, e + 1):
                 a = max(x for x in known if x <= f); b = min(x for x in known if x >= f)
                 t = 0 if a == b else (f - a) / (b - a)
-                raw[f] = plan[a][side][2].lerp(plan[b][side][2], t)
+                mag[f] = need(a, best) * (1 - t) + need(b, best) * t
+            peak = {f: max(mag[x] for x in range(max(s, f - 2), min(e, f + 2) + 1)) for f in mag}
+            smooth = {f: sum(peak[x] for x in range(max(s, f - 4), min(e, f + 4) + 1)) / (min(e, f + 4) - max(s, f - 4) + 1) for f in mag}
+            stat.setdefault('dir_' + side, []).append(tuple(DIRS[side][best]))
+            stat.setdefault('shift_' + side, []).append(max(smooth.values()) / k)
+            stat.setdefault('inside_' + side, []).append(sum(left_inside(f, best) for f in known))
             for f in range(s, e + 1):
-                win = [raw[x] for x in range(max(s, f - 2), min(e, f + 2) + 1)]
-                avg = sum(win, Vector()) / len(win)
-                # never smaller than the frame's own need (smoothing must not reintroduce overlap)
-                plan[f][side][2] = avg if avg.length >= raw[f].length else raw[f]
+                plan[f][side][2] = (gun_frames[f].to_3x3() @ dg).normalized() * smooth[f]
     # pass 2: arm IK onto the (cleared) goals (pistols keep the clip's arms)
     for f in (range(s, e + 1) if mode != 'pistol' else ()):
         sc.frame_set(f)
         ks = {}
         for side, (goal, hand_rot, sh) in plan[f].items():
-            q, miss, _ = solve(side, goal + (sh if sh is not None else Vector()), hand_rot=hand_rot)
+            sh = sh if sh is not None else Vector()
+            if sh.length > 0:
+                # never push a hand beyond the arm's reach (that locks the elbow straight): shrink the move instead
+                names = chain(side); p_sh = pbs[names[0]].head; reach = (bones[names[0]].length + bones[names[1]].length) * 0.93
+                R_orig = pbs[names[2]].matrix.to_3x3(); R_new = hand_rot if hand_rot is not None else R_orig
+                palm_off = R_new @ R_orig.inverted() @ (palm_a(side) - pbs[names[2]].head)
+                if (goal + sh - palm_off - p_sh).length > reach and (goal - palm_off - p_sh).length <= reach:
+                    lo, hi = 0.0, 1.0
+                    for _ in range(20):
+                        mid = (lo + hi) / 2
+                        if (goal + sh * mid - palm_off - p_sh).length > reach: hi = mid
+                        else: lo = mid
+                    sh = sh * lo
+            q, miss, _ = solve(side, goal + sh, hand_rot=hand_rot, remember=True)
             ks.update(q); stat['miss_r' if side == 'Right' else 'miss_l'].append(miss)
         keys[f] = ks
     for fc in fcurves(act):
@@ -273,7 +378,7 @@ for clip in CLIPS:
             sp.append((M @ ST - pbs['mixamorig:RightShoulder'].matrix @ pocket_local).length)
     mm = lambda v: max(v) / k * 1000 if v else 0
     if CLEAR:
-        print('CLEAR %-15s ' % clip + '  '.join('%s skin in gun %.0f->%.0f mm, hand moved max %.0f mm' % (sd, max(stat['pen0_' + sd]) * 1000, max(stat['pen1_' + sd]) * 1000, max(stat['shift_' + sd]) * 1000) for sd in ('Right', 'Left') if 'pen0_' + sd in stat))
+        print('CLEAR %-15s ' % clip + '  '.join('%s skin in gun %.0f mm, dir %s, hand moved max %.0f mm, sampled frames not cleared %d' % (sd, max(stat['pen0_' + sd]) * 1000, stat['dir_' + sd][0], max(stat['shift_' + sd]) * 1000, stat['inside_' + sd][0]) for sd in ('Right', 'Left') if 'pen0_' + sd in stat))
     print('CLIP %-15s frames %3d right palm-grip max %5.1f mm  left palm-gun line max %5.1f mm  slid %3.0f mm  '
           'stock-pocket min/med/max %s  shouldered frames %s' % (
               clip, e - s + 1, mm(gr), mm(gl), (max(stat['slide']) * 1000 if stat['slide'] else 0),
