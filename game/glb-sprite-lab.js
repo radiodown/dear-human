@@ -30,6 +30,22 @@ export const SPRITE_MODELS = {
     },
     note: 'moa_rig.glb(정수리 뼈·가슴 가중치 보정본)를 Blender에서 정사영 완전 우측면·제자리로 렌더링한 스프라이트 시트를 재생합니다(tools/glb_sprites). 리안·아렌·몬스터와 같은 비율(기본 200px/m, 버전에서 100px/m)·12fps·동작별 여백 자르기·무손실 WebP입니다.',
   },
+  yuna: {
+    base: '/art/characters/yuna/motion/glb_model_001/', file: 'yuna_rig.glb',
+    versions: {
+      sprite_001: { label: '001 · 완전 우측면 · 200px/m', dir: 'sprite_001', manifest: 'manifest_200.json', clips: { walk: '걷기', run: '달리기', dive: '다이브', afraid: '겁먹음' } },
+      sprite_001_100: { label: '001 · 완전 우측면 · 100px/m (작게)', dir: 'sprite_001', manifest: 'manifest_100.json', clips: { walk: '걷기', run: '달리기', dive: '다이브', afraid: '겁먹음' } },
+    },
+    note: 'yuna_rig.glb(정수리 뼈·엉덩이 장비 가중치 보정본)를 Blender에서 정사영 완전 우측면·제자리로 렌더링한 스프라이트 시트를 재생합니다(tools/glb_sprites). 리안·아렌·모아·몬스터와 같은 비율(기본 200px/m, 버전에서 100px/m)·12fps·동작별 여백 자르기·무손실 WebP입니다.',
+  },
+  sena: {
+    base: '/art/characters/sena/motion/glb_model_001/', file: 'sena_rig.glb',
+    versions: {
+      sprite_001: { label: '001 · 완전 우측면 · 200px/m', dir: 'sprite_001', manifest: 'manifest_200.json', clips: { walk: '걷기', run: '달리기', dive: '다이브', afraid: '겁먹음' } },
+      sprite_001_100: { label: '001 · 완전 우측면 · 100px/m (작게)', dir: 'sprite_001', manifest: 'manifest_100.json', clips: { walk: '걷기', run: '달리기', dive: '다이브', afraid: '겁먹음' } },
+    },
+    note: 'sena_rig.glb(정수리 뼈 보정 + 사용자 덧칠 텍스처)를 Blender에서 정사영 완전 우측면·제자리로 렌더링한 스프라이트 시트를 재생합니다(tools/glb_sprites). 다른 대원·몬스터와 같은 비율(기본 200px/m, 버전에서 100px/m)·12fps·동작별 여백 자르기·무손실 WebP입니다.',
+  },
   vesper_colony_insect: {
     base: '/art/enemies/vesper_colony_insect/motion/glb_model_001/', file: 'mob.glb',
     versions: {

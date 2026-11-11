@@ -1,0 +1,77 @@
+{
+  "schema_version": 2,
+  "source": "sena_rig.glb · tools/glb_sprites/render_glb_sprites.py (Blender 헤드리스, 정사영 완전 우측면, 4배 렌더 후 축소)",
+  "clip": "dive",
+  "glbAnimation": "dive.001",
+  "title": "다이브",
+  "frameCount": 33,
+  "fps": 12,
+  "loop": true,
+  "inPlace": true,
+  "pixelsPerMeter": 100,
+  "modelCanvas": 128,
+  "canvas": {
+    "width": 128,
+    "height": 128
+  },
+  "crop": {
+    "x": 5,
+    "y": 23,
+    "width": 122,
+    "height": 100
+  },
+  "groundY": 116.0,
+  "originX": 61.0,
+  "layout": "grid",
+  "columns": 8,
+  "frame": {
+    "width": 122,
+    "height": 100
+  },
+  "camera": {
+    "type": "orthographic",
+    "view": "right side (-X looking +X)",
+    "orthoScale": 1.28,
+    "centerYZ": [
+      -0.03,
+      0.52
+    ]
+  },
+  "spritesheet": "spritesheet_100.webp",
+  "framesDir": "frames_100",
+  "sourceFrames": [
+    "0001.png",
+    "0002.png",
+    "0003.png",
+    "0004.png",
+    "0005.png",
+    "0006.png",
+    "0007.png",
+    "0008.png",
+    "0009.png",
+    "0010.png",
+    "0011.png",
+    "0012.png",
+    "0013.png",
+    "0014.png",
+    "0015.png",
+    "0016.png",
+    "0017.png",
+    "0018.png",
+    "0019.png",
+    "0020.png",
+    "0021.png",
+    "0022.png",
+    "0023.png",
+    "0024.png",
+    "0025.png",
+    "0026.png",
+    "0027.png",
+    "0028.png",
+    "0029.png",
+    "0030.png",
+    "0031.png",
+    "0032.png",
+    "0033.png"
+  ]
+}

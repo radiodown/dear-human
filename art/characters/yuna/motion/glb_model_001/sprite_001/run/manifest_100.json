@@ -1,0 +1,60 @@
+{
+  "schema_version": 2,
+  "source": "yuna_rig.glb · tools/glb_sprites/render_glb_sprites.py (Blender 헤드리스, 정사영 완전 우측면, 4배 렌더 후 축소)",
+  "clip": "run",
+  "glbAnimation": "run.001",
+  "title": "달리기",
+  "frameCount": 16,
+  "fps": 12,
+  "loop": true,
+  "inPlace": true,
+  "pixelsPerMeter": 100,
+  "modelCanvas": 128,
+  "canvas": {
+    "width": 128,
+    "height": 128
+  },
+  "crop": {
+    "x": 18,
+    "y": 23,
+    "width": 86,
+    "height": 95
+  },
+  "groundY": 116.0,
+  "originX": 63.0,
+  "layout": "grid",
+  "columns": 8,
+  "frame": {
+    "width": 86,
+    "height": 95
+  },
+  "camera": {
+    "type": "orthographic",
+    "view": "right side (-X looking +X)",
+    "orthoScale": 1.28,
+    "centerYZ": [
+      -0.01,
+      0.52
+    ]
+  },
+  "spritesheet": "spritesheet_100.webp",
+  "framesDir": "frames_100",
+  "sourceFrames": [
+    "0001.png",
+    "0002.png",
+    "0003.png",
+    "0004.png",
+    "0005.png",
+    "0006.png",
+    "0007.png",
+    "0008.png",
+    "0009.png",
+    "0010.png",
+    "0011.png",
+    "0012.png",
+    "0013.png",
+    "0014.png",
+    "0015.png",
+    "0016.png"
+  ]
+}

@@ -58,6 +58,28 @@ MODELS = {
             'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
         },
     },
+    'yuna': {
+        # 사용자 리깅 shoot/yuna_rig.glb에서 정수리 뼈·양쪽 엉덩이 장비(총·홀스터·파우치) 가중치를 고친 yuna_rig_fixed.glb 사본
+        'glb': 'art/characters/yuna/motion/glb_model_001/source/yuna_rig.glb',
+        'ref_bone': 'mixamorig:Hips', 'view': 1.28, 'center': (-0.01, 0.52),  # metres shown
+        'clips': {
+            'walk': {'action': 'walk.001', 'title': '걷기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'run': {'action': 'run.001', 'title': '달리기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'dive': {'action': 'dive.001', 'title': '다이브', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+        },
+    },
+    'sena': {
+        # 사용자 리깅 shoot/sena_rig.glb → 정수리 뼈 보정(sena_rig_fixed) → 사용자가 Blender에서 앞머리·뺨을 덧칠한 sena_rig_painted.glb 사본
+        'glb': 'art/characters/sena/motion/glb_model_001/source/sena_rig.glb',
+        'ref_bone': 'mixamorig:Hips', 'view': 1.28, 'center': (-0.03, 0.52),  # dive reaches 0.648 m forward
+        'clips': {
+            'walk': {'action': 'walk.001', 'title': '걷기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'run': {'action': 'run.001', 'title': '달리기', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'dive': {'action': 'dive.001', 'title': '다이브', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+            'afraid': {'action': 'afraid.001', 'title': '겁먹음', 'loop': True, 'inplace': 'rest', 'all_frames': True},
+        },
+    },
     'vesper_colony_insect': {
         'glb': 'art/enemies/vesper_colony_insect/motion/glb_model_001/source/mob.glb',
         'ref_bone': 'tripo::Root', 'view': 1.72, 'center': (0.08, 0.72),  # metres shown
