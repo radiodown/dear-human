@@ -1,9 +1,6 @@
 import * as T from '../vendor/three-0.187.0/build/three.module.js';
-export const SOCKETS={
-  stock:new T.Vector3(0,-.024,-.312),
-  trigger:new T.Vector3(.022,-.06,-.067),
-  support:new T.Vector3(-.012,-.025,.125),
-};
+import {RIFLE} from './weapon-definition.js';
+export const SOCKETS=Object.fromEntries(['stock','trigger','support'].map(key=>[key,new T.Vector3(...RIFLE[key])]));
 export function twoBone(start,end,upper,lower,pole){
   const delta=end.clone().sub(start),length=delta.length();
   if(length<1e-7)return start.clone().add(new T.Vector3(0,-upper,0));

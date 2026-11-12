@@ -1,0 +1,98 @@
+{
+  "version": "procedural_007",
+  "recorded_at": "2026-11-12T10:35:49.390453+09:00",
+  "request": "SALTLINE 컨테이너 질감 설명 후: 플랜 F에 적용",
+  "method": "Procedural folded/dented geometry; seeded CPU albedo/ORM/normal synthesis; vertex weathering; wet-film shader; generated logistics plates",
+  "reference": {
+    "path": "game/plan-f/reference/saltline-fable-5.2/index.html",
+    "sha256": "c8cc235f62ff8550d8c2c81e779ae18120b57c5b228ed4cc7d7d717f1202f655",
+    "commit": "09c51774cd77aad750bd2d6c42af2b1020cb668d",
+    "symbols": [
+      "zA",
+      "Uo",
+      "Gg",
+      "h3"
+    ]
+  },
+  "previous_source_snapshot": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot",
+  "sources": [
+    {
+      "path": "game/plan-f/containers.js",
+      "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+    },
+    {
+      "path": "game/plan-f/effects.js",
+      "sha256": "62fa1d06898951102e698f5615b4336594a57e9921a067d484655931857f1b2e"
+    },
+    {
+      "path": "game/plan-f/environment.js",
+      "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+    },
+    {
+      "path": "game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "game/plan-f/index.js",
+      "sha256": "224ea26eb59795706ac93e708d046497b41b5e4aeff9d32186aa808b3da87781"
+    },
+    {
+      "path": "game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "path": "game/plan-f/model-build.js",
+      "sha256": "4fa9fb067c571273ab7cfbcc86d9f687ce6bd9be0ce0fe2142f52e748ba75e18"
+    },
+    {
+      "path": "game/plan-f/model.js",
+      "sha256": "2f8690d38461dbb95b2fae3a9d8780ddd5c82dbd47c3fe5c471b5734eaab97ff"
+    },
+    {
+      "path": "game/plan-f/motion.js",
+      "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+    },
+    {
+      "path": "game/plan-f/reload-pose.js",
+      "sha256": "3996c212af5c006ef3e0ef2c171a960ef3be9e3588cb8b3573b542c1531ee795"
+    },
+    {
+      "path": "game/plan-f/reload.js",
+      "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+    },
+    {
+      "path": "game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "path": "game/plan-f/simulation.js",
+      "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+    },
+    {
+      "path": "game/plan-f/weapon-pose.js",
+      "sha256": "ed0d6da14eee7a768990dcda2d7ecfd0043357933edbf6b4b9a5ce2f9293d090"
+    },
+    {
+      "path": "game/plan-f/weathered-metal.js",
+      "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+    },
+    {
+      "path": "game/plan-f/styles.css",
+      "sha256": "7efeb7128c3e71e1865f92ec26d6ec103385ad8fddb58867a65ba2f6161028b9"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "59e718db4e3f912f031abbb90e0ed5271b465f53e3fb939b7e723b99d7e72a60"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "02c8034580c2e26b1e95197420f62a9c8d0820cf70402d1a3f1e6f61ce14ffb5"
+    }
+  ],
+  "external_generation_calls": 0,
+  "verification": "untested",
+  "verification_note": "No automated tests, syntax checks, document/catalog checks or browser captures under the existing user-validation instruction.",
+  "art_review": "awaiting_user_review",
+  "duration": "not measured",
+  "cost": "not measured"
+}

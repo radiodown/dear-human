@@ -1,13 +1,14 @@
 import * as T from '../vendor/three-0.187.0/build/three.module.js';
 import {RELOAD,ease,boltPull} from './reload.js';
+import {RIFLE} from './weapon-definition.js';
 import {SOCKETS,gunPoint,bodyPoint} from './weapon-pose.js';
 
 const v=(x,y,z)=>new T.Vector3(x,y,z);
 const q=(x,y,z)=>new T.Quaternion().setFromEuler(new T.Euler(x,y,z));
-const MAG_POSITION=v(0,-.105,.023),MAG_ROTATION=q(-.18,0,0);
+const MAG_POSITION=v(...RIFLE.magazine),MAG_ROTATION=q(RIFLE.magazineTilt,0,0);
 const MAG_GRIP=v(-.035,-.015,.01),GRIP_ROTATION=q(0,0,Math.PI/2);
 const GRIP_TO_MAG=GRIP_ROTATION.clone().invert();
-const HANDLE_POSITION=v(0,.064,-.12),HANDLE_TRAVEL=.045;
+const HANDLE_POSITION=v(...RIFLE.handle),HANDLE_TRAVEL=RIFLE.boltTravel;
 export function poseReload(reload,{gun,hips,torso,mag,heldMag,handle}){
   const pull=boltPull(reload);
   handle.position.copy(HANDLE_POSITION);handle.position.z-=pull*HANDLE_TRAVEL;
@@ -24,7 +25,7 @@ export function poseReload(reload,{gun,hips,torso,mag,heldMag,handle}){
   const approach=offset(grip,v(0,-.10,0));
   const tap=offset(grip,v(0,-.025,0));
   const clear=offset(grip,v(-.045,-.035,.015));
-  const bolt={p:gunPoint(gun,v(-.045,.064,-.12)),q:gun.quaternion.clone().multiply(q(-.25,0,Math.PI/2))};
+  const bolt={p:gunPoint(gun,v(RIFLE.handle[0]-.045,RIFLE.handle[1],RIFLE.handle[2])),q:gun.quaternion.clone().multiply(q(-.25,0,Math.PI/2))};
   const boltBack=offset(bolt,v(0,0,-HANDLE_TRAVEL));
   const frames=[[0,support],[.12,support],[RELOAD.grab,grip],[RELOAD.out,grip],[.70,withdrawn],[RELOAD.stow,pouch],[RELOAD.fresh,pouch],[1.24,approach],[RELOAD.insert,grip],[1.52,tap],[RELOAD.tap,grip],[1.72,clear]];
   if(reload.empty)frames.push([1.98,bolt],[RELOAD.boltStart,bolt],[RELOAD.boltPull,boltBack],[RELOAD.boltRelease,boltBack],[RELOAD.boltEnd,bolt],[2.40,bolt],[2.72,support],[RELOAD.empty,support]);
@@ -32,6 +33,8 @@ export function poseReload(reload,{gun,hips,torso,mag,heldMag,handle}){
   let i=0;while(i<frames.length-2&&t>frames[i+1][0])i++;
   const [start,a]=frames[i],[end,b]=frames[i+1],blend=ease((t-start)/(end-start));
   const hand={p:a.p.clone().lerp(b.p,blend),q:a.q.clone().slerp(b.q,blend)};
+  // Clear the chest along a small arc when carrying a magazine to/from the pouch.
+  if(start===.70||start===RELOAD.fresh)hand.p.add(v(-.025,.02,.035).applyQuaternion(torso.quaternion).multiplyScalar(Math.sin(Math.PI*blend)));
   heldMag.visible=t>=RELOAD.out&&t<RELOAD.insert&&(t<RELOAD.stow||t>=RELOAD.fresh);
   // A single hand-to-magazine transform: the prop follows the hand, never vice versa.
   heldMag.quaternion.copy(hand.q).multiply(GRIP_TO_MAG);

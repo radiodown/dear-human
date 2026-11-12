@@ -51,13 +51,13 @@ export class PlanFLab {
       const [T,{createLian},{createStage},{createEffects,GunAudio},{FilmRenderer}]=await Promise.all([import('../vendor/three-0.187.0/build/three.module.js'),import('./model.js'),import('./environment.js'),import('./effects.js'),import('./render.js')]);
       this.T=T;this.renderer=new T.WebGLRenderer({canvas:$('plan-f-canvas'),antialias:true});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.0;
       this.scene=new T.Scene();this.camera=new T.OrthographicCamera(-2,2,1.4,-1.4,.1,35);this.world=createStage(this.scene,this.renderer);this.film=new FilmRenderer(this.renderer);this.actor=createLian();this.scene.add(this.actor.root);this.effects=createEffects(this.scene);this.audio=new GunAudio();this.audio.enabled=$('plan-f-sound').checked;
-      this.origin=new T.Vector3();this.direction=new T.Vector3();this.quaternion=new T.Quaternion();this.ready=true;$('plan-f-loading').hidden=true;this.resize();
+      this.ejectionOrigin=new T.Vector3();this.origin=new T.Vector3();this.direction=new T.Vector3();this.quaternion=new T.Quaternion();this.ready=true;$('plan-f-loading').hidden=true;this.resize();
     })();
     try{await this.pending;}catch(e){$('plan-f-loading').hidden=false;$('plan-f-loading').textContent='3D 화면을 시작하지 못했습니다. WebGL2 지원을 확인해 주세요.';console.error('Plan F',e);this.pending=null;}
   }
   show(active){this.active=active;this.clear();cancelAnimationFrame(this.raf);const generation=this.generation=(this.generation||0)+1;if(!active){this.effects?.clear();return;}this.init().then(()=>{if(this.active&&this.ready&&this.generation===generation){this.resize();this.raf=requestAnimationFrame(this.frame);}});}
   pause(value=!this.paused){this.paused=value;this.clear();this.sync();}
-  toggleCrouch(){if(!this.active)return;this.state.crouched=!this.state.crouched;if(this.paused)this.state.crouch=Number(this.state.crouched);this.sync();}
+  toggleCrouch(){if(!this.active)return;this.state.crouched=!this.state.crouched;if(this.paused){this.state.crouch=this.state.stance.x=Number(this.state.crouched);this.state.stance.v=0;}this.sync();}
   reload(){if(!this.active||!requestReload(this.state))return;this.singleShot=0;this.paused=false;this.audio?.unlock();this.sync();}
   resize(){if(!this.ready||!this.active)return;const w=this.stage.clientWidth,h=this.stage.clientHeight;if(!w||!h)return;this.renderer.setSize(w,h,false);this.film?.resize(Math.floor(w*this.renderer.getPixelRatio()),Math.floor(h*this.renderer.getPixelRatio()));const span=Math.max(1.23,1.8*h/w);this.camera.left=-span*w/h;this.camera.right=span*w/h;this.camera.top=span;this.camera.bottom=-span;this.camera.updateProjectionMatrix();}
   sync(){
@@ -82,9 +82,9 @@ export class PlanFLab {
       while(this.acc>=STEP){
         const shot=advance(this.state,{...input,fire:input.fire||this.singleShot>0});
         if(shot||this.state.reloadEvents.includes('start'))this.singleShot=0;
-        this.actor.pose(this.state);this.effects.update(STEP);
+        this.actor.pose(this.state);this.effects.update(STEP,this.actor.muzzle);
         for(const cue of this.state.reloadEvents)this.audio.reload(cue);
-        if(shot){this.actor.muzzle.getWorldPosition(this.origin);this.actor.muzzle.getWorldQuaternion(this.quaternion);this.direction.set(0,0,1).applyQuaternion(this.quaternion).normalize();this.effects.shot(this.origin,this.direction);this.audio.shot();}
+        if(shot){this.actor.muzzle.getWorldPosition(this.origin);this.actor.muzzle.getWorldQuaternion(this.quaternion);this.direction.set(0,0,1).applyQuaternion(this.quaternion).normalize();this.actor.ejection.getWorldPosition(this.ejectionOrigin);this.effects.shot(this.origin,this.direction,this.ejectionOrigin,this.quaternion);this.audio.shot();}
         this.acc-=STEP;
       }
     }
