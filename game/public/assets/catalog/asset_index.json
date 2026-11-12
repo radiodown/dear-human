@@ -8597,6 +8597,102 @@
             "type": "glb_model",
             "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
           }
+        },
+        {
+          "revision_id": "glb_ar12_reload_013",
+          "display_name": "GLB / Lian AR-12 continuous magazine handoff 013",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Actual Chromium AnimationMixer at 240Hz: 817 samples, no magazine gaps/duplicates, coincident handoffs; existing six clips/binary retained; shared viewer slow playback and clip switching",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_tilt_reload_003",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_013/clone_01_ar12_rupture.glb",
+              "sha256": "72b2e75a127e7aa7cb50831004eec424692a5681a6a9c793b084e245b02ad745"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_013/source_snapshot/make_rifle_reload.py",
+              "sha256": "a95dd6de7e60b3313551a0c2a216c108a8b47fec7544bfd960c4ba9115687f8d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_013/source_snapshot/review_rifle_reload.py",
+              "sha256": "abc269217bc5b0139a3cc46a73c4aa35a749424954ea2653f520b858193ef835"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_013/reviews/magazine_continuity.json",
+              "sha256": "dae168c807882b701690a2a906cec50fd168a311cf3b94d27b9cd25aa86e0dd4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_013/reviews/viewer.json",
+              "sha256": "7849497c17f2989814a134d67089180f21c5f4e6a123a3f5ca752ff6fb2514dc"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
+          }
+        },
+        {
+          "revision_id": "glb_ar12_reload_014",
+          "display_name": "GLB / Lian AR-12 crisp reload timing 014",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Actual Chromium AnimationMixer at 240Hz: 637 samples, no magazine gaps/duplicates, coincident handoffs; existing six animation definitions and binary retained; planted feet and arm rotation steps; shared viewer slow playback and clip switching. Art review pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_tilt_reload_004",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/clone_01_ar12_rupture.glb",
+              "sha256": "b321e63d2c4a7a2d55d47381307ac3106fa5e01992a51cc6d092ec839762e8bc"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/clone_01_ar12_rupture.json",
+              "sha256": "20e3347fc5261e06ba8bc06da42fc33506627b2a2c4bda696a60f9de40155e02"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/source_snapshot/glb-model-lab.js",
+              "sha256": "748c3f8ed516fd83df3117a4226fb4b10fbd71b8a647e1c02297b16211f67173"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/source_snapshot/make_rifle_reload.py",
+              "sha256": "c4c6a0f7283997483a5e9ca9e6ccc4c384055f4c68f82aedb5cfee4dd30ba9bd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/source_snapshot/review_rifle_reload.py",
+              "sha256": "ee28e0a46ec72b36a5683bbfe93c62f9aba75e848f2b0628774366b03998e6f3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/reviews/magazine_continuity.json",
+              "sha256": "abe77f6f7baee0d2668b7a3dd3e5b5bde2462c0f71bacbcf1e8b426b543be728"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/reviews/render.json",
+              "sha256": "acfefa420713539f659ab67b73761d20e004654e830067118461af3d9d7b381d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/reviews/rig_checks.json",
+              "sha256": "8dfd7692f5036713f5e10cfdb90c28619ec56d4eb8a3bd5bfa146575810fe2e6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/reviews/viewer.json",
+              "sha256": "3276ffdb9537ce1098150425f35a1ce393d392b7766ffbac6703ae0218112def"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/AR12_RELOAD.md",
+              "sha256": "ba630c051d7751398dda62f104bf17893b2a0eda4c14cd8226cfcc474d9cef3e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/record.json",
+              "sha256": "bd3a7924965971cf1496859321340d0e62327c2cbf25faa76f08eee461d48239"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
+          }
         }
       ],
       "capabilities": [
@@ -8996,6 +9092,75 @@
             {
               "path": "art/fx/glb_muzzle_001/reviews/viewer.json",
               "sha256": "b2ba1e4b285bd723bab0d572cdad1e152ca1ae502e5fdf803a7c01b97e9c1926"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=gunplay"
+          }
+        },
+        {
+          "revision_id": "glb_muzzle_002",
+          "display_name": "GLB / broad muzzle flame, sparks and wispy smoke 002",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Chromium actual viewer: 22 result entries covering firing cues, pause particle positions, slow playback, toggles, idle/reload/unarmed exclusion, dual alternation, six additional long-gun mounts; screenshots visually inspected. Device performance not measured.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "glb_muzzle_002",
+          "recipe_path": "art/fx/glb_muzzle_002/record.json",
+          "artifacts": [
+            {
+              "path": "art/fx/glb_muzzle_002/source_snapshot/glb-gun-fx.js",
+              "sha256": "5aac538adc6080efcf6210d42a8ca80bc94018c29fdb15be1f8cc9a29f75fb6f"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/source_snapshot/glb-model-lab.js",
+              "sha256": "55622834c7055bbdbb724e45ed3b0baa531159a5d89b7036b1098ec88bef515a"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/source_snapshot/index.html",
+              "sha256": "0eb0eeee498b7e142aaac512b3a73cf38bac999c1435964fbb47142024c1d766"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/source_snapshot/review_gun_fx.py",
+              "sha256": "32fdadd1ee99f3fa94f55a95c2b8a8231270bf9aeb4a4d1d0608385682efe4f2"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/reviews/dual_left_flash.png",
+              "sha256": "24fdc74123106f04df05989c7755ebb9dfaa8bf1f67a3df7c4dee8af95e5baef"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/reviews/dual_left_reverse.png",
+              "sha256": "9bcc8ba60549b3ee90ee4b65a3766366f268651aeebaae61e67a0decc51c8b89"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/reviews/rifle_closeup.png",
+              "sha256": "ead63d67ea061f77907c266c205b24d9a8f3cbed93feaf6ff97aabde99d8a4ba"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/reviews/rifle_flash.png",
+              "sha256": "8d8153efbe5e78ea5f440c8a2f543208fb3b062533cbfcec85943319ab5f0d0a"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/reviews/rifle_smoke.png",
+              "sha256": "f7a537ec9824fc6ef31762d31cdf025c24100adc7834ed7c0d26d3bc5f98f66b"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/reviews/rifle_spread.png",
+              "sha256": "8205d71c5b71daad44a0bae836ac953cc3e47ad1ad05f864b2fbc4016cb00b5b"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/reviews/viewer.json",
+              "sha256": "749b91a5c5b91ef11e4d3e1dd0bc4429f08a44dfa1cb524ec670b0449b4b0702"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/README.md",
+              "sha256": "688af63c548f1ae3e6299711bd823995c5839a271a49fe6131ae293e93e7738c"
+            },
+            {
+              "path": "art/fx/glb_muzzle_002/record.json",
+              "sha256": "4cd2cf63564633ec56d547f6a4bab0909635fd3928c70d328ef5f092adaef0dc"
             }
           ],
           "dependencies": [],

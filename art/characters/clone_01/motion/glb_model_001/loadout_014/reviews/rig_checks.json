@@ -1,0 +1,12 @@
+{
+  "original_six_animation_definitions_and_binary_preserved": true,
+  "max_arm_rotation_degrees_per_60hz_sample": {
+    "mixamorig:LeftHand": 7.527354512072919,
+    "mixamorig:LeftForeArm": 7.369665832855255,
+    "mixamorig:LeftArm": 6.663337288576771,
+    "mixamorig:RightHand": 3.7470625009445193,
+    "mixamorig:RightForeArm": 1.966813878690781,
+    "mixamorig:RightArm": 1.5828824560876174
+  },
+  "max_foot_position_error": 1.0697817291599846e-08
+}

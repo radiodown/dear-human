@@ -115,7 +115,11 @@ class GLB:
             sa = anim['samplers'][ch['sampler']]; ts = self.read(sa['input'])[:,0]; vs = self.read(sa['output'])
             i = min(max(int(np.searchsorted(ts,t,side='right'))-1,0),len(ts)-1); e = min(i+1,len(ts)-1)
             u = np.clip((t-ts[i])/(ts[e]-ts[i]),0,1) if e!=i else 0
-            p = ch['target']['path']; val = slerp(vs[i],vs[e],u) if p=='rotation' else vs[i]*(1-u)+vs[e]*u
+            p = ch['target']['path']
+            interpolation = sa.get('interpolation','LINEAR')
+            if interpolation == 'STEP': val = vs[i]
+            elif interpolation == 'LINEAR': val = slerp(vs[i],vs[e],u) if p=='rotation' else vs[i]*(1-u)+vs[e]*u
+            else: raise ValueError('Unsupported interpolation: '+interpolation)
             trs[ch['target']['node']][{'translation':0,'rotation':1,'scale':2}[p]] = val
         return trs
 
@@ -229,7 +233,8 @@ def build(source, output):
     palm = (world0[hands['Left']][:3,3]+world0[middle][:3,3])*.5
     palm_local = (np.linalg.inv(world0[hands['Left']]) @ np.r_[palm,1])[:3]
     mag_hand[:3,3] = np.array([-.025,-.008,-.006])-mag_hand[:3,:3] @ palm_local
-    times = np.linspace(0,3.4,103)
+    duration, fps = 2.65, 60
+    times = np.linspace(0,duration,round(duration*fps)+1)
     frames = []; max_miss = {'Left':0.,'Right':0.}; contact_errors = []
 
     def set_world(trs, index, desired):
@@ -277,16 +282,16 @@ def build(source, output):
 
     for t in times:
         trs = copy.deepcopy(base)
-        tilt = ease(t,.12,.64)*(1-ease(t,2.48,3.22))
-        grasp = ease(t,.33,.74)*(1-ease(t,2.30,2.74))
-        seat_bump = math.exp(-((t-2.19)/.045)**2)
+        tilt = ease(t,.08,.38)*(1-ease(t,2.12,2.55))
+        grasp = ease(t,.20,.48)*(1-ease(t,1.83,2.10))
+        seat_bump = math.exp(-((t-1.72)/.025)**2)
         # A slight upper-body counterturn and head glance follows the weapon; feet stay planted.
         for bone, yaw, pitch in [('Spine1',-3,1.5),('Head',-7,5)]:
             i = by_name['mixamorig:'+bone]; w = g.world(trs)[i].copy()
             w[:3,:3] = axis_rotation([0,1,0],yaw*tilt) @ axis_rotation([1,0,0],pitch*tilt) @ w[:3,:3]
             set_world(trs,i,w)
         cant = axis_rotation([1,0,0],35*tilt)
-        pitch = axis_rotation([0,0,1],13*tilt+1.8*seat_bump)
+        pitch = axis_rotation([0,0,1],13*tilt+2.6*seat_bump)
         gun = gun0.copy(); gun[:3,:3] = gun0[:3,:3] @ pitch @ cant
         pivot_local = (np.linalg.inv(gun0) @ np.r_[right_pivot,1])[:3]
         gun[:3,3] = right_pivot + np.array([.032,-.018,.018])*tilt - gun[:3,:3] @ pivot_local
@@ -296,14 +301,16 @@ def build(source, output):
         at_pouch = gun.copy()
         at_pouch[:3,:3] = axis_rotation([0,1,0],-18) @ gun[:3,:3]
         at_pouch[:3,3] = pouch - at_pouch[:3,:3] @ mag_center
-        old = pose_mix(gun,detached,ease(t,.78,1.04))
-        old = pose_mix(old,at_pouch,ease(t,1.04,1.43))
-        fresh = pose_mix(at_pouch,detached,ease(t,1.53,1.94))
-        fresh = pose_mix(fresh,gun,ease(t,1.86,2.18))
+        old = pose_mix(gun,detached,ease(t,.53,.70))
+        old = pose_mix(old,at_pouch,ease(t,.77,1.03))
+        fresh = pose_mix(at_pouch,detached,ease(t,1.15,1.46))
+        fresh = pose_mix(fresh,gun,ease(t,1.51,1.70))
         # Brief firm seating push, followed by the hand releasing and returning to the fore-end.
-        fresh[:3,3] += gun[:3,1]*(.003*seat_bump)
-        if t < 1.43: carried = old
-        elif t < 1.53: carried = at_pouch
+        fresh[:3,3] += gun[:3,1]*(.004*seat_bump)
+        # Finish the seating push before the two identical seated meshes exchange visibility.
+        if t >= 1.82-1e-8: fresh = gun.copy()
+        if t < 1.03: carried = old
+        elif t < 1.15: carried = at_pouch
         else: carried = fresh
         left_goal = pose_mix(gun @ hand_offset['Left'],carried @ mag_hand,grasp)
         right_goal = gun @ hand_offset['Right']
@@ -312,17 +319,26 @@ def build(source, output):
         # No sliding grip: the right wrist stays rigidly attached to the rifle for the entire clip.
         actual = g.world(trs)[hands['Right']]
         contact_errors.append(float(np.linalg.norm(actual[:3,3]-right_goal[:3,3])))
-        set_world(trs,old_mag,old if t < 1.43 else gun)
+        # Never move a visible magazine back to the gun on the same key that hides it:
+        # LINEAR translation would make it fly toward the gun during the preceding frame,
+        # while STEP visibility would still be on. Swap at the stationary pouch pose first;
+        # only then return the hidden old mesh to the receiver.
+        old_storage = old if t < 1.10 else pose_mix(at_pouch,gun,ease(t,1.20,1.50))
+        set_world(trs,old_mag,old_storage)
         set_world(trs,new_mag,fresh)
-        trs[old_mag][2] = np.ones(3) if t < 1.43 or t >= 2.32 else np.zeros(3)
-        trs[new_mag][2] = np.ones(3) if 1.53 <= t < 2.32 else np.zeros(3)
+        # Frame-aligned, complementary masks: exactly one full-size magazine, with no empty frame.
+        exchange, seated_swap = 66/60,114/60
+        trs[old_mag][2] = np.ones(3) if t < exchange-1e-8 or t >= seated_swap-1e-8 else np.zeros(3)
+        trs[new_mag][2] = np.ones(3) if exchange-1e-8 <= t < seated_swap-1e-8 else np.zeros(3)
         # The identical meshes swap while seated; defaults make every pre-existing clip safe to switch to.
         if t == 0 or t == times[-1]: trs = copy.deepcopy(base)
         frames.append(trs)
     frames = np.asarray(frames, dtype=object)
     anim = {'name':'rifle_reload','channels':[],'samplers':[],
-            'extras':{'duration_seconds':3.4,'fps':30,'style':'canted tactical magazine exchange',
-                      'events':{'extract':.78,'stow':1.43,'draw':1.53,'seat':2.18,'ready':3.22}}}
+            'extras':{'duration_seconds':duration,'fps':fps,'style':'crisp canted magazine exchange with deliberate holds',
+                      'events':{'grasp':.48,'extract':.53,'clear':.70,'stow':1.03,'exchange':1.10,'draw':1.15,
+                                'align':1.46,'insert':1.51,'seat':1.70,'seating_impact':1.72,
+                                'seated_mesh_swap':1.90,'release':1.83,'ready':2.55}}}
     ti = g.append(times,'SCALAR')
     for i in range(len(nodes)):
         for n,(path,kind) in enumerate([('translation','VEC3'),('rotation','VEC4'),('scale','VEC3')]):
@@ -339,11 +355,11 @@ def build(source, output):
     if max(max_miss.values()) > .002:
         raise ValueError('Hand goal unreachable: '+str(max_miss))
     g.save(output)
-    report = {'recipe':'ar12_tilt_reload_002','source':str(source),'output':str(output),
+    report = {'recipe':'ar12_tilt_reload_004','source':str(source),'output':str(output),
               'source_sha256':hashlib.sha256(Path(source).read_bytes()).hexdigest(),
               'output_sha256':hashlib.sha256(Path(output).read_bytes()).hexdigest(),
               'existing_clips_preserved':[a['name'] for a in original_animations],
-              'new_clip':'rifle_reload','duration_seconds':3.4,'samples':len(times),
+              'new_clip':'rifle_reload','duration_seconds':duration,'fps':fps,'samples':len(times),'events':anim['extras']['events'],
               'magazine_triangles':mag_triangles,'max_hand_reach_error':max_miss,
               'max_right_wrist_contact_error':max(contact_errors),
               'generation_seconds':round(time.perf_counter()-started,3),'paid_api_calls':0,

@@ -1,0 +1,44 @@
+{
+  "before": {
+    "samples": 817,
+    "duration": 3.4000000953674316,
+    "gaps": 0,
+    "duplicates": 0,
+    "partial": 0,
+    "maxStep": 0.0035523763696741813,
+    "maxSpeed": 0.8525703287218035,
+    "handoffs": [
+      {
+        "time": 1.5,
+        "positionError": 5.19740895291906e-10,
+        "rotationError": 0
+      },
+      {
+        "time": 2.3333333333333335,
+        "positionError": 7.866392382354308e-16,
+        "rotationError": 0
+      }
+    ]
+  },
+  "after": {
+    "samples": 637,
+    "duration": 2.6500000953674316,
+    "gaps": 0,
+    "duplicates": 0,
+    "partial": 0,
+    "maxStep": 0.005369015436522017,
+    "maxSpeed": 1.288563704765284,
+    "handoffs": [
+      {
+        "time": 1.1,
+        "positionError": 0,
+        "rotationError": 0
+      },
+      {
+        "time": 1.9,
+        "positionError": 7.153541942882847e-16,
+        "rotationError": 0
+      }
+    ]
+  }
+}
