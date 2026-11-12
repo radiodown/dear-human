@@ -11,7 +11,7 @@ export const MODELS = {
     loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb', file: 'clone_01_ar12_rupture.glb' }, hp14t_gemini: { label: 'HP-14T 제미니 (쌍권총)', url: '/art/characters/clone_01/motion/glb_model_001/loadout_008/clone_01_hp14t_gemini.glb', file: 'clone_01_hp14t_gemini.glb' } },
     url: '/art/characters/clone_01/motion/glb_model_001/source/version04.glb',
     file: 'version04.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', dual_idle: '쌍권총 대기', dual_idle_high: '쌍권총 대기 2 · 총구 위로', dual_fire: '쌍권총 사격', dual_walk: '쌍권총 걷기', dual_run: '쌍권총 달리기' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', dual_idle: '쌍권총 대기', dual_idle_high: '쌍권총 대기 2 · 총구 위로', dual_fire: '쌍권총 사격', dual_kneel_fire: '쌍권총 앉아 사격', dual_walk: '쌍권총 걷기', dual_run: '쌍권총 달리기' },
     // Clips kept in the GLB but hidden from the tab by user request (2026-11-09).
     hidden: ['캐릭터가 뛰게 해줘.001', '계속 반복해서 빠르게 달리는 동작.001'],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
@@ -151,7 +151,7 @@ export class GlbModelLab {
     this.active = active;
     if (!active) { cancelAnimationFrame(this.raf); this.raf = 0; return; }
     this.buildLoadouts();
-    $('glb-note').textContent = this.config.note + (this.loadout ? ` 무장: ${this.source.label} — 무기를 캐릭터 크기(키 1.0≈1.65m)로 줄이고, 긴 총은 소총 대기를 뺀 동작에서 개머리판을 오른쪽 어깨 앞면에 붙이고 양손을 손잡이·받침점에 IK로 맞췄으며, 권총은 손에 붙였습니다(쌍권총은 양손에 한 자루씩 들고, 양팔을 새로 만든 쌍권총 전용 대기 2종·사격·걷기·달리기 동작입니다). 해당 무기의 동작만 들어 있습니다.` : '');
+    $('glb-note').textContent = this.config.note + (this.loadout ? ` 무장: ${this.source.label} — 무기를 캐릭터 크기(키 1.0≈1.65m)로 줄이고, 긴 총은 소총 대기를 뺀 동작에서 개머리판을 오른쪽 어깨 앞면에 붙이고 양손을 손잡이·받침점에 IK로 맞췄으며, 권총은 손에 붙였습니다(쌍권총은 양손에 한 자루씩 들고, 양팔을 새로 만든 쌍권총 전용 대기 2종·사격·앉아 사격·걷기·달리기 동작입니다). 해당 무기의 동작만 들어 있습니다.` : '');
     $('glb-canvas').setAttribute('aria-label', `${this.config.file} 모델의 우측면 애니메이션`);
     $('glb-inplace').closest('label').hidden = !this.config.hips.length;
     this.init().then(() => { if (this.active) { this.resize(); this.last = null; this.schedule(); } }).catch(() => {});

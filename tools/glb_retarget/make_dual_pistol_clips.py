@@ -14,6 +14,7 @@ Clips (24 fps, all loop; the last frame equals the first):
   dual_idle  65 f  base pistol_idle2 x2   both pistols up in front of the chest, slow breathing sway
   dual_idle_high 65 f base pistol_idle2 x2  both pistols held upright: right beside the head, left lower
   dual_fire  25 f  base pistol_idle2      arms out, alternating shots R L R L (6 frames apart) with recoil
+  dual_kneel_fire 97 f base pistol_kneel_idle  kneeling, the same alternating fire (16 shots per loop)
   dual_walk  20 f  base pistol_walk       pistols forward at chest height, small counter-swing to the legs
   dual_run   13 f  base pistol_run        elbows bent, pistols pumping alternately with the stride
 Walk / run keep the base clips' hips travel (use the tab's in-place playback).
@@ -190,6 +191,7 @@ CLIPS = [  # name, base clip, output frames (last = first), base loops, goal, ex
     ('dual_idle', 'pistol_idle2', 65, 2, idle_goal, None),
     ('dual_idle_high', 'pistol_idle2', 65, 2, idle_high_goal, None),
     ('dual_fire', 'pistol_idle2', 25, 1, fire_goal, fire_spine),
+    ('dual_kneel_fire', 'pistol_kneel_idle', 97, 1, fire_goal, fire_spine),   # 4 firing loops over one kneeling-idle loop
     ('dual_walk', 'pistol_walk', 20, 1, walk_goal, None),
     ('dual_run', 'pistol_run', 13, 1, run_goal, None),
 ]
@@ -259,8 +261,8 @@ for name, base_name, count, loops, goal, spine in CLIPS:
             pbs[WBONE[s]].location = loc; pbs[WBONE[s]].keyframe_insert('location', frame=f); put(WBONE[s], rot, f)
         apart.append((grips['Left'] - grips['Right']).length)
     extra = ''
-    if name == 'dual_fire':
-        extra = ' muzzle at shots %s deg, peak kick %+.1f deg' % (['%+.1f' % pitch_at[(s, f)] for s in SUF for f in SHOTS[s]], max(pitch_at.values()))
+    if goal is fire_goal:
+        extra = ' muzzle at shots %s deg, peak kick %+.1f deg' % (['%+.1f' % pitch_at[(s, f)] for s in SUF for f in SHOTS[s] if f <= count], max(pitch_at.values()))
     print('CLIP %-10s base %-13s frames %2d  out of reach %.0f mm  grips apart %.0f..%.0f mm (real)  other bones moved %.1f mm%s' % (
         name, base_name, count, miss / k * 1000, min(apart) / k * 1000, max(apart) / k * 1000, drift / k * 1000, extra))
     made.append(name)
