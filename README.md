@@ -1,5 +1,7 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**AR-12 럽처 · Saltline 참고 모델 001:** [무기 단독 미리보기](http://127.0.0.1:4173/#/samples/weapons/ar12_rupture?plan=weapon-3d&weapon3d=ar12_rupture_saltline) · [제작 기록](art/weapons/ar12_rupture/procedural_001/README.md). 약 0.85m 코드 모델·관통 통풍구·각형 총구 장착물·큰 탄창·재질 분리. 기존 GLB는 선택 항목으로 보존하며 실행·외형 검수 대기.
+
 **플랜 F · 리안 전신 디테일 001:** [실행](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=f) · [제작 기록](art/characters/clone_01/motion/plan_f/human_detail_001/README.md). 연속 인체 외피·코드 스키닝·손가락 파지·얼굴/머리/제복 디테일을 기존 이동·사격·장전에 연결했다. untested·사용자 검수 대기.
 
 - [플랜 G · Saltline 직접 개조 / 횡스크롤 001](game/plan-g/README.md): 공통 미리보기 `?plan=g`. 원본 파일 분리·측면 이동·원본 총기 연결, 임시 전신·실행 검수 대기.

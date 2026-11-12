@@ -60,7 +60,9 @@ export class WeaponModelLab {
   }
 
   // weapon pages open their own model first (m16_basic page -> M16A1)
-  configure(entityId) { if (Object.hasOwn(WEAPONS, entityId)) this.key = entityId; }
+  configure(entityId) {
+    if (Object.hasOwn(WEAPONS, entityId)) this.key = entityId === 'ar12_rupture' ? 'ar12_rupture_saltline' : entityId;
+  }
 
   show(active) {
     this.active = active;

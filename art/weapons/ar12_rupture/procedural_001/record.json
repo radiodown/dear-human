@@ -1,0 +1,53 @@
+{
+  "revision": "procedural_001",
+  "recorded_at": "2026-11-12T11:04:39.380614+09:00",
+  "tool": "Codex / authored JavaScript / Three.js r187",
+  "recipe_key": "saltline-procedural-ar12-001",
+  "scope": "Standalone weapon preview; F/G and equipped characters unchanged",
+  "upstream_commit": "09c51774cd77aad750bd2d6c42af2b1020cb668d",
+  "inputs": [
+    {
+      "path": "game/plan-f/reference/saltline-fable-5.2/index.html",
+      "sha256": "c8cc235f62ff8550d8c2c81e779ae18120b57c5b228ed4cc7d7d717f1202f655"
+    },
+    {
+      "path": "game/plan-g/saltline/weapon.js",
+      "sha256": "99453eeeadc5c1c617209256413a87d9f770c196b635786ffe561539702c0ba5"
+    },
+    {
+      "path": "wiki/content/articles/weapon-ar12-rupture.md",
+      "sha256": "3c7501ff018bb4c39b8604b10eb423768dd0ebf347840918c752a4e9684aad0b"
+    },
+    {
+      "path": "game/vendor/three-0.187.0/build/three.module.js",
+      "sha256": "104f56145899722094556490d787aae0617cc2fc3382f31df02d724ea1aee341"
+    },
+    {
+      "path": "game/vendor/three-0.187.0/examples/jsm/utils/BufferGeometryUtils.js",
+      "sha256": "fa8b3930d2c5bc6366516c636dee51fedcaecf51bfd3c245b350bda655fe194b"
+    }
+  ],
+  "outputs": [
+    {
+      "path": "art/weapons/ar12_rupture/procedural_001/source_snapshot/game/weapons/ar12-rupture.js",
+      "sha256": "b87aa9282d8d0a846f9584f90285b67dc135192844b57c6a7bf10deb91c8f5a5"
+    },
+    {
+      "path": "art/weapons/ar12_rupture/procedural_001/source_snapshot/game/weapon-model-lab.js",
+      "sha256": "b7a85a74822c3a62a003fe6b1efd66d7c9a2ccac10bdd3c136dbc38ae34a5abc"
+    },
+    {
+      "path": "art/weapons/ar12_rupture/procedural_001/source_snapshot/game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "art/weapons/ar12_rupture/procedural_001/source_snapshot/game/plan-f/weapon-materials.js",
+      "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+    }
+  ],
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "duration_seconds": null,
+  "cost": null,
+  "image_generation_calls": 0
+}

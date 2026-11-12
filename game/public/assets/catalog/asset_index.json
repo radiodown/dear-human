@@ -13110,7 +13110,7 @@
       "display_name": "AR-12 럽처",
       "status": "draft",
       "selected_revision_id": null,
-      "review_revision_id": "model_3d_003",
+      "review_revision_id": "procedural_001",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -13324,6 +13324,73 @@
             "손 부착 기준점 5개",
             "캐릭터에 붙일 때 0.606배(키 1.0≈1.65m)",
             "002는 보존"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        },
+        {
+          "revision_id": "procedural_001",
+          "display_name": "AR-12 Rupture / Saltline / procedural 001",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Implementation only; no automated checks or browser review per user instruction.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "saltline-procedural-ar12-001",
+          "artifacts": [
+            {
+              "path": "art/weapons/ar12_rupture/procedural_001/README.md",
+              "sha256": "73584016f7b64e8b4ff5132252129f35343b4f6b8a66a3fa9e92ef96f5cdbf4a"
+            },
+            {
+              "path": "art/weapons/ar12_rupture/procedural_001/record.json",
+              "sha256": "ae9d0a981be39d09f40849e544b383b829c7b4a83d6d6b27aa2a33a9bcee9594"
+            },
+            {
+              "path": "art/weapons/ar12_rupture/procedural_001/source_snapshot/game/weapons/ar12-rupture.js",
+              "sha256": "b87aa9282d8d0a846f9584f90285b67dc135192844b57c6a7bf10deb91c8f5a5"
+            },
+            {
+              "path": "art/weapons/ar12_rupture/procedural_001/source_snapshot/game/weapon-model-lab.js",
+              "sha256": "b7a85a74822c3a62a003fe6b1efd66d7c9a2ccac10bdd3c136dbc38ae34a5abc"
+            },
+            {
+              "path": "art/weapons/ar12_rupture/procedural_001/source_snapshot/game/plan-f/geometry.js",
+              "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+            },
+            {
+              "path": "art/weapons/ar12_rupture/procedural_001/source_snapshot/game/plan-f/weapon-materials.js",
+              "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+            }
+          ],
+          "dependencies": [],
+          "description": "Standalone JavaScript AR-12 model, Saltline-inspired perforated profiles and separated finishes; approximately 0.85m. Existing concept image is reference only, not a render.",
+          "appearance_specs": [
+            [
+              "Model",
+              "Procedural JavaScript / Three.js r187"
+            ],
+            [
+              "Length",
+              "Approx. 0.85m"
+            ],
+            [
+              "Preview",
+              "weapon3d=ar12_rupture_saltline"
+            ]
+          ],
+          "palette": [
+            "#30383b",
+            "#242a29",
+            "#3a403d",
+            "#424c53"
+          ],
+          "review_notes": [
+            "Untested; awaiting user review.",
+            "Concept preview below is the previous reference illustration, not the generated model.",
+            "Existing GLB remains available in the model list."
           ],
           "preview": {
             "image_path": "art/weapons/wiki_concepts_001/ar12-rupture/source/illustration.png",
