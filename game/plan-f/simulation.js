@@ -1,11 +1,14 @@
 export const STEP=1/60;
-export function newState(){return {x:0,facing:1,speed:0,phase:0,time:0,cooldown:0,shots:0,recoil:0,flash:0,aim:0,firing:false,lastShot:-100,kick:{x:0,v:0},body:{x:0,v:0},headLag:{x:0,v:0}};}
+export function newState(){return {x:0,facing:1,speed:0,phase:0,time:0,cooldown:0,shots:0,recoil:0,flash:0,aim:0,crouched:false,crouch:0,firing:false,lastShot:-100,kick:{x:0,v:0},body:{x:0,v:0},headLag:{x:0,v:0}};}
 // Exact critically damped response: stable at fixed ticks and independent of render calls.
 export function spring(channel,target,omega,dt){const y=channel.x-target,j=(channel.v+omega*y)*dt,e=Math.exp(-omega*dt);channel.x=target+(y+j)*e;channel.v=(channel.v-omega*j)*e;}
 export function advance(s,input,dt=STEP){
   s.time+=dt;
+  const crouchTarget=Number(s.crouched);
+  s.crouch+=(crouchTarget-s.crouch)*(1-Math.exp(-dt*12));
+  if(Math.abs(crouchTarget-s.crouch)<.001)s.crouch=crouchTarget;
   const direction=Number(input.right)-Number(input.left);
-  const desired=Math.abs(direction)*1.3;
+  const desired=Math.abs(direction)*1.3*(1-.5*s.crouch);
   s.speed+=(desired-s.speed)*(1-Math.exp(-dt*14));
   if(direction)s.facing=direction;
   s.x=Math.max(-5,Math.min(5,s.x+direction*s.speed*dt));

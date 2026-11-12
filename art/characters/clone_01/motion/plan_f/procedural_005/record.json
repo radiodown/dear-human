@@ -1,0 +1,68 @@
+{
+  "version": "procedural_005",
+  "recorded_at": "2026-11-12T10:18:12.186253+09:00",
+  "request": "C를 누르면 앉게 해줘. 그리고 캐릭터는 정면을 보게 해줘.",
+  "clarification": "캐릭터가 정면으로 보라는것은 이동하는 방향을 보라는 뜻이었어",
+  "method": "C-key crouch toggle and procedural pelvis/leg pose blend, forward gaze and root orientation aligned to last movement direction",
+  "external_generation_calls": 0,
+  "previous_source_snapshot": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot",
+  "sources": [
+    {
+      "path": "game/plan-f/effects.js",
+      "sha256": "034ae98c3143f69836fc56c81017e8ed6c4a4491bb88ae96f2776c1641d74c95"
+    },
+    {
+      "path": "game/plan-f/environment.js",
+      "sha256": "6225a1dc22692df552ceeadd10efe551d297660cf3293e10ae91dbcdfa2ef3f6"
+    },
+    {
+      "path": "game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "game/plan-f/index.js",
+      "sha256": "36e82a12e510c336b423024eeed71d48bc181e1d7c91041320d690f103ae410b"
+    },
+    {
+      "path": "game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "path": "game/plan-f/model-build.js",
+      "sha256": "fbfa080b6d04cfe2f6457e0e96a3964675951a889ed8eb99bc8254690d4dfb4a"
+    },
+    {
+      "path": "game/plan-f/model.js",
+      "sha256": "3946b80f4a48bb3161dbded6eb1658f8ab5e7e7337a8f3c113902c4cef3eaeb6"
+    },
+    {
+      "path": "game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "path": "game/plan-f/simulation.js",
+      "sha256": "19d72aeaba233689f98f17e67f14d86daa36389dad8ee96566815a02e2ac708f"
+    },
+    {
+      "path": "game/plan-f/weapon-pose.js",
+      "sha256": "ed0d6da14eee7a768990dcda2d7ecfd0043357933edbf6b4b9a5ce2f9293d090"
+    },
+    {
+      "path": "game/plan-f/styles.css",
+      "sha256": "76e893d4917086c57674df9eda00c5711cfc280a8ab557095f6a3e7f68802cbe"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "b2be931159a7ebb8653152b6ba15671d415a19db0fec3964d8232fc52cbd9cfa"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "9e3c4a895aef5e05615fc6a332b074cb394fd43c9aebb2a14aff541e0f5c682e"
+    }
+  ],
+  "verification": "untested",
+  "verification_note": "Implementation handoff under the AGENTS.md user-validation instruction; no new automated tests or browser capture.",
+  "art_review": "awaiting_user_review",
+  "duration": "not measured",
+  "cost": "not measured"
+}

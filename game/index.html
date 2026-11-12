@@ -40,22 +40,22 @@
         <div class="sheet-caption"><span id="revision-caption">외형 시안</span><span id="image-dimensions"></span></div>
         </div>
         <div id="plan-f-view" hidden>
-          <div class="f-toolbar"><div><span class="f-eyebrow">PLAN F / 004</span><strong>리안 · 이동과 사격</strong></div><span class="f-chip">CL-VS-13-047</span></div>
-          <div id="plan-f-stage" class="f-stage" tabindex="0" role="group" aria-label="플랜 F 조작 화면. A D 이동, Space 또는 J 사격">
+          <div class="f-toolbar"><div><span class="f-eyebrow">PLAN F / 005</span><strong>리안 · 이동과 사격</strong></div><span class="f-chip">CL-VS-13-047</span></div>
+          <div id="plan-f-stage" class="f-stage" tabindex="0" role="group" aria-label="플랜 F 조작 화면. A D 이동, C 앉기와 일어서기, Space 또는 J 사격">
             <canvas id="plan-f-canvas" aria-label="코드로 만든 리안의 이동과 사격"></canvas>
             <div class="f-overlay"><span>VESPER / TRAINING DECK</span><span id="plan-f-status">대기</span></div>
             <div class="f-bottom"><span>LIAN <b>047</b></span><span><output id="plan-f-position">0.00 m</output> · <output id="plan-f-shots">0 발</output></span></div>
             <p id="plan-f-loading" role="status">훈련장을 준비하는 중…</p>
           </div>
-          <div class="f-controls"><div class="f-pad"><button type="button" data-f-input="left" aria-label="왼쪽 이동">← 이동</button><button type="button" data-f-input="right" aria-label="오른쪽 이동">이동 →</button><button type="button" data-f-input="fire">누르고 사격</button></div><div class="f-options"><button id="plan-f-shot" type="button">단발</button><label>재생 <select id="plan-f-speed" aria-label="플랜 F 재생 속도"><option value="1">1×</option><option value="0.25">0.25×</option></select></label><button id="plan-f-pause" type="button">일시정지</button><button id="plan-f-reset" type="button">처음으로</button><label><input type="checkbox" id="plan-f-post" checked>화면 효과</label><label><input type="checkbox" id="plan-f-wet" checked>젖은 바닥</label><label><input type="checkbox" id="plan-f-sound">총성</label></div></div>
+          <div class="f-controls"><div class="f-pad"><button type="button" data-f-input="left" aria-label="왼쪽 이동">← 이동</button><button type="button" data-f-input="right" aria-label="오른쪽 이동">이동 →</button><button id="plan-f-crouch" type="button" aria-pressed="false" aria-keyshortcuts="C">앉기 C</button><button type="button" data-f-input="fire">누르고 사격</button></div><div class="f-options"><button id="plan-f-shot" type="button">단발</button><label>재생 <select id="plan-f-speed" aria-label="플랜 F 재생 속도"><option value="1">1×</option><option value="0.25">0.25×</option></select></label><button id="plan-f-pause" type="button">일시정지</button><button id="plan-f-reset" type="button">처음으로</button><label><input type="checkbox" id="plan-f-post" checked>화면 효과</label><label><input type="checkbox" id="plan-f-wet" checked>젖은 바닥</label><label><input type="checkbox" id="plan-f-sound">총성</label></div></div>
           <div class="f-controls f-camera" role="group" aria-label="카메라 시점 조절" aria-describedby="plan-f-camera-note">
             <label for="plan-f-camera-yaw">좌우 회전 <input id="plan-f-camera-yaw" type="range" min="-90" max="90" step="1" value="0"><output id="plan-f-camera-yaw-value" for="plan-f-camera-yaw">0°</output></label>
             <label for="plan-f-camera-pitch">위아래 각도 <input id="plan-f-camera-pitch" type="range" min="0" max="60" step="0.1" value="8.3"><output id="plan-f-camera-pitch-value" for="plan-f-camera-pitch">8.3°</output></label>
             <button id="plan-f-camera-reset" type="button">기본 시점</button>
           </div>
-          <p class="f-help">화면을 클릭한 뒤 <kbd>A</kbd> <kbd>D</kbd> 이동 · <kbd>Space</kbd> / <kbd>J</kbd> 사격 · <kbd>Esc</kbd> 일시정지. 화면을 누르거나 아래 버튼을 길게 눌러도 사격합니다.</p>
+          <p class="f-help">화면을 클릭한 뒤 <kbd>A</kbd> <kbd>D</kbd> 이동 · <kbd>C</kbd> 앉기 / 다시 누르면 일어서기 · <kbd>Space</kbd> / <kbd>J</kbd> 사격 · <kbd>Esc</kbd> 일시정지. 화면을 누르거나 아래 버튼을 길게 눌러도 사격합니다.</p>
           <p class="f-note" id="plan-f-camera-note">시점은 일시정지 중에도 조절할 수 있습니다. 위아래 0°는 수평, 값이 커질수록 위에서 내려다봅니다. 선택한 각도는 브라우저와 주소에 저장됩니다.</p>
-          <p class="f-note">004 · 시점 조절 추가. 단발과 0.25×로 반동을 비교할 수 있습니다. 이동 중 사격 가능 · 탄약 무제한. 적과 피해 판정은 없는 동작 시험입니다.</p>
+          <p class="f-note">005 · 이동하는 방향을 바라보며 C키로 앉기 전환. 앉은 상태에서도 이동·사격할 수 있습니다. 단발과 0.25×로 동작 비교 가능 · 탄약 무제한. 적과 피해 판정은 없는 동작 시험입니다.</p>
         </div>
         <div id="rig-view" hidden>
           <div class="rig-toolbar"><div class="rig-motion-tabs"><button data-motion="idle" aria-pressed="true">견착 대기</button><button data-motion="relaxed" aria-pressed="false">완전 대기</button><button data-motion="walk" aria-pressed="false">이동</button><button data-motion="fire" aria-pressed="false">서서쏴</button><button data-motion="walk_fire" aria-pressed="false">이동 사격</button><button data-motion="run" aria-pressed="false">달리기</button><button data-motion="run_fire" aria-pressed="false">뛰며쏴</button><button data-motion="kneel" aria-pressed="false">앉기</button><button data-motion="kneel_fire" aria-pressed="false">앉아쏴</button></div><label>무기 <select id="rig-weapon"><option value="m16_basic">M16</option><option value="diagnostic">진단 도형</option></select></label></div>

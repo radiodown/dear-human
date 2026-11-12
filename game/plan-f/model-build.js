@@ -63,7 +63,7 @@ export function buildLian(){
  const embroidery=document.createElement('canvas');embroidery.width=512;embroidery.height=768;const ec=embroidery.getContext('2d');ec.fillStyle='#586373';ec.fillRect(0,0,512,768);ec.strokeStyle='#c7ab77';ec.lineWidth=3;ec.strokeRect(26,20,460,728);ec.lineWidth=1;ec.strokeRect(33,27,446,714);
  for(const sign of [-1,1])for(let i=0;i<8;i++){ec.beginPath();ec.moveTo(256+sign*12,535+i*7);ec.quadraticCurveTo(256+sign*(55+i*8),525+i*3,256+sign*(95+i*5),485+i*13);ec.lineTo(256+sign*(70+i*8),538+i*6);ec.closePath();ec.fillStyle='#b8a073';ec.fill();}
  ec.beginPath();ec.moveTo(256,518);ec.lineTo(275,552);ec.lineTo(256,594);ec.lineTo(237,552);ec.closePath();ec.fill();const et=new T.CanvasTexture(embroidery);et.colorSpace=T.SRGBColorSpace;cm.map=et;
- mesh(cp,cg,cm);capes.push({geometry:cg,rest:cg.attributes.position.array.slice()});
+ const cape=mesh(cp,cg,cm);capes.push({mesh:cape,geometry:cg,rest:cg.attributes.position.array.slice()});
  for(const sign of [-1,1]){
   const shoulder=group(torso,sign*.195,.355,0);oval(shoulder,.085,.058,.084,m.armor);
   for(let i=0;i<3;i++){const plate=panel(shoulder,[[-.064,-.017],[.062,-.017],[.05,.024],[-.047,.03]],.012,i===0?m.edge:m.armor,sign*i*.014,-i*.035,.058);plate.rotation.z=sign*-.18;for(const x of [-.04,.04])bolt(plate,x,.006,.009,.003);}

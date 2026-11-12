@@ -10,7 +10,7 @@ export class PlanFLab {
     let savedView;try{savedView=JSON.parse(localStorage.getItem(VIEW_STORAGE));}catch{}
     this.setView(savedView||{},{save:false,updateUrl:false});
     const clear=()=>{this.keys.clear();this.pointers.clear();this.singleShot=0;this.last=0;this.acc=0;};this.clear=clear;
-    this.stage.addEventListener('keydown',e=>{if(!this.active||/INPUT|SELECT|BUTTON/.test(e.target.tagName))return;if(['KeyA','KeyD','ArrowLeft','ArrowRight','Space','KeyJ','Escape'].includes(e.code)){e.preventDefault();if(e.code==='Escape'){if(!e.repeat)this.pause();return;}this.keys.add(e.code);this.audio?.unlock();}});
+    this.stage.addEventListener('keydown',e=>{if(!this.active||/INPUT|SELECT|BUTTON/.test(e.target.tagName))return;if(['KeyA','KeyD','ArrowLeft','ArrowRight','Space','KeyJ','KeyC','Escape'].includes(e.code)){e.preventDefault();if(e.code==='Escape'){if(!e.repeat)this.pause();return;}if(e.code==='KeyC'){if(!e.repeat)this.toggleCrouch();return;}this.keys.add(e.code);this.audio?.unlock();}});
     this.stage.addEventListener('keyup',e=>{this.keys.delete(e.code);});
     window.addEventListener('blur',clear);this.stage.addEventListener('blur',clear);
     document.addEventListener('visibilitychange',()=>{clear();if(document.hidden&&this.active)this.pause(true);});
@@ -19,6 +19,7 @@ export class PlanFLab {
       for(const type of ['pointerup','pointercancel','lostpointercapture'])button.addEventListener(type,e=>this.pointers.delete(e.pointerId));
     }
     $('plan-f-shot').addEventListener('click',()=>{this.paused=false;this.singleShot=1;this.audio?.unlock();});
+    $('plan-f-crouch').addEventListener('click',()=>{this.toggleCrouch();this.stage.focus();});
     $('plan-f-speed').addEventListener('change',e=>{this.playback=Number(e.target.value);this.acc=0;});
     for(const key of ['yaw','pitch'])$('plan-f-camera-'+key).addEventListener('input',e=>this.setView({[key]:e.target.value}));
     $('plan-f-camera-reset').addEventListener('click',()=>this.setView(DEFAULT_VIEW));
@@ -54,8 +55,15 @@ export class PlanFLab {
   }
   show(active){this.active=active;this.clear();cancelAnimationFrame(this.raf);const generation=this.generation=(this.generation||0)+1;if(!active){this.effects?.clear();return;}this.init().then(()=>{if(this.active&&this.ready&&this.generation===generation){this.resize();this.raf=requestAnimationFrame(this.frame);}});}
   pause(value=!this.paused){this.paused=value;this.clear();this.sync();}
+  toggleCrouch(){if(!this.active)return;this.state.crouched=!this.state.crouched;if(this.paused)this.state.crouch=Number(this.state.crouched);this.sync();}
   resize(){if(!this.ready||!this.active)return;const w=this.stage.clientWidth,h=this.stage.clientHeight;if(!w||!h)return;this.renderer.setSize(w,h,false);this.film?.resize(Math.floor(w*this.renderer.getPixelRatio()),Math.floor(h*this.renderer.getPixelRatio()));const span=Math.max(1.23,1.8*h/w);this.camera.left=-span*w/h;this.camera.right=span*w/h;this.camera.top=span;this.camera.bottom=-span;this.camera.updateProjectionMatrix();}
-  sync(){const s=this.state;$('plan-f-pause').textContent=this.paused?'재개':'일시정지';$('plan-f-status').textContent=this.paused?'일시정지':s.firing?(s.speed>.1?'이동 사격':'사격'):s.time-s.lastShot<.35?'반동 복귀':s.speed>.1?'이동':'견착 대기';$('plan-f-shots').textContent=`${s.shots} 발`;$('plan-f-position').textContent=`${s.x.toFixed(2)} m`;}
+  sync(){
+    const s=this.state,low=s.crouch>.5,moving=s.speed>.1;
+    $('plan-f-pause').textContent=this.paused?'재개':'일시정지';
+    $('plan-f-crouch').textContent=s.crouched?'일어서기 C':'앉기 C';$('plan-f-crouch').setAttribute('aria-pressed',String(s.crouched));
+    $('plan-f-status').textContent=this.paused?'일시정지':s.firing?(low?(moving?'앉아 이동 사격':'앉아 사격'):(moving?'이동 사격':'사격')):Math.abs(Number(s.crouched)-s.crouch)>.02?(s.crouched?'앉는 중':'일어서는 중'):s.time-s.lastShot<.35?'반동 복귀':moving?(low?'앉아 이동':'이동'):low?'앉아 대기':'견착 대기';
+    $('plan-f-shots').textContent=`${s.shots} 발`;$('plan-f-position').textContent=`${s.x.toFixed(2)} m`;
+  }
   frame(now){
     if(!this.active)return;
     const dt=this.last?Math.min((now-this.last)/1000,.1):0;this.last=now;

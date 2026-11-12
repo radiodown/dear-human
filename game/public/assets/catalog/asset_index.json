@@ -7121,7 +7121,7 @@
             }
           ],
           "dependencies": [],
-          "description": "001 보존본. 원본 소스는 source_snapshot, 현재 실행은 004.",
+          "description": "001 보존본. 원본 소스는 source_snapshot, 현재 실행은 005.",
           "sample_url": "#/samples/characters/clone_01?plan=f"
         },
         {
@@ -7191,7 +7191,7 @@
             }
           ],
           "dependencies": [],
-          "description": "002 모델·PBR·조명·후처리 보존본. 원본 소스는 source_snapshot, 현재 실행은 004.",
+          "description": "002 모델·PBR·조명·후처리 보존본. 원본 소스는 source_snapshot, 현재 실행은 005.",
           "sample_url": "#/samples/characters/clone_01?plan=f"
         },
         {
@@ -7317,17 +7317,91 @@
             }
           ],
           "dependencies": [],
-          "description": "003 사격 자세·반동 보존본. 원본은 source_snapshot, 현재 실행은 004.",
+          "description": "003 사격 자세·반동 보존본. 원본은 source_snapshot, 현재 실행은 005.",
           "sample_url": "#/samples/characters/clone_01?plan=f"
         },
         {
           "revision_id": "plan_f_procedural_004",
           "display_name": "플랜 F 004 · 카메라 시점 조절",
-          "status": "draft",
+          "status": "archived",
           "verification": "untested",
           "verification_scope": "implementation_only",
           "art_direction_status": "awaiting_user_review",
           "recipe_key": "509804909db8f3cb38a885710e911885d9509a8816fd6b8344b8dccae851bd76",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/effects.js",
+              "sha256": "034ae98c3143f69836fc56c81017e8ed6c4a4491bb88ae96f2776c1641d74c95"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/environment.js",
+              "sha256": "6225a1dc22692df552ceeadd10efe551d297660cf3293e10ae91dbcdfa2ef3f6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/geometry.js",
+              "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/index.js",
+              "sha256": "f2433a71aba1b9394a8f2909fc8b0724c0cc0465f664da7e65ee0020a9c5a425"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/materials.js",
+              "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/model-build.js",
+              "sha256": "6e5ff86d7dfae5170289ebe5596368d6638fd02b80a510f27fe9580b87997a94"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/model.js",
+              "sha256": "4a162457400eab44f234002ae26bb6d7662fa30144b9c78749ae9c4e93f6e714"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/render.js",
+              "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/simulation.js",
+              "sha256": "dfa83903c0a20f3feb00d856eaf8d0fcc785810966449a210508a4813f70888b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/weapon-pose.js",
+              "sha256": "ed0d6da14eee7a768990dcda2d7ecfd0043357933edbf6b4b9a5ce2f9293d090"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/plan-f/styles.css",
+              "sha256": "b10f839f9546d0024ccc9ab3da3afc35f4df06e4c0480cec65bac12d440705dd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/index.html",
+              "sha256": "95b2ddccd18a69c140ea715c1a4742d7bbb563b483e7b340320da8859dd937bf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/source_snapshot/game/app.js",
+              "sha256": "791f68889c799e9e796f16d405e5832715faeffd2374c33d05ee776696ec0e03"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/README.md",
+              "sha256": "74d0b4d541b274f4633a98124c277302c8c92a37e49fd7ebd5de2f2170efe486"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_004/record.json",
+              "sha256": "b9460fa0abbd969689dbf07bb08c58672019fe2b1f9382f6075cde891ed43171"
+            }
+          ],
+          "dependencies": [],
+          "description": "004 카메라 시점 조절 보존본. 원본은 source_snapshot, 현재 실행은 005.",
+          "sample_url": "#/samples/characters/clone_01?plan=f"
+        },
+        {
+          "revision_id": "plan_f_procedural_005",
+          "display_name": "플랜 F 005 · C 앉기·이동 방향 시선",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "implementation_only",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "48e0c0186f49cdc48d02b64cfa005a3b2a1c736091e13c026b03ec06a1457efa",
           "artifacts": [
             {
               "path": "game/plan-f/effects.js",
@@ -7343,7 +7417,7 @@
             },
             {
               "path": "game/plan-f/index.js",
-              "sha256": "f2433a71aba1b9394a8f2909fc8b0724c0cc0465f664da7e65ee0020a9c5a425"
+              "sha256": "36e82a12e510c336b423024eeed71d48bc181e1d7c91041320d690f103ae410b"
             },
             {
               "path": "game/plan-f/materials.js",
@@ -7351,11 +7425,11 @@
             },
             {
               "path": "game/plan-f/model-build.js",
-              "sha256": "6e5ff86d7dfae5170289ebe5596368d6638fd02b80a510f27fe9580b87997a94"
+              "sha256": "fbfa080b6d04cfe2f6457e0e96a3964675951a889ed8eb99bc8254690d4dfb4a"
             },
             {
               "path": "game/plan-f/model.js",
-              "sha256": "4a162457400eab44f234002ae26bb6d7662fa30144b9c78749ae9c4e93f6e714"
+              "sha256": "3946b80f4a48bb3161dbded6eb1658f8ab5e7e7337a8f3c113902c4cef3eaeb6"
             },
             {
               "path": "game/plan-f/render.js",
@@ -7363,7 +7437,7 @@
             },
             {
               "path": "game/plan-f/simulation.js",
-              "sha256": "dfa83903c0a20f3feb00d856eaf8d0fcc785810966449a210508a4813f70888b"
+              "sha256": "19d72aeaba233689f98f17e67f14d86daa36389dad8ee96566815a02e2ac708f"
             },
             {
               "path": "game/plan-f/weapon-pose.js",
@@ -7371,27 +7445,27 @@
             },
             {
               "path": "game/plan-f/styles.css",
-              "sha256": "b10f839f9546d0024ccc9ab3da3afc35f4df06e4c0480cec65bac12d440705dd"
+              "sha256": "76e893d4917086c57674df9eda00c5711cfc280a8ab557095f6a3e7f68802cbe"
             },
             {
               "path": "game/index.html",
-              "sha256": "95b2ddccd18a69c140ea715c1a4742d7bbb563b483e7b340320da8859dd937bf"
+              "sha256": "b2be931159a7ebb8653152b6ba15671d415a19db0fec3964d8232fc52cbd9cfa"
             },
             {
               "path": "game/app.js",
-              "sha256": "791f68889c799e9e796f16d405e5832715faeffd2374c33d05ee776696ec0e03"
+              "sha256": "9e3c4a895aef5e05615fc6a332b074cb394fd43c9aebb2a14aff541e0f5c682e"
             },
             {
-              "path": "art/characters/clone_01/motion/plan_f/procedural_004/README.md",
-              "sha256": "74d0b4d541b274f4633a98124c277302c8c92a37e49fd7ebd5de2f2170efe486"
+              "path": "art/characters/clone_01/motion/plan_f/procedural_005/README.md",
+              "sha256": "cb3056844cbb79a1e509a818df2ae61a48555959baace415f0257463eb4ad377"
             },
             {
-              "path": "art/characters/clone_01/motion/plan_f/procedural_004/record.json",
-              "sha256": "b9460fa0abbd969689dbf07bb08c58672019fe2b1f9382f6075cde891ed43171"
+              "path": "art/characters/clone_01/motion/plan_f/procedural_005/record.json",
+              "sha256": "a23d4ff4d875fcfcffe0d7e1f071687917baf22f9ed0d8dab45cb7354054c718"
             }
           ],
           "dependencies": [],
-          "description": "좌우 회전·위아래 각도 슬라이더, 기본 시점 복귀, 일시정지 조절, 브라우저/URL 설정 유지. 브라우저 검수 대기.",
+          "description": "C/버튼 앉기 전환·앉아 이동/사격, 이동 방향 바라보기와 정지 시 방향 유지. 동작·브라우저 검수 대기.",
           "sample_url": "#/samples/characters/clone_01?plan=f"
         }
       ],
