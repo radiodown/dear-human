@@ -11,11 +11,11 @@ Grip offset: grip socket under the knuckles, barrel along the fingers' direction
 toward the thumb; then each pistol is moved once out of the palm skin (hand_clearance.py).
 
 Clips (24 fps, all loop; the last frame equals the first):
-  dual_idle  65 f  base pistol_idle2 x2   both pistols up in front of the chest, slow breathing sway
+  dual_idle  65 f  base pistol_idle2 x2   arms straight out, pistols level, slow breathing rise and fall
   dual_idle_high 65 f base pistol_idle2 x2  both pistols held upright: right beside the head, left lower
-  dual_fire  25 f  base pistol_idle2      arms out, alternating shots R L R L (6 frames apart) with recoil
+  dual_fire  25 f  base pistol_idle2      arms straight out, alternating shots R L R L (6 frames apart) with recoil
   dual_kneel_fire 97 f base pistol_kneel_idle  kneeling, the same alternating fire (16 shots per loop)
-  dual_walk  20 f  base pistol_walk       pistols forward at chest height, small counter-swing to the legs
+  dual_walk  20 f  base pistol_walk       arms straight out, small rise and fall with the stride
   dual_run   13 f  base pistol_run        elbows bent, pistols pumping alternately with the stride
 Walk / run keep the base clips' hips travel (use the tab's in-place playback).
 Each pistol is driven by a non-deforming bone under the Hips (`weapon` right, `weapon_l` left).
@@ -30,6 +30,8 @@ GRIP_ALONG = 0.45            # palm point of the finger loop, between the wrist 
 MAX_CLEAR = 0.012            # m real: largest move of a pistol out of the palm (a flat skinned palm cannot cup the grip)
 HIGH_GRIP = 0.014            # m real: the hand sits this much above the grip socket (web of the thumb under the slide)
 REACH = 0.97                # never lock the elbow fully straight
+FIRE_REACH = 0.995          # firing clips: arms straight out (user request), short of a hard lock
+FIRE_FWD = 1.06             # firing grip distance in front of the shoulder, as a share of the arm + hand-to-grip length
 FOREARM_TWIST = 0.5          # share of the wrist roll carried by the forearm
 bpy.ops.wm.read_factory_settings(use_empty=True); sc = bpy.context.scene
 
@@ -123,7 +125,9 @@ for s in SUF:
     print('GRIP %-5s palm in gun %.0f -> %.0f mm, pistol moved %.0f mm out of the palm' % (s, d0 / k * 1000, rest / k * 1000, v.length / k * 1000))
 LEN = {s: ((REST[B(s, 'ForeArm')].to_translation() - REST[B(s, 'Arm')].to_translation()).length,
            (REST[B(s, 'Hand')].to_translation() - REST[B(s, 'ForeArm')].to_translation()).length) for s in SUF}
-print('SETUP char height %.3f scale %.4f arm lengths %s' % (height, k, {s: tuple(round(x, 3) for x in LEN[s]) for s in LEN}))
+# straight-arm grip distance: shoulder joint -> wrist (arm at FIRE_REACH) + wrist -> grip socket along the arm
+FIRE_DIST = {s: (LEN[s][0] + LEN[s][1]) * FIRE_REACH + (OFFSET[s] @ GRIP[s]).to_3d().length * 0.85 for s in SUF}
+print('SETUP char height %.3f scale %.4f arm lengths %s straight-arm grip distance %s' % (height, k, {s: tuple(round(x, 3) for x in LEN[s]) for s in LEN}, {s: round(v, 3) for s, v in FIRE_DIST.items()}))
 
 def gun_matrix(side, grip, pitch, yaw_in, cant):
     """gun -> armature: grip socket at `grip`, muzzle pitched up / turned toward the body's centre, sights canted inward (degrees)"""
@@ -135,11 +139,11 @@ def gun_matrix(side, grip, pitch, yaw_in, cant):
     R = Matrix((d, z.cross(d), z)).transposed()
     return Matrix.Translation(grip) @ R.to_4x4() @ Matrix.Translation(-GRIP[side])
 
-def solve_arm(side, shoulder_pose, hand_goal, pole):
+def solve_arm(side, shoulder_pose, hand_goal, pole, reach=REACH):
     """two-bone IK; returns ({bone: basis quaternion}, hand pose actually reached, how far the goal was out of reach)"""
     la, lf = LEN[side]; A0 = rest_child(shoulder_pose, B(side, 'Arm')); p_sh = A0.to_translation()
     d_vec = hand_goal.to_translation() - p_sh
-    d = min(max(d_vec.length, abs(la - lf) + 1e-4), (la + lf) * REACH); dirn = d_vec.normalized()
+    d = min(max(d_vec.length, abs(la - lf) + 1e-4), (la + lf) * reach); dirn = d_vec.normalized()
     cos_a = max(-1.0, min(1.0, (la * la + d * d - lf * lf) / (2 * la * d)))
     pp = (pole - pole.dot(dirn) * dirn).normalized()
     p_el = p_sh + dirn * (la * cos_a) + pp * (la * math.sqrt(max(0.0, 1 - cos_a * cos_a))); p_wr = p_sh + dirn * d
@@ -164,29 +168,33 @@ def kick(side, f):
     return max(RECOIL.get((f - 1 - (s - 1)) % 24, 0.0) for s in SHOTS[side])
 
 def idle_goal(side, c):
+    # arms straight out like the firing pose (user request), pistols level; only a slow breathing rise and fall
     w = 2 * math.pi * c['t']; ph = 0.0 if side == 'Right' else 0.9
     breathe = math.sin(w - ph)
-    if side == 'Right': pos, pitch, cant = (0.185, -0.006, -0.050 + 0.005 * breathe), 5 + 1.5 * breathe, 8
-    else: pos, pitch, cant = (0.150, -0.010, -0.088 + 0.005 * breathe), 3 + 1.5 * breathe, 12
-    return pos, pitch, 2.0, cant, pole_of(side, 0.6)
+    return (FIRE_DIST[side] * FIRE_FWD, -0.010, -0.006 + 0.005 * breathe), 1.0 * breathe, 2.0, 0.0, pole_of(side, 0.2)
 def idle_high_goal(side, c):
     # both pistols upright (muzzle up, forearm vertical, elbow tucked down): right beside the head, left lower beside the shoulder
     breathe = math.sin(2 * math.pi * c['t'] - (0.0 if side == 'Right' else 0.9))
     if side == 'Left': return (0.110, 0.045, 0.020 + 0.004 * breathe), 55 + 1.5 * breathe, 0.0, 0.0, pole_of(side, 0.35)   # tilted forward
     return (0.085, 0.050, 0.095 + 0.004 * breathe), 82 + 1.5 * breathe, 0.0, 0.0, pole_of(side, 0.35)
 def fire_goal(side, c):
+    # arms straight out (user request): each pistol right in front of its own shoulder joint at its height, the
+    # grip as far forward as the straightened arm + hand reaches; the kick pulls it back a little and raises the muzzle
     e = kick(side, c['f']); other = kick('Left' if side == 'Right' else 'Right', c['f'])
-    pos = (0.262 - 0.020 * e - 0.003 * other, -0.006, 0.022 + 0.007 * e)
-    return pos, 14.0 * e, 1.0, 0.0, pole_of(side, 0.2)
+    pos = (FIRE_DIST[side] * FIRE_FWD - 0.030 * e - 0.004 * other, -0.010, 0.000 + 0.010 * e)
+    return pos, 14.0 * e, 2.0, 0.0, pole_of(side, 0.2)
 def walk_goal(side, c):
-    sw = c['swing'] * (1 if side == 'Right' else -1)     # right hand forward while the left foot is forward
-    return (0.218 + 0.010 * sw, -0.004, -0.012 + 0.003 * abs(c['swing'])), 0.0, 1.0, 0.0, pole_of(side, 0.55)
+    # arms straight out (user request); the straightened arm cannot swing forward / back, so the stride shows as a
+    # small rise and fall of each pistol instead (right up while the left foot is forward)
+    sw = c['swing'] * (1 if side == 'Right' else -1)
+    return (FIRE_DIST[side] * FIRE_FWD, -0.010, -0.006 + 0.006 * sw + 0.003 * abs(c['swing'])), 0.8 * sw, 2.0, 0.0, pole_of(side, 0.2)
 def run_goal(side, c):
     sw = c['swing'] * (1 if side == 'Right' else -1)
     return (0.135 + 0.034 * sw, 0.012, -0.105 + 0.016 * sw), 14.0 + 9.0 * sw, 3.0, 10.0, pole_of(side, 0.7, 0.25)
 def fire_spine(c):   # the firing side's shoulder is pushed back: yaw about the vertical (degrees, + = left shoulder back)
     return 2.2 * (kick('Left', c['f']) - kick('Right', c['f']))
 
+STRAIGHT = {fire_goal, idle_goal, walk_goal}   # straight-arm clips: grip from each shoulder joint, reach FIRE_REACH
 CLIPS = [  # name, base clip, output frames (last = first), base loops, goal, extra spine yaw
     ('dual_idle', 'pistol_idle2', 65, 2, idle_goal, None),
     ('dual_idle_high', 'pistol_idle2', 65, 2, idle_high_goal, None),
@@ -249,9 +257,12 @@ for name, base_name, count, loops, goal, spine in CLIPS:
         hips_inv = pbs['mixamorig:Hips'].matrix.inverted(); grips = {}
         for s in SUF:
             (fw, out, up), pitch, yaw_in, cant, pole = goal(s, ctx)
-            grip = mid + OUT[s] * (SHOULDER_HALF + out) + FWD * fw + UP * up
+            # firing: from each arm's own shoulder joint (the base stance turns the torso, the left shoulder sits
+            # ~4 cm further forward), so both arms straighten the same; other clips: from the shoulder line's centre
+            origin = joints[s] if goal in STRAIGHT else mid + OUT[s] * SHOULDER_HALF
+            grip = origin + OUT[s] * out + FWD * fw + UP * up
             hand_goal = gun_matrix(s, grip, pitch, yaw_in, cant) @ OFFSET[s].inverted()
-            quats, H, m = solve_arm(s, pbs[B(s, 'Shoulder')].matrix.copy(), hand_goal, pole); miss = max(miss, m)
+            quats, H, m = solve_arm(s, pbs[B(s, 'Shoulder')].matrix.copy(), hand_goal, pole, FIRE_REACH if goal in STRAIGHT else REACH); miss = max(miss, m)
             for n, q in quats.items(): put(n, q, f)
             for n in fingers(s): put(n, FINGER[n].copy(), f)
             G = H @ OFFSET[s]; grips[s] = G @ GRIP[s]
