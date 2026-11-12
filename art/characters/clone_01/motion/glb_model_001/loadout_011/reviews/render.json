@@ -1,0 +1,13 @@
+{
+  "clips": [
+    "gunplay",
+    "gunplay_auto",
+    "peek_aim",
+    "rifle_aim_idle",
+    "rifle_idle",
+    "shoot_rifle",
+    "rifle_reload"
+  ],
+  "duration": 3.4000000953674316,
+  "page_errors": []
+}

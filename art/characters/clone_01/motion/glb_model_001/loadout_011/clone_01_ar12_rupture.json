@@ -1,0 +1,27 @@
+{
+  "recipe": "ar12_tilt_reload_001",
+  "source": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+  "output": "art/characters/clone_01/motion/glb_model_001/loadout_011/clone_01_ar12_rupture.glb",
+  "source_sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767",
+  "output_sha256": "085b097f1c3e2486d60d709901a7d0fa101c7ea676602f0ec17c01cc2149083d",
+  "existing_clips_preserved": [
+    "gunplay",
+    "gunplay_auto",
+    "peek_aim",
+    "rifle_aim_idle",
+    "rifle_idle",
+    "shoot_rifle"
+  ],
+  "new_clip": "rifle_reload",
+  "duration_seconds": 3.4,
+  "samples": 103,
+  "magazine_triangles": 288,
+  "max_hand_reach_error": {
+    "Left": 0.0,
+    "Right": 0.0
+  },
+  "max_right_wrist_contact_error": 2.242025235105681e-16,
+  "generation_seconds": 2.602,
+  "paid_api_calls": 0,
+  "review_status": "pending"
+}

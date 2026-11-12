@@ -8517,6 +8517,46 @@
           ],
           "description": "Anatomical right hand on trigger and right shoulder stock; left hand supports and reloads. Direction changes preserve handedness.",
           "sample_url": "#/samples/characters/clone_01?plan=f&fYaw=0&fPitch=0"
+        },
+        {
+          "revision_id": "glb_ar12_reload_011",
+          "display_name": "GLB / Lian AR-12 magazine reload 011",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Existing six clips and binary preserved; 103 finite poses, fixed feet and wrist contact; Chromium multi-view render and shared viewer playback/clip-switch check",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_tilt_reload_001",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_011/clone_01_ar12_rupture.glb",
+              "sha256": "085b097f1c3e2486d60d709901a7d0fa101c7ea676602f0ec17c01cc2149083d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_011/source_snapshot/make_rifle_reload.py",
+              "sha256": "c37bd077bf6c9f94c52be4fc6f1e58ebe82415cf23aab6f854d09f49f37889ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_011/source_snapshot/review_rifle_reload.py",
+              "sha256": "3a932a9dd08a2c650d76e9c381ff54661b93b39cf13a0b31283c53a548862203"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_011/reviews/structure.json",
+              "sha256": "7edf30a203c1276532241f4deba8e867981c895557bc672e4df426661a29cac3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_011/reviews/viewer.json",
+              "sha256": "1caefc3da1036b90e34a9353d2ee12a987b68bfd03332df41ed45554df8ef560"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+              "sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767"
+            }
+          ],
+          "dependencies": [],
+          "motions": [
+            "rifle_reload"
+          ],
+          "preview_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
         }
       ],
       "capabilities": [
