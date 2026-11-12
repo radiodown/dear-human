@@ -1,10 +1,14 @@
 // Weapon 3D tab: shows weapon GLBs (tools/weapons/build_weapon_glb.py) with Three.js — turntable, side views and the
 // attachment sockets (socket_* empty nodes) used to put the gun in a character's hand.
-// Three.js is imported only when the tab is opened. The page never builds or renders models.
+// Three.js and procedural models are loaded only when the tab is opened; results are cached.
 const $ = id => document.getElementById(id);
 const THREE_URL = './vendor/three-0.187.0/build/three.module.js';
 const LOADER_URL = './vendor/three-0.187.0/examples/jsm/loaders/GLTFLoader.js';
 export const WEAPONS = {
+  ar12_rupture_saltline: {
+    label: 'AR-12 럽처 · Saltline', procedural: './weapons/ar12-rupture.js', file: 'AR-12 · 코드 모델 001', measured: true,
+    note: 'Saltline의 곡면·관통 구멍·재질 분리 방식을 참고한 AR-12 럽처 코드 모델입니다. 약 0.85m, 강화 리시버·각진 핸드가드·큰 탄창·접철 힌지·각형 총구 장착물을 표현했습니다. 회전·측면·위 보기와 부착 기준점을 지원합니다. 외형·실행 검수 대기이며 기존 GLB와 캐릭터 무장은 유지합니다.',
+  },
   m16_basic: {
     label: 'M16A1', url: '/art/weapons/m16_basic/model_3d_001/m16a1.glb', file: 'm16a1.glb',
     measured: true,
@@ -83,10 +87,12 @@ export class WeaponModelLab {
     this.camera = new THREE.OrthographicCamera(-1, 1, 1, -1, .01, 20);
   }
 
-  load(key) {
+  async load(key) {
     const THREE = this.THREE, w = WEAPONS[key];
-    return new Promise((resolve, reject) => this.loader.load(w.url, gltf => {
-      const root = gltf.scene, marks = new THREE.Group(), sockets = {};
+    const root = w.procedural
+      ? (await import(w.procedural)).createAR12()
+      : await new Promise((resolve, reject) => this.loader.load(w.url, gltf => resolve(gltf.scene), undefined, reject));
+      const marks = new THREE.Group(), sockets = {};
       root.traverse(o => { if (o.name.startsWith('socket_')) sockets[o.name] = o; });
       root.updateMatrixWorld(true);
       for (const [name, o] of Object.entries(sockets)) {
@@ -96,8 +102,7 @@ export class WeaponModelLab {
       const box = new THREE.Box3().setFromObject(root), size = box.getSize(new THREE.Vector3()), center = box.getCenter(new THREE.Vector3());
       let tris = 0; root.traverse(o => { if (o.isMesh) tris += (o.geometry.index ? o.geometry.index.count : o.geometry.attributes.position.count) / 3; });
       const group = new THREE.Group(); group.add(root, marks);
-      resolve({ key, group, marks, sockets: Object.keys(sockets), size, center, tris: Math.round(tris) });
-    }, undefined, reject));
+      return { key, group, marks, sockets: Object.keys(sockets), size, center, tris: Math.round(tris) };
   }
 
   select(key, update = true) {
@@ -126,6 +131,7 @@ export class WeaponModelLab {
       this.resize();
     }, error => {
       this.loaded.delete(key);
+      if (request !== this.request) return;
       $('wpn-loading').hidden = false; $('wpn-loading').textContent = `무기 모델을 불러오지 못했습니다: ${error.message}`;
     });
   }

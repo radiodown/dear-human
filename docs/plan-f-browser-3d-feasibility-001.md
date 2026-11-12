@@ -6,6 +6,8 @@
 
 ## 현재 구현
 
+[리안 전신 디테일 001](../art/characters/clone_01/motion/plan_f/human_detail_001/README.md)을 추가했다. [전신 분석](plan-f-saltline-human-body-analysis-001.md)을 바탕으로 연속 외피·코드 골격/가중치·관절 보정·손가락 파지·얼굴/머리/제복 디테일을 기존 F 동작에 연결했다. 007 배경과 현재 무기·반동 개선을 유지하며 새 형상은 untested·사용자 검수 대기다.
+
 반동·동작은 [역동 모션 001](../art/characters/clone_01/motion/plan_f/motion_dynamics_001/README.md)로 추가 개선했다. 발사 충격과 복귀의 시간차, 디딤·앉기·장전 하중, 머리/망토 후속 움직임을 연결했다. 동작 검수 대기다.
 
 이전 [006 Saltline 참고 장전](../art/characters/clone_01/motion/plan_f/procedural_006/README.md)이다. 원본의 장전 키프레임·손/탄창 연결·시간 큐를 조사해 일반/빈 탄창 장전과 R 입력·30발 탄창·진행률·조작음을 구현했다. 기존 시점과 방향 기준은 유지한다. 동작·브라우저 검수 대기다.

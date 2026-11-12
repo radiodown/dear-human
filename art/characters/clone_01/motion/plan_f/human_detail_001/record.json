@@ -1,0 +1,130 @@
+{
+  "version": "human_detail_001",
+  "recorded_at": "2026-11-12T10:59:53.510038+09:00",
+  "request": "Implement the documented SALTLINE-to-full-human approach with detailed character expression in Plan F.",
+  "request_original_location": "art/characters/clone_01/motion/plan_f/human_detail_001/README.md",
+  "method": "Analytic continuous body field meshed with shared-edge marching tetrahedra; generated skeletal weights and joint correctives; ring-swept face details, volumetric hair and articulated gloved fingers.",
+  "design": "docs/plan-f-saltline-human-body-analysis-001.md",
+  "reference": {
+    "path": "game/plan-f/reference/saltline-fable-5.2/index.html",
+    "commit": "09c51774cd77aad750bd2d6c42af2b1020cb668d",
+    "sha256": "c8cc235f62ff8550d8c2c81e779ae18120b57c5b228ed4cc7d7d717f1202f655"
+  },
+  "previous_source_snapshot": "art/characters/clone_01/motion/plan_f/human_detail_001/before",
+  "sources": [
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/containers.js",
+      "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/effects.js",
+      "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/environment.js",
+      "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/human-body.js",
+      "sha256": "3b7fca04fb379dfbbf08526891d8f506f0b289910c5536ae40e57701a575887f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/human-clothing.js",
+      "sha256": "e3c831cf4f9f82b2af7958d61633f08e0ce54b02ef133e64cd3dd7a13d33b5f1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/human-hands.js",
+      "sha256": "e4dd97aa8bf770d37b83bf4a5f3c597216d942bcd3d097578fee348250c56982"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/human-head.js",
+      "sha256": "da712f8fe500a471fe9304e8889b30482fd6b2c92f53d26a7ded0f633878b24d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/human-surface.js",
+      "sha256": "4283a3a3dfdcd28713d86f4178fc61b4ac605f40cf6704c52aa2e467d2885f7d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/index.js",
+      "sha256": "a2002e88d7c4b70adfe0f1ce627de8527f84f6c264145d7c4eeee056c53269f8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/model-build.js",
+      "sha256": "4e0a850cf80e84dd1b63d8b5a6d2ef4763d4365513df7619c278e55e82261f19"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/model.js",
+      "sha256": "954c42135b38b2fe3d8d526837f83fc35adcdfafefe613b54b4c6b2f90b13df0"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/motion.js",
+      "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/reload-pose.js",
+      "sha256": "2b16df6c1ec870d8189af4b91b1270248e365b5bc09263c7ac27739f05322f74"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/reload.js",
+      "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/simulation.js",
+      "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/weapon-build.js",
+      "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/weapon-definition.js",
+      "sha256": "c0587e829edc9db922dcc42d814e912a46c85afeb3f57e12583f33a9d430e0a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/weapon-materials.js",
+      "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/weapon-motion.js",
+      "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/weapon-pose.js",
+      "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/weathered-metal.js",
+      "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/plan-f/styles.css",
+      "sha256": "7efeb7128c3e71e1865f92ec26d6ec103385ad8fddb58867a65ba2f6161028b9"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/index.html",
+      "sha256": "6a10caed18977e86da9020ca1ec6cc29848bc77da4b218279dd34c12f54cb602"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/human_detail_001/source_snapshot/game/app.js",
+      "sha256": "55d8805b161a401faa362226e9e41e49b4b555e6dc9636110010c7a2822f6b8b"
+    }
+  ],
+  "verification": "untested",
+  "verification_note": "No automated tests, syntax checks, document/catalog validation or browser captures, per existing user instruction. Source inspection only.",
+  "art_review": "awaiting_user_review",
+  "external_generation_calls": 0,
+  "duration": null,
+  "cost": null
+}

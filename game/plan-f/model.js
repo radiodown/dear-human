@@ -62,6 +62,9 @@ export function createLian(){
         capePoint.applyMatrix4(c.mesh.matrixWorld);if(capePoint.y<.025){capePoint.addScaledVector(capeBack,(.025-capePoint.y)*.5);capePoint.y=.025;}capePoint.applyMatrix4(capeInverse);
         pos.setXYZ(i,capePoint.x,capePoint.y,capePoint.z);}
       pos.needsUpdate=true;c.geometry.computeVertexNormals();}
+    for(const arm of arms)arm.poseHand(state);
+    rig.clothingDetail.pose(state);
+    rig.bodySkin.pose();
     poseWeaponMechanics(state,rig);
     root.updateMatrixWorld(true);
   }
