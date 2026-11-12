@@ -1,0 +1,73 @@
+{
+  "version": "procedural_003",
+  "recorded_at": "2026-11-12T10:06:32.124947+09:00",
+  "request": "총쏘는 자세 반동 모션에 대해서 개선.",
+  "method": "Procedural two-bone IK, stock/hand attachments, staggered critically damped recoil channels at 60 Hz",
+  "external_generation_calls": 0,
+  "previous_source_snapshot": "art/characters/clone_01/motion/plan_f/procedural_002/source_snapshot",
+  "sources": [
+    {
+      "path": "game/plan-f/effects.js",
+      "sha256": "034ae98c3143f69836fc56c81017e8ed6c4a4491bb88ae96f2776c1641d74c95"
+    },
+    {
+      "path": "game/plan-f/environment.js",
+      "sha256": "6225a1dc22692df552ceeadd10efe551d297660cf3293e10ae91dbcdfa2ef3f6"
+    },
+    {
+      "path": "game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "game/plan-f/index.js",
+      "sha256": "1c1963e64f703971840ca431c467e07b7a9c9abcff862ec9942d4b7b4fe8107c"
+    },
+    {
+      "path": "game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "path": "game/plan-f/model-build.js",
+      "sha256": "6e5ff86d7dfae5170289ebe5596368d6638fd02b80a510f27fe9580b87997a94"
+    },
+    {
+      "path": "game/plan-f/model.js",
+      "sha256": "4a162457400eab44f234002ae26bb6d7662fa30144b9c78749ae9c4e93f6e714"
+    },
+    {
+      "path": "game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "path": "game/plan-f/simulation.js",
+      "sha256": "dfa83903c0a20f3feb00d856eaf8d0fcc785810966449a210508a4813f70888b"
+    },
+    {
+      "path": "game/plan-f/weapon-pose.js",
+      "sha256": "ed0d6da14eee7a768990dcda2d7ecfd0043357933edbf6b4b9a5ce2f9293d090"
+    },
+    {
+      "path": "game/plan-f/styles.css",
+      "sha256": "0a99ff70eb21c5885989e03a7597e12e6f92ddbf84ad2fce7a8b2a1455084121"
+    },
+    {
+      "path": "game/index.html",
+      "sha256": "9afca07e939c4bf181488fe7e2a81e4e75ed8c92d530d169c6c9bfacab6b0c05"
+    },
+    {
+      "path": "game/app.js",
+      "sha256": "c953676403ff476c4ce0e7a32a660a4b6e1f448336a1ad828b0c52728714e625"
+    },
+    {
+      "path": "tools/review_plan_f.py",
+      "sha256": "1d288d3bf8e679be1571f96ad318494265c1f52fc5242e79be995a62458904b5"
+    },
+    {
+      "path": "tools/review_plan_f_recoil.py",
+      "sha256": "c7b2803723449644eca09bca5327e91ec53495201443518cfdcf3e56464e5290"
+    }
+  ],
+  "art_review": "awaiting_user_review",
+  "duration": "not measured",
+  "cost": "not measured"
+}

@@ -1,5 +1,9 @@
 # Dear Human 제작 규칙
 
+- 2026-11-12 플랜 F 최신은 [procedural_003](art/characters/clone_01/motion/plan_f/procedural_003/README.md)이다. 사용자 요청으로 견착·사격 자세·반동을 개선했다. 어깨 기준 총 회전과 총 로컬 양손 접점, 팔/다리 두 관절 IK, 총→상체→머리의 시간차 감쇠 반동·복귀를 적용했다. 정지 시 앞뒤 발·굽힌 무릎과 기울인 상체, 이동 사격을 연결하고 단발·0.25× 재생 조작을 추가했다. Chrome 조작·720프레임 접점·연사/복귀 확인, 동작 미감은 사용자 검수 대기다. 002 소스는 해당 source_snapshot에 보존했으며 GLB/외부 모션 없이 JS 생성 원칙을 유지한다. 손가락별 파지·표면 무간섭·천 충돌까지 보장하지 않는다.
+
+- 2026-11-12 플랜 F 모델·광원 개선 기록은 [procedural_002](art/characters/clone_01/motion/plan_f/procedural_002/README.md)다. 사용자 허용으로 `game/plan-f/reference/saltline-fable-5.2`를 클론해 고정 커밋의 재질·광원·후처리를 조사했다. 코드 생성 곡면 인물·판금·소총·격납고, 생성 PBR 맵·PMREM 환경 반사·PCF 그림자·깊이 AO·HDR 블룸·ACES·젖은 바닥을 적용했다. GLB/외부 텍스처 없이 이동·사격 유지, 화면 효과/젖은 바닥 on/off 지원. 001 소스·검수 결과는 별도 보존했다. Chrome 입력·셰이더 확인, 외형 검수 대기. 실제 평면 반사·볼류메트릭·정밀 피부/머리/천 물리는 미구현이다.
+
 - 2026-11-12 플랜 F 첫 구현: 사용자 요청에 따라 클론01의 이동·사격만 코드로 만든 [procedural_001](art/characters/clone_01/motion/plan_f/procedural_001/README.md)을 기존 페이지 `?plan=f`에 연결했다. `game/plan-f/`의 JavaScript 형상·모션·효과와 Three.js r187을 사용하며 GLB/FBX·외부 텍스처·애니메이션을 로딩하지 않는다. 격투게임식 약간 비스듬한 측면, A/D 이동·Space/J 연사·Esc 정지·포인터 버튼·선택 합성 총성, 탄약 무제한이다. 적·피해·장전은 범위 밖이다. Chrome 이동/발사/해제/정지/탭 복귀를 확인했고 외형·동작은 사용자 검수 대기다. 기존 A~E·GLB·원본은 유지한다.
 
 - 2026-11-12 사용자 정정: **플랜 F는 Saltline처럼 형상·재질·모션·효과·소리를 JavaScript 코드에서 생성하고 HTML·CSS·JS로 서비스하는 제작 경로**다. 단일 index.html은 요구사항이 아니며 코드를 프로젝트 책임별 모듈로 나눈다. 별도 GLB/FBX·외부 모션 제작/로딩이나 기존 모델을 JS/Base64로 포장하는 방식을 F의 기반으로 삼지 않는다. 초기 GLB 재사용 우선안은 [수정된 플랜 F](docs/plan-f-browser-3d-feasibility-001.md)로 대체한다. Three.js 등 라이브러리는 사용 가능하며 시점·장르 전환은 이 결정만으로 확정하지 않는다. 기존 A~E·GLB 실험·원본 자산은 보존한다.

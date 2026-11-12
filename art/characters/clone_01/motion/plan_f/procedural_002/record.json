@@ -1,0 +1,54 @@
+{
+  "version": "procedural_002",
+  "recorded_at": "2026-11-12T09:46:08.018926+09:00",
+  "request": "모델링 수준을 상당히 높이고 Saltline 광원·셰이더를 조사한 뒤 적용. 플랜 F 참조 클론 허용.",
+  "reference_repo": "https://github.com/realcodebear/saltline-fable-5.2",
+  "reference_commit": "09c51774cd77aad750bd2d6c42af2b1020cb668d",
+  "method": "Procedural geometry, generated PBR maps, PMREM, depth AO, HDR bloom; no imported models",
+  "external_generation_calls": 0,
+  "sources": [
+    {
+      "path": "game/plan-f/effects.js",
+      "sha256": "034ae98c3143f69836fc56c81017e8ed6c4a4491bb88ae96f2776c1641d74c95"
+    },
+    {
+      "path": "game/plan-f/environment.js",
+      "sha256": "6225a1dc22692df552ceeadd10efe551d297660cf3293e10ae91dbcdfa2ef3f6"
+    },
+    {
+      "path": "game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "game/plan-f/index.js",
+      "sha256": "093d373cd58b82c677c0b6538354222cd65cb5b8001cad96d34c4f1b42beb680"
+    },
+    {
+      "path": "game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "path": "game/plan-f/model-build.js",
+      "sha256": "ba43c6ad8e1e66e4a91901366dfa2a8506b322679ba0451114383b17f62386e2"
+    },
+    {
+      "path": "game/plan-f/model.js",
+      "sha256": "59b102280803f6bdb5aced38b0e66115a2b27c700682371ff18eec3131e4a383"
+    },
+    {
+      "path": "game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "path": "game/plan-f/simulation.js",
+      "sha256": "96be36a213b4beb1782b7cbdce6b8413a9e139405e139a44276c2a21d5918837"
+    },
+    {
+      "path": "game/plan-f/styles.css",
+      "sha256": "a19bed497a9e262a82159a98432b28a93a40722d4306794b0efc4e6bfb0e3b4c"
+    }
+  ],
+  "art_review": "awaiting_user_review",
+  "duration": "not measured",
+  "cost": "not measured"
+}

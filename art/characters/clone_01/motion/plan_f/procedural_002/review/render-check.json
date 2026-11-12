@@ -1,0 +1,16 @@
+{
+  "browser": "157.0.8103.39",
+  "gpu": {
+    "renderer": "ANGLE (AMD, AMD Radeon(TM) Graphics (0x00001638) Direct3D11 vs_5_0 ps_5_0, D3D11)",
+    "floatTarget": true,
+    "width": 859,
+    "height": 540
+  },
+  "sample_frames": 120,
+  "frame_ms_median": 13.300000000000182,
+  "frame_ms_p95": 13.400000000000546,
+  "fps_from_mean": 74.97188554292141,
+  "post_toggle_mean_pixel_difference": 4.88587655479261,
+  "console_errors": [],
+  "limitations": "Headless local Chrome, idle camera, one character; not a cross-device performance guarantee."
+}

@@ -3,6 +3,9 @@ __pycache__/
 node_modules/
 .venv-plan-c/
 
+# User-authorized local Plan F reference clone; pinned retrieval instructions live beside it.
+/game/plan-f/reference/saltline-fable-5.2/
+
 # Local downloads, unused external samples, and duplicate source assets.
 /tmp/
 
