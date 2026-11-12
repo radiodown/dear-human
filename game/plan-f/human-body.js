@@ -1,7 +1,7 @@
 import * as T from '../vendor/three-0.187.0/build/three.module.js';
 import {implicitSurface} from './human-surface.js';
 
-export const HUMAN={upperArm:.28,forearm:.28,thigh:.40,shin:.39,shoulderX:.195,hipX:.09};
+export const HUMAN={upperArm:.28,forearm:.28,thigh:.40,shin:.39,shoulderX:.175,hipX:.09};
 const V=(x=0,y=0,z=0)=>new T.Vector3(x,y,z),Q=()=>new T.Quaternion();
 const smooth=(a,b,x)=>{const t=T.MathUtils.clamp((x-a)/(b-a),0,1);return t*t*(3-2*t);};
 
@@ -16,26 +16,26 @@ export function buildHumanBody(rig,m){
   const skull=bone('neck',chest,V(0,1.553,.004),Q(),head);
   const shapes=[];
   const ellipsoid=(center,radius)=>shapes.push({p:V(...center),r:radius,q:Q()});
-  const limb=(a,b,r1,r2)=>{
+  const limb=(a,b,r1,r2,bulge=0)=>{
     const dir=b.clone().sub(a),length=dir.length();dir.divideScalar(length);
-    shapes.push({a:a.clone(),dir,length,r1,r2});
+    shapes.push({a:a.clone(),dir,length,r1,r2,bulge});
   };
-  ellipsoid([0,1.225,0],[.165,.175,.094]);ellipsoid([0,1.345,-.008],[.162,.065,.076]);
-  ellipsoid([0,1.08,0],[.116,.145,.074]);ellipsoid([0,.92,-.005],[.154,.115,.105]);
+  ellipsoid([0,1.225,0],[.155,.175,.094]);ellipsoid([0,1.345,-.008],[.152,.065,.076]);
+  ellipsoid([0,1.08,0],[.105,.145,.074]);ellipsoid([0,.92,-.005],[.160,.115,.105]);
   ellipsoid([0,1.435,0],[.047,.095,.043]);
   const armRest={},legRest={};
   for(const a of arms){
     const s=a.sign,top=V(s*HUMAN.shoulderX,1.345,0),dir=V(s*.48,-.877,0).normalize();
-    ellipsoid([s*.165,1.320,-.002],[.067,.073,.064]);
+    ellipsoid([s*.152,1.320,-.002],[.060,.073,.060]);
     const elbow=top.clone().addScaledVector(dir,HUMAN.upperArm),wrist=elbow.clone().addScaledVector(dir,HUMAN.forearm),q=Q().setFromUnitVectors(V(0,-1,0),dir);
     const upper=bone('upper'+s,chest,top,q,a.upper.group),lower=bone('lower'+s,upper,elbow,q,a.lower.group);
-    const hand=bone('hand'+s,lower,wrist,Q().setFromUnitVectors(V(0,0,1),dir),a.hand);armRest[s]={top,elbow,wrist,upper,lower,hand};
+    const hand=bone('hand'+s,lower,wrist,Q().setFromUnitVectors(V(0,0,1),dir),a.hand);armRest[s]={top,elbow,wrist,dir,upper,lower,hand};
     limb(top,elbow,.052,.034);limb(elbow,wrist,.037,.025);
   }
   for(const l of legs){
     const s=l.sign,top=V(s*HUMAN.hipX,.86,0),knee=V(s*HUMAN.hipX,.46,0),ankle=V(s*HUMAN.hipX,.07,0);
     const thigh=bone('thigh'+s,pelvis,top,Q(),l.thigh.group),shin=bone('shin'+s,thigh,knee,Q(),l.shin.group);
-    legRest[s]={top,knee,ankle,thigh,shin};limb(top,knee,.077,.047);limb(knee,ankle,.048,.029);
+    legRest[s]={top,knee,ankle,thigh,shin};limb(top,knee,.080,.049);limb(knee,ankle,.049,.036,.010);
   }
   const p=V();
   function field(x,y,z){
@@ -45,7 +45,7 @@ export function buildHumanBody(rig,m){
       if(s.a){
         p.set(x,y,z).sub(s.a);const u=T.MathUtils.clamp(p.dot(s.dir)/s.length,0,1);
         p.addScaledVector(s.dir,-u*s.length);
-        const radius=T.MathUtils.lerp(s.r1,s.r2,u)*(1+.075*Math.sin(Math.PI*u));
+        const radius=T.MathUtils.lerp(s.r1,s.r2,u)*(1+.075*Math.sin(Math.PI*u))+s.bulge*Math.exp(-(((u-.34)/.22)**2));
         d=Math.hypot(p.x,p.y,p.z/.84)-radius;
       }else{
         p.set(x,y,z).sub(s.p).applyQuaternion(s.q);
@@ -62,8 +62,11 @@ export function buildHumanBody(rig,m){
   for(let i=0;i<position.count;i++){
     const x=position.getX(i),y=position.getY(i),z=position.getZ(i),side=x<0?-1:1;
     let weights;
-    const ar=armRest[side],along=V(x,y,z).sub(ar.top).dot(ar.wrist.clone().sub(ar.top).normalize());
-    const armRegion=smooth(.145,.205,Math.abs(x))*smooth(.79,1.00,y);
+    const ar=armRest[side],vertex=V(x,y,z),along=vertex.clone().sub(ar.top).dot(ar.dir);
+    // Classify by distance to the actual rest arm, never by world height:
+    // distal forearms sit as low as the pelvis in the bind pose.
+    const center=ar.top.clone().addScaledVector(ar.dir,T.MathUtils.clamp(along,0,HUMAN.upperArm+HUMAN.forearm));
+    const armRegion=smooth(.130,.185,Math.abs(x))*(1-smooth(.075,.115,vertex.distanceTo(center)));
     if(armRegion>.001){
       const bend=smooth(HUMAN.upperArm-.055,HUMAN.upperArm+.055,along),w=smooth(-.025,.065,along)*armRegion;
       const hand=smooth(HUMAN.upperArm+HUMAN.forearm-.045,HUMAN.upperArm+HUMAN.forearm+.01,along);
@@ -110,12 +113,15 @@ export function buildHumanBody(rig,m){
   }
   root.updateMatrixWorld(true);const skeleton=new T.Skeleton(defs.map(d=>d.bone));mesh.bind(skeleton);
   const rootInverse=new T.Matrix4();
-  const upperDirection=V(),lowerDirection=V();
+  const upperDirection=V(),lowerDirection=V(),driverPosition=V(),driverRotation=Q(),driverScale=V();
   function pose(){
     // Drivers live in the existing character hierarchy, independent of this skeleton.
     root.updateMatrixWorld(true);rootInverse.copy(root.matrixWorld).invert();
     for(const d of defs){
-      d.matrix.multiplyMatrices(rootInverse,d.driver.matrixWorld);local.copy(d.matrix);
+      d.matrix.multiplyMatrices(rootInverse,d.driver.matrixWorld);
+      // Face proportions must not scale the neck/suit skeleton.
+      d.matrix.decompose(driverPosition,driverRotation,driverScale);d.matrix.compose(driverPosition,driverRotation,unit);
+      local.copy(d.matrix);
       if(d.parent)local.premultiply(inverse.copy(d.parent.matrix).invert());
       local.decompose(d.bone.position,d.bone.quaternion,d.bone.scale);
     }

@@ -11,7 +11,7 @@ export function buildClothingDetail(rig,m){
     }
     tube(torso,[[side*.032,.411,.061],[side*.042,.438,.061],[side*.048,.467,.052]],.0011,m.gold,16);
     for(let j=0;j<3;j++){
-      const buckle=group(torso,side*.119,.16+j*.086,.137);
+      const buckle=group(torso,side*.102,.16+j*.086,[.066,.093,.087][j]);
       box(buckle,.019,.021,.003,m.gold);box(buckle,.012,.014,.004,m.black,0,0,.002);
       box(buckle,.002,.019,.005,m.gold,0,0,.005);
     }

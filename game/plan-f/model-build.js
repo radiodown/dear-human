@@ -13,11 +13,11 @@ export function buildLian(){
  const bolt=(p,x,y,z,size=.006)=>{const o=mesh(p,new T.CylinderGeometry(size,size,.004,8),m.gold,x,y,z);o.rotation.x=Math.PI/2;return o;};
  // Continuous tailored torso, shaped chest plate and segmented abdominal plates.
  // The continuous skinned suit below supplies torso, hips and limb surfaces.
- mesh(torso,loft([[.15,.131,.09],[.22,.155,.122],[.29,.176,.132],[.35,.181,.103],[.39,.15,.075]],40,28,(x,y,z,a)=>[x,y,z+(Math.max(0,Math.cos(a))*.009*Math.cos(x*17))]),m.armor);
+ mesh(torso,loft([[.15,.131,.09],[.22,.145,.115],[.29,.164,.124],[.35,.166,.099],[.39,.142,.075]],40,28,(x,y,z,a)=>[x,y,z+(Math.max(0,Math.cos(a))*.009*Math.cos(x*17))]),m.armor);
  for(const sign of [-1,1]){
-  const inset=panel(torso,[[-.027,-.087],[.026,-.06],[.035,.047],[.013,.081],[-.027,.065]],.012,m.edge,sign*.143,.273,.10);inset.rotation.y=sign*.32;
-  tube(torso,[[sign*.12,.40,.055],[sign*.132,.31,.137],[sign*.11,.19,.108],[sign*.112,.08,.092]],.012,m.leather);
-  for(let j=0;j<3;j++){box(torso,.028,.022,.006,m.gold,sign*.119,.12+j*.091,.129);box(torso,.016,.012,.009,m.black,sign*.119,.12+j*.091,.134);}
+  const inset=panel(torso,[[-.027,-.087],[.026,-.06],[.035,.047],[.013,.081],[-.027,.065]],.012,m.edge,sign*.127,.273,.077);inset.rotation.y=sign*.62;
+  tube(torso,[[sign*.10,.40,.055],[sign*.104,.31,.104],[sign*.10,.19,.085],[sign*.10,.08,.066]],.012,m.leather);
+  for(let j=0;j<3;j++){box(torso,.028,.022,.006,m.gold,sign*.102,.12+j*.091,[.066,.087,.104][j]);box(torso,.016,.012,.009,m.black,sign*.102,.12+j*.091,[.071,.092,.109][j]);}
   tube(torso,[[sign*.073,.15,.092],[sign*.092,.23,.128],[sign*.089,.33,.126]],.0025,m.gold);
   for(let i=0;i<4;i++){const wing=box(torso,.039-i*.006,.006,.005,m.gold,sign*(.014+i*.01),.345+i*.007,.112);wing.rotation.z=sign*.5;}
  }
@@ -32,14 +32,14 @@ export function buildLian(){
  const {head,hair}=buildHumanHead(torso,m);
  // Mantle has shoulder drape, radial pleats, embroidered edging and a scalloped hem.
  const capes=[];const cp=group(torso,0,.36,-.07);const ps=[],uv=[],ix=[],cols=[];const nx=32,ny=36;
- for(let j=0;j<=ny;j++){const t=j/ny;for(let i=0;i<=nx;i++){const u=i/nx,q=u*2-1,x=q*(.19+t*.15),y=-t*1.15,z=-.05-t*.12+.07*q*q+Math.sin(u*35)*(.006+t*.017);ps.push(x,y,z);uv.push(u,t);const c=new T.Color((u<.035||u>.965||t>.965)?'#c2a56e':'#68717d');cols.push(c.r,c.g,c.b);if(j<ny&&i<nx){const k=j*(nx+1)+i;ix.push(k,k+nx+1,k+1,k+1,k+nx+1,k+nx+2);}}}
+ for(let j=0;j<=ny;j++){const t=j/ny;for(let i=0;i<=nx;i++){const u=i/nx,q=u*2-1,x=q*(.20+.24*Math.pow(t,.85)),y=-t*1.27+.035*Math.sin(u*Math.PI*5)*Math.pow(t,8),z=-.05-t*.16+.17*q*q+Math.sin(u*22)*(.006+t*.028);ps.push(x,y,z);uv.push(u,t);const c=new T.Color((u<.035||u>.965||t>.965)?'#c2a56e':'#68717d');cols.push(c.r,c.g,c.b);if(j<ny&&i<nx){const k=j*(nx+1)+i;ix.push(k,k+nx+1,k+1,k+1,k+nx+1,k+nx+2);}}}
  const cg=new T.BufferGeometry();cg.setAttribute('position',new T.Float32BufferAttribute(ps,3));cg.setAttribute('uv',new T.Float32BufferAttribute(uv,2));cg.setAttribute('color',new T.Float32BufferAttribute(cols,3));cg.setIndex(ix);cg.computeVertexNormals();const cm=m.cloth.clone();cm.color.set('#abb6c6');cm.side=T.DoubleSide;cm.vertexColors=true;
  const embroidery=document.createElement('canvas');embroidery.width=512;embroidery.height=768;const ec=embroidery.getContext('2d');ec.fillStyle='#586373';ec.fillRect(0,0,512,768);ec.strokeStyle='#c7ab77';ec.lineWidth=3;ec.strokeRect(26,20,460,728);ec.lineWidth=1;ec.strokeRect(33,27,446,714);
  for(const sign of [-1,1])for(let i=0;i<8;i++){ec.beginPath();ec.moveTo(256+sign*12,535+i*7);ec.quadraticCurveTo(256+sign*(55+i*8),525+i*3,256+sign*(95+i*5),485+i*13);ec.lineTo(256+sign*(70+i*8),538+i*6);ec.closePath();ec.fillStyle='#b8a073';ec.fill();}
  ec.beginPath();ec.moveTo(256,518);ec.lineTo(275,552);ec.lineTo(256,594);ec.lineTo(237,552);ec.closePath();ec.fill();const et=new T.CanvasTexture(embroidery);et.colorSpace=T.SRGBColorSpace;cm.map=et;
  const cape=mesh(cp,cg,cm);capes.push({mesh:cape,geometry:cg,rest:cg.attributes.position.array.slice()});
  for(const sign of [-1,1]){
-  const shoulder=group(torso,sign*.195,.355,0);oval(shoulder,.085,.058,.084,m.armor);
+  const shoulder=group(torso,sign*HUMAN.shoulderX,.355,0);shoulder.scale.set(.84,.82,.88);oval(shoulder,.071,.052,.074,m.armor);
   for(let i=0;i<3;i++){const plate=panel(shoulder,[[-.064,-.017],[.062,-.017],[.05,.024],[-.047,.03]],.012,i===0?m.edge:m.armor,sign*i*.014,-i*.035,.058);plate.rotation.z=sign*-.18;for(const x of [-.04,.04])bolt(plate,x,.006,.009,.003);}
  }
  function segment(r1,r2,len,material){return{group:group(root),length:len};}
@@ -47,9 +47,9 @@ export function buildLian(){
  const legs=[-1,1].map(sign=>{
   const thigh=segment(.079,.052,HUMAN.thigh,m.stocking),shin=segment(.061,.038,HUMAN.shin,m.leather);
   for(const y of [-.08,-.17]){mesh(thigh.group,new T.CylinderGeometry(.081,.079,.025,24),m.leather,0,y,0);box(thigh.group,.022,.027,.009,m.gold,sign*.048,y,.061);}
-  panel(shin.group,[[-.049,.025],[0,.065],[.048,.025],[.043,-.045],[0,-.065],[-.043,-.045]],.025,m.armor,0,0,.043);
-  panel(shin.group,[[-.043,.12],[.043,.12],[.028,-.13],[-.029,-.13]],.018,m.armor,0,-.20,.039);
-  tube(shin.group,[[0,-.08,.052],[0,-.21,.061],[0,-.33,.05]],.0025,m.gold);
+  panel(shin.group,[[-.049,.025],[0,.065],[.048,.025],[.043,-.045],[0,-.065],[-.043,-.045]],.025,m.armor,0,0,.053);
+  panel(shin.group,[[-.043,.12],[.043,.12],[.028,-.13],[-.029,-.13]],.018,m.armor,0,-.20,.050);
+  tube(shin.group,[[0,-.08,.067],[0,-.21,.066],[0,-.33,.061]],.0025,m.gold);
   const boot=group(root);oval(boot,.059,.049,.104,m.leather,0,.052,.045);box(boot,.12,.026,.23,m.black,0,.018,.037,.009);
   box(boot,.107,.041,.091,m.armor,0,.057,.10,.011);
   for(let i=0;i<5;i++)box(boot,.12,.013,.012,m.black,0,.009,-.052+i*.041);

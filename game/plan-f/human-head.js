@@ -16,7 +16,7 @@ function lipGeometry(upper){
 }
 
 export function buildHumanHead(torso,m){
-  const head=group(torso,0,.563,.004);head.name='head';
+  const head=group(torso,0,.563,.004);head.name='head';head.scale.setScalar(.79);
   const skin=m.skin.clone();skin.vertexColors=true;skin.roughness=.75;skin.normalScale.set(.10,.10);
   const face=loft([[-.135,.008,.022],[-.126,.031,.036],[-.109,.051,.052],[-.080,.070,.064],[-.043,.085,.074],[.008,.092,.078],[.055,.091,.079],[.098,.082,.071],[.135,.055,.048],[.153,.003,.003]],64,64,(x,y,z,a)=>{
     const f=Math.pow(Math.max(0,Math.cos(a)),4);
@@ -66,15 +66,15 @@ export function buildHumanHead(torso,m){
   tube(head,[[.003,-.055,.080],[.002,-.061,.081]],.0006,rim,8);
 
   const hair=[],hairMat=m.hair.clone();hairMat.metalness=0;hairMat.roughness=.42;hairMat.normalScale.set(.45,.10);
-  mesh(head,loft([[.035,.094,.079],[.090,.088,.078],[.132,.063,.054],[.159,.002,.002]],48,24,(x,y,z)=>[x,y,z-.012]),hairMat);
+  mesh(head,loft([[.035,.098,.087],[.090,.093,.085],[.132,.069,.062],[.153,.036,.035],[.165,.0001,.0001]],48,32),hairMat);
   const lock=(parent,pts,width)=>mesh(parent,sweep(pts,[width*.55,width,width*.86,width*.5,.0006],10,30,.23),hairMat);
   for(let i=0;i<23;i++){
     const a=(i/22-.5)*3.7,x=Math.sin(a)*.09,z=-.012-Math.cos(a)*.075,g=group(head,x,.067,z);
-    lock(g,[[0,.04,0],[x*.08,-.055,-.006],[x*.2,-.23,-.024],[x*.4,-.405-(i%4)*.008,-.019]],.014+(i%3)*.002);
+    lock(g,[[0,.04,0],[x*.08,-.055,-.006],[x*.2,-.29,-.024],[x*.4,-.50-(i%4)*.008,-.019]],.014+(i%3)*.002);
     hair.push(g);
   }
   for(let i=0;i<11;i++){
-    const x=(i-5)*.016;lock(head,[[x*.55,.148,.027],[x*.85,.100,.071],[x,.055,.083],[x+(i%2?.005:-.004),.025+Math.abs(x)*.17,.082]],.009);
+    const x=(i-5)*.016;lock(head,[[x*.55,.148,.027],[x*.85,.100,.085],[x,.055,.083],[x+(i%2?.005:-.004),.025+Math.abs(x)*.17,.082]],.009);
   }
   for(const s of [-1,1])lock(head,[[s*.078,.108,.032],[s*.094,.015,.032],[s*.091,-.130,.019],[s*.107,-.260,-.008]],.015);
   return {head,hair};

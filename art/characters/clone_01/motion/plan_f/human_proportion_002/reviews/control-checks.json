@@ -1,0 +1,15 @@
+{
+  "checks": {
+    "neutral_from_url": true,
+    "combat_buttons_disabled": true,
+    "neutral_does_not_fire": true,
+    "crouch_when_paused": true,
+    "crouch_preserved_after_neutral": true,
+    "single_shot_after_neutral": true,
+    "left_movement": true,
+    "front_follows_left_facing": true,
+    "neutral_url_written": true,
+    "no_page_errors": true
+  },
+  "errors": []
+}

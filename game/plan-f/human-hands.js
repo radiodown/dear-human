@@ -36,7 +36,7 @@ export function buildHumanHand(root,sign,m){
   const presets={
     grip:[.78,1.25,1.03],support:[.58,1.08,.92],magazine:[.42,.92,.78],bolt:[.30,.72,.70],open:[.12,.23,.18],
   };
-  function pose(state){
+  function pose(state,{open=false}={}){
     let a=sign>0?'grip':'support',b=a,t=0;
     if(sign<0&&state.reload){
       const time=state.reload.elapsed;
@@ -46,12 +46,13 @@ export function buildHumanHand(root,sign,m){
       else {a=state.reload.empty?'bolt':'magazine';b='support';t=ease((time-(state.reload.empty?2.40:1.72))/.32);}
       if(time>=RELOAD.stow&&time<RELOAD.fresh){a='magazine';b='open';t=Math.sin(Math.PI*(time-RELOAD.stow)/(RELOAD.fresh-RELOAD.stow));}
     }
+    if(open){a=b='open';t=0;}
     const ages=state.time-state.lastShot,trigger=state.firing||ages<.075?1:1-ease((ages-.075)/.11);
     for(let i=0;i<fingers.length;i++){
       const f=fingers[i];for(let j=0;j<3;j++){
         let angle=T.MathUtils.lerp(presets[a][j],presets[b][j],t);
         if(f.thumb)angle*=.63;
-        else if(sign>0&&i===0)angle=[.12+trigger*.25,.20+trigger*.62,.20+trigger*.35][j];
+        else if(!open&&sign>0&&i===0)angle=[.12+trigger*.25,.20+trigger*.62,.20+trigger*.35][j];
         f.bones[j].rotation.x=angle;
       }
       if(!f.thumb)f.bones[0].rotation.y=(i-1.5)*.045;

@@ -8148,6 +8148,211 @@
           "dependencies": [],
           "description": "Generated continuous body skin, skeletal weights, joint correctives, articulated gloves, detailed face, hair and clothing; user visual review pending.",
           "sample_url": "#/samples/characters/clone_01?plan=f"
+        },
+        {
+          "revision_id": "plan_f_human_proportion_002",
+          "display_name": "Plan F / Lian proportions 002",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "13 sampled deformation poses; neutral/combat UI transitions; rendered views; not exhaustive collision or visual-fidelity approval",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "e7c0ee5046b04fc3c9b2d7960bc3f7762303da8d0054f179b488e75458383de7",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/index.html",
+              "sha256": "92756c62dac9c6f0fdb75ad94e58f299734dcbd388414750042791d836f73d48"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/containers.js",
+              "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/effects.js",
+              "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/environment.js",
+              "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/geometry.js",
+              "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/human-body.js",
+              "sha256": "3c39ceb2a65cd8e1f4b1feb7ec78eedf45c059e15c11362d74da83eb664ba41f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/human-clothing.js",
+              "sha256": "0a5716ca7f4e7ff51db24dd490663540b0b4827691971f5aa54e120798ac5d4e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/human-hands.js",
+              "sha256": "9b41aa50c52b9fb39c3fc32f372a9b3744aac32510ecaa0a4e719291b339f60f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/human-head.js",
+              "sha256": "226ef274a82c04876ece8cac0b661b3d64fe3e57c856bb898d1ecfce48115e63"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/human-surface.js",
+              "sha256": "4283a3a3dfdcd28713d86f4178fc61b4ac605f40cf6704c52aa2e467d2885f7d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/index.js",
+              "sha256": "c5980abf67ef21b113850f00eed106b4df3bbfe7a6ddc2d317e504ee168a4950"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/inspection-stage.js",
+              "sha256": "92b5f320b9d9d6563e0cdb28d4f7a838c9cd9fb724bc54b09fdd56bac7e03832"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/materials.js",
+              "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/model-build.js",
+              "sha256": "2e3744fcbb8f230d9f5929baf1a11e053c03a48e313bd7be142538d4ba566f81"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/model.js",
+              "sha256": "27fab36dbad2cd0142cab93621ed07179443180957d5d1cb0d90297a115cf03f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/motion.js",
+              "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/neutral-pose.js",
+              "sha256": "61662dc5a811fab4114a77cceaefd48d68e9220f6b023ac6082303e25b3ce1a9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/reload-pose.js",
+              "sha256": "2b16df6c1ec870d8189af4b91b1270248e365b5bc09263c7ac27739f05322f74"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/reload.js",
+              "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/render.js",
+              "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/simulation.js",
+              "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/styles.css",
+              "sha256": "7efeb7128c3e71e1865f92ec26d6ec103385ad8fddb58867a65ba2f6161028b9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/weapon-build.js",
+              "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/weapon-definition.js",
+              "sha256": "c0587e829edc9db922dcc42d814e912a46c85afeb3f57e12583f33a9d430e0a1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/weapon-materials.js",
+              "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/weapon-motion.js",
+              "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/weapon-pose.js",
+              "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/source_snapshot/game/plan-f/weathered-metal.js",
+              "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/README.md",
+              "sha256": "1ca454968dfd513591439cb76ccf2bdd0f84d0fc0a8101c131aba0101b03d636"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/record.json",
+              "sha256": "6b5c0f7def29659c6c1fe7ab17542962970d72d58bba0943e9a877db45025782"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/before-front.png",
+              "sha256": "10aa42d88924e57abef9c6f3d5a244782d3c732efd5aff605cc94f2d825d40ad"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/before-side.png",
+              "sha256": "73b9ee6ed1700f64b69592775dcac1a7793e08fd18ea6f1ac2493b18c94557c6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/body-checks.json",
+              "sha256": "b25dd6b1c46c5cce7d718360486e839f44134b30f08a6f4b629e5c1ea683a0c2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/browser-errors.json",
+              "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/capture.py",
+              "sha256": "4a9bd2bbe26619300c33d2fda5d2c5f98026a0096632bcef0a7d3fd0769f6c06"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/check-controls.py",
+              "sha256": "da61d3e4e44b12340102b6d427d6cf4b885e9429f36a510d2ae8a3ecd27dc5e9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/combat-front.png",
+              "sha256": "8018bff6529666ec20de54b9e370f5156fdcb7c0aeb180047ddc5d6f974312ec"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/combat-side.png",
+              "sha256": "219faa0f3e2e5ffa19234b5ddefa8d155278d56085646b0adaad93b636e013e3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/control-checks.json",
+              "sha256": "dfca622a1a14fa0607b2635b12bceb49b53879e30d7897611feb1739ef420f8c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/crouch-side.png",
+              "sha256": "1cb3cb77b9dee007b8885c53f5c9f820957605a89b0f43a98930024e6149bcbb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/neutral-back.png",
+              "sha256": "417e75085e5a85753da916979f4a6a4f282b0ea9f4ea2e6e9e03a0b398075db1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/neutral-front.png",
+              "sha256": "f0f3e9c25e6b13bb05b9451a18baef46f361c36be369150348566a866875a078"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/neutral-side.png",
+              "sha256": "fe131ba2565545749cb374ae1abfe1ed3fe31e9c9c23a76c695bb7b8405caf8b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/verify-body.js",
+              "sha256": "8e920802d548890fcecef72444fb0b52628886effd69c6e0a225e30180f486c1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/human_proportion_002/reviews/validation.json",
+              "sha256": "20ca1eff150f1ffa2ab6b5df82877f391f9fe3718fa98cccd87f0c1a433a54f0"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "reference_003_3d"
+            },
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_f_human_detail_001"
+            }
+          ],
+          "description": "Corrected distal forearm skin weights and scalp cover; neutral three-view inspection; head/body/cape proportions. Face, hair and armor fidelity remain under review.",
+          "sample_url": "#/samples/characters/clone_01?plan=f&fPose=neutral&fYaw=90&fPitch=0"
         }
       ],
       "capabilities": [

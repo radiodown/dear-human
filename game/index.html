@@ -51,6 +51,10 @@
             <p id="plan-f-loading" role="status">훈련장을 준비하는 중…</p>
           </div>
           <div class="f-controls"><div class="f-pad"><button type="button" data-f-input="left" aria-label="왼쪽 이동">← 이동</button><button type="button" data-f-input="right" aria-label="오른쪽 이동">이동 →</button><button id="plan-f-crouch" type="button" aria-pressed="false" aria-keyshortcuts="C">앉기 C</button><button type="button" data-f-input="fire">누르고 사격</button></div><div class="f-options"><button id="plan-f-shot" type="button">단발</button><button id="plan-f-reload" type="button" aria-keyshortcuts="R">장전 R</button><label>재생 <select id="plan-f-speed" aria-label="플랜 F 재생 속도"><option value="1">1×</option><option value="0.25">0.25×</option></select></label><button id="plan-f-pause" type="button">일시정지</button><button id="plan-f-reset" type="button">처음으로</button><label><input type="checkbox" id="plan-f-post" checked>화면 효과</label><label><input type="checkbox" id="plan-f-wet" checked>젖은 표면</label><label><input type="checkbox" id="plan-f-sound">총기 소리</label></div></div>
+          <div class="f-controls" role="group" aria-label="외형 비교">
+            <button id="plan-f-neutral" type="button" aria-pressed="false">중립 자세 비교</button>
+            <button type="button" data-f-view="front">정면</button><button type="button" data-f-view="side">측면</button><button type="button" data-f-view="back">후면</button>
+          </div>
           <div class="f-controls f-camera" role="group" aria-label="카메라 시점 조절" aria-describedby="plan-f-camera-note">
             <label for="plan-f-camera-yaw">좌우 회전 <input id="plan-f-camera-yaw" type="range" min="-90" max="90" step="1" value="0"><output id="plan-f-camera-yaw-value" for="plan-f-camera-yaw">0°</output></label>
             <label for="plan-f-camera-pitch">위아래 각도 <input id="plan-f-camera-pitch" type="range" min="0" max="60" step="0.1" value="8.3"><output id="plan-f-camera-pitch-value" for="plan-f-camera-pitch">8.3°</output></label>

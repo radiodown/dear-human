@@ -1,5 +1,7 @@
 import * as T from '../vendor/three-0.187.0/build/three.module.js';
 import {buildLian} from './model-build.js';
+import {HUMAN} from './human-body.js';
+import {poseNeutral} from './neutral-pose.js';
 import {SOCKETS,twoBone,bodyPoint,gunPoint} from './weapon-pose.js';
 import {reloadWeight} from './reload.js';
 import {poseWeaponMechanics} from './weapon-motion.js';
@@ -10,7 +12,9 @@ export function createLian(){
   const {root,hips,torso,head,hair,capes,legs,arms,gun,mag,heldMag,handle,muzzle,ejection,poseSegment}=rig;
   const v=(x,y,z)=>new T.Vector3(x,y,z);
   const capePoint=new T.Vector3(),capeBack=new T.Vector3(),capeInverse=new T.Matrix4();
-  function pose(state) {
+  function pose(state,{neutral=false}={}) {
+    if(neutral){poseNeutral(rig,state);return;}
+    gun.visible=true;
     const stride=state.speed/1.3,phase=state.phase,aim=state.aim,crouch=state.crouch||0;
     const kick=clamp(state.kick.x,-.12,1.6),body=clamp(state.body.x,-.12,.65),lag=state.headLag.x,reload=reloadWeight(state.reload);
     const impact=clamp(state.impact.x,-.05,.18),drive=clamp(state.drive.x,-1,1),twist=clamp(state.twist.x,-.20,.20),jolt=clamp(state.reloadJolt.x,-.12,.12);
@@ -27,7 +31,7 @@ export function createLian(){
     }
     torso.rotation.set(.07+aim*.12+stride*.09+drive*.13-body*.18+.24*crouch+stanceVelocity*.018+reloadWork*.04,.30+.06*aim+twist*.14+Math.sin(phase)*.025*stride+reloadWork*.075,body*.018+twist*.24-Math.sin(phase)*.035*stride-reloadWork*.03);
     torso.position.set(-hips.position.x*.35,.08-Math.max(0,body)*.016-Math.abs(jolt)*.012,-body*.055-drive*.018+jolt*.035);
-    head.position.set(.038+.01*aim,.53-.01*aim,.025);
+    head.position.set(.018+.01*aim,.563-.01*aim,.012);
     // Cancel torso lean/twist so the face looks forward in the movement direction.
     head.quaternion.copy(torso.quaternion).invert();head.rotateX((lag-body)*.07+impact*.06);head.rotateZ(-twist*.06);
     root.position.x=state.x;root.rotation.y=state.facing*Math.PI/2;
@@ -47,7 +51,7 @@ export function createLian(){
       l.boot.position.copy(ankle).add(v(0,-.08,0));l.boot.rotation.x=step.pitch;
     }
     for(const a of arms) {
-      const shoulder=bodyPoint(hips,torso,v(a.sign*.195,.355,0));
+      const shoulder=bodyPoint(hips,torso,v(a.sign*HUMAN.shoulderX,.355,0));
       const wrist=a.sign<0&&reloadHand?reloadHand.p:gunPoint(gun,a.sign>0?SOCKETS.trigger:SOCKETS.support);
       const elbow=twoBone(shoulder,wrist,a.upper.length,a.lower.length,v(a.sign>0 ? .6+Math.max(0,kick)*.20 : -.25,-1,a.sign>0 ? -.2 : .12));
       poseSegment(a.upper,shoulder,elbow);poseSegment(a.lower,elbow,wrist);a.hand.position.copy(wrist);
