@@ -16,7 +16,8 @@ Clips (24 fps, all loop; the last frame equals the first):
   dual_fire  25 f  base pistol_idle2      arms straight out, alternating shots R L R L (6 frames apart) with recoil
   dual_kneel_fire 97 f base pistol_kneel_idle  kneeling, the same alternating fire (16 shots per loop)
   dual_walk  20 f  base pistol_walk       arms straight out, small rise and fall with the stride
-  dual_run   13 f  base pistol_run        elbows bent, pistols pumping alternately with the stride
+  dual_run   31 f  base run.001 (unarmed) the unarmed run's whole body incl. its arm swing; fingers curled on the grips,
+                                          each pistol carried by its hand (goal None = arms copied from the base clip)
 Walk / run keep the base clips' hips travel (use the tab's in-place playback).
 Each pistol is driven by a non-deforming bone under the Hips (`weapon` right, `weapon_l` left).
 
@@ -201,7 +202,7 @@ CLIPS = [  # name, base clip, output frames (last = first), base loops, goal, ex
     ('dual_fire', 'pistol_idle2', 25, 1, fire_goal, fire_spine),
     ('dual_kneel_fire', 'pistol_kneel_idle', 97, 1, fire_goal, fire_spine),   # 4 firing loops over one kneeling-idle loop
     ('dual_walk', 'pistol_walk', 20, 1, walk_goal, None),
-    ('dual_run', 'pistol_run', 13, 1, run_goal, None),
+    ('dual_run', 'run.001', 31, 1, None, None),   # goal None: the unarmed run's own arm swing (user request), pistols in the hands
 ]
 
 def key(pb, f, loc=False):
@@ -213,7 +214,7 @@ made = []
 for name, base_name, count, loops, goal, spine in CLIPS:
     base = bpy.data.actions[base_name]; bs, be = map(int, base.frame_range)
     # pass A: sample the body of the base clip
-    arm.animation_data.action = base; body = {}; swing_raw = {}; drift = 0.0
+    arm.animation_data.action = base; body = {}; swing_raw = {}; drift = 0.0; base_arms = {}
     for f in range(1, count + 1):
         u = (f - 1) / (count - 1) * loops; u = (u % 1.0) if f < count else 0.0
         bf = bs + u * (be - bs); sc.frame_set(int(bf), subframe=bf - int(bf))
@@ -227,6 +228,8 @@ for name, base_name, count, loops, goal, spine in CLIPS:
                 r = pbs[n].matrix.to_3x3(); add = (r.inverted() @ Matrix.Rotation(yaw, 3, 'Z') @ r).to_quaternion()
                 frame[n] = (frame[n][0], frame[n][1] @ add)
         body[f] = frame
+        if goal is None:   # keep the base clip's own arms
+            base_arms[f] = {n: pbs[n].rotation_quaternion.copy() for s_ in SUF for n in (B(s_, 'Arm'), B(s_, 'ForeArm'), B(s_, 'Hand'))}
         swing_raw[f] = pbs['mixamorig:LeftFoot'].head.y - pbs['mixamorig:RightFoot'].head.y   # negative: left foot forward
     top = max(abs(v) for v in swing_raw.values()) or 1.0
     # pass B: new action, body keys
@@ -255,6 +258,19 @@ for name, base_name, count, loops, goal, spine in CLIPS:
         joints = {s: rest_child(pbs[B(s, 'Shoulder')].matrix, B(s, 'Arm')).to_translation() for s in SUF}
         mid = (joints['Left'] + joints['Right']) / 2
         hips_inv = pbs['mixamorig:Hips'].matrix.inverted(); grips = {}
+        if goal is None:
+            for s in SUF:
+                for n in (B(s, 'Arm'), B(s, 'ForeArm'), B(s, 'Hand')): put(n, base_arms[f][n].copy(), f)
+                for n in fingers(s): put(n, FINGER[n].copy(), f)
+            bpy.context.view_layer.update()
+            for s in SUF:
+                G = pbs[B(s, 'Hand')].matrix @ OFFSET[s]; grips[s] = G @ GRIP[s]
+                pitch_at[(s, f)] = math.degrees(math.asin(max(-1, min(1, G.to_3x3().col[0].normalized().dot(UP)))))
+                rel = (hips_rest_inv @ REST[WBONE[s]]).inverted()
+                loc, rot, _ = (rel @ hips_inv @ G).decompose()
+                pbs[WBONE[s]].location = loc; pbs[WBONE[s]].keyframe_insert('location', frame=f); put(WBONE[s], rot, f)
+            apart.append((grips['Left'] - grips['Right']).length)
+            continue
         for s in SUF:
             (fw, out, up), pitch, yaw_in, cant, pole = goal(s, ctx)
             # firing: from each arm's own shoulder joint (the base stance turns the torso, the left shoulder sits
