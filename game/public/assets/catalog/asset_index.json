@@ -7568,7 +7568,7 @@
               "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
             },
             {
-              "path": "game/plan-f/effects.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/effects.js",
               "sha256": "62fa1d06898951102e698f5615b4336594a57e9921a067d484655931857f1b2e"
             },
             {
@@ -7576,7 +7576,7 @@
               "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
             },
             {
-              "path": "game/plan-f/geometry.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/geometry.js",
               "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
             },
             {
@@ -7584,15 +7584,15 @@
               "sha256": "224ea26eb59795706ac93e708d046497b41b5e4aeff9d32186aa808b3da87781"
             },
             {
-              "path": "game/plan-f/materials.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/materials.js",
               "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
             },
             {
-              "path": "game/plan-f/model-build.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/model-build.js",
               "sha256": "4fa9fb067c571273ab7cfbcc86d9f687ce6bd9be0ce0fe2142f52e748ba75e18"
             },
             {
-              "path": "game/plan-f/model.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/model.js",
               "sha256": "2f8690d38461dbb95b2fae3a9d8780ddd5c82dbd47c3fe5c471b5734eaab97ff"
             },
             {
@@ -7600,15 +7600,15 @@
               "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
             },
             {
-              "path": "game/plan-f/reload-pose.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/reload-pose.js",
               "sha256": "3996c212af5c006ef3e0ef2c171a960ef3be9e3588cb8b3573b542c1531ee795"
             },
             {
-              "path": "game/plan-f/reload.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/reload.js",
               "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
             },
             {
-              "path": "game/plan-f/render.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/render.js",
               "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
             },
             {
@@ -7616,15 +7616,15 @@
               "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
             },
             {
-              "path": "game/plan-f/weapon-pose.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/weapon-pose.js",
               "sha256": "ed0d6da14eee7a768990dcda2d7ecfd0043357933edbf6b4b9a5ce2f9293d090"
             },
             {
-              "path": "game/plan-f/weathered-metal.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/weathered-metal.js",
               "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
             },
             {
-              "path": "game/plan-f/styles.css",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/plan-f/styles.css",
               "sha256": "7efeb7128c3e71e1865f92ec26d6ec103385ad8fddb58867a65ba2f6161028b9"
             },
             {
@@ -7632,7 +7632,7 @@
               "sha256": "59e718db4e3f912f031abbb90e0ed5271b465f53e3fb939b7e723b99d7e72a60"
             },
             {
-              "path": "game/app.js",
+              "path": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot/game/app.js",
               "sha256": "02c8034580c2e26b1e95197420f62a9c8d0820cf70402d1a3f1e6f61ce14ffb5"
             },
             {
@@ -7646,6 +7646,230 @@
           ],
           "dependencies": [],
           "description": "연속 철판 주름·찌그러짐, 생성 PBR 맵·녹·오염과 젖은 표면. 006 장전과 기존 조작 유지. untested·사용자 검수 대기.",
+          "sample_url": "#/samples/characters/clone_01?plan=f"
+        },
+        {
+          "revision_id": "plan_f_weapon_detail_001",
+          "display_name": "?? F ? SALTLINE ?? ?? ??? 001",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "implementation_only",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "plan-f-saltline-weapon-detail-001",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/containers.js",
+              "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/effects.js",
+              "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/environment.js",
+              "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/geometry.js",
+              "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/index.js",
+              "sha256": "a2002e88d7c4b70adfe0f1ce627de8527f84f6c264145d7c4eeee056c53269f8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/materials.js",
+              "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/model-build.js",
+              "sha256": "97309964fbbde097c9c853ca07cd37fa2d8d9e4e0c8e4b9e7707dba9525a2e56"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/model.js",
+              "sha256": "da008abd08c2e093db0d2c09d57d3a4cd236b54401f4668ab35c284eed49122f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/motion.js",
+              "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/reload-pose.js",
+              "sha256": "2b16df6c1ec870d8189af4b91b1270248e365b5bc09263c7ac27739f05322f74"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/reload.js",
+              "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/render.js",
+              "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/simulation.js",
+              "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/weapon-build.js",
+              "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/weapon-definition.js",
+              "sha256": "c0587e829edc9db922dcc42d814e912a46c85afeb3f57e12583f33a9d430e0a1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/weapon-materials.js",
+              "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/weapon-motion.js",
+              "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/weapon-pose.js",
+              "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/weathered-metal.js",
+              "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/plan-f/styles.css",
+              "sha256": "7efeb7128c3e71e1865f92ec26d6ec103385ad8fddb58867a65ba2f6161028b9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/index.html",
+              "sha256": "5c0c17ae06a551c53adf74da4ccd30a4f5d537e5fdebf1fe6f6422f82e053e0a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/source_snapshot/game/app.js",
+              "sha256": "02c8034580c2e26b1e95197420f62a9c8d0820cf70402d1a3f1e6f61ce14ffb5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/README.md",
+              "sha256": "7ca65e258f458c96d2a9208ade38c9ac69b747400fd3cbfdb89868d228de44c1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/record.json",
+              "sha256": "e6f98b9c94463154dbc356f3da7ea2b8d45509ecbcf76b2487512f5cde615af2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/weapon_detail_001/saltline-research.json",
+              "sha256": "5f04b4fa509c481aa26bef4dda329a35cd868d5d00001ed785d02d30c10a7f22"
+            }
+          ],
+          "dependencies": [],
+          "description": "?? ????? ?? ??, ?? ???/??/???PBR ????? ????????????????. ?? ?? ??/?? ??. ?? ?? ??, untested???? ?? ??.",
+          "sample_url": "#/samples/characters/clone_01?plan=f"
+        },
+        {
+          "revision_id": "plan_f_motion_dynamics_001",
+          "display_name": "플랜 F · 반동·역동 모션 001",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "implementation_only",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "d467e9af9e1435131bd89fac686ebd456c37350f336047eb1af6cf11c6508bec",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/containers.js",
+              "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/effects.js",
+              "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/environment.js",
+              "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/geometry.js",
+              "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/index.js",
+              "sha256": "a2002e88d7c4b70adfe0f1ce627de8527f84f6c264145d7c4eeee056c53269f8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/materials.js",
+              "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/model-build.js",
+              "sha256": "97309964fbbde097c9c853ca07cd37fa2d8d9e4e0c8e4b9e7707dba9525a2e56"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/model.js",
+              "sha256": "da008abd08c2e093db0d2c09d57d3a4cd236b54401f4668ab35c284eed49122f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/motion.js",
+              "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/reload-pose.js",
+              "sha256": "2b16df6c1ec870d8189af4b91b1270248e365b5bc09263c7ac27739f05322f74"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/reload.js",
+              "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/render.js",
+              "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/simulation.js",
+              "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-build.js",
+              "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-definition.js",
+              "sha256": "c0587e829edc9db922dcc42d814e912a46c85afeb3f57e12583f33a9d430e0a1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-materials.js",
+              "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-motion.js",
+              "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-pose.js",
+              "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weathered-metal.js",
+              "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/styles.css",
+              "sha256": "7efeb7128c3e71e1865f92ec26d6ec103385ad8fddb58867a65ba2f6161028b9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/index.html",
+              "sha256": "5c0c17ae06a551c53adf74da4ccd30a4f5d537e5fdebf1fe6f6422f82e053e0a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/app.js",
+              "sha256": "02c8034580c2e26b1e95197420f62a9c8d0820cf70402d1a3f1e6f61ce14ffb5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/README.md",
+              "sha256": "bb281ce1bb8417c2b45d6ae8be0bd9ec86af144ffbfea7713ffca33cf1070e2e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/record.json",
+              "sha256": "55722d9f13fc95e917175591a5d9c5570e20b40ac83dad9f992095ef29e147ed"
+            }
+          ],
+          "dependencies": [],
+          "description": "발사 충격/복귀·어깨/골반 지연·보행 지지/회수·앉기 하중·장전 충격·머리/망토 후속 반응. 정적 소스 보존, 동작 검수 대기.",
           "sample_url": "#/samples/characters/clone_01?plan=f"
         }
       ],

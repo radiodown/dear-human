@@ -1,0 +1,25 @@
+{
+  "reference_path": "game/plan-f/reference/saltline-fable-5.2/index.html",
+  "sha256": "c8cc235f62ff8550d8c2c81e779ae18120b57c5b228ed4cc7d7d717f1202f655",
+  "commit": "09c51774cd77aad750bd2d6c42af2b1020cb668d",
+  "method": "static source inspection; not executed",
+  "symbols": [
+    {
+      "name": "w_",
+      "character_offset": 1270082
+    },
+    {
+      "name": "dm",
+      "character_offset": 1309118
+    },
+    {
+      "name": "Bf",
+      "character_offset": 1307954
+    },
+    {
+      "name": "U_",
+      "character_offset": 1297752
+    }
+  ],
+  "application": "Original modular implementation of profile extrusions, turned profiles, finish-specific meshes, object-space finish noise, moving bolt/trigger, hand-attached magazine and pooled effects. No Saltline mesh or game bundle imported."
+}

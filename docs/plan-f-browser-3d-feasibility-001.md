@@ -6,6 +6,8 @@
 
 ## 현재 구현
 
+반동·동작은 [역동 모션 001](../art/characters/clone_01/motion/plan_f/motion_dynamics_001/README.md)로 추가 개선했다. 발사 충격과 복귀의 시간차, 디딤·앉기·장전 하중, 머리/망토 후속 움직임을 연결했다. 동작 검수 대기다.
+
 이전 [006 Saltline 참고 장전](../art/characters/clone_01/motion/plan_f/procedural_006/README.md)이다. 원본의 장전 키프레임·손/탄창 연결·시간 큐를 조사해 일반/빈 탄창 장전과 R 입력·30발 탄창·진행률·조작음을 구현했다. 기존 시점과 방향 기준은 유지한다. 동작·브라우저 검수 대기다.
 
 이전 [005 C 앉기·이동 방향 시선](../art/characters/clone_01/motion/plan_f/procedural_005/README.md)에서는 C키/버튼으로 앉기·서기를 전환하며 앉아 이동·사격할 수 있다. 캐릭터는 이동 방향을 바라보고 정지 시 마지막 방향을 유지한다. 동작·브라우저 검수 대기다.
@@ -76,7 +78,7 @@ C는 기존 파츠의 Three.js 호환성, E는 별도 3D 제작 후 스프라이
 
 ## 모듈 구조 제안
 
-아래는 전체 범위의 구조 제안이다. 현재 소규모 구현은 game/plan-f/의 index.js·model.js·model-build.js·weapon-pose.js·reload.js·reload-pose.js·simulation.js·geometry.js·materials.js·environment.js·render.js·effects.js·styles.css를 사용한다. 개발과 서비스 모두 HTML·CSS·JS 모듈 구성이 기본이다. 단일 HTML 번들은 필수 산출물이 아니다.
+아래는 전체 범위의 구조 제안이다. 현재 소규모 구현은 game/plan-f/의 index.js·model.js·model-build.js·weapon-pose.js·reload.js·reload-pose.js·simulation.js·motion.js·geometry.js·materials.js·environment.js·render.js·effects.js·styles.css를 사용한다. 개발과 서비스 모두 HTML·CSS·JS 모듈 구성이 기본이다. 단일 HTML 번들은 필수 산출물이 아니다.
 
 ```text
 game/app.js → 공통 셸의 플랜 F 진입

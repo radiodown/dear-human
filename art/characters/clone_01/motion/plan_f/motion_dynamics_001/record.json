@@ -1,0 +1,134 @@
+{
+  "version": "motion_dynamics_001",
+  "recorded_at": "2026-11-12T10:41:56.174840+09:00",
+  "request": "반동이나 캐릭터 모션이 역동적이게해줘",
+  "method": "Exact damped impact channels; gait support/swing phases; pelvis reach limit; crouch spring and reload cue reactions; delayed hair/cape response",
+  "changed_runtime_files": [
+    "game/plan-f/motion.js",
+    "game/plan-f/simulation.js",
+    "game/plan-f/model.js",
+    "game/plan-f/reload-pose.js",
+    "game/plan-f/index.js",
+    "game/index.html"
+  ],
+  "sources": [
+    {
+      "runtime_path": "game/plan-f/containers.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/containers.js",
+      "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+    },
+    {
+      "runtime_path": "game/plan-f/effects.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/effects.js",
+      "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+    },
+    {
+      "runtime_path": "game/plan-f/environment.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/environment.js",
+      "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+    },
+    {
+      "runtime_path": "game/plan-f/geometry.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "runtime_path": "game/plan-f/index.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/index.js",
+      "sha256": "a2002e88d7c4b70adfe0f1ce627de8527f84f6c264145d7c4eeee056c53269f8"
+    },
+    {
+      "runtime_path": "game/plan-f/materials.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "runtime_path": "game/plan-f/model-build.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/model-build.js",
+      "sha256": "97309964fbbde097c9c853ca07cd37fa2d8d9e4e0c8e4b9e7707dba9525a2e56"
+    },
+    {
+      "runtime_path": "game/plan-f/model.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/model.js",
+      "sha256": "da008abd08c2e093db0d2c09d57d3a4cd236b54401f4668ab35c284eed49122f"
+    },
+    {
+      "runtime_path": "game/plan-f/motion.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/motion.js",
+      "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+    },
+    {
+      "runtime_path": "game/plan-f/reload-pose.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/reload-pose.js",
+      "sha256": "2b16df6c1ec870d8189af4b91b1270248e365b5bc09263c7ac27739f05322f74"
+    },
+    {
+      "runtime_path": "game/plan-f/reload.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/reload.js",
+      "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+    },
+    {
+      "runtime_path": "game/plan-f/render.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "runtime_path": "game/plan-f/simulation.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/simulation.js",
+      "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+    },
+    {
+      "runtime_path": "game/plan-f/weapon-build.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-build.js",
+      "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+    },
+    {
+      "runtime_path": "game/plan-f/weapon-definition.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-definition.js",
+      "sha256": "c0587e829edc9db922dcc42d814e912a46c85afeb3f57e12583f33a9d430e0a1"
+    },
+    {
+      "runtime_path": "game/plan-f/weapon-materials.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-materials.js",
+      "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+    },
+    {
+      "runtime_path": "game/plan-f/weapon-motion.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-motion.js",
+      "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+    },
+    {
+      "runtime_path": "game/plan-f/weapon-pose.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weapon-pose.js",
+      "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+    },
+    {
+      "runtime_path": "game/plan-f/weathered-metal.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/weathered-metal.js",
+      "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+    },
+    {
+      "runtime_path": "game/plan-f/styles.css",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/plan-f/styles.css",
+      "sha256": "7efeb7128c3e71e1865f92ec26d6ec103385ad8fddb58867a65ba2f6161028b9"
+    },
+    {
+      "runtime_path": "game/index.html",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/index.html",
+      "sha256": "5c0c17ae06a551c53adf74da4ccd30a4f5d537e5fdebf1fe6f6422f82e053e0a"
+    },
+    {
+      "runtime_path": "game/app.js",
+      "path": "art/characters/clone_01/motion/plan_f/motion_dynamics_001/source_snapshot/game/app.js",
+      "sha256": "02c8034580c2e26b1e95197420f62a9c8d0820cf70402d1a3f1e6f61ce14ffb5"
+    }
+  ],
+  "previous_source_snapshot": "art/characters/clone_01/motion/plan_f/procedural_006/source_snapshot",
+  "integration_note": "Snapshot includes concurrent container and weapon changes as context; this task changes the motion files and its UI note only. Numeric procedural revisions are retained.",
+  "external_generation_calls": 0,
+  "verification": "untested",
+  "verification_note": "Implementation and source review only. No automated tests or browser capture under the AGENTS.md user-validation instruction.",
+  "art_review": "awaiting_user_review",
+  "duration": "not measured",
+  "cost": "not measured"
+}

@@ -49,7 +49,7 @@ export function createLian(){
     for(const a of arms) {
       const shoulder=bodyPoint(hips,torso,v(a.sign*.195,.355,0));
       const wrist=a.sign<0&&reloadHand?reloadHand.p:gunPoint(gun,a.sign>0?SOCKETS.trigger:SOCKETS.support);
-      const elbow=twoBone(shoulder,wrist,a.upper.length,a.lower.length,v(a.sign>0?.6+Math.max(0,kick)*.20:-.25,-1,a.sign>0?-.2:.12));
+      const elbow=twoBone(shoulder,wrist,a.upper.length,a.lower.length,v(a.sign>0 ? .6+Math.max(0,kick)*.20 : -.25,-1,a.sign>0 ? -.2 : .12));
       poseSegment(a.upper,shoulder,elbow);poseSegment(a.lower,elbow,wrist);a.hand.position.copy(wrist);
       if(a.sign<0&&reloadHand)a.hand.quaternion.copy(reloadHand.q);
       else{a.hand.quaternion.copy(gun.quaternion);if(a.sign<0){a.hand.rotateZ(Math.PI);a.hand.rotateX(.20);}else a.hand.rotateX(-.16);}
