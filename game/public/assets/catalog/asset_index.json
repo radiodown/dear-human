@@ -7077,12 +7077,59 @@
           ],
           "prompt_path": "art/characters/clone_01/motion/plan_b/simple_poses_005/records/poses.json",
           "prompt_document": "art/characters/clone_01/motion/plan_b/simple_poses_005/README.md"
+        },
+        {
+          "revision_id": "plan_f_procedural_001",
+          "display_name": "플랜 F 001 · 코드 생성 이동·사격",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "local_chrome_input_and_render_only",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "13dc67bc8fe27500b0d19dc25e7de193a33d9f5aed25d81496e7d6373a176349",
+          "artifacts": [
+            {
+              "path": "game/plan-f/index.js",
+              "sha256": "6c6667fe9072c611f464e2be62504518baf6f48cf45a08fbe64cb63a6f07d6fa"
+            },
+            {
+              "path": "game/plan-f/model.js",
+              "sha256": "d2c0ac0644fdadf244636c3473ee4e7060fa30ec7de2ebb80922188c0d234afb"
+            },
+            {
+              "path": "game/plan-f/simulation.js",
+              "sha256": "96be36a213b4beb1782b7cbdce6b8413a9e139405e139a44276c2a21d5918837"
+            },
+            {
+              "path": "game/plan-f/stage.js",
+              "sha256": "b6f2529da3b96d9dc5e567e2b78cecbd8266279fb9384f5fdaaea805a00061a6"
+            },
+            {
+              "path": "game/plan-f/styles.css",
+              "sha256": "a19bed497a9e262a82159a98432b28a93a40722d4306794b0efc4e6bfb0e3b4c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_001/README.md",
+              "sha256": "6ca802bd68bd6a04f5b830fb06b06d81447870dab631e9527fe329fee5f95aea"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_001/record.json",
+              "sha256": "44874b9fe833b4d5675e3583d176ec098cf48fe7b1ed1d1ddcbef418a6e4158c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/procedural_001/review/result.json",
+              "sha256": "b52a0f15d0ce392f2b717dee87194754e77b3dc2cff77b1f21876611e78d437c"
+            }
+          ],
+          "dependencies": [],
+          "description": "별도 모델 없이 JavaScript로 리안·총·동작·효과를 생성. 격투게임식 시점의 이동 및 연사 시험.",
+          "sample_url": "#/samples/characters/clone_01?plan=f"
         }
       ],
       "capabilities": [
         "concept_image",
         "parts_atlas",
-        "webgl_rig"
+        "webgl_rig",
+        "procedural_motion"
       ],
       "motions": [
         "idle",

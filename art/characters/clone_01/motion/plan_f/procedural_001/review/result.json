@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "scope": [
+    "initial rendering",
+    "keyboard movement both directions",
+    "moving fire",
+    "release stops fire",
+    "pause freezes position and shots",
+    "reset",
+    "pointer fire/release",
+    "tab stop/reentry",
+    "narrow viewport",
+    "no GLB/FBX requests"
+  ],
+  "browser": "157.0.8103.39",
+  "page_errors": [],
+  "external_model_requests": [],
+  "art_review": "awaiting_user_review",
+  "note": "The existing library still loads its reference artwork; Plan F itself uses generated geometry only."
+}

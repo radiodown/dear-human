@@ -1,0 +1,36 @@
+{
+  "version": "procedural_001",
+  "recorded_at": "2026-11-12T09:32:06.731299+09:00",
+  "request": "플랜 F 로 구현해줘. 그저 클론01 이 총을 쏘고 움직이는거야. 대략 격투게임과 같은 시점에서 동작해",
+  "generation_method": "JavaScript procedural geometry and motion; no external model or animation assets",
+  "tools": [
+    "Three.js r187",
+    "Python Playwright with local Chrome"
+  ],
+  "external_generation_calls": 0,
+  "total_duration": "not measured",
+  "cost": "not measured",
+  "sources": [
+    {
+      "path": "game/plan-f/index.js",
+      "sha256": "6c6667fe9072c611f464e2be62504518baf6f48cf45a08fbe64cb63a6f07d6fa"
+    },
+    {
+      "path": "game/plan-f/model.js",
+      "sha256": "d2c0ac0644fdadf244636c3473ee4e7060fa30ec7de2ebb80922188c0d234afb"
+    },
+    {
+      "path": "game/plan-f/simulation.js",
+      "sha256": "96be36a213b4beb1782b7cbdce6b8413a9e139405e139a44276c2a21d5918837"
+    },
+    {
+      "path": "game/plan-f/stage.js",
+      "sha256": "b6f2529da3b96d9dc5e567e2b78cecbd8266279fb9384f5fdaaea805a00061a6"
+    },
+    {
+      "path": "game/plan-f/styles.css",
+      "sha256": "a19bed497a9e262a82159a98432b28a93a40722d4306794b0efc4e6bfb0e3b4c"
+    }
+  ],
+  "art_review": "awaiting_user_review"
+}

@@ -8,6 +8,7 @@
   <link rel="icon" href="data:,">
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="app.js"></script>
+  <link rel="stylesheet" href="./plan-f/styles.css">
 </head>
 <body>
   <aside class="sidebar">
@@ -30,13 +31,25 @@
         <div class="preview-mode" aria-label="미리보기 종류">
           <div class="preview-group" role="group" aria-label="원화"><span class="preview-group-label">원화</span><div class="preview-group-buttons"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button></div></div>
           <div class="preview-group" role="group" aria-label="2D 모션"><span class="preview-group-label">2D 모션</span><div class="preview-group-buttons"><button id="mode-rig" type="button" aria-pressed="false">파츠 · 실시간 <span>플랜 A</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 · 프레임 <span>플랜 A · V2</span></button><button id="mode-plan-b" type="button" aria-pressed="false">도트 원화·모션 <span>플랜 B</span></button><button id="mode-plan-e" type="button" aria-pressed="false">3D→도트 <span>플랜 E</span></button><button id="mode-glb-sprite" type="button" aria-pressed="false">GLB 스프라이트 <span>2D</span></button></div></div>
-          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button><button id="mode-weapon-3d" type="button" aria-pressed="false">무기 모델 <span>3D</span></button></div></div>
+          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-plan-f" type="button" aria-pressed="false">코드 생성 <span>플랜 F</span></button><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button><button id="mode-weapon-3d" type="button" aria-pressed="false">무기 모델 <span>3D</span></button></div></div>
         </div>
         <div id="reference-view">
         <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="back" aria-pressed="false" hidden>후면</button><button type="button" data-view="left" aria-pressed="false" hidden>좌측면</button><button type="button" data-view="right" aria-pressed="false" hidden>우측면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
         <div class="art-stage bg-dark" id="art-stage"><span class="stage-label" id="stage-label">APPEARANCE / STATIC REFERENCE</span><div class="art-frame" id="art-frame" data-view="sheet"><img id="character-art" alt="리안의 전신 외형 시안" draggable="false"><div id="turnaround-grid" class="turnaround-grid" aria-label="캐릭터 4방향 일러스트" hidden></div></div><p id="image-loading" class="image-loading" role="status">외형 시안을 불러오는 중…</p></div>
         <div class="viewer-bottom"><div class="background-controls" aria-label="배경 선택"><button type="button" data-bg="dark" class="bg-dot dark" aria-label="어두운 배경" aria-pressed="true"></button><button type="button" data-bg="light" class="bg-dot light" aria-label="밝은 배경" aria-pressed="false"></button><button type="button" data-bg="grid" class="bg-dot grid" aria-label="격자 배경" aria-pressed="false"></button><span>배경</span></div><div class="zoom-controls"><button type="button" id="zoom-out" aria-label="축소">−</button><output id="zoom-value">100%</output><button type="button" id="zoom-in" aria-label="확대">+</button><button type="button" id="zoom-reset">화면 맞춤</button></div><a id="original-link" href="#" target="_blank" rel="noopener">원본 보기 ↗</a></div>
         <div class="sheet-caption"><span id="revision-caption">외형 시안</span><span id="image-dimensions"></span></div>
+        </div>
+        <div id="plan-f-view" hidden>
+          <div class="f-toolbar"><div><span class="f-eyebrow">PLAN F / 001</span><strong>리안 · 이동과 사격</strong></div><span class="f-chip">CL-VS-13-047</span></div>
+          <div id="plan-f-stage" class="f-stage" tabindex="0" role="group" aria-label="플랜 F 조작 화면. A D 이동, Space 또는 J 사격">
+            <canvas id="plan-f-canvas" aria-label="코드로 만든 리안의 이동과 사격"></canvas>
+            <div class="f-overlay"><span>VESPER / TRAINING DECK</span><span id="plan-f-status">대기</span></div>
+            <div class="f-bottom"><span>LIAN <b>047</b></span><span><output id="plan-f-position">0.00 m</output> · <output id="plan-f-shots">0 발</output></span></div>
+            <p id="plan-f-loading" role="status">훈련장을 준비하는 중…</p>
+          </div>
+          <div class="f-controls"><div class="f-pad"><button type="button" data-f-input="left" aria-label="왼쪽 이동">← 이동</button><button type="button" data-f-input="right" aria-label="오른쪽 이동">이동 →</button><button type="button" data-f-input="fire">누르고 사격</button></div><div class="f-options"><button id="plan-f-pause" type="button">일시정지</button><button id="plan-f-reset" type="button">처음으로</button><label><input type="checkbox" id="plan-f-sound">총성</label></div></div>
+          <p class="f-help">화면을 클릭한 뒤 <kbd>A</kbd> <kbd>D</kbd> 이동 · <kbd>Space</kbd> / <kbd>J</kbd> 사격 · <kbd>Esc</kbd> 일시정지. 화면을 누르거나 아래 버튼을 길게 눌러도 사격합니다.</p>
+          <p class="f-note">001 · 코드 생성 외형·모션 초안. 이동 중 사격 가능 · 탄약 무제한. 적과 피해 판정은 없는 동작 시험입니다.</p>
         </div>
         <div id="rig-view" hidden>
           <div class="rig-toolbar"><div class="rig-motion-tabs"><button data-motion="idle" aria-pressed="true">견착 대기</button><button data-motion="relaxed" aria-pressed="false">완전 대기</button><button data-motion="walk" aria-pressed="false">이동</button><button data-motion="fire" aria-pressed="false">서서쏴</button><button data-motion="walk_fire" aria-pressed="false">이동 사격</button><button data-motion="run" aria-pressed="false">달리기</button><button data-motion="run_fire" aria-pressed="false">뛰며쏴</button><button data-motion="kneel" aria-pressed="false">앉기</button><button data-motion="kneel_fire" aria-pressed="false">앉아쏴</button></div><label>무기 <select id="rig-weapon"><option value="m16_basic">M16</option><option value="diagnostic">진단 도형</option></select></label></div>

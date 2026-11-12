@@ -1,5 +1,7 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+**플랜 F · 코드 생성 이동·사격 001:** [실행](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=f) · [제작·확인 기록](art/characters/clone_01/motion/plan_f/procedural_001/README.md) · [설계](docs/plan-f-browser-3d-feasibility-001.md). 리안·총·배경·모션을 JavaScript로 생성하고 격투게임식 시점에서 A/D 이동·Space/J 연사를 지원한다. Chrome 조작·표시 확인, 외형·동작은 사용자 검수 대기다.
+
 - [소대원 앞뒤좌우 002](docs/squad-character-turnarounds-002.md): 리안을 제외한 네 대원의 현재 외형을 위키·공통 미리보기에 적용.
 
 모아의 최신 외형은 [채택 얼굴·헤어 적용 전신 007](docs/squad-character-concepts-007.md)이다.
