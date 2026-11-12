@@ -1,10 +1,12 @@
 # 플랜 F 코드 생성 웹 게임 구현 분석
 
-[문서 목록](../README.md) · 2026-11-12 KST · 상태: 클론01 이동·사격 003 구현, 전체 전투는 계획
+[문서 목록](../README.md) · 2026-11-12 KST · 상태: 클론01 이동·사격·시점 조절 004 구현, 전체 전투는 계획
 
 ## 현재 구현
 
-최신은 [003 사격 자세·반동](../art/characters/clone_01/motion/plan_f/procedural_003/README.md)이다. 견착·양손 접점을 연결하고 총→상체→머리 반동·복귀와 단발/0.25× 검토 조작을 적용했다.
+최신은 [004 카메라 시점 조절](../art/characters/clone_01/motion/plan_f/procedural_004/README.md)이다. 좌우·위아래 각도 슬라이더, 기본 시점 복귀, 일시정지 조절과 설정 저장을 추가했다. 브라우저 검수 대기다.
+
+이전 [003 사격 자세·반동](../art/characters/clone_01/motion/plan_f/procedural_003/README.md)에서는 견착·양손 접점을 연결하고 총→상체→머리 반동·복귀와 단발/0.25× 검토 조작을 적용했다.
 
 이전 [002 모델·재질·조명 개선](../art/characters/clone_01/motion/plan_f/procedural_002/README.md)에서는 Saltline 참조 클론을 조사해 곡면 형상·절차 PBR·환경 반사·깊이 음영·블룸과 격납고 배경을 적용했다. 이동·사격 범위와 외부 모델 없는 제작 원칙은 유지한다.
 

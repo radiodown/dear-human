@@ -53,7 +53,7 @@ function setPreviewMode(mode, updateUrl=true) {
   $('mode-plan-b').setAttribute('aria-pressed', String(planBMode));
   $('mode-rig-v2').setAttribute('aria-pressed', String(v2Mode));
   updateSampleSelection(mode);
-  $('review-state').textContent = planFMode ? '플랜 F · 자세·반동 003' : weaponMode ? '무기 · 3D 모델 시험' : glbSpriteMode ? 'GLB · 2D 스프라이트 시험' : glbMode ? '3D 모델 · GLB 재생 시험' : planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
+  $('review-state').textContent = planFMode ? '플랜 F · 시점 조절 004' : weaponMode ? '무기 · 3D 모델 시험' : glbSpriteMode ? 'GLB · 2D 스프라이트 시험' : glbMode ? '3D 모델 · GLB 재생 시험' : planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
   lab.show(rigMode);
   planB.show(planBMode);
   partsV2.show(v2Mode);
@@ -72,6 +72,7 @@ function setPreviewMode(mode, updateUrl=true) {
     else if (planEMode) planE.writeParams(params);
     else if (v2Mode) partsV2.writeParams(params);
     else {
+    params.delete('fYaw');params.delete('fPitch');
     if(['parts-v2','e','glb','glb-sprite','weapon-3d'].includes(params.get('plan')))for(const key of ['frame','fps','loop','paused','face','viewPitch','clip','scale','version','speed','inPlace','weapon3d','sockets','spin','bg','real','loadout'])params.delete(key);
     if (planBMode) planB.writeParams(params);
     else { params.delete('plan'); params.delete('study'); params.delete('pixelView'); if(rigMode)params.set('motion',lab.mode);else params.delete('motion'); }
@@ -359,7 +360,7 @@ function showRoute() {
     if(labParams.get('plan')==='parts-v2'&&kind==='character'&&id==='clone_01'){
       partsV2.restoreParams(labParams);setPreviewMode('rig-v2',false);return;
     }
-    if(labParams.get('plan')==='f'&&kind==='character'&&id==='clone_01'){setPreviewMode('plan-f',false);return;}
+    if(labParams.get('plan')==='f'&&kind==='character'&&id==='clone_01'){planF.restoreParams(labParams);setPreviewMode('plan-f',false);return;}
     if(labParams.get('plan')==='e'&&kind==='character'&&id==='clone_01'){
       planE.restoreParams(labParams);setPreviewMode('plan-e',false);return;
     }
