@@ -11,7 +11,7 @@ export const MODELS = {
     loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb', file: 'clone_01_ar12_rupture.glb' }, hp14t_gemini: { label: 'HP-14T 제미니 (쌍권총)', url: '/art/characters/clone_01/motion/glb_model_001/loadout_006/clone_01_hp14t_gemini.glb', file: 'clone_01_hp14t_gemini.glb' } },
     url: '/art/characters/clone_01/motion/glb_model_001/source/version04.glb',
     file: 'version04.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기' },
     // Clips kept in the GLB but hidden from the tab by user request (2026-11-09).
     hidden: ['캐릭터가 뛰게 해줘.001', '계속 반복해서 빠르게 달리는 동작.001'],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
@@ -23,7 +23,7 @@ export const MODELS = {
     loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/iren/motion/glb_model_001/loadout_007/iren_ar12_rupture.glb', file: 'iren_ar12_rupture.glb' }, sg23_breacher: { label: 'SG-23 브리처', url: '/art/characters/iren/motion/glb_model_001/loadout_007/iren_sg23_breacher.glb', file: 'iren_sg23_breacher.glb' } },
     url: '/art/characters/iren/motion/glb_model_001/source/iren_rig.glb',
     file: 'iren_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
@@ -34,7 +34,7 @@ export const MODELS = {
     loadouts: { hmg15_goliath: { label: 'HMG-15 골리앗', url: '/art/characters/moa/motion/glb_model_001/loadout_007/moa_hmg15_goliath.glb', file: 'moa_hmg15_goliath.glb' }, ml70_mule: { label: 'ML-70 뮬', url: '/art/characters/moa/motion/glb_model_001/loadout_007/moa_ml70_mule.glb', file: 'moa_ml70_mule.glb' } },
     url: '/art/characters/moa/motion/glb_model_001/source/moa_rig.glb',
     file: 'moa_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
@@ -45,7 +45,7 @@ export const MODELS = {
     loadouts: { hp14_bastion: { label: 'HP-14 바스티온', url: '/art/characters/yuna/motion/glb_model_001/loadout_006/yuna_hp14_bastion.glb', file: 'yuna_hp14_bastion.glb' } },
     url: '/art/characters/yuna/motion/glb_model_001/source/yuna_rig.glb',
     file: 'yuna_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
@@ -56,7 +56,7 @@ export const MODELS = {
     loadouts: { amr21_nail: { label: 'AMR-21 네일', url: '/art/characters/sena/motion/glb_model_001/loadout_007/sena_amr21_nail.glb', file: 'sena_amr21_nail.glb' }, pdw9_wasp: { label: 'PDW-9 와스프', url: '/art/characters/sena/motion/glb_model_001/loadout_007/sena_pdw9_wasp.glb', file: 'sena_pdw9_wasp.glb' } },
     url: '/art/characters/sena/motion/glb_model_001/source/sena_rig.glb',
     file: 'sena_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
