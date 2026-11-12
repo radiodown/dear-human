@@ -1,0 +1,153 @@
+{
+  "version": "right_handed_003",
+  "recorded_at": "2026-11-12T12:16:43.604789+09:00",
+  "request": "Right-handed character must grip the trigger with her right hand.",
+  "base_revision": "plan_f_human_proportion_002",
+  "method": "Anatomical handedness in local +Z forward/+Y up frame: right=-X, left=+X; right shoulder/trigger and left support/reload transforms.",
+  "sources": [
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/anatomy.js",
+      "sha256": "69ae87e1285d8ac02deca6ec1a9795c22c1f35f68cab36f91808b7c52a2d4c3d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/containers.js",
+      "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/effects.js",
+      "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/environment.js",
+      "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/human-body.js",
+      "sha256": "3c39ceb2a65cd8e1f4b1feb7ec78eedf45c059e15c11362d74da83eb664ba41f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/human-clothing.js",
+      "sha256": "0a5716ca7f4e7ff51db24dd490663540b0b4827691971f5aa54e120798ac5d4e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/human-hands.js",
+      "sha256": "2b4f53f7ba15557191db2c94695af3b81a33f2d1aa125874b744f7bcf87172bd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/human-head.js",
+      "sha256": "226ef274a82c04876ece8cac0b661b3d64fe3e57c856bb898d1ecfce48115e63"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/human-surface.js",
+      "sha256": "4283a3a3dfdcd28713d86f4178fc61b4ac605f40cf6704c52aa2e467d2885f7d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/index.js",
+      "sha256": "c5980abf67ef21b113850f00eed106b4df3bbfe7a6ddc2d317e504ee168a4950"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/inspection-stage.js",
+      "sha256": "92b5f320b9d9d6563e0cdb28d4f7a838c9cd9fb724bc54b09fdd56bac7e03832"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/model-build.js",
+      "sha256": "2e3744fcbb8f230d9f5929baf1a11e053c03a48e313bd7be142538d4ba566f81"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/model.js",
+      "sha256": "0f9a2df046afd4265764701cbfa890a89f7e9ef1a387489249fcf748ebef2962"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/motion.js",
+      "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/neutral-pose.js",
+      "sha256": "61662dc5a811fab4114a77cceaefd48d68e9220f6b023ac6082303e25b3ce1a9"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/reload-pose.js",
+      "sha256": "842f4936daedcff5995d099290f67e9dcb3793ab594bd5c9059f5ef8e5be5c81"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/reload.js",
+      "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/simulation.js",
+      "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/weapon-build.js",
+      "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/weapon-definition.js",
+      "sha256": "b1ec7e91c4ce0d0fe9375e8a332a46f0ae01cd9aca1a0ea84cfe34c4f1a11ce3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/weapon-materials.js",
+      "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/weapon-motion.js",
+      "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/weapon-pose.js",
+      "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/source_snapshot/game/plan-f/weathered-metal.js",
+      "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+    }
+  ],
+  "reviews": [
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/reviews/body-checks.json",
+      "sha256": "42e0680f2fb1034d01448989303318c08ea5baa7b99863212c7668d1c354c42f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/reviews/browser-errors.json",
+      "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/reviews/check-hands.js",
+      "sha256": "ec31d176d920804793cbf582fff60f09ed06dea3c208f5f9ace574791b00835e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/reviews/check.py",
+      "sha256": "8b6a46f321317b843a784573d3174bb16329e57d01db14928c432dd6290b6e2d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/reviews/hand-checks.json",
+      "sha256": "d594cecfc0e496348655f26c3adb66cf54793fa9ff277c4ff9117bb90d435f02"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/reviews/right-trigger-front.png",
+      "sha256": "f26aa645fd01c0eb0d92ca5d0079c6eaee92350f8ec8b39cc19187798eaa98ea"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/right_handed_003/reviews/right-trigger-side.png",
+      "sha256": "97404500799a09e48ada8f7505e086f7b60fc52ddf0f2f95128238c56940ee9e"
+    }
+  ],
+  "verification": "passed",
+  "verification_scope": "16 anatomical hand/contact samples; right index trigger response; 13 body deformation samples; front/side render inspection; changed JavaScript syntax",
+  "art_review": "awaiting_user_review",
+  "external_generation_calls": 0,
+  "duration": null,
+  "cost": null
+}

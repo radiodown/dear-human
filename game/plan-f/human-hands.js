@@ -2,11 +2,13 @@ import * as T from '../vendor/three-0.187.0/build/three.module.js';
 import {V,mesh,group,box,loft,tube} from './geometry.js';
 import {sweep} from './human-surface.js';
 import {ease,RELOAD} from './reload.js';
+import {isRightSide} from './anatomy.js';
 
 // Palm frame retains the existing rifle's hand socket; fingers are actual bone chains.
 export function buildHumanHand(root,sign,m){
-  const hand=group(root),fingers=[],fabric=m.leather.clone();fabric.metalness=0;fabric.roughness=.84;
+  const right=isRightSide(sign),hand=group(root),fingers=[],fabric=m.leather.clone();fabric.metalness=0;fabric.roughness=.84;
   const palm=loft([[-.025,.017,.017],[-.016,.025,.019],[.006,.028,.020],[.026,.026,.017],[.034,.022,.012]],24,20,(x,y,z)=>[x,y*.9,z]);
+  hand.userData.anatomicalSide=right?'right':'left';
   palm.rotateX(Math.PI/2);mesh(hand,palm,fabric);
   // Wrist cuff, dorsal pads and saddle stitching are tied to the palm frame.
   const cuff=loft([[-.046,.021,.018],[-.043,.025,.021],[-.033,.025,.021],[-.029,.022,.018]],24,8);cuff.rotateX(Math.PI/2);mesh(hand,cuff,m.cloth);
@@ -31,14 +33,14 @@ export function buildHumanHand(root,sign,m){
     for(let j=0;j<2;j++)box(bones[j],radii*1.5,.003,lengths[j]*.50,m.armor,0,radii*.85,lengths[j]*.45,.001);
     const data={anchor,bones,thumb};fingers.push(data);return data;
   }
-  for(let i=0;i<4;i++)digit((i-1.5)*.013,.020-[.002,0,.002,.008][i],[.027,.019,.015].map(v=>v*[.94,1,.95,.77][i]),.0063-(i===3?.0007:0));
+  for(let i=0;i<4;i++)digit(sign*(1.5-i)*.013,.020-[.002,0,.002,.008][i],[.027,.019,.015].map(v=>v*[.94,1,.95,.77][i]),.0063-(i===3?.0007:0));
   digit(sign*.023,-.009,[.024,.019,.014],.008,true);
   const presets={
     grip:[.78,1.25,1.03],support:[.58,1.08,.92],magazine:[.42,.92,.78],bolt:[.30,.72,.70],open:[.12,.23,.18],
   };
   function pose(state,{open=false}={}){
-    let a=sign>0?'grip':'support',b=a,t=0;
-    if(sign<0&&state.reload){
+    let a=right?'grip':'support',b=a,t=0;
+    if(!right&&state.reload){
       const time=state.reload.elapsed;
       if(time<RELOAD.grab){b='magazine';t=ease((time-.12)/(RELOAD.grab-.12));}
       else if(time<1.72)a=b='magazine';
@@ -52,7 +54,7 @@ export function buildHumanHand(root,sign,m){
       const f=fingers[i];for(let j=0;j<3;j++){
         let angle=T.MathUtils.lerp(presets[a][j],presets[b][j],t);
         if(f.thumb)angle*=.63;
-        else if(!open&&sign>0&&i===0)angle=[.12+trigger*.25,.20+trigger*.62,.20+trigger*.35][j];
+        else if(!open&&right&&i===0)angle=[.12+trigger*.25,.20+trigger*.62,.20+trigger*.35][j];
         f.bones[j].rotation.x=angle;
       }
       if(!f.thumb)f.bones[0].rotation.y=(i-1.5)*.045;
