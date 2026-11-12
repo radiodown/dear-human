@@ -5,9 +5,9 @@ category: "technology"
 summary: "분대장 아렌의 부무장으로 제안한 대구경 전투 산탄총."
 status: "보완안"
 visibility: "reader"
-updated: "2026-11-09"
+updated: "2026-11-12"
 aliases: ["브리처","SG-23","아렌의 산탄총"]
-sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "Benelli M4 공식 제품 소개 · https://www.benelliusa.com/shotguns/m4-tactical-semi-auto-shotguns", "2026-11-09 user concept feedback: futuristic grenade launcher and shotgun; hammer pulse-current field; overlong pistol barrel rejected.", "2026-11-09 사용자 후속 지정 · 브리처 003은 너무 미래적이므로 택티컬한 방향으로 수정", "2026-11-09 사용자 지정 · 브리처에 소음기 장착", "2026-11-09 사용자 재생성 요청 · 바스티온 006·브리처 007·뮬 007 새 원화", "SilencerCo official exterior reference, 2026-11-09: https://silencerco.com/silencers/salvo-12/", "Yankee Hill Machine official exterior reference, 2026-11-09: https://yhm.net/12-gauge-suppressors/victra-12-modular-shotgun-suppressor-yhm-1200/"]
+sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "Benelli M4 공식 제품 소개 · https://www.benelliusa.com/shotguns/m4-tactical-semi-auto-shotguns", "2026-11-09 user concept feedback: futuristic grenade launcher and shotgun; hammer pulse-current field; overlong pistol barrel rejected.", "2026-11-09 사용자 후속 지정 · 브리처 003은 너무 미래적이므로 택티컬한 방향으로 수정", "2026-11-09 사용자 지정 · 브리처에 소음기 장착", "2026-11-09 사용자 재생성 요청 · 바스티온 006·브리처 007·뮬 007 새 원화", "SilencerCo official exterior reference, 2026-11-09: https://silencerco.com/silencers/salvo-12/", "Yankee Hill Machine official exterior reference, 2026-11-09: https://yhm.net/12-gauge-suppressors/victra-12-modular-shotgun-suppressor-yhm-1200/", "2026-11-12 사용자 요청 · 탄환 컨셉 작성; clone-ammunition-concepts의 탄종 보완안 연결"]
 illustrations: [{"src":"assets/weapons/sg23-breacher-007.png","title":"SG-23 브리처","alt":"금속 몸통과 소음기를 갖춘 택티컬 SG-23 브리처 원화","caption":"아렌 · 택티컬 산탄총·소음기 · 시안 007 · 넙적한 소음기 외형 보완 대기","width":1536,"height":1024,"article":"weapon-sg23-breacher"}]
 ---
 # SG-23 브리처
@@ -26,7 +26,7 @@ illustrations: [{"src":"assets/weapons/sg23-breacher-007.png","title":"SG-23 브
 
 ## 역할
 
-[[weapon-ar12-rupture|돌격소총]]과 교체해 근접한 위협을 상대하는 보조 화기다. 갑주를 지닌 생물에게 넓게 퍼진 산탄이 항상 유효하다고 가정하지 않으며, 대형 탄자와 산탄을 포함한 전용 탄약군의 세부는 추후 정한다. 문서만으로 문 파괴나 갑주 관통 성능을 수치화하지 않는다.
+[[weapon-ar12-rupture|돌격소총]]과 교체해 근접한 위협을 상대하는 보조 화기다. [[clone-ammunition-concepts|전용 탄약군 컨셉]]으로 중량 단일탄 ‘말뚝’, 중산탄 ‘자갈’, 장애물 파쇄탄 ‘쇄문’을 제안한다. 갑주를 지닌 생물에게 넓게 퍼진 산탄이 항상 유효하다고 가정하지 않으며, 새 탄종의 채택과 세부 성능은 미정이다. 문서만으로 문 파괴나 갑주 관통 성능을 수치화하지 않는다.
 
 ## 부담
 

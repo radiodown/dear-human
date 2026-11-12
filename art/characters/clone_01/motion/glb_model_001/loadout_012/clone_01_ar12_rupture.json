@@ -3,7 +3,7 @@
   "source": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
   "output": "art/characters/clone_01/motion/glb_model_001/loadout_012/clone_01_ar12_rupture.glb",
   "source_sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767",
-  "output_sha256": "b06ccf47f854a87c81d535b23ba5f4e002f09f51009eda6afe28d6fefcaef03e",
+  "output_sha256": "55f79fcc8f9fa8805f0ab1f3187332a491d23b5c126ea1ff947e649fa4355e9b",
   "existing_clips_preserved": [
     "gunplay",
     "gunplay_auto",
@@ -20,8 +20,8 @@
     "Left": 0.0,
     "Right": 0.0
   },
-  "max_right_wrist_contact_error": 2.6981503274991466e-16,
-  "generation_seconds": 3.239,
+  "max_right_wrist_contact_error": 2.3956776148459464e-16,
+  "generation_seconds": 3.377,
   "paid_api_calls": 0,
   "review_status": "pending"
 }

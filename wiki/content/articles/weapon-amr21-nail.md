@@ -5,9 +5,9 @@ category: "technology"
 summary: "세나의 Mk21 계열 디자인을 계승한 대전차급 대갑주 저격총."
 status: "보완안"
 visibility: "reader"
-updated: "2026-11-09"
+updated: "2026-11-12"
 aliases: ["네일","AMR-21","세나의 저격총","대전차 라이플"]
-sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승","Remington Defense MSR 공식 제품 소개 보존본 · https://web.archive.org/web/20120716042859/http://www.remingtonmilitary.com/RemingtonMilitary/Firearms/Sniper%20Rifles/MSR.aspx"]
+sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "Remington Defense MSR 공식 제품 소개 보존본 · https://web.archive.org/web/20120716042859/http://www.remingtonmilitary.com/RemingtonMilitary/Firearms/Sniper%20Rifles/MSR.aspx", "2026-11-12 사용자 요청 · 탄환 컨셉 작성; clone-ammunition-concepts의 탄종 보완안 연결"]
 illustrations: [{"src":"assets/weapons/amr21-nail-001.png","title":"AMR-21 네일","alt":"AMR-21 네일 장비 외형 원화","caption":"세나 · 대갑주 저격총 · 시안 001 · 검수 대기","width":1536,"height":1024,"article":"weapon-amr21-nail"}]
 ---
 # AMR-21 네일
@@ -23,6 +23,8 @@ illustrations: [{"src":"assets/weapons/amr21-nail-001.png","title":"AMR-21 네�
 ## 탄약과 역할
 
 20mm 전용 대갑주 탄약을 쓰는 기본안이다. 단단한 외피의 특정 부위를 정밀하게 무너뜨리는 역할을 맡으며, 기관총처럼 넓은 구역에 지속 사격하는 무기는 아니다. 실제 관통 성능·사거리·탄창 용량은 미정이다. 개별 생물의 약점이 모두 알려졌다는 뜻도 아니다.
+
+탄종 보완안은 [[clone-ammunition-concepts|소대 탄환·탄약 문서]]의 심부관통탄 ‘송곳’과 갑주파쇄탄 ‘쐐기’다. 전자는 깊은 관통, 후자는 외피 균열을 강조하며 이름·외형·효과 차이는 검수 전이다.
 
 ## 운용의 부담
 

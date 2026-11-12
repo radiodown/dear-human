@@ -1,22 +1,26 @@
 ---
 slug: "weapon-hp14t-gemini"
-title: "HP-14T 제미니"
+title: "HP-14T 바이퍼"
 category: "technology"
 summary: "리안의 부무장인 대구경 쌍권총과 건카타 운용."
 status: "보완안"
 visibility: "reader"
-updated: "2026-11-09"
-aliases: ["제미니","HP-14T","리안의 쌍권총","건카타"]
-sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승","2026-11-09 사용자 지정 · 리안의 부무장은 쌍권총이며 건카타를 구사할 수 있음","Magnum Research Desert Eagle 공식 소개 · https://www.magnumresearch.com/desert-eagle/"]
-illustrations: [{"src":"assets/weapons/hp14t-gemini-001.png","title":"HP-14T 제미니","alt":"HP-14T 제미니 장비 외형 원화","caption":"리안 · 대구경 쌍권총 · 시안 001 · 검수 대기","width":1536,"height":1024,"article":"weapon-hp14t-gemini"}]
+updated: "2026-11-12"
+aliases: ["바이퍼","Viper","제미니","HP-14T","리안의 쌍권총","건카타"]
+sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "2026-11-09 사용자 지정 · 리안의 부무장은 쌍권총이며 건카타를 구사할 수 있음", "Magnum Research Desert Eagle 공식 소개 · https://www.magnumresearch.com/desert-eagle/", "2026-11-12 사용자 요청 · 탄환 컨셉 작성; clone-ammunition-concepts의 탄종 보완안 연결", "2026-11-09 사용자 채택 · 쌍권총 이름을 제미니에서 바이퍼(Viper)로 변경; 기존 주소 유지"]
+illustrations: [{"src":"assets/weapons/hp14t-gemini-001.png","title":"HP-14T 바이퍼","alt":"HP-14T 바이퍼 장비 외형 원화","caption":"리안 · 대구경 쌍권총 · 시안 001 · 검수 대기","width":1536,"height":1024,"article":"weapon-hp14t-gemini"}]
 ---
-# HP-14T 제미니
+# HP-14T 바이퍼
 
-**HP-14T ‘제미니’**는 [[heroine|리안]]의 부무장으로 제안한 대구경 쌍권총이다. 리안이 쌍권총을 쓰고 건카타를 구사할 수 있다는 점은 사용자 지정이다. 모델명·14.5mm 구경과 두 정의 외형은 보완안이다.
+**HP-14T ‘바이퍼’**는 [[heroine|리안]]의 부무장으로 제안한 대구경 쌍권총이다. 리안이 쌍권총을 쓰고 건카타를 구사할 수 있다는 점은 사용자 지정이다. 바이퍼(Viper)는 사용자 채택 이름이며 이전 이름은 제미니다. 기존 주소와 이미지 경로는 유지한다. 14.5mm 구경과 두 정의 외형·세부 성능은 보완안이다.
 
 ## 외형과 공통 계열
 
 [[weapon-hp14-bastion|바스티온]]과 같은 각진 대형 권총 계열을 두 정 한 쌍으로 구성한다. 리안형은 이동과 두 손 운용에 맞춰 전방부를 다듬고, 좌우를 구별하는 작은 표식과 쌍의 실루엣을 부여한다. 현실 Desert Eagle의 형태를 참고하되 실제 총의 성능을 계승했다는 주장은 아니다.
+
+## 탄약 컨셉
+
+[[clone-ammunition-concepts|탄종 컨셉]]은 바스티온과 공통 계열로 제안한 근접충격탄 ‘망치’와 관통형 권총탄 ‘이빨’이다. 리안의 특징은 두 정의 발사·반동·장전을 관리하는 운용에 있으며 별도의 초월적 전용탄을 부여하지 않는다. 실탄·탄창의 상호 호환과 탄종의 최종 채택은 미정이다.
 
 ## 건카타
 

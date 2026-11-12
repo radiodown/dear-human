@@ -5,9 +5,9 @@ category: "technology"
 summary: "아렌과 리안의 무장 기본안인 대구경 파열탄 돌격소총."
 status: "보완안"
 visibility: "reader"
-updated: "2026-11-09"
+updated: "2026-11-12"
 aliases: ["럽처","AR-12","파열탄 소총","강화 클론 돌격소총"]
-sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "미 육군 NGSW 2026 소개 · https://www.army.mil/article/291858/delivering_tomorrows_small_caliber_ammunition_lethality_today", "2026-11-09 사용자 요청 · AR-12 럽처 총열 앞 장착물 추가"]
+sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "미 육군 NGSW 2026 소개 · https://www.army.mil/article/291858/delivering_tomorrows_small_caliber_ammunition_lethality_today", "2026-11-09 사용자 요청 · AR-12 럽처 총열 앞 장착물 추가", "2026-11-12 사용자 요청 · 탄환 컨셉 작성; clone-ammunition-concepts의 탄종 보완안 연결"]
 illustrations: [{"src":"assets/weapons/ar12-rupture-001.png","title":"AR-12 럽처","alt":"AR-12 럽처 장비 외형 원화","caption":"아렌 · 파열탄 돌격소총 · 이전 시안 001 · 총구 장착물 보완 대기","width":1536,"height":1024,"article":"weapon-ar12-rupture"}]
 ---
 # AR-12 럽처
@@ -25,6 +25,8 @@ illustrations: [{"src":"assets/weapons/ar12-rupture-001.png","title":"AR-12 럽�
 현실 M7·XM8의 6.8mm 계열과 달리, 이 무기의 12.7mm 파열탄은 작품용이다. 실재 총을 같은 탄약으로 개조한 무기가 아니다.
 
 ## 탄약과 신소재
+
+[[clone-ammunition-concepts|탄종 컨셉]]은 대표 탄종인 관통파열탄 ‘균열’과 폭발성 효과 없이 관통에 집중하는 비파열 관통탄 ‘직선’이다. 명칭·식별 표식·명중 연출은 보완안이며, 두 탄종의 구체적인 성능 차이는 미정이다.
 
 갑주에 작용한 뒤 파열 효과를 내는 전용 폭발성 탄환을 사용한다는 기본안이다. 구체적인 작동 방식·폭발 규모와 생물별 효과는 미정이다. 탄약의 성질과 총을 버티게 하는 [[clone-weapon-materials|오르티스 세라메탈]]은 서로 다른 기술이다.
 

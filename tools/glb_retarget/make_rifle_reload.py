@@ -258,14 +258,18 @@ def build(source, output):
         upper = matrix(a,quaternion(ra)); set_world(trs,ids[0],upper)
         world = g.world(trs)
         fore = world[ids[1]].copy()
-        fore[:3,:3] = swing(world[ids[2]][:3,3]-fore[:3,3],wrist-elbow) @ fore[:3,:3]
+        ref_fore = world0[ids[2]][:3,3]-world0[ids[1]][:3,3]
+        fore[:3,:3] = swing(ref_fore,wrist-elbow) @ world0[ids[1]][:3,:3]
         set_world(trs,ids[1],fore)
         # Share pronation with the forearm instead of putting the entire roll in the wrist.
         predicted = g.world(trs)[ids[2]][:3,:3]
         fore_axis = unit(wrist-elbow)
-        pa = unit(predicted[:,0]-fore_axis*np.dot(predicted[:,0],fore_axis))
-        pb = unit(goal[:3,0]-fore_axis*np.dot(goal[:3,0],fore_axis))
-        roll = math.degrees(math.atan2(np.dot(fore_axis,np.cross(pa,pb)),np.dot(pa,pb)))
+        # Use all three axes: any single axis can become parallel to the forearm,
+        # making its projected angle unstable during insertion.
+        pa = predicted-np.outer(fore_axis,fore_axis @ predicted)
+        pb = goal[:3,:3]-np.outer(fore_axis,fore_axis @ goal[:3,:3])
+        sine = sum(np.dot(fore_axis,np.cross(pa[:,k],pb[:,k])) for k in range(3))
+        roll = math.degrees(math.atan2(sine,np.sum(pa*pb)))
         fore[:3,:3] = axis_rotation(fore_axis,roll*.65) @ fore[:3,:3]
         set_world(trs,ids[1],fore)
         reached = goal.copy(); reached[:3,3] = wrist
