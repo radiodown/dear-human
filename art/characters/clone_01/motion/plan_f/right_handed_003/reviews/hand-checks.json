@@ -1,0 +1,138 @@
+{
+  "poses": [
+    {
+      "facing": -1,
+      "crouch": 0,
+      "reloadTime": null,
+      "rightError": 0,
+      "leftSupportError": 1.1102230246251565e-16,
+      "rightShoulderProjection": 0.17500000000000002
+    },
+    {
+      "facing": -1,
+      "crouch": 0,
+      "reloadTime": 0.9,
+      "rightError": 0,
+      "leftSupportError": 0.35156657662756646,
+      "rightShoulderProjection": 0.175
+    },
+    {
+      "facing": -1,
+      "crouch": 0,
+      "reloadTime": 2.16,
+      "rightError": 0,
+      "leftSupportError": 0.29617802037471724,
+      "rightShoulderProjection": 0.17500000000000004
+    },
+    {
+      "facing": -1,
+      "crouch": 0,
+      "reloadTime": 2.75,
+      "rightError": 5.551115123125783e-17,
+      "leftSupportError": 0,
+      "rightShoulderProjection": 0.17500000000000002
+    },
+    {
+      "facing": -1,
+      "crouch": 1,
+      "reloadTime": null,
+      "rightError": 2.7755575615628914e-17,
+      "leftSupportError": 1.1188630228279524e-16,
+      "rightShoulderProjection": 0.17500000000000002
+    },
+    {
+      "facing": -1,
+      "crouch": 1,
+      "reloadTime": 0.9,
+      "rightError": 1.3877787807814457e-17,
+      "leftSupportError": 0.4343766797735617,
+      "rightShoulderProjection": 0.17500000000000002
+    },
+    {
+      "facing": -1,
+      "crouch": 1,
+      "reloadTime": 2.16,
+      "rightError": 1.3877787807814457e-17,
+      "leftSupportError": 0.2961780203747172,
+      "rightShoulderProjection": 0.17500000000000004
+    },
+    {
+      "facing": -1,
+      "crouch": 1,
+      "reloadTime": 2.75,
+      "rightError": 5.551115123125783e-17,
+      "leftSupportError": 0,
+      "rightShoulderProjection": 0.175
+    },
+    {
+      "facing": 1,
+      "crouch": 0,
+      "reloadTime": null,
+      "rightError": 2.7755575615628914e-17,
+      "leftSupportError": 0,
+      "rightShoulderProjection": 0.17500000000000002
+    },
+    {
+      "facing": 1,
+      "crouch": 0,
+      "reloadTime": 0.9,
+      "rightError": 2.7755575615628914e-17,
+      "leftSupportError": 0.35156657662756646,
+      "rightShoulderProjection": 0.175
+    },
+    {
+      "facing": 1,
+      "crouch": 0,
+      "reloadTime": 2.16,
+      "rightError": 2.7755575615628914e-17,
+      "leftSupportError": 0.29617802037471724,
+      "rightShoulderProjection": 0.17500000000000004
+    },
+    {
+      "facing": 1,
+      "crouch": 0,
+      "reloadTime": 2.75,
+      "rightError": 6.206335383118183e-17,
+      "leftSupportError": 0,
+      "rightShoulderProjection": 0.17500000000000002
+    },
+    {
+      "facing": 1,
+      "crouch": 1,
+      "reloadTime": null,
+      "rightError": 0,
+      "leftSupportError": 1.3877787807814457e-17,
+      "rightShoulderProjection": 0.17500000000000004
+    },
+    {
+      "facing": 1,
+      "crouch": 1,
+      "reloadTime": 0.9,
+      "rightError": 2.7755575615628914e-17,
+      "leftSupportError": 0.43437667977356176,
+      "rightShoulderProjection": 0.17500000000000002
+    },
+    {
+      "facing": 1,
+      "crouch": 1,
+      "reloadTime": 2.16,
+      "rightError": 2.7755575615628914e-17,
+      "leftSupportError": 0.29617802037471724,
+      "rightShoulderProjection": 0.175
+    },
+    {
+      "facing": 1,
+      "crouch": 1,
+      "reloadTime": 2.75,
+      "rightError": 5.551115123125783e-17,
+      "leftSupportError": 0,
+      "rightShoulderProjection": 0.17500000000000004
+    }
+  ],
+  "rightSide": "right",
+  "leftSide": "left",
+  "triggerFinger": {
+    "rightChanges": true,
+    "leftUnchanged": true
+  }
+}

@@ -1,6 +1,7 @@
 import * as T from '../vendor/three-0.187.0/build/three.module.js';
 import {buildLian} from './model-build.js';
 import {HUMAN} from './human-body.js';
+import {RIGHT_SIDE,isRightSide} from './anatomy.js';
 import {poseNeutral} from './neutral-pose.js';
 import {SOCKETS,twoBone,bodyPoint,gunPoint} from './weapon-pose.js';
 import {reloadWeight} from './reload.js';
@@ -29,19 +30,19 @@ export function createLian(){
       const dx=ankle.x-(hips.position.x+leg.sign*.09),dz=ankle.z-hips.position.z,reach=leg.thigh.length+leg.shin.length-.008;
       hips.position.y=Math.min(hips.position.y,ankle.y+.05+Math.sqrt(Math.max(0,reach*reach-dx*dx-dz*dz)));
     }
-    torso.rotation.set(.07+aim*.12+stride*.09+drive*.13-body*.18+.24*crouch+stanceVelocity*.018+reloadWork*.04,.30+.06*aim+twist*.14+Math.sin(phase)*.025*stride+reloadWork*.075,body*.018+twist*.24-Math.sin(phase)*.035*stride-reloadWork*.03);
+    torso.rotation.set(.07+aim*.12+stride*.09+drive*.13-body*.18+.24*crouch+stanceVelocity*.018+reloadWork*.04,-.30-.06*aim+twist*.14+Math.sin(phase)*.025*stride-reloadWork*.075,body*.018+twist*.24-Math.sin(phase)*.035*stride-reloadWork*.03);
     torso.position.set(-hips.position.x*.35,.08-Math.max(0,body)*.016-Math.abs(jolt)*.012,-body*.055-drive*.018+jolt*.035);
-    head.position.set(.018+.01*aim,.563-.01*aim,.012);
+    head.position.set(-.018-.01*aim,.563-.01*aim,.012);
     // Cancel torso lean/twist so the face looks forward in the movement direction.
     head.quaternion.copy(torso.quaternion).invert();head.rotateX((lag-body)*.07+impact*.06);head.rotateZ(-twist*.06);
     root.position.x=state.x;root.rotation.y=state.facing*Math.PI/2;
     capeBack.set(0,0,-1).applyQuaternion(root.quaternion);
     hips.updateMatrix();torso.updateMatrix();
     // Stock follows the shoulder pocket; rotation happens around its contact, not the receiver.
-    const pocket=bodyPoint(hips,torso,v(.115,.348,.050));
+    const pocket=bodyPoint(hips,torso,v(RIGHT_SIDE*.115,.348,.050));
     pocket.z-=kick*.012;pocket.y+=jolt*.06;
-    pocket.add(v(-.025,-.08,-.08).multiplyScalar(reload));
-    gun.rotation.set(-.008-kick*.115-jolt*.45+reload*.22,-body*.012+twist*.035-reload*.08, -.025-kick*.025+twist*.22+reload*.30);
+    pocket.add(v(.025,-.08,-.08).multiplyScalar(reload));
+    gun.rotation.set(-.008-kick*.115-jolt*.45+reload*.22,body*.012-twist*.035+reload*.08, .025+kick*.025-twist*.22-reload*.30);
     gun.position.copy(pocket).sub(SOCKETS.stock.clone().applyQuaternion(gun.quaternion));
     const reloadHand=poseReload(state.reload,{gun,hips,torso,mag,heldMag,handle});
     for(const {leg:l,step,ankle} of feet) {
@@ -51,12 +52,13 @@ export function createLian(){
       l.boot.position.copy(ankle).add(v(0,-.08,0));l.boot.rotation.x=step.pitch;
     }
     for(const a of arms) {
+      const triggerHand=isRightSide(a.sign);
       const shoulder=bodyPoint(hips,torso,v(a.sign*HUMAN.shoulderX,.355,0));
-      const wrist=a.sign<0&&reloadHand?reloadHand.p:gunPoint(gun,a.sign>0?SOCKETS.trigger:SOCKETS.support);
-      const elbow=twoBone(shoulder,wrist,a.upper.length,a.lower.length,v(a.sign>0 ? .6+Math.max(0,kick)*.20 : -.25,-1,a.sign>0 ? -.2 : .12));
+      const wrist=!triggerHand&&reloadHand?reloadHand.p:gunPoint(gun,triggerHand?SOCKETS.trigger:SOCKETS.support);
+      const elbow=twoBone(shoulder,wrist,a.upper.length,a.lower.length,v(a.sign*(triggerHand?.6+Math.max(0,kick)*.20:.25),-1,triggerHand?-.2:.12));
       poseSegment(a.upper,shoulder,elbow);poseSegment(a.lower,elbow,wrist);a.hand.position.copy(wrist);
-      if(a.sign<0&&reloadHand)a.hand.quaternion.copy(reloadHand.q);
-      else{a.hand.quaternion.copy(gun.quaternion);if(a.sign<0){a.hand.rotateZ(Math.PI);a.hand.rotateX(.20);}else a.hand.rotateX(-.16);}
+      if(!triggerHand&&reloadHand)a.hand.quaternion.copy(reloadHand.q);
+      else{a.hand.quaternion.copy(gun.quaternion);if(!triggerHand){a.hand.rotateZ(Math.PI);a.hand.rotateX(.20);}else a.hand.rotateX(-.16);}
     }
     hair.forEach((h,i)=>{h.rotation.x=-stride*.16+Math.sin(state.time*2.7+i*.4)*.015+(body-cloth)*.22+drive*.07+impact*.12+jolt*.10;h.rotation.z=-twist*.10+Math.sin(phase+i*.2)*.025*stride;});
     for(const c of capes){const pos=c.geometry.attributes.position;
