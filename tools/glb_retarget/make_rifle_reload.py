@@ -278,8 +278,8 @@ def build(source, output):
     for t in times:
         trs = copy.deepcopy(base)
         tilt = ease(t,.12,.64)*(1-ease(t,2.48,3.22))
-        grasp = ease(t,.33,.74)*(1-ease(t,2.23,2.70))
-        seat_bump = math.exp(-((t-2.13)/.045)**2)
+        grasp = ease(t,.33,.74)*(1-ease(t,2.30,2.74))
+        seat_bump = math.exp(-((t-2.19)/.045)**2)
         # A slight upper-body counterturn and head glance follows the weapon; feet stay planted.
         for bone, yaw, pitch in [('Spine1',-3,1.5),('Head',-7,5)]:
             i = by_name['mixamorig:'+bone]; w = g.world(trs)[i].copy()
@@ -296,10 +296,10 @@ def build(source, output):
         at_pouch = gun.copy()
         at_pouch[:3,:3] = axis_rotation([0,1,0],-18) @ gun[:3,:3]
         at_pouch[:3,3] = pouch - at_pouch[:3,:3] @ mag_center
-        old = pose_mix(gun,detached,ease(t,.78,1.02))
-        old = pose_mix(old,at_pouch,ease(t,1.02,1.32))
+        old = pose_mix(gun,detached,ease(t,.78,1.04))
+        old = pose_mix(old,at_pouch,ease(t,1.04,1.43))
         fresh = pose_mix(at_pouch,detached,ease(t,1.53,1.94))
-        fresh = pose_mix(fresh,gun,ease(t,1.96,2.12))
+        fresh = pose_mix(fresh,gun,ease(t,1.86,2.18))
         # Brief firm seating push, followed by the hand releasing and returning to the fore-end.
         fresh[:3,3] += gun[:3,1]*(.003*seat_bump)
         if t < 1.43: carried = old
@@ -314,15 +314,15 @@ def build(source, output):
         contact_errors.append(float(np.linalg.norm(actual[:3,3]-right_goal[:3,3])))
         set_world(trs,old_mag,old if t < 1.43 else gun)
         set_world(trs,new_mag,fresh)
-        trs[old_mag][2] = np.ones(3) if t < 1.43 or t >= 2.24 else np.zeros(3)
-        trs[new_mag][2] = np.ones(3) if 1.53 <= t < 2.24 else np.zeros(3)
+        trs[old_mag][2] = np.ones(3) if t < 1.43 or t >= 2.32 else np.zeros(3)
+        trs[new_mag][2] = np.ones(3) if 1.53 <= t < 2.32 else np.zeros(3)
         # The identical meshes swap while seated; defaults make every pre-existing clip safe to switch to.
         if t == 0 or t == times[-1]: trs = copy.deepcopy(base)
         frames.append(trs)
     frames = np.asarray(frames, dtype=object)
     anim = {'name':'rifle_reload','channels':[],'samplers':[],
             'extras':{'duration_seconds':3.4,'fps':30,'style':'canted tactical magazine exchange',
-                      'events':{'extract':.78,'stow':1.43,'draw':1.53,'seat':2.12,'ready':3.22}}}
+                      'events':{'extract':.78,'stow':1.43,'draw':1.53,'seat':2.18,'ready':3.22}}}
     ti = g.append(times,'SCALAR')
     for i in range(len(nodes)):
         for n,(path,kind) in enumerate([('translation','VEC3'),('rotation','VEC4'),('scale','VEC3')]):
@@ -348,7 +348,7 @@ def build(source, output):
               'max_right_wrist_contact_error':max(contact_errors),
               'generation_seconds':round(time.perf_counter()-started,3),'paid_api_calls':0,
               'review_status':'pending'}
-    Path(output).with_suffix('.json').write_text(json.dumps(report,indent=2),encoding='utf8')
+    Path(output).with_suffix('.json').write_text(json.dumps(report,indent=2),encoding='utf8',newline='\n')
     print(json.dumps(report,indent=2))
 
 

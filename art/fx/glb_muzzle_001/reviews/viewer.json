@@ -1,0 +1,346 @@
+{
+  "rifle_before": {
+    "clip": "gunplay",
+    "time": 0.1,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": false,
+        "point": [
+          -0.12211440708434769,
+          0.7433932008298196,
+          0.5227973030035546
+        ],
+        "light": 0
+      }
+    ],
+    "smoke": 0
+  },
+  "rifle_shot": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.12114229273410157,
+          0.7480178180791848,
+          0.523450490249804
+        ],
+        "light": 0.5384615384615383
+      }
+    ],
+    "smoke": 3
+  },
+  "paused": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.12114229273410157,
+          0.7480178180791848,
+          0.523450490249804
+        ],
+        "light": 0.5384615384615383
+      }
+    ],
+    "smoke": 3
+  },
+  "rifle_after": {
+    "clip": "gunplay",
+    "time": 0.29,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": false,
+        "point": [
+          -0.10409516378501613,
+          0.7448828665284737,
+          0.5158323049746921
+        ],
+        "light": 0
+      }
+    ],
+    "smoke": 3
+  },
+  "rifle_auto": {
+    "clip": "gunplay_auto",
+    "time": 0.1,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.11467906726282306,
+          0.7543181705354605,
+          0.5180979028221021
+        ],
+        "light": 0.5205128205128203
+      }
+    ],
+    "smoke": 3
+  },
+  "rifle_walk_fire": {
+    "clip": "shoot_rifle",
+    "time": 0.22,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          0.024775812801524605,
+          0.7831497632993407,
+          0.5733339848995747
+        ],
+        "light": 0.5743589743589744
+      }
+    ],
+    "smoke": 3
+  },
+  "disabled": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": false,
+        "point": [
+          -0.12114229273410157,
+          0.7480178180791848,
+          0.523450490249804
+        ],
+        "light": 0
+      }
+    ],
+    "smoke": 0
+  },
+  "reload": {
+    "clip": "rifle_reload",
+    "time": 1.1,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": false,
+        "point": [
+          -0.0068456153209740175,
+          0.8907606033113891,
+          0.5144765973112089
+        ],
+        "light": 0
+      }
+    ],
+    "smoke": 0
+  },
+  "idle": {
+    "clip": "rifle_aim_idle",
+    "time": 0.2,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": false,
+        "point": [
+          0.009277787196339829,
+          0.8128556867282736,
+          0.517859512343722
+        ],
+        "light": 0
+      }
+    ],
+    "smoke": 0
+  },
+  "dual_right": {
+    "clip": "dual_fire",
+    "time": 0.02,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.029619106764909146,
+          0.8389248641829633,
+          0.48552235140123623
+        ],
+        "light": 0.48461538461538456
+      },
+      {
+        "side": "left",
+        "visible": false,
+        "point": [
+          0.06721313590750358,
+          0.8231050831998258,
+          0.5466598982949659
+        ],
+        "light": 0
+      }
+    ],
+    "smoke": 3
+  },
+  "dual_left": {
+    "clip": "dual_fire",
+    "time": 0.27,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": false,
+        "point": [
+          -0.0295104718364911,
+          0.8377897165636028,
+          0.4854684159502432
+        ],
+        "light": 0
+      },
+      {
+        "side": "left",
+        "visible": true,
+        "point": [
+          0.06669921269272877,
+          0.8200379516052592,
+          0.5465513417075404
+        ],
+        "light": 0.4846153846153844
+      }
+    ],
+    "smoke": 6
+  },
+  "dual_kneel": {
+    "clip": "dual_kneel_fire",
+    "time": 0.52,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.04035299731596374,
+          0.6175004369299324,
+          0.4664386968645928
+        ],
+        "light": 0.4846153846153844
+      },
+      {
+        "side": "left",
+        "visible": false,
+        "point": [
+          0.05787513852582371,
+          0.5968453557654054,
+          0.5206137448109012
+        ],
+        "light": 0
+      }
+    ],
+    "smoke": 6
+  },
+  "slow_time": 0.30500000000000005,
+  "unarmed": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [],
+    "smoke": 0
+  },
+  "iren_ar12_rupture": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.1466809763812707,
+          0.7252030536492027,
+          0.49976248457046557
+        ],
+        "light": 0.5384615384615383
+      }
+    ],
+    "smoke": 3
+  },
+  "iren_sg23_breacher": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.13550437992222955,
+          0.7763382911694445,
+          0.6224110117560284
+        ],
+        "light": 0.5384615384615383
+      }
+    ],
+    "smoke": 3
+  },
+  "sena_amr21_nail": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.17476584327998113,
+          0.7163755202900315,
+          0.7574635619840542
+        ],
+        "light": 0.5384615384615383
+      }
+    ],
+    "smoke": 3
+  },
+  "sena_pdw9_wasp": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.13548154412283217,
+          0.7129108328511107,
+          0.3969709709134499
+        ],
+        "light": 0.5384615384615383
+      }
+    ],
+    "smoke": 3
+  },
+  "moa_hmg15_goliath": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.09068860961725081,
+          0.730886422589916,
+          0.7214908466208719
+        ],
+        "light": 0.5384615384615383
+      }
+    ],
+    "smoke": 3
+  },
+  "moa_ml70_mule": {
+    "clip": "gunplay",
+    "time": 0.14,
+    "mounts": [
+      {
+        "side": "right",
+        "visible": true,
+        "point": [
+          -0.09727090265913271,
+          0.7234148392681878,
+          0.41947397249087215
+        ],
+        "light": 0.5384615384615383
+      }
+    ],
+    "smoke": 3
+  },
+  "page_errors": []
+}

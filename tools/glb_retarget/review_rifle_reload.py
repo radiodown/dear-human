@@ -43,7 +43,7 @@ async def main():
             await page.evaluate('''({pos})=>{const r=window.review;r.camera.position.set(...pos);r.camera.lookAt(0,.66,.13);r.mixer.setTime(1.05);r.renderer.render(r.scene,r.camera)}''',{'pos':pos})
             await page.screenshot(path=str(OUT/f'extract_{label}.png'))
         result['page_errors']=errors
-        (OUT/'render.json').write_text(json.dumps(result,indent=2),encoding='utf8')
+        (OUT/'render.json').write_text(json.dumps(result,indent=2),encoding='utf8',newline='\n')
         print(json.dumps(result))
         # Exercise the real shared viewer. The hook exists only in this intercepted QA response.
         app_source=Path('game/app.js').read_text(encoding='utf8')
@@ -78,7 +78,7 @@ async def main():
         assert checks['after_switch']['oldScale']==[1,1,1]
         assert checks['after_switch']['newScale']==[0,0,0]
         assert not errors,errors
-        (OUT/'viewer.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2),encoding='utf8')
+        (OUT/'viewer.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2),encoding='utf8',newline='\n')
         print(json.dumps(checks,ensure_ascii=True))
         await browser.close()
 

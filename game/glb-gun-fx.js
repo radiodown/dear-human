@@ -18,7 +18,19 @@ export class GlbGunFx {
     gradient.addColorStop(0, 'rgba(255,255,255,1)'); gradient.addColorStop(.25, 'rgba(255,255,255,.7)');
     gradient.addColorStop(1, 'rgba(255,255,255,0)'); ctx.fillStyle = gradient; ctx.fillRect(0, 0, 64, 64);
     this.texture = new THREE.CanvasTexture(canvas);
-    this.cone = new THREE.ConeGeometry(1, 1, 5); this.cone.rotateZ(-Math.PI / 2); this.cone.translate(.5, 0, 0);
+    const fire = document.createElement('canvas'); fire.width = 128; fire.height = 64;
+    const f = fire.getContext('2d'), heat = f.createRadialGradient(13, 32, 1, 22, 32, 95);
+    heat.addColorStop(0, 'rgba(255,255,244,1)'); heat.addColorStop(.23, 'rgba(255,238,150,.98)');
+    heat.addColorStop(.55, 'rgba(255,164,40,.65)'); heat.addColorStop(1, 'rgba(255,80,12,0)');
+    f.fillStyle = heat; f.filter = 'blur(1.5px)';
+    f.beginPath();
+    for (const [i, p] of [[0, .5], [.13, .31], [.28, .41], [.46, .13], [.43, .40], [.96, .33], [.70, .49],
+      [1, .60], [.43, .58], [.66, .85], [.29, .66], [.22, .79], [.11, .60]].entries()) {
+      if (i) f.lineTo(p[0] * 128, p[1] * 64); else f.moveTo(p[0] * 128, p[1] * 64);
+    }
+    f.closePath(); f.fill();
+    this.fireTexture = new THREE.CanvasTexture(fire); this.fireTexture.colorSpace = THREE.SRGBColorSpace;
+    this.flameGeometry = new THREE.PlaneGeometry(1, 1); this.flameGeometry.translate(.5, 0, 0);
     this.point = new THREE.Vector3(); this.direction = new THREE.Vector3();
     this.reset();
   }
@@ -29,8 +41,11 @@ export class GlbGunFx {
     const T = this.T;
     root.updateMatrixWorld(true);
     for (const [name, side] of [['weapon', 'right'], ['weapon_l', 'left']]) {
-      const gun = root.getObjectByName(name);
-      if (!gun || gun.isBone) continue;
+      const named = root.getObjectByName(name);
+      // GLTFLoader reserves the shared name for the bone and renames its mesh child.
+      // Muzzle +X is the mesh's local axis, not the bone's local axis.
+      const gun = named?.isBone ? named.children.find(child => !child.isBone) : named;
+      if (!gun) continue;
       const inverse = gun.matrixWorld.clone().invert(), positions = [], point = new T.Vector3();
       gun.traverse(mesh => {
         // Reload magazines are separate meshes below the weapon node; don't use them to locate its muzzle.
@@ -44,11 +59,11 @@ export class GlbGunFx {
       const muzzle = tip.getCenter(new T.Vector3()); muzzle.x = box.max.x + .002;
       const group = new T.Group(); group.name = `muzzle_fx_${side}`; group.position.copy(muzzle); gun.add(group);
       const size = Math.max(.045, Math.min(.115, length * .22));
-      const orangeMat = new T.MeshBasicMaterial({ color: 0xff9b24, transparent: true, opacity: .85,
-        depthWrite: false, blending: T.AdditiveBlending, toneMapped: false });
-      const coreMat = orangeMat.clone(); coreMat.color.setHex(0xfff7d8);
-      const flame = new T.Mesh(this.cone, orangeMat); flame.scale.set(size, size * .22, size * .22); group.add(flame);
-      const core = new T.Mesh(this.cone, coreMat); core.scale.set(size * .68, size * .10, size * .10); group.add(core);
+      const orangeMat = new T.MeshBasicMaterial({ map: this.fireTexture, color: 0xffffff, transparent: true, opacity: .85,
+        depthWrite: false, side: T.DoubleSide, blending: T.AdditiveBlending, toneMapped: false });
+      const coreMat = orangeMat.clone();
+      const flame = new T.Mesh(this.flameGeometry, orangeMat); flame.scale.set(size, size * .65, 1); group.add(flame);
+      const core = new T.Mesh(this.flameGeometry, coreMat); core.scale.set(size * .85, size * .52, 1); core.rotation.x = Math.PI / 2; group.add(core);
       const glowMat = new T.SpriteMaterial({ map: this.texture, color: 0xffc56a, transparent: true,
         depthWrite: false, blending: T.AdditiveBlending, toneMapped: false });
       const glow = new T.Sprite(glowMat); glow.scale.setScalar(size * .85); group.add(glow);
@@ -109,6 +124,7 @@ export class GlbGunFx {
       mount.materials[1].opacity = Math.min(1, pulse * 1.8);
       mount.materials[2].opacity = pulse * .5;
       mount.flame.rotation.x = shotIndex * 2.4 + this.cycle * .9;
+      mount.core.rotation.x = mount.flame.rotation.x + Math.PI / 2;
       mount.group.scale.set(1 + .18 * Math.sin(shotIndex * 7 + this.cycle * 3), 1, 1);
     }
     this.smoke = this.smoke.filter(part => {

@@ -8557,6 +8557,46 @@
             "rifle_reload"
           ],
           "preview_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
+        },
+        {
+          "revision_id": "glb_ar12_reload_012",
+          "display_name": "GLB / Lian AR-12 natural reload arms 012",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "103 poses, original six clips/binary, fixed feet, start/end pose, arm rotation deltas; Chromium multi-view and shared viewer slow playback/clip switching",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_tilt_reload_002",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_012/clone_01_ar12_rupture.glb",
+              "sha256": "c7926a6d1803ecfe9cd6692c884e152692411c2b2547efe863dedcd59dcbef2a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_012/source_snapshot/make_rifle_reload.py",
+              "sha256": "91d0d46681ca59396003735e9f9234d7131228ddfd9246dace0f26e371c360d2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_012/source_snapshot/review_rifle_reload.py",
+              "sha256": "7dd8ec564a5f97245e9a5afe2ee020c7600435eda2d69a16e72cb593c132ce5b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_012/reviews/structure.json",
+              "sha256": "66cd5bb0550b175b883e666674fda215f0a9d0ca61fc102e5ef8b6e64b17609d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_012/reviews/arm_rotation.json",
+              "sha256": "3b644a1bdcec08fbe7a5a7a606e3b249495f1309802729e9ec670106d66ed27e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_012/reviews/viewer.json",
+              "sha256": "9b530b89fa4e32bfb9af9573d7649a322431586e3e8532a018145c24256d7708"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
+          }
         }
       ],
       "capabilities": [
@@ -8927,6 +8967,42 @@
             "Device shader compatibility and performance review.",
             "Approximate 2D surfaces only; no new normal maps or 3D cast shadows."
           ]
+        },
+        {
+          "revision_id": "glb_muzzle_001",
+          "display_name": "GLB / muzzle flash, light and smoke 001",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Chromium actual viewer: shot cues, pause/slow playback, toggles, idle/reload/unarmed exclusion, dual-pistol alternation and six additional long-gun mounts",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "glb_muzzle_001",
+          "artifacts": [
+            {
+              "path": "art/fx/glb_muzzle_001/source_snapshot/glb-gun-fx.js",
+              "sha256": "5894cf409b81854e8ecc0d2b10b38f9ea116c115c715b861201ca2456b4fccd4"
+            },
+            {
+              "path": "art/fx/glb_muzzle_001/source_snapshot/glb-model-lab.js",
+              "sha256": "443edbfb6f8d2ea73f97947e76d41666486e3dae1e1428bb95c5cc6ea0b29219"
+            },
+            {
+              "path": "art/fx/glb_muzzle_001/source_snapshot/index.html",
+              "sha256": "0eb0eeee498b7e142aaac512b3a73cf38bac999c1435964fbb47142024c1d766"
+            },
+            {
+              "path": "art/fx/glb_muzzle_001/source_snapshot/review_gun_fx.py",
+              "sha256": "127232d853ebd126a9caa3fbd855d572be73b8d5010a30b7d2b0637d052697bc"
+            },
+            {
+              "path": "art/fx/glb_muzzle_001/reviews/viewer.json",
+              "sha256": "b2ba1e4b285bd723bab0d572cdad1e152ca1ae502e5fdf803a7c01b97e9c1926"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=gunplay"
+          }
         }
       ]
     },
