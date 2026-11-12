@@ -1,5 +1,9 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
+- [플랜 G · Saltline 직접 개조 / 횡스크롤 001](game/plan-g/README.md): 공통 미리보기 `?plan=g`. 원본 파일 분리·측면 이동·원본 총기 연결, 임시 전신·실행 검수 대기.
+
+**플랜 F · 전신 인체 설계 분석:** [SALTLINE 적용 분석 001](docs/plan-f-saltline-human-body-analysis-001.md). 손의 곡면 생성·로봇의 코드 골격을 전신 인체에 확장하는 설계와 현재 F의 개선 지점·구현 순서. 문서 조사이며 런타임 구현 전.
+
 **플랜 F · 반동·역동 모션:** [실행](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=f) · [변경 기록](art/characters/clone_01/motion/plan_f/motion_dynamics_001/README.md). 강한 발사 충격·지연 반응·되튐, 발 디딤/회수, 앉기·장전 하중과 머리/망토 후속 움직임을 추가했다. 단발/0.25×로 검토 가능하며 동작 검수 대기다.
 
 **?? F ? ?? ???:** [??](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=f) ? [SALTLINE ?? ?? ??](art/characters/clone_01/motion/plan_f/weapon_detail_001/README.md). ?? ?????/??? ????????????????? ??/??? ??. untested???? ?? ??.

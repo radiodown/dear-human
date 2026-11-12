@@ -2,6 +2,7 @@ import { RigLab, MOTIONS } from './rig-lab.js';
 import { PlanBLab } from './plan-b-lab.js';
 import { PartsV2Lab } from './parts-v2-lab.js';
 import { PlanFLab } from './plan-f/index.js';
+import { PlanGLab } from './plan-g-lab.js';
 import { PlanELab } from './plan-e-lab.js';
 import { GlbModelLab, MODELS as GLB_MODELS } from './glb-model-lab.js';
 import { GlbSpriteLab, SPRITE_MODELS } from './glb-sprite-lab.js';
@@ -12,6 +13,7 @@ const planB = new PlanBLab();
 const partsV2 = new PartsV2Lab();
 const planE = new PlanELab();
 const planF = new PlanFLab();
+const planG = new PlanGLab();
 const glb = new GlbModelLab();
 const glbSprite = new GlbSpriteLab();
 const weapon3d = new WeaponModelLab();
@@ -20,6 +22,7 @@ const motionPreviews = [
   { mode: 'rig', label: '플랜 A · 파츠 실시간', query: 'motion=idle' },
   { mode: 'rig-v2', label: '플랜 A · 파츠 V2', query: 'plan=parts-v2&motion=walk' },
   { mode: 'plan-b', label: '플랜 B · 도트 원화·모션', query: 'plan=b' },
+  { mode: 'plan-g', label: '플랜 G · Saltline 횡스크롤', query: 'plan=g' },
   { mode: 'plan-f', label: '플랜 F · 코드 생성', query: 'plan=f' },
   { mode: 'plan-e', label: '플랜 E · 3D→도트', query: 'plan=e' },
   { mode: 'glb', label: 'GLB · 3D 모델', query: 'plan=glb' },
@@ -32,19 +35,22 @@ function setPreviewMode(mode, updateUrl=true) {
   const v2Mode = mode === 'rig-v2';
   const planEMode = mode === 'plan-e';
   const planFMode = mode === 'plan-f';
+  const planGMode = mode === 'plan-g';
   const glbMode = mode === 'glb';
   const glbSpriteMode = mode === 'glb-sprite';
   const weaponMode = mode === 'weapon-3d';
-  $('reference-view').hidden = rigMode || planBMode || v2Mode || planEMode || planFMode || glbMode || glbSpriteMode || weaponMode; $('rig-view').hidden = !rigMode;
+  $('reference-view').hidden = rigMode || planBMode || v2Mode || planEMode || planFMode || planGMode || glbMode || glbSpriteMode || weaponMode; $('rig-view').hidden = !rigMode;
   $('rig-v2-view').hidden = !v2Mode;
   $('plan-b-view').hidden = !planBMode;
   $('plan-e-view').hidden = !planEMode;
   $('plan-f-view').hidden = !planFMode;
+  $('plan-g-view').hidden = !planGMode;
+  $('mode-plan-g').setAttribute('aria-pressed', String(planGMode));
   $('mode-plan-f').setAttribute('aria-pressed', String(planFMode));
   $('glb-view').hidden = !glbMode;
   $('glb-sprite-view').hidden = !glbSpriteMode;
   $('weapon-3d-view').hidden = !weaponMode;
-  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode && !v2Mode && !planEMode && !planFMode && !glbMode && !glbSpriteMode && !weaponMode));
+  $('mode-reference').setAttribute('aria-pressed', String(!rigMode && !planBMode && !v2Mode && !planEMode && !planFMode && !planGMode && !glbMode && !glbSpriteMode && !weaponMode));
   $('mode-weapon-3d').setAttribute('aria-pressed', String(weaponMode));
   $('mode-plan-e').setAttribute('aria-pressed', String(planEMode));
   $('mode-glb').setAttribute('aria-pressed', String(glbMode));
@@ -53,19 +59,21 @@ function setPreviewMode(mode, updateUrl=true) {
   $('mode-plan-b').setAttribute('aria-pressed', String(planBMode));
   $('mode-rig-v2').setAttribute('aria-pressed', String(v2Mode));
   updateSampleSelection(mode);
-  $('review-state').textContent = planFMode ? '플랜 F · 장전 006' : weaponMode ? '무기 · 3D 모델 시험' : glbSpriteMode ? 'GLB · 2D 스프라이트 시험' : glbMode ? '3D 모델 · GLB 재생 시험' : planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
+  $('review-state').textContent = planGMode ? '플랜 G · Saltline 횡스크롤 001' : planFMode ? '플랜 F · 장전 006' : weaponMode ? '무기 · 3D 모델 시험' : glbSpriteMode ? 'GLB · 2D 스프라이트 시험' : glbMode ? '3D 모델 · GLB 재생 시험' : planEMode ? '플랜 E · 3D→도트 실험' : v2Mode ? '파츠 모션 V2 · 프레임 초안' : planBMode ? '플랜 B · 도트 시도 검토' : app.revision?.art_direction_status === 'approved' ? '채택한 기본안' : '외형 검토 대기';
   lab.show(rigMode);
   planB.show(planBMode);
   partsV2.show(v2Mode);
   planE.show(planEMode);
   planF.show(planFMode);
+  planG.show(planGMode);
   glb.show(glbMode);
   glbSprite.show(glbSpriteMode);
   weapon3d.show(weaponMode);
   if (rigMode && !labInitialized) { labInitialized=true; lab.init(); }
   if (updateUrl) {
     const [route,query] = location.hash.split('?');const params=new URLSearchParams(query||'');
-    if (planFMode) planF.writeParams(params);
+    if (planGMode) planG.writeParams(params);
+    else if (planFMode) planF.writeParams(params);
     else if (weaponMode) weapon3d.writeParams(params);
     else if (glbSpriteMode) glbSprite.writeParams(params);
     else if (glbMode) glb.writeParams(params);
@@ -79,12 +87,13 @@ function setPreviewMode(mode, updateUrl=true) {
     }
     history.replaceState(null,'',`${location.pathname}${location.search}${route}${params.size?'?'+params:''}`);
   }
-  if (!rigMode && !planBMode && !v2Mode && !planEMode && !planFMode && !glbMode && !glbSpriteMode && !weaponMode) fitArt();
+  if (!rigMode && !planBMode && !v2Mode && !planEMode && !planFMode && !planGMode && !glbMode && !glbSpriteMode && !weaponMode) fitArt();
 }
 $('mode-reference').addEventListener('click',()=>setPreviewMode('reference'));
 $('mode-rig').addEventListener('click',()=>setPreviewMode('rig'));
 $('mode-rig-v2').addEventListener('click',()=>setPreviewMode('rig-v2'));
 $('mode-plan-b').addEventListener('click',()=>setPreviewMode('plan-b'));
+$('mode-plan-g').addEventListener('click',()=>setPreviewMode('plan-g'));
 $('mode-plan-f').addEventListener('click',()=>setPreviewMode('plan-f'));
 $('mode-plan-e').addEventListener('click',()=>setPreviewMode('plan-e'));
 $('mode-glb').addEventListener('click',()=>setPreviewMode('glb'));
@@ -307,6 +316,7 @@ function showRoute() {
   partsV2.show(false);
   planE.show(false);
   planF.show(false);
+  planG.show(false);
   glb.show(false);
   glbSprite.show(false);
   try {
@@ -323,6 +333,7 @@ function showRoute() {
     $('mode-rig').hidden = !rigAvailable;
     $('mode-plan-b').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-rig-v2').hidden = kind !== 'character' || id !== 'clone_01';
+    $('mode-plan-g').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-plan-f').hidden = kind !== 'character' || id !== 'clone_01';
     $('mode-plan-e').hidden = kind !== 'character' || id !== 'clone_01';
     const glbAvailable = ['character', 'enemy'].includes(kind) && Object.hasOwn(GLB_MODELS, id);
@@ -360,6 +371,7 @@ function showRoute() {
     if(labParams.get('plan')==='parts-v2'&&kind==='character'&&id==='clone_01'){
       partsV2.restoreParams(labParams);setPreviewMode('rig-v2',false);return;
     }
+    if(labParams.get('plan')==='g'&&kind==='character'&&id==='clone_01'){setPreviewMode('plan-g',false);return;}
     if(labParams.get('plan')==='f'&&kind==='character'&&id==='clone_01'){planF.restoreParams(labParams);setPreviewMode('plan-f',false);return;}
     if(labParams.get('plan')==='e'&&kind==='character'&&id==='clone_01'){
       planE.restoreParams(labParams);setPreviewMode('plan-e',false);return;

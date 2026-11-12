@@ -1,0 +1,11 @@
+#g-interface{position:absolute;inset:0;z-index:50;pointer-events:none;color:#eee7d8;font:14px system-ui,sans-serif}
+#g-interface header{display:flex;justify-content:space-between;padding:20px;background:linear-gradient(#0c141bd9,transparent);letter-spacing:.12em}
+#g-interface header span{font-size:11px;color:#c8b895;margin-left:12px}
+.g-readout{position:absolute;left:20px;right:20px;bottom:76px;display:flex;justify-content:space-between;text-shadow:0 2px 4px #000}
+.g-menu{pointer-events:auto;position:absolute;inset:0;background:linear-gradient(90deg,#071117eb,#07111755);padding:8% 8%;overflow:auto}
+.g-menu[hidden]{display:none}.g-menu h1{font:900 clamp(38px,7vw,80px)/.9 system-ui;margin:0 0 24px;letter-spacing:-.06em}.g-menu em{color:#e2a34b;font-style:normal}.g-menu p{line-height:1.8}.g-menu small{color:#c2c0b7}
+#g-interface button{pointer-events:auto;background:#14242dde;color:#eee7d8;border:1px solid #8a8c7b;padding:12px 18px;font:600 14px system-ui;cursor:pointer;touch-action:none}
+#g-interface button:hover,#g-interface button:focus-visible{background:#77562b;outline:2px solid #e2a34b}
+#g-interface nav{position:absolute;bottom:16px;left:16px;right:16px;display:flex;gap:6px;justify-content:center}
+#g-interface nav button{padding:10px 14px}.g-menu #g-start{background:#d3a05b;color:#101820}
+@media(max-width:600px){#g-interface nav{gap:3px}#g-interface nav button{padding:9px;font-size:12px}.g-menu{padding:12% 6%}}

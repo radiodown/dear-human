@@ -7871,6 +7871,153 @@
           "dependencies": [],
           "description": "발사 충격/복귀·어깨/골반 지연·보행 지지/회수·앉기 하중·장전 충격·머리/망토 후속 반응. 정적 소스 보존, 동작 검수 대기.",
           "sample_url": "#/samples/characters/clone_01?plan=f"
+        },
+        {
+          "revision_id": "plan_g_saltline_side_001",
+          "display_name": "플랜 G · Saltline 횡스크롤 001",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "syntax_only_browser_unavailable",
+          "art_direction_status": "pending",
+          "recipe_key": "990bd8bcb637398deae62b359a0fb2ba02f889ff65de3c1a74b1a94660bd0fc2",
+          "artifacts": [
+            {
+              "path": "game/plan-g/index.html",
+              "sha256": "fa953a035767ddd21871a04910524cf45b9357c694dbcfa5d9e78064377e0dfc"
+            },
+            {
+              "path": "game/plan-g/provenance.json",
+              "sha256": "25dfaf35887f1d71296f511c13f5f0e39d1a0d118f334966e28f265ae7ce0aab"
+            },
+            {
+              "path": "game/plan-g/README.md",
+              "sha256": "ab17cce33ce8bfe66de1934c1e33500784955eb2e1201192aabdd17b8dc653c8"
+            },
+            {
+              "path": "game/plan-g/saltline/audio.js",
+              "sha256": "597b8ca4673d613f959c1118c0ed32120811839b14cffb5861c1690f1715ec8f"
+            },
+            {
+              "path": "game/plan-g/saltline/backdrop.js",
+              "sha256": "c9cd7fd92f6d21e2de6ceb541e7957cabae7dece140cdd9c736cc683e5ec9a06"
+            },
+            {
+              "path": "game/plan-g/saltline/bootstrap.js",
+              "sha256": "dff6b22f6718ca8c69d6064344fcb29ce5870c45343718106b3a65c0ff7781d0"
+            },
+            {
+              "path": "game/plan-g/saltline/combat.js",
+              "sha256": "8330e8ba3fc01b25c8c359f48c9128f45214bee5a58c5c77579b9da4db98d3ee"
+            },
+            {
+              "path": "game/plan-g/saltline/core.js",
+              "sha256": "94859321de63d1540b6711892ddb868161146934ef3f8008544f135fc3d2bcd6"
+            },
+            {
+              "path": "game/plan-g/saltline/effects.js",
+              "sha256": "293339940eb53b33308764818611e090dc5fd314a6933ce5288933e63fccd7d4"
+            },
+            {
+              "path": "game/plan-g/saltline/enemies.js",
+              "sha256": "7690082f3a27eef481a99060239848e77faf5ea7618e49786326f3fbd51678e6"
+            },
+            {
+              "path": "game/plan-g/saltline/engine.js",
+              "sha256": "683d929d4a06409e066ae3606e6feb92012958796a96315a90ab2ee4bc80c66d"
+            },
+            {
+              "path": "game/plan-g/saltline/game.js",
+              "sha256": "37cd4dd4e440cf41b85309bdedd8c110e99efb33573fb2de12337f875acc95fc"
+            },
+            {
+              "path": "game/plan-g/saltline/ground.js",
+              "sha256": "95e3f2081f4c6d4aa86229de361bbc6a28a137c99781f33d4c114bb3a1c13612"
+            },
+            {
+              "path": "game/plan-g/saltline/hud.js",
+              "sha256": "949656f129f6323ae94efc47a86e2887baac114d53e4782a39f11bc191049248"
+            },
+            {
+              "path": "game/plan-g/saltline/input.js",
+              "sha256": "6fa099f457aa84564f71cd320f9f9150625f3864c4309ca70b3e7fce33835616"
+            },
+            {
+              "path": "game/plan-g/saltline/level.js",
+              "sha256": "b0d793e1edee849fdee6930dfb83e22c3d810066a62bee7efe278125e9d29478"
+            },
+            {
+              "path": "game/plan-g/saltline/materials.js",
+              "sha256": "03e2c8b31a696d01e8914ec1b8895f1d055e9b6eeca7ade09041163432e117db"
+            },
+            {
+              "path": "game/plan-g/saltline/physics.js",
+              "sha256": "2381da12898201ef4510c0a405ecbcdd9c2a521038a0feb57e9d1361ae80441c"
+            },
+            {
+              "path": "game/plan-g/saltline/player.js",
+              "sha256": "a3714ffa179eaadf29c858746340c919d2c63f18525a5349c0acabc463860e19"
+            },
+            {
+              "path": "game/plan-g/saltline/props.js",
+              "sha256": "d0233f3e62a1b6311596c6364d2584fe6501e4fc35ea4e94209daf30e0146840"
+            },
+            {
+              "path": "game/plan-g/saltline/renderer.js",
+              "sha256": "3c7922eec8bcc1459669e1b7396808ace6ca02afdb95338c0b5c7939cc035b7a"
+            },
+            {
+              "path": "game/plan-g/saltline/weapon.js",
+              "sha256": "99453eeeadc5c1c617209256413a87d9f770c196b635786ffe561539702c0ba5"
+            },
+            {
+              "path": "game/plan-g/saltline.css",
+              "sha256": "524e1e85e40ea240e674ba73195d24d81518aee62399eb7481d972d3c9eba2df"
+            },
+            {
+              "path": "game/plan-g/side-actor.js",
+              "sha256": "e633eb32adbf712f70f9a4981e31a71f7adbe53e3a60601e367a5a2f20608c85"
+            },
+            {
+              "path": "game/plan-g/side-camera.js",
+              "sha256": "595971f761a3a75fe8015fc2bcaf8ba1382018cb8c30f2006ddf3b084b8eb39f"
+            },
+            {
+              "path": "game/plan-g/side-game.js",
+              "sha256": "3cfbe80fe7bab6194be45f63e798a6dfdd2e9b8416a5c6a29ab4d97ed1c60ee8"
+            },
+            {
+              "path": "game/plan-g/side-input.js",
+              "sha256": "61e06b9888b96ca434dbf6fdd595762b756ff53d65c611b034fc2c0579c10ae5"
+            },
+            {
+              "path": "game/plan-g/styles.css",
+              "sha256": "f71639465ceda0314640dba784f12ea618d63ff38dc11a8d883c52017edae8c9"
+            },
+            {
+              "path": "game/plan-g-lab.js",
+              "sha256": "476e3fe24ad428a9054b81481d37be7da305ac5d536dbf8f34d6eb5140f00a35"
+            },
+            {
+              "path": "game/plan-g-lab.css",
+              "sha256": "fd805f3b04dee1a303d3d2c87c9dc0f3abfe0ee0168a5c8ccdac08f42b270626"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_g/saltline_side_001/README.md",
+              "sha256": "d58e3256ca7c9e4a444d5525a55a9a098b4fe61787f200fdc499d24151511f56"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_g/saltline_side_001/source/index.html",
+              "sha256": "c8cc235f62ff8550d8c2c81e779ae18120b57c5b228ed4cc7d7d717f1202f655"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_g/saltline_side_001/source/README.md",
+              "sha256": "c5f41760d37399c202d195f8c2a02e6a7a0bff50a815f7ced6e6bdd81c8b3338"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_g/saltline_side_001/record.json",
+              "sha256": "891165215621ff66c371fca9348042e487354427a08783997f462e12bec6b268"
+            }
+          ]
         }
       ],
       "capabilities": [

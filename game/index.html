@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="styles.css">
   <script type="module" src="app.js"></script>
   <link rel="stylesheet" href="./plan-f/styles.css">
+  <link rel="stylesheet" href="./plan-g-lab.css">
 </head>
 <body>
   <aside class="sidebar">
@@ -31,7 +32,7 @@
         <div class="preview-mode" aria-label="미리보기 종류">
           <div class="preview-group" role="group" aria-label="원화"><span class="preview-group-label">원화</span><div class="preview-group-buttons"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button></div></div>
           <div class="preview-group" role="group" aria-label="2D 모션"><span class="preview-group-label">2D 모션</span><div class="preview-group-buttons"><button id="mode-rig" type="button" aria-pressed="false">파츠 · 실시간 <span>플랜 A</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 · 프레임 <span>플랜 A · V2</span></button><button id="mode-plan-b" type="button" aria-pressed="false">도트 원화·모션 <span>플랜 B</span></button><button id="mode-plan-e" type="button" aria-pressed="false">3D→도트 <span>플랜 E</span></button><button id="mode-glb-sprite" type="button" aria-pressed="false">GLB 스프라이트 <span>2D</span></button></div></div>
-          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-plan-f" type="button" aria-pressed="false">코드 생성 <span>플랜 F</span></button><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button><button id="mode-weapon-3d" type="button" aria-pressed="false">무기 모델 <span>3D</span></button></div></div>
+          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-plan-g" type="button" aria-pressed="false">Saltline 횡스크롤 <span>플랜 G</span></button><button id="mode-plan-f" type="button" aria-pressed="false">코드 생성 <span>플랜 F</span></button><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button><button id="mode-weapon-3d" type="button" aria-pressed="false">무기 모델 <span>3D</span></button></div></div>
         </div>
         <div id="reference-view">
         <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="back" aria-pressed="false" hidden>후면</button><button type="button" data-view="left" aria-pressed="false" hidden>좌측면</button><button type="button" data-view="right" aria-pressed="false" hidden>우측면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
@@ -39,6 +40,7 @@
         <div class="viewer-bottom"><div class="background-controls" aria-label="배경 선택"><button type="button" data-bg="dark" class="bg-dot dark" aria-label="어두운 배경" aria-pressed="true"></button><button type="button" data-bg="light" class="bg-dot light" aria-label="밝은 배경" aria-pressed="false"></button><button type="button" data-bg="grid" class="bg-dot grid" aria-label="격자 배경" aria-pressed="false"></button><span>배경</span></div><div class="zoom-controls"><button type="button" id="zoom-out" aria-label="축소">−</button><output id="zoom-value">100%</output><button type="button" id="zoom-in" aria-label="확대">+</button><button type="button" id="zoom-reset">화면 맞춤</button></div><a id="original-link" href="#" target="_blank" rel="noopener">원본 보기 ↗</a></div>
         <div class="sheet-caption"><span id="revision-caption">외형 시안</span><span id="image-dimensions"></span></div>
         </div>
+        <div id="plan-g-view" hidden><div id="plan-g-host"></div><p class="f-note">플랜 G · Saltline 원본 개조 · A/D 이동, Space 점프, J 사격, R 장전, C 앉기. 탭을 나갔다 돌아오면 처음부터 시작합니다. <a href="./plan-g/index.html" target="_blank" rel="noopener">넓은 화면으로 열기 ↗</a></p></div>
         <div id="plan-f-view" hidden>
           <div class="f-toolbar"><div><span class="f-eyebrow">PLAN F / 006</span><strong>리안 · 이동과 사격</strong></div><span class="f-chip">CL-VS-13-047</span></div>
           <div id="plan-f-stage" class="f-stage" tabindex="0" role="group" aria-label="플랜 F 조작 화면. A D 이동, C 앉기와 일어서기, R 장전, Space 또는 J 사격">
