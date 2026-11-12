@@ -1,0 +1,7 @@
+html, body { margin: 0; height: 100%; background: #182026; overflow: hidden; font-family: system-ui, "Malgun Gothic", sans-serif; }
+#stage { display: block; width: 100vw; height: 100vh; }
+.hud { position: fixed; left: 16px; top: 14px; display: grid; gap: 4px; color: #d9dccf; font-size: 13px; pointer-events: none; text-shadow: 0 1px 2px #000a; }
+.hud strong { font-size: 14px; color: #f0d29c; letter-spacing: .5px; }
+#status { font-variant-numeric: tabular-nums; color: #a9b8b6; }
+.pick { position: fixed; right: 16px; top: 14px; color: #d9dccf; font-size: 13px; display: flex; gap: 6px; align-items: center; }
+.pick select { font: inherit; padding: 4px 6px; background: #222c33; color: #e4e6dc; border: 1px solid #3a4850; border-radius: 3px; }
