@@ -97,6 +97,10 @@ export function buildLian(){
  const cylinder=(r,len,mat,y,z)=>{const o=mesh(gun,new T.CylinderGeometry(r,r,len,16),mat,0,y,z);o.rotation.x=Math.PI/2;return o;};
  cylinder(.013,.24,m.edge,.015,.51);cylinder(.024,.058,m.black,.015,.64);for(let i=0;i<4;i++)box(gun,.049,.005,.013,m.edge,0,.033,.62+i*.013,.001);
  const mag=box(gun,.046,.145,.069,m.armor,0,-.105,.023,.008);mag.rotation.x=-.18;for(let i=0;i<3;i++)box(mag,.049,.008,.07,m.black,0,-.04+i*.029,0,.001);
+ mag.name='magazine_loaded';
+ const heldMag=mag.clone();heldMag.name='magazine_in_hand';heldMag.visible=false;root.add(heldMag);
+ const handle=group(gun,0,.064,-.12);handle.name='charging_handle';
+ box(handle,.075,.012,.018,m.edge,0,0,0,.003);box(handle,.018,.011,.052,m.black,0,0,.020,.002);
  const grip=box(gun,.041,.09,.04,m.leather,0,-.065,-.067,.008);grip.rotation.x=-.2;
  tube(gun,[[.025,-.05,-.045],[.025,-.085,-.02],[.025,-.08,.005],[.025,-.04,.015]],.003,m.black,16);
  box(gun,.032,.04,.082,m.black,0,.08,-.025,.004);box(gun,.034,.027,.01,m.edge,0,.092,.018,.003);
@@ -109,5 +113,5 @@ export function buildLian(){
  const muzzle=group(gun,0,.015,.675);
  const flash=mesh(muzzle,new T.ConeGeometry(.052,.22,9),new T.MeshBasicMaterial({color:new T.Color(7,3.2,.7),transparent:true,opacity:.85,depthWrite:false}),0,0,.09);flash.rotation.x=Math.PI/2;flash.visible=false;
  const lamp=new T.PointLight('#ffb355',0,2.8,2);muzzle.add(lamp);
- return{root,hips,torso,head,hair,capes,legs,arms,gun,muzzle,flash,lamp,poseSegment};
+ return{root,hips,torso,head,hair,capes,legs,arms,gun,mag,heldMag,handle,muzzle,flash,lamp,poseSegment};
 }

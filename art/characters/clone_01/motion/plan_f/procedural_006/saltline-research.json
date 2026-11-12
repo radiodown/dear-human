@@ -1,0 +1,75 @@
+{
+  "method": "static_source_inspection",
+  "repository": "https://github.com/realcodebear/saltline-fable-5.2",
+  "commit": "09c51774cd77aad750bd2d6c42af2b1020cb668d",
+  "source": {
+    "path": "game/plan-f/reference/saltline-fable-5.2/index.html",
+    "sha256": "c8cc235f62ff8550d8c2c81e779ae18120b57c5b228ed4cc7d7d717f1202f655"
+  },
+  "offset_unit": "Python decoded Unicode string character offset",
+  "landmarks": [
+    {
+      "offset": 1308642,
+      "identifiers": [
+        "Gv",
+        "W_",
+        "G_",
+        "nu",
+        "Yo"
+      ],
+      "finding": "30 rounds; normal reload 2.1s, empty 2.72s; reload translation/rotation and quintic interpolation."
+    },
+    {
+      "offset": 1311250,
+      "identifiers": [
+        "G",
+        "j",
+        "Q",
+        "$",
+        "ue",
+        "le"
+      ],
+      "finding": "Support-hand, magazine-grip, withdrawn and bolt poses. Position lerp and quaternion slerp across timestamped keyframes."
+    },
+    {
+      "offset": 1317650,
+      "identifiers": [
+        "Xe",
+        "Vt",
+        "me",
+        "ee",
+        "B",
+        "P",
+        "V"
+      ],
+      "finding": "Single-fire phase flags, mag-out at .47s, mag-in at 1.345s, bolt release at 2.19s; detached magazine follows hand transform. Source adds ammo at mag-in."
+    },
+    {
+      "offset": 1321200,
+      "identifiers": [
+        "reloadW",
+        "rackW",
+        "nu"
+      ],
+      "finding": "Reload envelope blends gun placement and rotation with existing bob and recoil."
+    },
+    {
+      "offset": 1238933,
+      "identifiers": [
+        "weapon:reload",
+        "reload_magout",
+        "reload_magin",
+        "reload_bolt"
+      ],
+      "finding": "Phase events drive generated mechanical sound cues."
+    }
+  ],
+  "adaptation": [
+    "Write new modular code for the existing third-person procedural rig; do not copy the FPS gun or bundled source.",
+    "Use current gun sockets and root-space two-bone arm IK, with left-hand position/quaternion keyframes and hand-owned detached magazine.",
+    "Use project-proposed 2.2s normal / 2.8s empty reload, unlimited reserve, 30 rounds. Refill only at completion, not insert cue.",
+    "Manual R at full magazine is a motion-preview exception; empty firing starts the empty profile.",
+    "Keep existing camera and facing code per user final steering."
+  ],
+  "reference_playback_review": "not performed"
+}

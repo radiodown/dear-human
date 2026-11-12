@@ -14,4 +14,13 @@ export class GunAudio{
   constructor(){this.enabled=false;}
   unlock(){if(!this.enabled)return;try{this.context??=new AudioContext();this.context.resume().catch(()=>{});if(!this.buffer){this.buffer=this.context.createBuffer(1,this.context.sampleRate*.12,this.context.sampleRate);const data=this.buffer.getChannelData(0);for(let i=0;i<data.length;i++)data[i]=(Math.random()*2-1)*Math.exp(-i/data.length*9);}}catch{this.enabled=false;}}
   shot(){const c=this.context;if(!this.enabled||!this.buffer||c?.state!=='running')return;const noise=c.createBufferSource(),filter=c.createBiquadFilter(),gain=c.createGain();noise.buffer=this.buffer;filter.type='lowpass';filter.frequency.value=2400;gain.gain.value=.13;noise.connect(filter).connect(gain).connect(c.destination);noise.start();noise.onended=()=>{noise.disconnect();filter.disconnect();gain.disconnect();};}
+  reload(phase){
+    const cue={start:[.035,700,.024],magout:[.075,1300,.055],magin:[.055,2300,.085],tap:[.025,900,.045],bolt:[.080,3100,.075]}[phase];
+    const c=this.context;if(!cue||!this.enabled||!this.buffer||c?.state!=='running')return;
+    const [duration,frequency,volume]=cue,now=c.currentTime,noise=c.createBufferSource(),filter=c.createBiquadFilter(),gain=c.createGain();
+    noise.buffer=this.buffer;filter.type='bandpass';filter.frequency.value=frequency;filter.Q.value=1.4;
+    gain.gain.setValueAtTime(volume,now);gain.gain.exponentialRampToValueAtTime(.001,now+duration);
+    noise.connect(filter).connect(gain).connect(c.destination);noise.start(now,0,duration);
+    noise.onended=()=>{noise.disconnect();filter.disconnect();gain.disconnect();};
+  }
 }

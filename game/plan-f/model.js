@@ -1,13 +1,15 @@
 import * as T from '../vendor/three-0.187.0/build/three.module.js';
 import {buildLian} from './model-build.js';
 import {SOCKETS,twoBone,bodyPoint,gunPoint} from './weapon-pose.js';
+import {reloadWeight} from './reload.js';
+import {poseReload} from './reload-pose.js';
 export function createLian(){
-  const {root,hips,torso,head,hair,capes,legs,arms,gun,muzzle,flash,lamp,poseSegment}=buildLian();
+  const {root,hips,torso,head,hair,capes,legs,arms,gun,mag,heldMag,handle,muzzle,flash,lamp,poseSegment}=buildLian();
   const v=(x,y,z)=>new T.Vector3(x,y,z);
   const capePoint=new T.Vector3(),capeBack=new T.Vector3(),capeInverse=new T.Matrix4();
   function pose(state) {
     const stride=state.speed/1.3,phase=state.phase,aim=state.aim,crouch=state.crouch||0;
-    const kick=state.kick.x,body=state.body.x,lag=state.headLag.x;
+    const kick=state.kick.x,body=state.body.x,lag=state.headLag.x,reload=reloadWeight(state.reload);
     const bob=Math.abs(Math.sin(phase))*.017*stride;
     hips.position.set(0,.885+bob*(1-.5*crouch)-.025*stride-.015*aim-.34*crouch,.012*aim-body*.012-.14*crouch);
     torso.rotation.set(.07+aim*.10+stride*.025-body*.07+.24*crouch,.30+.06*aim,body*.012);
@@ -21,8 +23,10 @@ export function createLian(){
     // Stock follows the shoulder pocket; rotation happens around its contact, not the receiver.
     const pocket=bodyPoint(hips,torso,v(.115,.348,.050));
     pocket.z-=kick*.004;
-    gun.rotation.set(-.008-kick*.072,-body*.012, -.025-kick*.018);
+    pocket.add(v(-.025,-.08,-.08).multiplyScalar(reload));
+    gun.rotation.set(-.008-kick*.072+reload*.22,-body*.012-reload*.08, -.025-kick*.018+reload*.30);
     gun.position.copy(pocket).sub(SOCKETS.stock.clone().applyQuaternion(gun.quaternion));
+    const reloadHand=poseReload(state.reload,{gun,hips,torso,mag,heldMag,handle});
     for(const l of legs) {
       const p=phase+(l.sign<0?Math.PI:0),s=Math.sin(p);
       const stagger=-l.sign*.125*(1-stride)*(1-.65*crouch);
@@ -34,11 +38,11 @@ export function createLian(){
     }
     for(const a of arms) {
       const shoulder=bodyPoint(hips,torso,v(a.sign*.195,.355,0));
-      const wrist=gunPoint(gun,a.sign>0?SOCKETS.trigger:SOCKETS.support);
+      const wrist=a.sign<0&&reloadHand?reloadHand.p:gunPoint(gun,a.sign>0?SOCKETS.trigger:SOCKETS.support);
       const elbow=twoBone(shoulder,wrist,a.upper.length,a.lower.length,v(a.sign>0?.6:-.25,-1,a.sign>0?-.2:.12));
       poseSegment(a.upper,shoulder,elbow);poseSegment(a.lower,elbow,wrist);a.hand.position.copy(wrist);
-      a.hand.quaternion.copy(gun.quaternion);
-      if(a.sign<0){a.hand.rotateZ(Math.PI);a.hand.rotateX(.20);}else a.hand.rotateX(-.16);
+      if(a.sign<0&&reloadHand)a.hand.quaternion.copy(reloadHand.q);
+      else{a.hand.quaternion.copy(gun.quaternion);if(a.sign<0){a.hand.rotateZ(Math.PI);a.hand.rotateX(.20);}else a.hand.rotateX(-.16);}
     }
     hair.forEach((h,i)=>{h.rotation.x=-stride*.10+Math.sin(state.time*3+i*.4)*.018+(body-lag)*.16;});
     for(const c of capes){const pos=c.geometry.attributes.position;

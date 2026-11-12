@@ -1,10 +1,12 @@
 # 플랜 F 코드 생성 웹 게임 구현 분석
 
-[문서 목록](../README.md) · 2026-11-12 KST · 상태: 클론01 앉기·이동·사격·시점 조절 005 구현, 전체 전투는 계획
+[문서 목록](../README.md) · 2026-11-12 KST · 상태: 클론01 장전·앉기·이동·사격·시점 조절 006 구현, 전체 전투는 계획
 
 ## 현재 구현
 
-최신은 [005 C 앉기·이동 방향 시선](../art/characters/clone_01/motion/plan_f/procedural_005/README.md)이다. C키/버튼으로 앉기·서기를 전환하며 앉아 이동·사격할 수 있다. 캐릭터는 이동 방향을 바라보고 정지 시 마지막 방향을 유지한다. 동작·브라우저 검수 대기다.
+최신은 [006 Saltline 참고 장전](../art/characters/clone_01/motion/plan_f/procedural_006/README.md)이다. 원본의 장전 키프레임·손/탄창 연결·시간 큐를 조사해 일반/빈 탄창 장전과 R 입력·30발 탄창·진행률·조작음을 구현했다. 기존 시점과 방향 기준은 유지한다. 동작·브라우저 검수 대기다.
+
+이전 [005 C 앉기·이동 방향 시선](../art/characters/clone_01/motion/plan_f/procedural_005/README.md)에서는 C키/버튼으로 앉기·서기를 전환하며 앉아 이동·사격할 수 있다. 캐릭터는 이동 방향을 바라보고 정지 시 마지막 방향을 유지한다. 동작·브라우저 검수 대기다.
 
 이전 [004 카메라 시점 조절](../art/characters/clone_01/motion/plan_f/procedural_004/README.md)에서는 좌우·위아래 각도 슬라이더, 기본 시점 복귀, 일시정지 조절과 설정 저장을 추가했다. 브라우저 검수 대기다.
 
@@ -12,7 +14,7 @@
 
 이전 [002 모델·재질·조명 개선](../art/characters/clone_01/motion/plan_f/procedural_002/README.md)에서는 Saltline 참조 클론을 조사해 곡면 형상·절차 PBR·환경 반사·깊이 음영·블룸과 격납고 배경을 적용했다. 이동·사격 범위와 외부 모델 없는 제작 원칙은 유지한다.
 
-사용자 후속 요청으로 [클론01 이동·사격 001](../art/characters/clone_01/motion/plan_f/procedural_001/README.md)을 구현했다. 격투게임식 시점에서 코드 생성 인물·총의 이동과 연사만 지원한다. 아래의 몬스터·장전·피해·스테이지 계획은 아직 구현 범위가 아니다.
+사용자 후속 요청으로 [클론01 이동·사격 001](../art/characters/clone_01/motion/plan_f/procedural_001/README.md)을 구현했다. 당시에는 격투게임식 시점에서 코드 생성 인물·총의 이동과 연사만 지원했다. 아래의 몬스터·피해·스테이지 계획은 아직 구현 범위가 아니다.
 
 ## 플랜 F의 목표
 
@@ -72,7 +74,7 @@ C는 기존 파츠의 Three.js 호환성, E는 별도 3D 제작 후 스프라이
 
 ## 모듈 구조 제안
 
-아래는 전체 범위의 구조 제안이다. 현재 소규모 구현은 game/plan-f/의 index.js·model.js·model-build.js·weapon-pose.js·simulation.js·geometry.js·materials.js·environment.js·render.js·effects.js·styles.css를 사용한다. 개발과 서비스 모두 HTML·CSS·JS 모듈 구성이 기본이다. 단일 HTML 번들은 필수 산출물이 아니다.
+아래는 전체 범위의 구조 제안이다. 현재 소규모 구현은 game/plan-f/의 index.js·model.js·model-build.js·weapon-pose.js·reload.js·reload-pose.js·simulation.js·geometry.js·materials.js·environment.js·render.js·effects.js·styles.css를 사용한다. 개발과 서비스 모두 HTML·CSS·JS 모듈 구성이 기본이다. 단일 HTML 번들은 필수 산출물이 아니다.
 
 ```text
 game/app.js → 공통 셸의 플랜 F 진입

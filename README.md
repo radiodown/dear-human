@@ -1,6 +1,6 @@
 # Dear Human — 2D 횡스크롤 액션 슈터
 
-**플랜 F · C 앉기·이동 방향 시선 005:** [실행](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=f) · [변경 기록](art/characters/clone_01/motion/plan_f/procedural_005/README.md). C키로 앉기/서기, 앉아 이동·사격을 연결했다. 캐릭터는 이동 방향을 바라보고 멈추면 마지막 방향을 유지한다. 동작·브라우저 검수 대기.
+**플랜 F · Saltline 참고 장전 006:** [실행](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=f) · [조사·변경 기록](art/characters/clone_01/motion/plan_f/procedural_006/README.md). R키/버튼으로 탄창 분리·교체·삽입·복귀, 빈 탄창의 추가 노리쇠 조작을 구현했다. 30발 탄창·진행률·합성 조작음, 앉기/이동 장전 지원. 기존 시점 유지, 동작·브라우저 검수 대기.
 
 - [소대원 앞뒤좌우 002](docs/squad-character-turnarounds-002.md): 리안을 제외한 네 대원의 현재 외형을 위키·공통 미리보기에 적용.
 
