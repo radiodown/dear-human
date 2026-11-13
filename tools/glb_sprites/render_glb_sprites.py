@@ -52,7 +52,7 @@ MODELS = {
             ('peek_aim', '엄폐 조준', True, False), ('rifle_reload', '장전 · 잔탄 있음', False, False),
             ('rifle_reload_empty', '장전 · 탄 소진 + 노리쇠', False, False),
             ('rifle_pull_out', '총 꺼내기', False, False), ('rifle_put_away', '총 집어넣기', False, False),
-            ('dual_idle', '쌍권총 대기', True, True), ('dual_idle_high', '쌍권총 대기 2 · 총구 위로', True, True),
+            ('dual_idle', '쌍권총 조준 대기', True, True), ('dual_idle_high', '쌍권총 대기', True, True),
             ('dual_fire', '쌍권총 사격', True, True), ('dual_kneel_fire', '쌍권총 앉아 사격', True, True),
             ('dual_walk', '쌍권총 걷기', True, True), ('dual_run', '쌍권총 달리기', True, True),
             ('dual_pull_out', '쌍권총 꺼내기', False, False), ('dual_put_away', '쌍권총 집어넣기', False, False))},

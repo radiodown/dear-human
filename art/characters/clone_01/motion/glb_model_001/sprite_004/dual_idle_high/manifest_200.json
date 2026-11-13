@@ -3,7 +3,7 @@
   "source": "clone_01_ar12_hp14t.glb · tools/glb_sprites/render_glb_sprites.py (Blender 헤드리스, 정사영 완전 우측면, 4배 렌더 후 축소)",
   "clip": "dual_idle_high",
   "glbAnimation": "dual_idle_high",
-  "title": "쌍권총 대기 2 · 총구 위로",
+  "title": "쌍권총 대기",
   "frameCount": 80,
   "fps": 30,
   "loop": true,

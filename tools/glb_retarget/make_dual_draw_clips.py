@@ -2,6 +2,7 @@
 
     blender -b --python tools/glb_retarget/make_dual_draw_clips.py -- <dual loadout.glb> <bare source.glb> <out.glb>
             [pitch_min=-40] [blend=10] [pull_clip=rifle_pull_out] [put_clip=rifle_put_away]
+            [target=dual_idle] [body=0|1] [body_frames=<from>,<to>] [step_lift=0.02]
 
 There is no Mixamo pistol draw, so the bare "Rifle Pull Out" / "Rifle Put Away" of the source GLB give the body,
 legs, spine and head, and the arms (shoulders, arms, hands, fingers) are blended with the first frame of the
@@ -15,6 +16,15 @@ keyed to scale 0 while hidden. A follows the right pistol's muzzle like the rifl
 shown only while it is above pitch_min (a hand-carried pistol pointing down would pass through the thigh).
 The pistol bones are the loadout's own (`weapon_pistol_r`, `weapon_pistol_l`); add the clips to the loadout with
 add_loadout_clips.py (hide the rifle there).
+
+target=<clip>: the loadout clip whose first frame the draw ends in (default dual_idle; dual_idle_high = pistols held
+muzzle up). The grip offset and the level-barrel axis are still measured on dual_idle (it aims level ahead).
+body=1: the rest of the body (hips, spine, neck, head, legs) also ends in the target pose, so the last frame of
+dual_pull_out / first frame of dual_put_away equals the target clip's first frame (the rifle pull-out stands in the rifle
+stance, hips about 50 deg from the pistol stance). Over body_frames (default A-4 .. A+20) every body bone's local
+transform is blended to the target (hips location lerp, rotations slerp) and the feet are kept planted by a two-bone
+leg IK: each ankle stays on its own clip position, then steps (left foot in the first 55 % of the window, right foot in
+the last 55 %, lifted by step_lift units) to the target stance instead of sliding.
 """
 import bpy, sys, math
 from mathutils import Vector
@@ -23,12 +33,15 @@ load_path, src_path, out_path = argv[:3]
 opts = dict(a.split('=', 1) for a in argv[3:])
 PITCH_MIN = float(opts.get('pitch_min', -40)); BLEND = int(opts.get('blend', 10))
 PULL = opts.get('pull_clip', 'rifle_pull_out'); PUT = opts.get('put_clip', 'rifle_put_away')
+TARGET = opts.get('target', 'dual_idle'); BODY = opts.get('body', '0') == '1'; STEP_LIFT = float(opts.get('step_lift', 0.02))
+from mathutils import Matrix, Quaternion
 PISTOLS = {'Right': 'weapon_pistol_r', 'Left': 'weapon_pistol_l'}
 bpy.ops.wm.read_factory_settings(use_empty=True); sc = bpy.context.scene
 def fcurves(a): return [f for l in a.layers for st in l.strips for cb in st.channelbags for f in cb.fcurves]
 
 bpy.ops.import_scene.gltf(filepath=load_path)
 arm = next(o for o in bpy.data.objects if o.type == 'ARMATURE')
+for a in [a for a in bpy.data.actions if a.name in ('dual_pull_out', 'dual_put_away')]: bpy.data.actions.remove(a)   # a loadout that already has them: rebuilt
 keep = set(bpy.data.objects); acts_before = set(bpy.data.actions)
 bpy.ops.import_scene.gltf(filepath=src_path)
 src_acts = {a.name.split('.')[0]: a for a in bpy.data.actions if a not in acts_before}
@@ -44,6 +57,13 @@ def use(act):
 # dual_idle first frame: arm pose, grip offsets, barrel axis of each pistol bone
 dual = bpy.data.actions['dual_idle']; use(dual); sc.frame_set(int(dual.frame_range[0]))
 IDLE_Q = {n: pbs[n].rotation_quaternion.copy() for n in ARM_BONES}
+BODY_BONES = [b.name for b in arm.data.bones if b.name.startswith('mixamorig:') and b.name not in ARM_BONES]
+if TARGET != 'dual_idle':   # end pose from another clip; the grip offset / barrel axis below stay dual_idle's
+    tgt = bpy.data.actions[TARGET]; use(tgt); sc.frame_set(int(tgt.frame_range[0]))
+    IDLE_Q = {n: pbs[n].rotation_quaternion.copy() for n in ARM_BONES}
+TGT_LOCAL = {n: (pbs[n].location.copy(), pbs[n].rotation_quaternion.copy()) for n in BODY_BONES}
+TGT_FOOT = {sd: pbs[f'mixamorig:{sd}Foot'].matrix.copy() for sd in ('Left', 'Right')}
+use(dual); sc.frame_set(int(dual.frame_range[0]))
 OFF = {sd: pbs[f'mixamorig:{sd}Hand'].matrix.inverted() @ pbs[p].matrix for sd, p in PISTOLS.items()}
 lr = pbs['mixamorig:LeftArm'].head - pbs['mixamorig:RightArm'].head; lr = (lr - lr.dot(up_a) * up_a).normalized()
 fwd = lr.cross(up_a).normalized()
@@ -53,6 +73,55 @@ def pitch(sd, M=None):
     M = pistol_matrix(sd) if M is None else M
     return math.degrees(math.asin(max(-1.0, min(1.0, (M.to_3x3() @ BARREL[sd]).normalized().dot(up_a)))))
 def smooth(t): t = max(0.0, min(1.0, t)); return t * t * (3 - 2 * t)
+def upd(): bpy.context.view_layer.update()
+def rot_about(pb, R, pivot):
+    M = pb.matrix.copy(); t = pivot + R @ (M.translation - pivot)
+    N = (R @ M.to_3x3()).to_4x4(); N.translation = t; pb.matrix = N; upd()
+def leg_ik(sd, target, foot_rot):
+    """two-bone IK: ankle to `target` (armature space) keeping the knee plane, then the foot's rotation to foot_rot"""
+    up, lo, ft = (pbs[f'mixamorig:{sd}{n}'] for n in ('UpLeg', 'Leg', 'Foot'))
+    hip, knee, ank = up.matrix.translation.copy(), lo.matrix.translation.copy(), ft.matrix.translation.copy()
+    l1, l2 = (knee - hip).length, (ank - knee).length
+    d = min((target - hip).length, (l1 + l2) * 0.999)
+    axis = (knee - hip).cross(ank - knee)
+    axis = axis.normalized() if axis.length > 1e-8 else up.matrix.to_3x3().col[0].normalized()
+    cur = (hip - knee).angle(ank - knee); want = math.acos(max(-1.0, min(1.0, (l1 * l1 + l2 * l2 - d * d) / (2 * l1 * l2))))
+    best = min((Matrix.Rotation(sg * (want - cur), 3, axis) for sg in (1, -1)),
+               key=lambda R: abs((knee + R @ (ank - knee) - hip).length - d))
+    rot_about(lo, best, knee)
+    ank = ft.matrix.translation.copy()
+    R = (ank - hip).rotation_difference(target - hip).to_matrix()
+    rot_about(up, R, hip)
+    N = foot_rot.to_matrix().to_4x4(); N.translation = ft.matrix.translation; ft.matrix = N; upd()
+def blend_body(act, b0, b1):
+    """body bones to the target pose over frames b0..b1 (forward in time), feet stepping instead of sliding"""
+    s, e = map(int, act.frame_range); span = b1 - b0
+    steps = {'Left': (b0, b0 + 0.55 * span), 'Right': (b1 - 0.55 * span, b1)}
+    prev = {}; worst = 0.0
+    for f in range(s, e + 1):
+        sc.frame_set(f); w = smooth((f - b0) / span)
+        if w <= 0: continue
+        own = {sd: pbs[f'mixamorig:{sd}Foot'].matrix.copy() for sd in steps}
+        for n in BODY_BONES:
+            pb = pbs[n]; tl, tq = TGT_LOCAL[n]; q = pb.rotation_quaternion.copy(); t = tq.copy()
+            if q.dot(t) < 0: t = -t
+            pb.rotation_quaternion = q.slerp(t, w)
+            if n == 'mixamorig:Hips': pb.location = pb.location.lerp(tl, w)
+        upd()
+        if w < 1:
+            for sd, (a, b) in steps.items():
+                u = max(0.0, min(1.0, (f - a) / (b - a))); k = smooth(u)
+                pos = own[sd].translation.lerp(TGT_FOOT[sd].translation, k) + up_a * (STEP_LIFT * math.sin(math.pi * u))
+                leg_ik(sd, pos, own[sd].to_quaternion().slerp(TGT_FOOT[sd].to_quaternion(), k))
+                worst = max(worst, (pbs[f'mixamorig:{sd}Foot'].matrix.translation - pos).length)
+        for n in BODY_BONES:
+            pb = pbs[n]
+            if n in prev and pb.rotation_quaternion.dot(prev[n]) < 0: pb.rotation_quaternion = -pb.rotation_quaternion
+            prev[n] = pb.rotation_quaternion.copy()
+            pb.keyframe_insert('rotation_quaternion', frame=f)
+            if n == 'mixamorig:Hips': pb.keyframe_insert('location', frame=f)
+    print('BODY blended to %s over frames %d-%d, steps L %d-%d R %d-%d, lift %.3f, ankle IK error max %.5f' % (
+        TARGET, b0, b1, *steps['Left'], *steps['Right'], STEP_LIFT, worst))
 
 def build(src_name, name, draw):
     act = src_acts[src_name].copy(); act.name = name; act.use_fake_user = True; use(act)
@@ -80,6 +149,9 @@ def build(src_name, name, draw):
             r = q.slerp(t, w)
             for j in range(4): four[j].keyframe_points[i].co[1] = r[j]
         for c in four: c.update()
+    if BODY and draw:
+        b0, b1 = map(int, opts['body_frames'].split(',')) if 'body_frames' in opts else (A - 4, A + 20)
+        blend_body(act, b0, min(b1, e))
     if not draw:
         for f in range(s, e + 1): sc.frame_set(f); pr[f] = pitch('Right')
         V = next((f for f in range(s + BLEND, e + 1) if pr[f] < PITCH_MIN), e + 1)
@@ -96,8 +168,8 @@ def build(src_name, name, draw):
     vis = [f for f in range(s, e + 1) if shown(f)]
     sc.frame_set(vis[-1] if not draw else vis[0])
     print('CLIP %-14s from %s frames %d-%d  pistols %s at frame %d (right muzzle %+.0f, left %+.0f deg), shown %d-%d, '
-          'arms dual_idle %s' % (name, src_name, s, e, 'appear' if draw else 'vanish', vis[0] if draw else vis[-1] + 1,
-          pitch('Right'), pitch('Left'), vis[0], vis[-1], ('from %d to %d' % (A, A + BLEND)) if draw else ('%d -> clip arms by %d' % (s, s + BLEND))))
+          'arms %s %s' % (name, src_name, s, e, 'appear' if draw else 'vanish', vis[0] if draw else vis[-1] + 1,
+          pitch('Right'), pitch('Left'), vis[0], vis[-1], TARGET, ('from %d to %d' % (A, A + BLEND)) if draw else ('%d -> clip arms by %d' % (s, s + BLEND))))
 
 build(PULL, 'dual_pull_out', True)
 # holster = the draw played backward (the rifle put-away's arm path carries the pistols across the face and belly):

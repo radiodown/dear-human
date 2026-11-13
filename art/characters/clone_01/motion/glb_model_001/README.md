@@ -224,3 +224,23 @@ py tools/glb_retarget/merge_loadout_glbs.py art/characters/clone_01/motion/glb_m
 ## 스프라이트 004 (30fps, js-prototype)
 
 2026-11-13 사용자 요청으로 js-prototype용 [sprite_004](sprite_004/README.md)를 만들었다. 맨손 대기 1·걷기·달리기(`source/version04.glb`)와 통합 무장 loadout_023의 사격 관련 19개 동작을 30fps 정사영 우측면(200px/단위)으로 렌더했고, [이동 프로토타입 002](../../../../../game/js-prototype/move/README.md)가 이 중 15개를 쓴다. sprite_001~003은 보존한다.
+
+## 내림 → 조준 (2026-11-13)
+
+사용자 요청 “gunmotion 폴더의 Rifle Down To Aim.fbx 캐릭터들에 적용해주고 리아에게는 총까지 적용해서 대기 상태에 조준으로 자연스럽게 이어지도록해줘”으로 `shoot/gunmotion/Rifle Down To Aim.fbx`를 `retarget_mixamo_fbx.py`(`FOOT_IK`)로 `source/version04.glb`에 맨손 `rifle_down_to_aim`(22프레임, 약 0.9초)으로 넣었다(3D 탭 ‘내림 → 조준’). 원본 사본은 `shoot/version04_downaim.glb`. 기존 동작 관절 위치 차이 최대 0.0014mm, 발 최저점 중앙값 −1.7~−2.8mm. source SHA-256 이전 `4ebb9fbb8cb3f19ef5f32995c3d4b422e89bc2c031aa537deaaaeb3712cbbc34` → 이후 `293363502127846d8d951a08728096110151682c2a1f34a065b28a32bf3f09c5`. 리안은 AR-12를 붙여 [loadout_024](loadout_024/README.md)에도 넣었다: 견착을 총이 들리는 정도에 맞춰 8프레임에 걸쳐 켜고(`attach_weapon.py` `RAMP_CLIPS`), 처음 8프레임은 `rifle_idle` 자세에서 출발하게 섞어(`blend_clip_ends.py`) 소총 대기 → 조준 대기가 손·총 0mm로 이어진다. 렌더·탭 재생만 확인했고 미감은 사용자 검수 대기다.
+
+## 조준 → 내림 + AR-12 (loadout_025, 2026-11-13)
+
+사용자 요청(“조준에서 내리는 모션에도 총을 자연스럽게 이어지도록 적용해줘”)으로 맨손 `rifle_aim_to_down`에 AR-12를 붙여 [loadout_025](loadout_025/README.md)를 만들고 탭을 옮겼다(024 보존). 견착은 총이 내려가는 정도에 맞춰 8프레임 이상에 걸쳐 풀리고, 처음 8프레임은 `rifle_aim_idle`, 마지막 8프레임은 `rifle_idle` 자세로 섞어 조준 대기 → 조준→내림 → 소총 대기가 손·총 0~2mm로 이어진다. 렌더·탭 재생만 확인했고 미감은 사용자 검수 대기다.
+
+## 쌍권총 꺼내기·넣기를 쌍권총 대기 2에 잇기 (loadout_026, 2026-11-13)
+
+사용자 요청(“쌍권총의 꺼내기와 집어넣기를 쌍권총 대기 2 와 자연스럽게 이어지도록 수정해줘. 꺼내기의 최종 동작과 집어넣기의 처음 동작이 쌍권총 대기 2와 일치하도록.”)으로 `dual_pull_out`·`dual_put_away`만 다시 만들어 [loadout_026](loadout_026/README.md)에 넣고 탭을 옮겼다(025 보존). 025는 팔만 `dual_idle` 자세로 끝나고 몸은 소총 자세여서 쌍권총 대기 2와 골반 방향 51.8°, 오른손 379mm, 오른쪽 권총 555mm가 달랐다. `make_dual_draw_clips.py`의 새 `target=dual_idle_high body=1`이 팔(24→38프레임)과 몸 전체(20→44프레임)를 쌍권총 대기 2 첫 프레임으로 섞고, 발은 다리 IK로 한 걸음씩 옮긴다. 꺼내기 끝·넣기 시작이 쌍권총 대기 2 첫 키와 모든 뼈·권총 0.0mm·0.00°로 일치하며, 다른 19개 동작은 025와 같다. 렌더·탭 재생만 확인했고 걸음 미감은 사용자 검수 대기, 스프라이트 004·js-prototype은 재렌더가 필요하다.
+
+## 쌍권총 대기 이름 변경 (2026-11-13)
+
+사용자 요청(“쌍권총 대기는 쌍권총 조준 대기로 쌍권총 대기 2는 쌍권총 대기로 이름을 수정해줘”)으로 표시 이름만 바꿨다: `dual_idle` = **쌍권총 조준 대기**, `dual_idle_high` = **쌍권총 대기**. 동작 키 이름(GLB 클립·스프라이트 폴더)은 그대로이며, 3D 탭 라벨(`game/glb-model-lab.js`)·js-prototype 상태 표시·`render_glb_sprites.py` 제목·sprite_004 두 매니페스트의 `title`을 고쳤다. 이전 기록의 이름은 소급해 바꾸지 않았다.
+
+## 쌍권총 대기 ↔ 조준 대기 전환 (loadout_027, 2026-11-13)
+
+사용자 요청(“쌍권총의 조준 대기와 쌍권총 대기도 자연스럽게 이어지도록 에이전트로 작업해줘”)으로 `dual_ready_to_aim`(쌍권총 대기 → 조준)·`dual_aim_to_ready`(쌍권총 조준 → 대기)를 만들어 [loadout_027](loadout_027/README.md)에 넣고 3D 탭을 옮겼다(026 보존, 23개 동작). `make_dual_pistol_clips.py`의 `Move`가 두 대기 동작 첫 프레임의 권총 목표 사이를 잇는다: 손잡이는 직선 위를 부드럽게 출발·정지하고, 총구 각은 1.3배 앞서 가며, 왼손은 10% 늦게 출발하고, 팔은 매 프레임 IK로 푼다. 16키(0.625초), 몸은 `pistol_idle2` 첫 프레임에 고정이다. 양끝은 각 대기 동작 첫 키와 모든 뼈·두 권총이 0.001mm·0.000° 이내로 같고, 026의 21개 동작과 도구의 기존 6개 동작 출력은 바이트가 같다. 대기 동작 루프 중간에서 넘기면 호흡만큼(최대 약 8~13mm) 어긋난다. 정우측·정면 렌더와 탭 재생만 확인했고 스프라이트는 미제작, 미감은 사용자 검수 대기다. SHA-256 `7b9f5de6fb52a791349a581c78d04da2112bcb6c83d71dad2672a1a802882e9f`.

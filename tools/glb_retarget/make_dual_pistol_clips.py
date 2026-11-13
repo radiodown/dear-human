@@ -10,7 +10,7 @@ Fingers: the right hand's pistol-grip curl of `pistol_idle2` is used on the righ
 Grip offset: grip socket under the knuckles, barrel along the fingers' direction raised by the grip rake, sights
 toward the thumb; then each pistol is moved once out of the palm skin (hand_clearance.py).
 
-Clips (24 fps, all loop; the last frame equals the first):
+Clips (24 fps, loops; the last frame equals the first):
   dual_idle  65 f  base pistol_idle2 x2   arms straight out, pistols level, slow breathing rise and fall
   dual_idle_high 65 f base pistol_idle2 x2  both pistols held upright: right beside the head, left lower
   dual_fire  25 f  base pistol_idle2      arms straight out, alternating shots R L R L (6 frames apart) with recoil
@@ -18,6 +18,12 @@ Clips (24 fps, all loop; the last frame equals the first):
   dual_walk  20 f  base pistol_walk       arms straight out, small rise and fall with the stride
   dual_run   31 f  base run.001 (unarmed) the unarmed run's whole body incl. its arm swing; fingers curled on the grips,
                                           each pistol carried by its hand (goal None = arms copied from the base clip)
+Transitions (24 fps, played once; body held on the first frame of pistol_idle2, which is also the body of the first
+frame of both idles, so the first / last key equals the first key of the idle it leaves / enters):
+  dual_ready_to_aim 16 f  dual_idle_high frame 1 -> dual_idle frame 1: the pistols come down and forward while the
+                          arms straighten; the muzzles level before the arms are fully out; the left hand starts 10 %
+                          later and the right hand arrives 10 % earlier (Move)
+  dual_aim_to_ready 16 f  the same path backwards
 Walk / run keep the base clips' hips travel (use the tab's in-place playback).
 Each pistol is driven by a non-deforming bone under the Hips (`weapon` right, `weapon_l` left).
 
@@ -196,6 +202,30 @@ def fire_spine(c):   # the firing side's shoulder is pushed back: yaw about the 
     return 2.2 * (kick('Left', c['f']) - kick('Right', c['f']))
 
 STRAIGHT = {fire_goal, idle_goal, walk_goal}   # straight-arm clips: grip from each shoulder joint, reach FIRE_REACH
+def resolve(goal, s, ctx, joints, mid):
+    """goal -> (grip in armature space, pitch, yaw_in, cant, pole, reach)"""
+    (fw, out, up), pitch, yaw_in, cant, pole = goal(s, ctx)
+    # firing: from each arm's own shoulder joint (the base stance turns the torso, the left shoulder sits
+    # ~4 cm further forward), so both arms straighten the same; other clips: from the shoulder line's centre
+    origin = joints[s] if goal in STRAIGHT else mid + OUT[s] * SHOULDER_HALF
+    return origin + OUT[s] * out + FWD * fw + UP * up, pitch, yaw_in, cant, pole, FIRE_REACH if goal in STRAIGHT else REACH
+class Move:
+    """transition from the first frame of goal `a` to the first frame of goal `b` (reverse: the same path backwards).
+    Exactly a / b at the ends. The grip travels on a straight line with a soft start and stop; the muzzle angle runs
+    ahead of the travel (PITCH_LEAD) so the pistol is level before the arm is straight."""
+    DELAY = {'Right': 0.0, 'Left': 0.1}; SPAN = 0.9; PITCH_LEAD = 1.3
+    def __init__(self, a, b, reverse=False): self.a, self.b, self.reverse = a, b, reverse
+    def at(self, s, ctx, joints, mid):
+        c0 = {'f': 1, 't': 0.0, 'swing': 0.0}
+        A, Bg = resolve(self.a, s, c0, joints, mid), resolve(self.b, s, c0, joints, mid)
+        t = 1.0 - ctx['t'] if self.reverse else ctx['t']
+        x = (t - self.DELAY[s]) / self.SPAN
+        if x <= 0: return A
+        if x >= 1: return Bg
+        e = x * x * x * (x * (6 * x - 15) + 10)                        # travel: smootherstep
+        xp = min(1.0, x * self.PITCH_LEAD); ep = xp * xp * (3 - 2 * xp)   # muzzle angle, pole
+        mix = lambda i, w: A[i] + (Bg[i] - A[i]) * w
+        return mix(0, e), mix(1, ep), mix(2, ep), mix(3, ep), mix(4, ep), mix(5, e)
 CLIPS = [  # name, base clip, output frames (last = first), base loops, goal, extra spine yaw
     ('dual_idle', 'pistol_idle2', 65, 2, idle_goal, None),
     ('dual_idle_high', 'pistol_idle2', 65, 2, idle_high_goal, None),
@@ -203,6 +233,9 @@ CLIPS = [  # name, base clip, output frames (last = first), base loops, goal, ex
     ('dual_kneel_fire', 'pistol_kneel_idle', 97, 1, fire_goal, fire_spine),   # 4 firing loops over one kneeling-idle loop
     ('dual_walk', 'pistol_walk', 20, 1, walk_goal, None),
     ('dual_run', 'run.001', 31, 1, None, None),   # goal None: the unarmed run's own arm swing (user request), pistols in the hands
+    # transitions between the two idles (base loops 0 = the body stays on the base clip's first frame)
+    ('dual_ready_to_aim', 'pistol_idle2', 16, 0, Move(idle_high_goal, idle_goal), None),
+    ('dual_aim_to_ready', 'pistol_idle2', 16, 0, Move(idle_high_goal, idle_goal, reverse=True), None),
 ]
 
 def key(pb, f, loc=False):
@@ -272,13 +305,9 @@ for name, base_name, count, loops, goal, spine in CLIPS:
             apart.append((grips['Left'] - grips['Right']).length)
             continue
         for s in SUF:
-            (fw, out, up), pitch, yaw_in, cant, pole = goal(s, ctx)
-            # firing: from each arm's own shoulder joint (the base stance turns the torso, the left shoulder sits
-            # ~4 cm further forward), so both arms straighten the same; other clips: from the shoulder line's centre
-            origin = joints[s] if goal in STRAIGHT else mid + OUT[s] * SHOULDER_HALF
-            grip = origin + OUT[s] * out + FWD * fw + UP * up
+            grip, pitch, yaw_in, cant, pole, reach = goal.at(s, ctx, joints, mid) if isinstance(goal, Move) else resolve(goal, s, ctx, joints, mid)
             hand_goal = gun_matrix(s, grip, pitch, yaw_in, cant) @ OFFSET[s].inverted()
-            quats, H, m = solve_arm(s, pbs[B(s, 'Shoulder')].matrix.copy(), hand_goal, pole, FIRE_REACH if goal in STRAIGHT else REACH); miss = max(miss, m)
+            quats, H, m = solve_arm(s, pbs[B(s, 'Shoulder')].matrix.copy(), hand_goal, pole, reach); miss = max(miss, m)
             for n, q in quats.items(): put(n, q, f)
             for n in fingers(s): put(n, FINGER[n].copy(), f)
             G = H @ OFFSET[s]; grips[s] = G @ GRIP[s]

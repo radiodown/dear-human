@@ -33,6 +33,12 @@ CLEAR = True                 # push hands out of the gun mesh (hand_clearance.py
 CLEAR_STEP = 2
 MAX_CLEAR = 0.12             # m real: largest clearance move of a hand
 HIP_CLIPS = {'rifle_idle', 'pistol_idle'}   # low-ready / hip carry: gun stays in the right hand, no shoulder mount
+# transitions between the low ready and the aim (2026-11-13): the shoulder mount fades in (or out) with the gun's rise,
+# measured on the hand-carried gun: 0 while the muzzle is within RAMP_SPAN[0] of its start->end pitch change, 1 past
+# RAMP_SPAN[1] of it (smoothstep between), so the start matches the hip carry of rifle_idle and the end the shouldered aim
+RAMP_CLIPS = {'rifle_down_to_aim', 'rifle_aim_to_down'}
+RAMP_SPAN = (0.35, 0.9)
+RAMP_MIN = 8                 # frames: the mount never fades in faster than this (a fast raise would snap the stock)
 MIN_SUPPORT = 0.12            # m (real) in front of the grip
 bpy.ops.wm.read_factory_settings(use_empty=True); sc = bpy.context.scene
 
@@ -144,6 +150,7 @@ def level_moments(clip, s, e, gun_frames):
     pitch = {f: math.degrees(math.asin(max(-1.0, min(1.0, gun_frames[f].to_3x3().col[0].normalized().dot(up_a))))) for f in gun_frames}
     fires = [f for f in range(s, e) if pitch[f + 1] - pitch[f] >= FIRE_KICK and (f == s or pitch[f] - pitch[f - 1] < FIRE_KICK)
              and abs(pitch[f]) <= AIM_PITCH]   # a kick from a near-level gun (raising a lowered gun is not a shot)
+    if clip in RAMP_CLIPS: fires = []   # the raise / lowering itself would read as kicks: no shots in these clips
     recoil = {x for f in fires for x in range(f + 1, f + 1 + RECOIL_SKIP)}
     aims = [f for f in range(s, e + 1) if f not in recoil and abs(pitch[f]) <= AIM_PITCH
             and abs(pitch[min(e, f + 1)] - pitch[max(s, f - 1)]) / 2 <= AIM_STILL]
@@ -235,6 +242,24 @@ for clip in CLIPS:
     act = bpy.data.actions[clip]; arm.animation_data.action = act
     s, e = map(int, act.frame_range); keys = {}; stat = {'miss_r': [], 'miss_l': [], 'slide': [], 'dist': [], 'w': []}
     gun_frames = {}; plan = {}; LAST_POLE.clear()
+    ramp = None
+    if clip in RAMP_CLIPS and pocket_local is not None:
+        pit = {}
+        for f in range(s, e + 1):
+            sc.frame_set(f); pit[f] = (pbs[HAND].matrix @ OFFSET).to_3x3().col[0].normalized().dot(up_a)
+        p0, p1 = pit[s], pit[e]; lo_, hi_ = RAMP_SPAN
+        def prog(f): return (pit[f] - p0) / (p1 - p0) if abs(p1 - p0) > 1e-6 else 1.0
+        def sm(t): t = max(0.0, min(1.0, t)); return t * t * (3 - 2 * t)
+        # weight follows the progress toward the END pose; for aim -> down the mount fades out instead
+        to_aim = p1 > p0
+        ramp = {f: sm((prog(f) - lo_) / (hi_ - lo_)) if to_aim else 1 - sm((prog(f) - (1 - hi_)) / (hi_ - lo_)) for f in range(s, e + 1)}
+        # then in time: centred where the pitch ramp passes 0.5, at least RAMP_MIN frames long
+        f_mid = next((f for f in range(s, e + 1) if (ramp[f] >= 0.5) == to_aim), (s + e) // 2)
+        f_a = next((f for f in range(s, e + 1) if (ramp[f] > 0.01) == to_aim), f_mid); f_b = next((f for f in range(s, e + 1) if (ramp[f] > 0.99) == to_aim), f_mid)
+        half = max(RAMP_MIN, abs(f_b - f_a)) / 2
+        ramp = {f: (sm((f - (f_mid - half)) / (2 * half)) if to_aim else 1 - sm((f - (f_mid - half)) / (2 * half))) for f in range(s, e + 1)}
+        print('RAMP %s muzzle %+.0f -> %+.0f deg, shoulder mount weight 0.01 at frame %d, 0.99 at frame %d' % (clip, math.degrees(math.asin(p0)), math.degrees(math.asin(p1)),
+              next((f for f in range(s, e + 1) if (ramp[f] > 0.01) == to_aim), e), next((f for f in range(s, e + 1) if (ramp[f] > 0.99) == to_aim), e)))
     # pass 0: gun pose (hand carry, stock pinned to the shoulder pocket)
     for f in range(s, e + 1):
         sc.frame_set(f)
@@ -242,7 +267,7 @@ for clip in CLIPS:
         if pocket_local is not None:
             P = pbs['mixamorig:RightShoulder'].matrix @ pocket_local
             st0 = M @ ST; dist = (st0 - P).length
-            w = 0.0 if clip in HIP_CLIPS else 1.0
+            w = ramp[f] if ramp is not None else 0.0 if clip in HIP_CLIPS else 1.0
             M = Matrix.Translation((P - st0) * w) @ M
             stat['dist'].append(dist); stat['w'].append(w)
         gun_frames[f] = M

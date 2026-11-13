@@ -32,7 +32,7 @@ const SETS = {
           single: { clip: 'dual_fire', duration: 0.5 }, auto: 'dual_fire', label: '쌍권총' },
 };
 const LABELS = { idle: '대기', walk: '걷기', run: '달리기', rifle_idle: '소총 대기', shoot_rifle: '소총 걷기', rifle_pull_out: '소총 꺼내기',
-  rifle_put_away: '소총 넣기', gunplay: '단발', rifle_full_auto: '풀오토', dual_idle: '쌍권총 대기', dual_walk: '쌍권총 걷기',
+  rifle_put_away: '소총 넣기', gunplay: '단발', rifle_full_auto: '풀오토', dual_idle: '쌍권총 조준 대기', dual_walk: '쌍권총 걷기',
   dual_run: '쌍권총 달리기', dual_fire: '쌍권총 사격', dual_pull_out: '쌍권총 꺼내기', dual_put_away: '쌍권총 넣기' };
 // Ground speeds measured from the bare clips (Lian's version04.glb): the planted foot slides backward at
 // 0.69 (walk) and 2.25 (run) units/s in the in-place clips, so moving at that speed keeps the feet still.
