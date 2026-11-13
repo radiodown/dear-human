@@ -1,0 +1,105 @@
+{
+  "date": "2026-11-13",
+  "recipe_key": "ar12_two_reloads_007",
+  "request": "Fix magazine bottom grip and add tactical/empty reload variants with moving charging handle",
+  "paid_api_calls": 0,
+  "manual_work_seconds": null,
+  "art_direction_status": "awaiting_user_review",
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+      "sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/clone_01_ar12_rupture.glb",
+      "sha256": "ff66818af8ebe1be3a95c0ec8ddd8ad8085f23f61fc66d536337f73060d5df70"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/before/glb-model-lab.js",
+      "sha256": "3eb094f4e9f8bcdf6ffb311a0eec0681e75f6ad7a5b109fd2cff154aeb288d0b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/before/make_rifle_full_auto.py",
+      "sha256": "732c03b3d73e3f3d1e1408c797f684bc3df767f21a15c9c25a57682727296971"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/before/make_rifle_reload.py",
+      "sha256": "2cea6aea98b3144ea7a6bffa08bff91ad53715415f6eeaef0308d520489c3f60"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/before/review_rifle_full_auto.py",
+      "sha256": "860e2ceb113bfd3f038035c44f526d087f53861ab6313a633b6bdf4865296276"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/before/review_rifle_reload.py",
+      "sha256": "18f72c57f6df8b97aca15b020d14bc6c5b388e09411fc2b9e03e62b10862516b"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/clone_01_ar12_rupture.glb",
+      "sha256": "b7c0891b4691e2c26e7bb7f16886463d051b37452386bbd541bc71bbd12bd269"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/clone_01_ar12_rupture.json",
+      "sha256": "e2dbd9f735416333c15f0f531799573938e259135e069eeb39b2223e2315d5bb"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/glb-gun-fx.js",
+      "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/glb-model-lab.js",
+      "sha256": "37f76ca247be28586838c40174a3dff6d4a73b29bf5c4098b3cd1d838607232e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/make_rifle_full_auto.py",
+      "sha256": "820494304c38866450d92619816de23845ee60ec7cf12aef71a020db65fe5f17"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/make_rifle_reload.py",
+      "sha256": "dd13f9eb0b4ddbdeab434b57c380e4a36d7c4c10d5687fd33fb0038081b8584f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/review_rifle_full_auto.py",
+      "sha256": "2228444fbd25f4df3d86acf4bffd76fd24a514f62fa5d7a13f0c0f0af78544a2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/review_rifle_reload.py",
+      "sha256": "782e7dc9471761c0f3a4ed021e38dadb4118e0935514c3760b6cdd6a191f2e68"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/discard_continuity.json",
+      "sha256": "74e2a8a2d624710b1a2a07dc6b56f58afe05aef4d60431efb2ad97e715c3c31e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/reload_variants.json",
+      "sha256": "835f70efbebabe133ef6a5d7c38417abfde08b1ae1dac95284c9da3f6cd1b411"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/render.json",
+      "sha256": "174890d527306e01b28a8e0d7edd127452a0533598c718b242d04feb76b291ec"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/rig_checks.json",
+      "sha256": "5b4b449b23a86ff13fcf45f0df60d537011c9cd4f47e3e87aa31e29a95d2c67d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/viewer.json",
+      "sha256": "f44dad33a1ec715f493c6760db704056cf75372655b06fbc52f6107c9c2c76a9"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/motion_sequence.png",
+      "sha256": "251dcadd887caafe849978638573736fe189da53c8f2fb2ad4d02fd348d001cf"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/bolt_back.png",
+      "sha256": "0905491711a26fc4ae3d89975c47d432c39cb089f3f15f7fbbf0a0042d798aaa"
+    }
+  ],
+  "runtime_integration": {
+    "file": "/art/characters/clone_01/motion/glb_model_001/full_auto_004/clone_01_ar12_rupture.glb",
+    "reload_source": "loadout_020",
+    "review": "reviews/viewer.json"
+  }
+}

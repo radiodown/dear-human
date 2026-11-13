@@ -1,0 +1,35 @@
+{
+  "original_six_animation_definitions_and_binary_preserved": true,
+  "max_foot_position_error": 1.0697817291599846e-08,
+  "max_arm_degrees_per_60hz_sample": {
+    "mixamorig:LeftHand": 8.242030937658578,
+    "mixamorig:LeftForeArm": 8.238398401724549,
+    "mixamorig:LeftArm": 7.160168741970127,
+    "mixamorig:RightHand": 3.7470625009445193,
+    "mixamorig:RightForeArm": 1.966813878690781,
+    "mixamorig:RightArm": 1.5828824560876174
+  },
+  "finger_rotation_range_degrees": {
+    "mixamorig:LeftHandIndex4": 0.0,
+    "mixamorig:LeftHandIndex3": 14.000000187738708,
+    "mixamorig:LeftHandIndex2": 14.000003043787272,
+    "mixamorig:LeftHandIndex1": 10.000000928340306,
+    "mixamorig:LeftHandMiddle4": 0.0,
+    "mixamorig:LeftHandMiddle3": 14.000001159154245,
+    "mixamorig:LeftHandMiddle2": 14.000000065136762,
+    "mixamorig:LeftHandMiddle1": 10.00000049591894,
+    "mixamorig:LeftHandPinky4": 1.7075472925031877e-06,
+    "mixamorig:LeftHandPinky3": 13.999999996641437,
+    "mixamorig:LeftHandPinky2": 14.000000933717148,
+    "mixamorig:LeftHandPinky1": 9.999997925614979,
+    "mixamorig:LeftHandRing4": 1.7075472925031877e-06,
+    "mixamorig:LeftHandRing3": 14.00000044500805,
+    "mixamorig:LeftHandRing2": 14.000000453458918,
+    "mixamorig:LeftHandRing1": 10.000001652196978,
+    "mixamorig:LeftHandThumb4": 0.0,
+    "mixamorig:LeftHandThumb3": 5.000000057625483,
+    "mixamorig:LeftHandThumb2": 4.999999915824708,
+    "mixamorig:LeftHandThumb1": 5.000000488065114
+  },
+  "max_carried_palm_contact_error": 6.758250064873282e-08
+}

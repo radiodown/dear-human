@@ -5,9 +5,9 @@ category: "technology"
 summary: "네일·와스프·골리앗·럽처·바스티온·바이퍼·브리처·뮬이 사용하는 7개 탄약 계열의 외형, 효과와 운용 한계."
 status: "보완안"
 visibility: "reader"
-updated: "2026-11-12"
+updated: "2026-11-13"
 aliases: ["탄환","탄약","탄종","특수탄","대갑주탄","관통탄","파열탄 컨셉","유탄","소대 탄약고"]
-sources: ["2026-11-12 사용자 요청 · 무기에서 사용하는 각종 탄환의 컨셉을 위키에 작성", "wiki/content/articles/clone-special-weapons.md · 대원별 무장과 역할", "wiki/content/articles/clone-weapon-materials.md · 기존 7개 구경 계열과 폭발성 탄환 기본안", "wiki/content/articles/weapon-amr21-nail.md · 정밀 대갑주 역할", "wiki/content/articles/weapon-pdw9-wasp.md · 고속연사 근접 방어", "wiki/content/articles/weapon-hmg15-goliath.md · 지속 대갑주 화력", "wiki/content/articles/weapon-ar12-rupture.md · 관통 후 파열 효과", "wiki/content/articles/weapon-hp14-bastion.md · 방패와 대구경 권총", "wiki/content/articles/weapon-hp14t-gemini.md · 쌍권총 운용", "wiki/content/articles/weapon-sg23-breacher.md · 대형 탄자와 산탄", "wiki/content/articles/weapon-ml70-mule.md · 유탄발사기형 런처", "2026-11-09 사용자 채택 · 리안의 쌍권총 이름은 HP-14T 바이퍼"]
+sources: ["2026-11-12 사용자 요청 · 무기에서 사용하는 각종 탄환의 컨셉을 위키에 작성", "wiki/content/articles/clone-special-weapons.md · 대원별 무장과 역할", "wiki/content/articles/clone-weapon-materials.md · 기존 7개 구경 계열과 폭발성 탄환 기본안", "wiki/content/articles/weapon-amr21-nail.md · 정밀 대갑주 역할", "wiki/content/articles/weapon-pdw9-wasp.md · 고속연사 근접 방어", "wiki/content/articles/weapon-hmg15-goliath.md · 지속 대갑주 화력", "wiki/content/articles/weapon-ar12-rupture.md · 관통 후 파열 효과", "wiki/content/articles/weapon-hp14-bastion.md · 방패와 대구경 권총", "wiki/content/articles/weapon-hp14t-gemini.md · 쌍권총 운용", "wiki/content/articles/weapon-sg23-breacher.md · 대형 탄자와 산탄", "wiki/content/articles/weapon-ml70-mule.md · 유탄발사기형 런처", "2026-11-09 사용자 채택 · 리안의 쌍권총 이름은 HP-14T 바이퍼", "2026-11-13 사용자 채택·적용 요청 · SG-23 펄스 샷건, 짧은 총신 연결부, 직사각형 컴펜세이터와 숫자형 잔탄 표시"]
 ---
 # 강화 클론 소대의 탄환과 탄약
 
@@ -24,7 +24,7 @@ sources: ["2026-11-12 사용자 요청 · 무기에서 사용하는 각종 탄�
 | 15.2mm | [[weapon-hmg15-goliath|HMG-15 골리앗]] · 모아 | 지속관통탄, 예광 보조탄 | 길게 이어진 탄띠와 반복되는 대형 탄피 |
 | 12.7mm | [[weapon-ar12-rupture|AR-12 럽처]] · 아렌, 리안 배치안 | 관통파열탄, 비파열 관통탄 | 굵은 병목형 탄피, 짧고 단단한 인상의 탄두 |
 | 14.5mm | [[weapon-hp14-bastion|HP-14 바스티온]] · 유나 / [[weapon-hp14t-gemini|HP-14T 바이퍼]] · 리안 | 근접충격탄, 관통형 권총탄 | 짧고 굵은 탄피, 넓은 탄두 윤곽 |
-| 23mm | [[weapon-sg23-breacher|SG-23 브리처]] · 아렌 | 중량 단일탄, 중산탄, 장애물 파쇄탄 | 굵은 원통형 셸, 탄종별로 다른 끝면 표식 |
+| 23mm | [[weapon-sg23-breacher|SG-23 브리처]] · 아렌 · 펄스 전환 후 재검토 | 중량 단일탄, 중산탄, 장애물 파쇄탄 | 굵은 원통형 셸, 탄종별로 다른 끝면 표식 |
 | 70mm | [[weapon-ml70-mule|ML-70 뮬]] · 모아 | 대갑주 유탄, 파편 유탄, 연막탄, 조명탄 | 짧고 굵은 유탄 몸체와 넓은 식별 띠 |
 
 이 표의 구경은 가상 탄약군을 구분하는 이름이다. 같은 숫자를 쓰는 현실 탄약과의 호환을 뜻하지 않으며, 14.5mm 권총탄도 소총·기관총용 탄약의 축소판으로 취급하지 않는다.
@@ -105,7 +105,9 @@ sources: ["2026-11-12 사용자 요청 · 무기에서 사용하는 각종 탄�
 
 바스티온과 바이퍼가 같은 탄약군을 쓴다는 것은 기존 공통 계열안을 확장한 제안이다. **실제 탄약의 상호 호환·공용 탄창·장탄수는 미정**이다. 구경이 같다는 이유만으로 탄창을 서로 끼울 수 있다고 쓰지 않는다.
 
-## 23mm — 브리처의 전용 셸
+## 23mm — 브리처의 이전 전용 셸 제안
+
+2026년 11월 13일 브리처는 펄스 샷건 원화 008을 채택했다. 아래 세 탄종과 23mm는 변경 전 보완안으로 보존하며, 펄스 방식에서의 채택·호환·역할은 재검토 대상이다. 잔탄 표시 `08`은 최대 장탄수 확정이 아니다.
 
 ### 중량 단일탄 · 가칭 ‘말뚝’
 
@@ -123,7 +125,7 @@ sources: ["2026-11-12 사용자 요청 · 무기에서 사용하는 각종 탄�
 
 황토색 띠와 갈라진 사각형 기호를 붙인 작업용 보조 탄종이다. 특정 장애물을 깨뜨려 진입을 돕는 역할을 제안하며, 먼지와 재질 조각이 떨어지는 연출로 대생물 탄종과 구별한다.
 
-모든 문이나 벽을 즉시 제거하는 만능 개방탄은 아니다. 대상 재질과 구조에 따라 효과가 달라지고 주변 파편도 남는다. 브리처의 소음기 장착 설정만으로 어떤 탄종이든 무음이 되거나 모든 탄종과 호환된다고 확정하지 않는다.
+모든 문이나 벽을 즉시 제거하는 만능 개방탄은 아니다. 대상 재질과 구조에 따라 효과가 달라지고 주변 파편도 남는다. 현재 브리처는 소음기를 직사각형 컴펜세이터로 대체했다. 이 외형이나 펄스라는 분류만으로 탄종 호환성과 성능을 확정하지 않는다.
 
 ## 70mm — 뮬의 유탄과 지원탄
 

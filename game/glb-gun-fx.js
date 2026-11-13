@@ -55,6 +55,11 @@ function smokeTexture(T) {
 }
 
 export function firingCues(name, duration) {
+  // Authored 750 RPM loop: the kick begins on each cue, peaks 10 ms later.
+  if (name === 'rifle_full_auto') {
+    return Array.from({ length: Math.max(0, Math.ceil((duration - .02 - 1e-6) / .08)) },
+      (_, i) => ({ time: .02 + i * .08, side: 'right' }));
+  }
   if (name === 'dual_fire' || name === 'dual_kneel_fire') {
     return Array.from({ length: Math.ceil((duration - .001) * 4) }, (_, i) => ({ time: i / 4, side: i % 2 ? 'left' : 'right' }));
   }
@@ -181,7 +186,8 @@ export class GlbGunFx {
         const since = age < 0 && this.cycle ? age + duration : age;
         if (since >= 0 && since < flashAge) { flashAge = since; shotIndex = i; }
       }
-      const pulse = Math.max(0, 1 - flashAge / .085);
+      // A short dark gap between full-auto shots keeps each flash readable.
+      const pulse = Math.max(0, 1 - flashAge / (name === 'rifle_full_auto' ? .04 : .085));
       mount.group.visible = pulse > 0;
       mount.light.intensity = pulse * 1.15;
       const texture = this.fireTextures[(shotIndex + this.cycle) % this.fireTextures.length];

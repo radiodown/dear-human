@@ -32,7 +32,7 @@
         <div class="preview-mode" aria-label="미리보기 종류">
           <div class="preview-group" role="group" aria-label="원화"><span class="preview-group-label">원화</span><div class="preview-group-buttons"><button id="mode-reference" type="button" aria-pressed="true">채택 외형</button></div></div>
           <div class="preview-group" role="group" aria-label="2D 모션"><span class="preview-group-label">2D 모션</span><div class="preview-group-buttons"><button id="mode-rig" type="button" aria-pressed="false">파츠 · 실시간 <span>플랜 A</span></button><button id="mode-rig-v2" type="button" aria-pressed="false">파츠 · 프레임 <span>플랜 A · V2</span></button><button id="mode-plan-b" type="button" aria-pressed="false">도트 원화·모션 <span>플랜 B</span></button><button id="mode-plan-e" type="button" aria-pressed="false">3D→도트 <span>플랜 E</span></button><button id="mode-glb-sprite" type="button" aria-pressed="false">GLB 스프라이트 <span>2D</span></button></div></div>
-          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-plan-g" type="button" aria-pressed="false">Saltline 횡스크롤 <span>플랜 G</span></button><button id="mode-plan-f" type="button" aria-pressed="false">코드 생성 <span>플랜 F</span></button><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button><button id="mode-weapon-3d" type="button" aria-pressed="false">무기 모델 <span>3D</span></button></div></div>
+          <div class="preview-group" role="group" aria-label="3D 모델"><span class="preview-group-label">3D 모델</span><div class="preview-group-buttons"><button id="mode-plan-g" type="button" aria-pressed="false">Saltline 횡스크롤 <span>플랜 G</span></button><button id="mode-plan-f" type="button" aria-pressed="false">리안 훈련장 <span>플랜 F</span></button><button id="mode-glb" type="button" aria-pressed="false">GLB 모델 <span>3D</span></button><button id="mode-weapon-3d" type="button" aria-pressed="false">무기 모델 <span>3D</span></button></div></div>
         </div>
         <div id="reference-view">
         <div class="viewer-top"><div class="segmented" aria-label="보기 선택"><button type="button" data-view="sheet" aria-pressed="true">전체 시트</button><button type="button" data-view="front" aria-pressed="false">정면</button><button type="button" data-view="back" aria-pressed="false" hidden>후면</button><button type="button" data-view="left" aria-pressed="false" hidden>좌측면</button><button type="button" data-view="right" aria-pressed="false" hidden>우측면</button><button type="button" data-view="side" aria-pressed="false">측면</button></div><label class="version-label">버전 <select id="revision-select" aria-label="시안 버전"></select></label></div>
@@ -42,13 +42,14 @@
         </div>
         <div id="plan-g-view" hidden><div id="plan-g-host"></div><p class="f-note">플랜 G · Saltline 원본 개조 · A/D 이동, Space 점프, J 사격, R 장전, C 앉기. 탭을 나갔다 돌아오면 처음부터 시작합니다. <a href="./plan-g/index.html" target="_blank" rel="noopener">넓은 화면으로 열기 ↗</a></p></div>
         <div id="plan-f-view" hidden>
-          <div class="f-toolbar"><div><span class="f-eyebrow">PLAN F / 006</span><strong>리안 · 이동과 사격</strong></div><span class="f-chip">CL-VS-13-047</span></div>
+          <div class="f-toolbar"><div><span class="f-eyebrow">PLAN F / TRAINING</span><strong>리안 · 이동과 사격</strong></div><span class="f-chip">CL-VS-13-047</span></div>
           <div id="plan-f-stage" class="f-stage" tabindex="0" role="group" aria-label="플랜 F 조작 화면. A D 이동, C 앉기와 일어서기, R 장전, Space 또는 J 사격">
-            <canvas id="plan-f-canvas" aria-label="코드로 만든 리안의 이동과 사격"></canvas>
+            <canvas id="plan-f-canvas" aria-label="리안의 이동과 사격"></canvas>
             <div class="f-overlay"><span>VESPER / TRAINING DECK</span><span id="plan-f-status">대기</span></div>
             <div class="f-bottom"><span>LIAN <b>047</b></span><span class="f-readout"><span><output id="plan-f-ammo" aria-label="탄창 잔탄">30 / 30</output> <small>예비 ∞</small></span><span><output id="plan-f-position">0.00 m</output> · <output id="plan-f-shots">0 발</output></span></span></div>
             <div id="plan-f-reload-hud" class="f-reload-hud" hidden><span id="plan-f-reload-phase">장전 준비</span><progress id="plan-f-reload-progress" aria-label="장전 진행률" max="1" value="0"></progress></div>
-            <p id="plan-f-loading" role="status">훈련장을 준비하는 중…</p>
+            <p id="plan-f-loading" role="status">리안을 불러오는 중…</p>
+            <button id="plan-f-retry" type="button" hidden>다시 불러오기</button>
           </div>
           <div class="f-controls"><div class="f-pad"><button type="button" data-f-input="left" aria-label="왼쪽 이동">← 이동</button><button type="button" data-f-input="right" aria-label="오른쪽 이동">이동 →</button><button id="plan-f-crouch" type="button" aria-pressed="false" aria-keyshortcuts="C">앉기 C</button><button type="button" data-f-input="fire">누르고 사격</button></div><div class="f-options"><button id="plan-f-shot" type="button">단발</button><button id="plan-f-reload" type="button" aria-keyshortcuts="R">장전 R</button><label>재생 <select id="plan-f-speed" aria-label="플랜 F 재생 속도"><option value="1">1×</option><option value="0.25">0.25×</option></select></label><button id="plan-f-pause" type="button">일시정지</button><button id="plan-f-reset" type="button">처음으로</button><label><input type="checkbox" id="plan-f-post" checked>화면 효과</label><label><input type="checkbox" id="plan-f-wet" checked>젖은 표면</label><label><input type="checkbox" id="plan-f-sound">총기 소리</label></div></div>
           <div class="f-controls" role="group" aria-label="외형 비교">
@@ -60,9 +61,9 @@
             <label for="plan-f-camera-pitch">위아래 각도 <input id="plan-f-camera-pitch" type="range" min="0" max="60" step="0.1" value="8.3"><output id="plan-f-camera-pitch-value" for="plan-f-camera-pitch">8.3°</output></label>
             <button id="plan-f-camera-reset" type="button">기본 시점</button>
           </div>
-          <p class="f-note" id="plan-f-motion-note">역동 모션 · 강해진 발사 충격과 복귀, 발 디딤·앉기·장전의 무게 이동을 적용했습니다. 단발과 0.25× 재생으로 동작을 확인할 수 있습니다.</p>
+          <p class="f-note" id="plan-f-motion-note">리안 캐릭터를 교체했습니다. 이동·앉기·사격·장전과 단발·0.25× 재생으로 동작을 확인할 수 있습니다.</p>
           <p class="f-help">화면을 클릭한 뒤 <kbd>A</kbd> <kbd>D</kbd> 이동 · <kbd>C</kbd> 앉기 / 다시 누르면 일어서기 · <kbd>Space</kbd> / <kbd>J</kbd> 사격 · <kbd>R</kbd> 장전 · <kbd>Esc</kbd> 일시정지. 화면을 누르거나 아래 버튼을 길게 눌러도 사격합니다.</p>
-          <p class="f-note">?? ??? ? ???? ??, ??/??? ??, ???? ???????, ??? ?? ? ???? ??????. ??????0.25? ???? ?????.</p>
+          <p class="f-note">중립 자세와 정면·측면·후면 보기로 캐릭터 외형을 확인할 수 있습니다.</p>
           <p class="f-note" id="plan-f-camera-note">시점은 일시정지 중에도 조절할 수 있습니다. 위아래 0°는 수평, 값이 커질수록 위에서 내려다봅니다. 선택한 각도는 브라우저와 주소에 저장됩니다.</p>
           <p class="f-note">006 · 탄창 교체와 빈 탄창 장전. R키는 만탄에서도 장전 동작을 재생합니다. 탄창 30발 · 예비탄 무제한 · 빈 탄창에서 사격하면 자동 장전. 앉기·이동 중에도 장전 가능하며 0.25×로 확인할 수 있습니다.</p>
         </div>

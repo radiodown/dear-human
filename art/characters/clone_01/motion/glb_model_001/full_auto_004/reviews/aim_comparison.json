@@ -1,0 +1,16 @@
+{
+  "before": {
+    "version": "loadout_020",
+    "pitch_min": -0.5230689365520848,
+    "pitch_max": 3.0015478500878032,
+    "pitch_range": 3.524616786639888
+  },
+  "after": {
+    "version": "full_auto_004",
+    "pitch_min": -0.06238216831591967,
+    "pitch_max": 0.3609113219267135,
+    "pitch_range": 0.4232934902426332
+  },
+  "other_clips_preserved": true,
+  "input_binary_preserved": true
+}

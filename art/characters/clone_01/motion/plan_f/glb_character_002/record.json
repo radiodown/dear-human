@@ -1,0 +1,43 @@
+{
+  "revision_id": "plan_f_glb_character_002",
+  "recorded_at": "2026-11-13T09:26:00.893735+09:00",
+  "cause": "GLTFLoader strips the colon from mixamorig:Hips; the prior map could not resolve Hips.",
+  "fix": "Normalize Mixamo prefix with or without colon and optional numeric suffix.",
+  "verification": "passed",
+  "verification_scope": "Actual Chromium page load/reload, single shot, reload ammo, crouch selection, neutral round trip, no console/page errors.",
+  "art_direction_status": "awaiting_user_review",
+  "before": [
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_002/before/game/plan-f/glb-character.js",
+      "sha256": "8831df2dffee18e049d2947ecf3ffd5958f1eece6f2dc5043ce8fbf870163114"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_002/before/game/plan-f/index.js",
+      "sha256": "367b0c29e2d83d80af0415efd1121fad85309bafaed8cc69b88b1ecac6852279"
+    }
+  ],
+  "after": [
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_002/source_snapshot/game/plan-f/glb-character.js",
+      "sha256": "6c270b41ef8081f64a2843ebdd26b39c981952360a52942b9ea326ddcf86fe78"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_002/source_snapshot/game/plan-f/index.js",
+      "sha256": "367b0c29e2d83d80af0415efd1121fad85309bafaed8cc69b88b1ecac6852279"
+    }
+  ],
+  "reviews": [
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_002/reviews/browser.json",
+      "sha256": "11925aaeee5f0641aa59b42f44ad6cf50999d822eb6d08d1d3a89b4383360cba"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_002/reviews/loaded.png",
+      "sha256": "42ea379174e717104a0db9196cf584de0dcd024283d8af7707ebba481b4df39d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_002/reviews/neutral.png",
+      "sha256": "e12c8d29199b13dc1749cf48d7b1d1dd7a2c7429306d44d34af5479aa0691528"
+    }
+  ]
+}

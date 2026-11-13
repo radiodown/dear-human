@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "revision_id": "plan_f_glb_character_001",
+  "user_request": "플랜 F에 캐릭터만 GLB로 데려와줘",
+  "started_at": "2026-11-13T08:52:56.064358+09:00",
+  "finished_at": "2026-11-13T08:58:17.938851+09:00",
+  "elapsed_seconds": 321.87,
+  "status": "draft",
+  "verification": "untested",
+  "verification_reason": "User verification handoff recorded in root AGENTS.md; no automated tests, syntax/catalog/docs checks or browser execution/captures performed.",
+  "art_direction_status": "awaiting_user_review",
+  "tools": [
+    "manual JavaScript editing",
+    "Python standard library metadata and GLB inspection",
+    "agent_pipeline catalog-list, reuse-find, impact (read-only discovery)"
+  ],
+  "generation_calls": 0,
+  "external_api_cost_usd": 0,
+  "token_cost": null,
+  "source": {
+    "path": "art/characters/clone_01/motion/glb_model_001/source/version04.glb",
+    "sha256": "4ebb9fbb8cb3f19ef5f32995c3d4b422e89bc2c031aa537deaaaeb3712cbbc34"
+  },
+  "recipe_sha256": "ed39dd05d06428e102122d607a624dfc6f3f9495f4b7544aa4e74d330ce4c7d9",
+  "before": [
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/AGENTS.md",
+      "sha256": "a00f2358b58b1afe062eab9f6c557e6898cf15f73167f17278233bc2d190eaab"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/docs/plan-f-browser-3d-feasibility-001.md",
+      "sha256": "bb6047aa5cd74b891cad8277cfd08524fe06c4675392455980bd1b371ac226ee"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/index.html",
+      "sha256": "0eb0eeee498b7e142aaac512b3a73cf38bac999c1435964fbb47142024c1d766"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/anatomy.js",
+      "sha256": "69ae87e1285d8ac02deca6ec1a9795c22c1f35f68cab36f91808b7c52a2d4c3d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/containers.js",
+      "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/effects.js",
+      "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/environment.js",
+      "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/human-body.js",
+      "sha256": "3c39ceb2a65cd8e1f4b1feb7ec78eedf45c059e15c11362d74da83eb664ba41f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/human-clothing.js",
+      "sha256": "0a5716ca7f4e7ff51db24dd490663540b0b4827691971f5aa54e120798ac5d4e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/human-hands.js",
+      "sha256": "2b4f53f7ba15557191db2c94695af3b81a33f2d1aa125874b744f7bcf87172bd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/human-head.js",
+      "sha256": "226ef274a82c04876ece8cac0b661b3d64fe3e57c856bb898d1ecfce48115e63"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/human-surface.js",
+      "sha256": "4283a3a3dfdcd28713d86f4178fc61b4ac605f40cf6704c52aa2e467d2885f7d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/index.js",
+      "sha256": "c5980abf67ef21b113850f00eed106b4df3bbfe7a6ddc2d317e504ee168a4950"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/inspection-stage.js",
+      "sha256": "92b5f320b9d9d6563e0cdb28d4f7a838c9cd9fb724bc54b09fdd56bac7e03832"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/model-build.js",
+      "sha256": "2e3744fcbb8f230d9f5929baf1a11e053c03a48e313bd7be142538d4ba566f81"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/model.js",
+      "sha256": "0f9a2df046afd4265764701cbfa890a89f7e9ef1a387489249fcf748ebef2962"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/motion.js",
+      "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/neutral-pose.js",
+      "sha256": "61662dc5a811fab4114a77cceaefd48d68e9220f6b023ac6082303e25b3ce1a9"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/reload-pose.js",
+      "sha256": "842f4936daedcff5995d099290f67e9dcb3793ab594bd5c9059f5ef8e5be5c81"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/reload.js",
+      "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/simulation.js",
+      "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/styles.css",
+      "sha256": "7efeb7128c3e71e1865f92ec26d6ec103385ad8fddb58867a65ba2f6161028b9"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/weapon-build.js",
+      "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/weapon-definition.js",
+      "sha256": "b1ec7e91c4ce0d0fe9375e8a332a46f0ae01cd9aca1a0ea84cfe34c4f1a11ce3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/weapon-materials.js",
+      "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/weapon-motion.js",
+      "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/weapon-pose.js",
+      "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/plan-f/weathered-metal.js",
+      "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/before/game/public/assets/catalog/asset_index.json",
+      "sha256": "19b96854bb850fc7591449d4c4d7c48a54485e78b0a9e56c9891550b38912693"
+    }
+  ],
+  "after": [
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/AGENTS.md",
+      "sha256": "b94473bdf69da17b66cbef522677743b8711f6c425e5fd5c6bfad39cb7d7d1e0"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/docs/plan-f-browser-3d-feasibility-001.md",
+      "sha256": "cedfc2fd5df458df858ab6701aec94c3a33e6cdc17b1b907ea862eeebd316f92"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/index.html",
+      "sha256": "c5fbf779ed9bb370616bd477924aa88293ef8870f7c45449601df106f3ae0649"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/anatomy.js",
+      "sha256": "69ae87e1285d8ac02deca6ec1a9795c22c1f35f68cab36f91808b7c52a2d4c3d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/containers.js",
+      "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/effects.js",
+      "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/environment.js",
+      "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/geometry.js",
+      "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/glb-character.js",
+      "sha256": "8831df2dffee18e049d2947ecf3ffd5958f1eece6f2dc5043ce8fbf870163114"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-body.js",
+      "sha256": "3c39ceb2a65cd8e1f4b1feb7ec78eedf45c059e15c11362d74da83eb664ba41f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-clothing.js",
+      "sha256": "0a5716ca7f4e7ff51db24dd490663540b0b4827691971f5aa54e120798ac5d4e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-hands.js",
+      "sha256": "2b4f53f7ba15557191db2c94695af3b81a33f2d1aa125874b744f7bcf87172bd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-head.js",
+      "sha256": "226ef274a82c04876ece8cac0b661b3d64fe3e57c856bb898d1ecfce48115e63"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-surface.js",
+      "sha256": "4283a3a3dfdcd28713d86f4178fc61b4ac605f40cf6704c52aa2e467d2885f7d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/index.js",
+      "sha256": "367b0c29e2d83d80af0415efd1121fad85309bafaed8cc69b88b1ecac6852279"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/inspection-stage.js",
+      "sha256": "92b5f320b9d9d6563e0cdb28d4f7a838c9cd9fb724bc54b09fdd56bac7e03832"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/materials.js",
+      "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/model-build.js",
+      "sha256": "2e3744fcbb8f230d9f5929baf1a11e053c03a48e313bd7be142538d4ba566f81"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/model.js",
+      "sha256": "acd7143fa567ac366cc64aeb37494192e9fd35864a71fea6df17fef7f0d8d70b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/motion.js",
+      "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/neutral-pose.js",
+      "sha256": "61662dc5a811fab4114a77cceaefd48d68e9220f6b023ac6082303e25b3ce1a9"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/reload-pose.js",
+      "sha256": "842f4936daedcff5995d099290f67e9dcb3793ab594bd5c9059f5ef8e5be5c81"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/reload.js",
+      "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/render.js",
+      "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/simulation.js",
+      "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/styles.css",
+      "sha256": "059609232d35466223dd0e3176bca562dce1058d0729cd0e7282d546a5ea99ce"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-build.js",
+      "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-definition.js",
+      "sha256": "b1ec7e91c4ce0d0fe9375e8a332a46f0ae01cd9aca1a0ea84cfe34c4f1a11ce3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-materials.js",
+      "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-motion.js",
+      "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-pose.js",
+      "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+    },
+    {
+      "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weathered-metal.js",
+      "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+    }
+  ],
+  "runtime_dependencies": [
+    {
+      "path": "game/vendor/three-0.187.0/build/three.module.js",
+      "sha256": "104f56145899722094556490d787aae0617cc2fc3382f31df02d724ea1aee341"
+    },
+    {
+      "path": "game/vendor/three-0.187.0/examples/jsm/loaders/GLTFLoader.js",
+      "sha256": "008ec07cc51409a175fe6f9e24d9998a97069e1de0a42298cd9fdad93bf2bc22"
+    },
+    {
+      "path": "game/vendor/three-0.187.0/examples/jsm/utils/BufferGeometryUtils.js",
+      "sha256": "fa8b3930d2c5bc6366516c636dee51fedcaecf51bfd3c245b350bda655fe194b"
+    },
+    {
+      "path": "game/vendor/three-0.187.0/examples/jsm/utils/SkeletonUtils.js",
+      "sha256": "9e53f7de94e1a632b88113536c1c404e243dac973bad2e8e6d514ff49b569e65"
+    }
+  ],
+  "known_limitations": [
+    "No runtime or visual validation for this revision.",
+    "Original GLB skin weights drive clothing and cape; no new cloth collision.",
+    "Precise grip, shoulder stock contact, wrist twist and ground contact await review."
+  ],
+  "preserved": [
+    "Original source GLB and its animations",
+    "Original generated F character builders",
+    "Other preview modes",
+    "Concurrent GLB reload/FX edits outside this task"
+  ]
+}

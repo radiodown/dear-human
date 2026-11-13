@@ -1,0 +1,87 @@
+{
+  "date": "2026-11-13",
+  "recipe_key": "ar12_full_auto_shoulder_follow_005",
+  "art_direction_status": "awaiting_user_review",
+  "files": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/before/glb-model-lab.js",
+      "sha256": "37f76ca247be28586838c40174a3dff6d4a73b29bf5c4098b3cd1d838607232e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/before/make_rifle_full_auto.py",
+      "sha256": "b6d7bee92992ce4ca93acad01068981eb33b404da493641e67895996b1b8e030"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/before/review_rifle_full_auto.py",
+      "sha256": "cc6627ba2c1ddffd82cb641eb6e898622fb0da4a1624543df58939d811411e0c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/clone_01_ar12_rupture.glb",
+      "sha256": "8a8efda396120a4f3f49dc99a1fdbe53da42ee209cae7a851ba7f118c4a841af"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/clone_01_ar12_rupture.json",
+      "sha256": "2d5d98ecbeb139e8895c6a9a407ad093561ccd1f2289bbf52349a64cc312872f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/README.md",
+      "sha256": "a48936d010913246ec1de36b0f15577a96585ad8c58779c4955d55ccb8873ee0"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/attachment_comparison.json",
+      "sha256": "3c27734db7da264d0ec4ec9112967e8c5f61700c0f7f686a160a4eaa7cddde88"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/full_auto_angle.png",
+      "sha256": "ba1d141584d4f1f0683d7e72bd3053e6d961353f1acf79c75fc2b5f0fe69c219"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/full_auto_side.png",
+      "sha256": "7517d7b05df4ac4425f6b2187b8de2cfb48698d6ba37b9b8a4a0e090f5b9979e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/reference_auto_recoil.png",
+      "sha256": "45bda392b94445f1529c9478e56c0f1d68678f70e5e26ad1365276b7dbbef420"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/stance_brace.png",
+      "sha256": "34c9b442ca1db57138bf31aa31609fe463b9b475e31d287f26b09ead7928febe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/stance_planted.png",
+      "sha256": "58ecc42a037a5173858de1dfbff04cbc3fe211754441687648099762a1a35d86"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/stance_recover.png",
+      "sha256": "4fb5f07d6bf0a15782f171cf17fa9de7f9bfcceea78ba215df80f671854da663"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/stance_retreat.png",
+      "sha256": "99209b19e2f3839703bbbc3d0ea5cbf7a43dac63f98e31f6f490c381a166ad73"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/viewer.json",
+      "sha256": "dc12d9abf59908e10df3ca0312d6ea73070054f67c3f68f32110af13f4f23045"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/glb-gun-fx.js",
+      "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/glb-model-lab.js",
+      "sha256": "f60dbe434ec42d5b6bae7c957da906e41a3b60a2fe94617e4c9f57542079c5c3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/make_rifle_full_auto.py",
+      "sha256": "f60702191aa8c35b4507e8a7b89984aca7fa72ef8baeef4c82ff5515e1e3e637"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/make_rifle_reload.py",
+      "sha256": "c03034fed3c068146c6a8f68726000cf76c6feda25b2cea038ba70e30b9a0c9f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/review_rifle_full_auto.py",
+      "sha256": "c89d3197b50459d51e88bb75514626ce767d306d66a34e2dd2463d958091260b"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "recipe_key": "ar12_full_auto_shoulder_follow_005",
+  "source": "art\\characters\\clone_01\\motion\\glb_model_001\\full_auto_004\\clone_01_ar12_rupture.glb",
+  "source_sha256": "c20e9162a5557ee61f2b0a0fc607e4d1962b2b645fd7d24573cf242fe9286432",
+  "output": "art\\characters\\clone_01\\motion\\glb_model_001\\full_auto_005\\clone_01_ar12_rupture.glb",
+  "output_sha256": "8a8efda396120a4f3f49dc99a1fdbe53da42ee209cae7a851ba7f118c4a841af",
+  "clip": "rifle_full_auto",
+  "duration": 1.6,
+  "fps": 200,
+  "frames": 321,
+  "rpm": 750,
+  "shot_times": [
+    0.02,
+    0.1,
+    0.18,
+    0.26,
+    0.34,
+    0.42,
+    0.5,
+    0.58,
+    0.66,
+    0.74,
+    0.82,
+    0.9,
+    0.98,
+    1.06,
+    1.14,
+    1.22,
+    1.3,
+    1.38,
+    1.46,
+    1.54
+  ],
+  "preserved_clips": [
+    "gunplay",
+    "gunplay_auto",
+    "peek_aim",
+    "rifle_aim_idle",
+    "rifle_idle",
+    "shoot_rifle",
+    "rifle_reload",
+    "rifle_reload_empty"
+  ],
+  "original_binary_preserved": true,
+  "max_ik_reach_miss": 0.0,
+  "max_hand_contact_error": 3.1217311733394683e-16,
+  "max_leg_reach_miss": 0.0,
+  "stance": {
+    "rear_foot": "Right",
+    "brace": [
+      0.54,
+      0.74,
+      1.06,
+      1.46
+    ],
+    "retreat_step": [
+      0.66,
+      0.88
+    ],
+    "recover_step": [
+      1.14,
+      1.4
+    ],
+    "retreat_distance": 0.04
+  },
+  "aim_rotation_gain": 0.12,
+  "axial_recoil": 0.0035,
+  "shoulder_anchor": {
+    "node": "mixamorig:RightShoulder",
+    "stock_local": [
+      -0.25744959712028503,
+      0.10258993066551306,
+      0.004054015472204242
+    ],
+    "pocket_local": [
+      0.01756533134351579,
+      0.029958379704358495,
+      0.005758208259163629
+    ],
+    "recoil_direction": [
+      -0.1375361931959116,
+      -1.3665254429223189e-07,
+      0.9904967418225858
+    ]
+  },
+  "elapsed_seconds": 13.673103300010553,
+  "paid_api_calls": 0,
+  "art_status": "awaiting_user_review"
+}

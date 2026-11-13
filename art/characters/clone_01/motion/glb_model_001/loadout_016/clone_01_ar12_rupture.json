@@ -1,0 +1,51 @@
+{
+  "recipe": "ar12_tilt_reload_005",
+  "source": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+  "output": "art/characters/clone_01/motion/glb_model_001/loadout_016/clone_01_ar12_rupture.glb",
+  "source_sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767",
+  "output_sha256": "ee5b317bca20c3509bef0e95f758b0173552e0a506717cd1638a885a5a3b06f4",
+  "existing_clips_preserved": [
+    "gunplay",
+    "gunplay_auto",
+    "peek_aim",
+    "rifle_aim_idle",
+    "rifle_idle",
+    "shoot_rifle"
+  ],
+  "carried_clips": [
+    {
+      "name": "rifle_full_auto",
+      "source": "art/characters/clone_01/motion/glb_model_001/loadout_015/clone_01_ar12_rupture.glb",
+      "source_sha256": "79033b585e797786920a0b14040876dc6f0573b178afd7e41746de80435c2367",
+      "track_values_preserved": true
+    }
+  ],
+  "new_clip": "rifle_reload",
+  "duration_seconds": 2.65,
+  "fps": 60,
+  "samples": 160,
+  "events": {
+    "grasp": 0.53,
+    "extract": 0.53,
+    "clear": 0.69,
+    "stow": 1.04,
+    "exchange": 1.1,
+    "draw": 1.17,
+    "align": 1.49,
+    "insert": 1.49,
+    "seat": 1.69,
+    "seating_impact": 1.71,
+    "seated_mesh_swap": 1.9,
+    "release": 1.79,
+    "ready": 2.55
+  },
+  "magazine_triangles": 288,
+  "max_hand_reach_error": {
+    "Left": 0.0,
+    "Right": 0.0
+  },
+  "max_right_wrist_contact_error": 2.9504581591051765e-16,
+  "generation_seconds": 13.48,
+  "paid_api_calls": 0,
+  "review_status": "pending"
+}

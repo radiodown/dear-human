@@ -30,6 +30,7 @@ export class PlanFLab {
       const side=button.dataset.fView;this.setView({yaw:side==='front'?90*this.state.facing:side==='back'?-90*this.state.facing:0,pitch:0});
     });
     $('plan-f-pause').addEventListener('click',()=>this.pause());
+    $('plan-f-retry').addEventListener('click',()=>{if(this.active)this.show(true);});
     $('plan-f-reset').addEventListener('click',()=>{clear();this.state=newState();this.effects?.clear();this.paused=false;this.sync();});
     $('plan-f-post').addEventListener('change',e=>{if(this.film)this.film.enabled=e.target.checked;});
     $('plan-f-wet').addEventListener('change',e=>this.world?.setWet(e.target.checked));
@@ -54,14 +55,18 @@ export class PlanFLab {
   restoreParams(p){this.setNeutral(p.get('fPose')==='neutral',{updateUrl:false});const values={};if(p.has('fYaw'))values.yaw=p.get('fYaw');if(p.has('fPitch'))values.pitch=p.get('fPitch');this.setView(values,{save:false,updateUrl:false});}
   writeParams(p){for(const key of [...p.keys()])p.delete(key);p.set('plan','f');p.set('fYaw',this.view.yaw);p.set('fPitch',this.view.pitch);if(this.neutral)p.set('fPose','neutral');}
   async init(){
-    if(this.ready)return;if(this.pending)return this.pending;
+    if(this.ready)return;
+    if(this.pending){try{await this.pending;}catch{}return;}
+    $('plan-f-loading').hidden=false;$('plan-f-loading').textContent='리안을 불러오는 중…';$('plan-f-retry').hidden=true;
     this.pending=(async()=>{
-      const [T,{createLian},{createStage},{createEffects,GunAudio},{FilmRenderer},{createInspectionStage}]=await Promise.all([import('../vendor/three-0.187.0/build/three.module.js'),import('./model.js'),import('./environment.js'),import('./effects.js'),import('./render.js'),import('./inspection-stage.js')]);
+      const [T,{createGlbLian},{createStage},{createEffects,GunAudio},{FilmRenderer},{createInspectionStage}]=await Promise.all([import('../vendor/three-0.187.0/build/three.module.js'),import('./glb-character.js'),import('./environment.js'),import('./effects.js'),import('./render.js'),import('./inspection-stage.js')]);
+      this.actor=await createGlbLian();this.actor.pose(this.state,{neutral:this.neutral});
       this.T=T;this.renderer=new T.WebGLRenderer({canvas:$('plan-f-canvas'),antialias:true});this.renderer.setPixelRatio(Math.min(devicePixelRatio,1.5));this.renderer.shadowMap.enabled=true;this.renderer.shadowMap.type=T.PCFSoftShadowMap;this.renderer.toneMapping=T.ACESFilmicToneMapping;this.renderer.toneMappingExposure=1.0;
-      this.scene=new T.Scene();this.camera=new T.OrthographicCamera(-2,2,1.4,-1.4,.1,35);this.world=createStage(this.scene,this.renderer);this.inspection=createInspectionStage(this.scene);this.inspection.set(this.neutral);this.film=new FilmRenderer(this.renderer);this.actor=createLian();this.scene.add(this.actor.root);this.effects=createEffects(this.scene);this.audio=new GunAudio();this.audio.enabled=$('plan-f-sound').checked;
+      this.scene=new T.Scene();this.camera=new T.OrthographicCamera(-2,2,1.4,-1.4,.1,35);this.world=createStage(this.scene,this.renderer);this.inspection=createInspectionStage(this.scene);this.inspection.set(this.neutral);this.film=new FilmRenderer(this.renderer);this.scene.add(this.actor.root);this.effects=createEffects(this.scene);this.audio=new GunAudio();this.audio.enabled=$('plan-f-sound').checked;
+      this.world.setWet($('plan-f-wet').checked);this.film.enabled=$('plan-f-post').checked;
       this.ejectionOrigin=new T.Vector3();this.origin=new T.Vector3();this.direction=new T.Vector3();this.quaternion=new T.Quaternion();this.ready=true;$('plan-f-loading').hidden=true;this.resize();
     })();
-    try{await this.pending;}catch(e){$('plan-f-loading').hidden=false;$('plan-f-loading').textContent='3D 화면을 시작하지 못했습니다. WebGL2 지원을 확인해 주세요.';console.error('Plan F',e);this.pending=null;}
+    try{await this.pending;}catch(e){$('plan-f-loading').hidden=false;$('plan-f-loading').textContent='리안 또는 훈련장을 불러오지 못했습니다. 다시 시도해 주세요.';$('plan-f-retry').hidden=false;console.error('Plan F',e);this.pending=null;}
   }
   show(active){this.active=active;this.clear();cancelAnimationFrame(this.raf);const generation=this.generation=(this.generation||0)+1;if(!active){this.effects?.clear();return;}this.init().then(()=>{if(this.active&&this.ready&&this.generation===generation){this.resize();this.raf=requestAnimationFrame(this.frame);}});}
   pause(value=!this.paused){this.paused=value;this.clear();this.sync();}

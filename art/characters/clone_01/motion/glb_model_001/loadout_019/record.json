@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-13",
+  "recipe_key": "ar12_drop_reload_006",
+  "request": "Discard the empty magazine, draw a fresh one, and improve the left arm from the side",
+  "paid_api_calls": 0,
+  "manual_work_seconds": null,
+  "art_direction_status": "awaiting_user_review",
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+      "sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/clone_01_ar12_rupture.glb",
+      "sha256": "ff66818af8ebe1be3a95c0ec8ddd8ad8085f23f61fc66d536337f73060d5df70"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/before/glb-model-lab.js",
+      "sha256": "af2006560595b13d4543303d832310d474a5dcdbf27c6c26b05aa7edfce046e6"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/before/make_rifle_full_auto.py",
+      "sha256": "84e98133d5ca61aeba9e524954c7d2a27c4bb7c6bfe8a231dbbd8f41fab99d95"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/before/make_rifle_reload.py",
+      "sha256": "64af7a13c16305d0f206fb45e0d8a27be38a2530daba9b975f769b1dda4eaae7"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/before/review_rifle_full_auto.py",
+      "sha256": "9b3cd2d6049c7a067d8fe66fc9d9e3c9fbd3f6e5bcf2aec460f4bd4c6b56b975"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/before/review_rifle_reload.py",
+      "sha256": "b071625d7041b5c2e30aa7c34cb1a80a715f7368b7f864eb0d7d23de030405ce"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/clone_01_ar12_rupture.glb",
+      "sha256": "30d5b076efe400ec30085216dcb0df99fb8317bc7205bd113070b1507ae1d783"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/clone_01_ar12_rupture.json",
+      "sha256": "e5117af9e48afb0e75482911ed3887f2bdae9d78152db353a8025c6ae5759404"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/source_snapshot/glb-model-lab.js",
+      "sha256": "a69053b1caa1ec50a8e14b71cdaff619c1b4b816cbff552b3f0de7a0bdf84b0d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/source_snapshot/make_rifle_reload.py",
+      "sha256": "2cea6aea98b3144ea7a6bffa08bff91ad53715415f6eeaef0308d520489c3f60"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/source_snapshot/review_rifle_reload.py",
+      "sha256": "18f72c57f6df8b97aca15b020d14bc6c5b388e09411fc2b9e03e62b10862516b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/discard_continuity.json",
+      "sha256": "40db82ca66480f1828deb05c88eb26e7e012da6cabbb3d59250851d1b4bb5336"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/render.json",
+      "sha256": "0836cae042daac02f978abd7c3e214c31b6746967d0185b561423f04c906e052"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/rig_checks.json",
+      "sha256": "7e0f78d57e8c7b1b185bd6f1422c6bbbcdf5504025abc57da701b712f18b52cd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/viewer.json",
+      "sha256": "08b1ab7f493f63a0b138fdf696e4880e657be53b7fb57b970fc79d2bf374e3b9"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/motion_sequence.png",
+      "sha256": "a8ec670d9a09439109f743ba6f59c2a82f78206c1149afa31a7d00d4d3e83759"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/dropped_on_floor.png",
+      "sha256": "ba533e2e2185aa47f7db5f3cf66d289ee4c0f590d32bfa05e80b9d6ea69aadb5"
+    }
+  ]
+}

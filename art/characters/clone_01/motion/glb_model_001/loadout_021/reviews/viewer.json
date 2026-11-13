@@ -1,0 +1,106 @@
+{
+  "clip": "rifle_reload",
+  "label": "장전 · 잔탄 있음",
+  "file": "/art/characters/clone_01/motion/glb_model_001/loadout_021/clone_01_ar12_rupture.glb",
+  "oldScale": [
+    0,
+    0,
+    0
+  ],
+  "newScale": [
+    1,
+    1,
+    1
+  ],
+  "after_switch": {
+    "clip": "rifle_aim_idle",
+    "oldScale": [
+      1,
+      1,
+      1
+    ],
+    "newScale": [
+      0,
+      0,
+      0
+    ]
+  },
+  "slow_play_time": 0.12500000000000003,
+  "page_errors": [],
+  "drop_switches": {
+    "rifle_aim_idle": [
+      0,
+      0,
+      0
+    ],
+    "rifle_full_auto": [
+      0,
+      0,
+      0
+    ]
+  },
+  "variants": {
+    "rifle_reload": {
+      "duration": 2.6500000953674316,
+      "samples": 637,
+      "min": -0.03999999910593033,
+      "max": -0.03999999910593033,
+      "travel": 0,
+      "maxStep": 0,
+      "finalBolt": [
+        -0.03999999910593033,
+        0.1080000028014183,
+        -0.026000000536441803
+      ],
+      "dropped": [
+        0,
+        0,
+        0
+      ],
+      "seated": [
+        1,
+        1,
+        1
+      ]
+    },
+    "rifle_reload_empty": {
+      "duration": 3.450000047683716,
+      "samples": 829,
+      "min": -0.07400000095367432,
+      "max": -0.03999999910593033,
+      "travel": 0.03400000184774399,
+      "maxStep": 0.0031480092774719692,
+      "finalBolt": [
+        -0.03999999910593033,
+        0.1080000028014183,
+        -0.026000000536441803
+      ],
+      "dropped": [
+        0,
+        0,
+        0
+      ],
+      "seated": [
+        1,
+        1,
+        1
+      ]
+    },
+    "switch_to_full_auto_bolt": [
+      -0.03999999910593033,
+      0.1080000028014183,
+      -0.026000000536441803
+    ],
+    "empty_slow_time": 2.3383499999999975,
+    "viewer_balance": {
+      "in_place": {
+        "maxFootDrift": 7.105122416252071e-07,
+        "hipZRange": 0.007000000216066837
+      },
+      "root_motion": {
+        "maxFootDrift": 7.105122416252071e-07,
+        "hipZRange": 0.007000000216066837
+      }
+    }
+  }
+}

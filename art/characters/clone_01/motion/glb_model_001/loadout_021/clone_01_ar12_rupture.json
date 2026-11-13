@@ -1,0 +1,109 @@
+{
+  "recipe": "ar12_reload_dynamics_008",
+  "source": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+  "output": "art/characters/clone_01/motion/glb_model_001/loadout_021/clone_01_ar12_rupture.glb",
+  "source_sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767",
+  "output_sha256": "237c4221c89903e2cc21d3b2b47002da89207cf68b430f31b5ee53cfc6c86b36",
+  "existing_clips_preserved": [
+    "gunplay",
+    "gunplay_auto",
+    "peek_aim",
+    "rifle_aim_idle",
+    "rifle_idle",
+    "shoot_rifle"
+  ],
+  "carried_clips": [
+    {
+      "name": "rifle_full_auto",
+      "source": "art/characters/clone_01/motion/glb_model_001/full_auto_005/clone_01_ar12_rupture.glb",
+      "source_sha256": "8a8efda396120a4f3f49dc99a1fdbe53da42ee209cae7a851ba7f118c4a841af",
+      "track_values_preserved": true
+    }
+  ],
+  "new_clips": [
+    {
+      "name": "rifle_reload",
+      "duration_seconds": 2.65,
+      "samples": 160,
+      "events": {
+        "grasp": 0.47,
+        "extract": 0.47,
+        "drop": 0.65,
+        "ground": 1.1166666666666667,
+        "new_visible": 0.9833333333333333,
+        "pickup": 1.01,
+        "draw": 1.08,
+        "align": 1.48,
+        "insert": 1.64,
+        "seat": 1.77,
+        "seating_impact": 1.79,
+        "seated_mesh_swap": 1.95,
+        "release": 1.88,
+        "ready": 2.55
+      },
+      "max_hand_reach_error": {
+        "Left": 0.0,
+        "Right": 0.0
+      },
+      "max_right_wrist_contact_error": 2.6945789820192466e-16,
+      "max_leg_reach_error": 0.0,
+      "discard_velocity": [
+        0.323349941706027,
+        -0.32627159771219105,
+        0.0778551159976337
+      ]
+    },
+    {
+      "name": "rifle_reload_empty",
+      "duration_seconds": 3.45,
+      "samples": 208,
+      "events": {
+        "grasp": 0.47,
+        "extract": 0.47,
+        "drop": 0.65,
+        "ground": 1.1166666666666667,
+        "new_visible": 0.9833333333333333,
+        "pickup": 1.01,
+        "draw": 1.08,
+        "align": 1.48,
+        "insert": 1.64,
+        "seat": 1.77,
+        "seating_impact": 1.79,
+        "seated_mesh_swap": 1.95,
+        "release": 1.88,
+        "ready": 3.35,
+        "bolt_reach": 2.14,
+        "bolt_pull": 2.22,
+        "bolt_back": 2.42,
+        "bolt_release": 2.5,
+        "bolt_closed": 2.58
+      },
+      "max_hand_reach_error": {
+        "Left": 0.0,
+        "Right": 0.0
+      },
+      "max_right_wrist_contact_error": 2.6945789820192466e-16,
+      "max_leg_reach_error": 0.0,
+      "discard_velocity": [
+        0.323349941706027,
+        -0.32627159771219105,
+        0.0778551159976337
+      ]
+    }
+  ],
+  "fps": 60,
+  "palm_contact": [
+    -0.024,
+    0.047,
+    -0.026
+  ],
+  "magazine_triangles": 288,
+  "max_hand_reach_error": {
+    "Left": 0.0,
+    "Right": 0.0
+  },
+  "max_right_wrist_contact_error": 2.6945789820192466e-16,
+  "generation_seconds": 22.557,
+  "paid_api_calls": 0,
+  "review_status": "pending"
+}

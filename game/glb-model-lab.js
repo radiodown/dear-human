@@ -9,11 +9,11 @@ const FX_URL = './glb-burst-fx.js';
 export const MODELS = {
   clone_01: {
     // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
-    loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/clone_01/motion/glb_model_001/loadout_014/clone_01_ar12_rupture.glb', file: 'clone_01_ar12_rupture.glb' }, hp14t_gemini: { label: 'HP-14T 제미니 (쌍권총)', url: '/art/characters/clone_01/motion/glb_model_001/loadout_011/clone_01_hp14t_gemini.glb', file: 'clone_01_hp14t_gemini.glb' } },
+    loadouts: { ar12_rupture: { label: 'AR-12 럽처', url: '/art/characters/clone_01/motion/glb_model_001/loadout_021/clone_01_ar12_rupture.glb', file: 'clone_01_ar12_rupture.glb' }, hp14t_gemini: { label: 'HP-14T 제미니 (쌍권총)', url: '/art/characters/clone_01/motion/glb_model_001/loadout_011/clone_01_hp14t_gemini.glb', file: 'clone_01_hp14t_gemini.glb' } },
     url: '/art/characters/clone_01/motion/glb_model_001/source/version04.glb',
     file: 'version04.glb',
-    labels: { rifle_reload: '소총 장전 · 탄창 교체', 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', dual_idle: '쌍권총 대기', dual_idle_high: '쌍권총 대기 2 · 총구 위로', dual_fire: '쌍권총 사격', dual_kneel_fire: '쌍권총 앉아 사격', dual_walk: '쌍권총 걷기', dual_run: '쌍권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기' },
-    once: { rifle_reload: .65 },
+    labels: { rifle_full_auto: '풀오토 · 빠른 연사 (750 RPM)', rifle_reload: '장전 · 잔탄 있음', rifle_reload_empty: '장전 · 탄 소진 + 노리쇠', 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'scared_01.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', dual_idle: '쌍권총 대기', dual_idle_high: '쌍권총 대기 2 · 총구 위로', dual_fire: '쌍권총 사격', dual_kneel_fire: '쌍권총 앉아 사격', dual_walk: '쌍권총 걷기', dual_run: '쌍권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기' },
+    once: { rifle_reload: .65, rifle_reload_empty: .65 },
     // Clips kept in the GLB but hidden from the tab by user request (2026-11-09).
     hidden: ['캐릭터가 뛰게 해줘.001', '계속 반복해서 빠르게 달리는 동작.001'],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
@@ -390,7 +390,9 @@ export class GlbModelLab {
   render() {
     if (!this.renderer || !this.current) return;
     const { hips, hipsRest } = this.current;
-    if (this.inPlace && hips && hipsRest) { hips.position.x = hipsRest.x; hips.position.z = hipsRest.z; }
+    // These clips keep the feet planted while the hips shift to support the effort.
+    const authoredBalance = ['rifle_full_auto', 'rifle_reload', 'rifle_reload_empty'].includes(this.clipName);
+    if (this.inPlace && hips && hipsRest && !authoredBalance) { hips.position.x = hipsRest.x; hips.position.z = hipsRest.z; }
     if (this.gunFx && this.action) {
       this.current.root.updateMatrixWorld(true);
       this.gunFx.enabled = this.gunEffects;

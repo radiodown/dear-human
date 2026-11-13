@@ -1,0 +1,84 @@
+{
+  "date": "2026-11-13",
+  "recipe_key": "ar12_reload_dynamics_008",
+  "request": "Vary acceleration, force and body response during discard, insertion and charging handle operation",
+  "paid_api_calls": 0,
+  "manual_work_seconds": null,
+  "art_direction_status": "awaiting_user_review",
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+      "sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/clone_01_ar12_rupture.glb",
+      "sha256": "8a8efda396120a4f3f49dc99a1fdbe53da42ee209cae7a851ba7f118c4a841af"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/before/glb-model-lab.js",
+      "sha256": "f60dbe434ec42d5b6bae7c957da906e41a3b60a2fe94617e4c9f57542079c5c3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/before/make_rifle_reload.py",
+      "sha256": "dd13f9eb0b4ddbdeab434b57c380e4a36d7c4c10d5687fd33fb0038081b8584f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/before/review_rifle_reload.py",
+      "sha256": "782e7dc9471761c0f3a4ed021e38dadb4118e0935514c3760b6cdd6a191f2e68"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/clone_01_ar12_rupture.glb",
+      "sha256": "237c4221c89903e2cc21d3b2b47002da89207cf68b430f31b5ee53cfc6c86b36"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/clone_01_ar12_rupture.json",
+      "sha256": "5ac4fc4d0165705d26c4c793d4d6e94bfda4614fb888068233fbff72a17d695a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/source_snapshot/glb-model-lab.js",
+      "sha256": "53b2c0bf27bae75e92e6adc9ef424e86fdbbfc849c3586cd173c99eefbded5a1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/source_snapshot/make_rifle_reload.py",
+      "sha256": "9272f03fd5a11c1eb7eb5164562f9f6c650c550fed64a34866b7590fbc04d1f2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/source_snapshot/review_rifle_reload.py",
+      "sha256": "1a9f9403039b722a0a79f1226e1a6e627f949af0312d6e1f89502a8445c578a5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/discard_continuity.json",
+      "sha256": "e78dc9cedbdb30bd548eeed6bd13a2735d1be49fec74a1c5074494c653ee5c0a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/dynamics.json",
+      "sha256": "9a55ce87202a575e1a7c19d9314aa89611a13abf68db97a4a0bfcac1cfe5e7ee"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/reload_variants.json",
+      "sha256": "166d1f5118779efe50a87c2bbda44d13f84ffa3c10f2aa0d2e5d231945dd422b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/render.json",
+      "sha256": "174890d527306e01b28a8e0d7edd127452a0533598c718b242d04feb76b291ec"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/rig_checks.json",
+      "sha256": "858e4e1defd2f29d2b2857e2e43efaf4bd6999b33e9826a54ecc6f5eb969971a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/viewer.json",
+      "sha256": "38362bfac00041d7ef91fcc8a675b4e68fe5f7c900788d3497bc2edc7ddb6c1b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/motion_sequence.png",
+      "sha256": "d6b7dfe0beb49dfb1710c4e81aa89ca65c7e8521798dfc71f5710f118e1bcfe1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/bolt_back.png",
+      "sha256": "7e54e6da863aff636ff028c63d5bb235e0cc571151fb762cc1f8619a104cc5f3"
+    }
+  ]
+}

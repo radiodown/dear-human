@@ -1,0 +1,32 @@
+{
+  "id": "sg23-breacher",
+  "revision": "008",
+  "title": "SG-23 브리처",
+  "role": "아렌 · 펄스 샷건",
+  "dir": "sg23-breacher_008",
+  "source": "art/weapons/wiki_concepts_001/sg23-breacher_008/source/illustration.png",
+  "asset": "assets/weapons/sg23-breacher-008.png",
+  "sha256": "e5ffae22da39523ff93c60950d2ac4e41072895b0f55488f779289a94b3c45cf",
+  "width": 1536,
+  "height": 1024,
+  "status": "user-approved",
+  "accepted_on": "2026-11-13",
+  "tool": "built-in image_gen.imagegen",
+  "model": "not exposed by tool",
+  "cost": null,
+  "elapsed_seconds": 27.6,
+  "generation_timestamp": null,
+  "error": null,
+  "prompt": "art/weapons/wiki_concepts_001/sg23-breacher_008/records/prompt.json",
+  "reference_sha256": "0c4000ad4f3c0d64c926b5eb465214da514f14ec958cf72e6a0170171f55ffc9",
+  "reference_archive": "art/weapons/wiki_concepts_001/sg23-breacher_008/records/preview-before.png",
+  "verification": "untested",
+  "scope": "Approved concept and wiki/library update only; prior GLB and loadouts preserved.",
+  "known_difference": "Compensator lower edge extends slightly below main body in the accepted image.",
+  "previous_failed_request_ids": [
+    "4d277422-5cf7-41fa-ab05-3932abdaea55",
+    "80199cd3-a75c-47b4-ab0a-80e8b31b9be4",
+    "8020ff7e-27c2-4c44-9ef5-35129bb2ad2f"
+  ],
+  "previous_failures": "Three built-in calls returned moderation_blocked (violence); no image artifacts."
+}

@@ -1,0 +1,72 @@
+{
+  "date": "2026-11-13",
+  "recipe_key": "ar12_tilt_reload_005",
+  "request": "Reduce mechanical reload motion using curved continuous travel and overlapping elbow, wrist and fingers",
+  "paid_api_calls": 0,
+  "manual_work_seconds": null,
+  "art_direction_status": "awaiting_user_review",
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+      "sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/clone_01_ar12_rupture.glb",
+      "sha256": "79033b585e797786920a0b14040876dc6f0573b178afd7e41746de80435c2367"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/before/glb-model-lab.js",
+      "sha256": "748c3f8ed516fd83df3117a4226fb4b10fbd71b8a647e1c02297b16211f67173"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/before/make_rifle_reload.py",
+      "sha256": "c4c6a0f7283997483a5e9ca9e6ccc4c384055f4c68f82aedb5cfee4dd30ba9bd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/before/review_rifle_reload.py",
+      "sha256": "ee28e0a46ec72b36a5683bbfe93c62f9aba75e848f2b0628774366b03998e6f3"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/clone_01_ar12_rupture.glb",
+      "sha256": "ee5b317bca20c3509bef0e95f758b0173552e0a506717cd1638a885a5a3b06f4"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/clone_01_ar12_rupture.json",
+      "sha256": "34bc1a17f77660066db63fd2d07b9f5b89824de0e4bf7da78795b36f44d4c20b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/source_snapshot/glb-model-lab.js",
+      "sha256": "af2006560595b13d4543303d832310d474a5dcdbf27c6c26b05aa7edfce046e6"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/source_snapshot/make_rifle_reload.py",
+      "sha256": "64af7a13c16305d0f206fb45e0d8a27be38a2530daba9b975f769b1dda4eaae7"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/source_snapshot/review_rifle_reload.py",
+      "sha256": "b071625d7041b5c2e30aa7c34cb1a80a715f7368b7f864eb0d7d23de030405ce"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/magazine_continuity.json",
+      "sha256": "7b3702432c0dcb1045f54c807565698f76eb3745f3404f2d86d12bb3ea00ec90"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/render.json",
+      "sha256": "0836cae042daac02f978abd7c3e214c31b6746967d0185b561423f04c906e052"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/rig_checks.json",
+      "sha256": "b81ca7b98d589e1aec2596e33ad25b139608a5e97788dbc14f7503dfc2afad03"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/viewer.json",
+      "sha256": "7a049f5e75fdedab15d5c095dc54d19b6b11a00b4158d2e22116626091fcf05e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/motion_sequence.png",
+      "sha256": "b4f5c6f5bca8e435a6b5c630900cedf840d82a3980090ada03db0c241bda1ce2"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "original": {
+    "version": "loadout_017",
+    "clip": "gunplay_auto",
+    "sample_count": 81,
+    "local_rotation_from_first_degrees": {
+      "Hips": 3.1665806454207592,
+      "Spine": 1.365896310030427,
+      "Spine1": 0.8024708474426092,
+      "Spine2": 0.8064887599511992,
+      "Neck": 2.436730696144778,
+      "Head": 2.436738247050613,
+      "RightShoulder": 3.576197158604176,
+      "LeftShoulder": 2.4101773166262723
+    }
+  },
+  "previous_fast": {
+    "version": "loadout_015",
+    "clip": "rifle_full_auto",
+    "sample_count": 81,
+    "local_rotation_from_first_degrees": {
+      "Hips": 0.0,
+      "Spine": 0.0,
+      "Spine1": 0.19962962668865405,
+      "Spine2": 0.0,
+      "Neck": 0.0,
+      "Head": 0.14814776983318398,
+      "RightShoulder": 0.0,
+      "LeftShoulder": 0.0
+    }
+  },
+  "updated_fast": {
+    "version": "loadout_018",
+    "clip": "rifle_full_auto",
+    "sample_count": 81,
+    "local_rotation_from_first_degrees": {
+      "Hips": 3.1665806454207592,
+      "Spine": 1.370900193503899,
+      "Spine1": 0.8058491329249864,
+      "Spine2": 0.8102748074078168,
+      "Neck": 2.4367310295060354,
+      "Head": 2.436738247050613,
+      "RightShoulder": 3.576197158604176,
+      "LeftShoulder": 2.4101773166262723
+    }
+  },
+  "seven_other_clips_preserved": true,
+  "input_binary_preserved": true
+}

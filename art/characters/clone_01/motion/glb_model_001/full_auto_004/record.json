@@ -1,0 +1,83 @@
+{
+  "date": "2026-11-13",
+  "recipe_key": "ar12_full_auto_stable_aim_004",
+  "art_direction_status": "awaiting_user_review",
+  "files": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/before/glb-model-lab.js",
+      "sha256": "31586ec5371c778e18939afce97b3da7f3f52b307b51287b9a4cb7e76ca42973"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/before/make_rifle_full_auto.py",
+      "sha256": "820494304c38866450d92619816de23845ee60ec7cf12aef71a020db65fe5f17"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/before/review_rifle_full_auto.py",
+      "sha256": "2228444fbd25f4df3d86acf4bffd76fd24a514f62fa5d7a13f0c0f0af78544a2"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/clone_01_ar12_rupture.glb",
+      "sha256": "c20e9162a5557ee61f2b0a0fc607e4d1962b2b645fd7d24573cf242fe9286432"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/clone_01_ar12_rupture.json",
+      "sha256": "e312ebbc54eeca3a3eb0165c0a7914a662f345e4b567de43b97a76f9bd4fd9fe"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/README.md",
+      "sha256": "82ffccdff1561c6f488f477b09d283c4489ecd9fde75fafd1bbf1177121a373b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/aim_comparison.json",
+      "sha256": "ffa1f52cb6c44795560f4da6fa7266284d257693433a8952e1bf9d80985a6d1c"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/full_auto_angle.png",
+      "sha256": "644705ceb43b53520d173dc8d69519e58ff1c1ae44ef4df98043c44e54b231e5"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/full_auto_side.png",
+      "sha256": "690364487937ae781b712ee0ec64d1210d6710dc5491f3f948d01bec89f0b973"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/stance_brace.png",
+      "sha256": "c2fba43d618490cd5bc3382536c50214a6d20e2308bda59e4fa83e90542e3034"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/stance_planted.png",
+      "sha256": "a474ce05ec356d8982aa8efb9d884bf1d21e60209d0c003a5e6918ae68cfe229"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/stance_recover.png",
+      "sha256": "305771eb770f70cfa79eb9cedccfde3b121da6bf2ab86d5d30459f019dbbadd1"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/stance_retreat.png",
+      "sha256": "322ac79aa4a1ed2909ae24b436213d4f234fd59aaa72b31bdb92a06a0d38089e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/viewer.json",
+      "sha256": "294aa01644a8930a5965562cb0920c00aa7d894d8dd6dc90615348d45464a948"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/glb-gun-fx.js",
+      "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/glb-model-lab.js",
+      "sha256": "37f76ca247be28586838c40174a3dff6d4a73b29bf5c4098b3cd1d838607232e"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/make_rifle_full_auto.py",
+      "sha256": "b6d7bee92992ce4ca93acad01068981eb33b404da493641e67895996b1b8e030"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/make_rifle_reload.py",
+      "sha256": "dd13f9eb0b4ddbdeab434b57c380e4a36d7c4c10d5687fd33fb0038081b8584f"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/review_rifle_full_auto.py",
+      "sha256": "cc6627ba2c1ddffd82cb641eb6e898622fb0da4a1624543df58939d811411e0c"
+    }
+  ]
+}

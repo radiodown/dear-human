@@ -1,0 +1,52 @@
+{
+  "recipe": "ar12_drop_reload_006",
+  "source": "art/characters/clone_01/motion/glb_model_001/loadout_007/clone_01_ar12_rupture.glb",
+  "output": "art/characters/clone_01/motion/glb_model_001/loadout_017/clone_01_ar12_rupture.glb",
+  "source_sha256": "c996e43679e6f0930fb46e9d0f45bedf6aba8bca627ce1690cad0ca972f5f767",
+  "output_sha256": "442f76caad22491bd1f85f339f58600109bc4b3475be3f97a5f661f9b6201353",
+  "existing_clips_preserved": [
+    "gunplay",
+    "gunplay_auto",
+    "peek_aim",
+    "rifle_aim_idle",
+    "rifle_idle",
+    "shoot_rifle"
+  ],
+  "carried_clips": [
+    {
+      "name": "rifle_full_auto",
+      "source": "art/characters/clone_01/motion/glb_model_001/loadout_015/clone_01_ar12_rupture.glb",
+      "source_sha256": "79033b585e797786920a0b14040876dc6f0573b178afd7e41746de80435c2367",
+      "track_values_preserved": true
+    }
+  ],
+  "new_clip": "rifle_reload",
+  "duration_seconds": 2.65,
+  "fps": 60,
+  "samples": 160,
+  "events": {
+    "grasp": 0.47,
+    "extract": 0.47,
+    "drop": 0.65,
+    "ground": 1.1166666666666667,
+    "new_visible": 0.9833333333333333,
+    "pickup": 1.01,
+    "draw": 1.08,
+    "align": 1.55,
+    "insert": 1.55,
+    "seat": 1.77,
+    "seating_impact": 1.79,
+    "seated_mesh_swap": 1.95,
+    "release": 1.88,
+    "ready": 2.55
+  },
+  "magazine_triangles": 288,
+  "max_hand_reach_error": {
+    "Left": 0.0,
+    "Right": 0.0
+  },
+  "max_right_wrist_contact_error": 2.9504581591051765e-16,
+  "generation_seconds": 5.255,
+  "paid_api_calls": 0,
+  "review_status": "pending"
+}

@@ -1,0 +1,56 @@
+{
+  "before": {
+    "magazine_speed_relative_to_gun": {
+      "lift": {
+        "mean_speed": 0.44441360082973935,
+        "peak_speed": 0.5912436570455664,
+        "min_speed": 0.10495018681522404
+      },
+      "alignment": {
+        "mean_speed": 0.32134899685982726,
+        "peak_speed": 0.3752804275520285,
+        "min_speed": 0.29933337959140666
+      },
+      "seat_push": {
+        "mean_speed": 0.1716136415468626,
+        "peak_speed": 0.2815407964380816,
+        "min_speed": 0.00909714312695529
+      }
+    },
+    "bolt_effort_world_rotation_degrees": {
+      "Hips": 0.019782340734666507,
+      "Spine2": 0.05233915471458454,
+      "LeftShoulder": 0.08622922402765781,
+      "RightShoulder": 0.05417616828927543,
+      "Head": 0.09989591660119948
+    },
+    "pelvis_travel": 2.2215302514227986e-16
+  },
+  "after": {
+    "magazine_speed_relative_to_gun": {
+      "lift": {
+        "mean_speed": 0.6574596073860778,
+        "peak_speed": 1.1138303889622272,
+        "min_speed": 0.2744910735829011
+      },
+      "alignment": {
+        "mean_speed": 0.18651263551646077,
+        "peak_speed": 0.22964344961907962,
+        "min_speed": 0.1082899336599193
+      },
+      "seat_push": {
+        "mean_speed": 0.1964981807973882,
+        "peak_speed": 0.4916450785888117,
+        "min_speed": 0.024658353300851147
+      }
+    },
+    "bolt_effort_world_rotation_degrees": {
+      "Hips": 2.505660669178748,
+      "Spine2": 9.76689149652734,
+      "LeftShoulder": 10.576696116122157,
+      "RightShoulder": 9.335553970271741,
+      "Head": 11.442806075318785
+    },
+    "pelvis_travel": 0.008830434423992088
+  }
+}

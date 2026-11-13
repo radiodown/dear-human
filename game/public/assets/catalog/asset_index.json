@@ -8693,6 +8693,917 @@
             "type": "glb_model",
             "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
           }
+        },
+        {
+          "revision_id": "glb_ar12_full_auto_015",
+          "display_name": "GLB / Lian AR-12 full auto 015 (750 RPM)",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Original seven animations and binary preserved in 015; actual Chromium shared viewer with merged 016: 800 samples, 40 shots, hand/foot contact and loop continuity, slow playback/pause/FX toggle/reload transition. Art review pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_full_auto_001",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/AR12_FULL_AUTO.md",
+              "sha256": "9f48b18223cf3d943600cc53e7eee9da6942ed5378c3118eb71a628b44ffacb6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/clone_01_ar12_rupture.glb",
+              "sha256": "79033b585e797786920a0b14040876dc6f0573b178afd7e41746de80435c2367"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/clone_01_ar12_rupture.json",
+              "sha256": "f1f10ff3f75b6259052906396f8f8b9d4ccf517a0b4f98cd1420b60c522503bf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/reviews/full_auto_angle.png",
+              "sha256": "7e4cf9b7e465e212094296d9d5667e9c863667c1ca0e3ed11d39bb2ee948b526"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/reviews/full_auto_side.png",
+              "sha256": "bd6045f2d69489eec0daaa366515b72e480e1c649d54975974f4ad2009fe3d8a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/reviews/viewer.json",
+              "sha256": "4a558223b1324888480956315b17a23b40d54033f67670c77ebc44d3b60a4e7b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/source_snapshot/glb-gun-fx.js",
+              "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/source_snapshot/glb-model-lab.js",
+              "sha256": "af2006560595b13d4543303d832310d474a5dcdbf27c6c26b05aa7edfce046e6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/source_snapshot/make_rifle_full_auto.py",
+              "sha256": "84e98133d5ca61aeba9e524954c7d2a27c4bb7c6bfe8a231dbbd8f41fab99d95"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/source_snapshot/make_rifle_reload.py",
+              "sha256": "c4c6a0f7283997483a5e9ca9e6ccc4c384055f4c68f82aedb5cfee4dd30ba9bd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_015/source_snapshot/review_rifle_full_auto.py",
+              "sha256": "9b3cd2d6049c7a067d8fe66fc9d9e3c9fbd3f6e5bcf2aec460f4bd4c6b56b975"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "glb_ar12_reload_014"
+            }
+          ],
+          "motions": [
+            "rifle_full_auto"
+          ],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_full_auto"
+          }
+        },
+        {
+          "revision_id": "glb_ar12_reload_016",
+          "display_name": "GLB / Lian AR-12 continuous hand motion 016",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Actual Chromium AnimationMixer 240Hz, 637 samples: no magazine gaps/duplicates, coincident handoffs. Original six clips/binary and 015 full-auto track values preserved. Foot/palm targets and finger motion sampled; shared viewer slow playback and clip switching; sequential poses inspected. Surface contact and art await user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_tilt_reload_005",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/clone_01_ar12_rupture.glb",
+              "sha256": "ee5b317bca20c3509bef0e95f758b0173552e0a506717cd1638a885a5a3b06f4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/clone_01_ar12_rupture.json",
+              "sha256": "34bc1a17f77660066db63fd2d07b9f5b89824de0e4bf7da78795b36f44d4c20b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/source_snapshot/glb-model-lab.js",
+              "sha256": "af2006560595b13d4543303d832310d474a5dcdbf27c6c26b05aa7edfce046e6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/source_snapshot/make_rifle_reload.py",
+              "sha256": "64af7a13c16305d0f206fb45e0d8a27be38a2530daba9b975f769b1dda4eaae7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/source_snapshot/review_rifle_reload.py",
+              "sha256": "b071625d7041b5c2e30aa7c34cb1a80a715f7368b7f864eb0d7d23de030405ce"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/magazine_continuity.json",
+              "sha256": "7b3702432c0dcb1045f54c807565698f76eb3745f3404f2d86d12bb3ea00ec90"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/render.json",
+              "sha256": "0836cae042daac02f978abd7c3e214c31b6746967d0185b561423f04c906e052"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/rig_checks.json",
+              "sha256": "b81ca7b98d589e1aec2596e33ad25b139608a5e97788dbc14f7503dfc2afad03"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/viewer.json",
+              "sha256": "7a049f5e75fdedab15d5c095dc54d19b6b11a00b4158d2e22116626091fcf05e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/reviews/motion_sequence.png",
+              "sha256": "b4f5c6f5bca8e435a6b5c630900cedf840d82a3980090ada03db0c241bda1ce2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/AR12_RELOAD.md",
+              "sha256": "bf6ee1c935579a072801aa341fc29f0b11cd898f57e7e8788e15b463d698a5a8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_016/record.json",
+              "sha256": "b0991dffa92c157955e126733bc485873f6aaee4ceab17ace333ed6d9f891c92"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
+          }
+        },
+        {
+          "revision_id": "plan_f_glb_character_001",
+          "display_name": "플랜 F · 리안 GLB 캐릭터 001",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "implementation_only_user_verification_handoff",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ed39dd05d06428e102122d607a624dfc6f3f9495f4b7544aa4e74d330ce4c7d9",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/AGENTS.md",
+              "sha256": "b94473bdf69da17b66cbef522677743b8711f6c425e5fd5c6bfad39cb7d7d1e0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/docs/plan-f-browser-3d-feasibility-001.md",
+              "sha256": "cedfc2fd5df458df858ab6701aec94c3a33e6cdc17b1b907ea862eeebd316f92"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/index.html",
+              "sha256": "c5fbf779ed9bb370616bd477924aa88293ef8870f7c45449601df106f3ae0649"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/anatomy.js",
+              "sha256": "69ae87e1285d8ac02deca6ec1a9795c22c1f35f68cab36f91808b7c52a2d4c3d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/containers.js",
+              "sha256": "4dad346a5657daa4e5dbdc7d6d7371a6bc84c9b578906a0f86cfa43d0b96b0e3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/effects.js",
+              "sha256": "9b7ef207fe2c80950e500767710bffa75464bb13238349f9730201ee343ff850"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/environment.js",
+              "sha256": "e9753050e4f63317d26b168da54651c411c0cc02656e804305bc110be360b647"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/geometry.js",
+              "sha256": "afe9e786ace6a43c3946030e9a9eff1cb2d52e81a2f014656e4ae3416ab4c5c5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/glb-character.js",
+              "sha256": "8831df2dffee18e049d2947ecf3ffd5958f1eece6f2dc5043ce8fbf870163114"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-body.js",
+              "sha256": "3c39ceb2a65cd8e1f4b1feb7ec78eedf45c059e15c11362d74da83eb664ba41f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-clothing.js",
+              "sha256": "0a5716ca7f4e7ff51db24dd490663540b0b4827691971f5aa54e120798ac5d4e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-hands.js",
+              "sha256": "2b4f53f7ba15557191db2c94695af3b81a33f2d1aa125874b744f7bcf87172bd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-head.js",
+              "sha256": "226ef274a82c04876ece8cac0b661b3d64fe3e57c856bb898d1ecfce48115e63"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/human-surface.js",
+              "sha256": "4283a3a3dfdcd28713d86f4178fc61b4ac605f40cf6704c52aa2e467d2885f7d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/index.js",
+              "sha256": "367b0c29e2d83d80af0415efd1121fad85309bafaed8cc69b88b1ecac6852279"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/inspection-stage.js",
+              "sha256": "92b5f320b9d9d6563e0cdb28d4f7a838c9cd9fb724bc54b09fdd56bac7e03832"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/materials.js",
+              "sha256": "7c47b810711f2a75ae681f52eeeea6af6f6c23deeec33362e986432a74809549"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/model-build.js",
+              "sha256": "2e3744fcbb8f230d9f5929baf1a11e053c03a48e313bd7be142538d4ba566f81"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/model.js",
+              "sha256": "acd7143fa567ac366cc64aeb37494192e9fd35864a71fea6df17fef7f0d8d70b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/motion.js",
+              "sha256": "fa1138369c7d5343674aed850306ca9db4420293f317f16ca0a5b95e55b02d59"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/neutral-pose.js",
+              "sha256": "61662dc5a811fab4114a77cceaefd48d68e9220f6b023ac6082303e25b3ce1a9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/reload-pose.js",
+              "sha256": "842f4936daedcff5995d099290f67e9dcb3793ab594bd5c9059f5ef8e5be5c81"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/reload.js",
+              "sha256": "a38460a11535ceb33104586d18b8ee9c9ef84f942299eec1cd2ce9fb9c46ea82"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/render.js",
+              "sha256": "e0c6eaed3da7d2093a209fba693036708908f206468bfc0a5cf8720d1b0e7550"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/simulation.js",
+              "sha256": "78c87976a644ab35106bc4a4161b83ce92acaa2b7fc904fee5da1c20832e2316"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/styles.css",
+              "sha256": "059609232d35466223dd0e3176bca562dce1058d0729cd0e7282d546a5ea99ce"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-build.js",
+              "sha256": "4e2493fb184a9c5ebc16e9569472acee03004196f99a8ae17bb1f2dbcad5f51c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-definition.js",
+              "sha256": "b1ec7e91c4ce0d0fe9375e8a332a46f0ae01cd9aca1a0ea84cfe34c4f1a11ce3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-materials.js",
+              "sha256": "7bc5b1214e0b617b2211d4c64d8a86e16f9b9b0b0ccee506da76ee39602940d5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-motion.js",
+              "sha256": "03d0a37ae23ba62d129835b6d31085bbeb4c1b0e945185a1208e97270e3d6881"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weapon-pose.js",
+              "sha256": "c40f94488b84921a62bbd43b28818e6884a7a5f9dd01ca704a538c81e4685cf8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/source_snapshot/game/plan-f/weathered-metal.js",
+              "sha256": "7d968a7caeb16896a1a1ef4848826552acb567df290daf92289712c083febe62"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/README.md",
+              "sha256": "75fa0f2c32ba88a8fcf8946d106d0a5eb5e7bde013c54972dd01c9494700d989"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/recipe.json",
+              "sha256": "ed39dd05d06428e102122d607a624dfc6f3f9495f4b7544aa4e74d330ce4c7d9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_001/record.json",
+              "sha256": "f1846533feec1989bc82d4fbe38a43ab0809690134cb162cd0876235733fb522"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/source/version04.glb",
+              "sha256": "4ebb9fbb8cb3f19ef5f32995c3d4b422e89bc2c031aa537deaaaeb3712cbbc34"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_f_right_handed_003"
+            }
+          ],
+          "description": "Character mesh, textures and Mixamo rig from existing version04 GLB; existing F procedural weapon, state, pose, environment and FX retained. Embedded clips unused. Awaiting user review.",
+          "sample_url": "#/samples/characters/clone_01?plan=f"
+        },
+        {
+          "revision_id": "plan_f_glb_character_002",
+          "display_name": "Plan F / Lian GLB character loading fix 002",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Actual Chromium page load/reload, single shot, reload ammo, crouch selection, neutral round trip, no console/page errors.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "plan-f-glb-mixamo-bone-name-normalization-002",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_002/source_snapshot/game/plan-f/glb-character.js",
+              "sha256": "6c270b41ef8081f64a2843ebdd26b39c981952360a52942b9ea326ddcf86fe78"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_002/source_snapshot/game/plan-f/index.js",
+              "sha256": "367b0c29e2d83d80af0415efd1121fad85309bafaed8cc69b88b1ecac6852279"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_002/reviews/browser.json",
+              "sha256": "11925aaeee5f0641aa59b42f44ad6cf50999d822eb6d08d1d3a89b4383360cba"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_002/reviews/loaded.png",
+              "sha256": "42ea379174e717104a0db9196cf584de0dcd024283d8af7707ebba481b4df39d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_002/reviews/neutral.png",
+              "sha256": "e12c8d29199b13dc1749cf48d7b1d1dd7a2c7429306d44d34af5479aa0691528"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_002/README.md",
+              "sha256": "d4b05b85a0c702051dc87a846fda1a7b3472c37ea69d397bdd7232b768d8d644"
+            },
+            {
+              "path": "art/characters/clone_01/motion/plan_f/glb_character_002/record.json",
+              "sha256": "38e9f454a0a49c0c007354d7aaeb0b5af0f0580e84e00a2953233775c809e6fd"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "plan_f_glb_character_001"
+            }
+          ],
+          "description": "GLTFLoader strips the colon from mixamorig:Hips; the prior map could not resolve Hips. Normalize Mixamo prefix with or without colon and optional numeric suffix.",
+          "sample_url": "#/samples/characters/clone_01?plan=f"
+        },
+        {
+          "revision_id": "glb_ar12_full_auto_018",
+          "display_name": "GLB / Lian AR-12 full-body auto recoil 018",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Original gunplay_auto/body recoil comparison; seven other clips and input binary retained; Chromium 018 800 samples/40 shots, hand contacts, loop seam, playback and reload switching. Original leg motion retained, art review pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_full_auto_body_002",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/AR12_FULL_AUTO.md",
+              "sha256": "15b90d14b62bb21829ad346cb1554493476fa2279e87762ca90774e52f74ee41"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/clone_01_ar12_rupture.glb",
+              "sha256": "ff66818af8ebe1be3a95c0ec8ddd8ad8085f23f61fc66d536337f73060d5df70"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/clone_01_ar12_rupture.json",
+              "sha256": "f5769abba5514a20135a629ebb76b55cf4e28113cf8866a51f97c4d7e248b78a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/reviews/body_comparison.json",
+              "sha256": "62f416fcfe8ff34544afdd3f2da37a5c0654391ce77ca9c51e7684800f8f728a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/reviews/full_auto_angle.png",
+              "sha256": "806585fee5e92b46c99957cc32afd92a505193003461fd240b7f273c73ef6bfd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/reviews/full_auto_side.png",
+              "sha256": "b6dea6c51f86ca6b407871bfb192877357a54918cf71662626f5034674449b7e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/reviews/viewer.json",
+              "sha256": "1dbcde8b052fb9f67cb1c13583747c636a579f53e5904149e572f94abad14f35"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/source_snapshot/glb-gun-fx.js",
+              "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/source_snapshot/glb-model-lab.js",
+              "sha256": "d0124b4dbedbef341c5655aec5caaee93c06f47643e1fcce1cc779c581fc7bef"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/source_snapshot/make_rifle_full_auto.py",
+              "sha256": "732c03b3d73e3f3d1e1408c797f684bc3df767f21a15c9c25a57682727296971"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/source_snapshot/make_rifle_reload.py",
+              "sha256": "97ad97add60eba0ca2382d363347b42f049c8dc22c2f1035291c2b20d2326890"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_018/source_snapshot/review_rifle_full_auto.py",
+              "sha256": "860e2ceb113bfd3f038035c44f526d087f53861ab6313a633b6bdf4865296276"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_017/clone_01_ar12_rupture.glb",
+              "sha256": "417d8151980678105e54fecf45190c234e877d5f5f1927941e7f025df7a8b4ce"
+            }
+          ],
+          "dependencies": [],
+          "motions": [
+            "rifle_full_auto"
+          ],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_full_auto"
+          }
+        },
+        {
+          "revision_id": "glb_ar12_reload_019",
+          "display_name": "GLB / Lian AR-12 discarded magazine and side grip reload 019",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Chromium 240Hz 637 samples: empty magazine handoff, ballistic fall, stable floor contact, replacement visibility and seated swap. Foot/palm contact and arm rotations checked; side sequence inspected; actual viewer slow playback and dropped object cleanup on idle/full-auto switch. Original six clips and 018 full-auto values preserved. Art/surface contact await user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_drop_reload_006",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/clone_01_ar12_rupture.glb",
+              "sha256": "30d5b076efe400ec30085216dcb0df99fb8317bc7205bd113070b1507ae1d783"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/clone_01_ar12_rupture.json",
+              "sha256": "e5117af9e48afb0e75482911ed3887f2bdae9d78152db353a8025c6ae5759404"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/source_snapshot/glb-model-lab.js",
+              "sha256": "a69053b1caa1ec50a8e14b71cdaff619c1b4b816cbff552b3f0de7a0bdf84b0d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/source_snapshot/make_rifle_reload.py",
+              "sha256": "2cea6aea98b3144ea7a6bffa08bff91ad53715415f6eeaef0308d520489c3f60"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/source_snapshot/review_rifle_reload.py",
+              "sha256": "18f72c57f6df8b97aca15b020d14bc6c5b388e09411fc2b9e03e62b10862516b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/discard_continuity.json",
+              "sha256": "40db82ca66480f1828deb05c88eb26e7e012da6cabbb3d59250851d1b4bb5336"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/render.json",
+              "sha256": "0836cae042daac02f978abd7c3e214c31b6746967d0185b561423f04c906e052"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/rig_checks.json",
+              "sha256": "7e0f78d57e8c7b1b185bd6f1422c6bbbcdf5504025abc57da701b712f18b52cd"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/viewer.json",
+              "sha256": "08b1ab7f493f63a0b138fdf696e4880e657be53b7fb57b970fc79d2bf374e3b9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/motion_sequence.png",
+              "sha256": "a8ec670d9a09439109f743ba6f59c2a82f78206c1149afa31a7d00d4d3e83759"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/reviews/dropped_on_floor.png",
+              "sha256": "ba533e2e2185aa47f7db5f3cf66d289ee4c0f590d32bfa05e80b9d6ea69aadb5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/AR12_RELOAD.md",
+              "sha256": "4ebefa3984d7abf9444f0a92f6f3d6fb9e30d71797e93c30872c5953201a96b0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/record.json",
+              "sha256": "7c1c10249e317b151af642b57964d91cae80b6570b87b7093e6c4459b30eb017"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload"
+          }
+        },
+        {
+          "revision_id": "glb_ar12_full_auto_020",
+          "display_name": "GLB / Lian AR-12 full-auto stagger and brace 020",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Seven other clips including 019 reload and input binary retained; Chromium 020: 800 samples/40 shots, front-foot/rear-plant stability, rear retreat/lift, hand contacts, loop seam and playback/reload switching; four-phase renders. Art review pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_full_auto_stagger_003",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/AR12_FULL_AUTO.md",
+              "sha256": "aabc7c1db1e5dc55e0748d27def76a868e5360c8a32a9431c028b784d4912e87"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/clone_01_ar12_rupture.glb",
+              "sha256": "a0ea030078520e1b0c7db32159bd5b824fd9da0ea224610ff27340921dcc4ab4"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/clone_01_ar12_rupture.json",
+              "sha256": "50aead4b95a851f2b052874412138a8fa2cf394e4a78d4a651978aaa1899c6f2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/full_auto_angle.png",
+              "sha256": "259cfc3a76160f44fbf4e0821c78a043494e3b62a50026febfa8b6adefb6640f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/full_auto_side.png",
+              "sha256": "4e58f5c0d79b629e69f225b9d2d1ac3fd462790a209e44142a6e0fff7bc42693"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/stance_brace.png",
+              "sha256": "cbb3b615e3506c797da45dd750554de02b476b29b25dae4f5d6b3d68341da0b2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/stance_planted.png",
+              "sha256": "a4c847e2f9b820849551d1d0989dfb9f963c4f4c38b76325f7ef27d9820a7c8d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/stance_recover.png",
+              "sha256": "edd903ff8cca82935df8d60453a64915c031ed739df4db497aec853abd49c8d8"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/stance_retreat.png",
+              "sha256": "f4c7af4d2118a958b4e63fce7d0b777c54c7c3dded3951a975e7ecb922c076cf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/viewer.json",
+              "sha256": "79c9bc23378b3d4de12958e9bbd6acb8b7b38e6efa41d7fb6c863a426307980e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/glb-gun-fx.js",
+              "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/glb-model-lab.js",
+              "sha256": "3eb094f4e9f8bcdf6ffb311a0eec0681e75f6ad7a5b109fd2cff154aeb288d0b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/make_rifle_full_auto.py",
+              "sha256": "820494304c38866450d92619816de23845ee60ec7cf12aef71a020db65fe5f17"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/make_rifle_reload.py",
+              "sha256": "5f7c965ac02eb8d6a1eb69cbebec9f9ee4ca668735492dc4ec9566b3fa228e13"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/review_rifle_full_auto.py",
+              "sha256": "2228444fbd25f4df3d86acf4bffd76fd24a514f62fa5d7a13f0c0f0af78544a2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_019/clone_01_ar12_rupture.glb",
+              "sha256": "30d5b076efe400ec30085216dcb0df99fb8317bc7205bd113070b1507ae1d783"
+            }
+          ],
+          "dependencies": [],
+          "motions": [
+            "rifle_full_auto"
+          ],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_full_auto"
+          }
+        },
+        {
+          "revision_id": "glb_ar12_reload_020",
+          "display_name": "GLB / Lian AR-12 side grip, tactical and empty reload 020",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Chromium 240Hz: tactical 637 samples with no bolt travel, empty 829 samples with pull/release and return. Shared viewer labels, slow playback and interrupted reload reset; palm contacts, planted feet, arm steps and magazine drop checked. Existing six clips/binary and 018 full-auto track values retained. Ammo-state selection not connected. Art/surface contact await review. Current full_auto_004 integration verified to retain identical reload definitions and track values; viewer checks rerun there.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_two_reloads_007",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/clone_01_ar12_rupture.glb",
+              "sha256": "b7c0891b4691e2c26e7bb7f16886463d051b37452386bbd541bc71bbd12bd269"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/clone_01_ar12_rupture.json",
+              "sha256": "e2dbd9f735416333c15f0f531799573938e259135e069eeb39b2223e2315d5bb"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/glb-gun-fx.js",
+              "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/glb-model-lab.js",
+              "sha256": "37f76ca247be28586838c40174a3dff6d4a73b29bf5c4098b3cd1d838607232e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/make_rifle_full_auto.py",
+              "sha256": "820494304c38866450d92619816de23845ee60ec7cf12aef71a020db65fe5f17"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/make_rifle_reload.py",
+              "sha256": "dd13f9eb0b4ddbdeab434b57c380e4a36d7c4c10d5687fd33fb0038081b8584f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/review_rifle_full_auto.py",
+              "sha256": "2228444fbd25f4df3d86acf4bffd76fd24a514f62fa5d7a13f0c0f0af78544a2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/source_snapshot/review_rifle_reload.py",
+              "sha256": "782e7dc9471761c0f3a4ed021e38dadb4118e0935514c3760b6cdd6a191f2e68"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/discard_continuity.json",
+              "sha256": "74e2a8a2d624710b1a2a07dc6b56f58afe05aef4d60431efb2ad97e715c3c31e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/reload_variants.json",
+              "sha256": "835f70efbebabe133ef6a5d7c38417abfde08b1ae1dac95284c9da3f6cd1b411"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/render.json",
+              "sha256": "174890d527306e01b28a8e0d7edd127452a0533598c718b242d04feb76b291ec"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/rig_checks.json",
+              "sha256": "5b4b449b23a86ff13fcf45f0df60d537011c9cd4f47e3e87aa31e29a95d2c67d"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/viewer.json",
+              "sha256": "f44dad33a1ec715f493c6760db704056cf75372655b06fbc52f6107c9c2c76a9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/motion_sequence.png",
+              "sha256": "251dcadd887caafe849978638573736fe189da53c8f2fb2ad4d02fd348d001cf"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/reviews/bolt_back.png",
+              "sha256": "0905491711a26fc4ae3d89975c47d432c39cb089f3f15f7fbbf0a0042d798aaa"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/AR12_RELOAD.md",
+              "sha256": "f2ff024631c7c9b800874df6abdb5c6542d3712ecdbc83b549446ce16e52fb31"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/record.json",
+              "sha256": "2e2885732880a92e74d0514a7e983c29e7cbeaff3f8404f6ef4dc8a3978dc269"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload_empty"
+          }
+        },
+        {
+          "revision_id": "glb_ar12_stable_aim_004",
+          "display_name": "GLB / Lian AR-12 full-auto stable aim 004",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Original angular recoil reduced to 12 percent; eight other clips including two reloads and input binary retained. Chromium: 800 samples/40 shots, pitch below 0.37 degrees, hand/foot contacts, stance recovery, loop, playback and clip switching. Art review pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_full_auto_stable_aim_004",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/clone_01_ar12_rupture.glb",
+              "sha256": "c20e9162a5557ee61f2b0a0fc607e4d1962b2b645fd7d24573cf242fe9286432"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/clone_01_ar12_rupture.json",
+              "sha256": "e312ebbc54eeca3a3eb0165c0a7914a662f345e4b567de43b97a76f9bd4fd9fe"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/README.md",
+              "sha256": "82ffccdff1561c6f488f477b09d283c4489ecd9fde75fafd1bbf1177121a373b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/aim_comparison.json",
+              "sha256": "ffa1f52cb6c44795560f4da6fa7266284d257693433a8952e1bf9d80985a6d1c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/full_auto_angle.png",
+              "sha256": "644705ceb43b53520d173dc8d69519e58ff1c1ae44ef4df98043c44e54b231e5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/full_auto_side.png",
+              "sha256": "690364487937ae781b712ee0ec64d1210d6710dc5491f3f948d01bec89f0b973"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/stance_brace.png",
+              "sha256": "c2fba43d618490cd5bc3382536c50214a6d20e2308bda59e4fa83e90542e3034"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/stance_planted.png",
+              "sha256": "a474ce05ec356d8982aa8efb9d884bf1d21e60209d0c003a5e6918ae68cfe229"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/stance_recover.png",
+              "sha256": "305771eb770f70cfa79eb9cedccfde3b121da6bf2ab86d5d30459f019dbbadd1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/stance_retreat.png",
+              "sha256": "322ac79aa4a1ed2909ae24b436213d4f234fd59aaa72b31bdb92a06a0d38089e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/reviews/viewer.json",
+              "sha256": "294aa01644a8930a5965562cb0920c00aa7d894d8dd6dc90615348d45464a948"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/glb-gun-fx.js",
+              "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/glb-model-lab.js",
+              "sha256": "37f76ca247be28586838c40174a3dff6d4a73b29bf5c4098b3cd1d838607232e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/make_rifle_full_auto.py",
+              "sha256": "b6d7bee92992ce4ca93acad01068981eb33b404da493641e67895996b1b8e030"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/make_rifle_reload.py",
+              "sha256": "dd13f9eb0b4ddbdeab434b57c380e4a36d7c4c10d5687fd33fb0038081b8584f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/source_snapshot/review_rifle_full_auto.py",
+              "sha256": "cc6627ba2c1ddffd82cb641eb6e898622fb0da4a1624543df58939d811411e0c"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_020/clone_01_ar12_rupture.glb",
+              "sha256": "b7c0891b4691e2c26e7bb7f16886463d051b37452386bbd541bc71bbd12bd269"
+            }
+          ],
+          "dependencies": [],
+          "motions": [
+            "rifle_full_auto"
+          ],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_full_auto"
+          }
+        },
+        {
+          "revision_id": "glb_ar12_shoulder_follow_005",
+          "display_name": "GLB / Lian AR-12 shoulder follow and source body recoil 005",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "Chromium 800 samples/40 shots; shoulder socket translation follows through retreat, cross-axis error below 0.000008 units, 16 body bones compared against original auto, planted feet, hands, pitch below 0.37 degrees, playback and clip switching. Eight other clips and binary preserved. Art review pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_full_auto_shoulder_follow_005",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/clone_01_ar12_rupture.glb",
+              "sha256": "8a8efda396120a4f3f49dc99a1fdbe53da42ee209cae7a851ba7f118c4a841af"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/clone_01_ar12_rupture.json",
+              "sha256": "2d5d98ecbeb139e8895c6a9a407ad093561ccd1f2289bbf52349a64cc312872f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/README.md",
+              "sha256": "a48936d010913246ec1de36b0f15577a96585ad8c58779c4955d55ccb8873ee0"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/attachment_comparison.json",
+              "sha256": "3c27734db7da264d0ec4ec9112967e8c5f61700c0f7f686a160a4eaa7cddde88"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/full_auto_angle.png",
+              "sha256": "ba1d141584d4f1f0683d7e72bd3053e6d961353f1acf79c75fc2b5f0fe69c219"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/full_auto_side.png",
+              "sha256": "7517d7b05df4ac4425f6b2187b8de2cfb48698d6ba37b9b8a4a0e090f5b9979e"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/reference_auto_recoil.png",
+              "sha256": "45bda392b94445f1529c9478e56c0f1d68678f70e5e26ad1365276b7dbbef420"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/stance_brace.png",
+              "sha256": "34c9b442ca1db57138bf31aa31609fe463b9b475e31d287f26b09ead7928febe"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/stance_planted.png",
+              "sha256": "58ecc42a037a5173858de1dfbff04cbc3fe211754441687648099762a1a35d86"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/stance_recover.png",
+              "sha256": "4fb5f07d6bf0a15782f171cf17fa9de7f9bfcceea78ba215df80f671854da663"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/stance_retreat.png",
+              "sha256": "99209b19e2f3839703bbbc3d0ea5cbf7a43dac63f98e31f6f490c381a166ad73"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/reviews/viewer.json",
+              "sha256": "dc12d9abf59908e10df3ca0312d6ea73070054f67c3f68f32110af13f4f23045"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/glb-gun-fx.js",
+              "sha256": "784e40123a021ca48e98686029f432c796f7afc492d2dc7dced68e5d27e5903b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/glb-model-lab.js",
+              "sha256": "f60dbe434ec42d5b6bae7c957da906e41a3b60a2fe94617e4c9f57542079c5c3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/make_rifle_full_auto.py",
+              "sha256": "f60702191aa8c35b4507e8a7b89984aca7fa72ef8baeef4c82ff5515e1e3e637"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/make_rifle_reload.py",
+              "sha256": "c03034fed3c068146c6a8f68726000cf76c6feda25b2cea038ba70e30b9a0c9f"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_005/source_snapshot/review_rifle_full_auto.py",
+              "sha256": "c89d3197b50459d51e88bb75514626ce767d306d66a34e2dd2463d958091260b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/full_auto_004/clone_01_ar12_rupture.glb",
+              "sha256": "c20e9162a5557ee61f2b0a0fc607e4d1962b2b645fd7d24573cf242fe9286432"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "character",
+              "entity_id": "clone_01",
+              "revision_id": "glb_ar12_stable_aim_004"
+            }
+          ],
+          "motions": [
+            "rifle_full_auto"
+          ],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_full_auto"
+          }
+        },
+        {
+          "revision_id": "glb_ar12_reload_021",
+          "display_name": "GLB / Lian AR-12 reload acceleration, impacts and body effort 021",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "GLB phase speeds and body-effort ranges compared with 020. Chromium 637/829 samples: bolt/drop behavior, palm/foot targets, actual in-place on/off hip shift and planted feet, slow playback and switching. Original six clips/binary and full_auto_005 values preserved. Artistic force portrayal, not rigid-body force simulation; art/surface contact await review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_reload_dynamics_008",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/clone_01_ar12_rupture.glb",
+              "sha256": "237c4221c89903e2cc21d3b2b47002da89207cf68b430f31b5ee53cfc6c86b36"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/clone_01_ar12_rupture.json",
+              "sha256": "5ac4fc4d0165705d26c4c793d4d6e94bfda4614fb888068233fbff72a17d695a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/source_snapshot/glb-model-lab.js",
+              "sha256": "53b2c0bf27bae75e92e6adc9ef424e86fdbbfc849c3586cd173c99eefbded5a1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/source_snapshot/make_rifle_reload.py",
+              "sha256": "9272f03fd5a11c1eb7eb5164562f9f6c650c550fed64a34866b7590fbc04d1f2"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/source_snapshot/review_rifle_reload.py",
+              "sha256": "1a9f9403039b722a0a79f1226e1a6e627f949af0312d6e1f89502a8445c578a5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/discard_continuity.json",
+              "sha256": "e78dc9cedbdb30bd548eeed6bd13a2735d1be49fec74a1c5074494c653ee5c0a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/dynamics.json",
+              "sha256": "9a55ce87202a575e1a7c19d9314aa89611a13abf68db97a4a0bfcac1cfe5e7ee"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/reload_variants.json",
+              "sha256": "166d1f5118779efe50a87c2bbda44d13f84ffa3c10f2aa0d2e5d231945dd422b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/render.json",
+              "sha256": "174890d527306e01b28a8e0d7edd127452a0533598c718b242d04feb76b291ec"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/rig_checks.json",
+              "sha256": "858e4e1defd2f29d2b2857e2e43efaf4bd6999b33e9826a54ecc6f5eb969971a"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/viewer.json",
+              "sha256": "38362bfac00041d7ef91fcc8a675b4e68fe5f7c900788d3497bc2edc7ddb6c1b"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/motion_sequence.png",
+              "sha256": "d6b7dfe0beb49dfb1710c4e81aa89ca65c7e8521798dfc71f5710f118e1bcfe1"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/reviews/bolt_back.png",
+              "sha256": "7e54e6da863aff636ff028c63d5bb235e0cc571151fb762cc1f8619a104cc5f3"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/AR12_RELOAD.md",
+              "sha256": "c450e483a352615120f291b079f44db6a545e6d83cda7d17ed41ca2d64a5cc23"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_021/record.json",
+              "sha256": "980c068474ceee2442a16e39beca28feca68beec0c832a4c15907a70a1946625"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload_empty"
+          }
         }
       ],
       "capabilities": [
@@ -14055,8 +14966,8 @@
       "entity_id": "sg23_breacher",
       "display_name": "SG-23 브리처",
       "status": "draft",
-      "selected_revision_id": null,
-      "review_revision_id": "model_3d_002",
+      "selected_revision_id": "concept_008",
+      "review_revision_id": "concept_008",
       "capabilities": [
         "concept_image",
         "weapon_model_3d"
@@ -14198,6 +15109,70 @@
           ],
           "preview": {
             "image_path": "art/weapons/wiki_concepts_001/sg23-breacher_007/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        },
+        {
+          "revision_id": "concept_008",
+          "display_name": "SG-23 브리처 · 펄스 샷건 원화 008",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "User approved image; site checks delegated to user. Existing GLB is the previous suppressor design.",
+          "art_direction_status": "approved",
+          "recipe_key": "sg23-pulse-concept-008",
+          "artifacts": [
+            {
+              "path": "art/weapons/wiki_concepts_001/sg23-breacher_008/source/illustration.png",
+              "sha256": "e5ffae22da39523ff93c60950d2ac4e41072895b0f55488f779289a94b3c45cf"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/sg23-breacher_008/README.md",
+              "sha256": "462592778a7f0c07654ca6b1be65d2a326f10447af06f56d523d41e9af7b1aec"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/sg23-breacher_008/records/prompt.json",
+              "sha256": "a47a6826778c402a2ce6bca90d2affc08ad18a373b5189d26a4e4b69e1c3f4aa"
+            }
+          ],
+          "dependencies": [],
+          "description": "아렌의 SF 펄스 샷건. 짧은 총신 연결부·직사각형 컴펜세이터·숫자형 잔탄 표시의 사용자 채택 원화. 3D 탭은 이전 소음기형 모델이다.",
+          "appearance_specs": [
+            [
+              "분류",
+              "펄스 샷건 · 아렌 부무장"
+            ],
+            [
+              "총구",
+              "짧은 연결부·직사각형 컴펜세이터"
+            ],
+            [
+              "표시기",
+              "AMMO 08 · 잔탄 예시, 최대 장탄수 미정"
+            ],
+            [
+              "펄스 체계",
+              "작동 원리·탄약·성능 미정"
+            ],
+            [
+              "3D 모델",
+              "이전 소음기형 · 새 외형 미반영"
+            ]
+          ],
+          "palette": [
+            "#171818",
+            "#434448",
+            "#5e6269",
+            "#ffb43b"
+          ],
+          "review_notes": [
+            "2026-11-13 원화 사용자 채택",
+            "컴펜세이터 하단이 총몸보다 조금 내려오는 채택 그림 기준",
+            "기존 GLB·장착 모션 보존, 새 펄스 외형/효과 미구현",
+            "페이지 검증은 사용자 인계"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/sg23-breacher_008/source/illustration.png",
             "width": 1536,
             "height": 1024
           }

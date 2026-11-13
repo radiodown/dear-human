@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "revision_id": "plan_f_glb_character_001",
+  "display_name": "플랜 F · 리안 GLB 캐릭터 001",
+  "user_request": "플랜 F에 캐릭터만 GLB로 데려와줘",
+  "source": "art/characters/clone_01/motion/glb_model_001/source/version04.glb",
+  "target": "game/plan-f/glb-character.js",
+  "height_metres": 1.7,
+  "animation_source": "existing_plan_f_procedural_pose",
+  "embedded_clips_played": false,
+  "imported_weapon": false,
+  "handedness": "right_trigger_left_support_reload",
+  "source_modified": false,
+  "verification": "untested",
+  "art_direction_status": "awaiting_user_review",
+  "generator_calls": 0,
+  "external_api_cost": 0,
+  "cost_currency": "USD"
+}

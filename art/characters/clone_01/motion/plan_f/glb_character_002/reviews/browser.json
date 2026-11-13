@@ -1,0 +1,11 @@
+{
+  "loading_hidden": true,
+  "retry_hidden": true,
+  "single_shot": "1 발",
+  "ammo_after_reload": "30 / 30",
+  "crouch_pressed": "true",
+  "neutral_return": "false",
+  "errors": [],
+  "initial_probe_note": "A wait_for_function string was blocked by the existing CSP; reran using locator assertions with CSP unchanged.",
+  "reload_loaded": true
+}

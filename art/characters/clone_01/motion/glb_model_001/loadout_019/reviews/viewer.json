@@ -1,0 +1,42 @@
+{
+  "clip": "rifle_reload",
+  "label": "소총 장전 · 탄창 교체",
+  "file": "/art/characters/clone_01/motion/glb_model_001/loadout_019/clone_01_ar12_rupture.glb",
+  "oldScale": [
+    0,
+    0,
+    0
+  ],
+  "newScale": [
+    1,
+    1,
+    1
+  ],
+  "after_switch": {
+    "clip": "rifle_aim_idle",
+    "oldScale": [
+      1,
+      1,
+      1
+    ],
+    "newScale": [
+      0,
+      0,
+      0
+    ]
+  },
+  "slow_play_time": 0.12502499999999997,
+  "page_errors": [],
+  "drop_switches": {
+    "rifle_aim_idle": [
+      0,
+      0,
+      0
+    ],
+    "rifle_full_auto": [
+      0,
+      0,
+      0
+    ]
+  }
+}
