@@ -1,5 +1,9 @@
 # Dear Human 제작 규칙
 
+- 2026-11-13 사용자 요청으로 리안 쌍권총 대기 `dual_idle_high`의 고개를 정면으로 고쳤다(얼굴 −31°/−18° → 0°/0°, 새 `tools/glb_retarget/level_head.py`, 목 40%·머리 60%). 꺼내기·넣기·쌍권총 대기↔조준 전환에는 같은 보정을 서서히 넣거나 빼서 이어지게 했다. [loadout_030](art/characters/clone_01/motion/glb_model_001/loadout_030/README.md)(029 보존)과 [sprite_007](art/characters/clone_01/motion/glb_model_001/sprite_007/README.md)(004·005 보존)을 만들었고 3D 탭·js-prototype이 새 버전을 쓴다. 쌍권총 조준 대기는 그대로다. 각도 측정·렌더·프로토타입 불러오기만 확인했고 미감은 사용자 검수 대기다.
+
+- 2026-11-13 사용자 요청(“원본은 두고 프로토타입에서 모두 지금보다 4배 빠르게”)으로 [이동 프로토타입](game/js-prototype/move/README.md)의 연결 동작 8개(꺼내기·넣기·올리기·내리기)만 4배속으로 재생한다(`TRANSITION_SPEED`). 원본 GLB·스프라이트 길이와 사격·대기·걷기 속도는 그대로다. 소총 꺼내기 0.53초, 무기 교체 1.13초가 됐고 동작감은 사용자 검수 대기다.
+
 - 2026-11-13 사용자 요청으로 프로토타입 무장 이동을 자세에 맞췄다. 리안 맨손 `rifle_walk`·`rifle_run`·`rifle_walk_to_stop`에 AR-12를 낮춘 자세로 붙여 [loadout_029](art/characters/clone_01/motion/glb_model_001/loadout_029/README.md)를 만들고(028 보존, `attach_weapon.py` `HIP_CLIPS` 확장), 쌍권총 기본 걷기와 함께 [sprite_006](art/characters/clone_01/motion/glb_model_001/sprite_006/README.md)(30fps)으로 렌더했다. [이동 프로토타입 004](game/js-prototype/move/README.md)는 기본 대기에서 낮춘 걷기(`rifle_walk`·`dual_walk_basic`), 사격 대기에서 조준 걷기(`shoot_rifle`·`dual_walk`)를 쓰고, 달리기(`rifle_run`·`dual_run`)는 기본 대기로 바꾼다(003의 ‘걸으면 사격 대기’ 대체). 걷다 멈춤은 렌더만 했다. `?debug` 단계 실행으로 흐름만 확인했고 동작감은 사용자 검수 대기다.
 
 - 2026-11-13 사용자 요청으로 리안 쌍권총 기본 걷기 `dual_walk_basic`(맨손 걷기 `walk.001`의 몸·팔 흔들기에 권총을 쥐임, `make_dual_pistol_clips.py`의 `dual_run`과 같은 방식)을 [loadout_028](art/characters/clone_01/motion/glb_model_001/loadout_028/README.md)에 더하고 탭을 옮겼다(027 보존). 이어 `shoot/gunmotion`에 새로 들어온 `Rifle Walk.fbx`·`Rifle Run.fbx`를 다섯 대원 `source`에 맨손 `rifle_walk`(소총 걷기)·`rifle_run`(소총 달리기)으로 넣었다(기존 동작 차이 0.0117mm 이하, 원본 `shoot/*_riflemove.glb`). 렌더·탭 재생만 확인했고 무장 버전·스프라이트·js-prototype 연결은 없으며 미감은 사용자 검수 대기다.

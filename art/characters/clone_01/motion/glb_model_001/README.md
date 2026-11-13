@@ -260,3 +260,7 @@ py tools/glb_retarget/merge_loadout_glbs.py art/characters/clone_01/motion/glb_m
 ## 무장 이동: 소총 걷기·달리기·걷다 멈춤 + AR-12 (loadout_029, sprite_006, 2026-11-13)
 
 사용자 요청 “모션들에서 프로토타입의 움직임을 자연스럽게 연결할 수 있는 동작들을 총기 모션을 추가해줘”으로 맨손 `rifle_walk`·`rifle_run`·`rifle_walk_to_stop`에 AR-12를 낮춘 자세(`HIP_CLIPS`)로 붙여 [loadout_029](loadout_029/README.md)를 만들고 탭을 옮겼다(028 보존). 이 3개와 쌍권총 기본 걷기를 [sprite_006](sprite_006/README.md)으로 렌더했고, [이동 프로토타입 004](../../../../../game/js-prototype/move/README.md)가 기본 대기에서는 낮춘 걷기·달리기, 사격 대기에서는 조준 걷기를 쓰도록 연결했다.
+
+## 쌍권총 대기 고개 정면 (loadout_030, sprite_007, 2026-11-13)
+
+사용자 요청 “쌍권총의 기본대기자세에서는 고개를 정면을 보도록 수정해줘”으로 새 도구 `tools/glb_retarget/level_head.py`가 `dual_idle_high`의 얼굴을 −31°/−18°에서 수평 정면 0°/0°로 돌렸다(목 40%·머리 60%). 꺼내기·넣기·대기↔조준 전환 4개에는 같은 보정을 서서히 넣거나 빼서 이어지게 했다. [loadout_030](loadout_030/README.md)(029 보존)과 [sprite_007](sprite_007/README.md)(004·005 보존)을 만들었고, 3D 탭과 js-prototype이 새 버전을 쓴다. 쌍권총 조준 대기 `dual_idle`의 고개는 그대로다.

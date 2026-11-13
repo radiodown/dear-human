@@ -42,9 +42,9 @@ MODELS = {
     },
     'clone_01_armed': {
         # 리안 통합 무장 (AR-12 + HP-14T 쌍권총). 023으로 sprite_004를, 027(전환 동작 추가·쌍권총 꺼내기/넣기 수정)로
-        # sprite_005를, 029(소총 걷기·달리기·걷다 멈춤 + 쌍권총 기본 걷기 추가)로 sprite_006을 렌더했다. 023과 027에서 같은 이름인 나머지 동작은 키가 같다. 쓰지 않는 무기는 크기 0 키로 숨겨져 있다.
+        # sprite_005를, 029(소총 걷기·달리기·걷다 멈춤 + 쌍권총 기본 걷기 추가)로 sprite_006을, 030(쌍권총 대기 고개 정면)으로 sprite_007을 렌더했다. 023과 027에서 같은 이름인 나머지 동작은 키가 같다. 쓰지 않는 무기는 크기 0 키로 숨겨져 있다.
         # 'closed': the clip's last key equals its first (authored loops), so a loop samples [start, end).
-        'glb': 'art/characters/clone_01/motion/glb_model_001/loadout_029/clone_01_ar12_hp14t.glb',
+        'glb': 'art/characters/clone_01/motion/glb_model_001/loadout_030/clone_01_ar12_hp14t.glb',
         'ref_bone': 'mixamorig:Hips', 'view': 1.5, 'center': (-0.03, 0.61),  # --bounds: y -0.58..0.52, z -0.10..1.32
         'clips': {c: {'action': c, 'title': t, 'loop': lp, 'inplace': 'rest', 'all_frames': not closed} for c, t, lp, closed in (
             ('rifle_aim_idle', '소총 조준 대기', True, False), ('rifle_idle', '소총 대기', True, False),

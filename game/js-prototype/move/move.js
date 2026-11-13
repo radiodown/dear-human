@@ -25,13 +25,16 @@ const LIAN5 = '/art/characters/clone_01/motion/glb_model_001/sprite_005/';
 const IN_SPRITE5 = new Set(['rifle_down_to_aim', 'rifle_aim_to_down', 'dual_ready_to_aim', 'dual_aim_to_ready', 'dual_pull_out', 'dual_put_away']);
 const LIAN6 = '/art/characters/clone_01/motion/glb_model_001/sprite_006/';
 const IN_SPRITE6 = new Set(['rifle_walk', 'rifle_run', 'dual_walk_basic']);
+// sprite_007 (loadout_030): 쌍권총 대기 with the face level and forward, and its four connecting clips
+const LIAN7 = '/art/characters/clone_01/motion/glb_model_001/sprite_007/';
+const IN_SPRITE7 = new Set(['dual_idle_high', 'dual_pull_out', 'dual_put_away', 'dual_ready_to_aim', 'dual_aim_to_ready']);
 const UNARMED = ['idle', 'walk', 'run'];
 const LIAN_CLIPS = [...UNARMED, 'rifle_idle', 'rifle_aim_idle', 'shoot_rifle', 'rifle_pull_out', 'rifle_put_away', 'gunplay', 'rifle_full_auto',
   'rifle_down_to_aim', 'rifle_aim_to_down', 'dual_idle_high', 'dual_idle', 'dual_walk', 'dual_run', 'dual_fire', 'dual_pull_out', 'dual_put_away',
   'dual_ready_to_aim', 'dual_aim_to_ready', 'rifle_walk', 'rifle_run', 'dual_walk_basic'];
 const AIM_HOLD = 5;                  // s standing still in 사격 대기 before the weapon is lowered to 기본 대기
 const CHARACTERS = {
-  clone_01: { name: '리안', base: clip => IN_SPRITE6.has(clip) ? LIAN6 : IN_SPRITE5.has(clip) ? LIAN5 : LIAN4, clips: LIAN_CLIPS, armed: true },
+  clone_01: { name: '리안', base: clip => IN_SPRITE7.has(clip) ? LIAN7 : IN_SPRITE6.has(clip) ? LIAN6 : IN_SPRITE5.has(clip) ? LIAN5 : LIAN4, clips: LIAN_CLIPS, armed: true },
   iren: { name: '아렌', base: '/art/characters/iren/motion/glb_model_001/sprite_001/', clips: UNARMED },
   moa: { name: '모아', base: '/art/characters/moa/motion/glb_model_001/sprite_001/', clips: UNARMED },
   yuna: { name: '유나', base: '/art/characters/yuna/motion/glb_model_001/sprite_001/', clips: UNARMED },
@@ -94,7 +97,14 @@ const duration = (clip, limit) => {
   const m = sprites.clips[clip].manifest;
   return Math.min(limit ?? Infinity, m.frameCount / m.fps);
 };
-function play(clip, done, limit) { player.action = { clip, t: 0, end: duration(clip, limit), done }; }
+// Connecting clips play faster than authored here only (user request 2026-11-13: "원본은 두고 프로토타입에서 모두 지금보다
+// 4배 빠르게"); the GLBs and sprite sheets keep their length. Firing clips keep their speed.
+const TRANSITION_SPEED = 4;
+const TRANSITIONS = new Set(['rifle_pull_out', 'rifle_put_away', 'dual_pull_out', 'dual_put_away',
+  'rifle_down_to_aim', 'rifle_aim_to_down', 'dual_ready_to_aim', 'dual_aim_to_ready']);
+function play(clip, done, limit) {
+  player.action = { clip, t: 0, end: duration(clip, limit), done, speed: TRANSITIONS.has(clip) ? TRANSITION_SPEED : 1 };
+}
 function draw(weapon) { play(SETS[weapon].draw, () => { player.weapon = weapon; player.last = weapon; player.stance = 'ready'; }); }
 // 기본 대기 -> 사격 대기 (raise) before firing; 사격 대기 -> 기본 대기 (lower) before holstering or after AIM_HOLD
 function aimThen(then) {
@@ -169,7 +179,7 @@ function update(dt) {
   } else if (!player.action) player.still = 0;
   let anim;
   if (player.action) {
-    const a = player.action; a.t += dt; anim = a.clip;
+    const a = player.action; a.t += dt * a.speed; anim = a.clip;   // a.t is clip time
     if (a.t >= a.end) { player.action = null; a.done?.(); anim = player.action ? player.action.clip : idleOf(); }
   } else if (autoFire) anim = set.auto;
   else anim = speed < 0.04 ? idleOf() : speed > RUN_SWITCH && set.run ? set.run
