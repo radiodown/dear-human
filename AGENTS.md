@@ -1,5 +1,7 @@
 # Dear Human 제작 규칙
 
+- 2026-11-13 사용자 요청으로 리안 쌍권총 기본 걷기 `dual_walk_basic`(맨손 걷기 `walk.001`의 몸·팔 흔들기에 권총을 쥐임, `make_dual_pistol_clips.py`의 `dual_run`과 같은 방식)을 [loadout_028](art/characters/clone_01/motion/glb_model_001/loadout_028/README.md)에 더하고 탭을 옮겼다(027 보존). 이어 `shoot/gunmotion`에 새로 들어온 `Rifle Walk.fbx`·`Rifle Run.fbx`를 다섯 대원 `source`에 맨손 `rifle_walk`(소총 걷기)·`rifle_run`(소총 달리기)으로 넣었다(기존 동작 차이 0.0117mm 이하, 원본 `shoot/*_riflemove.glb`). 렌더·탭 재생만 확인했고 무장 버전·스프라이트·js-prototype 연결은 없으며 미감은 사용자 검수 대기다.
+
 - 2026-11-13 사용자 규칙으로 [이동 프로토타입 003](game/js-prototype/move/README.md)에 무장 자세 흐름을 넣었다. 꺼내면 기본 대기(소총 `rifle_idle`·쌍권총 대기 `dual_idle_high`)이고, A·S는 먼저 조준으로 올린 뒤(내림→조준·쌍권총 대기→조준) 사격한다. 사격 후에는 사격 대기(`rifle_aim_idle`·쌍권총 조준 대기 `dual_idle`)이고, 5초 정지하면 내려(조준→내림·쌍권총 조준→대기) 기본 대기로 돌아간다. 넣기·무기 교체는 사격 대기에서 먼저 내린다. 무장 걷기는 사격 대기로 취급한다. 새 동작·수정 동작 6개는 [sprite_005](art/characters/clone_01/motion/glb_model_001/sprite_005/README.md)(30fps, loadout_027, 004 보존)로 렌더했다. `?debug` 단계 실행으로 흐름만 확인했고 동작감은 사용자 검수 대기다.
 
 - 2026-11-13 사용자 요청으로 리안 쌍권총 대기(`dual_idle_high`)와 조준 대기(`dual_idle`)를 잇는 전환 `dual_ready_to_aim`(쌍권총 대기 → 조준)·`dual_aim_to_ready`(쌍권총 조준 → 대기)를 [loadout_027](art/characters/clone_01/motion/glb_model_001/loadout_027/README.md)에 더하고 탭을 옮겼다(026 보존, 23개 동작). `make_dual_pistol_clips.py`의 `Move`가 두 대기 첫 프레임의 권총 목표 사이를 보간하고 팔을 IK로 풀며(16키·0.625초, 총구가 먼저 수평, 왼손 10% 지연, 몸 고정), 양끝은 각 대기 첫 키와 0.001mm 이내로 같다. 기존 21개 동작과 도구의 기존 6개 출력은 그대로다. 렌더·탭 재생만 확인했고 스프라이트·js-prototype 연결은 없으며 미감은 사용자 검수 대기다.

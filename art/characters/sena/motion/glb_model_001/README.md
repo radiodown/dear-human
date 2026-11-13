@@ -142,3 +142,7 @@
 ## 내림 → 조준 (2026-11-13)
 
 사용자 요청 “gunmotion 폴더의 Rifle Down To Aim.fbx 캐릭터들에 적용해주고 리아에게는 총까지 적용해서 대기 상태에 조준으로 자연스럽게 이어지도록해줘”으로 `shoot/gunmotion/Rifle Down To Aim.fbx`를 `retarget_mixamo_fbx.py`(`FOOT_IK`)로 `source/sena_rig.glb`에 맨손 `rifle_down_to_aim`(22프레임, 약 0.9초)으로 넣었다(3D 탭 ‘내림 → 조준’). 원본 사본은 `shoot/sena_rig_downaim.glb`. 기존 동작 관절 위치 차이 최대 0.0091mm, 발 최저점 중앙값 −1.7~−2.8mm. source SHA-256 이전 `f19a09f017fa9ab97bfc05deeb8291c19e3b39ecf7d5897c1769fb44ab47c0b7` → 이후 `c8ec7a79de62eb413d948d3add474b075b1d8aa62bef546eeacfe0b98cb60ccf`. 렌더·탭 재생만 확인했고 미감은 사용자 검수 대기다.
+
+## 소총 걷기·소총 달리기 (2026-11-13)
+
+사용자 요청 “맨손 기본 걷기에 쌍권총을 쥐여준 형태로 쌍권총의 기본 걷기를 추가해줘. 그 후 shoot 폴더에 새로 추가된 모션들을 확인해서 캐릭터 모션에 추가해줘.”의 뒷부분으로 `shoot/gunmotion`에 새로 들어온 `Rifle Walk.fbx`·`Rifle Run.fbx`(2026-11-13 20:11~20:12)를 `retarget_mixamo_fbx.py`(`FOOT_IK`)로 `source/sena_rig.glb`에 맨손 `rifle_walk`(32키)·`rifle_run`(17키)으로 넣었다(3D 탭 ‘소총 걷기’·‘소총 달리기’, 엉덩이 이동 포함·탭의 ‘제자리’로 봄). 원본 사본은 `shoot/sena_rig_riflemove.glb`. 기존 동작 관절 위치 차이 최대 0.0094mm, 발 최저점 중앙값 걷기/달리기 −1.0/−1.0mm, 발목 높이 IK 최대 미달 8.7/0.9mm(걷기 쪽이 큼). source SHA-256 이전 `c8ec7a79de62eb413d948d3add474b075b1d8aa62bef546eeacfe0b98cb60ccf` → 이후 `03e6272ae9e5ae740886e7f766e4dc97fff99db4b23da806dcc50d9dc75ba4a9`. 렌더(모아)·탭 재생만 확인했고 무장 버전은 없으며 미감은 사용자 검수 대기다.

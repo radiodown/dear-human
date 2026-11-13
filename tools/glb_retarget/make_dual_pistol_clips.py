@@ -18,6 +18,8 @@ Clips (24 fps, loops; the last frame equals the first):
   dual_walk  20 f  base pistol_walk       arms straight out, small rise and fall with the stride
   dual_run   31 f  base run.001 (unarmed) the unarmed run's whole body incl. its arm swing; fingers curled on the grips,
                                           each pistol carried by its hand (goal None = arms copied from the base clip)
+  dual_walk_basic 56 f base walk.001 (unarmed) the same for the unarmed walk: its whole body and arm swing, fingers on the
+                                          grips, each pistol carried by its hand (쌍권총 기본 걷기, 2026-11-13)
 Transitions (24 fps, played once; body held on the first frame of pistol_idle2, which is also the body of the first
 frame of both idles, so the first / last key equals the first key of the idle it leaves / enters):
   dual_ready_to_aim 16 f  dual_idle_high frame 1 -> dual_idle frame 1: the pistols come down and forward while the
@@ -233,6 +235,7 @@ CLIPS = [  # name, base clip, output frames (last = first), base loops, goal, ex
     ('dual_kneel_fire', 'pistol_kneel_idle', 97, 1, fire_goal, fire_spine),   # 4 firing loops over one kneeling-idle loop
     ('dual_walk', 'pistol_walk', 20, 1, walk_goal, None),
     ('dual_run', 'run.001', 31, 1, None, None),   # goal None: the unarmed run's own arm swing (user request), pistols in the hands
+    ('dual_walk_basic', 'walk.001', 56, 1, None, None),   # 2026-11-13: the unarmed walk with a pistol in each hand (쌍권총 기본 걷기)
     # transitions between the two idles (base loops 0 = the body stays on the base clip's first frame)
     ('dual_ready_to_aim', 'pistol_idle2', 16, 0, Move(idle_high_goal, idle_goal), None),
     ('dual_aim_to_ready', 'pistol_idle2', 16, 0, Move(idle_high_goal, idle_goal, reverse=True), None),

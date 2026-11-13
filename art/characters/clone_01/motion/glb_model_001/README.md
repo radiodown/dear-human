@@ -248,3 +248,11 @@ py tools/glb_retarget/merge_loadout_glbs.py art/characters/clone_01/motion/glb_m
 ## 스프라이트 005와 js-prototype 자세 흐름 (2026-11-13)
 
 사용자 요청 “지금 수정한 작업들 스프라이트로 만들어주고, 동작에 규칙을 추가해 줄게. 총을 꺼내면 '기본 대기 -> 사격 시 조준 대기로 변경 및 사격 -> 사격 중지 시 사격 대기 -> 5초 간 정지해 있으면 기본 대기로 변경' 이 흐름을 따라 가도록 프로토타입에 추가해줘.”으로 전환 동작 4개와 수정된 쌍권총 꺼내기·넣기를 [sprite_005](sprite_005/README.md)(30fps, loadout_027)로 렌더했고(004 보존), [이동 프로토타입 003](../../../../../game/js-prototype/move/README.md)에 기본 대기 → (올리기) 사격 → 사격 대기 → 5초 정지 시 (내리기) 기본 대기 흐름을 넣었다.
+
+## 소총 걷기·소총 달리기 (2026-11-13)
+
+사용자 요청 “맨손 기본 걷기에 쌍권총을 쥐여준 형태로 쌍권총의 기본 걷기를 추가해줘. 그 후 shoot 폴더에 새로 추가된 모션들을 확인해서 캐릭터 모션에 추가해줘.”의 뒷부분으로 `shoot/gunmotion`에 새로 들어온 `Rifle Walk.fbx`·`Rifle Run.fbx`(2026-11-13 20:11~20:12)를 `retarget_mixamo_fbx.py`(`FOOT_IK`)로 `source/version04.glb`에 맨손 `rifle_walk`(32키)·`rifle_run`(17키)으로 넣었다(3D 탭 ‘소총 걷기’·‘소총 달리기’, 엉덩이 이동 포함·탭의 ‘제자리’로 봄). 원본 사본은 `shoot/version04_riflemove.glb`. 기존 동작 관절 위치 차이 최대 0.0018mm, 발 최저점 중앙값 걷기/달리기 −0.9/−1.3mm, 발목 높이 IK 최대 미달 9.2/6.2mm(걷기 쪽이 큼). source SHA-256 이전 `293363502127846d8d951a08728096110151682c2a1f34a065b28a32bf3f09c5` → 이후 `bf73c4cdfff98d96df80440e8ba5811d990a3a202f5935f3158966cb694477e5`. 렌더(모아)·탭 재생만 확인했고 무장 버전은 없으며 미감은 사용자 검수 대기다.
+
+## 쌍권총 기본 걷기 (loadout_028, 2026-11-13)
+
+같은 요청의 앞부분으로 맨손 걷기 `walk.001`의 몸·팔 흔들기에 권총을 쥐인 `dual_walk_basic`(‘쌍권총 기본 걷기’)을 `make_dual_pistol_clips.py`(`dual_run`과 같은 방식)로 만들어 [loadout_028](loadout_028/README.md)에 넣고 탭을 옮겼다(027 보존). 렌더·탭 재생만 확인했고 스프라이트·js-prototype 연결은 없다.
