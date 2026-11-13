@@ -9604,6 +9604,54 @@
             "type": "glb_model",
             "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload_empty"
           }
+        },
+        {
+          "revision_id": "glb_merged_loadout_022",
+          "display_name": "GLB / Lian latest AR-12 and dual pistols merged 022",
+          "status": "draft",
+          "verification": "passed",
+          "verification_scope": "3051 source tracks and rifle binary preserved. Chromium reload/bolt/drop, weapon switching and active gun FX, legacy links, Yuna shield 008; zero page errors. Art review pending.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "ar12_hp14t_merge_022",
+          "artifacts": [
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_022/clone_01_ar12_hp14t.glb",
+              "sha256": "09bd9840dedee3ca0c40537925b83e2cf8dd5659be5f66409b80e048ea831d65"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_022/README.md",
+              "sha256": "d9939bb8280c622822977562e9af95ede1413bc395ccf733aad300fb02685526"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_022/reviews/merge.json",
+              "sha256": "884640ab1a53d3300f55953232671d0673d316cca1671aa7d1522aed12bff1d5"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_022/source_snapshot/glb-gun-fx.js",
+              "sha256": "b5ef5df8647d592ba55c85128b13afd98d5e715fa3fbef4c61f61cfed259cca6"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_022/source_snapshot/glb-model-lab.js",
+              "sha256": "30de38dde1b170d60521722aa90462d6b750a8ac96913f369a45ff58c3fdbad9"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_022/source_snapshot/merge_loadout_glbs.py",
+              "sha256": "b7f5087868f50a6165e3d1ad36b99978b6dcac1e4a8aae730d22c2bc2772f1a7"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_022/source_snapshot/review_merged_loadout.py",
+              "sha256": "a52aad544288e731128bb84fc110f5fdf713f72b56fcdfe8ef6ecaa14d25adea"
+            },
+            {
+              "path": "art/characters/clone_01/motion/glb_model_001/loadout_022/record.json",
+              "sha256": "12c82ff5b97aaf0a54e3340732da17c2c433c8e0c0689b6b3487056e4946226f"
+            }
+          ],
+          "dependencies": [],
+          "preview": {
+            "type": "glb_model",
+            "sample_url": "#/samples/characters/clone_01?plan=glb&loadout=ar12_hp14t&clip=rifle_reload_empty"
+          }
         }
       ],
       "capabilities": [

@@ -87,7 +87,9 @@ export class GlbGunFx {
     if (!armed) return;
     const T = this.T;
     root.updateMatrixWorld(true);
-    for (const [name, side] of [['weapon', 'right'], ['weapon_l', 'left']]) {
+    // Merged loadouts (tools/glb_retarget/merge_loadout_glbs.py) carry several weapons under distinct names;
+    // update() only fires the mounts whose gun the current clip leaves visible (unused guns are keyed to scale 0).
+    for (const [name, side] of [['weapon', 'right'], ['weapon_l', 'left'], ['weapon_rifle', 'right'], ['weapon_pistol_r', 'right'], ['weapon_pistol_l', 'left']]) {
       const named = root.getObjectByName(name);
       // GLTFLoader reserves the shared name for the bone and renames its mesh child.
       // Muzzle +X is the mesh's local axis, not the bone's local axis.
@@ -175,6 +177,8 @@ export class GlbGunFx {
     this.lastTime = time;
     const clock = this.cycle * duration + time, cues = firingCues(name, duration);
     for (const mount of this.mounts) {
+      const e = mount.gun.matrixWorld.elements;
+      if (Math.abs(e[0]) + Math.abs(e[1]) + Math.abs(e[2]) < 1e-6) { mount.group.visible = false; mount.light.intensity = 0; continue; }
       let flashAge = Infinity, shotIndex = 0;
       for (let i = 0; i < cues.length; i++) {
         const cue = cues[i]; if (cue.side !== mount.side) continue;

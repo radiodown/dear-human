@@ -1,5 +1,7 @@
 # glb_model_001 · version04.glb 웹 재생
 
+현재 웹 무장은 [통합 022](loadout_022/README.md)다. 최신 소총 021의 두 장전·풀오토를 포함한 9개 동작과 쌍권총 011의 6개 동작을 함께 사용한다. 아래 개별 제작 기록과 통합 015는 이력으로 보존한다.
+
 현재 리안 AR-12 장전은 [021 가속·충격·전신 버팀](loadout_021/AR12_RELOAD.md)이다. 탄창 올리기/정렬/삽입의 속도를 구분하고, 노리쇠를 당길 때 골반·가슴·양어깨·머리와 무릎이 함께 힘을 받는다. 두 장전과 full_auto_005 연사를 유지한다. 아래 이전 버전은 제작 이력이다.
 
 현재 빠른 연사는 [견착·전신 반동 추종 005](full_auto_005/README.md)다. 후퇴할 때 총·양손이 현재 어깨와 함께 내려가고 물러나며, 기존 연사의 부위별 반응과 팔꿈치/무릎 방향을 반영했다. 총구 들림 억제·750 RPM·주춤/발 지지와 두 장전 클립은 유지한다.
@@ -188,3 +190,29 @@
 사용자 지시(“무기 든 버전은 빼고 모션만 넣어줘”)로 `shoot/gunmotion`의 새 Mixamo FBX 12개를 `tools/glb_retarget/retarget_mixamo_fbx.py`로 옮겼다(맨손, 무장 GLB 미제작). `rifle_pull_out`(총 꺼내기), `rifle_put_away`(총 집어넣기), `rifle_aim_to_down`(조준 → 내림), `rifle_walk_to_stop`(걷다 멈춤), `stand_to_crouch`(서기 → 웅크리기), `crouch_to_stand`(웅크리기 → 서기), `rifle_stand_to_kneel`(서기 → 무릎), `rifle_kneel_idle`(무릎 대기), `rifle_kneel_to_stand`(무릎 → 서기), `crouch_to_prone`(웅크리기 → 엎드리기), `prone_fire`(엎드려 쏴), `prone_to_crouch`(엎드리기 → 웅크리기). 24fps로 다시 샘플링했고 걷다 멈춤만 앞으로 약 1.65m(원본 기준, 엉덩이 높이 비율로 축소) 이동한다(3D 탭 ‘제자리’로 본다). 결과 `shoot/version04_stance.glb`(기존 동작 + 12개)로 `source/version04.glb`를 교체했다(SHA-256 `f5eafc9564c532f947e5210a07263dc0762cdea693dcbbba5e996259c22f2866`). 기존 동작은 도구가 건드리지 않는다. 빠진 뼈 없음, 동작별 최저점 중앙값 −7.4~+2.4mm. 원본 FBX(SHA-256 앞 16자): `Rifle Pull Out.fbx` 36debd26da286316…; `Rifle Put Away.fbx` 724171de22130258…; `Rifle Aim To Down.fbx` 920806669cd760b2…; `Rifle Walk To Stop.fbx` 21c5bdac3ecf6b42…; `Stand To Crouch.fbx` 09d8c80280d90f21…; `Crouch To Standing With Rifle.fbx` 3538fa0efe940043…; `Rifle Stand To Kneel.fbx` ee3cb659d0fa7483…; `Rifle Kneel Idle.fbx` 2622cc86ccf219c9…; `Rifle Kneel To Stand.fbx` d3fb8d840e3c9e9c…; `Crouch To Prone.fbx` b16c4ae715b12e87…; `Prone Firing Rifle.fbx` 329b05ed7b22c952…; `Prone To Crouch Transition.fbx` 9e992228b6017e97…. 아렌 우측면 렌더와 모아·세나 3D 탭 재생만 확인했고 사용자 검수 대기다. 총 꺼내기·집어넣기는 총이 몸↔손 사이를 옮겨 가 지금의 손 고정 부착 방식으로는 무장 버전을 만들 수 없다.
 
 - 후속 보정(2026-11-12, 발 높이): 사용자 지적(“이번에 추가한 동작들 발 위치가 수평이 아닌데”)으로 측정하니 뼈 방향만 맞추는 리타깃이라 허벅지·정강이 비율 차이로 딛고 있어야 할 발이 떠 있거나(오른발 서기 16~29mm, 무릎 대기 161mm, 엎드려 쏴 74mm) 땅에 묻혔다(무릎 전환 최대 71mm). `retarget_mixamo_fbx.py`에 `FOOT_IK`를 넣었다: 매 프레임 원본 FBX에 들어 있는 Mixamo 메시에서 각 발의 가장 낮은 피부 높이를 재고, 캐릭터 발(발·발볼·발끝 뼈가 주된 피부를 선형 혼합 스키닝으로 계산)의 가장 낮은 점이 그 높이(엉덩이 높이 비율 적용)에 오도록 다리를 두 뼈 IK로 다시 푼다. 발목의 앞뒤·좌우 위치, 발·발가락 방향, 무릎 방향은 그대로다. 몸 전체를 올리던 바닥 맞춤은 끄고, 몸이 땅보다 3mm 넘게 내려가면(엎드려 쏴 가슴 29mm, 웅크리기→엎드리기 8mm) 엉덩이를 그만큼 올린 뒤 다리를 다시 푼다. 12개 동작을 커밋 f384daf의 `source`(12개 추가 전)에 다시 옮겨 `shoot/version04_stance_feet.glb`로 만들고 `source/version04.glb`를 교체했다(SHA-256 `4ebb9fbb8cb3f19ef5f32995c3d4b422e89bc2c031aa537deaaaeb3712cbbc34`). 결과: 딛는 발 −2~−6mm(원본 −2mm), 원본에서 떠 있는 발은 원본과 같은 높이(무릎 대기 오른발 25~27mm, 엎드려 쏴 28~38mm), 발 높이 오차 최대 9.5mm(걷다 멈춤). 기존 동작은 그대로다. 바닥 렌더·수치와 유나 탭 재생만 확인했고 사용자 검수 대기다.
+
+## 무장 통합 loadout_015 · AR-12 + HP-14T 한 파일 (2026-11-13)
+
+사용자 요청 원문: “리안 동작을 하나로 합쳐서 확인해보고 괜찮으면 합친 버전으로 통일시켜줘”. `loadout_014/clone_01_ar12_rupture.glb`(AR-12 동작 7개: `gunplay`·`gunplay_auto`·`peek_aim`·`rifle_aim_idle`·`rifle_idle`·`shoot_rifle`·`rifle_reload`)와 `loadout_011/clone_01_hp14t_gemini.glb`(쌍권총 동작 6개: `dual_fire`·`dual_idle`·`dual_idle_high`·`dual_kneel_fire`·`dual_run`·`dual_walk`)를 `loadout_015/clone_01_ar12_hp14t.glb` 하나로 합쳤다. 두 입력 파일은 그대로 보존한다.
+
+[합친 무장 보기](http://127.0.0.1:4173/#/samples/characters/clone_01?plan=glb&loadout=ar12_hp14t)
+
+- 방법: 새 도구 `tools/glb_retarget/merge_loadout_glbs.py`가 Blender로 다시 내보내지 않고 glTF 수준에서 합친다. 014를 바탕으로 두고, 011에서 권총 뼈 2개와 그 메시·재질·텍스처, 동작 6개의 키프레임 데이터를 바이트 그대로 복사한다(리타깃·IK·재샘플링 없음). 공통 골격의 기본 자세가 두 파일에서 같은지(1e-6) 먼저 확인한다.
+- 노드 이름: 소총 뼈 `weapon` → `weapon_rifle`(메시 `weapon_rifle_mesh`, 탄창 `reload_magazine_old`·`reload_magazine_fresh`는 그 아래 그대로), 권총 `weapon`·`weapon_l` → `weapon_pistol_r`·`weapon_pistol_l`(메시는 `_mesh`). 권총 뼈도 원본처럼 스킨 관절 목록에 넣었다(68관절, 변형 가중치 없음).
+- 숨김: 각 동작에 쓰지 않는 무기 뼈의 스케일 0 키(STEP 1개)를 넣었다. 소총 동작 7개는 두 권총, 쌍권총 동작 6개는 소총(탄창 포함)이 숨는다. 기본 자세 스케일은 원래대로 두었고, 장전의 탄창 표시/숨김 키는 원본 그대로다.
+- 뷰어: `game/glb-gun-fx.js`가 새 이름(`weapon_rifle`·`weapon_pistol_r`·`weapon_pistol_l`)도 총구로 찾고, 현재 동작에서 스케일 0인 총에서는 효과를 내지 않는다(기존 `weapon`·`weapon_l` 파일은 그대로 동작). `game/glb-model-lab.js`의 리안 무장은 `ar12_hp14t`(‘AR-12 럽처 + HP-14T 제미니’) 하나로 통일했고, 이전 주소 `loadout=ar12_rupture`·`loadout=hp14t_gemini`는 `loadoutAliases`로 합친 무장을 연다(쌍권총 주소는 동작 지정이 없으면 쌍권총 대기). 동작 버튼은 맨 앞 하나(소총 조준 대기)만 앞으로 옮겨 소총 7개 → 쌍권총 6개 순서다.
+- 측정: 13개 동작 각각 원본 파일과 모든 키 시각 + 키 사이 중간 시각(동작별 11~413개 표본)에서 65관절 월드 위치, 무기·탄창·메시 노드 월드 행렬을 비교해 최대 차이 0(정확히 일치). 쓰지 않는 무기의 월드 스케일 최대 0. 브라우저에서 원본 두 파일과 합친 파일을 같은 Three.js 로더·`GlbGunFx`로 불러 발사 시각의 총구 월드 위치 차이 0, 소총 동작은 `weapon_rifle_mesh`만, 쌍권총 사격은 오른쪽·왼쪽 권총 교대로만 화염이 나오고 연기·불티 개수도 원본과 같음을 확인했다.
+- 확인 범위: 3D 탭 새로고침 후 합친 무장으로 소총 조준 대기·조준 사격·연사·장전(0.25×), 쌍권총 대기·사격·앉아 사격·달리기 표시와 화염 위치, 이전 주소 두 개의 호환, 맨손 전환, 아렌 AR-12 조준 사격(연기)과 유나 방패 + HP-14 사격 표시, 페이지 콘솔 오류 없음. `node --check` 두 파일. Blender 렌더는 하지 않았고 동작 자체는 014·011과 같으므로 미감 검수 상태도 그대로다.
+- 남은 점: `tools/glb_retarget/review_gun_fx.py`는 `[data-loadout="hp14t_gemini"]` 버튼을 누르므로 다시 돌리려면 `ar12_hp14t`로 고쳐야 한다(이번에 수정·실행하지 않음). 카탈로그 `asset_index.json`의 이전 주소는 별칭으로 열린다. 스프라이트·게임 연결은 변경 없음.
+
+| 파일 | SHA-256 |
+|---|---|
+| `loadout_015/clone_01_ar12_hp14t.glb` (5,812,192바이트) | `f0e331333c60efa2c41d7c63e2fc3c1c7f7b8da563af4bfcc4a88c6d5e95a4c5` |
+| 입력 `loadout_014/clone_01_ar12_rupture.glb` | `b321e63d2c4a7a2d55d47381307ac3106fa5e01992a51cc6d092ec839762e8bc` |
+| 입력 `loadout_011/clone_01_hp14t_gemini.glb` | `77ad0145e1fe23f6ea67682ede75d9ca61602cd07c43f8e3e9cac4dee80042b0` |
+
+재현:
+
+```powershell
+py tools/glb_retarget/merge_loadout_glbs.py art/characters/clone_01/motion/glb_model_001/loadout_014/clone_01_ar12_rupture.glb art/characters/clone_01/motion/glb_model_001/loadout_011/clone_01_hp14t_gemini.glb art/characters/clone_01/motion/glb_model_001/loadout_015/clone_01_ar12_hp14t.glb --base-rename weapon=weapon_rifle --add-rename weapon=weapon_pistol_r weapon_l=weapon_pistol_l
+```

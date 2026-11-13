@@ -1,0 +1,113 @@
+{
+  "preserved_tracks": 3051,
+  "clips": [
+    "gunplay",
+    "gunplay_auto",
+    "peek_aim",
+    "rifle_aim_idle",
+    "rifle_idle",
+    "shoot_rifle",
+    "rifle_reload",
+    "rifle_reload_empty",
+    "rifle_full_auto",
+    "dual_fire",
+    "dual_idle",
+    "dual_idle_high",
+    "dual_kneel_fire",
+    "dual_run",
+    "dual_walk"
+  ],
+  "rifle_alias": "/art/characters/clone_01/motion/glb_model_001/loadout_022/clone_01_ar12_hp14t.glb",
+  "empty_reload": {
+    "scales": {
+      "weapon_rifle": [
+        1.000000238418579,
+        1.0000001192092896,
+        1
+      ],
+      "weapon_pistol_r": [
+        0,
+        0,
+        0
+      ],
+      "weapon_pistol_l": [
+        0,
+        0,
+        0
+      ],
+      "reload_magazine_dropped": [
+        1,
+        1,
+        1
+      ]
+    },
+    "bolt": -0.07400000095367432,
+    "flashes": []
+  },
+  "dual_after_reload": {
+    "scales": {
+      "weapon_rifle": [
+        0,
+        0,
+        0
+      ],
+      "weapon_pistol_r": [
+        1.0000001192092896,
+        1,
+        1
+      ],
+      "weapon_pistol_l": [
+        0.9999998807907104,
+        1,
+        1
+      ],
+      "reload_magazine_dropped": [
+        0,
+        0,
+        0
+      ]
+    },
+    "bolt": -0.04,
+    "flashes": [
+      "weapon_pistol_r_mesh"
+    ]
+  },
+  "rifle_after_dual": {
+    "scales": {
+      "weapon_rifle": [
+        0.9999997019767761,
+        0.9999998807907104,
+        1.0000002384185631
+      ],
+      "weapon_pistol_r": [
+        0,
+        0,
+        0
+      ],
+      "weapon_pistol_l": [
+        0,
+        0,
+        0
+      ],
+      "reload_magazine_dropped": [
+        0,
+        0,
+        0
+      ]
+    },
+    "bolt": -0.03999999910593033,
+    "flashes": [
+      "weapon_rifle_mesh"
+    ]
+  },
+  "pistol_alias": "/art/characters/clone_01/motion/glb_model_001/loadout_022/clone_01_ar12_hp14t.glb",
+  "yuna": {
+    "url": "/art/characters/yuna/motion/glb_model_001/loadout_008/yuna_shield_hp14.glb",
+    "clips": [
+      "shield_guard",
+      "shield_fire",
+      "shield_walk"
+    ]
+  },
+  "page_errors": []
+}
