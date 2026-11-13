@@ -1,0 +1,72 @@
+{
+  "schema_version": 2,
+  "source": "clone_01_ar12_hp14t.glb · tools/glb_sprites/render_glb_sprites.py (Blender 헤드리스, 정사영 완전 우측면, 4배 렌더 후 축소)",
+  "clip": "rifle_down_to_aim",
+  "glbAnimation": "rifle_down_to_aim",
+  "title": "내림 → 조준",
+  "frameCount": 28,
+  "fps": 30,
+  "loop": false,
+  "inPlace": true,
+  "pixelsPerMeter": 200,
+  "modelCanvas": 300,
+  "canvas": {
+    "width": 300,
+    "height": 300
+  },
+  "crop": {
+    "x": 110,
+    "y": 73,
+    "width": 140,
+    "height": 201
+  },
+  "groundY": 272.0,
+  "originX": 144.0,
+  "layout": "grid",
+  "columns": 8,
+  "frame": {
+    "width": 140,
+    "height": 201
+  },
+  "camera": {
+    "type": "orthographic",
+    "view": "right side (-X looking +X)",
+    "orthoScale": 1.5,
+    "centerYZ": [
+      -0.03,
+      0.61
+    ]
+  },
+  "spritesheet": "spritesheet_200.webp",
+  "framesDir": "frames_200",
+  "sourceFrames": [
+    "0001.png",
+    "0002.png",
+    "0003.png",
+    "0004.png",
+    "0005.png",
+    "0006.png",
+    "0007.png",
+    "0008.png",
+    "0009.png",
+    "0010.png",
+    "0011.png",
+    "0012.png",
+    "0013.png",
+    "0014.png",
+    "0015.png",
+    "0016.png",
+    "0017.png",
+    "0018.png",
+    "0019.png",
+    "0020.png",
+    "0021.png",
+    "0022.png",
+    "0023.png",
+    "0024.png",
+    "0025.png",
+    "0026.png",
+    "0027.png",
+    "0028.png"
+  ]
+}

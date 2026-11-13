@@ -3,37 +3,50 @@
 // (right side, 200 px per character unit, in place); nothing is rendered or generated here.
 // World units: 1.0 = the character's height (~1.65 m), the same unit the sprites were rendered in.
 //
-// Lian (sprite_004, 30 fps, from source/version04.glb + loadout_023):
+// Lian (30 fps: sprite_004 from source/version04.glb + loadout_023, sprite_005 from loadout_027 for the stance
+// transitions and the reworked dual draw / holster):
 //   1 = rifle (AR-12), 2 = dual pistols (HP-14T): draw it, or put the other weapon away first and then draw it
 //   X = draw the last carried weapon (default 1 = rifle) / put the drawn weapon away
 //   A = single shot (rifle: 조준 사격 once; pistols: one right + one left shot, the first 0.5 s of 쌍권총 사격)
 //   S = full auto while held (rifle: 750 RPM loop; pistols: alternating fire loop)
-//   Drawing, holstering and firing are done standing: the character slows to a stop while they play.
+//   Stance rule with a weapon out (user rule 2026-11-13): drawn -> 기본 대기 (rifle_idle / 쌍권총 대기 dual_idle_high);
+//   A or S first raises the weapon (내림→조준 / 쌍권총 대기→조준) and then fires; after firing the character stays in
+//   사격 대기 (rifle_aim_idle / 쌍권총 조준 대기 dual_idle); standing still for AIM_HOLD (5 s) there lowers it again
+//   (조준→내림 / 쌍권총 조준→대기). Walking with a weapon uses the aimed walk clips, so it counts as 사격 대기 too.
+//   Holstering or switching from 사격 대기 lowers first.
+//   Drawing, holstering, raising, lowering and firing are done standing: the character slows to a stop meanwhile.
 //   With the rifle there is no run clip, so Shift does nothing and the walk uses 이동 사격 (shoot_rifle).
 // The other characters keep the earlier unarmed 12 fps sets (sprite_001).
 
-const LIAN = '/art/characters/clone_01/motion/glb_model_001/sprite_004/';
+const LIAN4 = '/art/characters/clone_01/motion/glb_model_001/sprite_004/';
+const LIAN5 = '/art/characters/clone_01/motion/glb_model_001/sprite_005/';
+const IN_SPRITE5 = new Set(['rifle_down_to_aim', 'rifle_aim_to_down', 'dual_ready_to_aim', 'dual_aim_to_ready', 'dual_pull_out', 'dual_put_away']);
 const UNARMED = ['idle', 'walk', 'run'];
-const LIAN_CLIPS = [...UNARMED, 'rifle_idle', 'shoot_rifle', 'rifle_pull_out', 'rifle_put_away', 'gunplay', 'rifle_full_auto',
-  'dual_idle', 'dual_walk', 'dual_run', 'dual_fire', 'dual_pull_out', 'dual_put_away'];
+const LIAN_CLIPS = [...UNARMED, 'rifle_idle', 'rifle_aim_idle', 'shoot_rifle', 'rifle_pull_out', 'rifle_put_away', 'gunplay', 'rifle_full_auto',
+  'rifle_down_to_aim', 'rifle_aim_to_down', 'dual_idle_high', 'dual_idle', 'dual_walk', 'dual_run', 'dual_fire', 'dual_pull_out', 'dual_put_away',
+  'dual_ready_to_aim', 'dual_aim_to_ready'];
+const AIM_HOLD = 5;                  // s standing still in 사격 대기 before the weapon is lowered to 기본 대기
 const CHARACTERS = {
-  clone_01: { name: '리안', base: LIAN, clips: LIAN_CLIPS, armed: true },
+  clone_01: { name: '리안', base: clip => IN_SPRITE5.has(clip) ? LIAN5 : LIAN4, clips: LIAN_CLIPS, armed: true },
   iren: { name: '아렌', base: '/art/characters/iren/motion/glb_model_001/sprite_001/', clips: UNARMED },
   moa: { name: '모아', base: '/art/characters/moa/motion/glb_model_001/sprite_001/', clips: UNARMED },
   yuna: { name: '유나', base: '/art/characters/yuna/motion/glb_model_001/sprite_001/', clips: UNARMED },
   sena: { name: '세나', base: '/art/characters/sena/motion/glb_model_001/sprite_001/', clips: UNARMED },
 };
-// per weapon: which clip plays standing, walking, running (null = cannot run), drawing, holstering, firing
+// per weapon: 기본 대기 (idle) / 사격 대기 (aimIdle), walking, running (null = cannot run), drawing, holstering,
+// raising to / lowering from the aim, firing
 const SETS = {
   none: { idle: 'idle', walk: 'walk', run: 'run' },
-  rifle: { idle: 'rifle_idle', walk: 'shoot_rifle', run: null, draw: 'rifle_pull_out', holster: 'rifle_put_away',
-           single: { clip: 'gunplay' }, auto: 'rifle_full_auto', label: 'AR-12' },
-  dual: { idle: 'dual_idle', walk: 'dual_walk', run: 'dual_run', draw: 'dual_pull_out', holster: 'dual_put_away',
-          single: { clip: 'dual_fire', duration: 0.5 }, auto: 'dual_fire', label: '쌍권총' },
+  rifle: { idle: 'rifle_idle', aimIdle: 'rifle_aim_idle', walk: 'shoot_rifle', run: null, draw: 'rifle_pull_out', holster: 'rifle_put_away',
+           raise: 'rifle_down_to_aim', lower: 'rifle_aim_to_down', single: { clip: 'gunplay' }, auto: 'rifle_full_auto', label: 'AR-12' },
+  dual: { idle: 'dual_idle_high', aimIdle: 'dual_idle', walk: 'dual_walk', run: 'dual_run', draw: 'dual_pull_out', holster: 'dual_put_away',
+          raise: 'dual_ready_to_aim', lower: 'dual_aim_to_ready', single: { clip: 'dual_fire', duration: 0.5 }, auto: 'dual_fire', label: '쌍권총' },
 };
-const LABELS = { idle: '대기', walk: '걷기', run: '달리기', rifle_idle: '소총 대기', shoot_rifle: '소총 걷기', rifle_pull_out: '소총 꺼내기',
-  rifle_put_away: '소총 넣기', gunplay: '단발', rifle_full_auto: '풀오토', dual_idle: '쌍권총 조준 대기', dual_walk: '쌍권총 걷기',
-  dual_run: '쌍권총 달리기', dual_fire: '쌍권총 사격', dual_pull_out: '쌍권총 꺼내기', dual_put_away: '쌍권총 넣기' };
+const LABELS = { idle: '대기', walk: '걷기', run: '달리기', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', shoot_rifle: '소총 걷기',
+  rifle_pull_out: '소총 꺼내기', rifle_put_away: '소총 넣기', gunplay: '단발', rifle_full_auto: '풀오토', rifle_down_to_aim: '내림 → 조준',
+  rifle_aim_to_down: '조준 → 내림', dual_idle_high: '쌍권총 대기', dual_idle: '쌍권총 조준 대기', dual_walk: '쌍권총 걷기',
+  dual_run: '쌍권총 달리기', dual_fire: '쌍권총 사격', dual_pull_out: '쌍권총 꺼내기', dual_put_away: '쌍권총 넣기',
+  dual_ready_to_aim: '쌍권총 대기 → 조준', dual_aim_to_ready: '쌍권총 조준 → 대기' };
 // Ground speeds measured from the bare clips (Lian's version04.glb): the planted foot slides backward at
 // 0.69 (walk) and 2.25 (run) units/s in the in-place clips, so moving at that speed keeps the feet still.
 // The bare walk / run advance their frames by distance; the armed walks / run play by time scaled with speed.
@@ -49,7 +62,8 @@ const status = document.getElementById('status'), picker = document.getElementBy
 const help = document.getElementById('help');
 const keys = new Set();
 let sprites = null, loadId = 0;
-const player = { x: 0, vx: 0, facing: 1, anim: 'idle', phase: 0, clock: 0, weapon: 'none', last: 'rifle', action: null };
+const player = { x: 0, vx: 0, facing: 1, anim: 'idle', phase: 0, clock: 0, weapon: 'none', last: 'rifle', action: null,
+                 stance: 'ready', still: 0 };   // stance: 'ready' = 기본 대기, 'aim' = 사격 대기
 const camera = { x: 0 };
 
 async function loadClip(base, clip) {
@@ -62,11 +76,12 @@ async function loadClip(base, clip) {
 async function loadCharacter(id) {
   const ticket = ++loadId, c = CHARACTERS[id] ?? CHARACTERS.clone_01;
   status.textContent = `${c.name} 스프라이트 불러오는 중…`;
-  const loaded = await Promise.all(c.clips.map(clip => loadClip(c.base, clip)));
+  const baseOf = clip => typeof c.base === 'function' ? c.base(clip) : c.base;
+  const loaded = await Promise.all(c.clips.map(clip => loadClip(baseOf(clip), clip)));
   if (ticket !== loadId) return;
   sprites = { name: c.name, armed: !!c.armed, clips: Object.fromEntries(c.clips.map((clip, i) => [clip, loaded[i]])) };
-  Object.assign(player, { weapon: 'none', last: 'rifle', action: null, anim: 'idle', phase: 0, clock: 0 });
-  help.textContent = c.armed ? '1 소총 · 2 쌍권총 · X 꺼내기/넣기 · A 단발 · S 풀오토(누르는 동안)' : '무기 동작은 리안만 있습니다';
+  Object.assign(player, { weapon: 'none', last: 'rifle', action: null, anim: 'idle', phase: 0, clock: 0, stance: 'ready', still: 0 });
+  help.textContent = c.armed ? '1 소총 · 2 쌍권총 · X 꺼내기/넣기 · A 단발 · S 풀오토(누르는 동안) · 사격 후 5초 정지하면 기본 대기' : '무기 동작은 리안만 있습니다';
   const url = new URL(location.href); url.searchParams.set('c', id); history.replaceState(null, '', url);
 }
 
@@ -76,8 +91,19 @@ const duration = (clip, limit) => {
   return Math.min(limit ?? Infinity, m.frameCount / m.fps);
 };
 function play(clip, done, limit) { player.action = { clip, t: 0, end: duration(clip, limit), done }; }
-function draw(weapon) { play(SETS[weapon].draw, () => { player.weapon = weapon; player.last = weapon; }); }
-function holster(then) { play(SETS[player.weapon].holster, () => { player.weapon = 'none'; then?.(); }); }
+function draw(weapon) { play(SETS[weapon].draw, () => { player.weapon = weapon; player.last = weapon; player.stance = 'ready'; }); }
+// 기본 대기 -> 사격 대기 (raise) before firing; 사격 대기 -> 기본 대기 (lower) before holstering or after AIM_HOLD
+function aimThen(then) {
+  if (player.stance === 'aim') return then?.();
+  play(SETS[player.weapon].raise, () => { player.stance = 'aim'; player.still = 0; then?.(); });
+}
+function readyThen(then) {
+  if (player.stance === 'ready') return then?.();
+  play(SETS[player.weapon].lower, () => { player.stance = 'ready'; then?.(); });
+}
+function holster(then) {
+  readyThen(() => play(SETS[player.weapon].holster, () => { player.weapon = 'none'; player.stance = 'ready'; then?.(); }));
+}
 function equip(weapon) {
   if (player.weapon === weapon) return;
   if (player.weapon === 'none') draw(weapon);
@@ -86,12 +112,16 @@ function equip(weapon) {
 function toggle() { if (player.weapon === 'none') draw(player.last); else holster(); }
 function single() {
   const shot = SETS[player.weapon].single;
-  if (shot) play(shot.clip, null, shot.duration);
+  if (shot) aimThen(() => play(shot.clip, () => { player.still = 0; }, shot.duration));
 }
+// HUD: which stance, and how long until 사격 대기 lowers to 기본 대기
+const stanceText = () => player.weapon === 'none' ? '' : player.stance === 'aim'
+  ? ` (사격 대기${player.action ? '' : ` · ${Math.max(0, AIM_HOLD - player.still).toFixed(1)}초 후 기본 대기`})` : ' (기본 대기)';
+const idleOf = () => (player.weapon !== 'none' && player.stance === 'aim' ? SETS[player.weapon].aimIdle : SETS[player.weapon].idle);
 
 // ---- input
 const MOVE_KEYS = ['ArrowLeft', 'ArrowRight', 'ShiftLeft', 'ShiftRight', 'KeyS'];
-addEventListener('keydown', event => {
+function onKeyDown(event) {
   if (MOVE_KEYS.includes(event.code)) { keys.add(event.code); event.preventDefault(); }
   if (!sprites?.armed || event.repeat || player.action) return;
   const busyFiring = keys.has('KeyS') && player.weapon !== 'none';
@@ -101,7 +131,8 @@ addEventListener('keydown', event => {
   else if (event.code === 'KeyA' && player.weapon !== 'none' && !busyFiring) single();
   else return;
   event.preventDefault();
-});
+}
+addEventListener('keydown', onKeyDown);
 addEventListener('keyup', event => { if (MOVE_KEYS.includes(event.code)) { keys.delete(event.code); event.preventDefault(); } });
 addEventListener('blur', () => keys.clear());
 picker.addEventListener('change', () => { loadCharacter(picker.value); picker.blur(); });
@@ -109,7 +140,10 @@ picker.addEventListener('change', () => { loadCharacter(picker.value); picker.bl
 // ---- simulation
 function update(dt) {
   const set = SETS[player.weapon];
-  const autoFire = !!sprites?.armed && keys.has('KeyS') && player.weapon !== 'none' && !player.action;
+  const armed = !!sprites?.armed && player.weapon !== 'none';
+  // S held: raise first if in 기본 대기, then fire while held
+  if (armed && keys.has('KeyS') && !player.action && player.stance === 'ready') aimThen();
+  const autoFire = armed && keys.has('KeyS') && !player.action && player.stance === 'aim';
   const standing = !!player.action || autoFire;   // weapon actions and firing are done standing
   const dir = standing ? 0 : (keys.has('ArrowRight') ? 1 : 0) - (keys.has('ArrowLeft') ? 1 : 0);
   const running = (keys.has('ShiftLeft') || keys.has('ShiftRight')) && set.run !== null;
@@ -122,12 +156,19 @@ function update(dt) {
   if (player.x < LEVEL.left || player.x > LEVEL.right) { player.x = Math.min(LEVEL.right, Math.max(LEVEL.left, player.x)); player.vx = 0; }
 
   const speed = Math.abs(player.vx);
+  // walking with a weapon uses the aimed walk clips: it counts as 사격 대기
+  if (armed && !player.action && speed >= 0.04) player.stance = 'aim';
+  // 사격 대기 held still for AIM_HOLD -> lower to 기본 대기
+  if (armed && !player.action && !autoFire && player.stance === 'aim' && speed < 0.04) {
+    player.still += dt;
+    if (player.still >= AIM_HOLD) { player.still = 0; readyThen(); }
+  } else if (!player.action) player.still = 0;
   let anim;
   if (player.action) {
     const a = player.action; a.t += dt; anim = a.clip;
-    if (a.t >= a.end) { player.action = null; a.done?.(); anim = player.action ? player.action.clip : SETS[player.weapon].idle; }
+    if (a.t >= a.end) { player.action = null; a.done?.(); anim = player.action ? player.action.clip : idleOf(); }
   } else if (autoFire) anim = set.auto;
-  else anim = speed < 0.04 ? set.idle : speed > RUN_SWITCH && set.run ? set.run : set.walk;
+  else anim = speed < 0.04 ? idleOf() : speed > RUN_SWITCH && set.run ? set.run : set.walk;
   if (anim !== player.anim) { player.anim = anim; player.phase = 0; player.clock = 0; }
   if (!sprites) return;
   const m = sprites.clips[anim]?.manifest;
@@ -193,7 +234,7 @@ function drawScene() {
     ctx.drawImage(image, fx, fy, cw, ch, m.crop.x - m.originX, m.crop.y - m.groundY, cw, ch);
     ctx.setTransform(1, 0, 0, 1, 0, 0);
     const weapon = player.weapon === 'none' ? '맨손' : SETS[player.weapon].label;
-    status.textContent = `${sprites.name} · ${weapon} · ${LABELS[player.anim] ?? player.anim} · ${m.fps} fps · ${(Math.abs(player.vx) * 1.65).toFixed(2)} m/s · x ${(player.x * 1.65).toFixed(1)} m`;
+    status.textContent = `${sprites.name} · ${weapon} · ${LABELS[player.anim] ?? player.anim}${stanceText()} · ${m.fps} fps · ${(Math.abs(player.vx) * 1.65).toFixed(2)} m/s · x ${(player.x * 1.65).toFixed(1)} m`;
   }
 }
 
@@ -208,3 +249,6 @@ const start = new URL(location.href).searchParams.get('c');
 picker.value = CHARACTERS[start] ? start : 'clone_01';
 loadCharacter(picker.value).catch(err => { status.textContent = `불러오기 실패: ${err.message}`; });
 requestAnimationFrame(tick);
+
+// ?debug: expose the simulation so a test can step it frame by frame without relying on requestAnimationFrame
+if (new URL(location.href).searchParams.has('debug')) window.__move = { player, keys, update, onKeyDown, get loaded() { return !!sprites; } };
