@@ -12,39 +12,43 @@
 //   Stance rule with a weapon out (user rule 2026-11-13): drawn -> 기본 대기 (rifle_idle / 쌍권총 대기 dual_idle_high);
 //   A or S first raises the weapon (내림→조준 / 쌍권총 대기→조준) and then fires; after firing the character stays in
 //   사격 대기 (rifle_aim_idle / 쌍권총 조준 대기 dual_idle); standing still for AIM_HOLD (5 s) there lowers it again
-//   (조준→내림 / 쌍권총 조준→대기). Walking with a weapon uses the aimed walk clips, so it counts as 사격 대기 too.
+//   (조준→내림 / 쌍권총 조준→대기).
+//   Moving keeps the stance (2026-11-13, sprite_006): 기본 대기 walks low (소총 걷기 rifle_walk / 쌍권총 기본 걷기
+//   dual_walk_basic), 사격 대기 walks aimed (이동 사격 shoot_rifle / 쌍권총 조준 걷기 dual_walk); running (Shift) uses
+//   소총 달리기 rifle_run / 쌍권총 달리기 dual_run, both lowered, so running drops the stance to 기본 대기.
 //   Holstering or switching from 사격 대기 lowers first.
 //   Drawing, holstering, raising, lowering and firing are done standing: the character slows to a stop meanwhile.
-//   With the rifle there is no run clip, so Shift does nothing and the walk uses 이동 사격 (shoot_rifle).
 // The other characters keep the earlier unarmed 12 fps sets (sprite_001).
 
 const LIAN4 = '/art/characters/clone_01/motion/glb_model_001/sprite_004/';
 const LIAN5 = '/art/characters/clone_01/motion/glb_model_001/sprite_005/';
 const IN_SPRITE5 = new Set(['rifle_down_to_aim', 'rifle_aim_to_down', 'dual_ready_to_aim', 'dual_aim_to_ready', 'dual_pull_out', 'dual_put_away']);
+const LIAN6 = '/art/characters/clone_01/motion/glb_model_001/sprite_006/';
+const IN_SPRITE6 = new Set(['rifle_walk', 'rifle_run', 'dual_walk_basic']);
 const UNARMED = ['idle', 'walk', 'run'];
 const LIAN_CLIPS = [...UNARMED, 'rifle_idle', 'rifle_aim_idle', 'shoot_rifle', 'rifle_pull_out', 'rifle_put_away', 'gunplay', 'rifle_full_auto',
   'rifle_down_to_aim', 'rifle_aim_to_down', 'dual_idle_high', 'dual_idle', 'dual_walk', 'dual_run', 'dual_fire', 'dual_pull_out', 'dual_put_away',
-  'dual_ready_to_aim', 'dual_aim_to_ready'];
+  'dual_ready_to_aim', 'dual_aim_to_ready', 'rifle_walk', 'rifle_run', 'dual_walk_basic'];
 const AIM_HOLD = 5;                  // s standing still in 사격 대기 before the weapon is lowered to 기본 대기
 const CHARACTERS = {
-  clone_01: { name: '리안', base: clip => IN_SPRITE5.has(clip) ? LIAN5 : LIAN4, clips: LIAN_CLIPS, armed: true },
+  clone_01: { name: '리안', base: clip => IN_SPRITE6.has(clip) ? LIAN6 : IN_SPRITE5.has(clip) ? LIAN5 : LIAN4, clips: LIAN_CLIPS, armed: true },
   iren: { name: '아렌', base: '/art/characters/iren/motion/glb_model_001/sprite_001/', clips: UNARMED },
   moa: { name: '모아', base: '/art/characters/moa/motion/glb_model_001/sprite_001/', clips: UNARMED },
   yuna: { name: '유나', base: '/art/characters/yuna/motion/glb_model_001/sprite_001/', clips: UNARMED },
   sena: { name: '세나', base: '/art/characters/sena/motion/glb_model_001/sprite_001/', clips: UNARMED },
 };
-// per weapon: 기본 대기 (idle) / 사격 대기 (aimIdle), walking, running (null = cannot run), drawing, holstering,
+// per weapon: 기본 대기 (idle) / 사격 대기 (aimIdle), walking in 기본 대기 (walk) / 사격 대기 (aimWalk), running, drawing, holstering,
 // raising to / lowering from the aim, firing
 const SETS = {
   none: { idle: 'idle', walk: 'walk', run: 'run' },
-  rifle: { idle: 'rifle_idle', aimIdle: 'rifle_aim_idle', walk: 'shoot_rifle', run: null, draw: 'rifle_pull_out', holster: 'rifle_put_away',
+  rifle: { idle: 'rifle_idle', aimIdle: 'rifle_aim_idle', walk: 'rifle_walk', aimWalk: 'shoot_rifle', run: 'rifle_run', draw: 'rifle_pull_out', holster: 'rifle_put_away',
            raise: 'rifle_down_to_aim', lower: 'rifle_aim_to_down', single: { clip: 'gunplay' }, auto: 'rifle_full_auto', label: 'AR-12' },
-  dual: { idle: 'dual_idle_high', aimIdle: 'dual_idle', walk: 'dual_walk', run: 'dual_run', draw: 'dual_pull_out', holster: 'dual_put_away',
+  dual: { idle: 'dual_idle_high', aimIdle: 'dual_idle', walk: 'dual_walk_basic', aimWalk: 'dual_walk', run: 'dual_run', draw: 'dual_pull_out', holster: 'dual_put_away',
           raise: 'dual_ready_to_aim', lower: 'dual_aim_to_ready', single: { clip: 'dual_fire', duration: 0.5 }, auto: 'dual_fire', label: '쌍권총' },
 };
-const LABELS = { idle: '대기', walk: '걷기', run: '달리기', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', shoot_rifle: '소총 걷기',
+const LABELS = { idle: '대기', walk: '걷기', run: '달리기', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', shoot_rifle: '소총 조준 걷기', rifle_walk: '소총 걷기', rifle_run: '소총 달리기',
   rifle_pull_out: '소총 꺼내기', rifle_put_away: '소총 넣기', gunplay: '단발', rifle_full_auto: '풀오토', rifle_down_to_aim: '내림 → 조준',
-  rifle_aim_to_down: '조준 → 내림', dual_idle_high: '쌍권총 대기', dual_idle: '쌍권총 조준 대기', dual_walk: '쌍권총 걷기',
+  rifle_aim_to_down: '조준 → 내림', dual_idle_high: '쌍권총 대기', dual_idle: '쌍권총 조준 대기', dual_walk: '쌍권총 조준 걷기', dual_walk_basic: '쌍권총 기본 걷기',
   dual_run: '쌍권총 달리기', dual_fire: '쌍권총 사격', dual_pull_out: '쌍권총 꺼내기', dual_put_away: '쌍권총 넣기',
   dual_ready_to_aim: '쌍권총 대기 → 조준', dual_aim_to_ready: '쌍권총 조준 → 대기' };
 // Ground speeds measured from the bare clips (Lian's version04.glb): the planted foot slides backward at
@@ -156,8 +160,8 @@ function update(dt) {
   if (player.x < LEVEL.left || player.x > LEVEL.right) { player.x = Math.min(LEVEL.right, Math.max(LEVEL.left, player.x)); player.vx = 0; }
 
   const speed = Math.abs(player.vx);
-  // walking with a weapon uses the aimed walk clips: it counts as 사격 대기
-  if (armed && !player.action && speed >= 0.04) player.stance = 'aim';
+  // walking keeps the stance; the run clips carry the weapon lowered, so running drops to 기본 대기
+  if (armed && !player.action && speed > RUN_SWITCH) player.stance = 'ready';
   // 사격 대기 held still for AIM_HOLD -> lower to 기본 대기
   if (armed && !player.action && !autoFire && player.stance === 'aim' && speed < 0.04) {
     player.still += dt;
@@ -168,7 +172,8 @@ function update(dt) {
     const a = player.action; a.t += dt; anim = a.clip;
     if (a.t >= a.end) { player.action = null; a.done?.(); anim = player.action ? player.action.clip : idleOf(); }
   } else if (autoFire) anim = set.auto;
-  else anim = speed < 0.04 ? idleOf() : speed > RUN_SWITCH && set.run ? set.run : set.walk;
+  else anim = speed < 0.04 ? idleOf() : speed > RUN_SWITCH && set.run ? set.run
+    : (armed && player.stance === 'aim' && set.aimWalk) || set.walk;
   if (anim !== player.anim) { player.anim = anim; player.phase = 0; player.clock = 0; }
   if (!sprites) return;
   const m = sprites.clips[anim]?.manifest;
@@ -176,7 +181,7 @@ function update(dt) {
     // bare cycles advance by distance covered, so steps stay planted while speeding up / slowing down
     const stride = (anim === 'run' ? RUN_SPEED : WALK_SPEED) * m.frameCount / m.fps;   // units travelled per cycle
     player.phase = (player.phase + speed * dt / stride) % 1;
-  } else if (anim === set.walk || anim === set.run) {
+  } else if (anim === set.walk || anim === set.aimWalk || anim === set.run) {
     player.clock += dt * Math.max(0.3, speed / (anim === set.run ? RUN_SPEED : WALK_SPEED));
   } else player.clock += dt;
   camera.x += (player.x - camera.x) * Math.min(1, dt * 4);

@@ -32,7 +32,7 @@ if VGRIP: mode = 'long'
 CLEAR = True                 # push hands out of the gun mesh (hand_clearance.py)
 CLEAR_STEP = 2
 MAX_CLEAR = 0.12             # m real: largest clearance move of a hand
-HIP_CLIPS = {'rifle_idle', 'pistol_idle'}   # low-ready / hip carry: gun stays in the right hand, no shoulder mount
+HIP_CLIPS = {'rifle_idle', 'pistol_idle', 'rifle_walk', 'rifle_run', 'rifle_walk_to_stop'}   # low-ready / hip carry: gun stays in the right hand, no shoulder mount (walk / run / walk-to-stop added 2026-11-13: same low-ready hands as rifle_idle)
 # transitions between the low ready and the aim (2026-11-13): the shoulder mount fades in (or out) with the gun's rise,
 # measured on the hand-carried gun: 0 while the muzzle is within RAMP_SPAN[0] of its start->end pitch change, 1 past
 # RAMP_SPAN[1] of it (smoothstep between), so the start matches the hip carry of rifle_idle and the end the shouldered aim

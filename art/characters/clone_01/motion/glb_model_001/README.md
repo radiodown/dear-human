@@ -256,3 +256,7 @@ py tools/glb_retarget/merge_loadout_glbs.py art/characters/clone_01/motion/glb_m
 ## 쌍권총 기본 걷기 (loadout_028, 2026-11-13)
 
 같은 요청의 앞부분으로 맨손 걷기 `walk.001`의 몸·팔 흔들기에 권총을 쥐인 `dual_walk_basic`(‘쌍권총 기본 걷기’)을 `make_dual_pistol_clips.py`(`dual_run`과 같은 방식)로 만들어 [loadout_028](loadout_028/README.md)에 넣고 탭을 옮겼다(027 보존). 렌더·탭 재생만 확인했고 스프라이트·js-prototype 연결은 없다.
+
+## 무장 이동: 소총 걷기·달리기·걷다 멈춤 + AR-12 (loadout_029, sprite_006, 2026-11-13)
+
+사용자 요청 “모션들에서 프로토타입의 움직임을 자연스럽게 연결할 수 있는 동작들을 총기 모션을 추가해줘”으로 맨손 `rifle_walk`·`rifle_run`·`rifle_walk_to_stop`에 AR-12를 낮춘 자세(`HIP_CLIPS`)로 붙여 [loadout_029](loadout_029/README.md)를 만들고 탭을 옮겼다(028 보존). 이 3개와 쌍권총 기본 걷기를 [sprite_006](sprite_006/README.md)으로 렌더했고, [이동 프로토타입 004](../../../../../game/js-prototype/move/README.md)가 기본 대기에서는 낮춘 걷기·달리기, 사격 대기에서는 조준 걷기를 쓰도록 연결했다.

@@ -16,8 +16,9 @@ export const MODELS = {
     // loadout_026 = loadout_025 with dual_pull_out / dual_put_away rebuilt: the draw ends in (the holster starts from) the first frame of dual_idle_high, whole body
     // loadout_027 = loadout_026 + dual_ready_to_aim / dual_aim_to_ready (HP-14T pair): dual_idle_high frame 1 <-> dual_idle frame 1
     // loadout_028 = loadout_027 + dual_walk_basic (the unarmed walk with a pistol in each hand, make_dual_pistol_clips.py)
+    // loadout_029 = loadout_028 + rifle_walk / rifle_run / rifle_walk_to_stop with the AR-12 (low-ready hip carry like rifle_idle)
     // (tools/glb_retarget/merge_loadout_glbs.py); each clip keys the weapons it does not use to scale 0.
-    loadouts: { ar12_hp14t: { label: 'AR-12 럽처 + HP-14T 제미니', url: '/art/characters/clone_01/motion/glb_model_001/loadout_028/clone_01_ar12_hp14t.glb', file: 'clone_01_ar12_hp14t.glb' } },
+    loadouts: { ar12_hp14t: { label: 'AR-12 럽처 + HP-14T 제미니', url: '/art/characters/clone_01/motion/glb_model_001/loadout_029/clone_01_ar12_hp14t.glb', file: 'clone_01_ar12_hp14t.glb' } },
     // Old loadout= links keep working: they open the merged loadout (the pistol link on its own idle).
     loadoutAliases: { ar12_rupture: { loadout: 'ar12_hp14t' }, hp14t_gemini: { loadout: 'ar12_hp14t', clip: 'dual_idle' } },
     url: '/art/characters/clone_01/motion/glb_model_001/source/version04.glb',

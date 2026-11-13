@@ -100,7 +100,7 @@ $('mode-glb').addEventListener('click',()=>setPreviewMode('glb'));
 $('mode-glb-sprite').addEventListener('click',()=>setPreviewMode('glb-sprite'));
 $('mode-weapon-3d').addEventListener('click',()=>setPreviewMode('weapon-3d'));
 const jsPrototypes = [
-  { id: 'move', label: '이동 003', src: '/js-prototype/move/index.html', note: '← → 이동, Shift를 누른 채 달리기. 리안: 1 소총, 2 쌍권총, X 꺼내기/넣기, A 단발, S 풀오토(누르는 동안). 사격하면 조준 자세로 올리고, 사격 대기에서 5초 멈추면 기본 대기로 내립니다. 화면을 한 번 클릭한 뒤 조작하고, 캐릭터는 화면 오른쪽 위에서 바꿉니다.' },
+  { id: 'move', label: '이동 004', src: '/js-prototype/move/index.html', note: '← → 이동, Shift를 누른 채 달리기. 리안: 1 소총, 2 쌍권총, X 꺼내기/넣기, A 단발, S 풀오토(누르는 동안). 사격하면 조준 자세로 올리고, 사격 대기에서 5초 멈추면 기본 대기로 내립니다. 기본 대기는 낮춘 자세로, 사격 대기는 조준한 채 걷고, 달리면 기본 대기가 됩니다. 화면을 한 번 클릭한 뒤 조작하고, 캐릭터는 화면 오른쪽 위에서 바꿉니다.' },
 ];
 function showJsPrototype(id) {
   const proto = jsPrototypes.find(item => item.id === id);
