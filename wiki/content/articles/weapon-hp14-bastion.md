@@ -5,9 +5,9 @@ category: "technology"
 summary: "유나가 물리적 방패와 함께 사용하는 대구경 권총."
 status: "보완안"
 visibility: "reader"
-updated: "2026-11-09"
+updated: "2026-11-12"
 aliases: ["바스티온","HP-14","유나의 권총","방패병 권총"]
-sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "2026-11-09 사용자 확인 · 대구경 권총의 사용자는 방패병 유나", "Magnum Research Desert Eagle 공식 소개 · https://www.magnumresearch.com/desert-eagle/", "2026-11-09 user concept feedback: futuristic grenade launcher and shotgun; hammer pulse-current field; overlong pistol barrel rejected.", "2026-11-09 사용자 지정 · 바스티온에 컴펜세이터 장착", "2026-11-09 사용자 재생성 요청 · 바스티온 006·브리처 007·뮬 007 새 원화"]
+sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "2026-11-09 사용자 확인 · 대구경 권총의 사용자는 방패병 유나", "Magnum Research Desert Eagle 공식 소개 · https://www.magnumresearch.com/desert-eagle/", "2026-11-09 user concept feedback: futuristic grenade launcher and shotgun; hammer pulse-current field; overlong pistol barrel rejected.", "2026-11-09 사용자 지정 · 바스티온에 컴펜세이터 장착", "2026-11-09 사용자 재생성 요청 · 바스티온 006·브리처 007·뮬 007 새 원화", "2026-11-12 사용자 요청 · 탄환 컨셉 작성; clone-ammunition-concepts의 탄종 보완안 연결"]
 illustrations: [{"src":"assets/weapons/hp14-bastion-006.png","title":"HP-14 바스티온","alt":"적당한 총열 길이와 짧은 컴펜세이터를 갖춘 HP-14 바스티온 원화","caption":"유나 · 대구경 권총 · 컴펜세이터·총열 비례 조정 · 시안 006 · 검수 대기","width":1536,"height":1024,"article":"weapon-hp14-bastion"}]
 ---
 # HP-14 바스티온
@@ -24,11 +24,13 @@ Desert Eagle의 각진 상부와 굵은 총열부, 큰 손잡이와 무거운 �
 
 ## 역할과 반동
 
+[[clone-ammunition-concepts|탄종 컨셉]]으로 근접충격탄 ‘망치’와 관통형 권총탄 ‘이빨’을 제안한다. 바이퍼와 같은 탄약군을 사용하는 안이지만 실제 실탄·탄창의 상호 호환은 미정이다. 탄종 이름·외형·효과는 검수 전이다.
+
 짧은 거리에서 갑주형 생물에게 대응하는 전용 고압탄을 사용하는 기본안이다. 방패를 든 한 손 운용은 강화 신체와 숙련이 있어야 가능하다. 총이 버틴다고 손목과 팔에 반동이 사라지는 것이 아니며, 연속 발사와 방패 유지에는 부담이 따른다.
 
 유나는 방패와 권총을 조합하거나 권총을 수납하고 [[weapon-ih7-knocker|충격 해머]]로 바꿔 든다. 한 손에 권총과 해머를 동시에 쓰는 구성은 아니다.
 
 ## 관련 계열
 
-[[heroine|리안]]의 [[weapon-hp14t-gemini|HP-14T 제미니]]는 같은 가상 권총 계열의 쌍권총 운용형이다. 외형·탄약 계통의 공통점은 기본안이며 구체적인 부품 호환과 성능은 미정이다.
+[[heroine|리안]]의 [[weapon-hp14t-gemini|HP-14T 바이퍼]]는 같은 가상 권총 계열의 쌍권총 운용형이다. 외형·탄약 계통의 공통점은 기본안이며 구체적인 부품 호환과 성능은 미정이다.
 

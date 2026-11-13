@@ -1,0 +1,64 @@
+{
+  "date": "2026-11-12",
+  "recipe_key": "glb_muzzle_002",
+  "reference": "User-provided six muzzle flash examples in conversation; direction only, not a source texture",
+  "paid_api_calls": 0,
+  "manual_work_seconds": null,
+  "art_direction_status": "awaiting_user_review",
+  "inputs": [
+    {
+      "path": "art/fx/glb_muzzle_002/before/glb-gun-fx.js",
+      "sha256": "5894cf409b81854e8ecc0d2b10b38f9ea116c115c715b861201ca2456b4fccd4"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/before/review_gun_fx.py",
+      "sha256": "127232d853ebd126a9caa3fbd855d572be73b8d5010a30b7d2b0637d052697bc"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "art/fx/glb_muzzle_002/source_snapshot/glb-gun-fx.js",
+      "sha256": "5aac538adc6080efcf6210d42a8ca80bc94018c29fdb15be1f8cc9a29f75fb6f"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/source_snapshot/glb-model-lab.js",
+      "sha256": "55622834c7055bbdbb724e45ed3b0baa531159a5d89b7036b1098ec88bef515a"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/source_snapshot/index.html",
+      "sha256": "0eb0eeee498b7e142aaac512b3a73cf38bac999c1435964fbb47142024c1d766"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/source_snapshot/review_gun_fx.py",
+      "sha256": "32fdadd1ee99f3fa94f55a95c2b8a8231270bf9aeb4a4d1d0608385682efe4f2"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/reviews/dual_left_flash.png",
+      "sha256": "24fdc74123106f04df05989c7755ebb9dfaa8bf1f67a3df7c4dee8af95e5baef"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/reviews/dual_left_reverse.png",
+      "sha256": "9bcc8ba60549b3ee90ee4b65a3766366f268651aeebaae61e67a0decc51c8b89"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/reviews/rifle_closeup.png",
+      "sha256": "ead63d67ea061f77907c266c205b24d9a8f3cbed93feaf6ff97aabde99d8a4ba"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/reviews/rifle_flash.png",
+      "sha256": "8d8153efbe5e78ea5f440c8a2f543208fb3b062533cbfcec85943319ab5f0d0a"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/reviews/rifle_smoke.png",
+      "sha256": "f7a537ec9824fc6ef31762d31cdf025c24100adc7834ed7c0d26d3bc5f98f66b"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/reviews/rifle_spread.png",
+      "sha256": "8205d71c5b71daad44a0bae836ac953cc3e47ad1ad05f864b2fbc4016cb00b5b"
+    },
+    {
+      "path": "art/fx/glb_muzzle_002/reviews/viewer.json",
+      "sha256": "749b91a5c5b91ef11e4d3e1dd0bc4429f08a44dfa1cb524ec670b0449b4b0702"
+    }
+  ]
+}

@@ -5,9 +5,9 @@ category: "technology"
 summary: "모아가 휴대하는 길고 거대한 대구경 지원기관총."
 status: "보완안"
 visibility: "reader"
-updated: "2026-11-09"
+updated: "2026-11-12"
 aliases: ["골리앗","HMG-15","모아의 기관총","대갑주 기관총"]
-sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승","미 육군 M7·M250 표준 분류 · https://www.army.mil/article/285678/project_manager_soldier_lethality_announces_type_classification_approval_for_next_generation_squad_weapons_ngsw","SIG SAUER 2026 Defense Catalog · https://www.sigsauer.com/media/sigsauer/resources/FULL_DEFENSE_CAT_26_PRINT.pdf"]
+sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "미 육군 M7·M250 표준 분류 · https://www.army.mil/article/285678/project_manager_soldier_lethality_announces_type_classification_approval_for_next_generation_squad_weapons_ngsw", "SIG SAUER 2026 Defense Catalog · https://www.sigsauer.com/media/sigsauer/resources/FULL_DEFENSE_CAT_26_PRINT.pdf", "2026-11-12 사용자 요청 · 탄환 컨셉 작성; clone-ammunition-concepts의 탄종 보완안 연결"]
 illustrations: [{"src":"assets/weapons/hmg15-goliath-001.png","title":"HMG-15 골리앗","alt":"HMG-15 골리앗 장비 외형 원화","caption":"모아 · 대구경 지원기관총 · 시안 001 · 검수 대기","width":1536,"height":1024,"article":"weapon-hmg15-goliath"}]
 ---
 # HMG-15 골리앗
@@ -22,7 +22,7 @@ M250 계열의 현대적인 벨트 급탄 기관총 형태와 SIG의 대형 기�
 
 ## 탄약과 역할
 
-15.2mm 전용 대갑주 탄약을 쓰며 단단한 외피를 지닌 적에게 지속 화력을 제공한다는 기본안이다. 정확한 탄종 구성·연사 속도·휴대 탄약량·관통 성능은 미정이다. [[sena|세나]]의 한 발 정밀 파쇄와 달리 모아는 사격을 이어 가는 역할을 맡는다.
+15.2mm 전용 대갑주 탄약을 쓰며 단단한 외피를 지닌 적에게 지속 화력을 제공한다는 기본안이다. [[clone-ammunition-concepts|탄종 컨셉]]으로 지속관통탄 ‘철우’와 예광 보조탄 ‘실선’을 제안한다. 탄띠 구성·혼합 비율·연사 속도·휴대 탄약량·관통 성능은 미정이다. [[sena|세나]]의 한 발 정밀 파쇄와 달리 모아는 사격을 이어 가는 역할을 맡는다.
 
 ## 운용의 부담
 

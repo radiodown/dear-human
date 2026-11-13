@@ -1,0 +1,133 @@
+"""Small local Chromium render review of the authored GLB; no runtime/game writes."""
+import asyncio
+import json
+import sys
+from pathlib import Path
+from playwright.async_api import async_playwright
+
+VERSION = sys.argv[1] if len(sys.argv)>1 else 'loadout_014'
+OUT = Path('art/characters/clone_01/motion/glb_model_001')/VERSION/'reviews'
+
+
+async def main():
+    OUT.mkdir(parents=True,exist_ok=True)
+    async with async_playwright() as p:
+        browser = await p.chromium.launch(headless=True)
+        page = await browser.new_page(viewport={'width':1100,'height':820},device_scale_factor=1,bypass_csp=True)
+        errors=[]
+        page.on('pageerror',lambda e:errors.append(str(e)))
+        await page.goto('http://127.0.0.1:4173/')
+        result=await page.evaluate('''async (version) => {
+          const T = await import('/vendor/three-0.187.0/build/three.module.js');
+          const {GLTFLoader} = await import('/vendor/three-0.187.0/examples/jsm/loaders/GLTFLoader.js');
+          const model = await new GLTFLoader().loadAsync(`/art/characters/clone_01/motion/glb_model_001/${version}/clone_01_ar12_rupture.glb`);
+          for (const child of document.body.children) child.style.display='none';
+          const scene = new T.Scene(); scene.background=new T.Color(0x62666e); scene.add(model.scene);
+          scene.add(new T.HemisphereLight(0xffffff,0x666677,2));
+          const light=new T.DirectionalLight(0xffffff,2.5); light.position.set(-2,3,3); scene.add(light);
+          const rim=new T.DirectionalLight(0xffffff,1); rim.position.set(2,2,-2); scene.add(rim);
+          const renderer=new T.WebGLRenderer({antialias:true,preserveDrawingBuffer:true});
+          renderer.setSize(1100,820); document.body.append(renderer.domElement); document.body.style.margin='0';
+          const camera=new T.OrthographicCamera(-.52,.52,.388,-.388,.01,20);
+          camera.position.set(-3,1.15,3); camera.lookAt(0,.66,.13);
+          const mixer=new T.AnimationMixer(model.scene); const clip=model.animations.find(a=>a.name==='rifle_reload');
+          mixer.clipAction(clip).play();
+          window.review={T,scene,renderer,camera,mixer,model,clip};
+          return {clips:model.animations.map(a=>a.name),duration:clip.duration};
+        }''',VERSION)
+        crisp = VERSION == 'loadout_014'
+        poses = [('ready',0),('grasp',.49),('extract',.72),('pouch',1.10),('insert',1.61),('seated',1.72),('return',2.25)] if crisp else [('ready',0),('grasp',.77),('extract',1.05),('pouch',1.48),('insert',2.04),('seated',2.18),('return',2.8)]
+        for label,t in poses:
+            await page.evaluate('''t=>{const r=window.review;r.mixer.setTime(t);r.model.scene.updateMatrixWorld(true);r.renderer.render(r.scene,r.camera)}''',t)
+            await page.screenshot(path=str(OUT/f'{label}.png'))
+        # Both default side view and front reveal hand/weapon occlusion.
+        for label,pos in [('side',[-3,.75,0]),('front',[0,.75,3])]:
+            await page.evaluate('''({pos,time})=>{const r=window.review;r.camera.position.set(...pos);r.camera.lookAt(0,.66,.13);r.mixer.setTime(time);r.renderer.render(r.scene,r.camera)}''',{'pos':pos,'time':.72 if crisp else 1.05})
+            await page.screenshot(path=str(OUT/f'extract_{label}.png'))
+        if VERSION in ('loadout_013','loadout_014'):
+            continuity=await page.evaluate('''async (priorVersion) => {
+              const r=window.review, T=r.T;
+              const {GLTFLoader}=await import('/vendor/three-0.187.0/examples/jsm/loaders/GLTFLoader.js');
+              const prior=await new GLTFLoader().loadAsync(`/art/characters/clone_01/motion/glb_model_001/${priorVersion}/clone_01_ar12_rupture.glb`);
+              function inspect(model) {
+                const mixer=new T.AnimationMixer(model.scene), clip=model.animations.find(c=>c.name==='rifle_reload');
+                const action=mixer.clipAction(clip);action.setLoop(T.LoopOnce,1);action.clampWhenFinished=true;action.play();
+                const mags=['reload_magazine_old','reload_magazine_fresh'].map(n=>model.scene.getObjectByName(n));
+                const center=new T.Vector3(-.027,.037,0);let last=null,maxStep=0,gaps=0,duplicates=0,partial=0;
+                const count=Math.round(clip.duration*240);
+                for(let i=0;i<=count;i++) {
+                  mixer.setTime(i/240);model.scene.updateMatrixWorld(true);
+                  const visible=mags.filter(n=>n.scale.x>.5);
+                  gaps+=visible.length===0;duplicates+=visible.length>1;
+                  partial+=mags.some(n=>n.scale.x!==0&&n.scale.x!==1);
+                  if(visible.length===1) {
+                    const point=visible[0].localToWorld(center.clone());
+                    if(last)maxStep=Math.max(maxStep,point.distanceTo(last));last=point;
+                  }else last=null;
+                }
+                const handoffs=[];
+                const events=model.parser.json.animations.find(a=>a.name==='rifle_reload').extras.events;
+                for(const time of [events.exchange,events.seated_mesh_swap]) {
+                  mixer.setTime(time);model.scene.updateMatrixWorld(true);
+                  const matrices=mags.map(n=>n.parent.matrixWorld.clone().multiply(new T.Matrix4().compose(n.position,n.quaternion,new T.Vector3(1,1,1))));
+                  handoffs.push({time,positionError:center.clone().applyMatrix4(matrices[0]).distanceTo(center.clone().applyMatrix4(matrices[1])),
+                    rotationError:new T.Quaternion().setFromRotationMatrix(matrices[0]).angleTo(new T.Quaternion().setFromRotationMatrix(matrices[1]))});
+                }
+                mixer.stopAllAction();return {samples:count+1,duration:clip.duration,gaps,duplicates,partial,maxStep,maxSpeed:maxStep*240,handoffs};
+              }
+              // Keep the render mixer's state separate from this dense animation audit.
+              r.mixer.stopAllAction();const result={before:inspect(prior),after:inspect(r.model)};
+              r.mixer.clipAction(r.clip).reset().play();return result;
+            }''','loadout_013' if crisp else 'loadout_012')
+            assert continuity['after']['gaps']==0 and continuity['after']['duplicates']==0
+            assert continuity['after']['partial']==0 and continuity['after']['maxStep']<.008
+            assert all(h['positionError']<1e-5 and h['rotationError']<1e-4 for h in continuity['after']['handoffs'])
+            (OUT/'magazine_continuity.json').write_text(json.dumps(continuity,indent=2),encoding='utf8',newline='\n')
+            print(json.dumps(continuity))
+            handoff_poses=[('exchange_before',1.08),('exchange_after',1.12),('seat_before',1.88),('seat_after',1.92)] if crisp else [('exchange_before',1.48),('exchange_after',1.52),('seat_before',2.315),('seat_after',2.35)]
+            for label,t in handoff_poses:
+                await page.evaluate('''t=>{const r=window.review;r.camera.position.set(-3,1.15,3);r.camera.lookAt(0,.66,.13);r.mixer.setTime(t);r.renderer.render(r.scene,r.camera)}''',t)
+                await page.screenshot(path=str(OUT/f'{label}.png'))
+        result['page_errors']=errors
+        (OUT/'render.json').write_text(json.dumps(result,indent=2),encoding='utf8',newline='\n')
+        print(json.dumps(result))
+        # Exercise the real shared viewer. The hook exists only in this intercepted QA response.
+        app_source=Path('game/app.js').read_text(encoding='utf8')
+        await page.route('**/app.js',lambda route:route.fulfill(status=200,content_type='text/javascript',
+                                                             body=app_source+'\nwindow.reloadQA = glb;'))
+        await page.goto('http://127.0.0.1:4173/#/samples/characters/clone_01?plan=glb&loadout=ar12_rupture&clip=rifle_reload&paused=1')
+        await page.reload()
+        await page.wait_for_function("window.reloadQA?.action?.getClip().name === 'rifle_reload'")
+        await page.locator('[data-clip="rifle_reload"]').click()
+        await page.evaluate('''() => {const r=window.reloadQA;r.action.time=1.05;r.current.mixer.update(0);r.render()}''')
+        await page.locator('#glb-stage').screenshot(path=str(OUT/'viewer_reload.png'))
+        checks=await page.evaluate('''() => {
+          const r=window.reloadQA, root=r.current.root;
+          return {clip:r.action.getClip().name,label:document.querySelector('[data-clip="rifle_reload"]').textContent,
+                  file:r.source.url,oldScale:root.getObjectByName('reload_magazine_old').scale.toArray(),
+                  newScale:root.getObjectByName('reload_magazine_fresh').scale.toArray()};
+        }''')
+        assert '/'+VERSION+'/' in checks['file'], checks['file']
+        # Stop during the magazine exchange, then change clip: the seated magazine must be restored.
+        await page.evaluate('''() => {const r=window.reloadQA;r.action.time=1.7;r.current.mixer.update(0)}''')
+        await page.locator('[data-clip="rifle_aim_idle"]').click()
+        await page.evaluate('''() => {const r=window.reloadQA;r.current.mixer.update(0);r.render()}''')
+        checks['after_switch']=await page.evaluate('''() => {const r=window.reloadQA;return {
+          clip:r.action.getClip().name,oldScale:r.current.root.getObjectByName('reload_magazine_old').scale.toArray(),
+          newScale:r.current.root.getObjectByName('reload_magazine_fresh').scale.toArray()}}''')
+        await page.locator('[data-clip="rifle_reload"]').click()
+        await page.locator('#glb-speed').select_option('.25')
+        await page.locator('#glb-pause').click()
+        await page.wait_for_function('window.reloadQA.action.time > .08')
+        await page.locator('#glb-pause').click()
+        checks['slow_play_time']=await page.evaluate('window.reloadQA.action.time')
+        checks['page_errors']=errors
+        assert checks['after_switch']['oldScale']==[1,1,1]
+        assert checks['after_switch']['newScale']==[0,0,0]
+        assert not errors,errors
+        (OUT/'viewer.json').write_text(json.dumps(checks,ensure_ascii=False,indent=2),encoding='utf8',newline='\n')
+        print(json.dumps(checks,ensure_ascii=True))
+        await browser.close()
+
+
+if __name__=='__main__': asyncio.run(main())

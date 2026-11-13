@@ -5,9 +5,9 @@ category: "technology"
 summary: "모아의 부무장인 다목적 유탄발사기형 런처."
 status: "보완안"
 visibility: "reader"
-updated: "2026-11-09"
+updated: "2026-11-12"
 aliases: ["뮬","ML-70","모아의 런처"]
-sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "Saab Carl-Gustaf 공식 제품 소개 · https://www.saab.com/products/carl-gustaf-m4", "2026-11-09 user concept feedback: futuristic grenade launcher and shotgun; hammer pulse-current field; overlong pistol barrel rejected.", "2026-11-09 사용자 재생성 요청 · 바스티온 006·브리처 007·뮬 007 새 원화"]
+sources: ["2026-11-09 사용자 지정 · 강화 클론 전용 가상 화기, 병과별 주·부무장과 현대 무기의 디자인 계승", "Saab Carl-Gustaf 공식 제품 소개 · https://www.saab.com/products/carl-gustaf-m4", "2026-11-09 user concept feedback: futuristic grenade launcher and shotgun; hammer pulse-current field; overlong pistol barrel rejected.", "2026-11-09 사용자 재생성 요청 · 바스티온 006·브리처 007·뮬 007 새 원화", "2026-11-12 사용자 요청 · 탄환 컨셉 작성; clone-ammunition-concepts의 탄종 보완안 연결"]
 illustrations: [{"src":"assets/weapons/ml70-mule-007.png","title":"ML-70 뮬","alt":"부분 드럼 외피와 통합 광학계를 적용한 근미래 ML-70 뮬 원화","caption":"모아 · 근미래 유탄발사기 · 시안 007 · 검수 대기","width":1536,"height":1024,"article":"weapon-ml70-mule"}]
 ---
 # ML-70 뮬
@@ -20,7 +20,7 @@ illustrations: [{"src":"assets/weapons/ml70-mule-007.png","title":"ML-70 뮬","a
 
 사용자는 003보다 더 근미래적인 외형을 요청했다. 현재 **007 시안**은 드럼을 부분적으로 감싸는 각진 복합재 외피, 겹친 몸통 패널과 상부에 통합한 작은 광학장치를 반영했다. 기존 003을 시각 참고로 재구성한 새 원화이며 구체적인 외형은 사용자 검수 대기다. 이전 004~006의 실패 기록은 별도로 보존한다.
 
-기관총으로 다루기 어려운 대형 갑주 개체와 장애물에 중화력을 제공한다. 탄약의 세부 종류와 유도 여부는 미정이다. 현실 Carl-Gustaf의 구경·탄약 성능을 그대로 적용하지 않으며, 등장하는 탄약도 작품용이다.
+기관총으로 다루기 어려운 대형 갑주 개체와 장애물에 중화력을 제공한다. [[clone-ammunition-concepts|탄약군 컨셉]]은 대갑주 유탄 ‘파성’, 파편 유탄 ‘산개’, 연막탄 ‘장막’, 조명탄 ‘등불’이다. 집중 화력·범위 화력·지원 효과를 구분하는 보완안이며 최종 지급 탄종과 유도 여부는 미정이다. 현실 Carl-Gustaf의 구경·탄약 성능을 그대로 적용하지 않으며, 등장하는 탄약도 작품용이다.
 
 ## 부담
 

@@ -1,0 +1,60 @@
+{
+  "date": "2026-11-12",
+  "recipe_key": "ar12_tilt_reload_004",
+  "reference": "User-provided first-person reload clip in conversation; timing and deliberate stops",
+  "paid_api_calls": 0,
+  "manual_work_seconds": null,
+  "art_direction_status": "awaiting_user_review",
+  "inputs": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/before/glb-model-lab.js",
+      "sha256": "55622834c7055bbdbb724e45ed3b0baa531159a5d89b7036b1098ec88bef515a"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/before/make_rifle_reload.py",
+      "sha256": "a95dd6de7e60b3313551a0c2a216c108a8b47fec7544bfd960c4ba9115687f8d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/before/review_rifle_reload.py",
+      "sha256": "abc269217bc5b0139a3cc46a73c4aa35a749424954ea2653f520b858193ef835"
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/clone_01_ar12_rupture.glb",
+      "sha256": "b321e63d2c4a7a2d55d47381307ac3106fa5e01992a51cc6d092ec839762e8bc"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/clone_01_ar12_rupture.json",
+      "sha256": "20e3347fc5261e06ba8bc06da42fc33506627b2a2c4bda696a60f9de40155e02"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/source_snapshot/glb-model-lab.js",
+      "sha256": "748c3f8ed516fd83df3117a4226fb4b10fbd71b8a647e1c02297b16211f67173"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/source_snapshot/make_rifle_reload.py",
+      "sha256": "c4c6a0f7283997483a5e9ca9e6ccc4c384055f4c68f82aedb5cfee4dd30ba9bd"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/source_snapshot/review_rifle_reload.py",
+      "sha256": "ee28e0a46ec72b36a5683bbfe93c62f9aba75e848f2b0628774366b03998e6f3"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/reviews/magazine_continuity.json",
+      "sha256": "abe77f6f7baee0d2668b7a3dd3e5b5bde2462c0f71bacbcf1e8b426b543be728"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/reviews/render.json",
+      "sha256": "acfefa420713539f659ab67b73761d20e004654e830067118461af3d9d7b381d"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/reviews/rig_checks.json",
+      "sha256": "8dfd7692f5036713f5e10cfdb90c28619ec56d4eb8a3bd5bfa146575810fe2e6"
+    },
+    {
+      "path": "art/characters/clone_01/motion/glb_model_001/loadout_014/reviews/viewer.json",
+      "sha256": "3276ffdb9537ce1098150425f35a1ce393d392b7766ffbac6703ae0218112def"
+    }
+  ]
+}

@@ -1,0 +1,54 @@
+{
+  "loadout_011": {
+    "LeftArm": {
+      "max_frame_degrees": 10.99,
+      "max_from_start_degrees": 44.21
+    },
+    "LeftForeArm": {
+      "max_frame_degrees": 33.87,
+      "max_from_start_degrees": 114.77
+    },
+    "LeftHand": {
+      "max_frame_degrees": 31.97,
+      "max_from_start_degrees": 173.64
+    },
+    "RightArm": {
+      "max_frame_degrees": 2.2,
+      "max_from_start_degrees": 18.28
+    },
+    "RightForeArm": {
+      "max_frame_degrees": 1.72,
+      "max_from_start_degrees": 14.31
+    },
+    "RightHand": {
+      "max_frame_degrees": 5.18,
+      "max_from_start_degrees": 43.8
+    }
+  },
+  "loadout_012": {
+    "LeftArm": {
+      "max_frame_degrees": 8.87,
+      "max_from_start_degrees": 91.56
+    },
+    "LeftForeArm": {
+      "max_frame_degrees": 9.45,
+      "max_from_start_degrees": 59.86
+    },
+    "LeftHand": {
+      "max_frame_degrees": 9.94,
+      "max_from_start_degrees": 94.69
+    },
+    "RightArm": {
+      "max_frame_degrees": 1.82,
+      "max_from_start_degrees": 15.27
+    },
+    "RightForeArm": {
+      "max_frame_degrees": 2.26,
+      "max_from_start_degrees": 18.89
+    },
+    "RightHand": {
+      "max_frame_degrees": 4.33,
+      "max_from_start_degrees": 36.8
+    }
+  }
+}
