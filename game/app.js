@@ -99,6 +99,31 @@ $('mode-plan-e').addEventListener('click',()=>setPreviewMode('plan-e'));
 $('mode-glb').addEventListener('click',()=>setPreviewMode('glb'));
 $('mode-glb-sprite').addEventListener('click',()=>setPreviewMode('glb-sprite'));
 $('mode-weapon-3d').addEventListener('click',()=>setPreviewMode('weapon-3d'));
+const jsPrototypes = [
+  { id: 'move', label: '이동 002', src: '/js-prototype/move/index.html', note: '← → 이동, Shift를 누른 채 달리기. 리안: 1 소총, 2 쌍권총, X 꺼내기/넣기, A 단발, S 풀오토(누르는 동안). 화면을 한 번 클릭한 뒤 조작하고, 캐릭터는 화면 오른쪽 위에서 바꿉니다.' },
+];
+function showJsPrototype(id) {
+  const proto = jsPrototypes.find(item => item.id === id);
+  const page = $('js-prototype-page'), frame = $('js-prototype-frame');
+  page.hidden = !proto;
+  if (!proto) { if (frame.getAttribute('src')) frame.removeAttribute('src'); return false; }
+  if (frame.getAttribute('src') !== proto.src) frame.setAttribute('src', proto.src);
+  $('js-prototype-open').href = proto.src;
+  $('js-prototype-note').textContent = proto.note;
+  $('workspace').hidden = true; $('empty-state').hidden = true; $('error').hidden = true;
+  $('breadcrumb').textContent = `js-prototype / ${proto.label}`;
+  $('eyebrow').textContent = 'JS PROTOTYPE';
+  $('entity-title').replaceChildren(document.createTextNode(proto.label), Object.assign(document.createElement('span'), { className: 'title-dot', textContent: '.' }));
+  $('subtitle').textContent = 'JavaScript로 만든 독립 프로토타입 페이지를 그대로 띄웁니다.';
+  $('review-state').textContent = '프로토타입 · 검수 대기';
+  document.title = `${proto.label} · js-prototype — Dear Human`;
+  document.querySelectorAll('[data-nav], [data-preview], [data-prototype]').forEach(link => {
+    const current = link.dataset.prototype === proto.id;
+    link.classList.toggle('current', current);
+    if (current) link.setAttribute('aria-current', 'page'); else link.removeAttribute('aria-current');
+  });
+  return true;
+}
 const app = { entries: [], entry: null, revision: null, view: 'sheet', zoom: 1 };
 const labels = { character: '캐릭터', weapon: '무기', enemy: '적' };
 const viewLabels = { front: '정면', back: '후면', left: '좌측면', right: '우측면', side: '측면' };
@@ -136,6 +161,7 @@ function renderSampleNav() {
     { kind: 'motion' },
     { kind: 'enemy', route: 'enemies', label: '적 · 토착 생물', icon: '◇' },
     { kind: 'weapon', route: 'weapons', label: '무기', icon: '◆' },
+    { kind: 'prototype' },
   ];
   let count = 0;
   nav.replaceChildren();
@@ -165,6 +191,37 @@ function renderSampleNav() {
       section.append(heading, submenu);
       nav.append(section);
       count += motionPreviews.length;
+      continue;
+    }
+    if (group.kind === 'prototype') {
+      const section = document.createElement('section');
+      section.className = 'nav-group';
+      const heading = document.createElement('h2');
+      heading.className = 'nav-group-heading';
+      heading.id = 'nav-prototype-heading';
+      heading.textContent = 'js-prototype';
+      const total = document.createElement('small');
+      total.textContent = String(jsPrototypes.length).padStart(2, '0');
+      heading.append(total);
+      section.setAttribute('aria-labelledby', heading.id);
+      section.append(heading);
+      for (const proto of jsPrototypes) {
+        const link = document.createElement('a');
+        link.className = 'nav-item';
+        link.href = `#/prototypes/${proto.id}`;
+        link.dataset.prototype = proto.id;
+        const icon = document.createElement('span');
+        icon.textContent = '▸';
+        icon.setAttribute('aria-hidden', 'true');
+        const name = document.createElement('span');
+        name.className = 'nav-item-name';
+        name.textContent = proto.label;
+        const badge = document.createElement('small');
+        badge.textContent = '시험';
+        link.append(icon, name, badge);
+        section.append(link);
+      }
+      nav.append(section);
       continue;
     }
     const entries = app.entries.filter(entry => entry.kind === group.kind);
@@ -322,6 +379,8 @@ function showRoute() {
   try {
     const [route, query] = location.hash.slice(1).split('?');
     const parts = (route || '/samples').split('/').filter(Boolean);
+    if (showJsPrototype(parts[0] === 'prototypes' ? parts[1] : null)) return;
+    document.querySelectorAll('[data-prototype]').forEach(link => { link.classList.remove('current'); link.removeAttribute('aria-current'); });
     const kind = parts[1] === 'weapons' ? 'weapon' : parts[1] === 'enemies' ? 'enemy' : 'character';
     const id = parts[2] || 'clone_01';
     app.entry = app.entries.find((entry) => entry.kind === kind && entry.entity_id === id);

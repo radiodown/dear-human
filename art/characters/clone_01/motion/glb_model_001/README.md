@@ -216,3 +216,11 @@
 ```powershell
 py tools/glb_retarget/merge_loadout_glbs.py art/characters/clone_01/motion/glb_model_001/loadout_014/clone_01_ar12_rupture.glb art/characters/clone_01/motion/glb_model_001/loadout_011/clone_01_hp14t_gemini.glb art/characters/clone_01/motion/glb_model_001/loadout_015/clone_01_ar12_hp14t.glb --base-rename weapon=weapon_rifle --add-rename weapon=weapon_pistol_r weapon_l=weapon_pistol_l
 ```
+
+## 총 꺼내기·넣기: AR-12 · 쌍권총 (loadout_023)
+
+2026-11-13 사용자 요청(“총을 꺼내고 넣는 모션에 총기를 추가해줘. 소총의 경우 넣는 경우 등에 장착하고 있도록 해서.”)으로 통합 무장 022에 AR-12를 든 `rifle_pull_out`·`rifle_put_away`를 더해 [loadout_023](loadout_023/README.md)을 만들고 3D 탭을 옮겼다(022 보존). 처음에는 넣은 소총을 등에 메게 했으나 같은 날 정정(“일단 등에 메는 대신 총이 사라지는 것으로 수정해줘. 꺼내는 것도 총이 생기는 것으로 해주고”)으로, 총이 오른손에 든 채 꺼내기 30프레임에 생기고 넣기 31프레임에 사라지게 바꿨다(손에 든 총구가 −40° 아래인 구간은 숨김). 왼손은 총이 보일 때만 받침점에 두고 오른팔은 원래 동작 그대로다. 도구는 `tools/glb_retarget/make_draw_holster_clips.py`(`style=vanish`, 등에 메기는 `style=back`)와 `add_loadout_clips.py`. 렌더·탭 재생만 확인했고 미감은 사용자 검수 대기, 다른 대원은 미적용이다. 이어서 “쌍권총도 마찬가지로 만들어줘” 요청으로 `dual_pull_out`(소총 꺼내기의 몸에 24프레임에 양손 권총이 생기고 24~34프레임에 팔을 `dual_idle` 자세로 섞음)과 그 역재생인 `dual_put_away`(28프레임에 권총이 사라짐)를 같은 023에 더했다(`tools/glb_retarget/make_dual_draw_clips.py`).
+
+## 스프라이트 004 (30fps, js-prototype)
+
+2026-11-13 사용자 요청으로 js-prototype용 [sprite_004](sprite_004/README.md)를 만들었다. 맨손 대기 1·걷기·달리기(`source/version04.glb`)와 통합 무장 loadout_023의 사격 관련 19개 동작을 30fps 정사영 우측면(200px/단위)으로 렌더했고, [이동 프로토타입 002](../../../../../game/js-prototype/move/README.md)가 이 중 15개를 쓴다. sprite_001~003은 보존한다.

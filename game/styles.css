@@ -83,3 +83,5 @@ main{margin-left:218px;padding:0 40px;max-width:1800px}.page-top{height:73px;bor
 .glb-loadouts{padding-bottom:6px;margin-bottom:6px;border-bottom:1px dashed #dde0d6}.glb-loadouts::before{content:"무장";align-self:center;margin-right:6px;font-size:10px;color:#74816a}
 
 .rig-reference-image{display:block;width:100%;height:auto;margin-top:12px}
+
+.js-prototype-frame { display: block; width: 100%; aspect-ratio: 16 / 9; border: 0; border-radius: 10px; background: #0d0f12; }

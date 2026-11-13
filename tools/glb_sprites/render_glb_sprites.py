@@ -2,6 +2,7 @@
 
 Usage:
   blender -b --python tools/glb_sprites/render_glb_sprites.py -- --model clone_01 --out <dir> [--clips walk,run] [--bounds]
+                                                                    [--ppm 200] [--fps 12]
 
 Camera: orthographic, exactly on the -X axis looking +X (Blender Z up). Both GLBs face -Y after import,
 so the character's right side is seen and it faces screen right.
@@ -9,7 +10,8 @@ so the character's right side is seen and it faces screen right.
 Game-size output (user-approved optimisation, 2026-11-11):
 - one scale for every model (--ppm, default 200 px per metre; 100 = small set), so the human and the monster match;
 - rendered at SS x and area-averaged down (linear light, premultiplied alpha) for clean edges;
-- 12 fps: every 2nd 24 fps frame (one-shot clips keep their final frame);
+- 12 fps: every 2nd 24 fps frame (one-shot clips keep their final frame); --fps 30 (2026-11-13, js-prototype)
+  samples the clip at sub-frames every 0.8 source frame instead;
 - each clip is cropped to the union box of its frames (+1 px); manifest 'crop' says where the frame sits in
   the model's fixed logical canvas, with 'groundY'/'originX' anchors, so every clip still lines up;
 - names carry the scale so several resolutions live side by side: spritesheet_<ppm>.webp (lossless WebP,
@@ -37,6 +39,23 @@ MODELS = {
             'idle': {'action': 'idle.001', 'title': '대기 1', 'loop': True, 'inplace': 'rest', 'all_frames': True},
             'wait': {'action': 'wait.001', 'title': '대기 2', 'loop': True, 'inplace': 'rest', 'all_frames': True},
         },
+    },
+    'clone_01_armed': {
+        # 리안 통합 무장 loadout_023 (AR-12 + HP-14T 쌍권총, 꺼내기·넣기 포함). 쓰지 않는 무기는 크기 0 키로 숨겨져 있다.
+        # 'closed': the clip's last key equals its first (authored loops), so a loop samples [start, end).
+        'glb': 'art/characters/clone_01/motion/glb_model_001/loadout_023/clone_01_ar12_hp14t.glb',
+        'ref_bone': 'mixamorig:Hips', 'view': 1.5, 'center': (-0.03, 0.61),  # --bounds: y -0.58..0.52, z -0.10..1.32
+        'clips': {c: {'action': c, 'title': t, 'loop': lp, 'inplace': 'rest', 'all_frames': not closed} for c, t, lp, closed in (
+            ('rifle_aim_idle', '소총 조준 대기', True, False), ('rifle_idle', '소총 대기', True, False),
+            ('gunplay', '조준 사격', False, False), ('gunplay_auto', '연사', True, False),
+            ('rifle_full_auto', '풀오토 · 빠른 연사 (750 RPM)', True, True), ('shoot_rifle', '이동 사격', True, False),
+            ('peek_aim', '엄폐 조준', True, False), ('rifle_reload', '장전 · 잔탄 있음', False, False),
+            ('rifle_reload_empty', '장전 · 탄 소진 + 노리쇠', False, False),
+            ('rifle_pull_out', '총 꺼내기', False, False), ('rifle_put_away', '총 집어넣기', False, False),
+            ('dual_idle', '쌍권총 대기', True, True), ('dual_idle_high', '쌍권총 대기 2 · 총구 위로', True, True),
+            ('dual_fire', '쌍권총 사격', True, True), ('dual_kneel_fire', '쌍권총 앉아 사격', True, True),
+            ('dual_walk', '쌍권총 걷기', True, True), ('dual_run', '쌍권총 달리기', True, True),
+            ('dual_pull_out', '쌍권총 꺼내기', False, False), ('dual_put_away', '쌍권총 집어넣기', False, False))},
     },
     'iren': {
         # 사용자 리깅 shoot/iren_rig.glb (정수리 뼈 보정본) 사본
@@ -108,6 +127,7 @@ MODELS = {
 FPS = 24          # GLB / simulation rate
 STEP = 2          # keep every 2nd frame -> 12 fps
 PPM = 200         # output pixels per metre (all models); --ppm overrides
+OUT_FPS = 12      # output frame rate; --fps overrides (other rates sample the 24 fps clip at sub-frames)
 SS = 4            # supersampling factor for the render
 GLTF_TO_BLENDER = Matrix(((1, 0, 0, 0), (0, 0, -1, 0), (0, 1, 0, 0), (0, 0, 0, 1)))  # (x,y,z)gltf -> (x,-z,y)
 
@@ -341,18 +361,33 @@ def render_clip(sc, arm, meshes, root, model, clip_id, clip, out_dir):
         names = render_explode(sc, arm, meshes, root, clip, frames_dir)
     else:
         action = bpy.data.actions[clip['action']]; arm.animation_data.action = action
+        if action.slots: arm.animation_data.action_slot = action.slots[0]
         start, end = int(action.frame_range[0]), int(action.frame_range[1])
         # mob loops end on a copy of the first key; the human Mixamo loops do not, so they keep every frame
         last = end - 1 if clip['loop'] and not clip.get('all_frames') else end
         arm.data.pose_position = 'REST'; bpy.context.view_layer.update()
         rest = ref_y(arm, model['ref_bone']); arm.data.pose_position = 'POSE'
         sc.frame_set(start); first = ref_y(arm, model['ref_bone'])
-        keep = list(range(start, last + 1, STEP))
-        if not clip['loop'] and keep[-1] != last:
-            keep.append(last)  # one-shot clips end on their real final pose
+        if OUT_FPS == FPS // STEP:
+            keep = list(range(start, last + 1, STEP))
+            if not clip['loop'] and keep[-1] != last:
+                keep.append(last)  # one-shot clips end on their real final pose
+        else:
+            # e.g. 30 fps: every 0.8 source frame. A loop covers one period: [start, end + 1) for Mixamo loops (no
+            # repeated first key), [start, end) when the last key repeats the first; one-shots end on their last key.
+            # the clip's real key span (floats): merged loadouts add constant one-key channels at frame 0 (scale keys that
+            # hide the unused weapons) and authored loops may end between frames (rifle_full_auto 38.4)
+            fcs = [fc for l in action.layers for st in l.strips for cb in st.channelbags for fc in cb.fcurves if len(fc.keyframe_points) > 1]
+            start = min(fc.keyframe_points[0].co[0] for fc in fcs); end = max(fc.keyframe_points[-1].co[0] for fc in fcs)
+            step, keep, t = FPS / OUT_FPS, [], float(start)
+            period_end = (end + 1 if clip.get('all_frames') else end) if clip['loop'] else end
+            while (t < period_end - 1e-6) if clip['loop'] else (t <= end + 1e-6):
+                keep.append(t); t += step
+            if not clip['loop'] and abs(keep[-1] - end) > 1e-6:
+                keep.append(float(end))
         names = []
         for k, f in enumerate(keep):
-            root.location = (0, 0, 0); sc.frame_set(f)
+            root.location = (0, 0, 0); sc.frame_set(int(f), subframe=f - int(f))
             mode = clip.get('inplace')
             if mode:
                 target = rest if mode == 'rest' else first
@@ -437,7 +472,7 @@ def pack(out_dir, clip_id, clip, model, names, render_dir):
         'schema_version': 2,
         'source': f"{os.path.basename(model['glb'])} · tools/glb_sprites/render_glb_sprites.py (Blender 헤드리스, 정사영 완전 우측면, {SS}배 렌더 후 축소)",
         'clip': clip_id, 'glbAnimation': None if clip.get('explode') else clip['action'],
-        'title': clip['title'], 'frameCount': len(u8), 'fps': FPS // STEP, 'loop': clip['loop'],
+        'title': clip['title'], 'frameCount': len(u8), 'fps': OUT_FPS, 'loop': clip['loop'],
         'inPlace': bool(clip.get('inplace')) or bool(clip.get('explode')),
         'pixelsPerMeter': PPM, 'modelCanvas': round(model['view'] * PPM),
         'canvas': {'width': canvas, 'height': canvas},
@@ -457,6 +492,7 @@ def bounds(sc, arm, meshes, root, model):
     for clip_id, clip in model['clips'].items():
         if clip.get('explode'): continue
         action = bpy.data.actions[clip['action']]; arm.animation_data.action = action
+        if action.slots: arm.animation_data.action_slot = action.slots[0]
         start, end = int(action.frame_range[0]), int(action.frame_range[1])
         arm.data.pose_position = 'REST'; bpy.context.view_layer.update(); rest = ref_y(arm, model['ref_bone']); arm.data.pose_position = 'POSE'
         sc.frame_set(start); first = ref_y(arm, model['ref_bone'])
@@ -476,12 +512,13 @@ def bounds(sc, arm, meshes, root, model):
 
 
 def main():
-    global PPM
+    global PPM, OUT_FPS
     argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
     ap = argparse.ArgumentParser(); ap.add_argument('--model', required=True, choices=MODELS); ap.add_argument('--out')
     ap.add_argument('--clips'); ap.add_argument('--bounds', action='store_true'); ap.add_argument('--ppm', type=int, default=PPM)
+    ap.add_argument('--fps', type=int, default=OUT_FPS)
     args = ap.parse_args(argv)
-    PPM = args.ppm
+    PPM = args.ppm; OUT_FPS = args.fps
     model = MODELS[args.model]
     if args.bounds:
         bounds(*setup(model), model); return
