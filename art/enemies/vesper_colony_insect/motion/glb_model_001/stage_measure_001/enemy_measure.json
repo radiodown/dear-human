@@ -1,0 +1,19 @@
+{
+ "method": "Blender 5.2.3 headless, mob.glb imported as in render_glb_sprites.setup; foot = tail of last bone of each leg (leg_*_04 or leg_last_03); forward = -Y; world metres; 1 Blender m = 200 px (manifest pixelsPerMeter=200) = 1 sprite unit",
+ "script": "tools/glb_sprites/measure_enemy_walk.py",
+ "clips": {
+  "walk": {"frames": 12, "fps": 12, "cycle_s": 1.0, "root_travel_per_cycle_m": 0.0, "stride_m": 0.13, "stance_duty": 0.62, "foot_lift_m": 0.054,
+           "stance_foot_speed_u_per_s": {"first_second_third_legs_6": 0.208, "last_legs_2": "unreliable (bone tail is not the toe)"},
+           "mean_speed_stride_over_cycle": 0.13},
+  "walk_fast": {"frames": 6, "fps": 12, "cycle_s": 0.5, "root_travel_per_cycle_m": 0.0, "stride_m": 0.125, "stance_duty": 0.62,
+           "stance_foot_speed_u_per_s": {"first_second_third_legs_6": 0.419},
+           "mean_speed_stride_over_cycle": 0.26}
+ },
+ "anim_rate_at_scale_1": {"walk_0.8": 3.85, "walk_fast_1.7": 4.06, "note": "rate = planned speed / (foot speed * ENEMY_SCALE)"},
+ "size_units_at_scale_1": {"walk": {"length": 1.07, "height": 0.625, "behind_origin": 0.515, "ahead_origin": 0.55},
+   "pounce": {"length": 1.145, "height": 0.72, "behind_origin": 0.535, "ahead_origin": 0.61},
+   "death": {"length": 1.17, "height": 0.60},
+   "explode_frame": "547x263 px, origin (274,235) in frame",
+   "lian_idle_height": 1.015},
+ "recommended": {"ENEMY_SCALE": 1.0, "ENEMY_WALK_ANIM_RATE": "see README (exact lock 3.85/4.06; practical 2.0-2.5)"}
+}

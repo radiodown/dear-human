@@ -5,3 +5,6 @@ html, body { margin: 0; height: 100%; background: #182026; overflow: hidden; fon
 #status { font-variant-numeric: tabular-nums; color: #a9b8b6; }
 .pick { position: fixed; right: 16px; top: 14px; color: #d9dccf; font-size: 13px; display: flex; gap: 6px; align-items: center; }
 .pick select { font: inherit; padding: 4px 6px; background: #222c33; color: #e4e6dc; border: 1px solid #3a4850; border-radius: 3px; }
+#stage-restart { position: fixed; left: 50%; top: calc(36% + 78px); transform: translateX(-50%); font: inherit; font-size: 14px; padding: 8px 18px; background: #2a343a; color: #f0d29c; border: 1px solid #f0d29c; border-radius: 4px; cursor: pointer; }
+#stage-restart:hover { background: #36434a; }
+#stage-restart[hidden] { display: none; }

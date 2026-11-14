@@ -1,5 +1,7 @@
 # Dear Human 제작 규칙
 
+- 2026-11-14 사용자 요청(“프로토타입에 리안을 기준으로 하는 간단한 stage를 만들거야. 총기 발사 이펙트와 발사되는 총알, 적, 적 hp, 캐릭터 hp, 스킬 등 필요한 것을 추가 적용해서 스테이지를 만들어줘.”, 기존 이동 프로토타입에 붙이기)으로 dev-team 플러그인 조직(기획→개발·콘텐츠→QA)이 [이동 프로토타입](game/js-prototype/move/README.md)에 전투 스테이지를 붙였다. 기획서 `game/js-prototype/move/STAGE_DESIGN.md`(v1.2), 새 `stage.js`·`stage-fx.js`와 `move.js` 연결이며 리안만 켜진다(`?stage=off`로 끔). 5웨이브·적 42마리(기존 군집 곤충 스프라이트), 리안 HP 100, 투사체 총알(측정한 총구·발사 시점: `stage_measure_001` 두 폴더와 `tools/glb_sprites/measure_*.py`), 소총 40발·R 장전, Q 스텝·W 관통탄·E 각성, 코드 이펙트, Enter 재시작이다. QA 1회 수정 후 승인(단계 실행 기준), 원본 GLB·스프라이트·이전 기록은 보존했다. 손맛·난이도·적 발 미끄러짐은 사용자 검수 대기이고 기록은 `.dev-team/`(git 제외)에 있다.
+
 - 2026-11-13 사용자 요청으로 리안 쌍권총 대기 `dual_idle_high`의 고개를 정면으로 고쳤다(얼굴 −31°/−18° → 0°/0°, 새 `tools/glb_retarget/level_head.py`, 목 40%·머리 60%). 꺼내기·넣기·쌍권총 대기↔조준 전환에는 같은 보정을 서서히 넣거나 빼서 이어지게 했다. [loadout_030](art/characters/clone_01/motion/glb_model_001/loadout_030/README.md)(029 보존)과 [sprite_007](art/characters/clone_01/motion/glb_model_001/sprite_007/README.md)(004·005 보존)을 만들었고 3D 탭·js-prototype이 새 버전을 쓴다. 쌍권총 조준 대기는 그대로다. 각도 측정·렌더·프로토타입 불러오기만 확인했고 미감은 사용자 검수 대기다.
 
 - 2026-11-13 사용자 요청(“원본은 두고 프로토타입에서 모두 지금보다 4배 빠르게”)으로 [이동 프로토타입](game/js-prototype/move/README.md)의 연결 동작 8개(꺼내기·넣기·올리기·내리기)만 4배속으로 재생한다(`TRANSITION_SPEED`). 원본 GLB·스프라이트 길이와 사격·대기·걷기 속도는 그대로다. 소총 꺼내기 0.53초, 무기 교체 1.13초가 됐고 동작감은 사용자 검수 대기다.
