@@ -100,6 +100,7 @@ $('mode-glb').addEventListener('click',()=>setPreviewMode('glb'));
 $('mode-glb-sprite').addEventListener('click',()=>setPreviewMode('glb-sprite'));
 $('mode-weapon-3d').addEventListener('click',()=>setPreviewMode('weapon-3d'));
 const jsPrototypes = [
+  { id: 'stage1', label: '스테이지 1', src: '/js-prototype/stage1/index.html', note: '리안으로 방을 지나 보스를 공략하는 스테이지 1 프로토타입입니다. 전술 지도에서 다음 방을 고르고(← → 선택, Enter 진입), 옆으로 스크롤되는 방에서 적을 소탕하면 오른쪽 출구가 열립니다. ← → 이동, ↑ ↓ 깊이 이동, Shift 달리기, Space 구르기(공격 직전에 피하면 완벽 회피로 적이 느려짐), 1 소총, 2 쌍권총, X 꺼내기/넣기, A 단발, S 연사, R 장전, W 관통탄, E 각성. 총알은 깊이가 조금 달라도 가장 가까운 적에게 휘어 들어갑니다. 화면을 한 번 클릭한 뒤 조작합니다.' },
   { id: 'move', label: '이동 004', src: '/js-prototype/move/index.html', note: '← → 이동, Shift를 누른 채 달리기. 리안: 1 소총, 2 쌍권총, X 꺼내기/넣기, A 단발, S 풀오토(누르는 동안). 사격하면 조준 자세로 올리고, 사격 대기에서 5초 멈추면 기본 대기로 내립니다. 기본 대기는 낮춘 자세로, 사격 대기는 조준한 채 걷고, 달리면 기본 대기가 됩니다. 화면을 한 번 클릭한 뒤 조작하고, 캐릭터는 화면 오른쪽 위에서 바꿉니다.' },
 ];
 function showJsPrototype(id) {

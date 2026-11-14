@@ -1,0 +1,7 @@
+html, body { margin: 0; height: 100%; background: #182026; overflow: hidden; font-family: system-ui, "Malgun Gothic", sans-serif; }
+#stage { display: block; width: 100vw; height: 100vh; }
+.help { position: fixed; right: 16px; bottom: 12px; display: grid; gap: 3px; justify-items: end; color: #c9cfc4; font-size: 12px; pointer-events: none; text-shadow: 0 1px 2px #000c; text-align: right; }
+.help strong { font-size: 13px; color: #f0d29c; letter-spacing: .5px; }
+#status { color: #a9b8b6; }
+body.map .help { display: none; }
+@media (max-width: 760px) { .help { top: 64px; bottom: auto; font-size: 10px; max-width: 46vw; } .help strong { font-size: 11px; } }

@@ -1,0 +1,20 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>스테이지 1 — Dear Human</title>
+  <link rel="stylesheet" href="stage1.css">
+</head>
+<body>
+  <canvas id="stage" aria-label="스테이지 1 프로토타입 화면"></canvas>
+  <div class="help">
+    <strong>스테이지 1 프로토타입</strong>
+    <span>← → 이동 · ↑ ↓ 깊이 이동 · Shift 달리기 · Space 구르기(직전에 피하면 완벽 회피)</span>
+    <span>1 소총 · 2 쌍권총 · X 꺼내기/넣기 · A 단발 · S 연사(누르는 동안) · R 장전 · W 관통탄 · E 각성</span>
+    <span>D·F 무기 스킬(소총: 일제사격·슬라이드 / 쌍권총: 인터셉트·선회) · 구르기 직후 0.7초 안에 쓰면 연계 보너스</span>
+    <span id="status"></span>
+  </div>
+  <script type="module" src="game.js"></script>
+</body>
+</html>
