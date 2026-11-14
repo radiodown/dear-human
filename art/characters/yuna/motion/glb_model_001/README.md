@@ -146,3 +146,38 @@
 ## 소총 걷기·소총 달리기 (2026-11-13)
 
 사용자 요청 “맨손 기본 걷기에 쌍권총을 쥐여준 형태로 쌍권총의 기본 걷기를 추가해줘. 그 후 shoot 폴더에 새로 추가된 모션들을 확인해서 캐릭터 모션에 추가해줘.”의 뒷부분으로 `shoot/gunmotion`에 새로 들어온 `Rifle Walk.fbx`·`Rifle Run.fbx`(2026-11-13 20:11~20:12)를 `retarget_mixamo_fbx.py`(`FOOT_IK`)로 `source/yuna_rig.glb`에 맨손 `rifle_walk`(32키)·`rifle_run`(17키)으로 넣었다(3D 탭 ‘소총 걷기’·‘소총 달리기’, 엉덩이 이동 포함·탭의 ‘제자리’로 봄). 원본 사본은 `shoot/yuna_rig_riflemove.glb`. 기존 동작 관절 위치 차이 최대 0.0018mm, 발 최저점 중앙값 걷기/달리기 −1.1/−1.2mm, 발목 높이 IK 최대 미달 8.5/0.6mm(걷기 쪽이 큼). source SHA-256 이전 `bc3eb87b772f934a93ea880bbf64d4aa73a2317c4e8d7848c2ce695cb0df08a8` → 이후 `db343ba2f88d572e441b4f083c7f4386d15ef31ca6053fbdc262b5c8126b12dd`. 렌더(모아)·탭 재생만 확인했고 무장 버전은 없으며 미감은 사용자 검수 대기다.
+
+## 방패 + IH-7 노커 근접 연속 공격 loadout_009 (2026-11-14)
+
+사용자 요청 “shoot/gunmotion에 모션도 추가했어. 이걸 유나의 왼손 방패와 오른손 무기로 합쳐서 모델링해줘”으로 `shoot/gunmotion`에 새로 들어온 Mixamo `One Hand Club Combo.fbx`·`One Hand Sword Combo.fbx`를 유나에게 옮기고, 왼손 방패·오른손 IH-7 노커 해머로 합쳐 `loadout_009/yuna_shield_ih7.glb`를 만들었다. 3D 탭 무장은 ‘방패 + IH-7 노커 · 근접 동작’(`loadout=shield_ih7`)이다. 008·source는 그대로다.
+
+| 동작 | 원본 | 프레임(24fps) |
+|---|---|---|
+| `shield_club_combo` 방패·해머 연속 공격 1 | One Hand Club Combo | 88(약 3.6초) |
+| `shield_sword_combo` 방패·해머 연속 공격 2 | One Hand Sword Combo | 110(약 4.6초) |
+
+- **리타깃:** `retarget_mixamo_fbx.py`(`FOOT_IK`)로 source에 옮긴 중간 파일을 썼다. 발 최저점 중앙값은 −0.9/−0.8mm, 발목 높이 IK 최대 미달은 8.3/3.0mm다. 맨손 동작은 source에 넣지 않았다. 중간 파일은 보존하지 않았고 SHA-256은 `32b3d5910f573efcbaf6392a04693af4b7c8072f6024584a5a508c4fb85a57c1`이다.
+- **오른손:** 콤보 원래 오른팔 그대로 해머를 휘두른다.
+  - 해머(IH-7 model_3d_002, 캐릭터 축척 0.606배)는 오른손 뼈에 고정했다.
+  - 손잡이 기준점이 손바닥과 굽힌 가운뎃손가락이 만드는 고리의 중심에 온다. 손잡이는 엄지 쪽으로 나오고, 머리의 타격면은 손가락 방향을 향한다.
+  - 콤보 원본의 펴진 손가락은 008 방어 자세의 오른손(권총 쥔 주먹)으로 바꿨다.
+- **왼손:** 콤보의 흔드는 왼팔 대신 008 `shield_guard` 첫 키의 방패 위치를 가슴(Spine2)과 함께 옮긴다.
+  - 가슴이 도는 방향은 그대로 따르고, 숙임·옆 기울기는 25%만 따른다. 그래서 휘두르는 중에도 방패가 거의 서 있다(처음 시도에서 전부 따르게 했더니 방패가 30° 가까이 비스듬히 넘어갔다).
+  - 왼손은 방패를 따라 두 뼈 IK로 풀고, 팔꿈치는 방어 자세 쪽이다. 어깨·손가락은 방어 자세 그대로다. 방패는 왼손에 고정했다.
+  - 왼손이 방패 위치에 다 닿지 못한 최대 거리는 공격 1에서 38.7mm, 공격 2에서 7.8mm다. 이때는 방패가 손을 따라간다.
+- **몸:** 골반 이동·다리·척추·머리는 콤보 원본 그대로다(앞뒤로 이동함, 탭의 ‘제자리’로 봄).
+- 해머 노드 이름은 `weapon_hammer`다. 총구 효과(`glb-gun-fx.js`)가 총으로 잡지 않게 하려는 것이다.
+- 명령:
+  - `blender -b --python tools/glb_retarget/retarget_mixamo_fbx.py -- <tmp>/yuna_combo.glb art/characters/yuna/motion/glb_model_001/source/yuna_rig.glb "club_combo=shoot/gunmotion/One Hand Club Combo.fbx" "sword_combo=shoot/gunmotion/One Hand Sword Combo.fbx"`
+  - `blender -b --python tools/glb_retarget/make_shield_melee_clips.py -- <tmp>/yuna_combo.glb art/characters/yuna/motion/glb_model_001/loadout_008/yuna_shield_hp14.glb art/weapons/ih7_knocker/model_3d_002/ih7_knocker.glb art/characters/yuna/motion/glb_model_001/loadout_009/yuna_shield_ih7.glb club_combo=shield_club_combo sword_combo=shield_sword_combo`
+- SHA-256:
+  - 입력 FBX: Club `585512b90aabc3a9aa6b8dbbbce3dd7bef24bbdce109692ed271464b67a5113b`, Sword `fce99f96c02fd54cf2578d7e19682855a4541924cbc24feb49362e64a9aaa2c6`
+  - source `db343ba2f88d572e441b4f083c7f4386d15ef31ca6053fbdc262b5c8126b12dd`, 008 `4e3f5b76549dc9e7ae829799e3c4ddd3e3d4267b2c3a4bcff30da896af893d58`
+  - 출력 009 `7e6c65d32037145e6f5ed36eb2ee5726d87b0fd15dbb9a42fde6894d27022449`
+- **확인 범위:** Blender 렌더(두 동작 각 6프레임 우측·정면, 오른손 확대 2프레임 3방향)와 내장 브라우저에서 009 로드·두 탭 표시만 확인했다. 겹침 수치 검사는 하지 않았다.
+- **남은 점:**
+  - 방패–몸·해머–다리가 일부 프레임에서 겹칠 수 있다. 공격 1의 내려치기 끝에서 해머 머리가 다리 가까이 지나간다.
+  - 콤보는 칼·곤봉용 동작이라, 무거운 해머의 무게감은 없다.
+  - 머리는 원본대로 공격 방향을 본다.
+  - 미감은 사용자 검수 대기다.
+

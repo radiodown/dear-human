@@ -22,12 +22,13 @@ export const WEAPONS = {
   sg23_breacher: { label: "SG-23 브리처", url: '/art/weapons/sg23_breacher/model_3d_002/sg23_breacher.glb', old001: '/art/weapons/sg23_breacher/model_3d_001/sg-23.glb', file: 'sg23_breacher.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 1.05m(소음기 포함 전투 산탄총, 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
   hp14_bastion: { label: "HP-14 바스티온", url: '/art/weapons/hp14_bastion/model_3d_002/hp14_bastion.glb', old001: '/art/weapons/hp14_bastion/model_3d_001/hp-14.glb', file: 'hp14_bastion.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 0.32m(데저트 이글급 + 컴펜세이터, 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
   yuna_physical_shield: { label: "유나의 물리 방패", url: '/art/weapons/yuna_physical_shield/model_3d_002/yuna_physical_shield.glb', old001: '/art/weapons/yuna_physical_shield/model_3d_001/shield.glb', file: 'yuna_physical_shield.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 높이 0.95m(진입용 방패, 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
+  ih7_knocker: { label: "IH-7 노커", url: '/art/weapons/ih7_knocker/model_3d_002/ih7_knocker.glb', old001: '/art/weapons/ih7_knocker/model_3d_001/ih-7.glb', file: 'ih7_knocker.glb', measured: true, note: "유나의 특수 충격 해머입니다. 사용자가 Tripo로 만든 모델을 손잡이 축에 맞춰 세우고 실제 길이 0.70m(제안·검수 대기)로 맞췄으며, 쥘 수 없이 굵던 손잡이(약 9cm)를 지름 4.2cm로 가늘게 하고 손잡이·머리·타격면 기준점을 넣은 버전입니다(tools/weapons/align_tripo_hammer.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
   hp14t_gemini: { label: "HP-14T 제미니", url: '/art/weapons/hp14t_gemini/model_3d_002/hp14t_gemini.glb', old001: '/art/weapons/hp14t_gemini/model_3d_001/hp-14t.glb', file: 'hp14t_gemini.glb', measured: true, note: "사용자가 Tripo로 만든 모델을 실제 크기 정당 0.30m(두 정으로 분리, 제안·검수 대기)로 맞추고 손 부착 기준점을 넣은 버전입니다(tools/weapons/size_tripo_weapons.py). 원본(가장 긴 변 1m)은 model_3d_001에 보존합니다." },
 };
 const SOCKET_NAMES = { socket_grip: '손잡이', socket_support: '받침손(왼손)', socket_stock: '개머리판(어깨)', socket_muzzle: '총구', socket_mag: '탄창',
-  socket_grip_r: '오른손 손잡이', socket_muzzle_r: '오른쪽 총구', socket_grip_l: '왼손 손잡이', socket_muzzle_l: '왼쪽 총구', socket_forearm: '팔뚝(방패)' };
+  socket_grip_r: '오른손 손잡이', socket_muzzle_r: '오른쪽 총구', socket_grip_l: '왼손 손잡이', socket_muzzle_l: '왼쪽 총구', socket_forearm: '팔뚝(방패)', socket_head: '해머 머리', socket_strike: '타격면' };
 const SOCKET_COLORS = { socket_grip: 0xff6b6b, socket_support: 0x4dabf7, socket_stock: 0xffd43b, socket_muzzle: 0xff922b, socket_mag: 0x69db7c,
-  socket_grip_r: 0xff6b6b, socket_muzzle_r: 0xff922b, socket_grip_l: 0xf783ac, socket_muzzle_l: 0xffc078, socket_forearm: 0xb197fc };
+  socket_grip_r: 0xff6b6b, socket_muzzle_r: 0xff922b, socket_grip_l: 0xf783ac, socket_muzzle_l: 0xffc078, socket_forearm: 0xb197fc, socket_head: 0x74c0fc, socket_strike: 0xffe066 };
 const REAL_SCALE_SPAN = 1.7; // metres across the view when comparing real sizes (longest weapon 1.20 m)
 
 export class WeaponModelLab {

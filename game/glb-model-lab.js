@@ -58,10 +58,12 @@ export const MODELS = {
     // weapon loadouts (tools/glb_retarget/attach_weapon.py, loadout_002): stock on the shoulder pocket, both hands IK-baked onto grip/support, gun clips only
     loadouts: { hp14_bastion: { label: 'HP-14 바스티온', url: '/art/characters/yuna/motion/glb_model_001/loadout_006/yuna_hp14_bastion.glb', file: 'yuna_hp14_bastion.glb' },
       // shield on the left arm + pistol in the right hand (tools/glb_retarget/make_shield_pistol_clips.py, loadout_008; 007 kept)
-      shield_hp14: { label: '방패 + HP-14 바스티온', url: '/art/characters/yuna/motion/glb_model_001/loadout_008/yuna_shield_hp14.glb', file: 'yuna_shield_hp14.glb' } },
+      shield_hp14: { label: '방패 + HP-14 바스티온', url: '/art/characters/yuna/motion/glb_model_001/loadout_008/yuna_shield_hp14.glb', file: 'yuna_shield_hp14.glb' },
+      // shield guard on the left arm + IH-7 hammer in the right hand over Mixamo one-hand combos (tools/glb_retarget/make_shield_melee_clips.py, loadout_009)
+      shield_ih7: { label: '방패 + IH-7 노커', kind: '근접 동작', url: '/art/characters/yuna/motion/glb_model_001/loadout_009/yuna_shield_ih7.glb', file: 'yuna_shield_ih7.glb' } },
     url: '/art/characters/yuna/motion/glb_model_001/source/yuna_rig.glb',
     file: 'yuna_rig.glb',
-    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_down_to_aim: '내림 → 조준', rifle_walk: '소총 걷기', rifle_run: '소총 달리기', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기', shield_guard: '방패 방어 자세', shield_fire: '방패 사격', shield_walk: '방패 걷기' },
+    labels: { 'walk.001': '걷기', 'run.001': '달리기', 'dive.001': '다이브', 'afraid.001': '겁먹음', 'idle.001': '대기 1', 'wait.001': '대기 2', peek_aim: '엄폐 조준', gunplay: '조준 사격', gunplay_auto: '연사', shoot_rifle: '이동 사격', rifle_idle: '소총 대기', rifle_aim_idle: '소총 조준 대기', pistol_idle2: '권총 대기', pistol_kneel_idle: '권총 앉아 대기', pistol_walk: '권총 걷기', pistol_run: '권총 달리기', rifle_pull_out: '총 꺼내기', rifle_put_away: '총 집어넣기', rifle_aim_to_down: '조준 → 내림', rifle_down_to_aim: '내림 → 조준', rifle_walk: '소총 걷기', rifle_run: '소총 달리기', rifle_walk_to_stop: '걷다 멈춤', stand_to_crouch: '서기 → 웅크리기', crouch_to_stand: '웅크리기 → 서기', rifle_stand_to_kneel: '서기 → 무릎', rifle_kneel_idle: '무릎 대기', rifle_kneel_to_stand: '무릎 → 서기', crouch_to_prone: '웅크리기 → 엎드리기', prone_fire: '엎드려 쏴', prone_to_crouch: '엎드리기 → 웅크리기', shield_guard: '방패 방어 자세', shield_fire: '방패 사격', shield_walk: '방패 걷기', shield_club_combo: '방패·해머 연속 공격 1', shield_sword_combo: '방패·해머 연속 공격 2' },
     hidden: [],
     hips: ['mixamorigHips', 'mixamorig:Hips'],
     target: .5, viewHeight: 1.3, // about 1.0 tall, same scale as Lian
@@ -141,7 +143,7 @@ export class GlbModelLab {
   buildLoadouts() {
     const loadouts = this.config.loadouts ?? {};
     $('glb-loadouts').hidden = !Object.keys(loadouts).length;
-    $('glb-loadouts').replaceChildren(...[['', '맨손 · 모든 동작'], ...Object.entries(loadouts).map(([value, l]) => [value, `${l.label} · 사격 동작`])].map(([value, label]) => {
+    $('glb-loadouts').replaceChildren(...[['', '맨손 · 모든 동작'], ...Object.entries(loadouts).map(([value, l]) => [value, `${l.label} · ${l.kind ?? '사격 동작'}`])].map(([value, label]) => {
       const button = Object.assign(document.createElement('button'), { type: 'button', textContent: label });
       button.dataset.loadout = value;
       button.addEventListener('click', () => this.setLoadout(value));

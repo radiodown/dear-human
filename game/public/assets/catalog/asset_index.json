@@ -15537,6 +15537,160 @@
     },
     {
       "kind": "weapon",
+      "entity_id": "ih7_knocker",
+      "display_name": "IH-7 노커",
+      "status": "draft",
+      "selected_revision_id": null,
+      "review_revision_id": "model_3d_002",
+      "capabilities": [
+        "concept_image",
+        "weapon_model_3d"
+      ],
+      "revisions": [
+        {
+          "revision_id": "model_3d_001",
+          "display_name": "IH-7 노커 · 3D 모델 001",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Weapon 3D tab listing and display only; appearance and concept match pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "3cf2120ec04ad7b21d94e474e796bdecd122baf1d906b5de84a2e9b8cf014de7",
+          "artifacts": [
+            {
+              "path": "art/weapons/ih7_knocker/model_3d_001/ih-7.glb",
+              "sha256": "3cf2120ec04ad7b21d94e474e796bdecd122baf1d906b5de84a2e9b8cf014de7"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/ih7-knocker_003/source/illustration.png",
+              "sha256": "009fdb0bda0a60d63420d484c696c8db04cd77a4cf85fb41ea034d32c8f07fde"
+            },
+            {
+              "path": "art/weapons/ih7_knocker/model_3d_001/README.md",
+              "sha256": "a4b70e1c93eda82614cfe744bbee1fb61551c0d638ec9bf21eb11852a0fffcd8"
+            }
+          ],
+          "dependencies": [],
+          "description": "유나의 방패 진입에 결합되며 타격부에 펄스 전류장이 흐르는 특수 충격 해머. 사용자가 Tripo로 만든 3D 모델(shoot/gun/ih-7.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "특수 충격 해머 (근접 장비)"
+            ],
+            [
+              "사용 대원",
+              "유나"
+            ],
+            [
+              "위키 문서",
+              "weapon-ih7-knocker"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/ih-7.glb"
+            ],
+            [
+              "크기",
+              "Tripo 정규화(최대 1m) · 실제 축척 미정"
+            ]
+          ],
+          "palette": [
+            "#111216",
+            "#20232b",
+            "#303d60",
+            "#727ea2",
+            "#1c294f"
+          ],
+          "review_notes": [
+            "사용자 Tripo 3D 모델 · 메시 1개 · 2048² 텍스처",
+            "원화 탭은 위키 무기 원화 003",
+            "실제 축척·손 부착 기준점 미정",
+            "외형·원화 일치도 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/ih7-knocker_003/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        },
+        {
+          "revision_id": "model_3d_002",
+          "display_name": "IH-7 노커 · 3D 모델 002 (실제 크기·손잡이·기준점)",
+          "status": "draft",
+          "verification": "untested",
+          "verification_scope": "Axis alignment, handle thinning and sockets checked on side/top renders only; real size proposal pending user review.",
+          "art_direction_status": "awaiting_user_review",
+          "recipe_key": "0cf4da8114787dcb937eb0b60abb9a647a0ab44f749c11d9de0a287f609d0ca6",
+          "artifacts": [
+            {
+              "path": "art/weapons/ih7_knocker/model_3d_002/ih7_knocker.glb",
+              "sha256": "0cf4da8114787dcb937eb0b60abb9a647a0ab44f749c11d9de0a287f609d0ca6"
+            },
+            {
+              "path": "art/weapons/wiki_concepts_001/ih7-knocker_003/source/illustration.png",
+              "sha256": "009fdb0bda0a60d63420d484c696c8db04cd77a4cf85fb41ea034d32c8f07fde"
+            },
+            {
+              "path": "art/weapons/ih7_knocker/model_3d_001/README.md",
+              "sha256": "a4b70e1c93eda82614cfe744bbee1fb61551c0d638ec9bf21eb11852a0fffcd8"
+            }
+          ],
+          "dependencies": [
+            {
+              "kind": "weapon",
+              "entity_id": "ih7_knocker",
+              "revision_id": "model_3d_001"
+            }
+          ],
+          "description": "유나의 방패 진입에 결합되며 타격부에 펄스 전류장이 흐르는 특수 충격 해머. 사용자가 Tripo로 만든 3D 모델(shoot/gun/ih-7.glb)과 위키 원화.",
+          "appearance_specs": [
+            [
+              "분류",
+              "특수 충격 해머 (근접 장비)"
+            ],
+            [
+              "사용 대원",
+              "유나"
+            ],
+            [
+              "위키 문서",
+              "weapon-ih7-knocker"
+            ],
+            [
+              "3D 원본",
+              "shoot/gun/ih-7.glb"
+            ],
+            [
+              "크기",
+              "0.70m (제안) · 손잡이 지름 4.2cm로 가늘게"
+            ],
+            [
+              "기준점",
+              "손잡이, 해머 머리, 타격면"
+            ]
+          ],
+          "palette": [
+            "#111216",
+            "#20232b",
+            "#303d60",
+            "#727ea2",
+            "#1c294f"
+          ],
+          "review_notes": [
+            "사용자 Tripo 3D 모델을 손잡이 축으로 정렬",
+            "손잡이 약 9cm → 4.2cm(쥘 수 있게)",
+            "유나 loadout_009 방패 + 해머 연속 공격에 사용",
+            "실제 크기·외형 사용자 검수 대기"
+          ],
+          "preview": {
+            "image_path": "art/weapons/wiki_concepts_001/ih7-knocker_003/source/illustration.png",
+            "width": 1536,
+            "height": 1024
+          }
+        }
+      ]
+    },
+    {
+      "kind": "weapon",
       "entity_id": "hp14t_gemini",
       "display_name": "HP-14T 제미니",
       "status": "draft",
